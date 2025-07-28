@@ -1,5 +1,6 @@
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
@@ -14,9 +15,17 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client)
 
-export const urlFor = (source: any) => builder.image(source)
+export const urlFor = (source: SanityImageSource) => builder.image(source)
 
 // 型定義
+export interface SanityImage {
+  _type: 'image'
+  asset: {
+    _ref: string
+    _type: 'reference'
+  }
+}
+
 export interface Post {
   _id: string
   title: string
@@ -25,10 +34,10 @@ export interface Post {
   }
   publishedAt: string
   excerpt?: string
-  mainImage?: any
+  mainImage?: SanityImage
   categories?: Category[]
   author?: Author
-  body?: any[]
+  body?: Array<Record<string, unknown>>
 }
 
 export interface Author {
@@ -37,8 +46,8 @@ export interface Author {
   slug: {
     current: string
   }
-  image?: any
-  bio?: any[]
+  image?: SanityImage
+  bio?: Array<Record<string, unknown>>
 }
 
 export interface Category {
