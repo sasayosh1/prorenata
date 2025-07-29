@@ -12,6 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// キャッシュを強制的に無効化
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export const metadata: Metadata = {
   title: "Pro Re Nata",
   description: "必要に応じて、その都度。状況に応じた最適な情報をお届けします。",
