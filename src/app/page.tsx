@@ -8,7 +8,10 @@ export default async function Home() {
   let posts: Post[] = []
   
   try {
+    console.log('Fetching posts...')
     posts = await getAllPosts()
+    console.log('Posts fetched:', posts.length)
+    console.log('First post:', posts[0])
   } catch (error) {
     console.log('Posts not available yet:', error)
   }
