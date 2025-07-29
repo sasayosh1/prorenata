@@ -60,19 +60,27 @@ export interface Category {
 
 // データ取得関数
 export async function getAllPosts(): Promise<Post[]> {
-  const query = `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc) {
-    _id,
-    title,
-    slug,
-    publishedAt,
-    excerpt,
-    mainImage,
-    "categories": categories[]->title,
-    "author": author->{name, slug},
-    body
-  }`
-  
-  return client.fetch(query)
+  try {
+    const query = `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc) {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      excerpt,
+      mainImage,
+      "categories": categories[]->title,
+      "author": author->{name, slug},
+      body
+    }`
+    
+    console.log('Executing Sanity query:', query)
+    const result = await client.fetch(query)
+    console.log('Sanity query result:', result)
+    return result
+  } catch (error) {
+    console.error('Sanity fetch error:', error)
+    throw error
+  }
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {

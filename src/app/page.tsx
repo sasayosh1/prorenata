@@ -6,14 +6,18 @@ export const revalidate = 60
 
 export default async function Home() {
   let posts: Post[] = []
+  let errorMessage = ''
   
   try {
     console.log('Fetching posts...')
     posts = await getAllPosts()
     console.log('Posts fetched:', posts.length)
-    console.log('First post:', posts[0])
+    if (posts.length > 0) {
+      console.log('First post:', posts[0])
+    }
   } catch (error) {
-    console.log('Posts not available yet:', error)
+    errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    console.error('Posts fetch error:', error)
   }
 
   return (
@@ -48,6 +52,9 @@ export default async function Home() {
           
           <div className="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
             <p>デバッグ情報: {posts.length}件の記事が見つかりました</p>
+            {errorMessage && (
+              <p className="text-red-600 mt-2">エラー: {errorMessage}</p>
+            )}
             {posts.length > 0 && (
               <pre className="mt-2 text-xs overflow-auto">
                 {JSON.stringify(posts[0], null, 2)}
