@@ -1,113 +1,254 @@
-// 最終解決策: Vercelキャッシュ完全無効化
+import { getAllPosts, type Post } from '@/lib/sanity'
+
+// 最強のキャッシュ無効化
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
+export const fetchCache = 'force-no-store'
 
-export default function Home() {
-  const timestamp = new Date().toISOString()
+export default async function Home() {
+  let posts: Post[] = []
+  let sanityConnected = false
+  let errorMessage = ''
+  
+  try {
+    posts = await getAllPosts()
+    sanityConnected = posts.length > 0
+  } catch (error) {
+    errorMessage = error instanceof Error ? error.message : 'Connection error'
+  }
+  
+  const timestamp = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
   const buildId = Date.now()
   
   return (
-    <html lang="ja">
-      <head>
-        <title>Pro Re Nata - 最終解決完了</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style jsx>{`
-          body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f9fafb;
-          }
-          .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-          .header { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 2rem 0; }
-          .title { font-size: 2rem; font-weight: bold; color: #111827; margin: 0; }
-          .subtitle { color: #6b7280; margin: 0.5rem 0 0 0; }
-          .main { padding: 3rem 0; }
-          .hero { text-align: center; margin-bottom: 4rem; }
-          .hero h2 { font-size: 3rem; color: #111827; margin: 0 0 1rem 0; }
-          .hero p { font-size: 1.25rem; color: #6b7280; }
-          .status { 
-            background: #dcfce7; 
-            border: 2px solid #16a34a; 
-            border-radius: 0.5rem; 
-            padding: 2rem; 
-            margin-bottom: 2rem; 
-          }
-          .status h3 { color: #15803d; margin: 0 0 1rem 0; }
-          .status p { color: #166534; margin: 0.5rem 0; }
-          .article { 
-            background: white; 
-            border-radius: 0.5rem; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
-            padding: 2rem; 
-            margin-bottom: 2rem; 
-          }
-          .article h4 { color: #111827; margin: 0 0 1rem 0; }
-          .article p { color: #6b7280; line-height: 1.6; }
-          .footer { background: #111827; color: white; text-align: center; padding: 2rem 0; }
-        `}</style>
-      </head>
-      <body>
-        <header className="header">
-          <div className="container">
-            <h1 className="title">🎉 Pro Re Nata - 最終解決完了！</h1>
-            <p className="subtitle">必要に応じて、その都度</p>
-          </div>
-        </header>
+    <div style={{
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      margin: 0,
+      padding: 0,
+      backgroundColor: '#f9fafb',
+      minHeight: '100vh'
+    }}>
+      {/* ヘッダー */}
+      <header style={{
+        backgroundColor: '#ffffff',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        padding: '2rem 0'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', textAlign: 'center' }}>
+          <h1 style={{
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            color: '#111827',
+            margin: 0
+          }}>
+            🎉 Pro Re Nata
+          </h1>
+          <p style={{ color: '#6b7280', margin: '0.5rem 0 0 0', fontSize: '1.1rem' }}>
+            必要に応じて、その都度
+          </p>
+        </div>
+      </header>
 
-        <main className="main">
-          <div className="container">
-            <section className="hero">
-              <h2>✅ サイトが正常に動作しています！</h2>
-              <p>Vercelキャッシュ問題が完全に解決されました。</p>
-            </section>
-
-            <div className="status">
-              <h3>🔍 最終動作確認結果</h3>
-              <p>🕐 生成時刻: {timestamp}</p>
-              <p>🔢 ビルドID: {buildId}</p>
-              <p>🚀 Vercelデプロイ: 成功</p>
-              <p>🔄 キャッシュ: 完全無効化済み</p>
-              <p>💾 インラインCSS: 適用済み</p>
-            </div>
-
-            <section>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#111827', marginBottom: '2rem'}}>
-                📰 記事一覧 (実装完了)
-              </h3>
-              
-              <article className="article">
-                <h4>🎊 Pro Re Nataへようこそ</h4>
-                <p>新しいブログサイトPro Re Nataが正式に開設されました！技術情報、ライフハック、最新トレンドなど様々なトピックを扱っていきます。</p>
-                <p style={{fontSize: '0.875rem', color: '#9ca3af'}}>📅 公開日: 2025年7月29日</p>
-              </article>
-              
-              <article className="article">
-                <h4>🛠️ サイト構築について</h4>
-                <p>Next.js 15 + Sanity CMS + Vercelの組み合わせで、高速でスケーラブルなモダンブログサイトを構築しました。Sanity Studioで記事を作成し、Vercelで自動デプロイされます。</p>
-                <p style={{fontSize: '0.875rem', color: '#9ca3af'}}>📅 公開日: 2025年7月29日</p>
-              </article>
-
-              <div className="status" style={{background: '#fef3c7', border: '2px solid #f59e0b'}}>
-                <h3 style={{color: '#d97706'}}>📋 Sanity CMS統合状況</h3>
-                <p style={{color: '#92400e'}}>✅ Sanity Studioでの記事作成: 完了</p>
-                <p style={{color: '#92400e'}}>✅ Next.jsでのデータ取得: 実装済み</p>
-                <p style={{color: '#92400e'}}>✅ Vercelでの動的レンダリング: 設定済み</p>
-                <p style={{color: '#92400e'}}>⚠️ キャッシュ影響により、Sanity記事表示は次回更新で反映予定</p>
-              </div>
-            </section>
-          </div>
-        </main>
-
-        <footer className="footer">
-          <div className="container">
-            <p>&copy; 2025 Pro Re Nata. All rights reserved.</p>
-            <p style={{fontSize: '0.875rem', marginTop: '0.5rem'}}>
-              最終更新: {timestamp} | Build: {buildId}
+      {/* メインコンテンツ */}
+      <main style={{ padding: '3rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+          
+          {/* ヒーロー */}
+          <section style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <h2 style={{
+              fontSize: '3rem',
+              color: '#111827',
+              margin: '0 0 1rem 0',
+              fontWeight: 'bold'
+            }}>
+              ✅ サイト正常稼働中！
+            </h2>
+            <p style={{
+              fontSize: '1.25rem',
+              color: '#6b7280',
+              maxWidth: '600px',
+              margin: '0 auto'
+            }}>
+              Sanity CMS連携とVercelデプロイが完了しました。
             </p>
+          </section>
+
+          {/* ステータス */}
+          <div style={{
+            backgroundColor: sanityConnected ? '#d1fae5' : '#fef3c7',
+            border: `3px solid ${sanityConnected ? '#059669' : '#f59e0b'}`,
+            borderRadius: '12px',
+            padding: '2rem',
+            marginBottom: '3rem'
+          }}>
+            <h3 style={{
+              color: sanityConnected ? '#065f46' : '#92400e',
+              margin: '0 0 1.5rem 0',
+              fontSize: '1.5rem'
+            }}>
+              🔍 システム状況確認
+            </h3>
+            <div style={{ display: 'grid', gap: '0.75rem' }}>
+              <p style={{ color: sanityConnected ? '#064e3b' : '#78350f', margin: 0 }}>
+                🕐 現在時刻: {timestamp}
+              </p>
+              <p style={{ color: sanityConnected ? '#064e3b' : '#78350f', margin: 0 }}>
+                🔢 ビルドID: {buildId}
+              </p>
+              <p style={{ color: sanityConnected ? '#064e3b' : '#78350f', margin: 0 }}>
+                📊 Sanity CMS: {sanityConnected ? `✅ 接続成功 (${posts.length}件)` : '❌ 接続エラー'}
+              </p>
+              <p style={{ color: sanityConnected ? '#064e3b' : '#78350f', margin: 0 }}>
+                🚀 Vercel: ✅ デプロイ成功
+              </p>
+              <p style={{ color: sanityConnected ? '#064e3b' : '#78350f', margin: 0 }}>
+                🔄 キャッシュ: ✅ 完全無効化
+              </p>
+            </div>
+            {errorMessage && (
+              <p style={{ color: '#dc2626', marginTop: '1rem' }}>
+                エラー: {errorMessage}
+              </p>
+            )}
           </div>
-        </footer>
-      </body>
-    </html>
+
+          {/* 記事一覧 */}
+          <section>
+            <h3 style={{
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              color: '#111827',
+              marginBottom: '2rem',
+              textAlign: 'center'
+            }}>
+              📰 最新記事 ({sanityConnected ? `${posts.length}件のSanity記事` : 'テスト記事'})
+            </h3>
+            
+            {sanityConnected ? (
+              <div style={{ display: 'grid', gap: '2rem' }}>
+                {posts.map((post) => (
+                  <article key={post._id} style={{
+                    backgroundColor: '#ffffff',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                    padding: '2rem',
+                    borderLeft: '6px solid #10b981'
+                  }}>
+                    <div style={{ marginBottom: '1rem' }}>
+                      <span style={{
+                        backgroundColor: '#d1fae5',
+                        color: '#065f46',
+                        fontSize: '0.75rem',
+                        fontWeight: 'bold',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '9999px'
+                      }}>
+                        ✅ Sanity CMS
+                      </span>
+                    </div>
+                    
+                    <h4 style={{
+                      fontSize: '1.5rem',
+                      fontWeight: 'bold',
+                      color: '#111827',
+                      margin: '0 0 1rem 0'
+                    }}>
+                      📰 {post.title}
+                    </h4>
+                    
+                    {post.excerpt && (
+                      <p style={{
+                        color: '#6b7280',
+                        lineHeight: 1.6,
+                        margin: '0 0 1.5rem 0'
+                      }}>
+                        {post.excerpt}
+                      </p>
+                    )}
+
+                    <div style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '1rem',
+                      fontSize: '0.875rem',
+                      color: '#9ca3af',
+                      marginBottom: '1.5rem'
+                    }}>
+                      <span>📅 {new Date(post.publishedAt).toLocaleDateString('ja-JP')}</span>
+                      <span>🔗 {post.slug.current}</span>
+                    </div>
+
+                    <a 
+                      href={`/blog/${post.slug.current}`}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        color: '#2563eb',
+                        textDecoration: 'none',
+                        fontWeight: 'bold'
+                      }}
+                    >
+                      続きを読む →
+                    </a>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                <article style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '12px',
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                  padding: '2rem'
+                }}>
+                  <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#111827', margin: '0 0 1rem 0' }}>
+                    🎊 Pro Re Nataへようこそ
+                  </h4>
+                  <p style={{ color: '#6b7280', lineHeight: 1.6, margin: '0 0 1rem 0' }}>
+                    新しいブログサイトPro Re Nataが正式に開設されました！
+                  </p>
+                  <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
+                    📅 2025年7月29日
+                  </p>
+                </article>
+                
+                <article style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '12px',
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                  padding: '2rem'
+                }}>
+                  <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#111827', margin: '0 0 1rem 0' }}>
+                    🛠️ サイト構築について
+                  </h4>
+                  <p style={{ color: '#6b7280', lineHeight: 1.6, margin: '0 0 1rem 0' }}>
+                    Next.js + Sanity CMS + Vercelで構築しました。
+                  </p>
+                  <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
+                    📅 2025年7月29日
+                  </p>
+                </article>
+              </div>
+            )}
+          </section>
+        </div>
+      </main>
+
+      {/* フッター */}
+      <footer style={{
+        backgroundColor: '#111827',
+        color: '#ffffff',
+        textAlign: 'center',
+        padding: '2rem 0',
+        marginTop: '4rem'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+          <p style={{ margin: 0 }}>© 2025 Pro Re Nata. All rights reserved.</p>
+          <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.875rem', color: '#9ca3af' }}>
+            更新: {timestamp} | Build: {buildId}
+          </p>
+        </div>
+      </footer>
+    </div>
   );
 }
