@@ -46,6 +46,15 @@ export default async function Home() {
         <section>
           <h3 className="text-2xl font-bold text-gray-900 mb-8">最新記事</h3>
           
+          <div className="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+            <p>デバッグ情報: {posts.length}件の記事が見つかりました</p>
+            {posts.length > 0 && (
+              <pre className="mt-2 text-xs overflow-auto">
+                {JSON.stringify(posts[0], null, 2)}
+              </pre>
+            )}
+          </div>
+
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
