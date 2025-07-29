@@ -18,6 +18,15 @@ export default async function Home() {
   } catch (error) {
     errorMessage = error instanceof Error ? error.message : 'Unknown error'
     console.error('Posts fetch error:', error)
+    
+    // エラーの場合はテスト用のダミー記事を表示
+    posts = [{
+      _id: 'test-post',
+      title: 'テスト記事（ダミー）',
+      slug: { current: 'test-post' },
+      publishedAt: '2025-07-29T04:22:00.000Z',
+      excerpt: 'Sanity接続エラーのため、ダミー記事を表示しています。',
+    }]
   }
 
   return (
