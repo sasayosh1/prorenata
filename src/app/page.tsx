@@ -1,8 +1,23 @@
+import { getAllPosts, type Post } from '@/lib/sanity'
+
 // 完全にキャッシュを無効化
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
-export default function Home() {
+export default async function Home() {
+  let posts: Post[] = []
+  let errorMessage = ''
+  let debugInfo = ''
+  
+  try {
+    debugInfo = '🔍 Sanityからデータを取得中...'
+    posts = await getAllPosts()
+    debugInfo = `✅ 成功: ${posts.length}件の記事を取得`
+  } catch (error) {
+    errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    debugInfo = `❌ エラー: ${errorMessage}`
+  }
+  
   // 確実に新しいタイムスタンプを生成
   const buildTime = Date.now()
   const currentTime = new Date().toLocaleString('ja-JP', { 
@@ -50,67 +65,102 @@ export default function Home() {
           </section>
 
           {/* ステータス表示 */}
-          <div className="mb-8 p-6 bg-green-100 border-2 border-green-300 rounded-lg">
-            <h3 className="text-xl font-bold text-green-800 mb-4">✅ システム正常稼働中</h3>
-            <div className="space-y-2 text-green-700">
+          <div className="mb-8 p-6 bg-blue-100 border-2 border-blue-300 rounded-lg">
+            <h3 className="text-xl font-bold text-blue-800 mb-4">🔍 Sanity接続テスト結果</h3>
+            <div className="space-y-2 text-blue-700">
               <p>🕐 表示時刻: {currentTime}</p>
               <p>🔢 ビルドID: {buildTime}</p>
-              <p>🚀 Vercelデプロイ: 成功</p>
-              <p>🔄 キャッシュ: 完全無効化</p>
+              <p>📊 {debugInfo}</p>
+              <p>📝 取得記事数: {posts.length}件</p>
+              {errorMessage && (
+                <p className="text-red-600">❌ エラー詳細: {errorMessage}</p>
+              )}
             </div>
           </div>
 
-          {/* テスト記事一覧 */}
+          {/* 記事一覧 */}
           <section>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">最新記事</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              記事一覧 ({posts.length > 0 ? `${posts.length}件のSanity記事` : 'テスト記事'})
+            </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="p-6">
-                  <h4 className="text-xl font-semibold mb-3 text-gray-800">
-                    🎊 Pro Re Nataへようこそ
-                  </h4>
-                  
-                  <p className="text-gray-600 mb-4">
-                    新しいブログサイトPro Re Nataが正式に開設されました！技術情報、ライフハック、最新トレンドなど様々なトピックを扱っていきます。
-                  </p>
+            {posts.length > 0 ? (
+              <div className="space-y-6">
+                {posts.map((post) => (
+                  <article key={post._id} className="bg-white rounded-lg shadow-md p-6">
+                    <h4 className="text-xl font-semibold mb-3 text-gray-800">
+                      📰 {post.title}
+                    </h4>
+                    
+                    {post.excerpt && (
+                      <p className="text-gray-600 mb-4">
+                        {post.excerpt}
+                      </p>
+                    )}
 
-                  <p className="text-gray-500 text-sm mb-4">
-                    📅 公開日: 2025年7月29日
-                  </p>
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                      <p>📅 {new Date(post.publishedAt).toLocaleDateString('ja-JP')}</p>
+                      <p>🔗 {post.slug.current}</p>
+                    </div>
 
-                  <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                    続きを読む
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
-              </article>
-              
-              <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="p-6">
-                  <h4 className="text-xl font-semibold mb-3 text-gray-800">
-                    🛠️ モダンなサイト構築について
-                  </h4>
-                  
-                  <p className="text-gray-600 mb-4">
-                    Next.js 15 + Sanity CMS + Vercelの組み合わせで、高速でスケーラブルなモダンブログサイトを構築しました。
-                  </p>
+                    <a href={`/blog/${post.slug.current}`} className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                      続きを読む
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="p-6">
+                    <h4 className="text-xl font-semibold mb-3 text-gray-800">
+                      🎊 Pro Re Nataへようこそ (テスト記事)
+                    </h4>
+                    
+                    <p className="text-gray-600 mb-4">
+                      新しいブログサイトPro Re Nataが正式に開設されました！技術情報、ライフハック、最新トレンドなど様々なトピックを扱っていきます。
+                    </p>
 
-                  <p className="text-gray-500 text-sm mb-4">
-                    📅 公開日: 2025年7月29日
-                  </p>
+                    <p className="text-gray-500 text-sm mb-4">
+                      📅 公開日: 2025年7月29日
+                    </p>
 
-                  <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                    続きを読む
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
-              </article>
-            </div>
+                    <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                      続きを読む
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+                
+                <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="p-6">
+                    <h4 className="text-xl font-semibold mb-3 text-gray-800">
+                      🛠️ モダンなサイト構築について (テスト記事)
+                    </h4>
+                    
+                    <p className="text-gray-600 mb-4">
+                      Next.js 15 + Sanity CMS + Vercelの組み合わせで、高速でスケーラブルなモダンブログサイトを構築しました。
+                    </p>
+
+                    <p className="text-gray-500 text-sm mb-4">
+                      📅 公開日: 2025年7月29日
+                    </p>
+
+                    <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                      続きを読む
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              </div>
+            )}
           </section>
         </main>
 
