@@ -1,34 +1,4 @@
-import { getAllPosts, type Post } from '@/lib/sanity'
-import Link from 'next/link'
-
-// ISRを有効にして60秒ごとに再生成
-export const revalidate = 60
-
-export default async function Home() {
-  let posts: Post[] = []
-  let errorMessage = ''
-  
-  try {
-    console.log('Fetching posts...')
-    posts = await getAllPosts()
-    console.log('Posts fetched:', posts.length)
-    if (posts.length > 0) {
-      console.log('First post:', posts[0])
-    }
-  } catch (error) {
-    errorMessage = error instanceof Error ? error.message : 'Unknown error'
-    console.error('Posts fetch error:', error)
-    
-    // エラーの場合はテスト用のダミー記事を表示
-    posts = [{
-      _id: 'test-post',
-      title: 'テスト記事（ダミー）',
-      slug: { current: 'test-post' },
-      publishedAt: '2025-07-29T04:22:00.000Z',
-      excerpt: 'Sanity接続エラーのため、ダミー記事を表示しています。',
-    }]
-  }
-
+export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* ヘッダー */}
@@ -55,75 +25,68 @@ export default async function Home() {
           </p>
         </section>
 
-        {/* ブログ記事一覧 */}
+        {/* テスト記事一覧 */}
         <section>
           <h3 className="text-2xl font-bold text-gray-900 mb-8">最新記事</h3>
           
-          <div className="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
-            <p>デバッグ情報: {posts.length}件の記事が見つかりました</p>
-            {errorMessage && (
-              <p className="text-red-600 mt-2">エラー: {errorMessage}</p>
-            )}
-            {posts.length > 0 && (
-              <pre className="mt-2 text-xs overflow-auto">
-                {JSON.stringify(posts[0], null, 2)}
-              </pre>
-            )}
+          <div className="mb-4 p-4 bg-green-100 border border-green-300 rounded">
+            <p className="text-green-800">✅ サイトは正常に動作しています！</p>
+            <p className="text-sm mt-2">現在、Sanity CMSとの接続を設定中です。</p>
           </div>
 
-          {posts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => (
-                <article key={post._id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-6">
-                    <h4 className="text-xl font-semibold mb-3 text-gray-800">
-                      {post.title}
-                    </h4>
-                    
-                    {post.excerpt && (
-                      <p className="text-gray-600 mb-4">
-                        {post.excerpt}
-                      </p>
-                    )}
-
-                    <p className="text-gray-500 text-sm mb-4">
-                      {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </p>
-
-                    <Link
-                      href={`/blog/${post.slug.current}`}
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      続きを読む
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <div className="max-w-md mx-auto">
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                  準備中
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="p-6">
+                <h4 className="text-xl font-semibold mb-3 text-gray-800">
+                  Pro Re Nataへようこそ
                 </h4>
-                <p className="text-gray-600 mb-6">
-                  現在コンテンツを準備中です。近日公開予定です。
+                
+                <p className="text-gray-600 mb-4">
+                  新しいブログサイトPro Re Nataが開設されました。技術情報やライフハックなどを扱っていきます。
                 </p>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <p className="text-blue-800 text-sm">
-                    Sanity CMSの設定が完了したら、記事が表示されます。
-                  </p>
-                </div>
+
+                <p className="text-gray-500 text-sm mb-4">
+                  2025年7月29日
+                </p>
+
+                <a
+                  href="#"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  続きを読む
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
-            </div>
-          )}
+            </article>
+            
+            <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="p-6">
+                <h4 className="text-xl font-semibold mb-3 text-gray-800">
+                  サイト構築について
+                </h4>
+                
+                <p className="text-gray-600 mb-4">
+                  Next.js + Sanity CMS + Vercelの組み合わせでモダンなブログサイトを構築しました。
+                </p>
+
+                <p className="text-gray-500 text-sm mb-4">
+                  2025年7月29日
+                </p>
+
+                <a
+                  href="#"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  続きを読む
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
         </section>
       </main>
 
