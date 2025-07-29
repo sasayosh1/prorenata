@@ -32,6 +32,7 @@ export default function Home() {
           <div className="mb-4 p-4 bg-green-100 border border-green-300 rounded">
             <p className="text-green-800">✅ サイトは正常に動作しています！</p>
             <p className="text-sm mt-2">現在、Sanity CMSとの接続を設定中です。</p>
+            <p className="text-xs text-gray-600 mt-1">最終更新: 2025年7月29日 14:10</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
