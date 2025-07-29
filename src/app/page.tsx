@@ -1,6 +1,9 @@
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
 
+// ISRを有効にして60秒ごとに再生成
+export const revalidate = 60
+
 export default async function Home() {
   let posts: Post[] = []
   
