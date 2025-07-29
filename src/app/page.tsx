@@ -1,4 +1,10 @@
+// Vercelキャッシュを無効化
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default function Home() {
+  const timestamp = new Date().toISOString()
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* ヘッダー */}
@@ -32,7 +38,8 @@ export default function Home() {
           <div className="mb-4 p-4 bg-green-100 border border-green-300 rounded">
             <p className="text-green-800">✅ サイトは正常に動作しています！</p>
             <p className="text-sm mt-2">現在、Sanity CMSとの接続を設定中です。</p>
-            <p className="text-xs text-gray-600 mt-1">最終更新: 2025年7月29日 14:10</p>
+            <p className="text-xs text-gray-600 mt-1">最終更新: {timestamp}</p>
+            <p className="text-xs text-blue-600 mt-1">🔄 キャッシュ無効化済み</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
