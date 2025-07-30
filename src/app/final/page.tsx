@@ -290,6 +290,9 @@ export default async function FinalPage() {
             <p style={{fontSize: '1.1rem', marginBottom: '0.5rem'}}>
               © 2025 ProReNata. 最終確認完了！
             </p>
+            <p style={{fontSize: '1rem', opacity: 0.9, color: '#ffd700'}}>
+              ⚡ BUILD: 2025-07-30 10:05 - ビルド更新テスト ⚡
+            </p>
             <p style={{fontSize: '0.9rem', opacity: 0.8}}>
               最終更新: {japanTime} | ID: {uniqueId}
             </p>
