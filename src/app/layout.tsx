@@ -17,23 +17,23 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata: Metadata = {
-  title: "Pro Re Nata",
+  title: "ProReNata",
   description: "必要に応じて、その都度。状況に応じた最適な情報をお届けします。",
   metadataBase: new URL('https://prorenata.jp'),
   alternates: {
     canonical: 'https://prorenata.jp',
   },
   openGraph: {
-    title: "Pro Re Nata",
+    title: "ProReNata",
     description: "必要に応じて、その都度。状況に応じた最適な情報をお届けします。",
     url: 'https://prorenata.jp',
-    siteName: 'Pro Re Nata',
+    siteName: 'ProReNata',
     locale: 'ja_JP',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Pro Re Nata",
+    title: "ProReNata",
     description: "必要に応じて、その都度。状況に応じた最適な情報をお届けします。",
   },
 };

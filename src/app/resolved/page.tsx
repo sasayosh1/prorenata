@@ -46,7 +46,7 @@ export default async function ResolvedPage() {
             margin: 0,
             textAlign: 'center'
           }}>
-            🎉 Pro Re Nata - キャッシュ問題解決完了！
+            🎉 ProReNata - キャッシュ問題解決完了！
           </h1>
           <p style={{
             color: '#6b7280',
@@ -238,7 +238,7 @@ export default async function ResolvedPage() {
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
           <p style={{ margin: 0, fontSize: '1.1rem' }}>
-            © 2025 Pro Re Nata. キャッシュ問題解決完了！
+            © 2025 ProReNata. キャッシュ問題解決完了！
           </p>
           <p style={{ 
             margin: '0.5rem 0 0 0', 

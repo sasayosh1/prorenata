@@ -41,7 +41,7 @@ export default async function Home() {
             color: '#111827',
             margin: 0
           }}>
-            🎉 Pro Re Nata
+            🎉 ProReNata
           </h1>
           <p style={{ color: '#6b7280', margin: '0.5rem 0 0 0', fontSize: '1.1rem' }}>
             必要に応じて、その都度
@@ -61,7 +61,7 @@ export default async function Home() {
               margin: '0 0 1rem 0',
               fontWeight: 'bold'
             }}>
-              ✅ サイト正常稼働中！
+              Welcome to ProReNata
             </h2>
             <p style={{
               fontSize: '1.25rem',
@@ -69,7 +69,7 @@ export default async function Home() {
               maxWidth: '600px',
               margin: '0 auto'
             }}>
-              Sanity CMS連携とVercelデプロイが完了しました。
+              必要に応じて、その都度。状況に応じた最適な情報をお届けします。
             </p>
           </section>
 
@@ -202,10 +202,10 @@ export default async function Home() {
                   padding: '2rem'
                 }}>
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#111827', margin: '0 0 1rem 0' }}>
-                    🎊 Pro Re Nataへようこそ
+                    🎊 ProReNataへようこそ
                   </h4>
                   <p style={{ color: '#6b7280', lineHeight: 1.6, margin: '0 0 1rem 0' }}>
-                    新しいブログサイトPro Re Nataが正式に開設されました！
+                    新しいブログサイトProReNataが正式に開設されました！
                   </p>
                   <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
                     📅 2025年7月29日
@@ -243,7 +243,7 @@ export default async function Home() {
         marginTop: '4rem'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
-          <p style={{ margin: 0 }}>© 2025 Pro Re Nata. All rights reserved.</p>
+          <p style={{ margin: 0 }}>© 2025 ProReNata. All rights reserved.</p>
           <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.875rem', color: '#9ca3af' }}>
             更新: {timestamp} | Build: {buildId}
           </p>
