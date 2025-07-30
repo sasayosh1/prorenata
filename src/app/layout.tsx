@@ -19,14 +19,14 @@ export const revalidate = 0
 export const metadata: Metadata = {
   title: "ProReNata",
   description: "必要に応じて、その都度。状況に応じた最適な情報をお届けします。",
-  metadataBase: new URL('https://prorenata.jp'),
+  metadataBase: new URL('https://prorenata03250706.vercel.app'),
   alternates: {
-    canonical: 'https://prorenata.jp',
+    canonical: 'https://prorenata03250706.vercel.app',
   },
   openGraph: {
     title: "ProReNata",
     description: "必要に応じて、その都度。状況に応じた最適な情報をお届けします。",
-    url: 'https://prorenata.jp',
+    url: 'https://prorenata03250706.vercel.app',
     siteName: 'ProReNata',
     locale: 'ja_JP',
     type: 'website',
