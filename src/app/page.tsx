@@ -166,7 +166,7 @@ export default async function Home() {
                         <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd" />
                         </svg>
-                        ブログ記事
+                        ProReNata
                       </span>
                       <time className="text-sm text-slate-500">
                         {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
@@ -207,7 +207,7 @@ export default async function Home() {
               <div className="grid lg:grid-cols-2 gap-8">
                 <article className="medical-card p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="medical-badge medical-badge-primary">体験談</span>
+                    <span className="medical-badge medical-badge-primary">ProReNata</span>
                     <time className="text-sm text-slate-500">2025年8月12日</time>
                   </div>
                   
@@ -239,7 +239,7 @@ export default async function Home() {
                 
                 <article className="medical-card p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="medical-badge medical-badge-secondary">学び</span>
+                    <span className="medical-badge medical-badge-secondary">ProReNata</span>
                     <time className="text-sm text-slate-500">2025年8月11日</time>
                   </div>
                   
