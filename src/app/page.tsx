@@ -1,5 +1,6 @@
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
+import Image from 'next/image'
 import Sidebar from '@/components/Sidebar'
 
 // 最強のキャッシュ無効化
@@ -94,15 +95,49 @@ export default async function Home() {
             {/* メインコンテンツエリア */}
             <div className="lg:col-span-3">
               
-              {/* ウェルカムセクション */}
-              <section className="medical-card p-8 mb-12">
-                <div className="text-center">
-                  <h2 className="text-3xl font-bold text-slate-800 mb-4">ようこそ、ProReNataへ</h2>
-                  <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                    看護助手として働いた経験や医療現場で学んだことを、
-                    率直に書いている個人ブログです。
-                    同じような立場で働く方の参考になれば嬉しいです。
-                  </p>
+              {/* ヒーローセクション */}
+              <section className="medical-card overflow-hidden mb-12">
+                <div className="relative">
+                  {/* 背景画像 */}
+                  <div className="relative h-80 bg-gradient-to-br from-blue-50 to-blue-100">
+                    <Image
+                      src="/hero-medical-anime.jpg"
+                      alt="医療現場で働く看護助手のイメージ"
+                      fill
+                      className="object-cover object-center"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-900/40"></div>
+                  </div>
+                  
+                  {/* オーバーレイテキスト */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-white px-6">
+                      <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+                        ようこそ、ProReNataへ
+                      </h2>
+                      <p className="text-xl md:text-2xl mb-6 drop-shadow-md max-w-3xl">
+                        必要に応じて、その都度
+                      </p>
+                      <p className="text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                        看護助手として働いた経験や医療現場で学んだことを、
+                        率直に書いている個人ブログです。
+                      </p>
+                      
+                      {/* CTAボタン */}
+                      <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/articles" className="btn btn-secondary shadow-lg">
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          記事を読む
+                        </Link>
+                        <Link href="/about" className="btn btn-outline bg-white/20 text-white border-white hover:bg-white hover:text-blue-600 shadow-lg">
+                          ブログについて
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </section>
           
@@ -288,23 +323,28 @@ export default async function Home() {
             )}
           </section>
 
-              {/* CTA セクション */}
-              <section className="medical-gradient text-white rounded-2xl p-8 mt-12 text-center">
-                <h2 className="text-2xl font-bold mb-4">気軽に読める個人ブログです</h2>
-                <p className="text-blue-100 mb-6">
-                  看護助手として働いた経験や医療現場で学んだことを、
-                  率直に書いている個人ブログです。
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/articles" className="btn btn-secondary">
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    記事を読む
-                  </Link>
-                  <Link href="/about" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
-                    ブログについて
-                  </Link>
+              {/* お知らせセクション */}
+              <section className="medical-card p-6 mt-12 border-l-4 border-blue-500">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-2">このブログについて</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                      看護助手として医療現場で働いた経験をもとに、
+                      日々の体験や学びを率直に紹介しています。
+                      同じような立場で働く方の参考になれば嬉しいです。
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      ※このブログは個人的な体験や意見を書いたものです。
+                      医療に関する判断は、必ず専門医にご相談ください。
+                    </p>
+                  </div>
                 </div>
               </section>
             </div>
