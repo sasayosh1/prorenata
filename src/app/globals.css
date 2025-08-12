@@ -1,8 +1,33 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 医療系カラーパレット */
+  --medical-primary: #2563eb; /* 信頼感のあるブルー */
+  --medical-primary-dark: #1d4ed8;
+  --medical-primary-light: #3b82f6;
+  --medical-secondary: #059669; /* 安心感のあるグリーン */
+  --medical-secondary-dark: #047857;
+  --medical-accent: #dc2626; /* アクセント用レッド */
+  --medical-neutral-50: #f8fafc;
+  --medical-neutral-100: #f1f5f9;
+  --medical-neutral-200: #e2e8f0;
+  --medical-neutral-300: #cbd5e1;
+  --medical-neutral-400: #94a3b8;
+  --medical-neutral-500: #64748b;
+  --medical-neutral-600: #475569;
+  --medical-neutral-700: #334155;
+  --medical-neutral-800: #1e293b;
+  --medical-neutral-900: #0f172a;
+  
+  /* 背景とフォアグラウンド */
+  --background: var(--medical-neutral-50);
+  --foreground: var(--medical-neutral-900);
+  
+  /* タイポグラフィ */
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Crimson Text', Georgia, serif;
 }
 
 @theme inline {
@@ -10,10 +35,162 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* カスタムカラー */
+  --color-medical-primary: var(--medical-primary);
+  --color-medical-primary-dark: var(--medical-primary-dark);
+  --color-medical-primary-light: var(--medical-primary-light);
+  --color-medical-secondary: var(--medical-secondary);
+  --color-medical-secondary-dark: var(--medical-secondary-dark);
+  --color-medical-accent: var(--medical-accent);
+  
+  /* ニュートラルカラー */
+  --color-neutral-50: var(--medical-neutral-50);
+  --color-neutral-100: var(--medical-neutral-100);
+  --color-neutral-200: var(--medical-neutral-200);
+  --color-neutral-300: var(--medical-neutral-300);
+  --color-neutral-400: var(--medical-neutral-400);
+  --color-neutral-500: var(--medical-neutral-500);
+  --color-neutral-600: var(--medical-neutral-600);
+  --color-neutral-700: var(--medical-neutral-700);
+  --color-neutral-800: var(--medical-neutral-800);
+  --color-neutral-900: var(--medical-neutral-900);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* スムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* フォーカス状態のアクセシビリティ */
+*:focus {
+  outline: 2px solid var(--medical-primary);
+  outline-offset: 2px;
+}
+
+/* 見出しのスタイリング */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--medical-neutral-900);
+}
+
+/* リンクスタイル */
+a {
+  color: var(--medical-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--medical-primary-dark);
+  text-decoration: underline;
+}
+
+/* ボタンの基本スタイル */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--medical-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--medical-primary-dark);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--medical-secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--medical-secondary-dark);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--medical-primary);
+  border: 2px solid var(--medical-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--medical-primary);
+  color: white;
+  text-decoration: none;
+}
+
+/* カードスタイル */
+.medical-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--medical-neutral-200);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.medical-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* 医療系アイコンとバッジ */
+.medical-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.medical-badge-primary {
+  background-color: var(--medical-primary);
+  color: white;
+}
+
+.medical-badge-secondary {
+  background-color: var(--medical-secondary);
+  color: white;
+}
+
+.medical-badge-light {
+  background-color: var(--medical-neutral-100);
+  color: var(--medical-neutral-700);
+}
+
+/* グラデーション背景 */
+.medical-gradient {
+  background: linear-gradient(135deg, var(--medical-primary) 0%, var(--medical-primary-light) 100%);
+}
+
+.medical-gradient-subtle {
+  background: linear-gradient(135deg, var(--medical-neutral-50) 0%, white 100%);
 }

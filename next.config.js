@@ -7,6 +7,23 @@ const nextConfig = {
       static: 0,
     },
   },
+  // 外部画像ホストの許可
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'data.cryptoninjapartners.com',
+        port: '',
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+  },
   // プリロードを無効化
   async headers() {
     return [
