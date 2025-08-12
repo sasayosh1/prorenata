@@ -2,6 +2,7 @@
 import { createClient } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
+import Sidebar from '@/components/Sidebar'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -69,8 +70,12 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
       {/* メインコンテンツ */}
       <main className="py-12">
-        <article className="max-w-4xl mx-auto px-6">
-          <div className="medical-card p-8 mb-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* メインコンテンツエリア */}
+            <div className="lg:col-span-3">
+              <article>
+                <div className="medical-card p-8 mb-8">
             {/* メタ情報 */}
             <div className="flex flex-wrap items-center gap-4 mb-6">
               <span className="medical-badge medical-badge-primary">
@@ -134,27 +139,35 @@ export default async function PostDetailPage({ params }: PostPageProps) {
             </div>
           </div>
 
-          {/* 記事下部のCTA */}
-          <div className="medical-gradient text-white rounded-lg p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">他の記事も読んでみませんか？</h2>
-            <p className="text-blue-100 mb-6">
-              看護助手の体験や日常のこと、趣味のことなどを
-              気軽に書いている個人ブログです。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/" className="btn btn-secondary">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M8 11h8" />
-                </svg>
-                他の記事を見る
-              </Link>
-              <Link href="/" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
-                ホームに戻る
-              </Link>
+                {/* 記事下部のCTA */}
+                <div className="medical-gradient text-white rounded-lg p-8 text-center">
+                  <h2 className="text-2xl font-bold mb-4">他の記事も読んでみませんか？</h2>
+                  <p className="text-blue-100 mb-6">
+                    看護助手の体験や日常のこと、趣味のことなどを
+                    気軽に書いている個人ブログです。
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Link href="/" className="btn btn-secondary">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M8 11h8" />
+                      </svg>
+                      他の記事を見る
+                    </Link>
+                    <Link href="/" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
+                      ホームに戻る
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+            {/* サイドバー */}
+            <div className="lg:col-span-1">
+              <Sidebar />
             </div>
           </div>
-        </article>
+        </div>
       </main>
     </div>
   )

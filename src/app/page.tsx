@@ -1,5 +1,6 @@
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
+import Sidebar from '@/components/Sidebar'
 
 // 最強のキャッシュ無効化
 export const dynamic = 'force-dynamic'
@@ -88,42 +89,57 @@ export default async function Home() {
 
       {/* メインコンテンツ */}
       <main className="py-12">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* メインコンテンツエリア */}
+            <div className="lg:col-span-3">
+              
+              {/* ウェルカムセクション */}
+              <section className="medical-card p-8 mb-12">
+                <div className="text-center">
+                  <h2 className="text-3xl font-bold text-slate-800 mb-4">ようこそ、ProReNataへ</h2>
+                  <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    看護助手として働いた経験や医療現場で学んだことを、
+                    率直に書いている個人ブログです。
+                    同じような立場で働く方の参考になれば嬉しいです。
+                  </p>
+                </div>
+              </section>
           
-          {/* 特徴セクション */}
-          <section className="mb-16">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="medical-card p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                  </svg>
+              {/* 特徴セクション */}
+              <section className="mb-12">
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="medical-card p-6 text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-2">体験談</h3>
+                    <p className="text-sm text-slate-600">看護助手として働いた実体験をもとに、医療現場のリアルをお伝えします</p>
+                  </div>
+                  
+                  <div className="medical-card p-6 text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-2">日常のこと</h3>
+                    <p className="text-sm text-slate-600">仕事以外の日常生活についても気軽に書いています</p>
+                  </div>
+                  
+                  <div className="medical-card p-6 text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-2">学び</h3>
+                    <p className="text-sm text-slate-600">医療現場で学んだことや、勉強していることについても書いています</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">体験談</h3>
-                <p className="text-slate-600">看護助手として働いた実体験をもとに、医療現場のリアルをお伝えします</p>
-              </div>
-              
-              <div className="medical-card p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">日常のこと</h3>
-                <p className="text-slate-600">仕事以外の日常生活や趣味についても気軽に書いています</p>
-              </div>
-              
-              <div className="medical-card p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">学び</h3>
-                <p className="text-slate-600">医療現場で学んだことや、勉強していることについても書いています</p>
-              </div>
-            </div>
-          </section>
+              </section>
 
           {/* ステータス（開発用） */}
           {process.env.NODE_ENV === 'development' && (
@@ -158,7 +174,7 @@ export default async function Home() {
             </div>
             
             {sanityConnected ? (
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="space-y-6">
                 {posts.map((post) => (
                   <article key={post._id} className="medical-card p-6 group">
                     <div className="flex items-center justify-between mb-4">
@@ -204,7 +220,7 @@ export default async function Home() {
                 ))}
               </div>
             ) : (
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="space-y-6">
                 <article className="medical-card p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="medical-badge medical-badge-primary">ProReNata</span>
@@ -272,26 +288,32 @@ export default async function Home() {
             )}
           </section>
 
-          {/* CTA セクション */}
-          <section className="medical-gradient text-white rounded-2xl p-12 mt-16 text-center">
-            <h2 className="text-3xl font-bold mb-4">気軽に読める個人ブログです</h2>
-            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-              看護助手として働いた経験や医療現場で学んだことを、
-              率直に書いている個人ブログです。
-              同じような立場で働く方の参考になれば嬉しいです。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/articles" className="btn btn-secondary">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                記事を読む
-              </Link>
-              <Link href="/about" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
-                ブログについて
-              </Link>
+              {/* CTA セクション */}
+              <section className="medical-gradient text-white rounded-2xl p-8 mt-12 text-center">
+                <h2 className="text-2xl font-bold mb-4">気軽に読める個人ブログです</h2>
+                <p className="text-blue-100 mb-6">
+                  看護助手として働いた経験や医療現場で学んだことを、
+                  率直に書いている個人ブログです。
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/articles" className="btn btn-secondary">
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    記事を読む
+                  </Link>
+                  <Link href="/about" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
+                    ブログについて
+                  </Link>
+                </div>
+              </section>
             </div>
-          </section>
+            
+            {/* サイドバー */}
+            <div className="lg:col-span-1">
+              <Sidebar />
+            </div>
+          </div>
         </div>
       </main>
 
