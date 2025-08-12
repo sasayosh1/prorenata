@@ -71,9 +71,6 @@ export default async function Home() {
               <Link href="/categories" className="text-slate-700 hover:text-blue-600 font-medium transition-colors">
                 カテゴリー
               </Link>
-              <Link href="/nft" className="text-slate-700 hover:text-blue-600 font-medium transition-colors">
-                CNP NFT
-              </Link>
               <Link href="/about" className="text-slate-700 hover:text-blue-600 font-medium transition-colors">
                 About
               </Link>
@@ -122,8 +119,8 @@ export default async function Home() {
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">趣味</h3>
-                <p className="text-slate-600">NFTアートなど、個人的に興味を持っていることも紹介しています</p>
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">学び</h3>
+                <p className="text-slate-600">医療現場で学んだことや、勉強していることについても書いています</p>
               </div>
             </div>
           </section>
@@ -242,18 +239,18 @@ export default async function Home() {
                 
                 <article className="medical-card p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="medical-badge medical-badge-secondary">日常</span>
+                    <span className="medical-badge medical-badge-secondary">学び</span>
                     <time className="text-sm text-slate-500">2025年8月11日</time>
                   </div>
                   
                   <h3 className="text-xl font-semibold text-slate-800 mb-3">
-                    疲れた心を癒すNFTアートとの出会い
+                    医療現場で学んだコミュニケーションの大切さ
                   </h3>
                   
                   <p className="text-slate-600 leading-relaxed mb-4">
-                    忙しい職場で疲れ果てていた時に出会ったCNP NFT。
-                    可愛いキャラクターたちに癒されて、新しい趣味として楽しんでいる話を
-                    気軽に書いてみました。
+                    患者さんや医療スタッフとのコミュニケーションで学んだこと、
+                    今でも心に残っている印象深いエピソードなどを
+                    体験談として紹介しています。
                   </p>
 
                   <div className="flex items-center justify-between">
@@ -267,7 +264,7 @@ export default async function Home() {
                       <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      5分で読める
+                      4分で読める
                     </div>
                   </div>
                 </article>
@@ -279,8 +276,9 @@ export default async function Home() {
           <section className="medical-gradient text-white rounded-2xl p-12 mt-16 text-center">
             <h2 className="text-3xl font-bold mb-4">気軽に読める個人ブログです</h2>
             <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-              看護助手の経験や日常のことを、のんびりと書いています。
-              同じような経験をされた方や、医療現場に興味のある方に読んでもらえたら嬉しいです。
+              看護助手として働いた経験や医療現場で学んだことを、
+              率直に書いている個人ブログです。
+              同じような立場で働く方の参考になれば嬉しいです。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/articles" className="btn btn-secondary">
@@ -289,8 +287,8 @@ export default async function Home() {
                 </svg>
                 記事を読む
               </Link>
-              <Link href="/nft" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
-                趣味のNFTも見る
+              <Link href="/about" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
+                ブログについて
               </Link>
             </div>
           </section>
@@ -323,7 +321,6 @@ export default async function Home() {
                 <li><Link href="/" className="hover:text-white transition-colors">ホーム</Link></li>
                 <li><Link href="/articles" className="hover:text-white transition-colors">記事一覧</Link></li>
                 <li><Link href="/categories" className="hover:text-white transition-colors">カテゴリー</Link></li>
-                <li><Link href="/nft" className="hover:text-white transition-colors">CNP NFT</Link></li>
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
               </ul>
             </div>
