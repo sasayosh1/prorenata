@@ -17,7 +17,7 @@ const nextConfig = {
         pathname: '/images/**',
       },
     ],
-  }
+  },
   // プリロードを無効化
   async headers() {
     return [
