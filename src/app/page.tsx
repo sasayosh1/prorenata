@@ -99,15 +99,113 @@ export default async function Home() {
               <section className="medical-card overflow-hidden mb-12">
                 <div className="relative">
                   {/* 背景画像 */}
-                  <div className="relative h-80 bg-gradient-to-br from-blue-50 to-blue-100">
-                    <Image
-                      src="/hero-medical-anime.jpg"
-                      alt="医療現場で働く看護助手のイメージ"
-                      fill
-                      className="object-cover object-center"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-900/40"></div>
+                  <div className="relative h-80 bg-gradient-to-br from-pink-50 via-blue-50 to-purple-50">
+                    {/* 医療現場のアニメキャラクター風イラスト */}
+                    <div className="absolute inset-0 overflow-hidden">
+                      <svg className="w-full h-full" viewBox="0 0 800 320" fill="none">
+                        {/* 背景グラデーション */}
+                        <defs>
+                          <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#ddd6fe" />
+                            <stop offset="50%" stopColor="#bfdbfe" />
+                            <stop offset="100%" stopColor="#fce7f3" />
+                          </linearGradient>
+                          <linearGradient id="hairGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#fbbf24" />
+                            <stop offset="100%" stopColor="#f59e0b" />
+                          </linearGradient>
+                          <linearGradient id="hairSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#e5e7eb" />
+                            <stop offset="100%" stopColor="#d1d5db" />
+                          </linearGradient>
+                          <linearGradient id="hairPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#f9a8d4" />
+                            <stop offset="100%" stopColor="#ec4899" />
+                          </linearGradient>
+                        </defs>
+                        
+                        <rect width="800" height="320" fill="url(#bgGradient)" />
+                        
+                        {/* 医療機器のシルエット */}
+                        <rect x="650" y="50" width="120" height="80" rx="10" fill="#6b7280" opacity="0.3" />
+                        <circle cx="680" cy="70" r="8" fill="#3b82f6" opacity="0.5" />
+                        <rect x="700" y="65" width="30" height="10" rx="2" fill="#10b981" opacity="0.6" />
+                        
+                        {/* キャラクター1: 金髪 */}
+                        <g transform="translate(150, 120)">
+                          {/* 顔 */}
+                          <ellipse cx="0" cy="0" rx="25" ry="30" fill="#fef3e2" />
+                          {/* 髪 */}
+                          <path d="M-25,-15 Q-30,-25 -20,-35 Q0,-40 20,-35 Q30,-25 25,-15 Q25,-10 20,-5 L25,-15" fill="url(#hairGold)" />
+                          {/* 目 */}
+                          <ellipse cx="-8" cy="-5" rx="3" ry="5" fill="#3b82f6" />
+                          <ellipse cx="8" cy="-5" rx="3" ry="5" fill="#3b82f6" />
+                          <ellipse cx="-8" cy="-5" rx="1" ry="2" fill="white" />
+                          <ellipse cx="8" cy="-5" rx="1" ry="2" fill="white" />
+                          {/* 口 */}
+                          <path d="M-5,8 Q0,12 5,8" stroke="#f87171" strokeWidth="2" fill="none" />
+                          {/* ナース服 */}
+                          <rect x="-20" y="30" width="40" height="60" rx="5" fill="#fecaca" />
+                          <rect x="-15" y="35" width="30" height="50" rx="3" fill="white" />
+                        </g>
+                        
+                        {/* キャラクター2: 銀髪 */}
+                        <g transform="translate(350, 110)">
+                          {/* 顔 */}
+                          <ellipse cx="0" cy="0" rx="24" ry="28" fill="#fef3e2" />
+                          {/* 髪 */}
+                          <path d="M-24,-12 Q-28,-22 -18,-32 Q0,-38 18,-32 Q28,-22 24,-12 Q22,-8 18,-3 L24,-12" fill="url(#hairSilver)" />
+                          {/* 目 */}
+                          <ellipse cx="-7" cy="-3" rx="3" ry="5" fill="#3b82f6" />
+                          <ellipse cx="7" cy="-3" rx="3" ry="5" fill="#3b82f6" />
+                          <ellipse cx="-7" cy="-3" rx="1" ry="2" fill="white" />
+                          <ellipse cx="7" cy="-3" rx="1" ry="2" fill="white" />
+                          {/* 口 */}
+                          <path d="M-4,6 Q0,10 4,6" stroke="#f87171" strokeWidth="2" fill="none" />
+                          {/* 白衣 */}
+                          <rect x="-22" y="28" width="44" height="65" rx="5" fill="white" />
+                          <rect x="-18" y="32" width="36" height="8" rx="2" fill="#3b82f6" />
+                          {/* 聽診器 */}
+                          <circle cx="0" cy="55" r="8" fill="#374151" />
+                          <circle cx="0" cy="55" r="5" fill="#6b7280" />
+                          <path d="M0,47 Q-10,35 -15,25" stroke="#374151" strokeWidth="3" fill="none" />
+                          <path d="M0,47 Q10,35 15,25" stroke="#374151" strokeWidth="3" fill="none" />
+                        </g>
+                        
+                        {/* キャラクター3: ピンク髪 */}
+                        <g transform="translate(550, 125)">
+                          {/* 顔 */}
+                          <ellipse cx="0" cy="0" rx="23" ry="27" fill="#fef3e2" />
+                          {/* 髪 */}
+                          <path d="M-23,-10 Q-26,-20 -16,-30 Q0,-35 16,-30 Q26,-20 23,-10 Q20,-5 16,0 L23,-10" fill="url(#hairPink)" />
+                          {/* 目 */}
+                          <ellipse cx="-6" cy="-2" rx="3" ry="4" fill="#8b5cf6" />
+                          <ellipse cx="6" cy="-2" rx="3" ry="4" fill="#8b5cf6" />
+                          <ellipse cx="-6" cy="-2" rx="1" ry="2" fill="white" />
+                          <ellipse cx="6" cy="-2" rx="1" ry="2" fill="white" />
+                          {/* 口 */}
+                          <path d="M-3,5 Q0,9 3,5" stroke="#f87171" strokeWidth="2" fill="none" />
+                          {/* ピンクの服 */}
+                          <rect x="-20" y="27" width="40" height="58" rx="5" fill="#fce7f3" />
+                          <rect x="-16" y="31" width="32" height="50" rx="3" fill="#f9a8d4" />
+                        </g>
+                        
+                        {/* キラキラエフェクト */}
+                        <g opacity="0.6">
+                          <circle cx="100" cy="80" r="3" fill="#fbbf24" />
+                          <circle cx="200" cy="60" r="2" fill="#f472b6" />
+                          <circle cx="600" cy="90" r="4" fill="#a855f7" />
+                          <circle cx="700" cy="70" r="2" fill="#06b6d4" />
+                        </g>
+                        
+                        {/* ハート */}
+                        <g transform="translate(450, 50)" fill="#f87171" opacity="0.7">
+                          <path d="M0,8 C-5,0 -15,0 -15,8 C-15,12 0,20 0,20 S15,12 15,8 C15,0 5,0 0,8 Z" />
+                        </g>
+                      </svg>
+                    </div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-purple-900/40"></div>
                   </div>
                   
                   {/* オーバーレイテキスト */}
