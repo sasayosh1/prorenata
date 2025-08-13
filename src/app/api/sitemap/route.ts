@@ -23,6 +23,12 @@ export async function GET() {
         priority: 0.9
       },
       {
+        url: `${baseUrl}/community`,
+        lastmod: currentDate,
+        changefreq: 'weekly',
+        priority: 0.8
+      },
+      {
         url: `${baseUrl}/articles`,
         lastmod: currentDate,
         changefreq: 'daily',

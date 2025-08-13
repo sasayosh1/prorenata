@@ -69,6 +69,13 @@ export default async function Home() {
               <Link href="/articles" className="text-slate-700 hover:text-blue-600 font-medium transition-colors">
                 記事一覧
               </Link>
+              <Link href="/nursing-assistant" className="text-slate-700 hover:text-blue-600 font-medium transition-colors">
+                看護助手情報
+              </Link>
+              <Link href="/community" className="text-slate-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1">
+                <span>コミュニティ</span>
+                <span className="text-xs bg-purple-100 text-purple-600 px-1.5 py-0.5 rounded-full">NEW</span>
+              </Link>
               <Link href="/categories" className="text-slate-700 hover:text-blue-600 font-medium transition-colors">
                 カテゴリー
               </Link>
@@ -272,6 +279,76 @@ export default async function Home() {
                   </div>
                 </div>
               </section>
+
+          {/* コミュニティセクション */}
+          <section className="mb-12">
+            <div className="medical-card p-8 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+                    🌟 新しいコミュニティが誕生しました
+                    <span className="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full">NEW</span>
+                  </h2>
+                  <p className="text-slate-600">
+                    看護助手として働く仲間と繋がり、情報交換や相談ができるコミュニティスペース
+                  </p>
+                </div>
+                <div className="hidden md:block">
+                  {/* CNP Luna アイコン */}
+                  <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center relative border-2 border-purple-200">
+                    <div className="w-12 h-12 bg-pink-100 rounded-full relative">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full absolute top-3 left-3"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full absolute top-3 right-3"></div>
+                      <div className="w-2 h-4 bg-pink-100 rounded-full absolute -top-1 left-2 border border-pink-200"></div>
+                      <div className="w-2 h-4 bg-pink-100 rounded-full absolute -top-1 right-2 border border-pink-200"></div>
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 bg-purple-500 text-white text-xs px-1.5 py-0.5 rounded-full">
+                      Luna
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-4 gap-4 mb-6">
+                <div className="bg-white/70 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">💬</div>
+                  <div className="text-sm font-semibold text-slate-700">情報交換</div>
+                  <div className="text-xs text-slate-500">フォーラム</div>
+                </div>
+                <div className="bg-white/70 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🎯</div>
+                  <div className="text-sm font-semibold text-slate-700">キャリア相談</div>
+                  <div className="text-xs text-slate-500">転職・資格</div>
+                </div>
+                <div className="bg-white/70 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">📚</div>
+                  <div className="text-sm font-semibold text-slate-700">学習グループ</div>
+                  <div className="text-xs text-slate-500">資格対策</div>
+                </div>
+                <div className="bg-white/70 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">💝</div>
+                  <div className="text-sm font-semibold text-slate-700">メンタルサポート</div>
+                  <div className="text-xs text-slate-500">悩み相談</div>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <Link 
+                  href="/community" 
+                  className="btn btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl"
+                >
+                  <span>🐰</span>
+                  コミュニティに参加する
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <p className="text-xs text-slate-500 mt-2">
+                  CNP Lunaと一緒に、温かいコミュニティを作っていこう
+                </p>
+              </div>
+            </div>
+          </section>
 
           {/* ステータス（開発用） */}
           {process.env.NODE_ENV === 'development' && (
@@ -479,6 +556,11 @@ export default async function Home() {
               <ul className="space-y-2 text-slate-300">
                 <li><Link href="/" className="hover:text-white transition-colors">ホーム</Link></li>
                 <li><Link href="/articles" className="hover:text-white transition-colors">記事一覧</Link></li>
+                <li><Link href="/nursing-assistant" className="hover:text-white transition-colors">看護助手情報</Link></li>
+                <li><Link href="/community" className="hover:text-white transition-colors flex items-center gap-1">
+                  コミュニティ
+                  <span className="text-xs bg-purple-500 px-1.5 py-0.5 rounded-full">NEW</span>
+                </Link></li>
                 <li><Link href="/categories" className="hover:text-white transition-colors">カテゴリー</Link></li>
                 <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
               </ul>
