@@ -2,7 +2,6 @@
 import { createClient } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
-import Sidebar from '@/components/Sidebar'
 import type { Metadata } from 'next'
 
 const projectId = '72m8vhy2'
@@ -160,6 +159,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   const query = `*[_type == "post" && slug.current == $slug][0] {
     _id,
     title,
+    slug,
     publishedAt,
     _updatedAt,
     excerpt,
@@ -167,6 +167,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     focusKeyword,
     relatedKeywords,
     readingTime,
+    contentType,
+    tags,
     "categories": categories[]->title,
     "author": author->{name, slug}
   }`
@@ -174,11 +176,11 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
   if (!post) {
     return (
-      <div className="medical-gradient-subtle min-h-screen">
+      <div className="bg-white min-h-screen">
         <div className="max-w-4xl mx-auto px-6 py-16 text-center">
-          <h1 className="text-2xl font-bold text-slate-800 mb-4">記事が見つかりません</h1>
-          <p className="text-slate-600 mb-8">お探しの記事は存在しないか、削除された可能性があります。</p>
-          <Link href="/" className="btn btn-primary">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">記事が見つかりません</h1>
+          <p className="text-gray-600 mb-8">お探しの記事は存在しないか、削除された可能性があります。</p>
+          <Link href="/" className="bg-gray-900 text-white px-4 py-2 rounded text-sm hover:bg-gray-700">
             ホームに戻る
           </Link>
         </div>
@@ -186,164 +188,88 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     )
   }
 
-  // 構造化データ (JSON-LD)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'
-  const articleStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "description": post.excerpt || `${post.title}について詳しく解説します。`,
-    "author": {
-      "@type": "Person",
-      "name": post.author?.name || "ProReNata編集部"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ProReNata",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${baseUrl}/logo.png`
-      }
-    },
-    "datePublished": post.publishedAt,
-    "dateModified": post._updatedAt || post.publishedAt,
-    "url": `${baseUrl}/posts/${resolvedParams.slug}`,
-    "image": `${baseUrl}/og-article.png`,
-    "articleSection": post.categories?.[0] || "記事",
-    "keywords": [
-      post.focusKeyword,
-      ...(post.relatedKeywords || []),
-      ...(post.categories || [])
-    ].filter(Boolean).join(", "),
-    "wordCount": post.body ? post.body.length * 5 : 1000, // 概算
-    "timeRequired": `PT${post.readingTime || 5}M`,
-    "inLanguage": "ja-JP",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `${baseUrl}/posts/${resolvedParams.slug}`
-    }
-  }
 
   return (
-    <div className="medical-gradient-subtle min-h-screen">
-      {/* 構造化データの挿入 */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleStructuredData)
-        }}
-      />
+    <div className="bg-white min-h-screen">
       {/* ヘッダー */}
-      <header className="medical-gradient text-white py-8">
+      <header className="bg-white border-b border-gray-200 py-4">
         <div className="max-w-4xl mx-auto px-6">
-          <Link href="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition-colors">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            ProReNataホームに戻る
+          <Link href="/" className="text-gray-600 hover:text-gray-900 text-sm">
+            ← ProReNataホームに戻る
           </Link>
         </div>
       </header>
 
       {/* メインコンテンツ */}
-      <main className="py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-4 gap-8">
-            {/* メインコンテンツエリア */}
-            <div className="lg:col-span-3">
-              <article>
-                <div className="medical-card p-8 mb-8">
+      <main className="py-8">
+        <div className="max-w-4xl mx-auto px-6">
+          <article>
             {/* メタ情報 */}
-            <div className="flex flex-wrap items-center gap-4 mb-6">
-              <span className="medical-badge medical-badge-primary">
-                <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd" />
-                </svg>
-                ProReNata
-              </span>
+            <div className="mb-4">
+              <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">ProReNata</span>
               {post.categories && post.categories.map((category: string, index: number) => (
-                <span key={index} className="medical-badge medical-badge-secondary">
+                <span key={index} className="ml-2 text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
                   {category}
                 </span>
               ))}
             </div>
 
             {/* タイトル */}
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4 leading-tight">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
               {post.title}
             </h1>
 
             {/* 概要 */}
             {post.excerpt && (
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
-                <p className="text-blue-800 leading-relaxed">{post.excerpt}</p>
+              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 mb-6">
+                <p className="text-gray-700">{post.excerpt}</p>
               </div>
             )}
 
             {/* 公開情報 */}
-            <div className="flex items-center justify-between py-4 mb-8 border-b border-slate-200">
-              <div className="flex items-center gap-4 text-sm text-slate-600">
-                <time className="flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
+            <div className="py-4 mb-6 border-b border-gray-200">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-gray-500">
+                <time>
                   {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
                   })}
                 </time>
-                {post.author && (
-                  <span className="flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    {post.author.name}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                  {post.author && (
+                    <span>
+                      執筆: {post.author.name}
+                    </span>
+                  )}
+                  <span>
+                    読了時間: 約{post.readingTime || 5}分
                   </span>
-                )}
-              </div>
-              <div className="flex items-center text-xs text-slate-400">
-                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                約5分で読める
+                </div>
               </div>
             </div>
 
             {/* 記事本文 */}
-            <div className="prose prose-lg prose-slate max-w-none">
+            <div className="prose prose-gray max-w-none text-gray-800 leading-relaxed space-y-6">
               <PortableText value={post.body} />
             </div>
-          </div>
 
-                {/* 記事下部のCTA */}
-                <div className="medical-gradient text-white rounded-lg p-8 text-center">
-                  <h2 className="text-2xl font-bold mb-4">他の記事も読んでみませんか？</h2>
-                  <p className="text-blue-100 mb-6">
-                    看護助手の体験や日常のこと、趣味のことなどを
-                    気軽に書いている個人ブログです。
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link href="/" className="btn btn-secondary">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M8 11h8" />
-                      </svg>
-                      他の記事を見る
-                    </Link>
-                    <Link href="/" className="btn btn-outline bg-white text-blue-600 border-white hover:bg-blue-50">
-                      ホームに戻る
-                    </Link>
-                  </div>
-                </div>
-              </article>
+            {/* 記事下部のCTA */}
+            <div className="bg-gray-50 rounded-lg p-6 text-center mt-8">
+              <h2 className="text-lg font-semibold text-gray-900 mb-2">他の記事も読んでみませんか？</h2>
+              <p className="text-gray-600 text-sm mb-4">
+                看護助手の体験や日常のことを気軽に書いている個人ブログです。
+              </p>
+              <div className="flex gap-3 justify-center">
+                <Link href="/" className="bg-gray-900 text-white px-4 py-2 rounded text-sm hover:bg-gray-700">
+                  他の記事を見る
+                </Link>
+                <Link href="/" className="border border-gray-300 text-gray-700 px-4 py-2 rounded text-sm hover:bg-gray-50">
+                  ホームに戻る
+                </Link>
+              </div>
             </div>
-            
-            {/* サイドバー */}
-            <div className="lg:col-span-1">
-              <Sidebar />
-            </div>
-          </div>
+          </article>
         </div>
       </main>
     </div>
