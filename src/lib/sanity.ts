@@ -35,11 +35,24 @@ export interface Post {
     current: string
   }
   publishedAt: string
+  _updatedAt?: string
   excerpt?: string
   mainImage?: SanityImage
   categories?: Category[]
   author?: Author
   body?: Array<Record<string, unknown>>
+  // SEO関連フィールド
+  metaTitle?: string
+  metaDescription?: string
+  focusKeyword?: string
+  relatedKeywords?: string[]
+  // コンテンツ分類
+  contentType?: string
+  targetAudience?: string
+  difficulty?: string
+  readingTime?: number
+  featured?: boolean
+  tags?: string[]
 }
 
 export interface Author {
@@ -55,7 +68,16 @@ export interface Author {
 export interface Category {
   _id: string
   title: string
+  slug: {
+    current: string
+  }
   description?: string
+  color?: string
+  icon?: string
+  featured?: boolean
+  level?: 'main' | 'sub'
+  sortOrder?: number
+  active?: boolean
 }
 
 // データ取得関数
@@ -66,11 +88,22 @@ export async function getAllPosts(): Promise<Post[]> {
       title,
       slug,
       publishedAt,
+      _updatedAt,
       excerpt,
       mainImage,
       "categories": categories[]->title,
       "author": author->{name, slug},
-      body
+      body,
+      metaTitle,
+      metaDescription,
+      focusKeyword,
+      relatedKeywords,
+      contentType,
+      targetAudience,
+      difficulty,
+      readingTime,
+      featured,
+      tags
     }`
     
     console.log('Executing Sanity query:', query)
@@ -80,6 +113,29 @@ export async function getAllPosts(): Promise<Post[]> {
   } catch (error) {
     console.error('Sanity fetch error:', error)
     throw error
+  }
+}
+
+export async function getAllCategories(): Promise<Category[]> {
+  try {
+    const query = `*[_type == "category"] | order(sortOrder asc) {
+      _id,
+      title,
+      slug,
+      description,
+      color,
+      icon,
+      featured,
+      level,
+      sortOrder,
+      active
+    }`
+    
+    const result = await client.fetch(query)
+    return result
+  } catch (error) {
+    console.error('Categories fetch error:', error)
+    return []
   }
 }
 

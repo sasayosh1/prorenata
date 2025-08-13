@@ -1,12 +1,40 @@
 {
-  "name": "prorenata-new",
-  "version": "0.2.0",
+  "name": "prorenata",
+  "version": "1.0.0",
+  "description": "看護助手向け情報サイト - 現場経験者が教える実践的ガイド",
   "private": true,
+  "author": "ProReNata編集部",
+  "license": "MIT",
+  "keywords": [
+    "看護助手",
+    "医療現場",
+    "転職",
+    "資格",
+    "キャリア",
+    "情報サイト"
+  ],
+  "homepage": "https://prorenata.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sasayosh1/prorenata"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "build:analyze": "ANALYZE=true npm run build",
+    "test": "echo \"No tests yet\" && exit 0",
+    "clean": "rm -rf .next",
+    "postbuild": "echo \"Build completed successfully\"",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.6.7"
   },
   "dependencies": {
     "@portabletext/react": "^3.2.1",

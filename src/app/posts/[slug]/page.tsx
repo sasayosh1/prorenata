@@ -3,6 +3,7 @@ import { createClient } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
 import Sidebar from '@/components/Sidebar'
+import type { Metadata } from 'next'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -21,6 +22,133 @@ export async function generateStaticParams() {
   return slugs.map((s: { slug: string }) => ({ slug: s.slug }))
 }
 
+// 動的メタデータ生成
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params
+  const query = `*[_type == "post" && slug.current == $slug][0] {
+    _id,
+    title,
+    excerpt,
+    publishedAt,
+    _updatedAt,
+    slug,
+    metaTitle,
+    metaDescription,
+    focusKeyword,
+    relatedKeywords,
+    featured,
+    readingTime,
+    "categories": categories[]->title,
+    "author": author->{name}
+  }`
+  
+  try {
+    const post = await client.fetch(query, { slug: resolvedParams.slug })
+    
+    if (!post) {
+      return {
+        title: '記事が見つかりません | ProReNata',
+        description: 'お探しの記事は存在しないか、削除された可能性があります。',
+      }
+    }
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'
+    const canonicalUrl = `${baseUrl}/posts/${post.slug.current}`
+    
+    // メタタイトル（SEO最適化）
+    const title = post.metaTitle || `${post.title} | ProReNata`
+    
+    // メタ説明（SEO最適化）
+    const description = post.metaDescription || 
+      post.excerpt || 
+      `${post.title}について、看護助手として働く皆様のお役に立つ情報をお届けします。`
+    
+    // キーワード（SEO最適化）
+    const keywords = [
+      post.focusKeyword,
+      ...(post.relatedKeywords || []),
+      ...(post.categories || []),
+      '看護助手',
+      'ProReNata'
+    ].filter(Boolean)
+
+    return {
+      title,
+      description,
+      keywords: keywords.join(', '),
+      
+      // URL設定
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      
+      // Open Graph
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: 'ProReNata',
+        locale: 'ja_JP',
+        type: 'article',
+        publishedTime: post.publishedAt,
+        modifiedTime: post._updatedAt || post.publishedAt,
+        authors: post.author?.name ? [post.author.name] : ['ProReNata編集部'],
+        section: post.categories?.[0] || '記事',
+        tags: keywords,
+        images: [
+          {
+            url: `${baseUrl}/og-article.png`,
+            width: 1200,
+            height: 630,
+            alt: title,
+            type: 'image/png'
+          }
+        ]
+      },
+      
+      // Twitter Card
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: [`${baseUrl}/twitter-article.png`],
+        creator: '@prorenata',
+      },
+      
+      // 記事固有の情報
+      other: {
+        'article:author': post.author?.name || 'ProReNata編集部',
+        'article:published_time': post.publishedAt,
+        'article:modified_time': post._updatedAt || post.publishedAt,
+        'article:section': post.categories?.[0] || '記事',
+        'article:tag': keywords.join(','),
+        'reading-time': `${post.readingTime || 5}分`,
+      },
+      
+      // 検索エンジン最適化
+      robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: false,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      },
+    }
+  } catch (error) {
+    console.error('メタデータ生成エラー:', error)
+    return {
+      title: 'エラー | ProReNata',
+      description: '記事の読み込み中にエラーが発生しました。',
+    }
+  }
+}
+
 interface PostPageProps {
   params: Promise<{
     slug: string
@@ -33,8 +161,12 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     _id,
     title,
     publishedAt,
+    _updatedAt,
     excerpt,
     body,
+    focusKeyword,
+    relatedKeywords,
+    readingTime,
     "categories": categories[]->title,
     "author": author->{name, slug}
   }`
@@ -54,8 +186,53 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     )
   }
 
+  // 構造化データ (JSON-LD)
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt || `${post.title}について詳しく解説します。`,
+    "author": {
+      "@type": "Person",
+      "name": post.author?.name || "ProReNata編集部"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ProReNata",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logo.png`
+      }
+    },
+    "datePublished": post.publishedAt,
+    "dateModified": post._updatedAt || post.publishedAt,
+    "url": `${baseUrl}/posts/${resolvedParams.slug}`,
+    "image": `${baseUrl}/og-article.png`,
+    "articleSection": post.categories?.[0] || "記事",
+    "keywords": [
+      post.focusKeyword,
+      ...(post.relatedKeywords || []),
+      ...(post.categories || [])
+    ].filter(Boolean).join(", "),
+    "wordCount": post.body ? post.body.length * 5 : 1000, // 概算
+    "timeRequired": `PT${post.readingTime || 5}M`,
+    "inLanguage": "ja-JP",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/posts/${resolvedParams.slug}`
+    }
+  }
+
   return (
     <div className="medical-gradient-subtle min-h-screen">
+      {/* 構造化データの挿入 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleStructuredData)
+        }}
+      />
       {/* ヘッダー */}
       <header className="medical-gradient text-white py-8">
         <div className="max-w-4xl mx-auto px-6">

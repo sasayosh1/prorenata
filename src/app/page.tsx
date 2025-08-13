@@ -1,6 +1,5 @@
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
-import Image from 'next/image'
 import Sidebar from '@/components/Sidebar'
 
 // 最強のキャッシュ無効化

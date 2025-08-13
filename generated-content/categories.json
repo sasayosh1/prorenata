@@ -1,0 +1,83 @@
+{
+  "categories": [
+    {
+      "title": "基礎知識・入門",
+      "slug": "basics",
+      "description": "看護助手の基本的な知識と入門情報",
+      "level": 1,
+      "icon": "📚",
+      "color": "#3B82F6",
+      "sortOrder": 1,
+      "metaTitle": "看護助手の基礎知識・入門ガイド",
+      "metaDescription": "看護助手として働くための基本的な知識、仕事内容、必要なスキルを分かりやすく解説します。",
+      "featured": true
+    },
+    {
+      "title": "キャリア・資格",
+      "slug": "career",
+      "description": "キャリア形成、資格取得、転職に関する情報",
+      "level": 1,
+      "icon": "🎯",
+      "color": "#10B981",
+      "sortOrder": 2,
+      "metaTitle": "看護助手のキャリア・資格情報",
+      "metaDescription": "看護助手のキャリアアップ、資格取得、転職活動に役立つ情報をお届けします。",
+      "featured": true
+    },
+    {
+      "title": "給与・待遇",
+      "slug": "salary",
+      "description": "給与、待遇、労働条件に関する情報",
+      "level": 1,
+      "icon": "💰",
+      "color": "#F59E0B",
+      "sortOrder": 3,
+      "metaTitle": "看護助手の給与・待遇情報",
+      "metaDescription": "看護助手の給与相場、手当、福利厚生など、待遇に関する詳しい情報をご紹介します。",
+      "featured": true
+    },
+    {
+      "title": "実務・ノウハウ",
+      "slug": "practice",
+      "description": "現場での実務や効率化のテクニック",
+      "level": 1,
+      "icon": "⚕️",
+      "color": "#EF4444",
+      "sortOrder": 4,
+      "metaTitle": "看護助手の実務ノウハウ",
+      "metaDescription": "看護助手の実務で役立つテクニック、効率化の方法、患者対応のコツをお教えします。",
+      "featured": true
+    },
+    {
+      "title": "職場別情報",
+      "slug": "workplace",
+      "description": "病院、クリニック、介護施設など職場別の情報",
+      "level": 1,
+      "icon": "🏥",
+      "color": "#8B5CF6",
+      "sortOrder": 5,
+      "metaTitle": "看護助手の職場別情報",
+      "metaDescription": "病院、クリニック、介護施設など、看護助手が働く様々な職場の特徴を比較解説します。",
+      "featured": false
+    },
+    {
+      "title": "悩み・相談",
+      "slug": "consultation",
+      "description": "職場での悩みや相談に関するアドバイス",
+      "level": 1,
+      "icon": "💭",
+      "color": "#EC4899",
+      "sortOrder": 6,
+      "metaTitle": "看護助手の悩み・相談",
+      "metaDescription": "看護助手が抱える悩みや相談に対するアドバイス、解決方法をご提案します。",
+      "featured": false
+    }
+  ],
+  "structure": {
+    "total": 6,
+    "levels": {
+      "1": 6
+    },
+    "featured": 4
+  }
+}

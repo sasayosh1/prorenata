@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "title": "基礎知識・入門",
+      "slug": "basics",
+      "description": "看護助手の基本的な知識と入門情報",
+      "level": 1,
+      "icon": "📚",
+      "color": "#3B82F6",
+      "sortOrder": 1
+    },
+    {
+      "title": "キャリア・資格",
+      "slug": "career",
+      "description": "キャリア形成、資格取得、転職に関する情報",
+      "level": 1,
+      "icon": "🎯",
+      "color": "#10B981",
+      "sortOrder": 2
+    },
+    {
+      "title": "給与・待遇",
+      "slug": "salary",
+      "description": "給与、待遇、労働条件に関する情報",
+      "level": 1,
+      "icon": "💰",
+      "color": "#F59E0B",
+      "sortOrder": 3
+    },
+    {
+      "title": "実務・ノウハウ",
+      "slug": "practice",
+      "description": "現場での実務や効率化のテクニック",
+      "level": 1,
+      "icon": "⚕️",
+      "color": "#EF4444",
+      "sortOrder": 4
+    },
+    {
+      "title": "職場別情報",
+      "slug": "workplace",
+      "description": "病院、クリニック、介護施設など職場別の情報",
+      "level": 1,
+      "icon": "🏥",
+      "color": "#8B5CF6",
+      "sortOrder": 5
+    },
+    {
+      "title": "悩み・相談",
+      "slug": "consultation",
+      "description": "職場での悩みや相談に関するアドバイス",
+      "level": 1,
+      "icon": "💭",
+      "color": "#EC4899",
+      "sortOrder": 6
+    }
+  ]
+}
