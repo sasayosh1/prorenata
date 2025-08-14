@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
+import { LazyPWAInstaller } from "@/components/LazyComponents";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,6 +10,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
   display: 'swap',
   preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const notoSansJP = Noto_Sans_JP({
@@ -17,6 +19,7 @@ const notoSansJP = Noto_Sans_JP({
   weight: ["400", "500", "600", "700"],
   display: 'swap',
   preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 // キャッシュを強制的に無効化
@@ -141,10 +144,10 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#1f2937' }
+    { media: '(prefers-color-scheme: light)', color: '#0284c7' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' }
   ],
-  colorScheme: 'light'
+  colorScheme: 'light dark'
 };
 
 export default function RootLayout({
@@ -230,6 +233,32 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//cdn.sanity.io" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* PWA メタタグ */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="ProReNata" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-TileColor" content="#0284c7" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        
+        {/* Service Worker 事前登録 */}
+        <link rel="manifest" href="/manifest.json" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                  .then(function(registration) {
+                    console.log('✅ Service Worker registered: ', registration.scope);
+                  }, function(err) {
+                    console.log('❌ Service Worker registration failed: ', err);
+                  });
+              });
+            }
+          `
+        }} />
       </head>
       <body
         className={`${inter.variable} ${notoSansJP.variable} font-sans antialiased`}
@@ -245,6 +274,9 @@ export default function RootLayout({
         <div id="main-content">
           {children}
         </div>
+        
+        {/* PWA機能 */}
+        <LazyPWAInstaller />
         
         {/* Analytics コンポーネント */}
         {process.env.NEXT_PUBLIC_GA_ID && (

@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         tags: keywords,
         images: [
           {
-            url: `${baseUrl}/og-article.png`,
+            url: `${baseUrl}/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(description)}&category=${encodeURIComponent(post.categories?.[0] || '')}&readingTime=${post.readingTime || 5}`,
             width: 1200,
             height: 630,
             alt: title,
@@ -117,7 +117,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         card: 'summary_large_image',
         title,
         description,
-        images: [`${baseUrl}/twitter-article.png`],
+        images: [`${baseUrl}/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(description)}&category=${encodeURIComponent(post.categories?.[0] || '')}&readingTime=${post.readingTime || 5}`],
         creator: '@prorenata',
       },
       

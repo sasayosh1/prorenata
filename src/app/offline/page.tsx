@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { WifiOff, RefreshCw, Heart, BookOpen, Home, Clock, FileText, Search } from 'lucide-react'
 
 export const metadata = {
   title: 'オフライン | ProReNata',
@@ -8,132 +11,158 @@ export const metadata = {
 
 export default function OfflinePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white">
-      <div className="container mx-auto px-6 py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          {/* アイコンとタイトル */}
-          <div className="mb-8">
-            <div className="w-24 h-24 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              📱 オフラインモード
-            </h1>
-            <p className="text-xl text-blue-100">
-              インターネット接続が確認できません
-            </p>
-          </div>
-
-          {/* 説明 */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-            <h2 className="text-2xl font-semibold mb-4">ご利用いただける機能</h2>
-            <div className="grid md:grid-cols-2 gap-6 text-left">
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                  </svg>
-                  お気に入り記事
-                </h3>
-                <p className="text-sm text-blue-100">
-                  お気に入りに追加した記事はオフラインでも閲覧できる場合があります。
-                </p>
+    <div className="min-h-screen bg-gradient-to-b from-medical-50/50 to-white">
+      {/* Header */}
+      <header className="bg-white/95 backdrop-blur-sm border-b border-professional-200 shadow-sm">
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-medical-500 to-medical-600 rounded-xl flex items-center justify-center">
+                <Heart className="w-6 h-6 text-white" />
               </div>
-              
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  読書履歴
-                </h3>
-                <p className="text-sm text-blue-100">
-                  過去に読んだ記事の履歴を確認できます。
-                </p>
-              </div>
-              
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  キャッシュされた記事
-                </h3>
-                <p className="text-sm text-blue-100">
-                  以前に閲覧した記事の一部はオフラインでも表示されます。
-                </p>
-              </div>
-              
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                  オフライン検索
-                </h3>
-                <p className="text-sm text-blue-100">
-                  キャッシュされた記事の中から検索できます。
-                </p>
+              <div>
+                <h1 className="text-xl font-bold text-professional-900">ProReNata</h1>
+                <p className="text-xs text-professional-600">オフラインモード</p>
               </div>
             </div>
-          </div>
-
-          {/* アクションボタン */}
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => window.location.reload()}
-                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-                再試行
-              </button>
-              
-              <Link 
-                href="/favorites"
-                className="bg-red-500/80 hover:bg-red-500 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-                お気に入りを見る
-              </Link>
-            </div>
-            
-            <p className="text-sm text-blue-200">
-              インターネット接続が復旧すると、自動的に最新の内容が表示されます
-            </p>
-          </div>
-
-          {/* オフライン時のヒント */}
-          <div className="mt-12 bg-white/5 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-lg font-semibold mb-4">💡 オフライン時のヒント</h3>
-            <ul className="text-left text-sm text-blue-100 space-y-2">
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400 mt-1">•</span>
-                <span>Wi-Fi設定やモバイルデータ接続を確認してください</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400 mt-1">•</span>
-                <span>機内モードがオンになっていないか確認してください</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400 mt-1">•</span>
-                <span>お気に入りに追加した記事は、次回オンライン時に自動で更新されます</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-400 mt-1">•</span>
-                <span>PWAとしてホーム画面に追加すると、より快適にご利用いただけます</span>
-              </li>
-            </ul>
+            <Badge variant="outline" className="bg-professional-50">
+              <WifiOff className="w-3 h-3 mr-1" />
+              オフライン
+            </Badge>
           </div>
         </div>
-      </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="py-12 lg:py-24">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="medical-card p-8 lg:p-12">
+            {/* Status Icon */}
+            <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-professional-100 to-professional-200 flex items-center justify-center">
+              <WifiOff className="w-10 h-10 text-professional-600" />
+            </div>
+
+            {/* Title */}
+            <h1 className="text-3xl lg:text-4xl font-bold text-professional-900 mb-6">
+              インターネット接続がありません
+            </h1>
+
+            {/* Description */}
+            <div className="max-w-2xl mx-auto mb-8">
+              <p className="text-lg text-professional-700 leading-relaxed mb-6">
+                現在、インターネットに接続されていないため、最新の記事や情報を表示することができません。
+              </p>
+              
+              <div className="bg-gradient-to-br from-medical-50 via-white to-clean-50 border border-professional-200 rounded-xl p-6 mb-6">
+                <h3 className="font-semibold text-professional-900 mb-4 flex items-center justify-center">
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  オフラインでもご利用いただける機能
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="text-left">
+                    <h4 className="font-medium text-professional-900 mb-2 flex items-center">
+                      <Heart className="w-4 h-4 mr-2 text-medical-500" />
+                      お気に入り記事
+                    </h4>
+                    <p className="text-sm text-professional-700 mb-3">
+                      お気に入りに追加した記事はオフラインでも閲覧できる場合があります。
+                    </p>
+                  </div>
+                  
+                  <div className="text-left">
+                    <h4 className="font-medium text-professional-900 mb-2 flex items-center">
+                      <Clock className="w-4 h-4 mr-2 text-clean-500" />
+                      読書履歴
+                    </h4>
+                    <p className="text-sm text-professional-700 mb-3">
+                      過去に読んだ記事の履歴を確認できます。
+                    </p>
+                  </div>
+                  
+                  <div className="text-left">
+                    <h4 className="font-medium text-professional-900 mb-2 flex items-center">
+                      <FileText className="w-4 h-4 mr-2 text-medical-500" />
+                      キャッシュされた記事
+                    </h4>
+                    <p className="text-sm text-professional-700 mb-3">
+                      以前に閲覧した記事の一部はオフラインでも表示されます。
+                    </p>
+                  </div>
+                  
+                  <div className="text-left">
+                    <h4 className="font-medium text-professional-900 mb-2 flex items-center">
+                      <Search className="w-4 h-4 mr-2 text-clean-500" />
+                      オフライン検索
+                    </h4>
+                    <p className="text-sm text-professional-700 mb-3">
+                      キャッシュされた記事の中から検索できます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
+              <Button 
+                size="lg"
+                onClick={() => window.location.reload()}
+                className="px-8"
+              >
+                <RefreshCw className="w-4 h-4 mr-2" />
+                再試行
+              </Button>
+              
+              <Link href="/favorites">
+                <Button variant="outline" size="lg" className="px-8">
+                  <Heart className="w-4 h-4 mr-2" />
+                  お気に入りを見る
+                </Button>
+              </Link>
+              
+              <Link href="/">
+                <Button variant="outline" size="lg" className="px-8">
+                  <Home className="w-4 h-4 mr-2" />
+                  ホームに戻る
+                </Button>
+              </Link>
+            </div>
+
+            <p className="text-sm text-professional-600 mb-8">
+              インターネット接続が復旧すると、自動的に最新の内容が表示されます
+            </p>
+
+            {/* Tips */}
+            <div className="bg-professional-50 border border-professional-200 rounded-xl p-6">
+              <h4 className="font-semibold text-professional-900 mb-3">
+                💡 接続を改善するためのヒント
+              </h4>
+              <div className="text-sm text-professional-700 space-y-2 text-left max-w-2xl mx-auto">
+                <p>• Wi-Fiまたはモバイルデータの接続を確認してください</p>
+                <p>• 機内モードがオフになっているか確認してください</p>
+                <p>• ルーターの電源を入れ直してみてください</p>
+                <p>• しばらく時間をおいてから再度お試しください</p>
+                <p>• PWAとしてホーム画面に追加すると、より快適にご利用いただけます</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-professional-50 border-t border-professional-200 py-8 mt-12">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <div className="w-8 h-8 bg-gradient-to-br from-medical-500 to-medical-600 rounded-lg flex items-center justify-center">
+              <Heart className="w-4 h-4 text-white" />
+            </div>
+            <span className="font-semibold text-professional-900">ProReNata</span>
+          </div>
+          <p className="text-sm text-professional-600">
+            看護助手として働く皆様のために、必要に応じて情報をお届けします
+          </p>
+        </div>
+      </footer>
     </div>
   )
 }

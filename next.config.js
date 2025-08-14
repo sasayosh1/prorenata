@@ -1,3 +1,7 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // SEO最適化: Trailing Slashを無効化
@@ -9,7 +13,42 @@ const nextConfig = {
       dynamic: 30, // 30秒
       static: 180, // 3分
     },
-    optimizePackageImports: ['@portabletext/react', 'next-sanity'],
+    optimizePackageImports: [
+      '@portabletext/react', 
+      'next-sanity', 
+      'lucide-react',
+      '@radix-ui/react-slot',
+      '@radix-ui/react-toast',
+      'framer-motion'
+    ],
+    // Webpack最適化
+    webpackBuildWorker: true,
+  },
+
+  // Webpack設定の最適化
+  webpack: (config, { isServer }) => {
+    // クライアントサイドでのバンドルサイズ最適化
+    if (!isServer) {
+      config.optimization.splitChunks.cacheGroups = {
+        ...config.optimization.splitChunks.cacheGroups,
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          priority: 10,
+          chunks: 'all',
+          maxSize: 244000,
+        },
+        common: {
+          minChunks: 2,
+          priority: 5,
+          reuseExistingChunk: true,
+          chunks: 'all',
+          maxSize: 244000,
+        },
+      }
+    }
+    
+    return config
   },
   
   // 外部画像ホストの許可
@@ -113,4 +152,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = withBundleAnalyzer(nextConfig)

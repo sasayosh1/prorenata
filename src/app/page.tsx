@@ -4,7 +4,7 @@ import { formatDate } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import SimpleSearch from '@/components/SimpleSearch'
-import DarkModeToggle from '@/components/DarkModeToggle'
+import { LazyDarkModeToggle, LazyPWAInstaller } from '@/components/LazyComponents'
 import { Heart, Users, BookOpen, TrendingUp } from 'lucide-react'
 
 // 最強のキャッシュ無効化
@@ -66,7 +66,7 @@ export default async function Home() {
 
             {/* Controls */}
             <div className="flex items-center gap-2">
-              <DarkModeToggle />
+              <LazyDarkModeToggle />
               
               {/* Mobile menu button */}
               <button className="md:hidden p-2 rounded-md hover:bg-professional-100">
@@ -446,6 +446,9 @@ export default async function Home() {
           </div>
         </div>
       </footer>
+
+      {/* PWA Installer */}
+      <LazyPWAInstaller />
     </div>
   );
 }
