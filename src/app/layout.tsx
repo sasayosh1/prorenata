@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import Analytics from "@/components/Analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,11 +54,11 @@ export const metadata: Metadata = {
   publisher: "ProReNata",
   
   // URL設定
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'),
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app',
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp',
     languages: {
-      'ja-JP': process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'
+      'ja-JP': process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'
     }
   },
   
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     siteName: 'ProReNata',
     title: 'ProReNata | 看護助手向け情報サイト',
     description: '看護助手として働く方、目指す方のための専門情報サイト。現場経験者による実践的なガイドを提供します。',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp',
     locale: 'ja_JP',
     images: [
       {
@@ -164,14 +165,14 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "ProReNata",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.vercel.app",
+              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp",
               "description": "看護助手向け情報サイト",
-              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.vercel.app"}/logo.png`,
+              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/logo.png`,
               "foundingDate": "2025",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.vercel.app"}/contact`
+                "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/contact`
               }
             })
           }}
@@ -185,12 +186,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "ProReNata",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.vercel.app",
+              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp",
               "description": "看護助手として働く方、目指す方のための専門情報サイト",
               "inLanguage": "ja-JP",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.vercel.app"}/search?q={search_term_string}`,
+                "target": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/search?q={search_term_string}`,
                 "query-input": "required name=search_term_string"
               },
               "publisher": {
@@ -246,6 +247,11 @@ export default function RootLayout({
         <div id="main-content">
           {children}
         </div>
+        
+        {/* Analytics コンポーネント */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <Analytics />
+        )}
 
         {/* パフォーマンス監視 (開発環境用) */}
         {process.env.NODE_ENV === 'development' && (

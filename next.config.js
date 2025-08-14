@@ -3,12 +3,13 @@ const nextConfig = {
   // SEO最適化: Trailing Slashを無効化
   trailingSlash: false,
   
-  // キャッシュを無効化してVercelで即座に反映
+  // パフォーマンス最適化
   experimental: {
     staleTimes: {
-      dynamic: 0,
-      static: 0,
+      dynamic: 30, // 30秒
+      static: 180, // 3分
     },
+    optimizePackageImports: ['@portabletext/react', 'next-sanity'],
   },
   
   // 外部画像ホストの許可
@@ -35,7 +36,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate, max-age=0',
+            value: 'public, max-age=3600, stale-while-revalidate=86400',
           },
           // セキュリティヘッダー
           {
@@ -57,6 +58,24 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/api/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, must-revalidate'
+          }
+        ]
+      },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      }
     ]
   },
   
