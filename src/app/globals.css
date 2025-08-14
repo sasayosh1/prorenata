@@ -1,333 +1,315 @@
 @import "tailwindcss";
 
+/* Medical-themed CSS Variables for ProReNata */
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --primary: #1a1a1a;
-  --primary-light: #333333;
-  --secondary: #666666;
-  --accent: #ffffff;
-  --border: #e5e5e5;
-  --border-light: #f5f5f5;
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --text-muted: #666666;
+  /* Color tokens - Light mode */
+  --background: 255 255 255;
+  --foreground: 15 23 42; /* professional-900 */
+  --muted: 248 250 252; /* professional-50 */
+  --muted-foreground: 100 116 139; /* professional-500 */
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --border: 226 232 240; /* professional-200 */
+  --input: 226 232 240;
+  --primary: 2 132 199; /* medical-600 */
+  --primary-foreground: 255 255 255;
+  --secondary: 241 245 249; /* professional-100 */
+  --secondary-foreground: 30 41 59; /* professional-800 */
+  --accent: 240 249 255; /* medical-50 */
+  --accent-foreground: 7 89 133; /* medical-800 */
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --ring: 14 165 233; /* medical-500 */
+  --radius: 0.5rem;
+  
+  /* Medical-specific tokens */
+  --medical-primary: 14 165 233; /* medical-500 */
+  --medical-secondary: 34 197 94; /* clean-500 */
+  --professional-text: 51 65 85; /* professional-700 */
+  --professional-heading: 15 23 42; /* professional-900 */
+}
+
+.dark {
+  /* Dark mode color tokens */
+  --background: 2 6 23; /* professional-950 */
+  --foreground: 248 250 252; /* professional-50 */
+  --muted: 15 23 42; /* professional-900 */
+  --muted-foreground: 148 163 184; /* professional-400 */
+  --popover: 15 23 42;
+  --popover-foreground: 248 250 252;
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+  --border: 30 41 59; /* professional-800 */
+  --input: 30 41 59;
+  --primary: 56 189 248; /* medical-400 */
+  --primary-foreground: 15 23 42;
+  --secondary: 30 41 59;
+  --secondary-foreground: 241 245 249;
+  --accent: 30 41 59;
+  --accent-foreground: 240 249 255;
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+  --ring: 56 189 248;
+  
+  /* Medical-specific dark tokens */
+  --medical-primary: 56 189 248; /* medical-400 */
+  --medical-secondary: 74 222 128; /* clean-400 */
+  --professional-text: 203 213 225; /* professional-300 */
+  --professional-heading: 248 250 252; /* professional-50 */
+}
+
+/* Base styles */
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid rgb(var(--ring));
+  outline-offset: 2px;
 }
 
-/* 滑らかなスクロール */
-html {
-  scroll-behavior: smooth;
+/* Skip to content link */
+.skip-link {
+  @apply absolute -top-full left-4 z-50 bg-medical-600 text-white px-4 py-2 rounded-md;
+  @apply focus:top-4 transition-all duration-200;
 }
 
-/* リンクのスタイル */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.2s ease;
+/* Medical-themed components */
+.medical-card {
+  @apply bg-white border border-professional-200 rounded-lg shadow-medical;
+  @apply hover:shadow-medical-lg transition-all duration-200;
+  @apply dark:bg-professional-900 dark:border-professional-700;
 }
 
-a:hover {
-  color: var(--primary);
+.medical-button {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium;
+  @apply bg-medical-600 text-white hover:bg-medical-700;
+  @apply focus:outline-none focus:ring-2 focus:ring-medical-500 focus:ring-offset-2;
+  @apply transition-all duration-200;
+  @apply dark:focus:ring-offset-professional-900;
 }
 
-/* 美しいボタンスタイル */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: white;
-  color: var(--foreground);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow);
+.medical-button-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium;
+  @apply bg-professional-100 text-professional-700 hover:bg-professional-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-professional-500 focus:ring-offset-2;
+  @apply transition-all duration-200;
+  @apply dark:bg-professional-800 dark:text-professional-200 dark:hover:bg-professional-700;
+  @apply dark:focus:ring-offset-professional-900;
 }
 
-.btn:hover {
-  background: var(--accent);
-  border-color: var(--primary-light);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
-  text-decoration: none;
+.medical-input {
+  @apply w-full px-4 py-3 border border-professional-300 rounded-md;
+  @apply focus:outline-none focus:ring-2 focus:ring-medical-500 focus:border-transparent;
+  @apply bg-white text-professional-900 placeholder-professional-500;
+  @apply transition-all duration-200;
+  @apply dark:bg-professional-800 dark:border-professional-600;
+  @apply dark:text-professional-100 dark:placeholder-professional-400;
 }
 
-.btn-primary {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--primary-light);
-  border-color: var(--primary-light);
-  color: white;
-}
-
-/* カードスタイルの改善 */
-.card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow);
-  transition: all 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-light);
-}
-
-/* ヘッダーとナビゲーションの改善 */
-.site-header {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-light);
-}
-
+/* Navigation styles */
 .nav-link {
-  position: relative;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  @apply relative px-3 py-2 text-sm font-medium text-professional-700;
+  @apply hover:text-medical-600 transition-colors duration-200;
+  @apply focus:outline-none focus:text-medical-600;
+  @apply dark:text-professional-300 dark:hover:text-medical-400;
 }
 
-.nav-link:hover {
-  background: var(--accent);
-  color: var(--primary);
+.nav-link-active {
+  @apply text-medical-600 dark:text-medical-400;
 }
 
 .nav-link::after {
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-medical-600 transform scale-x-0;
+  @apply transition-transform duration-200 origin-left;
   content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 16px;
-  right: 16px;
-  height: 2px;
-  background: var(--primary);
-  transform: scaleX(0);
-  transition: transform 0.2s ease;
 }
 
-.nav-link:hover::after {
-  transform: scaleX(1);
+.nav-link:hover::after,
+.nav-link-active::after {
+  @apply scale-x-100;
 }
 
-/* 検索ボックスの改善 */
-.search-input {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 16px;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  background: white;
+/* Typography improvements */
+.prose-medical {
+  @apply prose prose-professional max-w-none;
+  @apply prose-headings:text-professional-900 prose-headings:font-semibold;
+  @apply prose-p:text-professional-700 prose-p:leading-relaxed;
+  @apply prose-a:text-medical-600 prose-a:no-underline hover:prose-a:underline;
+  @apply prose-strong:text-professional-900 prose-strong:font-semibold;
+  @apply prose-li:text-professional-700;
+  @apply dark:prose-headings:text-professional-100;
+  @apply dark:prose-p:text-professional-300;
+  @apply dark:prose-a:text-medical-400;
+  @apply dark:prose-strong:text-professional-100;
+  @apply dark:prose-li:text-professional-300;
 }
 
-.search-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+/* Card layouts */
+.article-card {
+  @apply medical-card p-6 h-full flex flex-col;
+  @apply hover:translate-y-[-2px] transition-all duration-200;
 }
 
-.search-button {
-  background: var(--primary);
-  border: 1px solid var(--primary);
-  color: white;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-weight: 500;
-  transition: all 0.2s ease;
+.article-card-content {
+  @apply flex-1 flex flex-col justify-between;
 }
 
-.search-button:hover {
-  background: var(--primary-light);
-  transform: translateY(-1px);
+/* Grid layouts */
+.grid-responsive {
+  @apply grid gap-6;
+  @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
 }
 
-.search-button:disabled {
-  background: var(--text-muted);
-  border-color: var(--text-muted);
-  cursor: not-allowed;
-  transform: none;
+.grid-articles {
+  @apply grid gap-8;
+  @apply grid-cols-1 lg:grid-cols-2 xl:grid-cols-3;
 }
 
-/* テキストとタイポグラフィ */
-.heading-primary {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--foreground);
-  margin-bottom: 1rem;
-}
-
-.heading-secondary {
-  font-size: 1.875rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--foreground);
-  margin-bottom: 0.75rem;
-}
-
-.text-muted {
-  color: var(--text-muted);
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* セクションとレイアウト */
+/* Hero section */
 .hero-section {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  @apply bg-gradient-to-br from-medical-50 via-white to-clean-50;
+  @apply border border-professional-200 rounded-2xl p-8 lg:p-12;
+  @apply dark:from-professional-900 dark:via-professional-800 dark:to-professional-900;
+  @apply dark:border-professional-700;
 }
 
-.hero-content {
-  /* シンプルに */
+/* Status indicators */
+.status-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
 }
 
-/* グリッドレイアウト */
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+.status-badge-success {
+  @apply bg-clean-100 text-clean-800 dark:bg-clean-900 dark:text-clean-200;
 }
 
-@media (max-width: 768px) {
-  .grid-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+.status-badge-info {
+  @apply bg-medical-100 text-medical-800 dark:bg-medical-900 dark:text-medical-200;
+}
+
+.status-badge-neutral {
+  @apply bg-professional-100 text-professional-800 dark:bg-professional-800 dark:text-professional-200;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-professional-200 dark:bg-professional-700 rounded;
+}
+
+.loading-shimmer {
+  @apply relative overflow-hidden bg-professional-100 dark:bg-professional-800;
+}
+
+.loading-shimmer::after {
+  @apply absolute inset-0 -translate-x-full bg-gradient-to-r;
+  @apply from-transparent via-white/60 to-transparent;
+  @apply animate-[shimmer_2s_infinite] dark:via-white/10;
+  content: '';
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
 }
 
-/* カードの高さを均等にする */
-.grid-layout article {
-  display: flex;
-  flex-direction: column;
+/* Reading progress bar */
+.reading-progress {
+  @apply fixed top-0 left-0 h-1 bg-medical-600 z-50 transition-all duration-100;
+  @apply dark:bg-medical-400;
 }
 
-.grid-layout article > div:last-child {
-  margin-top: auto;
+/* Table of contents */
+.toc-link {
+  @apply block py-2 px-3 text-sm text-professional-600 hover:text-medical-600;
+  @apply border-l-2 border-transparent hover:border-medical-300;
+  @apply transition-all duration-200;
+  @apply dark:text-professional-400 dark:hover:text-medical-400;
+  @apply dark:hover:border-medical-600;
 }
 
-/* line-clamp ユーティリティ */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.toc-link-active {
+  @apply text-medical-600 border-medical-500 bg-medical-50;
+  @apply dark:text-medical-400 dark:border-medical-400 dark:bg-medical-950;
 }
 
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* バッジとタグ */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  background: var(--accent);
-  color: var(--primary);
-  font-size: 12px;
-  font-weight: 500;
-  border-radius: 20px;
-  border: 1px solid var(--border-light);
-}
-
-.tag {
-  display: inline-block;
-  padding: 6px 12px;
-  background: var(--accent);
-  color: var(--secondary);
-  font-size: 13px;
-  border-radius: 6px;
-  margin: 2px;
-}
-
-/* フッターの改善 */
-.site-footer {
-  background: #ffffff;
-  border-top: 1px solid var(--border);
-  margin-top: 4rem;
-}
-
-/* レスポンシブ設定 */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 16px;
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
   }
   
-  .heading-primary {
-    font-size: 2rem;
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black;
   }
   
-  .heading-secondary {
-    font-size: 1.5rem;
-  }
-  
-  .hero-section {
-    padding: 2rem 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .card {
-    padding: 20px;
-    margin-bottom: 16px;
+  .medical-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
   }
 }
 
-/* ダークモード対応準備（白ベーステーマのため無効化）
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #1a1a1a;
-    --accent: #ffffff;
-    --border: #e5e5e5;
-    --border-light: #f5f5f5;
-    --text-muted: #666666;
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .medical-button {
+    @apply border-2 border-current;
   }
   
-  .card {
-    background: #ffffff;
+  .medical-card {
+    @apply border-2;
   }
   
-  .site-header {
-    background: rgba(255, 255, 255, 0.95);
-  }
-  
-  .search-input {
-    background: #ffffff;
-    color: var(--foreground);
+  .nav-link {
+    @apply font-semibold;
   }
 }
-*/
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .skip-link {
+    transition: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-professional-100 dark:bg-professional-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-professional-300 dark:bg-professional-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-professional-400 dark:bg-professional-500;
+}

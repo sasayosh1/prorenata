@@ -1,24 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: 'swap',
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: 'swap',
+  preload: true,
 });
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: 'swap',
+  preload: true,
 });
 
 // キャッシュを強制的に無効化
@@ -155,7 +153,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable}`}>
+    <html lang="ja" className={`${inter.variable} ${notoSansJP.variable}`}>
       <head>
         {/* 構造化データ - 組織情報 */}
         <script
@@ -234,7 +232,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased`}
+        className={`${inter.variable} ${notoSansJP.variable} font-sans antialiased`}
       >
         {/* Skip to content リンク (アクセシビリティ) */}
         <a

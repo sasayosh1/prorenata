@@ -1,8 +1,15 @@
-
 import { createClient } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { ArrowLeft, Clock, User, Calendar, Tag, BookOpen } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { formatDate } from '@/lib/utils'
+import TableOfContents from '@/components/TableOfContents'
+import ReadingProgress from '@/components/ReadingProgress'
+import ShareButtons from '@/components/ShareButtons'
+import DarkModeToggle from '@/components/DarkModeToggle'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -51,7 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       }
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'
     const canonicalUrl = `${baseUrl}/posts/${post.slug.current}`
     
     // メタタイトル（SEO最適化）
@@ -176,106 +183,179 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
   if (!post) {
     return (
-      <div className="bg-white min-h-screen">
-        <div className="max-w-4xl mx-auto px-6 py-16 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">記事が見つかりません</h1>
-          <p className="text-gray-600 mb-8">お探しの記事は存在しないか、削除された可能性があります。</p>
-          <Link href="/" className="bg-gray-900 text-white px-4 py-2 rounded text-sm hover:bg-gray-700">
-            ホームに戻る
-          </Link>
+      <div className="min-h-screen bg-gradient-to-b from-medical-50/30 to-white">
+        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
+          <div className="medical-card p-12">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-professional-100 flex items-center justify-center">
+              <BookOpen className="w-8 h-8 text-professional-600" />
+            </div>
+            <h1 className="text-2xl font-bold text-professional-900 mb-4">記事が見つかりません</h1>
+            <p className="text-professional-700 mb-8">お探しの記事は存在しないか、削除された可能性があります。</p>
+            <Link href="/">
+              <Button variant="default">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                ホームに戻る
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     )
   }
 
+  const currentUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'}/posts/${post.slug.current}`
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* ヘッダー */}
-      <header className="bg-white border-b border-gray-200 py-4">
-        <div className="max-w-4xl mx-auto px-6">
-          <Link href="/" className="text-gray-600 hover:text-gray-900 text-sm">
-            ← ProReNataホームに戻る
-          </Link>
-        </div>
-      </header>
-
-      {/* メインコンテンツ */}
-      <main className="py-8">
-        <div className="max-w-4xl mx-auto px-6">
-          <article className="card fade-in">
-            {/* メタ情報 */}
-            <div className="mb-6">
-              <span className="badge">🩺 ProReNata</span>
-              {post.categories && post.categories.map((category: string, index: number) => (
-                <span key={index} className="tag ml-2">
-                  🏷️ {category}
-                </span>
-              ))}
-            </div>
-
-            {/* タイトル */}
-            <h1 className="heading-primary mb-6">
-              {post.title}
-            </h1>
-
-            {/* 概要 */}
-            {post.excerpt && (
-              <div className="hero-section mb-8">
-                <div className="hero-content">
-                  <p style={{color: 'var(--foreground)'}}>{post.excerpt}</p>
-                </div>
+    <>
+      <ReadingProgress />
+      
+      <div className="min-h-screen bg-gradient-to-b from-medical-50/30 to-white">
+        {/* Header */}
+        <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-professional-200 shadow-sm">
+          <div className="max-w-6xl mx-auto px-6 py-3">
+            <div className="flex items-center justify-between">
+              <Link 
+                href="/" 
+                className="inline-flex items-center text-professional-700 hover:text-medical-600 transition-colors font-medium"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                ProReNata
+              </Link>
+              
+              <div className="flex items-center gap-4">
+                <DarkModeToggle />
+                <ShareButtons url={currentUrl} title={post.title} excerpt={post.excerpt} />
               </div>
-            )}
+            </div>
+          </div>
+        </header>
 
-            {/* 公開情報 */}
-            <div className="py-6 mb-8 border-b" style={{borderColor: 'var(--border-light)'}}>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-muted">
-                <time className="flex items-center">
-                  📅 {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </time>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                  {post.author && (
-                    <span className="flex items-center">
-                      ✍️ 執筆: {post.author.name}
-                    </span>
+        {/* Main Content */}
+        <main className="py-8">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+              
+              {/* Table of Contents - Sidebar */}
+              <aside className="lg:col-span-1 order-2 lg:order-1">
+                <TableOfContents className="lg:max-w-xs" />
+              </aside>
+
+              {/* Article Content */}
+              <article className="lg:col-span-3 order-1 lg:order-2">
+                <div className="medical-card p-8 lg:p-12">
+                  
+                  {/* Article Meta */}
+                  <div className="flex flex-wrap items-center gap-3 mb-6">
+                    <Badge variant="medical">ProReNata</Badge>
+                    {post.categories && post.categories.map((category: string, index: number) => (
+                      <Badge key={index} variant="outline">
+                        <Tag className="w-3 h-3 mr-1" />
+                        {category}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {/* Article Title */}
+                  <h1 className="text-3xl lg:text-4xl font-bold text-professional-900 leading-tight mb-6">
+                    {post.title}
+                  </h1>
+
+                  {/* Article Excerpt */}
+                  {post.excerpt && (
+                    <div className="bg-gradient-to-br from-medical-50 via-white to-clean-50 border border-professional-200 rounded-xl p-6 mb-8">
+                      <p className="text-lg text-professional-800 leading-relaxed font-medium">
+                        {post.excerpt}
+                      </p>
+                    </div>
                   )}
-                  <span className="flex items-center">
-                    ⏱️ 読了時間: 約{post.readingTime || 5}分
-                  </span>
-                </div>
-              </div>
-            </div>
 
-            {/* 記事本文 */}
-            <div className="prose prose-lg max-w-none leading-relaxed space-y-8" style={{color: 'var(--foreground)'}}>
-              <PortableText value={post.body} />
-            </div>
+                  {/* Article Meta Info */}
+                  <div className="flex flex-wrap items-center gap-6 py-6 mb-8 border-y border-professional-200">
+                    <div className="flex items-center text-sm text-professional-600">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <time dateTime={post.publishedAt}>
+                        {formatDate(post.publishedAt)}
+                      </time>
+                    </div>
+                    
+                    {post.author && (
+                      <div className="flex items-center text-sm text-professional-600">
+                        <User className="w-4 h-4 mr-2" />
+                        執筆: {post.author.name}
+                      </div>
+                    )}
+                    
+                    <div className="flex items-center text-sm text-professional-600">
+                      <Clock className="w-4 h-4 mr-2" />
+                      読了時間: 約{post.readingTime || 5}分
+                    </div>
+                  </div>
 
-            {/* 記事下部のCTA */}
-            <div className="hero-section text-center mt-12">
-              <div className="hero-content">
-                <h2 className="heading-secondary mb-3">📚 他の記事も読んでみませんか？</h2>
-                <p className="text-muted mb-6">
-                  看護助手の体験や日常のことを気軽に書いている個人ブログです。
-                </p>
-                <div className="flex gap-4 justify-center flex-wrap">
-                  <Link href="/" className="btn btn-primary">
-                    📰 他の記事を見る
-                  </Link>
-                  <Link href="/" className="btn">
-                    🏠 ホームに戻る
-                  </Link>
+                  {/* Article Body */}
+                  <div className="prose-medical">
+                    <PortableText value={post.body} />
+                  </div>
+
+                  {/* Article Tags */}
+                  {post.tags && post.tags.length > 0 && (
+                    <div className="mt-12 pt-8 border-t border-professional-200">
+                      <h3 className="text-lg font-semibold text-professional-900 mb-4">タグ</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.map((tag: string, index: number) => (
+                          <Badge key={index} variant="outline" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Related Articles CTA */}
+                  <div className="mt-12 p-8 bg-gradient-to-br from-medical-50 via-white to-clean-50 border border-professional-200 rounded-xl text-center">
+                    <h2 className="text-2xl font-bold text-professional-900 mb-4">
+                      他の記事も読んでみませんか？
+                    </h2>
+                    <p className="text-professional-700 mb-6 max-w-2xl mx-auto leading-relaxed">
+                      看護助手として働く皆様に役立つ情報を、実体験をもとに率直にお届けしています。
+                      同じような立場で働く方々の参考になれば嬉しいです。
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Link href="/">
+                        <Button size="lg">
+                          <BookOpen className="w-4 h-4 mr-2" />
+                          他の記事を見る
+                        </Button>
+                      </Link>
+                      <Link href="/categories">
+                        <Button variant="outline" size="lg">
+                          <Tag className="w-4 h-4 mr-2" />
+                          カテゴリー一覧
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </article>
             </div>
-          </article>
-        </div>
-      </main>
-    </div>
+          </div>
+        </main>
+
+        {/* Footer Notice */}
+        <section className="py-8 bg-professional-50 border-t border-professional-200">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <div className="inline-flex items-center justify-center w-full p-4 bg-white rounded-lg border border-professional-200 shadow-sm">
+              <svg className="w-5 h-5 text-medical-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-sm text-professional-700 leading-relaxed">
+                <strong className="text-professional-900">重要：</strong>
+                この記事は個人的な体験や意見をもとに書かれています。
+                医療に関する判断は、必ず専門医にご相談ください。
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   )
 }
