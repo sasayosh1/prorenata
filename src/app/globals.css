@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
+  --background: #ffffff;
   --foreground: #1a1a1a;
-  --primary: #2563eb;
-  --primary-light: #3b82f6;
-  --secondary: #64748b;
-  --accent: #f1f5f9;
-  --border: #e2e8f0;
-  --border-light: #f1f5f9;
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --text-muted: #64748b;
+  --primary: #1a1a1a;
+  --primary-light: #333333;
+  --secondary: #666666;
+  --accent: #ffffff;
+  --border: #e5e5e5;
+  --border-light: #f5f5f5;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --text-muted: #666666;
 }
 
 body {
@@ -200,59 +200,55 @@ a:hover {
 
 /* セクションとレイアウト */
 .hero-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-  opacity: 0.5;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 1;
+  /* シンプルに */
 }
 
-/* アニメーション */
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
+/* グリッドレイアウト */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
-.slide-up {
-  animation: slideUp 0.6s ease-out;
+/* カードの高さを均等にする */
+.grid-layout article {
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.grid-layout article > div:last-child {
+  margin-top: auto;
+}
+
+/* line-clamp ユーティリティ */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* バッジとタグ */
@@ -280,8 +276,8 @@ a:hover {
 
 /* フッターの改善 */
 .site-footer {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-top: 1px solid var(--border-light);
+  background: #ffffff;
+  border-top: 1px solid var(--border);
   margin-top: 4rem;
 }
 
@@ -310,27 +306,28 @@ a:hover {
   }
 }
 
-/* ダークモード対応準備 */
+/* ダークモード対応準備（白ベーステーマのため無効化）
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f172a;
-    --foreground: #f1f5f9;
-    --accent: #1e293b;
-    --border: #334155;
-    --border-light: #1e293b;
-    --text-muted: #94a3b8;
+    --background: #ffffff;
+    --foreground: #1a1a1a;
+    --accent: #ffffff;
+    --border: #e5e5e5;
+    --border-light: #f5f5f5;
+    --text-muted: #666666;
   }
   
   .card {
-    background: #1e293b;
+    background: #ffffff;
   }
   
   .site-header {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(255, 255, 255, 0.95);
   }
   
   .search-input {
-    background: #1e293b;
+    background: #ffffff;
     color: var(--foreground);
   }
 }
+*/

@@ -190,12 +190,12 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
 
   return (
-    <div className="min-h-screen" style={{background: 'var(--background)'}}>
+    <div className="min-h-screen bg-white">
       {/* ヘッダー */}
-      <header className="site-header py-4">
+      <header className="bg-white border-b border-gray-200 py-4">
         <div className="max-w-4xl mx-auto px-6">
-          <Link href="/" className="nav-link inline-flex items-center">
-            🏠 ProReNataホームに戻る
+          <Link href="/" className="text-gray-600 hover:text-gray-900 text-sm">
+            ← ProReNataホームに戻る
           </Link>
         </div>
       </header>

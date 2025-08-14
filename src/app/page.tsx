@@ -19,18 +19,18 @@ export default async function Home() {
   }
   
   return (
-    <div className="min-h-screen" style={{background: 'var(--background)'}}>
+    <div className="min-h-screen bg-white">
       {/* ヘッダー */}
-      <header className="site-header py-8">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center hero-content">
-            <h1 className="heading-primary text-gradient fade-in">
+      <header className="bg-white border-b border-gray-200 py-8">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
               ProReNata
             </h1>
-            <p className="text-lg text-muted mb-2 fade-in" style={{animationDelay: '0.1s'}}>
+            <p className="text-lg text-gray-600 mb-2">
               Pro Re Nata - 必要に応じて、その都度
             </p>
-            <p className="text-sm text-muted fade-in" style={{animationDelay: '0.2s'}}>
+            <p className="text-sm text-gray-500">
               元看護助手が書く、医療現場の体験や日常の日記
             </p>
           </div>
@@ -38,21 +38,21 @@ export default async function Home() {
       </header>
 
       {/* ナビゲーション */}
-      <nav className="site-header border-t" style={{borderColor: 'var(--border-light)'}}>
-        <div className="max-w-4xl mx-auto px-6">
+      <nav className="bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-center py-4">
-            <div className="flex items-center space-x-2 text-sm">
-              <Link href="/" className="nav-link">
-                🏠 ホーム
+            <div className="flex items-center space-x-8 text-sm">
+              <Link href="/" className="text-gray-700 hover:text-gray-900 transition-colors">
+                ホーム
               </Link>
-              <Link href="/articles" className="nav-link">
-                📚 記事一覧
+              <Link href="/articles" className="text-gray-700 hover:text-gray-900 transition-colors">
+                記事一覧
               </Link>
-              <Link href="/categories" className="nav-link">
-                🏷️ カテゴリー
+              <Link href="/categories" className="text-gray-700 hover:text-gray-900 transition-colors">
+                カテゴリー
               </Link>
-              <Link href="/about" className="nav-link">
-                ℹ️ About
+              <Link href="/about" className="text-gray-700 hover:text-gray-900 transition-colors">
+                About
               </Link>
             </div>
           </div>
@@ -61,21 +61,21 @@ export default async function Home() {
 
       {/* メインコンテンツ */}
       <main className="py-8">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
               
           {/* 簡潔な紹介 */}
-          <section className="hero-section slide-up">
-            <div className="text-center hero-content">
-              <h2 className="heading-secondary mb-3">
-                ✨ ようこそ
+          <section className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+            <div className="text-center">
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">
+                ようこそ
               </h2>
-              <p className="text-muted mb-6 max-w-2xl mx-auto">
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                 看護助手として働いた経験や医療現場で学んだことを、率直に書いている個人ブログです。
                 同じような立場で働く方々の参考になれば嬉しいです。
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                <Link href="/articles" className="btn btn-primary">
-                  📖 記事を読む
+                <Link href="/articles" className="bg-gray-900 text-white px-6 py-2 rounded text-sm hover:bg-gray-700 transition-colors">
+                  記事を読む
                 </Link>
                 <div className="w-full sm:w-80">
                   <SimpleSearch placeholder="記事を検索..." />
@@ -84,51 +84,49 @@ export default async function Home() {
             </div>
           </section>
           
-    
-
           {/* 記事一覧 */}
-          <section className="fade-in" style={{animationDelay: '0.4s'}}>
+          <section>
             <div className="flex items-center justify-between mb-8">
-              <h2 className="heading-secondary">
-                📰 最新の記事
+              <h2 className="text-2xl font-semibold text-gray-900">
+                最新の記事
               </h2>
-              <span className="badge">
+              <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded">
                 {sanityConnected ? `${posts.length}記事` : '準備中'}
               </span>
             </div>
             
             {sanityConnected ? (
-              <div className="space-y-6">
-                {posts.map((post, index) => (
-                  <article key={post._id} className="card slide-up" style={{animationDelay: `${0.5 + index * 0.1}s`}}>
+              <div className="grid-layout">
+                {posts.map((post) => (
+                  <article key={post._id} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="badge">
-                        🩺 ProReNata
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                        ProReNata
                       </span>
-                      <time className="text-sm text-muted">
+                      <time className="text-sm text-gray-500">
                         {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
                       </time>
                     </div>
                     
-                    <h3 className="text-xl font-semibold mb-3" style={{color: 'var(--foreground)'}}>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
                       {post.title}
                     </h3>
                     
                     {post.excerpt && (
-                      <p className="text-muted leading-relaxed mb-6">
+                      <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
                         {post.excerpt}
                       </p>
                     )}
 
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mt-auto">
                       <Link 
                         href={`/posts/${post.slug.current}`}
-                        className="btn"
+                        className="text-gray-600 hover:text-gray-900 text-sm font-medium"
                       >
-                        📖 記事を読む
+                        記事を読む →
                       </Link>
-                      <div className="flex items-center text-xs text-muted">
-                        ⏱️ 約{post.readingTime || 3}分で読める
+                      <div className="flex items-center text-xs text-gray-400">
+                        約{post.readingTime || 3}分
                       </div>
                     </div>
                   </article>
@@ -192,44 +190,40 @@ export default async function Home() {
           </section>
 
               {/* お知らせセクション */}
-              <section className="hero-section mt-12 fade-in" style={{animationDelay: '0.8s'}}>
-                <div className="hero-content">
-                  <h3 className="heading-secondary mb-4">💡 このブログについて</h3>
-                  <p className="text-muted leading-relaxed mb-4">
-                    看護助手として医療現場で働いた経験をもとに、
-                    日々の体験や学びを率直に紹介しています。
-                    同じような立場で働く方の参考になれば嬉しいです。
+              <section className="bg-white border border-gray-200 rounded-lg p-6 mt-12">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">このブログについて</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  看護助手として医療現場で働いた経験をもとに、
+                  日々の体験や学びを率直に紹介しています。
+                  同じような立場で働く方の参考になれば嬉しいです。
+                </p>
+                <div className="bg-white rounded p-3 border border-gray-200">
+                  <p className="text-xs text-gray-500">
+                    ※ このブログは個人的な体験や意見を書いたものです。
+                    医療に関する判断は、必ず専門医にご相談ください。
                   </p>
-                  <div className="bg-white bg-opacity-60 rounded-lg p-4 border border-white border-opacity-50">
-                    <p className="text-xs text-muted">
-                      ⚠️ このブログは個人的な体験や意見を書いたものです。
-                      医療に関する判断は、必ず専門医にご相談ください。
-                    </p>
-                  </div>
                 </div>
               </section>
         </div>
       </main>
 
       {/* フッター */}
-      <footer className="site-footer py-12">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="fade-in" style={{animationDelay: '1s'}}>
-            <h3 className="heading-secondary text-gradient mb-3">ProReNata</h3>
-            <p className="text-muted mb-6 max-w-md mx-auto">
-              必要に応じて、その都度。元看護助手が書く個人ブログです。
+      <footer className="bg-white border-t border-gray-200 py-12 mt-20">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">ProReNata</h3>
+          <p className="text-gray-600 text-sm mb-6 max-w-md mx-auto">
+            必要に応じて、その都度。元看護助手が書く個人ブログです。
+          </p>
+          <div className="flex justify-center space-x-8 text-sm mb-6">
+            <Link href="/" className="text-gray-500 hover:text-gray-700">ホーム</Link>
+            <Link href="/articles" className="text-gray-500 hover:text-gray-700">記事一覧</Link>
+            <Link href="/categories" className="text-gray-500 hover:text-gray-700">カテゴリー</Link>
+            <Link href="/about" className="text-gray-500 hover:text-gray-700">About</Link>
+          </div>
+          <div className="border-t border-gray-200 pt-6">
+            <p className="text-xs text-gray-500">
+              © 2025 ProReNata. All rights reserved.
             </p>
-            <div className="flex justify-center space-x-6 text-sm mb-6">
-              <Link href="/" className="nav-link">🏠 ホーム</Link>
-              <Link href="/articles" className="nav-link">📚 記事一覧</Link>
-              <Link href="/categories" className="nav-link">🏷️ カテゴリー</Link>
-              <Link href="/about" className="nav-link">ℹ️ About</Link>
-            </div>
-            <div className="border-t pt-6" style={{borderColor: 'var(--border-light)'}}>
-              <p className="text-xs text-muted">
-                © 2025 ProReNata. All rights reserved. 🩺
-              </p>
-            </div>
           </div>
         </div>
       </footer>
