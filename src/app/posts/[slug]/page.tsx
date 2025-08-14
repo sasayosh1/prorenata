@@ -10,6 +10,7 @@ import TableOfContents from '@/components/TableOfContents'
 import ReadingProgress from '@/components/ReadingProgress'
 import ShareButtons from '@/components/ShareButtons'
 import DarkModeToggle from '@/components/DarkModeToggle'
+import { generateArticleStructuredData, generateBreadcrumbStructuredData } from '@/lib/structured-data'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -204,9 +205,31 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   }
 
   const currentUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'}/posts/${post.slug.current}`
+  
+  // パンくずリストの構造化データ
+  const breadcrumbs = [
+    { name: 'ホーム', url: 'https://prorenata.jp' },
+    { name: '記事一覧', url: 'https://prorenata.jp/articles' },
+    { name: post.title, url: currentUrl }
+  ]
 
   return (
     <>
+      {/* 構造化データ - 記事情報 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleStructuredData(post))
+        }}
+      />
+      
+      {/* 構造化データ - パンくずリスト */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbStructuredData(breadcrumbs))
+        }}
+      />
       <ReadingProgress />
       
       <div className="min-h-screen bg-gradient-to-b from-medical-50/30 to-white">

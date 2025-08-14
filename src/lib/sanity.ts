@@ -38,7 +38,7 @@ export interface Post {
   _updatedAt?: string
   excerpt?: string
   mainImage?: SanityImage
-  categories?: Category[]
+  categories?: string[]
   author?: Author
   body?: Array<Record<string, unknown>>
   // SEO関連フィールド

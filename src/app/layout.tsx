@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 import { LazyPWAInstaller } from "@/components/LazyComponents";
+import { generateWebsiteStructuredData, generateOrganizationStructuredData } from "@/lib/structured-data";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -158,48 +159,19 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${inter.variable} ${notoSansJP.variable}`}>
       <head>
+        {/* 構造化データ - WebSite情報 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebsiteStructuredData())
+          }}
+        />
+        
         {/* 構造化データ - 組織情報 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "ProReNata",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp",
-              "description": "看護助手向け情報サイト",
-              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/logo.png`,
-              "foundingDate": "2025",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/contact`
-              }
-            })
-          }}
-        />
-        
-        {/* 構造化データ - Webサイト情報 */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "ProReNata",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp",
-              "description": "看護助手として働く方、目指す方のための専門情報サイト",
-              "inLanguage": "ja-JP",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/search?q={search_term_string}`,
-                "query-input": "required name=search_term_string"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "ProReNata"
-              }
-            })
+            __html: JSON.stringify(generateOrganizationStructuredData())
           }}
         />
 
