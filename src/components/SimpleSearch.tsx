@@ -33,15 +33,15 @@ export default function SimpleSearch({ placeholder = "記事を検索..." }: Sim
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
-        className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
+        className="search-input flex-1 rounded-l-lg rounded-r-none border-r-0"
         autoComplete="off"
       />
       <button
         type="submit"
         disabled={!query.trim()}
-        className="px-4 py-2 bg-gray-900 text-white border border-gray-900 rounded-r-md text-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+        className="search-button rounded-l-none rounded-r-lg border-l-0"
       >
-        検索
+        🔍 検索
       </button>
     </form>
   )

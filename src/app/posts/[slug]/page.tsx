@@ -190,12 +190,12 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen" style={{background: 'var(--background)'}}>
       {/* ヘッダー */}
-      <header className="bg-white border-b border-gray-200 py-4">
+      <header className="site-header py-4">
         <div className="max-w-4xl mx-auto px-6">
-          <Link href="/" className="text-gray-600 hover:text-gray-900 text-sm">
-            ← ProReNataホームに戻る
+          <Link href="/" className="nav-link inline-flex items-center">
+            🏠 ProReNataホームに戻る
           </Link>
         </div>
       </header>
@@ -203,34 +203,36 @@ export default async function PostDetailPage({ params }: PostPageProps) {
       {/* メインコンテンツ */}
       <main className="py-8">
         <div className="max-w-4xl mx-auto px-6">
-          <article>
+          <article className="card fade-in">
             {/* メタ情報 */}
-            <div className="mb-4">
-              <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">ProReNata</span>
+            <div className="mb-6">
+              <span className="badge">🩺 ProReNata</span>
               {post.categories && post.categories.map((category: string, index: number) => (
-                <span key={index} className="ml-2 text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                  {category}
+                <span key={index} className="tag ml-2">
+                  🏷️ {category}
                 </span>
               ))}
             </div>
 
             {/* タイトル */}
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            <h1 className="heading-primary mb-6">
               {post.title}
             </h1>
 
             {/* 概要 */}
             {post.excerpt && (
-              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 mb-6">
-                <p className="text-gray-700">{post.excerpt}</p>
+              <div className="hero-section mb-8">
+                <div className="hero-content">
+                  <p style={{color: 'var(--foreground)'}}>{post.excerpt}</p>
+                </div>
               </div>
             )}
 
             {/* 公開情報 */}
-            <div className="py-4 mb-6 border-b border-gray-200">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-gray-500">
-                <time>
-                  {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
+            <div className="py-6 mb-8 border-b" style={{borderColor: 'var(--border-light)'}}>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-muted">
+                <time className="flex items-center">
+                  📅 {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
@@ -238,35 +240,37 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </time>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                   {post.author && (
-                    <span>
-                      執筆: {post.author.name}
+                    <span className="flex items-center">
+                      ✍️ 執筆: {post.author.name}
                     </span>
                   )}
-                  <span>
-                    読了時間: 約{post.readingTime || 5}分
+                  <span className="flex items-center">
+                    ⏱️ 読了時間: 約{post.readingTime || 5}分
                   </span>
                 </div>
               </div>
             </div>
 
             {/* 記事本文 */}
-            <div className="prose prose-gray max-w-none text-gray-800 leading-relaxed space-y-6">
+            <div className="prose prose-lg max-w-none leading-relaxed space-y-8" style={{color: 'var(--foreground)'}}>
               <PortableText value={post.body} />
             </div>
 
             {/* 記事下部のCTA */}
-            <div className="bg-gray-50 rounded-lg p-6 text-center mt-8">
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">他の記事も読んでみませんか？</h2>
-              <p className="text-gray-600 text-sm mb-4">
-                看護助手の体験や日常のことを気軽に書いている個人ブログです。
-              </p>
-              <div className="flex gap-3 justify-center">
-                <Link href="/" className="bg-gray-900 text-white px-4 py-2 rounded text-sm hover:bg-gray-700">
-                  他の記事を見る
-                </Link>
-                <Link href="/" className="border border-gray-300 text-gray-700 px-4 py-2 rounded text-sm hover:bg-gray-50">
-                  ホームに戻る
-                </Link>
+            <div className="hero-section text-center mt-12">
+              <div className="hero-content">
+                <h2 className="heading-secondary mb-3">📚 他の記事も読んでみませんか？</h2>
+                <p className="text-muted mb-6">
+                  看護助手の体験や日常のことを気軽に書いている個人ブログです。
+                </p>
+                <div className="flex gap-4 justify-center flex-wrap">
+                  <Link href="/" className="btn btn-primary">
+                    📰 他の記事を見る
+                  </Link>
+                  <Link href="/" className="btn">
+                    🏠 ホームに戻る
+                  </Link>
+                </div>
               </div>
             </div>
           </article>
