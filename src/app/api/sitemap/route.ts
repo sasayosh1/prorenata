@@ -52,12 +52,14 @@ export async function GET() {
     let articlePages: Array<{url: string, lastmod: string, changefreq: string, priority: number}> = []
     try {
       const posts = await getAllPosts()
-      articlePages = posts.map(post => ({
-        url: `${baseUrl}/posts/${post.slug.current}`,
-        lastmod: new Date(post._updatedAt || post.publishedAt).toISOString(),
-        changefreq: 'weekly',
-        priority: post.featured ? 0.8 : 0.6
-      }))
+      articlePages = posts
+        .filter(post => post.slug?.current)
+        .map(post => ({
+          url: `${baseUrl}/posts/${post.slug.current}`,
+          lastmod: new Date(post._updatedAt || post.publishedAt).toISOString(),
+          changefreq: 'weekly',
+          priority: post.featured ? 0.8 : 0.6
+        }))
     } catch (error) {
       console.warn('記事の取得に失敗しました:', error)
     }
@@ -66,12 +68,14 @@ export async function GET() {
     let categoryPages: Array<{url: string, lastmod: string, changefreq: string, priority: number}> = []
     try {
       const categories = await getAllCategories()
-      categoryPages = categories.map(category => ({
-        url: `${baseUrl}/categories/${category.slug.current}`,
-        lastmod: currentDate,
-        changefreq: 'weekly',
-        priority: 0.7
-      }))
+      categoryPages = categories
+        .filter(category => category.slug?.current)
+        .map(category => ({
+          url: `${baseUrl}/categories/${category.slug.current}`,
+          lastmod: currentDate,
+          changefreq: 'weekly',
+          priority: 0.7
+        }))
     } catch (error) {
       console.warn('カテゴリの取得に失敗しました:', error)
     }
