@@ -20,6 +20,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   line-height: 1.6;
   letter-spacing: -0.01em;
+  overflow-x: hidden; /* 横スクロール防止 */
 }
 
 * {
@@ -211,30 +212,7 @@ a:hover {
   /* シンプルに */
 }
 
-/* グリッドレイアウト */
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-  .grid-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-/* カードの高さを均等にする */
-.grid-layout article {
-  display: flex;
-  flex-direction: column;
-}
-
-.grid-layout article > div:last-child {
-  margin-top: auto;
-}
+/* 古いグリッドレイアウトを削除 - Tailwindで制御 */
 
 /* line-clamp ユーティリティ */
 .line-clamp-2 {
@@ -283,9 +261,7 @@ a:hover {
 
 /* レスポンシブ設定 */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 16px;
-  }
+  /* Container コンポーネントに統一 - 削除 */
   
   .heading-primary {
     font-size: 2rem;

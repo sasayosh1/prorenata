@@ -1,0 +1,656 @@
+[
+  {
+    "_id": "41165abd-0df8-4cd4-aee7-6f0113a43103",
+    "excerpt": "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+    "slug": {
+      "_type": "slug",
+      "current": "what-is-a-nursing-assistant-roles-explained"
+    },
+    "title": "看護助手とは？病院での具体的な役割を徹底解説"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tynjys",
+    "excerpt": "【2025年版】看護助手におすすめの転職サイト5選！求人選びのコツ",
+    "slug": {
+      "_type": "slug",
+      "current": "sopor-tubineus-cui"
+    },
+    "title": "【2025年版】看護助手におすすめの転職サイト5選！求人選びのコツ"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tynl64",
+    "excerpt": "【地域別】看護助手の給料ランキング！あなたの地域の給与水準は？",
+    "slug": {
+      "_type": "slug",
+      "current": "bis-anser-consectetur"
+    },
+    "title": "【地域別】看護助手の給料ランキング！あなたの地域の給与水準は？"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tynlz4",
+    "excerpt": "未経験でもわかる！看護助手の仕事内容と役割、やりがい",
+    "slug": {
+      "_type": "slug",
+      "current": "quaerat-temptatio-aegre"
+    },
+    "title": "未経験でもわかる！看護助手の仕事内容と役割、やりがい"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM2Ml",
+    "excerpt": "看護助手の職場での人間関係の悩みを解決するための具体的な対処法をご紹介。ストレス軽減のコツも詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-workplace-stress"
+    },
+    "title": "看護助手の人間関係が辛い時の対処法｜職場のストレス解決策5選"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM2sh",
+    "excerpt": "看護助手 一日の流れについて詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-daily-schedule"
+    },
+    "title": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM57y",
+    "excerpt": "看護助手基礎講座の一環として、看護助手 感染対策について体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-infection-control-03"
+    },
+    "title": "第3回：感染対策の基本｜標準予防策と手洗いの重要性"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM5EB",
+    "excerpt": "実践スキル向上講座の一環として、患者移送について体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "patient-transfer-safety-skills"
+    },
+    "title": "患者移送の安全技術｜ストレッチャー・車椅子の正しい使い方"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM5ZT",
+    "excerpt": "専門分野理解講座の一環として、ICU 看護助手について体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "icu-emergency-nursing-assistant"
+    },
+    "title": "ICU・救急病棟での看護助手業務｜重症患者ケアの補助"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM7aY",
+    "excerpt": "看護助手のexploration段階において、看護助手 適性診断について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-aptitude-test"
+    },
+    "title": "看護助手適性診断｜あなたに向いている医療現場は？"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM81A",
+    "excerpt": "看護助手のtransition段階において、看護助手 転職成功について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-job-change-success"
+    },
+    "title": "看護助手転職成功の5ステップ｜失敗しない転職戦略"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM8Ch",
+    "excerpt": "看護助手のtransition段階において、看護学校 準備について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-school-preparation-guide"
+    },
+    "title": "看護学校入学準備完全マニュアル｜働きながら学ぶ方法"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzM8MS",
+    "excerpt": "看護助手のexploration段階において、看護助手 職場比較について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "healthcare-workplace-comparison"
+    },
+    "title": "病院・クリニック・介護施設比較ガイド｜あなたに合う職場は？"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMJ5m",
+    "excerpt": "technologyに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "ai-technology-impact-nursing-assistants"
+    },
+    "title": "AI技術導入が看護助手業務に与える変化｜最新医療技術トレンド"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMJEe",
+    "excerpt": "survey-resultに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-salary-survey-2024"
+    },
+    "title": "全国看護助手給与実態調査2024｜地域別・職場別の最新データ"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMJUc",
+    "excerpt": "safety-guidelineに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "infection-control-guidelines-update-2024"
+    },
+    "title": "最新感染対策ガイドライン2024｜看護助手が知るべき変更点"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMJXH",
+    "excerpt": "workplace-improvementに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "work-style-reform-nursing-assistant-2024"
+    },
+    "title": "医療現場における働き方改革推進｜看護助手の勤務環境改善事例"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMJvE",
+    "excerpt": "看護助手 志望動機について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-motivation-examples"
+    },
+    "title": "看護助手の志望動機例文集｜履歴書・面接で使える文例20選"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMJxt",
+    "excerpt": "看護助手 未経験について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "inexperienced-nursing-assistant-guide"
+    },
+    "title": "未経験から看護助手になるには？採用されやすい人の特徴と準備"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMK0Y",
+    "excerpt": "看護助手 面接について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-interview-questions"
+    },
+    "title": "看護助手の面接でよく聞かれる質問30選｜回答例と対策法"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMK5s",
+    "excerpt": "看護助手 ボーナスについて詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-bonus-guide"
+    },
+    "title": "看護助手のボーナス事情｜支給額の相場と職場による違い"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMQ3n",
+    "excerpt": "看護助手 制服について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-uniforms-guide"
+    },
+    "title": "看護助手の制服・ユニフォーム選び｜おすすめブランドと着こなしのコツ"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMQ7L",
+    "excerpt": "看護助手 夜勤について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-night-shift-allowance"
+    },
+    "title": "看護助手の夜勤手当はいくら？夜勤専従との違いも解説"
+  },
+  {
+    "_id": "IGbvz95LMMbfxWk7tzMSlS",
+    "excerpt": "精神科 看護助手について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "psychiatric-hospital-nursing-assistant"
+    },
+    "title": "精神科病院の看護助手｜特殊な業務内容と求められる適性"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D02X",
+    "excerpt": "看護助手（看護補助者）の仕事内容、必要なスキル、向いている人の特徴を初心者向けに分かりやすく解説。医療現場での役割や責任について詳しくご紹介します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-complete-guide"
+    },
+    "title": "【完全ガイド】看護助手とは？仕事内容から必要なスキルまで徹底解説"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D0KH",
+    "excerpt": "看護助手の転職を成功させるための完全ガイド。求人の選び方、履歴書の書き方、面接対策まで詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-job-change-guide"
+    },
+    "title": "看護助手の転職成功マニュアル｜求人の選び方から面接対策まで"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D0Xa",
+    "excerpt": "2024年最新の看護助手の給料相場を職場別・地域別に詳しく比較。手当やボーナスの実態も含めて徹底解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-salary-2024"
+    },
+    "title": "【2024年最新】看護助手の給料相場｜職場別・地域別に徹底比較"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D0kt",
+    "excerpt": "看護助手が知っておくべき感染対策の基本を分かりやすく解説。手洗いからPPEの使用まで実践的な内容をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "infection-control-for-nursing-assistants"
+    },
+    "title": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイント"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D3Xs",
+    "excerpt": "実践スキル向上講座の一環として、バイタルサイン 看護助手について体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "vital-signs-measurement-support"
+    },
+    "title": "バイタルサイン測定の補助｜正確な測定をサポートする技術"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D3lB",
+    "excerpt": "専門分野理解講座の一環として、手術室 看護助手について体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "operating-room-nursing-assistant"
+    },
+    "title": "手術室での看護助手業務｜特殊な環境での役割と注意点"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D7C5",
+    "excerpt": "看護助手のplanning段階において、看護助手 キャリアビジョンについて具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-career-vision-workshop"
+    },
+    "title": "看護助手のキャリアビジョン設計ワークショップ｜5年後の自分を描く"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D7YG",
+    "excerpt": "看護助手のdevelopment段階において、看護助手 スキルアップについて具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-skill-roadmap"
+    },
+    "title": "看護助手スキルアップロードマップ｜段階別成長プラン"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D7uR",
+    "excerpt": "看護助手のtransition段階において、看護助手 面接対策について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-interview-mastery"
+    },
+    "title": "看護助手面接対策マスター講座｜よくある質問と回答例"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D8q6",
+    "excerpt": "看護助手のtransition段階において、看護助手 履歴書について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-resume-writing"
+    },
+    "title": "看護助手履歴書・職務経歴書の書き方｜採用担当者に響く文書作成術"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99D9qC",
+    "excerpt": "看護助手のexploration段階において、看護助手 職場選びについて具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "ideal-workplace-selection-guide"
+    },
+    "title": "理想の職場選び診断｜看護助手にとって働きやすい環境とは"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99DCYk",
+    "excerpt": "policy-changeに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-scope-expansion-2024"
+    },
+    "title": "【2024年診療報酬改定】看護助手の業務範囲拡大が与える影響"
+  },
+  {
+    "_id": "Jx7ptA0c3Aq7il8T99DEdN",
+    "excerpt": "education-systemに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-training-program-revision-2024"
+    },
+    "title": "看護助手標準研修プログラム改訂｜新カリキュラムの詳細解説"
+  },
+  {
+    "_id": "OPoS2nHFE7kiEoiY47ejTP",
+    "excerpt": "看護助手 医療用語について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "medical-terminology-for-nursing-assistants"
+    },
+    "title": "看護助手に必要な医療用語100選｜現場でよく使われる略語も解説"
+  },
+  {
+    "_id": "OPoS2nHFE7kiEoiY47eqOT",
+    "excerpt": "看護助手のtransition段階において、看護助手から看護師について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-to-nurse-pathway"
+    },
+    "title": "看護助手から看護師への最短ルート｜准看護師vs正看護師"
+  },
+  {
+    "_id": "OPoS2nHFE7kiEoiY47equQ",
+    "excerpt": "看護助手のdevelopment段階において、看護助手 ネットワーキングについて具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-networking-guide"
+    },
+    "title": "看護助手のネットワーキング術｜キャリアに活かす人脈作り"
+  },
+  {
+    "_id": "OPoS2nHFE7kiEoiY47erid",
+    "excerpt": "labor-lawに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-labor-law-changes-2024"
+    },
+    "title": "看護助手の労働基準法改正対応｜2024年新労働時間規制の詳細"
+  },
+  {
+    "_id": "OPoS2nHFE7kiEoiY47esfy",
+    "excerpt": "system-changeに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "electronic-medical-records-standardization"
+    },
+    "title": "電子カルテシステム統一化｜看護助手の記録業務変更点"
+  },
+  {
+    "_id": "OPoS2nHFE7kiEoiY47esyE",
+    "excerpt": "market-trendに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-job-market-analysis-2024h1"
+    },
+    "title": "【最新】看護助手求人市場分析｜2024年上半期の動向と今後の予測"
+  },
+  {
+    "_id": "XVc9WdNJJG0A5jGN5qY4xv",
+    "excerpt": "看護助手として知っておくべき重要なスキルについて詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "clamo-viduo-laboriosam"
+    },
+    "title": "看護助手として知っておくべき重要なスキル"
+  },
+  {
+    "_id": "XVc9WdNJJG0A5jGN5qY5AV",
+    "excerpt": "看護助手として知っておくべきキャリアパスについて詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "taceo-vesica-abstergo"
+    },
+    "title": "看護助手として知っておくべきキャリアパス"
+  },
+  {
+    "_id": "XVc9WdNJJG0A5jGN5qY5TN",
+    "excerpt": "看護助手として知っておくべきやりがいについて詳しく解説します。",
+    "slug": {
+      "_type": "slug",
+      "current": "celer-praesentium-deficio"
+    },
+    "title": "看護助手として知っておくべきやりがい"
+  },
+  {
+    "_id": "drafts.IGbvz95LMMbfxWk7tzMSlS",
+    "excerpt": "精神科 看護助手について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "psychiatric-hospital-nursing-assistant"
+    },
+    "title": "精神科病院の看護助手｜特殊な業務内容と求められる適性"
+  },
+  {
+    "_id": "drafts.nursing-assistant-daily-schedule",
+    "excerpt": "看護助手の具体的な一日の仕事の流れを、タイムスケジュール形式で詳しく解説します。出勤から退勤まで、どのような業務をどのタイミングで行うのか、働く姿を具体的にイメージできる内容です。",
+    "slug": null,
+    "title": "看護助手の仕事内容を一日スケジュールで紹介"
+  },
+  {
+    "_id": "drafts.nursing-assistant-daily-schedule-introduction",
+    "excerpt": "看護助手の具体的な一日の仕事の流れを、タイムスケジュール形式でより詳しく解説します。出勤から退勤まで、どのような業務をどのタイミングで行うのか、働く姿を具体的にイメージできる内容が満載です。この詳細なガイドを通じて、看護助手としての働き方を深く理解し、あなたのキャリアプランに役立ててください。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-daily-schedule-introduction"
+    },
+    "title": "看護助手の仕事内容を一日スケジュールで紹介"
+  },
+  {
+    "_id": "drafts.qRvovnEuZ41hf9jRvTgkOe",
+    "excerpt": "医療機器 看護助手について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "medical-equipment-basics"
+    },
+    "title": "医療機器の基本的な扱い方｜看護助手が触れる機器の安全な使用法"
+  },
+  {
+    "_id": "drafts.s3Ll2oJK9yL0eDRYdm9wFa",
+    "excerpt": "患者移送について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "patient-transfer-techniques"
+    },
+    "title": "患者移送の安全な方法｜看護助手が知っておくべき基本技術"
+  },
+  {
+    "_id": "drafts.s3Ll2oJK9yL0eDRYdm9wan",
+    "excerpt": "看護助手 記録について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-documentation"
+    },
+    "title": "看護助手の記録・報告書の書き方｜正確で分かりやすい文書作成術"
+  },
+  {
+    "_id": "drafts.s3Ll2oJK9yL0eDRYdm9ww0",
+    "excerpt": "看護助手 病院 クリニックについて詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "hospital-vs-clinic-nursing-assistant"
+    },
+    "title": "病院とクリニックの看護助手｜仕事内容と働きやすさの違い"
+  },
+  {
+    "_id": "drafts.s3Ll2oJK9yL0eDRYdm9x8j",
+    "excerpt": "介護施設 看護助手について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-home-nursing-assistant"
+    },
+    "title": "介護施設の看護助手｜病院との違いと必要なスキル"
+  },
+  {
+    "_id": "k3FMiqj9KhfIHCxGVvIHOm",
+    "excerpt": "看護助手に向いている人の性格や特徴を詳しく解説。自分が看護助手に適しているか診断したい方必見の内容です。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-personality-traits"
+    },
+    "title": "看護助手に向いている人の特徴5選｜性格や適性を徹底分析"
+  },
+  {
+    "_id": "k3FMiqj9KhfIHCxGVvIHRA",
+    "excerpt": "看護助手から看護師へのキャリアアップ方法を詳しく解説。准看護師・正看護師への道のりと実際の体験談をご紹介します。",
+    "slug": {
+      "_type": "slug",
+      "current": "from-nursing-assistant-to-nurse"
+    },
+    "title": "看護助手から看護師になるには？最短ルートと体験談を紹介"
+  },
+  {
+    "_id": "k3FMiqj9KhfIHCxGVvIHg5",
+    "excerpt": "看護助手基礎講座の一環として、看護助手 役割について体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-role-responsibility-01"
+    },
+    "title": "第1回：看護助手の役割と責任｜医療チームにおける位置づけ"
+  },
+  {
+    "_id": "k3FMiqj9KhfIHCxGVvIHhs",
+    "excerpt": "看護助手基礎講座の一環として、看護助手 コミュニケーションについて体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-communication-02"
+    },
+    "title": "第2回：医療現場のコミュニケーション｜患者様・スタッフとの関わり方"
+  },
+  {
+    "_id": "k3FMiqj9KhfIHCxGVvII0y",
+    "excerpt": "キャリア開発講座の一環として、看護助手 キャリアパスについて体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-career-path-planning"
+    },
+    "title": "看護助手のキャリアパス設計｜将来への道筋を描く"
+  },
+  {
+    "_id": "k3FMiqj9KhfIHCxGVvIIE6",
+    "excerpt": "看護助手のdevelopment段階において、看護助手 資格取得について具体的で実践的なアドバイスをお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-certification-strategy"
+    },
+    "title": "看護助手に有利な資格取得完全ガイド｜優先順位と取得戦略"
+  },
+  {
+    "_id": "nursing-assistant-daily-schedule",
+    "excerpt": "看護助手の具体的な一日の仕事の流れを、タイムスケジュール形式で詳しく解説します。出勤から退勤まで、どのような業務をどのタイミングで行うのか、働く姿を具体的にイメージできる内容です。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-daily-schedule"
+    },
+    "title": "看護助手の仕事内容を一日スケジュールで紹介"
+  },
+  {
+    "_id": "qRvovnEuZ41hf9jRvRHhNs",
+    "excerpt": "看護助手の仕事内容とは？きついって本当？1日の流れを徹底解説",
+    "slug": {
+      "_type": "slug",
+      "current": "dolor-comis-quasi"
+    },
+    "title": "看護助手の仕事内容とは？きついって本当？1日の流れを徹底解説"
+  },
+  {
+    "_id": "qRvovnEuZ41hf9jRvRHiNI",
+    "excerpt": "看護助手と看護師・介護士の違いは？仕事内容と必要なスキルを比較",
+    "slug": {
+      "_type": "slug",
+      "current": "voluptatibus-calco-decerno"
+    },
+    "title": "看護助手と看護師・介護士の違いは？仕事内容と必要なスキルを比較"
+  },
+  {
+    "_id": "qRvovnEuZ41hf9jRvRHosM",
+    "excerpt": "給料アップを目指す！看護助手が収入を上げるための具体的な方法5選",
+    "slug": {
+      "_type": "slug",
+      "current": "conicio-eum-repudiandae"
+    },
+    "title": "給料アップを目指す！看護助手が収入を上げるための具体的な方法5選"
+  },
+  {
+    "_id": "qRvovnEuZ41hf9jRvTgkOe",
+    "excerpt": "医療機器 看護助手について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "medical-equipment-basics"
+    },
+    "title": "医療機器の基本的な扱い方｜看護助手が触れる機器の安全な使用法"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdjgona",
+    "excerpt": "看護助手の給料は安い？平均年収と月収、ボーナス事情を大公開",
+    "slug": {
+      "_type": "slug",
+      "current": "sequi-barba-victoria"
+    },
+    "title": "看護助手の給料は安い？平均年収と月収、ボーナス事情を大公開"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdjgpPl",
+    "excerpt": "看護助手の履歴書・職務経歴書の書き方【完全ガイド】",
+    "slug": {
+      "_type": "slug",
+      "current": "nemo-saepe-congregatio"
+    },
+    "title": "看護助手の履歴書・職務経歴書の書き方【完全ガイド】"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdjgsMA",
+    "excerpt": "未経験から看護助手へ！志望動機の書き方と面接で聞かれる質問集",
+    "slug": {
+      "_type": "slug",
+      "current": "voluntarius-apud-vigilo"
+    },
+    "title": "未経験から看護助手へ！志望動機の書き方と面接で聞かれる質問集"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdm9l69",
+    "excerpt": "看護助手 有給について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-vacation-benefits"
+    },
+    "title": "看護助手の有給取得率と休暇事情｜働きやすい職場の見分け方"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdm9lIs",
+    "excerpt": "患者移送について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "patient-transfer-techniques"
+    },
+    "title": "患者移送の安全な方法｜看護助手が知っておくべき基本技術"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdm9wan",
+    "excerpt": "看護助手 記録について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-documentation"
+    },
+    "title": "看護助手の記録・報告書の書き方｜正確で分かりやすい文書作成術"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdm9ww0",
+    "excerpt": "看護助手 病院 クリニックについて詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "hospital-vs-clinic-nursing-assistant"
+    },
+    "title": "病院とクリニックの看護助手｜仕事内容と働きやすさの違い"
+  },
+  {
+    "_id": "s3Ll2oJK9yL0eDRYdm9x8j",
+    "excerpt": "介護施設 看護助手について詳しく解説。看護助手として働く方に役立つ実践的な情報をお届けします。",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-home-nursing-assistant"
+    },
+    "title": "介護施設の看護助手｜病院との違いと必要なスキル"
+  }
+]

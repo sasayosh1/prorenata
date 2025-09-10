@@ -1,6 +1,7 @@
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
 import SimpleSearch from '@/components/SimpleSearch'
+import Container from '@/components/Container'
 
 // 最強のキャッシュ無効化
 export const dynamic = 'force-dynamic'
@@ -19,214 +20,102 @@ export default async function Home() {
   }
   
   return (
-    <div className="min-h-screen bg-white">
-      {/* ヘッダー */}
-      <header className="bg-white border-b border-gray-200 py-8">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              ProReNata
-            </h1>
-            <p className="text-lg text-gray-600 mb-2">
-              Pro Re Nata - 必要に応じて、その都度
-            </p>
-            <p className="text-sm text-gray-500">
-              元看護助手が書く、医療現場の体験や日常の日記
-            </p>
-          </div>
-        </div>
-      </header>
-
-      {/* ナビゲーション */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-center py-4">
-            <div className="flex items-center space-x-8 text-sm">
-              <Link href="/" className="text-gray-700 hover:text-gray-900 transition-colors">
-                ホーム
-              </Link>
-              <Link href="/articles" className="text-gray-700 hover:text-gray-900 transition-colors">
-                記事一覧
-              </Link>
-              <Link href="/categories" className="text-gray-700 hover:text-gray-900 transition-colors">
-                カテゴリー
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-gray-900 transition-colors">
-                About
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <>
+      {/* ヒーローセクション - 全幅背景 */}
+      <section className="w-full bg-gradient-to-b from-blue-600 to-blue-500 text-white">
+        <Container className="py-16 sm:py-20 lg:py-24">
+          <h1 className="text-4xl font-extrabold leading-tight">
+            ProReNata
+          </h1>
+          <p className="mt-3 text-base opacity-90">
+            医療現場で役立つ知見を、簡潔に共有します。
+          </p>
+        </Container>
+      </section>
 
       {/* メインコンテンツ */}
-      <main className="py-8">
-        <div className="max-w-6xl mx-auto px-6">
-              
-          {/* 簡潔な紹介 */}
-          <section className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                ようこそ
-              </h2>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                看護助手として働いた経験や医療現場で学んだことを、率直に書いている個人ブログです。
-                同じような立場で働く方々の参考になれば嬉しいです。
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                <Link href="/articles" className="bg-gray-900 text-white px-6 py-2 rounded text-sm hover:bg-gray-700 transition-colors">
-                  記事を読む
-                </Link>
-                <div className="w-full sm:w-80">
-                  <SimpleSearch placeholder="記事を検索..." />
-                </div>
-              </div>
-            </div>
-          </section>
-          
-          {/* 記事一覧 */}
-          <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900">
-                最新の記事
-              </h2>
-              <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded">
-                {sanityConnected ? `${posts.length}記事` : '準備中'}
-              </span>
-            </div>
+      <Container className="py-6 sm:py-8">
+        {/* 検索セクション */}
+        <section className="mb-8">
+          <h2 className="sr-only">記事検索</h2>
+          <div className="max-w-md mx-auto">
+            <SimpleSearch placeholder="キーワードで検索" />
+          </div>
+        </section>
+        
+        {/* 記事一覧 */}
+        <section className="py-6 sm:py-10">
+          <h2 className="text-2xl font-bold mb-4 sm:mb-6">
+            最新の記事
+          </h2>
             
-            {sanityConnected ? (
-              <div className="grid-layout">
+          {sanityConnected ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {posts.map((post) => (
-                  <article key={post._id} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                        ProReNata
-                      </span>
-                      <time className="text-sm text-gray-500">
-                        {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
-                      </time>
-                    </div>
-                    
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
-                      {post.title}
-                    </h3>
-                    
-                    {post.excerpt && (
-                      <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                    )}
-
-                    <div className="flex items-center justify-between mt-auto">
-                      <Link 
-                        href={`/posts/${post.slug.current}`}
-                        className="text-gray-600 hover:text-gray-900 text-sm font-medium"
-                      >
-                        記事を読む →
-                      </Link>
-                      <div className="flex items-center text-xs text-gray-400">
-                        約{post.readingTime || 3}分
+                  <article key={post._id} className="rounded-xl border border-gray-200/70 bg-white shadow-sm hover:shadow transition-shadow">
+                    <Link href={`/posts/${post.slug.current}`} className="block p-4 sm:p-5">
+                      <h3 className="text-base sm:text-lg font-semibold leading-snug line-clamp-2 mb-2">
+                        {post.title}
+                      </h3>
+                      {post.excerpt && (
+                        <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                          {post.excerpt}
+                        </p>
+                      )}
+                      <div className="flex items-center justify-between text-xs text-gray-500">
+                        <span className="font-medium">ProReNata</span>
+                        <time dateTime={post.publishedAt}>
+                          {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
+                        </time>
                       </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-6">
-                <article className="bg-white border border-gray-200 rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">ProReNata</span>
-                    <time className="text-sm text-gray-500">2025年8月12日</time>
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    看護助手として働いた日々を振り返って
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    医療現場で看護助手として働いた実体験をもとに、
-                    日々感じたことや学んだことを率直に書いています。
-                    同じような立場で働く方の参考になれば嬉しいです。
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 text-sm">
-                      記事を読む →
                     </Link>
-                    <div className="flex items-center text-xs text-gray-400">
-                      3分で読める
+                  </article>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <article className="rounded-xl border border-gray-200/70 bg-white shadow-sm hover:shadow transition-shadow">
+                  <Link href="#" className="block p-4 sm:p-5">
+                    <h3 className="text-base sm:text-lg font-semibold leading-snug line-clamp-2 mb-2">
+                      看護助手として働いた日々を振り返って
+                    </h3>
+                    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                      医療現場で看護助手として働いた実体験をもとに、日々感じたことや学んだことを率直に書いています。
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                      <span className="font-medium">ProReNata</span>
+                      <time dateTime="2025-08-12">2025年8月12日</time>
                     </div>
-                  </div>
+                  </Link>
                 </article>
                 
-                <article className="bg-white border border-gray-200 rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">ProReNata</span>
-                    <time className="text-sm text-gray-500">2025年8月11日</time>
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    医療現場で学んだコミュニケーションの大切さ
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    患者さんや医療スタッフとのコミュニケーションで学んだこと、
-                    今でも心に残っている印象深いエピソードなどを
-                    体験談として紹介しています。
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 text-sm">
-                      記事を読む →
-                    </Link>
-                    <div className="flex items-center text-xs text-gray-400">
-                      4分で読める
+                <article className="rounded-xl border border-gray-200/70 bg-white shadow-sm hover:shadow transition-shadow">
+                  <Link href="#" className="block p-4 sm:p-5">
+                    <h3 className="text-base sm:text-lg font-semibold leading-snug line-clamp-2 mb-2">
+                      医療現場で学んだコミュニケーションの大切さ
+                    </h3>
+                    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                      患者さんや医療スタッフとのコミュニケーションで学んだこと、今でも心に残っている印象深いエピソードを紹介しています。
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                      <span className="font-medium">ProReNata</span>
+                      <time dateTime="2025-08-11">2025年8月11日</time>
                     </div>
-                  </div>
+                  </Link>
                 </article>
-              </div>
-            )}
-          </section>
-
-              {/* お知らせセクション */}
-              <section className="bg-white border border-gray-200 rounded-lg p-6 mt-12">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">このブログについて</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  看護助手として医療現場で働いた経験をもとに、
-                  日々の体験や学びを率直に紹介しています。
-                  同じような立場で働く方の参考になれば嬉しいです。
-                </p>
-                <div className="bg-white rounded p-3 border border-gray-200">
-                  <p className="text-xs text-gray-500">
-                    ※ このブログは個人的な体験や意見を書いたものです。
-                    医療に関する判断は、必ず専門医にご相談ください。
-                  </p>
-                </div>
-              </section>
-        </div>
-      </main>
+            </div>
+          )}
+        </section>
+      </Container>
 
       {/* フッター */}
-      <footer className="bg-white border-t border-gray-200 py-12 mt-20">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">ProReNata</h3>
-          <p className="text-gray-600 text-sm mb-6 max-w-md mx-auto">
-            必要に応じて、その都度。元看護助手が書く個人ブログです。
+      <footer className="bg-white border-t border-gray-200 py-8 mt-12">
+        <Container className="text-center">
+          <p className="text-xs text-gray-500">
+            © 2025 ProReNata
           </p>
-          <div className="flex justify-center space-x-8 text-sm mb-6">
-            <Link href="/" className="text-gray-500 hover:text-gray-700">ホーム</Link>
-            <Link href="/articles" className="text-gray-500 hover:text-gray-700">記事一覧</Link>
-            <Link href="/categories" className="text-gray-500 hover:text-gray-700">カテゴリー</Link>
-            <Link href="/about" className="text-gray-500 hover:text-gray-700">About</Link>
-          </div>
-          <div className="border-t border-gray-200 pt-6">
-            <p className="text-xs text-gray-500">
-              © 2025 ProReNata. All rights reserved.
-            </p>
-          </div>
-        </div>
+        </Container>
       </footer>
-    </div>
+    </>
   );
 }

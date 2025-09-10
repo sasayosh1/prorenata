@@ -244,9 +244,9 @@ export default function RootLayout({
           メインコンテンツにスキップ
         </a>
         
-        <div id="main-content">
+        <main id="main-content" className="min-h-screen">
           {children}
-        </div>
+        </main>
         
         {/* Analytics コンポーネント */}
         {process.env.NEXT_PUBLIC_GA_ID && (
