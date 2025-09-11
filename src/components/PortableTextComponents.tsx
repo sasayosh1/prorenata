@@ -112,10 +112,10 @@ function CustomLink({
 }
 
 // カスタム段落コンポーネント（リンクが含まれる可能性があるため）
-function CustomParagraph({ children }: { children: React.ReactNode }) {
+function CustomParagraph(props: any) {
   return (
     <p className="mb-6 leading-relaxed text-gray-800 dark:text-gray-200">
-      {children}
+      {props.children}
     </p>
   )
 }
