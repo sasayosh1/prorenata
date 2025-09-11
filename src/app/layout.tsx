@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
-import { draftMode } from 'next/headers';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

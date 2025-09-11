@@ -25,7 +25,7 @@ export default defineConfig({
   document: {
     productionUrl: async (prev, { document }) => {
       const baseUrl = devUrl
-      if (document._type === 'post' && document.slug?.current) {
+      if (document._type === 'post' && document.slug && typeof document.slug === 'object' && 'current' in document.slug && document.slug.current) {
         return `${baseUrl}/posts/${document.slug.current}`
       }
       return prev
