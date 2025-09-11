@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
+import { draftMode } from 'next/headers';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -149,11 +150,12 @@ export const viewport: Viewport = {
   colorScheme: 'light'
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isDraftMode = (await draftMode()).isEnabled
   return (
     <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable}`}>
       <head>
@@ -275,6 +277,7 @@ export default function RootLayout({
             <div id="performance-debugger"></div>
           </>
         )}
+
       </body>
     </html>
   );

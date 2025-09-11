@@ -1,121 +1,186 @@
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
-import SimpleSearch from '@/components/SimpleSearch'
-import Container from '@/components/Container'
 
-// 最強のキャッシュ無効化
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 export const fetchCache = 'force-no-store'
 
 export default async function Home() {
   let posts: Post[] = []
-  let sanityConnected = false
   
   try {
     posts = await getAllPosts()
-    sanityConnected = posts.length > 0
   } catch (error) {
     console.error('Failed to load posts:', error)
   }
   
   return (
-    <>
-      {/* ヒーローセクション - 全幅背景 */}
-      <section className="w-full bg-gradient-to-b from-blue-600 to-blue-500 text-white">
-        <Container className="py-16 sm:py-20 lg:py-24">
-          <h1 className="text-4xl font-extrabold leading-tight">
-            ProReNata
-          </h1>
-          <p className="mt-3 text-base opacity-90">
-            医療現場で役立つ知見を、簡潔に共有します。
-          </p>
-        </Container>
-      </section>
-
-      {/* メインコンテンツ */}
-      <Container className="py-6 sm:py-8">
-        {/* 検索セクション */}
-        <section className="mb-8">
-          <h2 className="sr-only">記事検索</h2>
-          <div className="max-w-md mx-auto">
-            <SimpleSearch placeholder="キーワードで検索" />
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div className="flex h-screen flex-col justify-between font-sans">
+        {/* Header */}
+        <header className="flex items-center justify-between py-10">
+          <div>
+            <Link href="/" aria-label="ProReNata">
+              <div className="flex items-center justify-between">
+                <div className="mr-3">
+                  <div className="text-2xl font-semibold text-gray-900">
+                    ProReNata
+                  </div>
+                </div>
+              </div>
+            </Link>
           </div>
-        </section>
-        
-        {/* 記事一覧 */}
-        <section className="py-6 sm:py-10">
-          <h2 className="text-2xl font-bold mb-4 sm:mb-6">
-            最新の記事
-          </h2>
-            
-          {sanityConnected ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {posts.map((post) => (
-                  <article key={post._id} className="rounded-xl border border-gray-200/70 bg-white shadow-sm hover:shadow transition-shadow">
-                    <Link href={`/posts/${post.slug.current}`} className="block p-4 sm:p-5">
-                      <h3 className="text-base sm:text-lg font-semibold leading-snug line-clamp-2 mb-2">
-                        {post.title}
-                      </h3>
-                      {post.excerpt && (
-                        <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-                          {post.excerpt}
-                        </p>
-                      )}
-                      <div className="flex items-center justify-between text-xs text-gray-500">
-                        <span className="font-medium">ProReNata</span>
-                        <time dateTime={post.publishedAt}>
-                          {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
-                        </time>
-                      </div>
-                    </Link>
-                  </article>
-              ))}
+          <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
+            <Link
+              href="/blog"
+              className="hidden font-medium text-gray-900 hover:text-cyan-600 sm:block"
+            >
+              ブログ
+            </Link>
+            <Link
+              href="/tags"
+              className="hidden font-medium text-gray-900 hover:text-cyan-600 sm:block"
+            >
+              タグ
+            </Link>
+            <Link
+              href="/about"
+              className="hidden font-medium text-gray-900 hover:text-cyan-600 sm:block"
+            >
+              About
+            </Link>
+          </div>
+        </header>
+
+        {/* Main Content */}
+        <main>
+          <div className="divide-y divide-gray-200">
+            <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+              <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+                Latest
+              </h1>
+              <p className="text-lg leading-7 text-gray-500">
+                看護助手として働く皆様に役立つ最新の情報をお届けします
+              </p>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <article className="rounded-xl border border-gray-200/70 bg-white shadow-sm hover:shadow transition-shadow">
-                  <Link href="#" className="block p-4 sm:p-5">
-                    <h3 className="text-base sm:text-lg font-semibold leading-snug line-clamp-2 mb-2">
-                      看護助手として働いた日々を振り返って
-                    </h3>
-                    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-                      医療現場で看護助手として働いた実体験をもとに、日々感じたことや学んだことを率直に書いています。
-                    </p>
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <span className="font-medium">ProReNata</span>
-                      <time dateTime="2025-08-12">2025年8月12日</time>
-                    </div>
-                  </Link>
-                </article>
-                
-                <article className="rounded-xl border border-gray-200/70 bg-white shadow-sm hover:shadow transition-shadow">
-                  <Link href="#" className="block p-4 sm:p-5">
-                    <h3 className="text-base sm:text-lg font-semibold leading-snug line-clamp-2 mb-2">
-                      医療現場で学んだコミュニケーションの大切さ
-                    </h3>
-                    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-                      患者さんや医療スタッフとのコミュニケーションで学んだこと、今でも心に残っている印象深いエピソードを紹介しています。
-                    </p>
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <span className="font-medium">ProReNata</span>
-                      <time dateTime="2025-08-11">2025年8月11日</time>
-                    </div>
-                  </Link>
-                </article>
+            
+            {/* Posts List */}
+            <ul className="divide-y divide-gray-200">
+              {posts.length > 0 ? (
+                posts.map((post) => (
+                  <li key={post._id} className="py-12">
+                    <article>
+                      <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+                        <dl>
+                          <dt className="sr-only">Published on</dt>
+                          <dd className="text-base font-medium leading-6 text-gray-500">
+                            <time dateTime={post.publishedAt}>
+                              {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                              })}
+                            </time>
+                          </dd>
+                        </dl>
+                        <div className="space-y-5 xl:col-span-3">
+                          <div className="space-y-6">
+                            <div>
+                              <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                                <Link
+                                  href={`/posts/${post.slug.current}`}
+                                  className="text-gray-900"
+                                >
+                                  {post.title}
+                                </Link>
+                              </h2>
+                              <div className="flex flex-wrap">
+                                {post.categories && post.categories.map((category, index) => (
+                                  <span
+                                    key={index}
+                                    className="mr-3 text-sm font-medium uppercase text-cyan-600 hover:text-cyan-700"
+                                  >
+                                    {typeof category === 'string' ? category : category.title}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="prose max-w-none text-gray-500">
+                              {post.excerpt}
+                            </div>
+                          </div>
+                          <div className="text-base font-medium leading-6">
+                            <Link
+                              href={`/posts/${post.slug.current}`}
+                              className="text-cyan-600 hover:text-cyan-700"
+                              aria-label={`"${post.title}"を読む`}
+                            >
+                              続きを読む &rarr;
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </li>
+                ))
+              ) : (
+                <li className="py-12">
+                  <div className="text-center">
+                    <p className="text-gray-500">記事を読み込んでいます...</p>
+                  </div>
+                </li>
+              )}
+            </ul>
+          </div>
+          
+          {posts.length > 5 && (
+            <div className="flex justify-end text-base font-medium leading-6">
+              <Link
+                href="/blog"
+                className="text-cyan-600 hover:text-cyan-700"
+                aria-label="すべての記事を見る"
+              >
+                すべての記事を見る &rarr;
+              </Link>
             </div>
           )}
-        </section>
-      </Container>
+        </main>
 
-      {/* フッター */}
-      <footer className="bg-white border-t border-gray-200 py-8 mt-12">
-        <Container className="text-center">
-          <p className="text-xs text-gray-500">
-            © 2025 ProReNata
-          </p>
-        </Container>
-      </footer>
-    </>
-  );
+        {/* Footer */}
+        <footer>
+          <div className="mt-16 flex flex-col items-center">
+            <div className="mb-3 flex space-x-4">
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  className="fill-current text-gray-700 hover:text-cyan-600 h-5 w-5"
+                >
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+              </div>
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="fill-current text-gray-700 hover:text-cyan-600 h-5 w-5"
+                >
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                </svg>
+              </div>
+            </div>
+            <div className="mb-2 flex space-x-2 text-sm text-gray-500">
+              <div>{`© ${new Date().getFullYear()}`}</div>
+              <div>{` • `}</div>
+              <Link href="/">ProReNata</Link>
+            </div>
+            <div className="mb-8 text-sm text-gray-500">
+              看護助手の皆様を応援するブログ
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  )
 }

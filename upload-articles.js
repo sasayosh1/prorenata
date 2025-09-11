@@ -1,3 +1,5 @@
+
+
 const fs = require('fs');
 const { createClient } = require('@sanity/client');
 
@@ -22,12 +24,12 @@ fs.readFile(articlesFilePath, 'utf8', async (err, data) => {
     const articles = JSON.parse(data);
 
     for (const article of articles) {
-      if (article.content) { // contentフィールドがあることを確認
+      if (article.body) { // bodyフィールドがあることを確認
         console.log(`Updating article: ${article.title}`);
         try {
           await client
             .patch(article._id)
-            .set({ body: article.content }) // contentフィールドの内容をbodyフィールドに書き込む
+            .set({ body: article.body }) // bodyフィールドの内容を更新
             .unset(['content']) // contentフィールドを削除
             .commit();
           console.log(`  ✅  Successfully updated: ${article.title}`);

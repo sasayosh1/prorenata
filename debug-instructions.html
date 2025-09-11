@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanity Studio デバッグ手順</title>
+    <style>
+        body { font-family: system-ui; margin: 40px; line-height: 1.6; }
+        .step { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .url { background: #e8f4fd; padding: 10px; border-radius: 4px; font-family: monospace; }
+        .query { background: #fff3cd; padding: 10px; border-radius: 4px; font-family: monospace; }
+        .success { color: #22c55e; font-weight: bold; }
+        .error { color: #ef4444; font-weight: bold; }
+        ul { margin: 10px 0; }
+        li { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Sanity Studio bodyフィールド問題 最終デバッグ</h1>
+    
+    <div class="step">
+        <h2>📊 データ確認済み状況</h2>
+        <ul>
+            <li class="success">✅ API: 30要素のPortable Text配列が正常存在</li>
+            <li class="success">✅ スキーマ: post.ts正常、制限設定なし</li>
+            <li class="success">✅ Studio: 完全再構築済み</li>
+            <li class="success">✅ 依存関係: Sanity v4.7.0最新版</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>🎯 Step 1: Vision Toolでのデータ視覚確認</h2>
+        <div class="url">URL: http://localhost:3333/vision</div>
+        <p><strong>実行クエリ:</strong></p>
+        <div class="query">*[_id == "Jx7ptA0c3Aq7il8T99GtdA"]{body}</div>
+        <p><strong>期待結果:</strong> 30要素のbody配列が表示される</p>
+    </div>
+
+    <div class="step">
+        <h2>🔧 Step 2: ブラウザ拡張機能テスト (最重要)</h2>
+        <div class="url">URL: http://localhost:3333/structure/post;Jx7ptA0c3Aq7il8T99GtdA</div>
+        
+        <h3>A. Chrome 拡張機能無効化</h3>
+        <ol>
+            <li>Chrome設定 (⋮) → 拡張機能 → 拡張機能を管理</li>
+            <li><strong>すべての拡張機能を無効化</strong></li>
+            <li>記事ページでCmd+Shift+R (ハードリフレッシュ)</li>
+            <li>bodyフィールド確認</li>
+        </ol>
+
+        <h3>B. プライベートモード</h3>
+        <ol>
+            <li>Cmd+Shift+N (新規プライベートウィンドウ)</li>
+            <li>URLを入力</li>
+            <li>bodyフィールド確認</li>
+        </ol>
+
+        <h3>C. Safari比較テスト</h3>
+        <ol>
+            <li>Safariで同じURLを開く</li>
+            <li>bodyフィールドの表示を比較</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>🐛 Step 3: 開発者ツール確認</h2>
+        <ol>
+            <li>F12 または Cmd+Option+I</li>
+            <li><strong>Console</strong>タブでエラー確認</li>
+            <li><strong>Network</strong>タブで通信エラー確認</li>
+            <li>エラーがあれば内容をメモ</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>✅ 期待される正常表示</h2>
+        <ul>
+            <li>🎯 <strong>H2見出し:</strong> "【完全ガイド】看護助手とは？仕事内容から必要なスキルまで徹底解説"</li>
+            <li>📝 <strong>段落テキスト:</strong> "看護助手（ナースエイド、看護補助者とも呼ばれます）は..."</li>
+            <li>🛠️ <strong>エディタツールバー:</strong> 太字、斜体、リンク、見出しボタン</li>
+            <li>📋 <strong>リスト要素</strong>、太字テキスト</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>🚨 問題の可能性順位</h2>
+        <ol>
+            <li class="error"><strong>ブラウザ拡張機能</strong> (広告ブロッカー、セキュリティ拡張)</li>
+            <li><strong>ブラウザキャッシュ</strong></li>
+            <li><strong>Sanity Studio UI特有の問題</strong></li>
+        </ol>
+    </div>
+
+    <script>
+        console.log('🔍 Sanity Studio Debug Page Loaded');
+        console.log('📝 記事URL: http://localhost:3333/structure/post;Jx7ptA0c3Aq7il8T99GtdA');
+        console.log('🎯 Vision URL: http://localhost:3333/vision');
+    </script>
+</body>
+</html>

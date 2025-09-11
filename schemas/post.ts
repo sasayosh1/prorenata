@@ -103,6 +103,13 @@ export default defineType({
   ],
   preview: {
     select: { title: 'title', media: 'mainImage', subtitle: 'slug.current', description: 'body' },
+    prepare(selection) {
+      const {title, subtitle} = selection
+      return {
+        title,
+        subtitle: subtitle ? `/posts/${subtitle}` : 'No slug'
+      }
+    }
   },
   orderings: [
     { title: 'Publish date (new→old)', name: 'pubDesc', by: [{field: 'publishedAt', direction: 'desc'}] },
