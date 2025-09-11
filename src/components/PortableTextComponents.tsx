@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PortableTextComponents, PortableTextComponentProps } from '@portabletext/react'
-import { PortableTextBlock } from '@portabletext/types'
+import { PortableTextBlock, PortableTextList, PortableTextListItem } from '@portabletext/types'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
@@ -147,13 +147,8 @@ function CustomHeading({
 }
 
 // カスタムリストコンポーネント
-function CustomList({ 
-  children, 
-  type 
-}: { 
-  children: React.ReactNode
-  type?: 'bullet' | 'number'
-}) {
+function CustomList(props: PortableTextComponentProps<PortableTextList>) {
+  const type = props.value?.listItem || 'bullet'
   const Tag = type === 'number' ? 'ol' : 'ul'
   const listClass = type === 'number' 
     ? "list-decimal list-inside mb-6 space-y-2 text-gray-800 dark:text-gray-200"
@@ -161,16 +156,16 @@ function CustomList({
   
   return (
     <Tag className={listClass}>
-      {children}
+      {props.children}
     </Tag>
   )
 }
 
 // カスタムリストアイテムコンポーネント
-function CustomListItem({ children }: { children: React.ReactNode }) {
+function CustomListItem(props: PortableTextComponentProps<PortableTextListItem>) {
   return (
     <li className="ml-4">
-      {children}
+      {props.children}
     </li>
   )
 }
