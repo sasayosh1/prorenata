@@ -128,7 +128,7 @@ function CustomHeading({
   children: React.ReactNode
   level: number 
 }) {
-  const Tag = `h${Math.max(2, Math.min(6, level + 1))}` as keyof JSX.IntrinsicElements
+  const Tag = `h${Math.max(2, Math.min(6, level + 1))}` as keyof React.JSX.IntrinsicElements
   
   const headingStyles = {
     2: "text-2xl font-bold mb-6 mt-8 text-gray-900 dark:text-gray-100",
