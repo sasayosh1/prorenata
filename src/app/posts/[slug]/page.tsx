@@ -3,6 +3,7 @@ import { createClient } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { portableTextComponents } from '@/components/PortableTextComponents'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -253,7 +254,84 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
             {/* 記事本文 */}
             <div className="prose prose-lg max-w-none leading-relaxed space-y-8" style={{color: 'var(--foreground)'}}>
-              <PortableText value={post.body} />
+              <style jsx>{`
+                /* リンクスタイル - 重要：今後絶対に変更しない */
+                .external-link {
+                  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  font-weight: 500;
+                }
+                
+                .affiliate-link {
+                  background: linear-gradient(135deg, #f59e0b, #d97706);
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  font-weight: 600;
+                  position: relative;
+                }
+                
+                .affiliate-link:hover::after {
+                  content: ' (PR)';
+                  background: #f59e0b;
+                  color: white;
+                  font-size: 10px;
+                  padding: 1px 4px;
+                  border-radius: 2px;
+                  margin-left: 4px;
+                  font-weight: normal;
+                  white-space: nowrap;
+                }
+                
+                .new-tab-link:hover {
+                  text-decoration: underline dotted;
+                }
+                
+                /* データ属性による詳細なスタイリング */
+                a[data-affiliate="true"] {
+                  border-bottom: 2px solid rgba(245, 158, 11, 0.3);
+                  padding-bottom: 1px;
+                }
+                
+                a[data-external="true"]:not([data-affiliate="true"]) {
+                  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+                }
+                
+                /* アクセシビリティ強化 */
+                a[data-new-tab="true"]:focus::after {
+                  content: ' (新しいタブで開く)';
+                  position: absolute;
+                  left: -9999px;
+                  width: 1px;
+                  height: 1px;
+                  overflow: hidden;
+                }
+                
+                /* 外部リンクアイコンのホバー効果 */
+                a[data-external="true"] span[aria-label*="外部"] {
+                  transition: transform 0.2s ease;
+                }
+                
+                a[data-external="true"]:hover span[aria-label*="外部"] {
+                  transform: scale(1.2);
+                }
+                
+                /* アフィリエイトリンクアイコンのホバー効果 */
+                a[data-affiliate="true"] span[aria-label*="アフィリエイト"] {
+                  transition: transform 0.2s ease;
+                }
+                
+                a[data-affiliate="true"]:hover span[aria-label*="アフィリエイト"] {
+                  transform: rotate(15deg);
+                }
+              `}</style>
+              
+              <PortableText 
+                value={post.body} 
+                components={portableTextComponents}
+              />
             </div>
 
             {/* 記事下部のCTA */}
