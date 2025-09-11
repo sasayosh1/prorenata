@@ -115,7 +115,7 @@ function CustomLink({
 // カスタム段落コンポーネント（リンクが含まれる可能性があるため）
 function CustomParagraph(props: PortableTextComponentProps<PortableTextBlock>) {
   return (
-    <p className="mb-6 leading-relaxed text-gray-800 dark:text-gray-200">
+    <p className="mb-6 leading-relaxed text-gray-900 dark:text-gray-200">
       {props.children}
     </p>
   )
@@ -152,8 +152,8 @@ function CustomList(props: any) {
   const type = props.value?.listItem || 'bullet'
   const Tag = type === 'number' ? 'ol' : 'ul'
   const listClass = type === 'number' 
-    ? "list-decimal list-inside mb-6 space-y-2 text-gray-800 dark:text-gray-200"
-    : "list-disc list-inside mb-6 space-y-2 text-gray-800 dark:text-gray-200"
+    ? "list-decimal list-inside mb-6 space-y-2 text-gray-900 dark:text-gray-200"
+    : "list-disc list-inside mb-6 space-y-2 text-gray-900 dark:text-gray-200"
   
   return (
     <Tag className={listClass}>
