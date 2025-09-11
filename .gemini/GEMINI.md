@@ -17,7 +17,7 @@
 - APIの使用はできる限り最小限に抑え、代替手段を優先します。ただし、ワークフローの失敗やセキュリティ上の問題がある場合に限り、無料利用枠の範囲内でAPIの使用を許可します。
 - 記事生成はまず gemini-1.5-flash を使ってテストし、量産後に必要な記事だけ gemini-1.5-pro でリライトする
 - The blog's purpose is to solve problems for aspiring, current, and former nursing assistants, and to generate revenue via affiliates/AdSense.
-- The Sanity API token is ske49I6aVSAalmMmqchf6PLTnXgrbZSlYybgGAXwI0gLfzhpftcrjRM94V4kiOuvlCSnuyFLwR0EJDwYzH88enr0F7m8hbA1dxsiW3hOKiKmd3cBQquqU4V16uJkHdCEKVWZFflta2rOQSpoVpX2K5th9kRgITmisY86NHDcU8jmNsguHiyg
+- The Sanity API token is skCHyaNwM7IJU5RSAkrE3ZGFEYVcXx3lJzbKIz0a8HNUJmTwHRn1phhfsAYXZSeAVeWo2ogJj0COIwousCyb2MLGPwyxe4FuDbDETY2xz5hkjuUIcdz6YcubOZ5SfRywxB2Js8r4vKtbOmlbLm1pXJyHl0Kgajis2MgxilYSTpkEYe6GGWEu
 - 今後のやりとりや報告はすべて日本語で行うこと。
 
 ## Article Guidelines
@@ -30,6 +30,7 @@
 - **Quality & Structure:**
   - **Length:** 1500-2000 characters.
   - **Pacing:** The pacing should be engaging and not drawn-out.
+  - **Formatting:** Use bullet points actively to improve readability.
   - **Structure:**
     - H1: 記事のメインタイトル
     - 見出し: 記事全体のリード文、導入文
