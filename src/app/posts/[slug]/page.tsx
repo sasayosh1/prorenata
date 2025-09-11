@@ -276,7 +276,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                           カテゴリ
                         </h2>
                         <div className="flex flex-wrap">
-                          {post.categories.map((category: any, index: number) => (
+                          {post.categories.map((category: string, index: number) => (
                             <span
                               key={index}
                               className="mr-3 text-sm font-medium uppercase text-cyan-600 hover:text-cyan-700"
