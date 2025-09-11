@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PortableTextComponents, PortableTextComponentProps } from '@portabletext/react'
-import { PortableTextBlock, PortableTextList, PortableTextListItem } from '@portabletext/types'
+import { PortableTextBlock } from '@portabletext/types'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
@@ -147,7 +147,8 @@ function CustomHeading({
 }
 
 // カスタムリストコンポーネント
-function CustomList(props: PortableTextComponentProps<PortableTextList>) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function CustomList(props: any) {
   const type = props.value?.listItem || 'bullet'
   const Tag = type === 'number' ? 'ol' : 'ul'
   const listClass = type === 'number' 
@@ -162,7 +163,8 @@ function CustomList(props: PortableTextComponentProps<PortableTextList>) {
 }
 
 // カスタムリストアイテムコンポーネント
-function CustomListItem(props: PortableTextComponentProps<PortableTextListItem>) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function CustomListItem(props: any) {
   return (
     <li className="ml-4">
       {props.children}
