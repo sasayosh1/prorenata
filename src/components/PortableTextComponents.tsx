@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { PortableTextComponents } from '@portabletext/react'
+import { PortableTextComponents, PortableTextComponentProps } from '@portabletext/react'
+import { PortableTextBlock } from '@portabletext/types'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
@@ -112,7 +113,7 @@ function CustomLink({
 }
 
 // カスタム段落コンポーネント（リンクが含まれる可能性があるため）
-function CustomParagraph(props: any) {
+function CustomParagraph(props: PortableTextComponentProps<PortableTextBlock>) {
   return (
     <p className="mb-6 leading-relaxed text-gray-800 dark:text-gray-200">
       {props.children}
