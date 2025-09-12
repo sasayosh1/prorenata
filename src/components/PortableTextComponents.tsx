@@ -132,11 +132,28 @@ function CustomHeading({
   const Tag = `h${Math.max(2, Math.min(6, level + 1))}` as keyof React.JSX.IntrinsicElements
   
   const headingStyles = {
-    2: "text-2xl font-bold mb-6 mt-8 text-black dark:text-gray-100",
+    2: "text-2xl font-bold mb-6 mt-8 text-black dark:text-gray-100 border border-gray-300 rounded-md px-4 py-3",
     3: "text-xl font-semibold mb-4 mt-6 text-black dark:text-gray-100", 
     4: "text-lg font-semibold mb-3 mt-5 text-black dark:text-gray-100",
     5: "text-base font-semibold mb-2 mt-4 text-black dark:text-gray-100",
     6: "text-sm font-semibold mb-2 mt-3 text-black dark:text-gray-100"
+  }
+  
+  if (level === 2) {
+    return (
+      <Tag className={headingStyles[2]} style={{color: 'black !important'}}>
+        {children}
+      </Tag>
+    )
+  }
+  
+  if (level === 3) {
+    return (
+      <Tag className={headingStyles[3]} style={{color: 'black !important'}}>
+        <span className="inline-block w-2 h-2 bg-black rounded-full mr-3"></span>
+        {children}
+      </Tag>
+    )
   }
   
   return (
