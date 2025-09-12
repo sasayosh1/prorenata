@@ -146,7 +146,7 @@ function CustomHeading({
     .trim()
   
   const headingStyles = {
-    2: "text-2xl font-bold mb-6 mt-8 text-black dark:text-gray-100 border border-gray-600 px-4 py-3",
+    2: "text-2xl font-bold mb-6 mt-8 text-black dark:text-gray-100 border-2 border-gray-600 px-4 py-3",
     3: "text-xl font-semibold mb-4 mt-6 text-black dark:text-gray-100", 
     4: "text-lg font-semibold mb-3 mt-5 text-black dark:text-gray-100",
     5: "text-base font-semibold mb-2 mt-4 text-black dark:text-gray-100",
