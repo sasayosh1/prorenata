@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { portableTextComponents } from '@/components/PortableTextComponents'
+import TableOfContents from '@/components/TableOfContents'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -260,6 +261,9 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </dl>
                 <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0">
                   <div className="max-w-none pb-8 pt-10">
+                    {/* 目次コンポーネント */}
+                    {post.body && <TableOfContents content={post.body} />}
+                    
                     <div className="text-black" style={{color: 'black !important'}}>
                       <PortableText 
                         value={post.body} 

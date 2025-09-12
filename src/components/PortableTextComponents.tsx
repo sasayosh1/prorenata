@@ -124,12 +124,26 @@ function CustomParagraph(props: PortableTextComponentProps<PortableTextBlock>) {
 // カスタム見出しコンポーネント
 function CustomHeading({ 
   children, 
-  level 
+  level,
+  value
 }: { 
   children: React.ReactNode
-  level: number 
+  level: number
+  value?: any
 }) {
   const Tag = `h${Math.max(2, Math.min(6, level + 1))}` as keyof React.JSX.IntrinsicElements
+  
+  // 見出しテキストからIDを生成
+  const headingText = value?.children
+    ?.filter((child: any) => child._type === 'span')
+    ?.map((child: any) => child.text)
+    ?.join(' ') || ''
+  
+  const headingId = headingText
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .trim()
   
   const headingStyles = {
     2: "text-2xl font-bold mb-6 mt-8 text-black dark:text-gray-100 border border-gray-600 px-4 py-3",
@@ -141,7 +155,11 @@ function CustomHeading({
   
   if (level === 2) {
     return (
-      <Tag className={headingStyles[2]} style={{color: 'black !important'}}>
+      <Tag 
+        id={headingId} 
+        className={headingStyles[2]} 
+        style={{color: 'black !important'}}
+      >
         {children}
       </Tag>
     )
@@ -149,7 +167,11 @@ function CustomHeading({
   
   if (level === 3) {
     return (
-      <Tag className={headingStyles[3]} style={{color: 'black !important'}}>
+      <Tag 
+        id={headingId} 
+        className={headingStyles[3]} 
+        style={{color: 'black !important'}}
+      >
         <span className="inline-block mr-3 text-black font-bold">▶</span>
         {children}
       </Tag>
@@ -157,7 +179,11 @@ function CustomHeading({
   }
   
   return (
-    <Tag className={headingStyles[level as keyof typeof headingStyles] || headingStyles[2]} style={{color: 'black !important'}}>
+    <Tag 
+      id={headingId} 
+      className={headingStyles[level as keyof typeof headingStyles] || headingStyles[2]} 
+      style={{color: 'black !important'}}
+    >
       {children}
     </Tag>
   )
@@ -212,12 +238,12 @@ export const portableTextComponents: PortableTextComponents = {
   // ブロックレベル要素
   block: {
     normal: CustomParagraph,
-    h1: ({ children }) => <CustomHeading level={1}>{children}</CustomHeading>,
-    h2: ({ children }) => <CustomHeading level={2}>{children}</CustomHeading>,
-    h3: ({ children }) => <CustomHeading level={3}>{children}</CustomHeading>,
-    h4: ({ children }) => <CustomHeading level={4}>{children}</CustomHeading>,
-    h5: ({ children }) => <CustomHeading level={5}>{children}</CustomHeading>,
-    h6: ({ children }) => <CustomHeading level={6}>{children}</CustomHeading>,
+    h1: ({ children, value }) => <CustomHeading level={1} value={value}>{children}</CustomHeading>,
+    h2: ({ children, value }) => <CustomHeading level={2} value={value}>{children}</CustomHeading>,
+    h3: ({ children, value }) => <CustomHeading level={3} value={value}>{children}</CustomHeading>,
+    h4: ({ children, value }) => <CustomHeading level={4} value={value}>{children}</CustomHeading>,
+    h5: ({ children, value }) => <CustomHeading level={5} value={value}>{children}</CustomHeading>,
+    h6: ({ children, value }) => <CustomHeading level={6} value={value}>{children}</CustomHeading>,
   },
   
   // リスト
