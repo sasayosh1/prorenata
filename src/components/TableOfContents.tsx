@@ -10,6 +10,7 @@ interface TocItem {
 
 interface TableOfContentsProps {
   content: any[]
+  renderInline?: boolean
 }
 
 export default function TableOfContents({ content }: TableOfContentsProps) {
@@ -71,7 +72,6 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
         className="text-lg font-semibold text-black flex items-center w-full"
         style={{color: 'black !important'}}
       >
-        <span className="inline-block w-2 h-2 bg-black rounded-full mr-2"></span>
         もくじ
         <span className={`ml-auto transition-transform ${isOpen ? 'rotate-90' : ''}`}>
           ▶
@@ -95,11 +95,8 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                   `}
                   style={{color: 'black !important'}}
                 >
-                  {item.level === 2 && (
-                    <span className="inline-block w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
-                  )}
                   {item.level === 3 && (
-                    <span className="inline-block mr-2 text-black">▶</span>
+                    <span className="inline-block w-1.5 h-1.5 bg-black rounded-full mr-2"></span>
                   )}
                   {item.text}
                 </a>

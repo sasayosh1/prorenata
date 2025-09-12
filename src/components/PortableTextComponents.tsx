@@ -172,7 +172,7 @@ function CustomHeading({
         className={headingStyles[3]} 
         style={{color: 'black !important'}}
       >
-        <span className="inline-block mr-3 text-black font-bold">▶</span>
+        <span className="inline-block w-1.5 h-1.5 bg-black rounded-full mr-3"></span>
         {children}
       </Tag>
     )
