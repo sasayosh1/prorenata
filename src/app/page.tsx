@@ -6,10 +6,11 @@ export const revalidate = 0
 export const fetchCache = 'force-no-store'
 
 export default async function Home() {
-  let posts: Post[] = []
+  let recentPosts: Post[] = []
   
   try {
-    posts = await getAllPosts()
+    const posts = await getAllPosts()
+    recentPosts = posts.slice(0, 3) // 最新3記事のみ表示
   } catch (error) {
     console.error('Failed to load posts:', error)
   }
@@ -53,22 +54,55 @@ export default async function Home() {
         </header>
 
         {/* Main Content */}
-        <main>
+        <main className="flex-1">
+          {/* Hero Section */}
+          <div className="text-center pb-16">
+            <h1 className="text-4xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-5xl sm:leading-10 md:text-6xl md:leading-14">
+              ProReNata
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-500">
+              看護助手として働く皆様を全力でサポート。現場経験豊富な専門家による実践的な情報とアドバイスをお届けします。
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link
+                href="/blog"
+                className="rounded-md bg-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+              >
+                ブログを読む
+              </Link>
+              <Link
+                href="/about"
+                className="text-sm font-semibold leading-6 text-gray-900 hover:text-cyan-600"
+              >
+                サイトについて <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+
           <div className="divide-y divide-gray-200">
-            <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-              <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                Latest
-              </h1>
-              <p className="text-lg leading-7 text-gray-500">
-                看護助手として働く皆様に役立つ最新の情報をお届けします
+            {/* Blog Section */}
+            <div className="pb-8 pt-6">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900">
+                  最新記事
+                </h2>
+                <Link
+                  href="/blog"
+                  className="text-sm font-medium text-cyan-600 hover:text-cyan-700"
+                >
+                  すべての記事を見る →
+                </Link>
+              </div>
+              <p className="mt-2 text-sm text-gray-500">
+                看護助手に役立つ最新情報をお届けします
               </p>
             </div>
             
-            {/* Posts List */}
+            {/* Recent Posts */}
             <ul className="divide-y divide-gray-200">
-              {posts.length > 0 ? (
-                posts.map((post) => (
-                  <li key={post._id} className="py-12">
+              {recentPosts.length > 0 ? (
+                recentPosts.map((post) => (
+                  <li key={post._id} className="py-8">
                     <article>
                       <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                         <dl>
@@ -83,39 +117,39 @@ export default async function Home() {
                             </time>
                           </dd>
                         </dl>
-                        <div className="space-y-5 xl:col-span-3">
-                          <div className="space-y-6">
+                        <div className="space-y-3 xl:col-span-3">
+                          <div className="space-y-4">
                             <div>
-                              <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                              <h3 className="text-xl font-bold leading-7 tracking-tight">
                                 <Link
                                   href={`/posts/${post.slug.current}`}
-                                  className="text-gray-900"
+                                  className="text-gray-900 hover:text-cyan-600"
                                 >
                                   {post.title}
                                 </Link>
-                              </h2>
-                              <div className="flex flex-wrap">
+                              </h3>
+                              <div className="flex flex-wrap mt-1">
                                 {post.categories && post.categories.map((category, index) => (
                                   <span
                                     key={index}
-                                    className="mr-3 text-sm font-medium uppercase text-cyan-600 hover:text-cyan-700"
+                                    className="mr-3 text-sm font-medium uppercase text-cyan-600"
                                   >
                                     {typeof category === 'string' ? category : category.title}
                                   </span>
                                 ))}
                               </div>
                             </div>
-                            <div className="prose max-w-none text-gray-500">
+                            <div className="prose max-w-none text-gray-500 text-sm">
                               {post.excerpt}
                             </div>
                           </div>
-                          <div className="text-base font-medium leading-6">
+                          <div className="text-sm font-medium leading-6">
                             <Link
                               href={`/posts/${post.slug.current}`}
                               className="text-cyan-600 hover:text-cyan-700"
                               aria-label={`"${post.title}"を読む`}
                             >
-                              続きを読む &rarr;
+                              続きを読む →
                             </Link>
                           </div>
                         </div>
@@ -124,26 +158,90 @@ export default async function Home() {
                   </li>
                 ))
               ) : (
-                <li className="py-12">
+                <li className="py-8">
                   <div className="text-center">
                     <p className="text-gray-500">記事を読み込んでいます...</p>
                   </div>
                 </li>
               )}
             </ul>
-          </div>
-          
-          {posts.length > 5 && (
-            <div className="flex justify-end text-base font-medium leading-6">
-              <Link
-                href="/blog"
-                className="text-cyan-600 hover:text-cyan-700"
-                aria-label="すべての記事を見る"
-              >
-                すべての記事を見る &rarr;
-              </Link>
+
+            {/* Future Content Sections Placeholder */}
+            <div className="py-8">
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {/* Services Section (Future) */}
+                <div className="relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                  <div className="flex items-center">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50">
+                      <svg className="h-6 w-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-sm font-medium text-gray-900">転職サポート</h3>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-sm text-gray-500">
+                    看護助手の転職を専門家がサポート（準備中）
+                  </div>
+                </div>
+
+                {/* Resources Section (Future) */}
+                <div className="relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                  <div className="flex items-center">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50">
+                      <svg className="h-6 w-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-sm font-medium text-gray-900">学習リソース</h3>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-sm text-gray-500">
+                    スキルアップに役立つ教材・資料（準備中）
+                  </div>
+                </div>
+
+                {/* Community Section (Future) */}
+                <div className="relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                  <div className="flex items-center">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50">
+                      <svg className="h-6 w-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-sm font-medium text-gray-900">コミュニティ</h3>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-sm text-gray-500">
+                    看護助手同士の交流・相談の場（準備中）
+                  </div>
+                </div>
+              </div>
             </div>
-          )}
+
+            {/* CTA Section */}
+            <div className="py-8">
+              <div className="rounded-lg bg-cyan-50 px-6 py-8 text-center">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  看護助手のキャリアを一緒にサポートします
+                </h3>
+                <p className="mt-2 text-sm text-gray-600">
+                  現場で役立つ情報から転職相談まで、あなたの成長を応援します
+                </p>
+                <div className="mt-6">
+                  <Link
+                    href="/blog"
+                    className="rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500"
+                  >
+                    最新記事をチェック
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
 
         {/* Footer */}
