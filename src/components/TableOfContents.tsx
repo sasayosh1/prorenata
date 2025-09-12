@@ -14,7 +14,7 @@ interface TableOfContentsProps {
 
 export default function TableOfContents({ content }: TableOfContentsProps) {
   const [tocItems, setTocItems] = useState<TocItem[]>([])
-  const [activeId, setActiveId] = useState<string>('')
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   useEffect(() => {
     // PortableTextのcontentからH2、H3を抽出
@@ -50,30 +50,6 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
 
     const headings = extractHeadings(content)
     setTocItems(headings)
-
-    // スクロールに応じてアクティブな見出しを更新
-    const handleScroll = () => {
-      const headingElements = headings.map(heading => 
-        document.getElementById(heading.id)
-      ).filter(Boolean)
-
-      if (headingElements.length === 0) return
-
-      const scrollY = window.scrollY + 100 // オフセット
-
-      for (let i = headingElements.length - 1; i >= 0; i--) {
-        const element = headingElements[i]
-        if (element && element.offsetTop <= scrollY) {
-          setActiveId(headings[i].id)
-          break
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    handleScroll() // 初期実行
-
-    return () => window.removeEventListener('scroll', handleScroll)
   }, [content])
 
   const scrollToHeading = (id: string) => {
@@ -89,38 +65,49 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
   if (tocItems.length === 0) return null
 
   return (
-    <div className="border border-gray-300 rounded-lg p-4 mb-6 bg-gray-50">
-      <h3 className="text-lg font-semibold mb-3 text-black flex items-center">
+    <div className="border border-gray-300 rounded-lg p-4 mb-6 bg-white">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-lg font-semibold text-black flex items-center w-full"
+        style={{color: 'black !important'}}
+      >
         <span className="inline-block w-2 h-2 bg-black rounded-full mr-2"></span>
         もくじ
-      </h3>
-      <nav>
-        <ul className="space-y-2">
-          {tocItems.map((item, index) => (
-            <li key={index} className={item.level === 3 ? 'ml-4' : ''}>
-              <button
-                onClick={() => scrollToHeading(item.id)}
-                className={`
-                  text-left w-full px-3 py-2 rounded transition-colors duration-200 text-sm
-                  ${activeId === item.id 
-                    ? 'bg-cyan-100 text-cyan-800 font-medium' 
-                    : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-                  }
-                  ${item.level === 2 ? 'font-medium' : 'font-normal'}
-                `}
-              >
-                {item.level === 2 && (
-                  <span className="inline-block w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
-                )}
-                {item.level === 3 && (
-                  <span className="inline-block mr-2 text-gray-600">▶</span>
-                )}
-                {item.text}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <span className={`ml-auto transition-transform ${isOpen ? 'rotate-90' : ''}`}>
+          ▶
+        </span>
+      </button>
+      
+      {isOpen && (
+        <nav className="mt-3">
+          <ul className="space-y-1">
+            {tocItems.map((item, index) => (
+              <li key={index} className={item.level === 3 ? 'ml-4' : ''}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToHeading(item.id)
+                  }}
+                  className={`
+                    block px-3 py-2 rounded text-sm transition-colors duration-200 text-black hover:bg-gray-100
+                    ${item.level === 2 ? 'font-medium' : 'font-normal'}
+                  `}
+                  style={{color: 'black !important'}}
+                >
+                  {item.level === 2 && (
+                    <span className="inline-block w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
+                  )}
+                  {item.level === 3 && (
+                    <span className="inline-block mr-2 text-black">▶</span>
+                  )}
+                  {item.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </div>
   )
 }

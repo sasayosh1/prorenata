@@ -260,7 +260,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   </dd>
                 </dl>
                 <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0">
-                  <div className="max-w-none pb-8 pt-10">
+                  <div className="max-w-none pb-8 pt-10" style={{color: 'black !important'}}>
                     {/* 目次コンポーネント */}
                     {post.body && <TableOfContents content={post.body} />}
                     
