@@ -132,15 +132,15 @@ function CustomHeading({
   const Tag = `h${Math.max(2, Math.min(6, level + 1))}` as keyof React.JSX.IntrinsicElements
   
   const headingStyles = {
-    2: "text-2xl font-bold mb-6 mt-8 text-gray-900 dark:text-gray-100",
-    3: "text-xl font-semibold mb-4 mt-6 text-gray-900 dark:text-gray-100", 
-    4: "text-lg font-semibold mb-3 mt-5 text-gray-900 dark:text-gray-100",
-    5: "text-base font-semibold mb-2 mt-4 text-gray-900 dark:text-gray-100",
-    6: "text-sm font-semibold mb-2 mt-3 text-gray-900 dark:text-gray-100"
+    2: "text-2xl font-bold mb-6 mt-8 text-black dark:text-gray-100",
+    3: "text-xl font-semibold mb-4 mt-6 text-black dark:text-gray-100", 
+    4: "text-lg font-semibold mb-3 mt-5 text-black dark:text-gray-100",
+    5: "text-base font-semibold mb-2 mt-4 text-black dark:text-gray-100",
+    6: "text-sm font-semibold mb-2 mt-3 text-black dark:text-gray-100"
   }
   
   return (
-    <Tag className={headingStyles[level as keyof typeof headingStyles] || headingStyles[2]}>
+    <Tag className={headingStyles[level as keyof typeof headingStyles] || headingStyles[2]} style={{color: 'black !important'}}>
       {children}
     </Tag>
   )
@@ -166,7 +166,7 @@ function CustomList(props: any) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomListItem(props: any) {
   return (
-    <li className="ml-4">
+    <li className="ml-4 text-black" style={{color: 'black !important'}}>
       {props.children}
     </li>
   )
@@ -175,7 +175,7 @@ function CustomListItem(props: any) {
 // カスタム強調コンポーネント
 function CustomStrong({ children }: { children: React.ReactNode }) {
   return (
-    <strong className="font-semibold text-gray-900 dark:text-gray-100">
+    <strong className="font-semibold text-black dark:text-gray-100" style={{color: 'black !important'}}>
       {children}
     </strong>
   )
@@ -184,7 +184,7 @@ function CustomStrong({ children }: { children: React.ReactNode }) {
 // カスタム斜体コンポーネント
 function CustomEm({ children }: { children: React.ReactNode }) {
   return (
-    <em className="italic text-gray-700 dark:text-gray-300">
+    <em className="italic text-black dark:text-gray-300" style={{color: 'black !important'}}>
       {children}
     </em>
   )
