@@ -259,8 +259,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   </dd>
                 </dl>
                 <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0">
-                  <div className="prose max-w-none pb-8 pt-10">
-                    <div className="text-gray-700">
+                  <div className="prose prose-gray max-w-none pb-8 pt-10 prose-p:text-black prose-li:text-black">
+                    <div className="text-black">
                       <PortableText 
                         value={post.body} 
                         components={portableTextComponents}
