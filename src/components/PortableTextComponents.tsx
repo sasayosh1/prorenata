@@ -115,7 +115,7 @@ function CustomLink({
 // カスタム段落コンポーネント（リンクが含まれる可能性があるため）
 function CustomParagraph(props: PortableTextComponentProps<PortableTextBlock>) {
   return (
-    <p className="mb-6 leading-relaxed text-black dark:text-gray-200">
+    <p className="mb-6 leading-relaxed text-black dark:text-gray-200" style={{color: 'black !important'}}>
       {props.children}
     </p>
   )
@@ -156,7 +156,7 @@ function CustomList(props: any) {
     : "list-disc list-inside mb-6 space-y-2 text-black dark:text-gray-200"
   
   return (
-    <Tag className={listClass}>
+    <Tag className={listClass} style={{color: 'black !important'}}>
       {props.children}
     </Tag>
   )
