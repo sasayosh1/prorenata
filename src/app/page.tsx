@@ -268,13 +268,10 @@ export default async function Home() {
                 </svg>
               </div>
             </div>
-            <div className="mb-2 flex space-x-2 text-sm text-gray-500">
+            <div className="mb-8 flex space-x-2 text-sm text-gray-500">
               <div>{`© ${new Date().getFullYear()}`}</div>
               <div>{` • `}</div>
               <Link href="/">ProReNata</Link>
-            </div>
-            <div className="mb-8 text-sm text-gray-500">
-              看護助手の皆様を応援するブログ
             </div>
           </div>
         </footer>

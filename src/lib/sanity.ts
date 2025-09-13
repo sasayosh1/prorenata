@@ -80,6 +80,8 @@ export interface Category {
   active?: boolean
 }
 
+
+
 // データ取得関数
 export async function getAllPosts(): Promise<Post[]> {
   try {
@@ -154,3 +156,5 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   
   return client.fetch(query, { slug })
 }
+
+
