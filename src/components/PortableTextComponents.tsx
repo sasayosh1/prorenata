@@ -122,21 +122,28 @@ function CustomParagraph(props: PortableTextComponentProps<PortableTextBlock>) {
 }
 
 // カスタム見出しコンポーネント
-function CustomHeading({ 
-  children, 
+function CustomHeading({
+  children,
   level,
   value
-}: { 
+}: {
   children: React.ReactNode
   level: number
-  value?: any
+  value?: {
+    children?: Array<{
+      _type: string
+      text?: string
+      [key: string]: unknown
+    }>
+    [key: string]: unknown
+  }
 }) {
   const Tag = `h${Math.max(2, Math.min(6, level + 1))}` as keyof React.JSX.IntrinsicElements
   
   // 見出しテキストからIDを生成
   const headingText = value?.children
-    ?.filter((child: any) => child._type === 'span')
-    ?.map((child: any) => child.text)
+    ?.filter((child) => child._type === 'span')
+    ?.map((child) => child.text)
     ?.join(' ') || ''
   
   const headingId = headingText

@@ -5,7 +5,11 @@ import { portableTextComponents } from './PortableTextComponents'
 import TableOfContents from './TableOfContents'
 
 interface ArticleWithTOCProps {
-  content: any[]
+  content: Array<{
+    _type: string
+    style?: string
+    [key: string]: unknown
+  }>
 }
 
 export default function ArticleWithTOC({ content }: ArticleWithTOCProps) {

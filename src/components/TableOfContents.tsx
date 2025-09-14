@@ -9,7 +9,16 @@ interface TocItem {
 }
 
 interface TableOfContentsProps {
-  content: any[]
+  content: Array<{
+    _type: string
+    style?: string
+    children?: Array<{
+      _type: string
+      text?: string
+      [key: string]: unknown
+    }>
+    [key: string]: unknown
+  }>
   renderInline?: boolean
 }
 
@@ -19,15 +28,15 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
 
   useEffect(() => {
     // PortableTextのcontentからH2、H3を抽出
-    const extractHeadings = (blocks: any[]): TocItem[] => {
+    const extractHeadings = (blocks: TableOfContentsProps['content']): TocItem[] => {
       const headings: TocItem[] = []
       
       blocks.forEach((block) => {
         if (block._type === 'block' && block.style && 
             (block.style === 'h2' || block.style === 'h3')) {
           const text = block.children
-            ?.filter((child: any) => child._type === 'span')
-            ?.map((child: any) => child.text)
+            ?.filter((child) => child._type === 'span')
+            ?.map((child) => child.text)
             ?.join(' ') || ''
           
           if (text) {

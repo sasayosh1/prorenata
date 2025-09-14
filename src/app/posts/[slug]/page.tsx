@@ -1,9 +1,7 @@
 import { createClient } from 'next-sanity'
-import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { portableTextComponents } from '@/components/PortableTextComponents'
 import ArticleWithTOC from '@/components/ArticleWithTOC'
 
 const projectId = '72m8vhy2'
