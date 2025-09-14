@@ -66,9 +66,21 @@ vercel --previewe
    - 今後はフロントエンドデザインの変更を完全禁止
    - 機能追加・コンテンツ改善のみ許可
 
+3. ✅ **Google Search Console設定完了** (2025-09-15)
+   - DNS TXT方式で所有権確認成功
+   - 確認コード: google-site-verification=Xy7fDHrYsVObXVQeb0D3He2wEWQCSnlsClAJ_OYsioE
+   - プロパティ: https://prorenata.jp
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
 - レイアウト、色、フォント、スタイルの変更は絶対禁止
 - 詳細は `UI-DESIGN-LOCK.md` を参照
+- 違反した場合は最重要事項の不遵守となる
+
+**🚨 Google Analytics & Search Console コード改変の完全禁止**
+- Google Analytics トラッキングコードの変更は絶対禁止
+- Google Search Console 確認コードの変更は絶対禁止
+- 測定ID: G-HV2JLW3DPB の変更・削除は厳禁
+- DNS TXT確認レコードの削除・変更は厳禁
 - 違反した場合は最重要事項の不遵守となる
