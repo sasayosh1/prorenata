@@ -228,6 +228,9 @@ export default async function RootLayout({
           </>
         )}
 
+        {/* Google Search Console 確認 */}
+        <meta name="google-site-verification" content="Xy7fDHrYsVObXVQeb0D3He2A" />
+
         {/* DNS プリフェッチ */}
         <link rel="dns-prefetch" href="//cdn.sanity.io" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
