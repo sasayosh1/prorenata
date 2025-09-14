@@ -244,12 +244,12 @@ export const portableTextComponents: PortableTextComponents = {
   // ブロックレベル要素
   block: {
     normal: CustomParagraph,
-    h1: ({ children, value }) => <CustomHeading level={1} value={value}>{children}</CustomHeading>,
-    h2: ({ children, value }) => <CustomHeading level={2} value={value}>{children}</CustomHeading>,
-    h3: ({ children, value }) => <CustomHeading level={3} value={value}>{children}</CustomHeading>,
-    h4: ({ children, value }) => <CustomHeading level={4} value={value}>{children}</CustomHeading>,
-    h5: ({ children, value }) => <CustomHeading level={5} value={value}>{children}</CustomHeading>,
-    h6: ({ children, value }) => <CustomHeading level={6} value={value}>{children}</CustomHeading>,
+    h1: ({ children, value }) => <CustomHeading level={1} value={value as any}>{children}</CustomHeading>,
+    h2: ({ children, value }) => <CustomHeading level={2} value={value as any}>{children}</CustomHeading>,
+    h3: ({ children, value }) => <CustomHeading level={3} value={value as any}>{children}</CustomHeading>,
+    h4: ({ children, value }) => <CustomHeading level={4} value={value as any}>{children}</CustomHeading>,
+    h5: ({ children, value }) => <CustomHeading level={5} value={value as any}>{children}</CustomHeading>,
+    h6: ({ children, value }) => <CustomHeading level={6} value={value as any}>{children}</CustomHeading>,
   },
   
   // リスト
