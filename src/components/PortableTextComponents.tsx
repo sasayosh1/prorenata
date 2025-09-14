@@ -129,22 +129,15 @@ function CustomHeading({
 }: {
   children: React.ReactNode
   level: number
-  value?: {
-    children?: Array<{
-      _type: string
-      text?: string
-      [key: string]: unknown
-    }>
-    [key: string]: unknown
-  }
+  value?: unknown
 }) {
   const Tag = `h${Math.max(2, Math.min(6, level + 1))}` as keyof React.JSX.IntrinsicElements
   
   // 見出しテキストからIDを生成
-  const headingText = value?.children
+  const headingText = ((value as { children?: Array<{ _type: string; text?: string }> })?.children
     ?.filter((child) => child._type === 'span')
     ?.map((child) => child.text)
-    ?.join(' ') || ''
+    ?.join(' ')) || ''
   
   const headingId = headingText
     .toLowerCase()
@@ -244,18 +237,12 @@ export const portableTextComponents: PortableTextComponents = {
   // ブロックレベル要素
   block: {
     normal: CustomParagraph,
-    // @ts-ignore
-    h1: ({ children, value }) => <CustomHeading level={1} value={value as any}>{children}</CustomHeading>,
-    // @ts-ignore
-    h2: ({ children, value }) => <CustomHeading level={2} value={value as any}>{children}</CustomHeading>,
-    // @ts-ignore
-    h3: ({ children, value }) => <CustomHeading level={3} value={value as any}>{children}</CustomHeading>,
-    // @ts-ignore
-    h4: ({ children, value }) => <CustomHeading level={4} value={value as any}>{children}</CustomHeading>,
-    // @ts-ignore
-    h5: ({ children, value }) => <CustomHeading level={5} value={value as any}>{children}</CustomHeading>,
-    // @ts-ignore
-    h6: ({ children, value }) => <CustomHeading level={6} value={value as any}>{children}</CustomHeading>,
+    h1: ({ children, value }) => <CustomHeading level={1} value={value}>{children}</CustomHeading>,
+    h2: ({ children, value }) => <CustomHeading level={2} value={value}>{children}</CustomHeading>,
+    h3: ({ children, value }) => <CustomHeading level={3} value={value}>{children}</CustomHeading>,
+    h4: ({ children, value }) => <CustomHeading level={4} value={value}>{children}</CustomHeading>,
+    h5: ({ children, value }) => <CustomHeading level={5} value={value}>{children}</CustomHeading>,
+    h6: ({ children, value }) => <CustomHeading level={6} value={value}>{children}</CustomHeading>,
   },
   
   // リスト
