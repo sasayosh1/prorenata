@@ -23,6 +23,15 @@ export default function TagsPage() {
         <main>
           <div className="divide-y divide-gray-200">
             <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+              {/* パンくずナビゲーション */}
+              <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+                <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
+                  ホーム
+                </Link>
+                <span className="text-gray-300">/</span>
+                <span className="text-gray-900 font-medium">タグ</span>
+              </nav>
+
               <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                 タグ
               </h1>
@@ -63,12 +72,20 @@ export default function TagsPage() {
                     現在、記事をタグ別に分類・検索する機能を開発中です。<br/>
                     しばらくお待ちください。
                   </p>
-                  <Link
-                    href="/blog"
-                    className="inline-flex items-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500"
-                  >
-                    すべての記事を見る
-                  </Link>
+                  <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                    <Link
+                      href="/blog"
+                      className="inline-flex items-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500"
+                    >
+                      すべての記事を見る
+                    </Link>
+                    <Link
+                      href="/"
+                      className="text-cyan-600 hover:text-cyan-700 font-medium"
+                    >
+                      ← ホームに戻る
+                    </Link>
+                  </div>
                 </div>
               </div>
 

@@ -24,8 +24,17 @@ export default async function BlogPage() {
         <main>
           <div className="divide-y divide-gray-200">
             <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+              {/* パンくずナビゲーション */}
+              <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+                <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
+                  ホーム
+                </Link>
+                <span className="text-gray-300">/</span>
+                <span className="text-gray-900 font-medium">記事一覧</span>
+              </nav>
+
               <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                ブログ
+                記事一覧
               </h1>
               <p className="text-lg leading-7 text-gray-500">
                 看護助手として働く皆様に役立つ情報を定期的にお届けします
@@ -99,6 +108,16 @@ export default async function BlogPage() {
                 </li>
               )}
             </ul>
+
+            {/* ホームへ戻るリンク */}
+            <div className="pt-8 text-center">
+              <Link
+                href="/"
+                className="text-cyan-600 hover:text-cyan-700 font-medium"
+              >
+                ← ホームに戻る
+              </Link>
+            </div>
           </div>
         </main>
       </div>

@@ -181,6 +181,19 @@ export default async function PostDetailPage({ params }: PostPageProps) {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <main>
             <div className="xl:divide-y xl:divide-gray-200">
+              {/* パンくずナビゲーション */}
+              <nav className="flex items-center space-x-2 text-sm text-gray-500 pt-6 pb-4">
+                <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
+                  ホーム
+                </Link>
+                <span className="text-gray-300">/</span>
+                <Link href="/blog" className="hover:text-cyan-600 transition-colors duration-200">
+                  記事一覧
+                </Link>
+                <span className="text-gray-300">/</span>
+                <span className="text-gray-900 font-medium truncate">{post.title}</span>
+              </nav>
+
               <header className="pt-6 xl:pb-6">
                 <div className="space-y-1 text-center">
                   <dl className="space-y-10">
@@ -205,79 +218,32 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   </div>
                 </div>
               </header>
-              <div className="divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
-                <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11">
-                  <dt className="sr-only">Authors</dt>
-                  <dd>
-                    <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
-                      <li className="flex items-center space-x-2">
-                        <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
-                          <span className="text-sm font-medium text-gray-700">
-                            {post.author?.name?.charAt(0) || 'P'}
-                          </span>
-                        </div>
-                        <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                          <dt className="sr-only">Name</dt>
-                          <dd className="text-gray-900">
-                            {post.author?.name || 'ProReNata編集部'}
-                          </dd>
-                        </dl>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0">
-                  <div className="max-w-none pb-8 pt-10" style={{color: 'black !important'}}>
-                    {/* 記事コンテンツと目次 */}
-                    {post.body && <ArticleWithTOC content={post.body} />}
-                  </div>
+              <div className="divide-y divide-gray-200 pb-8">
+                {/* 記事コンテンツ */}
+                <div className="max-w-none pb-8 pt-10" style={{color: 'black !important'}}>
+                  {/* 記事コンテンツと目次 */}
+                  {post.body && <ArticleWithTOC content={post.body} />}
                 </div>
-                <footer>
-                  <div className="divide-gray-200 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y">
-                    {post.categories && (
-                      <div className="py-4 xl:py-8">
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500">
-                          カテゴリ
-                        </h2>
-                        <div className="flex flex-wrap">
-                          {post.categories.map((category: string, index: number) => (
-                            <span
-                              key={index}
-                              className="mr-3 text-sm font-medium uppercase text-cyan-600 hover:text-cyan-700"
-                            >
-                              {typeof category === 'string' ? category : category}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500">
-                          前の記事
-                        </h2>
-                        <div className="text-cyan-600 hover:text-cyan-700">
-                          <Link href="/">記事一覧に戻る</Link>
-                        </div>
-                      </div>
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500">
-                          次の記事
-                        </h2>
-                        <div className="text-cyan-600 hover:text-cyan-700">
-                          <Link href="/">記事一覧に戻る</Link>
-                        </div>
-                      </div>
+
+                {/* 記事下部のナビゲーション */}
+                <footer className="pt-8">
+                  <div className="pt-6">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                      <Link
+                        href="/blog"
+                        className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+                        aria-label="記事一覧に戻る"
+                      >
+                        記事一覧に戻る
+                      </Link>
+                      <Link
+                        href="/"
+                        className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+                        aria-label="ホームに戻る"
+                      >
+                        ホームに戻る
+                      </Link>
                     </div>
-                  </div>
-                  <div className="pt-4 xl:pt-8">
-                    <Link
-                      href="/"
-                      className="text-cyan-600 hover:text-cyan-700"
-                      aria-label="記事一覧に戻る"
-                    >
-                      &larr; 記事一覧に戻る
-                    </Link>
                   </div>
                 </footer>
               </div>

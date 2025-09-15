@@ -11,6 +11,15 @@ export default function AboutPage() {
         <main>
           <div className="divide-y divide-gray-200">
             <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+              {/* パンくずナビゲーション */}
+              <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+                <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
+                  ホーム
+                </Link>
+                <span className="text-gray-300">/</span>
+                <span className="text-gray-900 font-medium">About</span>
+              </nav>
+
               <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                 About ProReNata
               </h1>
@@ -115,12 +124,20 @@ export default function AboutPage() {
                     <p className="text-gray-600 mb-6">
                       ご質問、ご要望、記事のリクエストなど、お気軽にお声をお聞かせください。
                     </p>
-                    <Link
-                      href="/blog"
-                      className="rounded-md bg-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500"
-                    >
-                      最新記事を読む
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                      <Link
+                        href="/blog"
+                        className="rounded-md bg-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500"
+                      >
+                        最新記事を読む
+                      </Link>
+                      <Link
+                        href="/"
+                        className="text-cyan-600 hover:text-cyan-700 font-medium"
+                      >
+                        ← ホームに戻る
+                      </Link>
+                    </div>
                   </div>
                 </section>
               </div>
