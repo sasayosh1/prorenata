@@ -6,8 +6,6 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01'
 
-console.log('Sanity config:', { projectId, dataset, apiVersion })
-
 export const client = createClient({
   projectId,
   dataset,
@@ -108,9 +106,7 @@ export async function getAllPosts(): Promise<Post[]> {
       tags
     }`
     
-    console.log('Executing Sanity query:', query)
     const result = await client.fetch(query)
-    console.log('Sanity query result:', result)
     return result
   } catch (error) {
     console.error('Sanity fetch error:', error)

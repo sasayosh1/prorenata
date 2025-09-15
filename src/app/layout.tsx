@@ -256,28 +256,6 @@ export default async function RootLayout({
           <Analytics />
         )}
 
-        {/* パフォーマンス監視 (開発環境用) */}
-        {process.env.NODE_ENV === 'development' && (
-          <>
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  // Core Web Vitals 監視
-                  function vitals(metric) {
-                    console.log('📊 Web Vitals:', metric);
-                  }
-                  
-                  // ページロード時間の監視
-                  window.addEventListener('load', () => {
-                    const loadTime = performance.now();
-                    console.log('⚡ Page Load Time:', Math.round(loadTime), 'ms');
-                  });
-                `
-              }}
-            />
-            <div id="performance-debugger"></div>
-          </>
-        )}
 
       </body>
     </html>
