@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import ArticleWithTOC from '@/components/ArticleWithTOC'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -174,7 +175,9 @@ export default async function PostDetailPage({ params }: PostPageProps) {
         </div>
       )}
 
-      <Header />
+      <div className={isDraftMode ? "pt-12" : ""}>
+        <Header />
+      </div>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <main>
             <div className="xl:divide-y xl:divide-gray-200">
@@ -281,6 +284,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
             </div>
         </main>
       </div>
+      <Footer />
     </>
   )
 }

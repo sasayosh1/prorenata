@@ -1,6 +1,7 @@
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -101,6 +102,7 @@ export default async function BlogPage() {
           </div>
         </main>
       </div>
+      <Footer />
     </>
   )
 }

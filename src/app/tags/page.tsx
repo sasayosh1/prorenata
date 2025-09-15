@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default function TagsPage() {
   // TODO: 今後Sanityからタグ情報を取得する
@@ -115,6 +116,7 @@ export default function TagsPage() {
           </div>
         </main>
       </div>
+      <Footer />
     </>
   )
 }
