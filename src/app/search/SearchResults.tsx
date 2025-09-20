@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { getAllPosts, type Post } from '@/lib/sanity'
+import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
 
 interface FilterOptions {
   category: string
@@ -274,9 +274,16 @@ export default function SearchResults() {
                           <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
                             {post.contentType || '記事'}
                           </span>
-                          <time className="text-xs text-slate-500">
-                            {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
-                          </time>
+                          {(() => {
+                            const { dateTime, label } = formatPostDate(post, { year: 'numeric', month: '2-digit', day: '2-digit' })
+                            return dateTime ? (
+                              <time dateTime={dateTime} className="text-xs text-slate-500">
+                                {label}
+                              </time>
+                            ) : (
+                              <span className="text-xs text-slate-500">{label}</span>
+                            )
+                          })()}
                         </div>
                         
                         <h3 className="text-lg font-semibold text-slate-800 mb-3 line-clamp-2">

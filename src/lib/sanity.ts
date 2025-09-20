@@ -32,7 +32,8 @@ export interface Post {
   slug: {
     current: string
   }
-  publishedAt: string
+  _createdAt?: string
+  publishedAt?: string
   _updatedAt?: string
   excerpt?: string
   mainImage?: SanityImage
@@ -83,10 +84,11 @@ export interface Category {
 // データ取得関数
 export async function getAllPosts(): Promise<Post[]> {
   try {
-    const query = `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc) {
+    const query = `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc) {
       _id,
       title,
       slug,
+      _createdAt,
       publishedAt,
       _updatedAt,
       excerpt,
@@ -142,6 +144,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     _id,
     title,
     slug,
+    _createdAt,
     publishedAt,
     excerpt,
     mainImage,
@@ -153,4 +156,27 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   return client.fetch(query, { slug })
 }
 
+export function formatPostDate(
+  post: Pick<Post, '_createdAt' | 'publishedAt'>,
+  options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  },
+  locale: string = 'ja-JP'
+): { dateTime?: string; label: string } {
+  const dateValue = post.publishedAt ?? post._createdAt
+  if (!dateValue) {
+    return { dateTime: undefined, label: '公開日未設定' }
+  }
 
+  const dateObject = new Date(dateValue)
+  if (Number.isNaN(dateObject.getTime())) {
+    return { dateTime: undefined, label: '公開日未設定' }
+  }
+
+  return {
+    dateTime: dateValue,
+    label: dateObject.toLocaleDateString(locale, options)
+  }
+}

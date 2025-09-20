@@ -1,4 +1,4 @@
-import { getAllPosts, type Post } from '@/lib/sanity'
+import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
 
 // 最強のキャッシュ無効化設定
 export const dynamic = 'force-dynamic'
@@ -187,7 +187,10 @@ export default async function ResolvedPage() {
                       color: '#9ca3af',
                       marginBottom: '1.5rem'
                     }}>
-                      <span>📅 {new Date(post.publishedAt).toLocaleDateString('ja-JP')}</span>
+                      {(() => {
+                        const { label } = formatPostDate(post, { year: 'numeric', month: 'long', day: 'numeric' })
+                        return <span>📅 {label}</span>
+                      })()}
                       <span>🔗 /{post.slug.current}</span>
                       <span>🆔 {post._id.substring(0, 12)}...</span>
                     </div>

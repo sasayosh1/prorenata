@@ -5,6 +5,8 @@ import { draftMode } from 'next/headers'
 import ArticleWithTOC from '@/components/ArticleWithTOC'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import RelatedPosts from '@/components/RelatedPosts'
+import { formatPostDate } from '@/lib/sanity'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -36,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     _id,
     title,
     excerpt,
+    _createdAt,
     publishedAt,
     _updatedAt,
     slug,
@@ -61,6 +64,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'
     const canonicalUrl = `${baseUrl}/posts/${post.slug.current}`
+    const publishedTime = post.publishedAt ?? post._createdAt
+    const modifiedTime = post._updatedAt || post.publishedAt || post._createdAt
     
     const title = post.metaTitle || `${post.title} | ProReNata`
     const description = post.metaDescription || 
@@ -89,8 +94,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         siteName: 'ProReNata',
         locale: 'ja_JP',
         type: 'article',
-        publishedTime: post.publishedAt,
-        modifiedTime: post._updatedAt || post.publishedAt,
+        publishedTime,
+        modifiedTime,
         authors: post.author?.name ? [post.author.name] : ['ProReNata編集部'],
       },
       twitter: {
@@ -123,6 +128,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     _id,
     title,
     slug,
+    _createdAt,
     publishedAt,
     _updatedAt,
     excerpt,
@@ -133,9 +139,24 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     contentType,
     tags,
     "categories": categories[]->title,
+    "categoryRefs": categories[]->_ref,
     "author": author->{name, slug}
   }`
   const post = await client.fetch(query, { slug: resolvedParams.slug })
+
+  // 関連記事の取得
+  let relatedPosts = []
+  if (post && post.categories && post.categories.length > 0) {
+    const relatedQuery = `*[_type == "post" && _id != $currentPostId && references($postCategoryRefs)] | order(rand())[0...2]{
+      title,
+      "slug": slug.current,
+      "categories": categories[]->title
+    }`
+    relatedPosts = await client.fetch(relatedQuery, {
+      currentPostId: post._id,
+      postCategoryRefs: post.categoryRefs,
+    })
+  }
 
   if (!post) {
     return (
@@ -200,14 +221,21 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                     <div>
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500">
-                        <time dateTime={post.publishedAt}>
-                          {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
+                        {(() => {
+                          const { dateTime, label } = formatPostDate(post, {
                             weekday: 'long',
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric'
-                          })}
-                        </time>
+                          })
+                          return dateTime ? (
+                            <time dateTime={dateTime}>
+                              {label}
+                            </time>
+                          ) : (
+                            <span>{label}</span>
+                          )
+                        })()}
                       </dd>
                     </div>
                   </dl>
@@ -224,6 +252,9 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   {/* 記事コンテンツと目次 */}
                   {post.body && <ArticleWithTOC content={post.body} />}
                 </div>
+
+                {/* 関連記事セクション */}
+                {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
 
                 {/* 記事下部のナビゲーション */}
                 <footer className="pt-8">

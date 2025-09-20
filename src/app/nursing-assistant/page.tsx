@@ -1,4 +1,4 @@
-import { getAllPosts, type Post } from '@/lib/sanity'
+import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
 import Link from 'next/link'
 
 // SEO metadata
@@ -269,17 +269,24 @@ export default async function NursingAssistantPage() {
             
             {nursingPosts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {nursingPosts.slice(0, 12).map((post) => (
-                  <article key={post._id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300">
-                    <div className="p-6">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-                          {post.contentType || '記事'}
-                        </span>
-                        <time className="text-xs text-slate-500">
-                          {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
-                        </time>
-                      </div>
+                {nursingPosts.slice(0, 12).map((post) => {
+                  const { dateTime, label } = formatPostDate(post, { year: 'numeric', month: '2-digit', day: '2-digit' })
+
+                  return (
+                    <article key={post._id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300">
+                      <div className="p-6">
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                            {post.contentType || '記事'}
+                          </span>
+                          {dateTime ? (
+                            <time dateTime={dateTime} className="text-xs text-slate-500">
+                              {label}
+                            </time>
+                          ) : (
+                            <span className="text-xs text-slate-500">{label}</span>
+                          )}
+                        </div>
                       
                       <h3 className="font-bold text-slate-800 mb-3 line-clamp-2">
                         {post.title}
@@ -302,9 +309,10 @@ export default async function NursingAssistantPage() {
                           {post.readingTime || 5}分で読める
                         </span>
                       </div>
-                    </div>
-                  </article>
-                ))}
+                      </div>
+                    </article>
+                  )
+                })}
               </div>
             ) : (
               <div className="text-center py-12">

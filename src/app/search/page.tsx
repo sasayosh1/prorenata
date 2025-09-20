@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/sanity'
+import { getAllPosts, formatPostDate } from '@/lib/sanity'
 import Link from 'next/link'
 import SimpleSearch from '@/components/SimpleSearch'
 
@@ -62,9 +62,16 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                   <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
                     ProReNata
                   </span>
-                  <time className="text-sm text-gray-500">
-                    {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
-                  </time>
+                  {(() => {
+                    const { dateTime, label } = formatPostDate(post, { year: 'numeric', month: '2-digit', day: '2-digit' })
+                    return dateTime ? (
+                      <time dateTime={dateTime} className="text-sm text-gray-500">
+                        {label}
+                      </time>
+                    ) : (
+                      <span className="text-sm text-gray-500">{label}</span>
+                    )
+                  })()}
                 </div>
                 
                 <h2 className="text-lg font-semibold text-gray-900 mb-2">

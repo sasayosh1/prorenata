@@ -1,4 +1,4 @@
-import { getAllPosts, getAllCategories } from '@/lib/sanity'
+import { getAllPosts, getAllCategories, formatPostDate } from '@/lib/sanity'
 
 export async function GET() {
   try {
@@ -54,12 +54,17 @@ export async function GET() {
       const posts = await getAllPosts()
       articlePages = posts
         .filter(post => post.slug?.current)
-        .map(post => ({
-          url: `${baseUrl}/posts/${post.slug.current}`,
-          lastmod: new Date(post._updatedAt || post.publishedAt).toISOString(),
-          changefreq: 'weekly',
-          priority: post.featured ? 0.8 : 0.6
-        }))
+        .map(post => {
+          const { dateTime } = formatPostDate(post)
+          const lastmodSource = post._updatedAt || dateTime || currentDate
+
+          return {
+            url: `${baseUrl}/posts/${post.slug.current}`,
+            lastmod: new Date(lastmodSource).toISOString(),
+            changefreq: 'weekly',
+            priority: post.featured ? 0.8 : 0.6
+          }
+        })
     } catch (error) {
       console.warn('記事の取得に失敗しました:', error)
     }

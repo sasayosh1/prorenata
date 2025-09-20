@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { favorites, readingHistory, type FavoritePost } from '@/lib/favorites'
+import { formatPostDate } from '@/lib/sanity'
 
 // SEO metadata (クライアントコンポーネントなので動的に設定)
 const pageTitle = 'お気に入り記事 | ProReNata'
@@ -179,10 +180,13 @@ export default function FavoritesPage() {
             </div>
           ) : (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {currentPosts.map((post) => (
-                <article key={post._id} className="bg-white rounded-lg border border-slate-200 hover:shadow-lg transition-all group">
-                  <Link href={`/posts/${post.slug}`}>
-                    <div className="p-6">
+              {currentPosts.map((post) => {
+                const { dateTime, label } = formatPostDate({ publishedAt: post.publishedAt })
+
+                return (
+                  <article key={post._id} className="bg-white rounded-lg border border-slate-200 hover:shadow-lg transition-all group">
+                    <Link href={`/posts/${post.slug}`}>
+                      <div className="p-6">
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center gap-2">
                           <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
@@ -206,9 +210,13 @@ export default function FavoritesPage() {
                               </svg>
                             </button>
                           )}
-                          <time className="text-xs text-slate-400">
-                            {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
-                          </time>
+                          {dateTime ? (
+                            <time dateTime={dateTime} className="text-xs text-slate-400">
+                              {label}
+                            </time>
+                          ) : (
+                            <span className="text-xs text-slate-400">{label}</span>
+                          )}
                         </div>
                       </div>
                       
@@ -247,9 +255,10 @@ export default function FavoritesPage() {
                         </p>
                       </div>
                     </div>
-                  </Link>
-                </article>
-              ))}
+                    </Link>
+                  </article>
+                )
+              })}
             </div>
           )}
         </div>

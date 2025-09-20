@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/sanity'
+import { getAllPosts, formatPostDate } from '@/lib/sanity'
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -7,12 +7,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const posts = await getAllPosts()
     
-    const postUrls = posts.map((post) => ({
-      url: `${baseUrl}/posts/${post.slug.current}`,
-      lastModified: new Date(post._updatedAt || post.publishedAt),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }))
+    const postUrls = posts.map((post) => {
+      const { dateTime } = formatPostDate(post)
+      const lastModifiedSource = post._updatedAt || dateTime
+      const lastModified = lastModifiedSource ? new Date(lastModifiedSource) : new Date()
+
+      return {
+        url: `${baseUrl}/posts/${post.slug.current}`,
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      }
+    })
 
     const staticPages = [
       {

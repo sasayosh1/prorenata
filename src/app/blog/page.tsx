@@ -1,4 +1,4 @@
-import { getAllPosts, type Post } from '@/lib/sanity'
+import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -51,13 +51,14 @@ export default async function BlogPage() {
                         <dl>
                           <dt className="sr-only">Published on</dt>
                           <dd className="text-base font-medium leading-6 text-gray-500">
-                            <time dateTime={post.publishedAt}>
-                              {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                              })}
-                            </time>
+                            {(() => {
+                              const { dateTime, label } = formatPostDate(post)
+                              return dateTime ? (
+                                <time dateTime={dateTime}>{label}</time>
+                              ) : (
+                                <span>{label}</span>
+                              )
+                            })()}
                           </dd>
                         </dl>
                         <div className="space-y-5 xl:col-span-3">

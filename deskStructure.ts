@@ -6,7 +6,7 @@ export const deskStructure: StructureResolver = (S) =>
     .items([
       S.documentTypeListItem('post').title('Post'),
       S.documentTypeListItem('category').title('Category'),
-      // S.documentTypeListItem('author').title('Author'),
+      S.documentTypeListItem('author').title('Author'),
     ])
 
 export default deskStructure

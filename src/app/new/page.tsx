@@ -1,4 +1,4 @@
-import { getAllPosts, type Post } from '@/lib/sanity'
+import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
 
 // 完全にキャッシュを無効化
 export const dynamic = 'force-dynamic'
@@ -77,7 +77,7 @@ export default async function NewPage() {
                   )}
 
                   <div className="flex flex-wrap gap-4 text-sm text-gray-500">
-                    <p>📅 公開日: {new Date(post.publishedAt).toLocaleDateString('ja-JP')}</p>
+                    <p>📅 公開日: {formatPostDate(post).label}</p>
                     <p>🔗 スラッグ: {post.slug.current}</p>
                     <p>🆔 ID: {post._id}</p>
                   </div>

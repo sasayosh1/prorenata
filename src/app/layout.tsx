@@ -228,6 +228,15 @@ export default async function RootLayout({
           </>
         )}
 
+        {/* Google AdSense (本番環境用) */}
+        {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
+
         {/* Google Search Console 確認 */}
         <meta name="google-site-verification" content="Xy7fDHrYsVObXVQeb0D3He2A" />
 
