@@ -23,24 +23,24 @@ export default function ArticleWithTOC({ content }: ArticleWithTOCProps) {
   const mainContent = firstH2Index >= 0 ? content.slice(firstH2Index) : content
 
   return (
-    <div className="text-black" style={{color: 'black !important'}}>
+    <div className="text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900 [&_*]:!text-gray-900" style={{color: '#111827 !important'}}>
       {/* 導入部 */}
       {introContent.length > 0 && (
-        <div>
-          <PortableText 
-            value={introContent} 
+        <div className="text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900 [&_*]:!text-gray-900" style={{color: '#111827 !important'}}>
+          <PortableText
+            value={introContent}
             components={portableTextComponents}
           />
         </div>
       )}
-      
+
       {/* 目次（最初のH2がある場合のみ表示） */}
       {firstH2Index >= 0 && <TableOfContents content={content} />}
-      
+
       {/* 本文部 */}
-      <div>
-        <PortableText 
-          value={mainContent} 
+      <div className="text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900 [&_*]:!text-gray-900" style={{color: '#111827 !important'}}>
+        <PortableText
+          value={mainContent}
           components={portableTextComponents}
         />
       </div>

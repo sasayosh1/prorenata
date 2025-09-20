@@ -220,7 +220,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
               </header>
               <div className="divide-y divide-gray-200 pb-8">
                 {/* 記事コンテンツ */}
-                <div className="max-w-none pb-8 pt-10" style={{color: 'black !important'}}>
+                <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{color: '#111827 !important'}}>
                   {/* 記事コンテンツと目次 */}
                   {post.body && <ArticleWithTOC content={post.body} />}
                 </div>
