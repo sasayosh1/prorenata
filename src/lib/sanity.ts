@@ -107,11 +107,84 @@ export async function getAllPosts(): Promise<Post[]> {
       featured,
       tags
     }`
-    
+
     const result = await client.fetch(query)
     return result
   } catch (error) {
     console.error('Sanity fetch error:', error)
+    throw error
+  }
+}
+
+// ページネーション付き記事取得
+export async function getPostsPaginated(page: number = 1, pageSize: number = 15): Promise<{
+  posts: Post[]
+  totalCount: number
+  hasNextPage: boolean
+  hasPrevPage: boolean
+  totalPages: number
+}> {
+  try {
+    const start = (page - 1) * pageSize
+    const end = start + pageSize
+
+    // 総記事数を取得
+    const totalCountQuery = `count(*[_type == "post"])`
+    const totalCount = await client.fetch(totalCountQuery)
+
+    // ページネーション付きで記事を取得
+    const postsQuery = `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc) [$start...$end] {
+      _id,
+      title,
+      slug,
+      _createdAt,
+      publishedAt,
+      excerpt,
+      mainImage,
+      "categories": categories[]->title,
+      "author": author->{name, slug}
+    }`
+
+    const posts = await client.fetch(postsQuery, { start, end })
+
+    const totalPages = Math.ceil(totalCount / pageSize)
+
+    return {
+      posts,
+      totalCount,
+      hasNextPage: page < totalPages,
+      hasPrevPage: page > 1,
+      totalPages
+    }
+  } catch (error) {
+    console.error('Paginated posts fetch error:', error)
+    throw error
+  }
+}
+
+// 検索機能（全記事対象）
+export async function searchPosts(searchTerm: string): Promise<Post[]> {
+  try {
+    const query = `*[_type == "post" && (
+      title match "*${searchTerm}*" ||
+      excerpt match "*${searchTerm}*" ||
+      categories[]->title match "*${searchTerm}*"
+    )] | order(coalesce(publishedAt, _createdAt) desc) {
+      _id,
+      title,
+      slug,
+      _createdAt,
+      publishedAt,
+      excerpt,
+      mainImage,
+      "categories": categories[]->title,
+      "author": author->{name, slug}
+    }`
+
+    const result = await client.fetch(query)
+    return result
+  } catch (error) {
+    console.error('Search posts fetch error:', error)
     throw error
   }
 }

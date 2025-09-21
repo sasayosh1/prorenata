@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 
@@ -165,19 +166,19 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "ProReNata",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp",
+              "url": "https://prorenata.jp",
               "description": "看護助手向け情報サイト",
-              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/logo.png`,
+              "logo": "https://prorenata.jp/logo.png",
               "foundingDate": "2025",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/contact`
+                "url": "https://prorenata.jp/contact"
               }
             })
           }}
         />
-        
+
         {/* 構造化データ - Webサイト情報 */}
         <script
           type="application/ld+json"
@@ -186,12 +187,12 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "ProReNata",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp",
+              "url": "https://prorenata.jp",
               "description": "看護助手として働く方、目指す方のための専門情報サイト",
               "inLanguage": "ja-JP",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": `${process.env.NEXT_PUBLIC_SITE_URL || "https://prorenata.jp"}/search?q={search_term_string}`,
+                "target": "https://prorenata.jp/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               },
               "publisher": {
@@ -202,40 +203,6 @@ export default async function RootLayout({
           }}
         />
 
-        {/* Google Analytics (本番環境用) */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                    page_title: document.title,
-                    page_location: window.location.href,
-                    anonymize_ip: true,
-                    allow_google_signals: false,
-                    allow_ad_personalization_signals: false
-                  });
-                `
-              }}
-            />
-          </>
-        )}
-
-        {/* Google AdSense (本番環境用) */}
-        {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
-            crossOrigin="anonymous"
-          />
-        )}
 
         {/* Google Search Console 確認 */}
         <meta name="google-site-verification" content="Xy7fDHrYsVObXVQeb0D3He2A" />
@@ -265,6 +232,38 @@ export default async function RootLayout({
           <Analytics />
         )}
 
+        {/* Google Analytics (本番環境用) */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                  page_title: document.title,
+                  page_location: window.location.href,
+                  anonymize_ip: true,
+                  allow_google_signals: false,
+                  allow_ad_personalization_signals: false
+                });
+              `}
+            </Script>
+          </>
+        )}
+
+        {/* Google AdSense (本番環境用) */}
+        {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
+          <Script
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
 
       </body>
     </html>

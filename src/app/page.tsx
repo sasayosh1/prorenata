@@ -59,78 +59,65 @@ export default async function Home() {
             </div>
             
             {/* Recent Posts */}
-            <ul className="divide-y divide-gray-200">
-              {recentPosts.length > 0 ? (
-                recentPosts.map((post) => (
-                  <li key={post._id} className="py-8">
-                    <article>
-                      <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                        <dl>
-                          <dt className="sr-only">Published on</dt>
-                          <dd className="text-base font-medium leading-6 text-gray-500">
-                            {(() => {
-                              const { dateTime, label } = formatPostDate(post)
-                              return dateTime ? (
-                                <time dateTime={dateTime}>{label}</time>
-                              ) : (
-                                <span>{label}</span>
-                              )
-                            })()}
-                          </dd>
-                        </dl>
-                        <div className="space-y-3 xl:col-span-3">
-                          <div className="space-y-4">
-                            <div>
-                              <h3 className="text-xl font-bold leading-7 tracking-tight">
-                                <Link
-                                  href={`/posts/${post.slug.current}`}
-                                  className="text-gray-900 hover:text-cyan-600"
+            {recentPosts.length > 0 ? (
+              <div className="space-y-6">
+                {recentPosts.map((post) => {
+                  const { label } = formatPostDate(post)
+
+                  return (
+                    <Link href={`/posts/${post.slug.current}`} key={post._id}>
+                      <article className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                        <h2 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                          {post.title}
+                        </h2>
+
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-3">
+                          <time dateTime={post.publishedAt || post._createdAt}>
+                            公開日: {label}
+                          </time>
+
+                          {post.categories && post.categories.length > 0 && (
+                            <div className="flex flex-wrap gap-1">
+                              {post.categories.slice(0, 3).map((category) => (
+                                <span
+                                  key={category}
+                                  className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
                                 >
-                                  {post.title}
-                                </Link>
-                              </h3>
-                              <div className="flex flex-wrap mt-1">
-                                {post.categories && post.categories.map((category, index) => (
-                                  <span
-                                    key={index}
-                                    className="mr-3 text-sm font-medium uppercase text-cyan-600"
-                                  >
-                                    {typeof category === 'string' ? category : category.title}
-                                  </span>
-                                ))}
-                              </div>
+                                  {category}
+                                </span>
+                              ))}
                             </div>
-                            <div className="prose max-w-none text-gray-500 text-sm">
-                              {post.excerpt}
-                            </div>
-                          </div>
-                          <div className="text-sm font-medium leading-6">
-                            <Link
-                              href={`/posts/${post.slug.current}`}
-                              className="text-cyan-600 hover:text-cyan-700"
-                              aria-label={`"${post.title}"を読む`}
-                            >
-                              続きを読む →
-                            </Link>
-                          </div>
+                          )}
                         </div>
-                      </div>
-                    </article>
-                  </li>
-                ))
-              ) : (
-                <li className="py-8">
-                  <div className="text-center">
-                    <p className="text-gray-500">記事を読み込んでいます...</p>
-                  </div>
-                </li>
-              )}
-            </ul>
+
+                        {post.excerpt && (
+                          <p className="text-gray-600 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                        )}
+                      </article>
+                    </Link>
+                  )
+                })}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <div className="text-gray-400 mb-4">
+                  <svg className="mx-auto h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-medium text-gray-900 mb-1">記事を読み込んでいます</h3>
+                <p className="text-gray-500">
+                  しばらくお待ちください。
+                </p>
+              </div>
+            )}
 
             {/* 記事一覧へのリンク */}
             <div className="pt-8 text-center">
               <Link
-                href="/blog"
+                href="/posts"
                 className="text-cyan-600 hover:text-cyan-700 font-medium"
               >
                 記事一覧 →

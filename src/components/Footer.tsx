@@ -48,7 +48,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                  <Link href="/posts" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
                     記事一覧
                   </Link>
                 </li>

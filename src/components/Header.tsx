@@ -17,7 +17,7 @@ export default function Header() {
         </div>
         <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
           <Link
-            href="/blog"
+            href="/posts"
             className="font-medium text-gray-900 hover:text-cyan-600 transition-colors duration-200"
           >
             記事一覧
