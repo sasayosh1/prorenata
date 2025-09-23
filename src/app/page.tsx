@@ -11,8 +11,8 @@ export default async function Home() {
   let recentPosts: Post[] = []
   
   try {
-    const posts = await getAllPosts()
-    recentPosts = posts.slice(0, 3) // 最新3記事のみ表示
+    const posts = await getAllPosts({ limit: 3 }) // 最新3記事のみ取得
+    recentPosts = posts
   } catch (error) {
     console.error('Failed to load posts:', error)
   }

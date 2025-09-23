@@ -82,9 +82,20 @@ export interface Category {
 
 
 // データ取得関数
-export async function getAllPosts(): Promise<Post[]> {
+export async function getAllPosts(options: { limit?: number; fetchAll?: boolean } = {}): Promise<Post[]> {
   try {
-    const query = `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc) {
+    // 開発環境では取得件数を制限して起動時間を短縮する
+    const devLimit = process.env.SANITY_DEV_LIMIT
+      ? Number(process.env.SANITY_DEV_LIMIT)
+      : 20
+
+    const isDev = process.env.NODE_ENV !== 'production'
+    const explicitLimit = typeof options.limit === 'number' ? options.limit : undefined
+    const shouldLimit = !options.fetchAll && ((isDev && devLimit > 0) || (explicitLimit && explicitLimit > 0))
+    const limitValue = explicitLimit ?? devLimit
+    const limitClause = shouldLimit && limitValue > 0 ? `[0...${limitValue}]` : ''
+
+    const query = `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc) ${limitClause} {
       _id,
       title,
       slug,
@@ -95,7 +106,6 @@ export async function getAllPosts(): Promise<Post[]> {
       mainImage,
       "categories": categories[]->title,
       "author": author->{name, slug},
-      body,
       metaTitle,
       metaDescription,
       focusKeyword,
