@@ -10,15 +10,16 @@ import Footer from '@/components/Footer'
 export const revalidate = 60 // Revalidate every 60 seconds
 
 interface PostsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string
     search?: string
-  }
+  }>
 }
 
 export default async function PostsPage({ searchParams }: PostsPageProps) {
-  const currentPage = parseInt(searchParams.page || '1', 10)
-  const searchQuery = searchParams.search?.trim()
+  const params = await searchParams
+  const currentPage = parseInt(params.page || '1', 10)
+  const searchQuery = params.search?.trim() || undefined
 
   let posts: Post[] = []
   let totalCount = 0
@@ -79,25 +80,25 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
 
       {/* 記事一覧 */}
       {posts.length > 0 ? (
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => {
             const { label } = formatPostDate(post)
 
             return (
               <Link href={`/posts/${post.slug.current}`} key={post._id}>
-                <article className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <article className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer group h-full flex flex-col">
+                  <h2 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {post.title}
                   </h2>
 
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-3">
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-3">
                     <time dateTime={post.publishedAt || post._createdAt}>
-                      公開日: {label}
+                      {label}
                     </time>
 
                     {post.categories && post.categories.length > 0 && (
                       <div className="flex flex-wrap gap-1">
-                        {post.categories.slice(0, 3).map((category) => (
+                        {post.categories.slice(0, 2).map((category) => (
                           <span
                             key={category}
                             className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
@@ -110,7 +111,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                   </div>
 
                   {post.excerpt && (
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-sm text-gray-600 leading-relaxed flex-grow line-clamp-3">
                       {post.excerpt}
                     </p>
                   )}

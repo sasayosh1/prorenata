@@ -8,7 +8,7 @@ interface PostsSearchProps {
 }
 
 export default function PostsSearch({ initialQuery = '' }: PostsSearchProps) {
-  const [searchTerm, setSearchTerm] = useState(initialQuery)
+  const [searchTerm, setSearchTerm] = useState(initialQuery || '')
   const router = useRouter()
   const searchParams = useSearchParams()
 
