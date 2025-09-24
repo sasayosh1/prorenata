@@ -10,7 +10,7 @@ MIN_BODY_LENGTH = 120 # Minimum length for a non-placeholder body
 
 PROJECT_ID = "72m8vhy2"
 DATASET = "production"
-API_TOKEN = "skCHyaNwM7IJU5RSAkrE3ZGFEYVcXx3lJzbKIz0a8HNUJmTwHRn1phhfsAYXZSeAVeWo2ogJj0COIwousCyb2MLGPwyxe4FuDbDETY2xz5hkjuUIcdz6YcubOZ5SfRywxB2Js8r4vKtbOmlbLm1pXJyHl0Kgajis2MgxilYSTpkEYe6GGWEu"
+API_TOKEN = "skMFpCccii6DeosxmnEc47RikE1kkdwAgOJ2L4PNgi6bAfRMQn8tuSl8S0FFYUBoxdDAcnzzhWdaydpaAxhcrxVwHSL7OUK7HgRflDFh3YjlcEFFdOY4Oz2L6Dz2Q9ev3D1gUbQ0Wn4GelO1fSPnEP7JdwNXoxyKNsJ5Hh4Fsz8N95b3U4VP"
 
 def get_current_time_iso():
     return datetime.now().isoformat() + "Z"
