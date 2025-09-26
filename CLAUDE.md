@@ -71,6 +71,12 @@ vercel --previewe
    - 確認コード: google-site-verification=Xy7fDHrYsVObXVQeb0D3He2wEWQCSnlsClAJ_OYsioE
    - プロパティ: https://prorenata.jp
 
+4. 🚨 **プレビューボタン重大インシデント対応完了** (2025-09-27)
+   - Sanity Studio プレビューボタン機能が完全消失（重大インシデント）
+   - 緊急復旧: `src/sanity/actions/PreviewAction.tsx` を再作成
+   - `sanity.config.ts` の PreviewAction 設定を再構築
+   - 今後の予防策をCLAUDE.mdに追記（削除・変更の完全禁止）
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
@@ -83,4 +89,13 @@ vercel --previewe
 - Google Search Console 確認コードの変更は絶対禁止
 - 測定ID: G-HV2JLW3DPB の変更・削除は厳禁
 - DNS TXT確認レコードの削除・変更は厳禁
+- 違反した場合は最重要事項の不遵守となる
+
+**🚨 Sanity Studio プレビューボタン機能の完全保護**
+- `src/sanity/actions/PreviewAction.tsx` ファイルの削除は絶対禁止
+- `sanity.config.ts` の PreviewAction 設定の削除・変更は絶対禁止
+- プレビューボタン機能は業務の根幹システムであり削除は重大インシデント
+- 設定ファイル:
+  - Import: `import { PreviewAction } from './src/sanity/actions/PreviewAction'`
+  - Actions設定: `actions: (prev, context) => { if (context.schemaType === 'post') { return [...prev, PreviewAction] } return prev }`
 - 違反した場合は最重要事項の不遵守となる
