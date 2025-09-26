@@ -55,13 +55,10 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           )}
 
           {/* 記事一覧 */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {filteredPosts.map((post) => (
-              <article key={post._id} className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                    ProReNata
-                  </span>
+              <article key={post._id} className="py-4 border-b border-gray-200 last:border-b-0">
+                <div className="flex items-center justify-between mb-1">
                   {(() => {
                     const { dateTime, label } = formatPostDate(post, { year: 'numeric', month: '2-digit', day: '2-digit' })
                     return dateTime ? (
@@ -72,24 +69,27 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                       <span className="text-sm text-gray-500">{label}</span>
                     )
                   })()}
+                  <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                    ProReNata
+                  </span>
                 </div>
-                
-                <h2 className="text-lg font-semibold text-gray-900 mb-2">
-                  <Link href={`/posts/${post.slug.current}`} className="hover:text-gray-700">
+
+                <h2 className="text-lg font-medium text-gray-900 mb-2 hover:text-blue-600 transition-colors">
+                  <Link href={`/posts/${post.slug.current}`} className="block">
                     {post.title}
                   </Link>
                 </h2>
-                
+
                 {post.excerpt && (
-                  <p className="text-gray-600 text-sm mb-3">
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                     {post.excerpt}
                   </p>
                 )}
 
                 <div className="flex items-center justify-between">
-                  <Link 
+                  <Link
                     href={`/posts/${post.slug.current}`}
-                    className="text-gray-600 hover:text-gray-900 text-sm"
+                    className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                   >
                     記事を読む →
                   </Link>
