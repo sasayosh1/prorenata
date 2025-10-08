@@ -1,135 +1,167 @@
-import { getAllPosts, getAllCategories, formatPostDate } from '@/lib/sanity'
+import { client } from '@/lib/sanity'
+import { SITE_URL } from '@/lib/constants'
+
+type UrlEntry = {
+  url: string
+  lastmod: string
+  changefreq: 'daily' | 'weekly' | 'monthly'
+  priority: number
+}
 
 export async function GET() {
+  const baseUrl = SITE_URL
   try {
-    // 基本URL（本番環境では実際のドメインを使用）
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'
-    
-    // 現在の日時
-    const currentDate = new Date().toISOString()
-    
-    // 静的ページ
-    const staticPages = [
+    const now = new Date().toISOString()
+
+    const staticPages: UrlEntry[] = [
       {
-        url: `${baseUrl}`,
-        lastmod: currentDate,
+        url: baseUrl,
+        lastmod: now,
         changefreq: 'daily',
-        priority: 1.0
+        priority: 1.0,
+      },
+      {
+        url: `${baseUrl}/posts`,
+        lastmod: now,
+        changefreq: 'daily',
+        priority: 0.9,
       },
       {
         url: `${baseUrl}/nursing-assistant`,
-        lastmod: currentDate,
+        lastmod: now,
         changefreq: 'weekly',
-        priority: 0.9
+        priority: 0.8,
       },
       {
         url: `${baseUrl}/community`,
-        lastmod: currentDate,
+        lastmod: now,
         changefreq: 'weekly',
-        priority: 0.8
+        priority: 0.7,
       },
       {
-        url: `${baseUrl}/articles`,
-        lastmod: currentDate,
-        changefreq: 'daily',
-        priority: 0.8
-      },
-      {
-        url: `${baseUrl}/categories`,
-        lastmod: currentDate,
+        url: `${baseUrl}/tags`,
+        lastmod: now,
         changefreq: 'weekly',
-        priority: 0.7
+        priority: 0.6,
       },
       {
         url: `${baseUrl}/about`,
-        lastmod: currentDate,
+        lastmod: now,
         changefreq: 'monthly',
-        priority: 0.6
-      }
+        priority: 0.5,
+      },
+      {
+        url: `${baseUrl}/contact`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.4,
+      },
+      {
+        url: `${baseUrl}/privacy`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.3,
+      },
+      {
+        url: `${baseUrl}/terms`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.3,
+      },
+      {
+        url: `${baseUrl}/categories`,
+        lastmod: now,
+        changefreq: 'weekly',
+        priority: 0.6,
+      },
+      {
+        url: `${baseUrl}/sitemap`,
+        lastmod: now,
+        changefreq: 'weekly',
+        priority: 0.4,
+      },
     ]
 
-    // 記事ページ
-    let articlePages: Array<{url: string, lastmod: string, changefreq: string, priority: number}> = []
-    try {
-      const posts = await getAllPosts()
-      articlePages = posts
-        .filter(post => post.slug?.current)
-        .map(post => {
-          const { dateTime } = formatPostDate(post)
-          const lastmodSource = post._updatedAt || dateTime || currentDate
+    const postQuery = `*[_type == "post" && defined(slug.current) && defined(body[0])]{
+      "slug": slug.current,
+      "lastmod": coalesce(_updatedAt, publishedAt, _createdAt)
+    }`
+    const posts: { slug: string; lastmod?: string }[] = await client.fetch(postQuery)
 
-          return {
-            url: `${baseUrl}/posts/${post.slug.current}`,
-            lastmod: new Date(lastmodSource).toISOString(),
-            changefreq: 'weekly',
-            priority: post.featured ? 0.8 : 0.6
-          }
-        })
-    } catch (error) {
-      console.warn('記事の取得に失敗しました:', error)
-    }
+    const postEntries: UrlEntry[] = posts.map((post) => ({
+      url: `${baseUrl}/posts/${post.slug}`,
+      lastmod: post.lastmod ? new Date(post.lastmod).toISOString() : now,
+      changefreq: 'weekly',
+      priority: 0.7,
+    }))
 
-    // カテゴリページ
-    let categoryPages: Array<{url: string, lastmod: string, changefreq: string, priority: number}> = []
-    try {
-      const categories = await getAllCategories()
-      categoryPages = categories
-        .filter(category => category.slug?.current)
-        .map(category => ({
-          url: `${baseUrl}/categories/${category.slug.current}`,
-          lastmod: currentDate,
-          changefreq: 'weekly',
-          priority: 0.7
-        }))
-    } catch (error) {
-      console.warn('カテゴリの取得に失敗しました:', error)
-    }
+    const categoryQuery = `*[_type == "category" && defined(slug.current)]{
+      "slug": slug.current,
+      "lastmod": coalesce(_updatedAt, _createdAt),
+      "postCount": count(*[_type == "post" && references(^._id) && defined(slug.current) && defined(body[0])])
+    }`
 
-    // 全ページを統合
-    const allPages = [...staticPages, ...articlePages, ...categoryPages]
+    const categories: { slug?: string; lastmod?: string; postCount: number }[] = await client.fetch(categoryQuery)
 
-    // XMLサイトマップ生成
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-${allPages.map(page => `  <url>
-    <loc>${page.url}</loc>
-    <lastmod>${page.lastmod}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`
+    const categoryMap = new Map<string, UrlEntry>()
+    categories.forEach((category) => {
+      if (!category.slug || category.postCount <= 0) return
+      const slug = category.slug
+      const lastmod = category.lastmod ? new Date(category.lastmod).toISOString() : now
+      const entry: UrlEntry = {
+        url: `${baseUrl}/categories/${encodeURIComponent(slug)}`,
+        lastmod,
+        changefreq: 'weekly',
+        priority: 0.6,
+      }
 
-    return new Response(sitemap, {
-      headers: {
-        'Content-Type': 'application/xml',
-        'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200'
+      const existing = categoryMap.get(slug)
+      if (!existing || new Date(lastmod) > new Date(existing.lastmod)) {
+        categoryMap.set(slug, entry)
       }
     })
 
+    const categoryEntries = Array.from(categoryMap.values())
+
+    const allEntries = [...staticPages, ...postEntries, ...categoryEntries]
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allEntries
+  .map(
+    (entry) => `  <url>
+    <loc>${entry.url}</loc>
+    <lastmod>${entry.lastmod}</lastmod>
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority.toFixed(1)}</priority>
+  </url>`
+  )
+  .join('\n')}
+</urlset>`
+
+    return new Response(xml, {
+      headers: {
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
+      },
+    })
   } catch (error) {
     console.error('サイトマップ生成エラー:', error)
-    
-    // エラー時のフォールバック
-    const fallbackSitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    const fallback = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>${process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.vercel.app'}</loc>
+    <loc>${baseUrl}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 </urlset>`
 
-    return new Response(fallbackSitemap, {
+    return new Response(fallback, {
       headers: {
-        'Content-Type': 'application/xml',
-        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=1800'
-      }
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=1800',
+      },
     })
   }
 }

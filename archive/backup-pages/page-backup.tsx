@@ -1,4 +1,4 @@
-import { getAllPosts, type Post } from '@/lib/sanity'
+import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
 import Link from 'next/link'
 
 // ISRを有効にして60秒ごとに再生成
@@ -87,11 +87,10 @@ export default async function Home() {
                     )}
 
                     <p className="text-gray-500 text-sm mb-4">
-                      {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
+                      {(() => {
+                        const { label } = formatPostDate(post)
+                        return label
+                      })()}
                     </p>
 
                     <Link

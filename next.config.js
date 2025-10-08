@@ -82,15 +82,14 @@ const nextConfig = {
   // SEO最適化: リダイレクト設定
   async redirects() {
     return [
-      // 古いURLパターンのリダイレクト
       {
-        source: '/article/:slug*',
-        destination: '/posts/:slug*',
+        source: '/articles',
+        destination: '/posts',
         permanent: true,
       },
       {
-        source: '/blog/:slug*',
-        destination: '/posts/:slug*',
+        source: '/blog/:slug',
+        destination: '/posts/:slug',
         permanent: true,
       },
     ]

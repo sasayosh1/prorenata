@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
+import { SITE_URL } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,12 +56,12 @@ export const metadata: Metadata = {
   publisher: "ProReNata",
   
   // URL設定
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp',
+    canonical: SITE_URL,
     languages: {
-      'ja-JP': process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'
-    }
+      'ja-JP': SITE_URL,
+    },
   },
   
   // Open Graph (SNS共有最適化)
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
     siteName: 'ProReNata',
     title: 'ProReNata | 看護助手向け情報サイト',
     description: '看護助手として働く方、目指す方のための専門情報サイト。現場経験者による実践的なガイドを提供します。',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp',
+    url: SITE_URL,
     locale: 'ja_JP',
     images: [
       {
@@ -166,14 +167,14 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "ProReNata",
-              "url": "https://prorenata.jp",
+              "url": SITE_URL,
               "description": "看護助手向け情報サイト",
-              "logo": "https://prorenata.jp/logo.png",
+              "logo": `${SITE_URL}/logo.png`,
               "foundingDate": "2025",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "url": "https://prorenata.jp/contact"
+                "url": `${SITE_URL}/contact`
               }
             })
           }}
@@ -187,12 +188,12 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "ProReNata",
-              "url": "https://prorenata.jp",
+              "url": SITE_URL,
               "description": "看護助手として働く方、目指す方のための専門情報サイト",
               "inLanguage": "ja-JP",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://prorenata.jp/search?q={search_term_string}",
+                "target": `${SITE_URL}/search?q={search_term_string}`,
                 "query-input": "required name=search_term_string"
               },
               "publisher": {

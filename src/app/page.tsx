@@ -2,6 +2,7 @@ import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import PopularPosts from '@/components/PopularPosts'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -78,14 +79,17 @@ export default async function Home() {
 
                           {post.categories && post.categories.length > 0 && (
                             <div className="flex flex-wrap gap-1">
-                              {post.categories.slice(0, 3).map((category) => (
+                              {post.categories.slice(0, 3).map((category, index) => {
+                                const label = typeof category === 'string' ? category : String(category)
+                                return (
                                 <span
-                                  key={category}
+                                  key={`${post._id}-category-${index}`}
                                   className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
                                 >
-                                  {category}
+                                  {label}
                                 </span>
-                              ))}
+                                )
+                              })}
                             </div>
                           )}
                         </div>
@@ -122,6 +126,11 @@ export default async function Home() {
               >
                 記事一覧 →
               </Link>
+            </div>
+
+            {/* 人気記事ランキング */}
+            <div className="pt-8">
+              <PopularPosts limit={5} />
             </div>
 
           </div>

@@ -112,11 +112,12 @@ NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_api_token_here
 
 # サイト設定
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_GA_ID=G-HV2JLW3DPB
 ```
 
 ### スキーマ設定
+
+※ サイトのベースURLは `src/lib/constants.ts` 内の `SITE_URL` 定数で管理しています。
 
 `schemas/` ディレクトリでコンテンツ構造を定義:
 - `post.ts`: 記事スキーマ

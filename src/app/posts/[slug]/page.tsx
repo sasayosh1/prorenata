@@ -6,7 +6,9 @@ import ArticleWithTOC from '@/components/ArticleWithTOC'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import RelatedPosts from '@/components/RelatedPosts'
-import { formatPostDate } from '@/lib/sanity'
+import ViewCounter from '@/components/ViewCounter'
+import { formatPostDate, getRelatedPosts } from '@/lib/sanity'
+import { SITE_URL } from '@/lib/constants'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -42,14 +44,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     publishedAt,
     _updatedAt,
     slug,
-    metaTitle,
     metaDescription,
-    focusKeyword,
-    relatedKeywords,
     featured,
     readingTime,
     "categories": categories[]->title,
-    "author": author->{name}
+    "author": author->{name},
+    "hasBody": defined(body[0])
   }`
   
   try {
@@ -62,23 +62,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       }
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prorenata.jp'
+    const baseUrl = SITE_URL
     const canonicalUrl = `${baseUrl}/posts/${post.slug.current}`
     const publishedTime = post.publishedAt ?? post._createdAt
     const modifiedTime = post._updatedAt || post.publishedAt || post._createdAt
     
-    const title = post.metaTitle || `${post.title} | ProReNata`
-    const description = post.metaDescription || 
-      post.excerpt || 
+    const title = `${post.title} | ProReNata`
+    const description = post.metaDescription ||
+      post.excerpt ||
       `${post.title}について、看護助手として働く皆様のお役に立つ情報をお届けします。`
-    
+
     const keywords = [
-      post.focusKeyword,
-      ...(post.relatedKeywords || []),
       ...(post.categories || []),
       '看護助手',
       'ProReNata'
     ].filter(Boolean)
+
+    const hasBodyContent = Boolean(post.hasBody)
 
     return {
       title,
@@ -103,6 +103,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title,
         description,
       },
+      robots: hasBodyContent
+        ? undefined
+        : {
+            index: false,
+            follow: true,
+          },
     }
   } catch (error) {
     console.error('メタデータ生成エラー:', error)
@@ -139,24 +145,16 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     contentType,
     tags,
     "categories": categories[]->title,
-    "categoryRefs": categories[]->_ref,
     "author": author->{name, slug}
   }`
   const post = await client.fetch(query, { slug: resolvedParams.slug })
 
-  // 関連記事の取得
-  let relatedPosts = []
-  if (post && post.categories && post.categories.length > 0) {
-    const relatedQuery = `*[_type == "post" && _id != $currentPostId && references($postCategoryRefs)] | order(rand())[0...2]{
-      title,
-      "slug": slug.current,
-      "categories": categories[]->title
-    }`
-    relatedPosts = await client.fetch(relatedQuery, {
-      currentPostId: post._id,
-      postCategoryRefs: post.categoryRefs,
-    })
-  }
+  // 関連記事の取得（lib/sanity.tsの共通関数を使用）
+  const relatedPosts = post
+    ? await getRelatedPosts(post._id, post.categories, 2)
+    : []
+
+  const hasBody = post && Array.isArray(post.body) && post.body.length > 0
 
   if (!post) {
     return (
@@ -244,13 +242,23 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                       {post.title}
                     </h1>
                   </div>
+                  {/* 閲覧数カウンター */}
+                  <div className="flex justify-center pt-2">
+                    <ViewCounter slug={post.slug.current} />
+                  </div>
                 </div>
               </header>
               <div className="divide-y divide-gray-200 pb-8">
                 {/* 記事コンテンツ */}
-                <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{color: '#111827 !important'}}>
-                  {/* 記事コンテンツと目次 */}
-                  {post.body && <ArticleWithTOC content={post.body} />}
+                <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{ color: '#111827 !important' }}>
+                  {hasBody ? (
+                    <ArticleWithTOC content={post.body} />
+                  ) : (
+                    <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">
+                      <p className="text-lg font-semibold mb-2">この記事は現在準備中です。</p>
+                      <p className="text-sm">公開まで今しばらくお待ちください。</p>
+                    </div>
+                  )}
                 </div>
 
                 {/* 関連記事セクション */}

@@ -7,8 +7,12 @@ interface SearchPageProps {
 }
 
 export const metadata = {
-  title: '検索結果 | ProReNata',
+  title: '検索 | ProReNata',
   description: 'ProReNataで記事を検索した結果ページ。',
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {

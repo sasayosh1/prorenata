@@ -54,6 +54,26 @@ vercel --previewe
 - **デザイン**: sasakiyoshimasa.comスタイルのミニマルデザイン
 - **本番URL**: https://prorenata.jp
 
+## 記事作成ガイドライン
+
+**記事作成の際は以下のドキュメントを参照**：
+- **記事テンプレート**: `/Users/user/Documents/sasakiyoshimasa_article_template_codex.md`
+  - 記事構成の基本フォーマット
+  - 見出し・本文の書き方ルール
+  - SEO最適化ガイドライン
+  - 記事タイプ別テンプレート（4種類）
+
+- **記事作成ガイド**: `ARTICLE_GUIDE.md`（プロジェクトルート）
+  - Sanity CMSでの記事作成手順
+  - 公開前チェックリスト
+  - 品質基準・執筆ルール
+
+**記事品質基準**：
+- 文字数: 1500〜2500文字
+- 見出し: H2を3〜5個使用
+- 具体性: 数字・事例を含む
+- SEO: タイトル30〜40文字、ディスクリプション120〜160文字
+
 ## 最近の変更
 
 1. 🎨 **フロントエンドデザイン完成** (2025-09-12)
@@ -83,6 +103,12 @@ vercel --previewe
 - レイアウト、色、フォント、スタイルの変更は絶対禁止
 - 詳細は `UI-DESIGN-LOCK.md` を参照
 - 違反した場合は最重要事項の不遵守となる
+
+**🚫 SEOフィールド設定の変更禁止**
+- excerpt, metaDescription, tagsのみ使用（確定）
+- metaTitle, focusKeyword, relatedKeywordsは削除済み（再追加禁止）
+- 詳細は `SEO-FIELDS-LOCK.md` を参照
+- ユーザーの明示的指示なしに変更した場合は最重要違反となる
 
 **🚨 Google Analytics & Search Console コード改変の完全禁止**
 - Google Analytics トラッキングコードの変更は絶対禁止

@@ -95,10 +95,45 @@ export default defineType({
       of: [{ type: 'reference', to: [{type: 'category'}] }],
     }),
     defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: '記事に関連するタグ（10個程度を推奨）',
+      options: {
+        layout: 'tags'
+      },
+      validation: rule => rule.max(15).warning('タグは10個程度が推奨されます')
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      description: '記事の要約（100〜150文字）',
+      rows: 3,
+      validation: rule => rule.max(200)
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'Meta Description (SEO)',
+      type: 'text',
+      description: '検索結果に表示される説明文（120〜160文字推奨）',
+      rows: 3,
+      validation: rule => rule.min(120).max(160)
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
       initialValue: () => (new Date()).toISOString(),
+    }),
+    defineField({
+      name: 'views',
+      title: 'Views',
+      type: 'number',
+      description: '記事の閲覧数（自動カウント）',
+      readOnly: true,
+      initialValue: 0,
     }),
   ],
   preview: {

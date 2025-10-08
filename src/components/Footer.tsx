@@ -72,27 +72,27 @@ export default function Footer() {
               </h3>
               <ul className="mt-4 space-y-2">
                 <li>
-                  <Link href="/blog?category=基礎知識・入門" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                  <Link href="/categories/basics" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
                     基礎知識・入門
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog?category=実務・ノウハウ" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                  <Link href="/categories/practice" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
                     実務・ノウハウ
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog?category=キャリア・資格" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                  <Link href="/categories/career" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
                     キャリア・資格
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog?category=給与・待遇" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                  <Link href="/categories/salary" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
                     給与・待遇
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog?category=悩み・相談" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                  <Link href="/categories/consultation" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
                     悩み・相談
                   </Link>
                 </li>
