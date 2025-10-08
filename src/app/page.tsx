@@ -41,24 +41,22 @@ export default async function Home() {
             </h1>
           </div>
 
-          <div className="divide-y divide-gray-200">
-            {/* Site Description */}
-            <div className="pb-8 pt-6 text-center">
-              <p className="text-lg leading-8 text-gray-600">
-                看護助手の皆様をサポートする専門情報サイト
-              </p>
-              <p className="mt-2 text-sm text-gray-500">
-                現場で役立つ実践的な知識とキャリア情報をお届けします
-              </p>
-            </div>
+          {/* Site Description */}
+          <div className="pb-12 text-center">
+            <p className="text-lg leading-8 text-gray-600">
+              看護助手の皆様をサポートする専門情報サイト
+            </p>
+            <p className="mt-2 text-sm text-gray-500">
+              現場で役立つ実践的な知識とキャリア情報をお届けします
+            </p>
+          </div>
 
-            {/* Blog Section */}
-            <div className="pb-8 pt-6">
-              <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900">
-                最新記事
-              </h2>
-            </div>
-            
+          {/* Blog Section */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-6">
+              最新記事
+            </h2>
+
             {/* Recent Posts */}
             {recentPosts.length > 0 ? (
               <div className="space-y-6">
@@ -117,23 +115,20 @@ export default async function Home() {
                 </p>
               </div>
             )}
-
-            {/* 記事一覧へのリンク */}
-            <div className="pt-8 text-center">
-              <Link
-                href="/posts"
-                className="text-cyan-600 hover:text-cyan-700 font-medium"
-              >
-                記事一覧 →
-              </Link>
-            </div>
-
-            {/* 人気記事ランキング */}
-            <div className="pt-8">
-              <PopularPosts limit={5} />
-            </div>
-
           </div>
+
+          {/* 記事一覧へのリンク */}
+          <div className="text-center mb-12">
+            <Link
+              href="/posts"
+              className="text-cyan-600 hover:text-cyan-700 font-medium"
+            >
+              記事一覧 →
+            </Link>
+          </div>
+
+          {/* 人気記事ランキング */}
+          <PopularPosts limit={5} />
         </main>
       </div>
 
