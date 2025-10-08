@@ -17,7 +17,7 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
 
   return (
     <div className="mt-12 pt-8 border-t border-gray-200">
-      <h3 className="text-2xl font-bold mb-6 text-gray-900">関連記事</h3>
+      <h3 className="text-2xl font-bold mb-6 text-gray-900">次のステップ</h3>
       <div className="grid gap-6 md:grid-cols-2">
         {posts.map((post, index) => (
           <Link
