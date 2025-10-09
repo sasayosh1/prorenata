@@ -128,7 +128,7 @@ export default async function Home() {
           </div>
 
           {/* 人気記事ランキング */}
-          <PopularPosts limit={5} />
+          <PopularPosts limit={3} />
         </main>
       </div>
 
