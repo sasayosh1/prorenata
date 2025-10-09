@@ -7,6 +7,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import RelatedPosts from '@/components/RelatedPosts'
 import ViewCounter from '@/components/ViewCounter'
+import { ArticleStructuredData, BreadcrumbStructuredData, OrganizationStructuredData } from '@/components/StructuredData'
 import { formatPostDate, getRelatedPosts } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 
@@ -184,6 +185,11 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
   return (
     <>
+      {/* 構造化データ（JSON-LD） */}
+      <ArticleStructuredData post={post} />
+      <BreadcrumbStructuredData title={post.title} slug={post.slug.current} />
+      <OrganizationStructuredData />
+
       {/* Preview Mode Banner */}
       {isDraftMode && (
         <div className="fixed top-0 left-0 z-50 w-full bg-yellow-50 px-6 py-2 text-center text-sm font-medium text-yellow-800 border-b border-yellow-200">
