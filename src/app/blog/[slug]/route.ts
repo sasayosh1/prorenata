@@ -2,14 +2,11 @@ import type { NextRequest } from 'next/server'
 import { client } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 
-interface RouteContext {
-  params: {
-    slug: string
-  }
-}
-
-export async function GET(request: NextRequest, context: RouteContext) {
-  const slug = context.params?.slug
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  const { slug } = await params
   if (!slug) {
     return new Response('Gone', { status: 410, headers: { 'Cache-Control': 'public, max-age=3600' } })
   }
