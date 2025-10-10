@@ -1,0 +1,29 @@
+name: Daily Article Draft Generation
+
+on:
+  schedule:
+    # 毎日AM2:00 (UTC) に実行
+    - cron: '0 2 * * *'
+  workflow_dispatch: # 手動実行も可能にする
+
+jobs:
+  generate_draft:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run article generation script
+        run: node scripts/run-daily-generation.cjs
+        env:
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
