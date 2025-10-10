@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
+import { PreviewAction } from './src/sanity/actions/PreviewAction'
 
 const devUrl = 'http://localhost:3000'
 const prodUrl = 'https://prorenata.jp'
@@ -17,6 +18,12 @@ export default defineConfig({
     types: schemaTypes,
   },
   document: {
+    actions: (prev, context) => {
+      if (context.schemaType === 'post') {
+        return [...prev, PreviewAction]
+      }
+      return prev
+    },
     productionUrl: async (prev, { document }) => {
       const baseUrl = devUrl
       if (
