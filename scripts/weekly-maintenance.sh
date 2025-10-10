@@ -13,7 +13,7 @@ LOG_FILE="$LOG_DIR/weekly-maintenance-$(date +%Y%m%d-%H%M%S).log"
 mkdir -p "$LOG_DIR"
 
 # SANITY_API_TOKENを環境変数に設定
-export SANITY_API_TOKEN="skr1c2L1RXIurqHGPDuuPxOVYHHBzGnMv19JunO27lvm4vDgMGN4Pwm6XcLvzv8p335TAZlIX6WRVd7qzyr3jr75jUMKGjqXW6mZrvKpnG11omYeoknesfT9P70s92m2vINM0tpJzSBONCW9jvXLLFepyLqz5ZsCivb3uJjgaYmmP3XK7odY"
+export SANITY_API_TOKEN="sk0JHLbzLymgI7SU6goYNL4xy0y8TjZqpgR8PrcBVuDmgY1Lh828ppX3vBhbArJkZyJV7OvwUK9kKH9mojEOxboJQ9c8MXxVQ3onQ9HgGWxUywl34xYCC18jsQWmjTEzaYvCqcqGn9uHrD13E0v7f5SUFdQBxWz8jWpHcfioQ3zLd9yhCnJi"
 
 # ログ開始
 {
@@ -23,35 +23,41 @@ export SANITY_API_TOKEN="skr1c2L1RXIurqHGPDuuPxOVYHHBzGnMv19JunO27lvm4vDgMGN4Pwm
   echo "========================================"
   echo ""
 
-  # ステップ1: リンク検証
-  echo "📍 ステップ1: リンク検証"
+  # ステップ1: プレースホルダーリンク変換
+  echo "📍 ステップ1: プレースホルダーリンク変換"
   echo "----------------------------------------"
   cd "$PROJECT_DIR"
+  node "$SCRIPT_DIR/convert-placeholder-links.js" 2>&1
+  echo ""
+
+  # ステップ2: リンク検証
+  echo "📍 ステップ2: リンク検証"
+  echo "----------------------------------------"
   node "$SCRIPT_DIR/validate-links.js" 2>&1
   VALIDATION_EXIT_CODE=$?
   echo ""
 
-  # ステップ2: 問題があれば自動修正
+  # ステップ3: 問題があれば自動修正
   if [ $VALIDATION_EXIT_CODE -ne 0 ]; then
     echo "⚠️  リンク問題を検出しました。自動修正を開始します..."
     echo ""
 
-    echo "📍 ステップ2: 全リンク問題修正"
+    echo "📍 ステップ3: 全リンク問題修正"
     echo "----------------------------------------"
     node "$SCRIPT_DIR/fix-all-link-issues.js" 2>&1
     echo ""
 
-    echo "📍 ステップ3: アフィリエイトリンクテキスト修正"
+    echo "📍 ステップ4: アフィリエイトリンクテキスト修正"
     echo "----------------------------------------"
     node "$SCRIPT_DIR/fix-affiliate-link-text.js" 2>&1
     echo ""
 
-    echo "📍 ステップ4: 壊れた内部リンク削除"
+    echo "📍 ステップ5: 壊れた内部リンク削除"
     echo "----------------------------------------"
     node "$SCRIPT_DIR/remove-broken-internal-links.js" 2>&1
     echo ""
 
-    echo "📍 ステップ5: 最終検証"
+    echo "📍 ステップ6: 最終検証"
     echo "----------------------------------------"
     node "$SCRIPT_DIR/validate-links.js" 2>&1
     FINAL_EXIT_CODE=$?
