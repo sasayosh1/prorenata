@@ -13,12 +13,13 @@
 2. [技術スタック](#技術スタック)
 3. [重要なルール（絶対遵守）](#重要なルール絶対遵守)
 4. [プロジェクト構造](#プロジェクト構造)
-5. [記事作成ガイドライン](#記事作成ガイドライン)
-6. [アフィリエイトリンク管理](#アフィリエイトリンク管理)
-7. [開発コマンド](#開発コマンド)
-8. [デプロイメント](#デプロイメント)
-9. [SEO設定](#seo設定)
-10. [トラブルシューティング](#トラブルシューティング)
+5. [自動メンテナンス](#自動メンテナンス)
+6. [記事作成ガイドライン](#記事作成ガイドライン)
+7. [アフィリエイトリンク管理](#アフィリエイトリンク管理)
+8. [開発コマンド](#開発コマンド)
+9. [デプロイメント](#デプロイメント)
+10. [SEO設定](#seo設定)
+11. [トラブルシューティング](#トラブルシューティング)
 
 ---
 
@@ -148,7 +149,12 @@ prorenata/
 │   ├── optimize-h3-sections.js             # H3セクション最適化
 │   ├── verify-affiliate-links-live.js      # アフィリエイトリンク検証
 │   ├── complete-affiliate-stats.js         # 統計レポート
-│   └── check-affiliate-links-health.js     # リンクヘルスチェック
+│   ├── check-affiliate-links-health.js     # リンクヘルスチェック
+│   ├── validate-links.js                   # リンク検証（週次）
+│   ├── fix-all-link-issues.js              # 全リンク問題一括修正
+│   ├── fix-affiliate-link-text.js          # アフィリエイトリンクテキスト修正
+│   ├── remove-broken-internal-links.js     # 壊れたリンク削除
+│   └── weekly-maintenance.sh               # 週次メンテナンス統合スクリプト
 ├── internal-links-analysis/   # 分析レポート
 ├── CLAUDE.md                  # Claude Code設定
 ├── UI-DESIGN-LOCK.md          # UIデザイン禁止ルール
@@ -176,6 +182,61 @@ prorenata/
 - Sanity CMSでの記事作成手順
 - 公開前チェックリスト
 - 品質基準・執筆ルール
+
+---
+
+## 自動メンテナンス
+
+### 週次メンテナンス（毎週月曜日 午前2時）
+
+**実行スクリプト**: `scripts/weekly-maintenance.sh`
+
+#### メンテナンス内容
+
+1. **リンク検証**
+   - 全記事のスラッグ確認（140件）
+   - 関連記事リンク検証
+   - 内部リンク検証（約580件）
+   - アフィリエイトリンク検証
+
+2. **問題検出時の自動修正**
+   - スラッグ未設定 → SEO最適化スラッグを自動生成
+   - 壊れた内部リンク → 正しいスラッグに自動修正または削除
+   - アフィリエイトリンクテキスト未設定 → 自動追加（「かいご畑 [PR]」等）
+   - 404エラー → 自動解消
+
+3. **最終検証**
+   - 修正後の全リンク再検証
+   - エラーゼロを確認
+   - ログ記録（`/logs/weekly-maintenance-YYYYMMDD-HHMMSS.log`）
+
+#### 使用スクリプト
+
+- `validate-links.js`: リンク検証
+- `fix-all-link-issues.js`: 全リンク問題一括修正
+- `fix-affiliate-link-text.js`: アフィリエイトリンクテキスト修正
+- `remove-broken-internal-links.js`: 壊れたリンク削除
+
+#### 実行確認
+
+```bash
+# 手動実行（テスト用）
+./scripts/weekly-maintenance.sh
+
+# ログ確認
+ls -l logs/weekly-maintenance-*.log | tail -5
+cat logs/weekly-maintenance-latest.log
+```
+
+#### Cron設定
+
+```bash
+# cron一覧確認
+crontab -l
+
+# 設定内容
+0 2 * * 1 /Users/user/prorenata/scripts/weekly-maintenance.sh
+```
 
 ---
 
