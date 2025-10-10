@@ -72,6 +72,20 @@ const MOSHIMO_LINKS = {
     url: '//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621',
     active: true,
     addedDate: '2025-10-10'
+  },
+
+  // 退職代行サービス
+  taishokudaikou: {
+    name: '汐留パートナーズ法律事務所',
+    description: '弁護士による退職代行サービス',
+    category: '退職代行',
+    targetArticles: ['辞めたい', '退職', '辞める', '転職', '辞め方', '理由'],
+    html: '<a href="https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100" title="">汐留パートナーズ法律事務所の退職代行サービス</a>',
+    appealText: '⚖️ 退職でお悩みの方へ',
+    linkText: '弁護士による退職代行サービス【汐留パートナーズ】',
+    url: 'https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100',
+    active: true,
+    addedDate: '2025-10-10'
   }
 }
 
