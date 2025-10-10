@@ -15,7 +15,80 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'title', maxLength: 96 },
+      options: {
+        source: 'title',
+        maxLength: 96,
+        slugify: (input: string) => {
+          // 日本語キーワードを英語に変換（SEO重視の核心ワードのみ）
+          const keywordMap: Record<string, string> = {
+            'シフト': 'shift',
+            '夜勤': 'night-shift',
+            '給料': 'salary',
+            '年収': 'income',
+            '転職': 'career',
+            '辞めたい': 'quit',
+            '退職': 'retirement',
+            '資格': 'qualification',
+            '仕事': 'work',
+            '業務': 'duties',
+            '人間関係': 'relationship',
+            'やりがい': 'reward',
+            '求人': 'job',
+            'スキル': 'skill',
+            '未経験': 'beginner',
+            'きつい': 'tough',
+            'パート': 'part-time',
+            '正社員': 'full-time',
+            'メリット': 'merit',
+            'デメリット': 'demerit',
+            'コツ': 'tips',
+            '方法': 'method',
+            '理由': 'reason',
+            '悩み': 'concern',
+            'キャリア': 'career',
+            '朝': 'morning',
+            '昼': 'day',
+            '夜': 'night',
+            '専従': 'dedicated',
+          }
+
+          // タイトルから重要キーワードを抽出（2〜3語）
+          let keywords: string[] = []
+          for (const [jp, en] of Object.entries(keywordMap)) {
+            if (input.includes(jp)) {
+              keywords.push(en)
+              if (keywords.length >= 3) break // 最大3語
+            }
+          }
+
+          // キーワードが2語未満の場合、タイトルから補完
+          if (keywords.length < 2) {
+            const titleWords = input
+              .replace(/【|】|[・、。！？]/g, ' ')
+              .split(/\s+/)
+              .filter(w => w.length > 0)
+
+            for (const word of titleWords) {
+              for (const [jp, en] of Object.entries(keywordMap)) {
+                if (word.includes(jp) && !keywords.includes(en)) {
+                  keywords.push(en)
+                  if (keywords.length >= 2) break
+                }
+              }
+              if (keywords.length >= 2) break
+            }
+          }
+
+          // デフォルト（キーワードが見つからない場合）
+          if (keywords.length === 0) {
+            keywords = ['general']
+          }
+
+          // nursing-assistant- で始まるスラッグを生成（タイムスタンプなし）
+          const slug = keywords.slice(0, 3).join('-')
+          return `nursing-assistant-${slug}`
+        }
+      },
       validation: rule => rule.required(),
     }),
     defineField({
