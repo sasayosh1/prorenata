@@ -1,0 +1,244 @@
+{
+  "toDelete": [
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUxTk",
+      "title": "パート勤務の看護助手、一日の流れを紹介",
+      "slug": "nursing-assistant-part-timer-daily-flow",
+      "createdAt": "2025-09-11T06:42:36Z",
+      "publishedAt": "2024-01-22T08:16:46.484Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUbpo",
+      "title": "上司・看護師との関係を良くするコツ",
+      "slug": "nursing-assistant-good-relationships-tips",
+      "createdAt": "2025-09-11T06:39:51Z",
+      "publishedAt": "2025-03-21T13:28:35.376Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUq8k",
+      "title": "外来と病棟で異なる看護助手の仕事内容",
+      "slug": "nursing-assistant-outpatient-vs-ward",
+      "createdAt": "2025-09-11T06:40:58Z",
+      "publishedAt": "2024-09-06T02:21:12.353Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUWra",
+      "title": "夜勤で得られる手当と実際の収入アップ例",
+      "slug": "nursing-assistant-night-shift-income",
+      "createdAt": "2025-09-11T06:39:38Z",
+      "publishedAt": "2025-08-10T08:42:46.448Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUWYi",
+      "title": "夜勤専従看護助手のメリットとデメリット",
+      "slug": "nursing-assistant-night-shift-only-pros-cons",
+      "createdAt": "2025-09-11T06:39:36Z",
+      "publishedAt": "2025-04-30T12:06:48.332Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUVAk",
+      "title": "家庭と両立を志望動機にするのはアリ？",
+      "slug": "nursing-assistant-work-life-balance-motivation",
+      "createdAt": "2025-09-11T06:39:18Z",
+      "publishedAt": "2025-08-06T19:43:48.021Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUd5O",
+      "title": "看護助手からキャリアアップする方法",
+      "slug": "nursing-assistant-career-advancement",
+      "createdAt": "2025-09-11T06:40:09Z",
+      "publishedAt": "2024-01-17T00:58:39.096Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUdBg",
+      "title": "看護助手から医療事務へキャリアチェンジ",
+      "slug": "nursing-assistant-career-change-medical-clerk",
+      "createdAt": "2025-09-11T06:40:11Z",
+      "publishedAt": "2024-01-24T16:21:46.288Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUce8",
+      "title": "看護助手と看護師の仕事の違いを徹底比較",
+      "slug": "nursing-assistant-job-differences-nurses",
+      "createdAt": "2025-09-11T06:39:56Z",
+      "publishedAt": "2025-05-27T01:51:32.810Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUglw",
+      "title": "看護助手の1日を新人目線で語るブログ記事",
+      "slug": "nursing-assistant-newbie-blog-post",
+      "createdAt": "2025-09-11T06:40:28Z",
+      "publishedAt": "2024-05-23T15:52:48.598Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUdMA",
+      "title": "看護助手のキャリアアップにおすすめ資格5選",
+      "slug": "nursing-assistant-career-up-qualifications",
+      "createdAt": "2025-09-11T06:40:13Z",
+      "publishedAt": "2024-10-18T18:01:28.153Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUcEy",
+      "title": "看護助手のストレス解消法ベスト5",
+      "slug": "nursing-assistant-stress-relief-top5",
+      "createdAt": "2025-09-11T06:39:52Z",
+      "publishedAt": "2025-01-03T22:43:45.890Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUWSQ",
+      "title": "看護助手の夜勤はきつい？一晩の流れを紹介",
+      "slug": "nursing-assistant-tough-night-shift",
+      "createdAt": "2025-09-11T06:39:35Z",
+      "publishedAt": "2024-04-03T03:01:54.362Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUWBe",
+      "title": "看護助手の転職エージェント活用方法",
+      "slug": "nursing-assistant-recruitment-agents-guide",
+      "createdAt": "2025-09-11T06:39:33Z",
+      "publishedAt": "2025-08-05T22:11:39.851Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUckQ",
+      "title": "看護助手はどこまでできる？看護師との役割分担",
+      "slug": "nursing-assistant-scope-of-work-nurses",
+      "createdAt": "2025-09-11T06:39:57Z",
+      "publishedAt": "2024-12-01T21:30:44.484Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUWM8",
+      "title": "看護助手を辞めずに続けるための工夫",
+      "slug": "nursing-assistant-tips-not-quitting",
+      "createdAt": "2025-09-11T06:39:34Z",
+      "publishedAt": "2023-12-02T15:28:51.208Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUW5M",
+      "title": "看護助手を辞めたいとき上手な退職理由の伝え方",
+      "slug": "nursing-assistant-how-to-quit",
+      "createdAt": "2025-09-11T06:39:31Z",
+      "publishedAt": "2024-12-21T02:15:45.574Z"
+    }
+  ],
+  "toKeep": [
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUxTk",
+      "title": "パート勤務の看護助手、一日の流れを紹介",
+      "slug": "nursing-assistant-part-time-day",
+      "createdAt": "2025-09-24T03:30:57Z",
+      "publishedAt": "2025-09-22T05:54:42Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUbpo",
+      "title": "上司・看護師との関係を良くするコツ",
+      "slug": "nursing-assistant-improve-relationships-with-superiors",
+      "createdAt": "2025-09-24T06:44:38Z",
+      "publishedAt": "2025-09-22T13:47:25Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUq8k",
+      "title": "外来と病棟で異なる看護助手の仕事内容",
+      "slug": "nursing-assistant-outpatient-inpatient-differences",
+      "createdAt": "2025-09-24T03:29:40Z",
+      "publishedAt": "2025-09-22T00:46:39Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUWra",
+      "title": "夜勤で得られる手当と実際の収入アップ例",
+      "slug": "nursing-assistant-night-shift-allowance-income",
+      "createdAt": "2025-09-24T06:16:32Z",
+      "publishedAt": "2025-09-20T12:20:03Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUWYi",
+      "title": "夜勤専従看護助手のメリットとデメリット",
+      "slug": "nursing-assistant-night-shift-pros-cons",
+      "createdAt": "2025-09-24T03:55:38Z",
+      "publishedAt": "2025-09-23T21:19:42Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUVAk",
+      "title": "家庭と両立を志望動機にするのはアリ？",
+      "slug": "nursing-assistant-work-life-balance-motivations",
+      "createdAt": "2025-09-24T03:30:17Z",
+      "publishedAt": "2025-09-20T06:16:48Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUd5O",
+      "title": "看護助手からキャリアアップする方法",
+      "slug": "nursing-assistant-career-up",
+      "createdAt": "2025-09-24T03:27:08Z",
+      "publishedAt": "2025-09-23T11:10:43Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUdBg",
+      "title": "看護助手から医療事務へキャリアチェンジ",
+      "slug": "nursing-assistant-career-change-medical-office",
+      "createdAt": "2025-09-24T07:53:23Z",
+      "publishedAt": "2025-09-20T05:42:23Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUce8",
+      "title": "看護助手と看護師の仕事の違いを徹底比較",
+      "slug": "nursing-assistant-vs-nurse-differences",
+      "createdAt": "2025-09-24T07:26:02Z",
+      "publishedAt": "2025-09-22T16:24:50Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUglw",
+      "title": "看護助手の1日を新人目線で語るブログ記事",
+      "slug": "nursing-assistant-newbie-day-blog",
+      "createdAt": "2025-09-24T03:29:00Z",
+      "publishedAt": "2025-09-19T13:14:48Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUdMA",
+      "title": "看護助手のキャリアアップにおすすめ資格5選",
+      "slug": "nursing-assistant-recommended-qualifications",
+      "createdAt": "2025-09-24T03:27:41Z",
+      "publishedAt": "2025-09-23T00:07:18Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUcEy",
+      "title": "看護助手のストレス解消法ベスト5",
+      "slug": "nursing-assistant-stress-relief",
+      "createdAt": "2025-09-24T06:32:39Z",
+      "publishedAt": "2025-09-19T14:33:09Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUWSQ",
+      "title": "看護助手の夜勤はきつい？一晩の流れを紹介",
+      "slug": "nursing-assistant-night-shift-hard",
+      "createdAt": "2025-09-24T06:09:21Z",
+      "publishedAt": "2025-09-18T08:34:49Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUWBe",
+      "title": "看護助手の転職エージェント活用方法",
+      "slug": "nursing-assistant-recruitment-agent-utilization",
+      "createdAt": "2025-09-24T03:48:07Z",
+      "publishedAt": "2025-09-21T23:42:46Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUckQ",
+      "title": "看護助手はどこまでできる？看護師との役割分担",
+      "slug": "nursing-assistant-scope-of-work",
+      "createdAt": "2025-09-24T07:38:10Z",
+      "publishedAt": "2025-09-22T22:11:37Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUWM8",
+      "title": "看護助手を辞めずに続けるための工夫",
+      "slug": "nursing-assistant-tips-to-continue",
+      "createdAt": "2025-09-24T03:48:43Z",
+      "publishedAt": "2025-09-23T06:04:01Z"
+    },
+    {
+      "_id": "VcGv9zZ6obDRZ14YHcUUW5M",
+      "title": "看護助手を辞めたいとき上手な退職理由の伝え方",
+      "slug": "nursing-assistant-how-to-quits",
+      "createdAt": "2025-09-24T03:26:26Z",
+      "publishedAt": "2025-09-24T15:29:09Z"
+    }
+  ]
+}
