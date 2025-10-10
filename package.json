@@ -44,6 +44,7 @@
     "@portabletext/react": "^4.0.3",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^4.7.0",
+    "dotenv": "^17.2.3",
     "next": "^15.5.2",
     "next-sanity": "^10.0.4",
     "react": "19.1.0",
