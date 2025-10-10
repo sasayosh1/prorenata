@@ -23,6 +23,22 @@ export SANITY_API_TOKEN="sk0JHLbzLymgI7SU6goYNL4xy0y8TjZqpgR8PrcBVuDmgY1Lh828ppX
   echo "========================================"
   echo ""
 
+  # ステップ0: トークン有効性チェック
+  echo "📍 ステップ0: トークン有効性チェック"
+  echo "----------------------------------------"
+  cd "$PROJECT_DIR"
+  "$SCRIPT_DIR/check-sanity-token.sh" 2>&1
+  TOKEN_CHECK_EXIT_CODE=$?
+  echo ""
+
+  if [ $TOKEN_CHECK_EXIT_CODE -ne 0 ]; then
+    echo "❌ トークンチェックに失敗しました。メンテナンスを中止します。"
+    echo "========================================"
+    echo "週次メンテナンス中止: $(date)"
+    echo "========================================"
+    exit 1
+  fi
+
   # ステップ1: プレースホルダーリンク変換
   echo "📍 ステップ1: プレースホルダーリンク変換"
   echo "----------------------------------------"
