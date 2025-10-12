@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PopularPosts from '@/components/PopularPosts'
+import HomeSearch from '@/components/HomeSearch'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -50,6 +51,9 @@ export default async function Home() {
               現場で役立つ実践的な知識とキャリア情報をお届けします
             </p>
           </div>
+
+          {/* Search Section */}
+          <HomeSearch />
 
           {/* Blog Section */}
           <div className="mb-8">
