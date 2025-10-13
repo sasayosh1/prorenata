@@ -20,12 +20,13 @@ function isExternalLink(href: string): boolean {
 // アフィリエイトリンクかどうかを判定する関数（将来の拡張用）
 function isAffiliateLink(href: string): boolean {
   if (!href) return false
-  
+
   // 一般的なアフィリエイトプラットフォームを検出
   const affiliatePatterns = [
     /amazon\.[a-z.]+\/.*[?&]tag=/i,           // Amazon アソシエイト
     /rakuten\.co\.jp/i,                       // 楽天アフィリエイト
     /a8\.net/i,                               // A8.net
+    /moshimo\.com/i,                          // もしもアフィリエイト
     /valuecommerce\.ne\.jp/i,                 // バリューコマース
     /linksynergy\.com/i,                      // LinkShare
     /commission-junction\.com/i,              // CJ Affiliate
@@ -33,7 +34,7 @@ function isAffiliateLink(href: string): boolean {
     /[?&]aff(iliate)?(_|=)/i,                 // 一般的なアフィリエイトパラメーター
     /[?&](ref|utm_|tracking|partner)=/i,      // トラッキングパラメーター
   ]
-  
+
   return affiliatePatterns.some(pattern => pattern.test(href))
 }
 
@@ -135,31 +136,61 @@ function CustomLink({
   // 内部リンクで新しいタブで開かない場合はNext.js Linkを使用
   if (!shouldOpenInNewTab && !isExternal) {
     return (
-      <Link
-        href={href}
-        className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
-      >
-        {children}
-      </Link>
+      <span className="inline-block bg-link-internal px-1">
+        <Link
+          href={href}
+          className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+        >
+          {children}
+        </Link>
+      </span>
     )
   }
 
   // 通常の外部リンク
+  if (isAffiliate) {
+    return (
+      <span className="inline-block bg-link-affiliate px-1">
+        <a
+          href={href}
+          target={shouldOpenInNewTab ? "_blank" : undefined}
+          rel={shouldOpenInNewTab ? "noopener noreferrer" : undefined}
+          className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+          data-external={isExternal}
+          data-affiliate={isAffiliate}
+          data-new-tab={shouldOpenInNewTab}
+          data-affiliate-link="true"
+        >
+          {children}
+          {shouldOpenInNewTab && (
+            <span
+              className="inline-block ml-1 text-xs"
+              aria-label={isExternal ? "外部リンク（新しいタブで開く）" : "新しいタブで開く"}
+              title={isExternal ? "外部リンク（新しいタブで開く）" : "新しいタブで開く"}
+            >
+              🔗
+            </span>
+          )}
+          <span
+            className="inline-block ml-1 text-xs"
+            aria-label="PR・アフィリエイトリンク"
+            title="PR・アフィリエイトリンク"
+          >
+            📢
+          </span>
+        </a>
+      </span>
+    )
+  }
+
   return (
     <a
       href={href}
       target={shouldOpenInNewTab ? "_blank" : undefined}
       rel={shouldOpenInNewTab ? "noopener noreferrer" : undefined}
-      className={`
-        text-blue-600 hover:text-blue-800 underline transition-colors duration-200
-        ${isAffiliate ? 'affiliate-link' : ''}
-        ${isExternal ? 'external-link' : 'internal-link'}
-        ${shouldOpenInNewTab ? 'new-tab-link' : 'same-tab-link'}
-      `.trim()}
+      className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
       data-external={isExternal}
-      data-affiliate={isAffiliate}
       data-new-tab={shouldOpenInNewTab}
-      {...(isAffiliate && { 'data-affiliate-link': 'true' })}
     >
       {children}
       {shouldOpenInNewTab && (
@@ -169,15 +200,6 @@ function CustomLink({
           title={isExternal ? "外部リンク（新しいタブで開く）" : "新しいタブで開く"}
         >
           🔗
-        </span>
-      )}
-      {isAffiliate && (
-        <span
-          className="inline-block ml-1 text-xs"
-          aria-label="PR・アフィリエイトリンク"
-          title="PR・アフィリエイトリンク"
-        >
-          📢
         </span>
       )}
     </a>
@@ -353,7 +375,30 @@ export const portableTextComponents: PortableTextComponents = {
   
   // 将来の拡張用：カスタムタイプ
   types: {
-    // 画像やその他のメディアタイプをここに追加可能
+    image: ({ value }: { value: { asset: { _ref: string }; alt?: string } }) => {
+      if (!value?.asset?._ref) {
+        return null
+      }
+
+      // Sanity画像URLを生成
+      const imageUrl = `https://cdn.sanity.io/images/72m8vhy2/production/${value.asset._ref.replace('image-', '').replace(/-([a-z]+)$/, '.$1')}`
+
+      return (
+        <figure className="my-8">
+          <img
+            src={imageUrl}
+            alt={value.alt || ''}
+            className="w-full h-auto rounded-lg shadow-md"
+            loading="lazy"
+          />
+          {value.alt && (
+            <figcaption className="mt-2 text-sm text-center text-gray-600">
+              {value.alt}
+            </figcaption>
+          )}
+        </figure>
+      )
+    },
   },
 }
 

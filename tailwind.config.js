@@ -14,7 +14,12 @@ module.exports = {
         lg: '2rem'
       },
     },
-    extend: {},
+    extend: {
+      colors: {
+        'link-internal': '#fff4f4',
+        'link-affiliate': '#f4ffff',
+      },
+    },
   },
   plugins: [],
 }
