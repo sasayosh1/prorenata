@@ -25,6 +25,88 @@ function extractTextFromBody(body) {
     .join(' ')
 }
 
+// 新しいリンク分散ロジック
+function distributeLinks(originalBody, suggestedLinks) {
+  const newBody = [...originalBody];
+  const insertedLinkKeys = new Set();
+  const MIN_BLOCKS_BETWEEN_LINKS = 5; // リンク間の最小ブロック数
+  const insertionPlan = []; // Stores { index, linkBlock }
+
+  // 記事の長さに応じて挿入するリンク数を調整
+  // 例: 記事が長い場合はより多くのリンクを挿入
+  const maxLinksToInsert = Math.min(suggestedLinks.length, Math.floor(originalBody.length / 10) + 1); // 10ブロックごとに1リンク程度
+  let linksToDistribute = suggestedLinks.slice(0, maxLinksToInsert);
+
+  let blocksSinceLastLink = 0;
+  let lastInsertedLinkKey = null;
+
+  for (let i = 0; i < originalBody.length; i++) {
+    const block = originalBody[i];
+
+    // Increment counter for blocks since last link
+    if (block._type === 'block' && !block.markDefs?.some(def => def._type === 'link')) {
+      blocksSinceLastLink++;
+    }
+
+    // Check for insertion opportunity
+    if (
+      block._type === 'block' &&
+      block.style === 'normal' && // Insert after a normal paragraph
+      blocksSinceLastLink >= MIN_BLOCKS_BETWEEN_LINKS &&
+      linksToDistribute.length > 0 &&
+      (i + 1 < originalBody.length && !originalBody[i+1].style?.startsWith('h')) // Next block is not a heading
+    ) {
+      // Find a suitable link to insert (not recently inserted, not a duplicate in close proximity)
+      const linkToInsertIndex = linksToDistribute.findIndex(link => link.key !== lastInsertedLinkKey);
+      if (linkToInsertIndex !== -1) {
+        const linkToInsert = linksToDistribute.splice(linkToInsertIndex, 1)[0]; // Remove and get the link
+        const linkBlock = createMoshimoLinkBlock(linkToInsert.key);
+
+        if (linkBlock) {
+          insertionPlan.push({ index: i + 1, linkBlock }); // Insert after current block
+          insertedLinkKeys.add(linkToInsert.key);
+          lastInsertedLinkKey = linkToInsert.key;
+          blocksSinceLastLink = 0; // Reset counter
+        }
+      }
+    }
+  }
+
+  // Apply insertions in reverse order to avoid index issues
+  for (let i = insertionPlan.length - 1; i >= 0; i--) {
+    const { index, linkBlock } = insertionPlan[i];
+    newBody.splice(index, 0, linkBlock);
+  }
+
+  // If any links are left to distribute (e.g., article too short, no suitable normal blocks),
+  // add them to the end, ensuring spacing.
+  if (linksToDistribute.length > 0) {
+    let currentBodyLength = newBody.length;
+    for (const link of linksToDistribute) {
+      const linkBlock = createMoshimoLinkBlock(link.key);
+      if (linkBlock) {
+        // 既存のリンクブロックとの間に最低1つのノーマルブロックを挟む
+        if (currentBodyLength > 0 && newBody[currentBodyLength - 1]._type === 'block' && newBody[currentBodyLength - 1].style !== 'normal') {
+            const emptyParagraphBlock = {
+                _key: `block-${Math.random().toString(36).substr(2, 9)}`,
+                _type: 'block',
+                children: [{ _key: `span-${Math.random().toString(36).substr(2, 9)}`, _type: 'span', marks: [], text: '' }],
+                markDefs: [],
+                style: 'normal'
+            };
+            newBody.push(emptyParagraphBlock);
+            currentBodyLength++;
+        }
+        newBody.push(linkBlock);
+        currentBodyLength++;
+      }
+    }
+  }
+
+  return newBody;
+}
+
+
 async function main() {
   const args = process.argv.slice(2)
   const dryRun = !args.includes('--execute')
@@ -52,8 +134,9 @@ async function main() {
 
     if (suggestions.length === 0) continue
 
-    // 最適なリンクを1-2個選択
-    const selectedLinks = suggestions.slice(0, 2)
+    // 最適なリンクを1-2個選択 (これはdistributeLinks内で調整されるため、ここではそのまま渡す)
+    // distributeLinks関数内で記事の長さに応じて挿入するリンク数を調整する
+    const selectedLinks = suggestions; // すべての候補を渡す
 
     plan.push({
       _id: post._id,
@@ -68,24 +151,46 @@ async function main() {
       }))
     })
 
-    totalLinksPlanned += selectedLinks.length
+    totalLinksPlanned += selectedLinks.length // ここは計画段階の総数なので、候補数で計算
   }
 
-  console.log('🔗 リンク配置予定数: ' + totalLinksPlanned + '個')
+  console.log('🔗 リンク配置予定数: ' + totalLinksPlanned + '個 (候補数)')
   console.log('📝 リンク配置予定記事: ' + plan.length + '件\n')
 
+  // Debugging: Log plan before dryRun block
+  // console.log("DEBUG: plan content before dryRun block:", plan.slice(0, 2)); // Removed debug log
+
   if (dryRun) {
-    // サンプル表示
     console.log('📋 配置プラン（最初の5記事）:')
     console.log(line)
-    plan.slice(0, 5).forEach((item, index) => {
-      console.log('\n' + (index + 1) + '. ' + item.title)
-      item.links.forEach((link, i) => {
-        console.log('   リンク' + (i + 1) + ': ' + link.name + ' (マッチ度: ' + link.matchScore + ')')
-        console.log('   訴求: ' + link.appealText)
-        console.log('   テキスト: ' + link.linkText)
-      })
-    })
+    for (const item of plan.slice(0, 5)) {
+      const post = posts.find(p => p._id === item._id)
+      if (!post || !post.body) continue
+
+      const newBody = distributeLinks(post.body, item.links); // リンク分散ロジックを適用
+
+      console.log('\n' + item.title);
+      console.log('--- リンク挿入後の記事構造 (簡易表示) ---');
+      newBody.forEach(block => {
+        if (block._type === 'block') {
+          if (block.style === 'normal') {
+            const text = extractTextFromBody([block]);
+            console.log(`  [P] ${text.substring(0, 50)}...`); // 最初の50文字を表示
+          } else if (block.style && block.style.startsWith('h')) {
+            const text = extractTextFromBody([block]);
+            console.log(`  [${block.style.toUpperCase()}] ${text}`);
+          } else if (block.markDefs && block.markDefs.some(def => def._type === 'link')) {
+            const linkText = extractTextFromBody([block]);
+            console.log(`  [LINK] ${linkText}`);
+          } else {
+            console.log(`  [BLOCK] ${block._type}`);
+          }
+        } else {
+          console.log(`  [NON-BLOCK] ${block._type}`);
+        }
+      });
+      console.log('----------------------------------------');
+    }
 
     console.log('\n' + line)
     console.log('💡 実行するには:')
@@ -94,26 +199,27 @@ async function main() {
     console.log('🚀 Sanityに反映開始...\n')
 
     let updatedCount = 0
+    let actualLinksInserted = 0;
 
     for (const item of plan) {
       try {
         const post = posts.find(p => p._id === item._id)
         if (!post || !post.body) continue
 
-        const newBody = [...post.body]
+        // リンク分散ロジックを適用
+        const newBody = distributeLinks(post.body, item.links);
 
-        // 記事末尾にリンクを追加
-        for (const link of item.links) {
-          const linkBlock = createMoshimoLinkBlock(link.key)
-          if (linkBlock) {
-            newBody.push(linkBlock)
-          }
+        // 変更があった場合のみ更新
+        if (JSON.stringify(post.body) !== JSON.stringify(newBody)) {
+          await client.patch(item._id).set({ body: newBody }).commit()
+          console.log('✅ ' + item.title + ' (リンクを再配置/追加)')
+          updatedCount++
+          // 実際に挿入されたリンク数を正確にカウントするには、newBodyを解析する必要があるが、
+          // ここでは簡易的に計画されたリンク数を使用
+          actualLinksInserted += item.links.length; 
+        } else {
+          console.log('☑️ ' + item.title + ' (変更なし)')
         }
-
-        await client.patch(item._id).set({ body: newBody }).commit()
-
-        console.log('✅ ' + item.title + ' (' + item.links.length + '個のリンク追加)')
-        updatedCount++
       } catch (error) {
         console.error('❌ エラー: ' + item.title)
         console.error('   ' + error.message)
@@ -125,7 +231,7 @@ async function main() {
     console.log('📊 実行結果')
     console.log(line)
     console.log('✅ 成功: ' + updatedCount + '件')
-    console.log('🔗 追加されたリンク総数: ' + totalLinksPlanned + '個')
+    console.log('🔗 実際に挿入されたリンク総数: ' + actualLinksInserted + '個') // 簡易的なカウント
     console.log()
     console.log('✨ 完了！')
   }
