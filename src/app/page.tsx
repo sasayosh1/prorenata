@@ -47,8 +47,8 @@ export default async function Home() {
             <p className="text-lg leading-8 text-gray-600">
               看護助手の皆様をサポートする専門情報サイト
             </p>
-            <p className="mt-2 text-sm text-gray-500">
-              現場で役立つ実践的な知識とキャリア情報をお届けします
+            <p className="mt-4 text-xs text-gray-500">
+              ※このサイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています
             </p>
           </div>
 
