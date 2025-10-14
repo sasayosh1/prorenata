@@ -68,15 +68,17 @@ async function findOldPosts(months = 6) {
 }
 
 /**
- * メタデータ不足の記事を検出
+ * 必須フィールドとメタデータの包括的チェック
+ * Slug、Categories、Tags、Excerpt、Meta Descriptionを検証
  */
 async function findPostsMissingMetadata() {
   const query = `*[_type == "post"] {
     _id,
     title,
-    "slug": slug.current,
+    slug,
     excerpt,
     metaDescription,
+    tags,
     "categories": categories[]->title
   }`
 
@@ -84,53 +86,121 @@ async function findPostsMissingMetadata() {
     const posts = await client.fetch(query)
 
     const issues = {
+      noSlug: [],
+      noCategories: [],
+      noTags: [],
       noExcerpt: [],
-      noMetaDescription: []
+      noMetaDescription: [],
+      excerptTooShort: [],
+      metaDescriptionTooShort: [],
+      metaDescriptionTooLong: []
     }
 
     posts.forEach(post => {
-      if (!post.excerpt) issues.noExcerpt.push(post)
-      if (!post.metaDescription) issues.noMetaDescription.push(post)
+      // Slug チェック
+      if (!post.slug || !post.slug.current) {
+        issues.noSlug.push(post)
+      }
+
+      // Categories チェック
+      if (!post.categories || post.categories.length === 0) {
+        issues.noCategories.push(post)
+      }
+
+      // Tags チェック
+      if (!post.tags || post.tags.length === 0) {
+        issues.noTags.push(post)
+      }
+
+      // Excerpt チェック
+      if (!post.excerpt) {
+        issues.noExcerpt.push(post)
+      } else if (post.excerpt.length < 50) {
+        issues.excerptTooShort.push({ ...post, excerptLength: post.excerpt.length })
+      }
+
+      // Meta Description チェック（SEO）
+      if (!post.metaDescription) {
+        issues.noMetaDescription.push(post)
+      } else {
+        const length = post.metaDescription.length
+        if (length < 120) {
+          issues.metaDescriptionTooShort.push({ ...post, metaLength: length })
+        } else if (length > 160) {
+          issues.metaDescriptionTooLong.push({ ...post, metaLength: length })
+        }
+      }
     })
 
-    console.log('\n📋 メタデータ不足の記事:\n')
+    console.log('\n📋 必須フィールド・メタデータチェック:\n')
+    console.log('【必須フィールド】')
+    console.log(`  🔴 Slug なし: ${issues.noSlug.length}件`)
+    console.log(`  🔴 Categories なし: ${issues.noCategories.length}件`)
+    console.log(`  ⚠️  Tags なし: ${issues.noTags.length}件`)
     console.log(`  ⚠️  Excerpt なし: ${issues.noExcerpt.length}件`)
-    console.log(`  ⚠️  Meta Description なし: ${issues.noMetaDescription.length}件`)
+    console.log(`  ⚠️  Excerpt 短すぎ (<50文字): ${issues.excerptTooShort.length}件`)
 
-    const totalIssues = new Set([
-      ...issues.noExcerpt.map(p => p._id),
+    console.log('\n【SEO（Meta Description）】')
+    console.log(`  🔴 Meta Description なし: ${issues.noMetaDescription.length}件`)
+    console.log(`  ⚠️  Meta Description 短すぎ (<120文字): ${issues.metaDescriptionTooShort.length}件`)
+    console.log(`  ⚠️  Meta Description 長すぎ (>160文字): ${issues.metaDescriptionTooLong.length}件`)
+
+    const criticalIssues = new Set([
+      ...issues.noSlug.map(p => p._id),
+      ...issues.noCategories.map(p => p._id),
       ...issues.noMetaDescription.map(p => p._id)
     ]).size
 
-    console.log(`\n  📊 合計: ${totalIssues}件の記事に何らかのメタデータ不足\n`)
+    const totalIssues = new Set([
+      ...issues.noSlug.map(p => p._id),
+      ...issues.noCategories.map(p => p._id),
+      ...issues.noTags.map(p => p._id),
+      ...issues.noExcerpt.map(p => p._id),
+      ...issues.noMetaDescription.map(p => p._id),
+      ...issues.excerptTooShort.map(p => p._id),
+      ...issues.metaDescriptionTooShort.map(p => p._id),
+      ...issues.metaDescriptionTooLong.map(p => p._id)
+    ]).size
 
-    // 最も問題が多い記事TOP5を表示
+    console.log(`\n  🔴 重大な問題: ${criticalIssues}件（Slug、Categories、Meta Description欠損）`)
+    console.log(`  📊 合計: ${totalIssues}件の記事に何らかの不足\n`)
+
+    // 最も問題が多い記事TOP10を表示
     const postIssueCount = {}
     posts.forEach(post => {
       let count = 0
-      if (!post.excerpt) count++
-      if (!post.metaDescription) count++
+      const problems = []
+
+      if (!post.slug || !post.slug.current) { count++; problems.push('Slug') }
+      if (!post.categories || post.categories.length === 0) { count++; problems.push('Categories') }
+      if (!post.tags || post.tags.length === 0) { count++; problems.push('Tags') }
+      if (!post.excerpt) { count++; problems.push('Excerpt') }
+      else if (post.excerpt.length < 50) { count++; problems.push('Excerpt短') }
+      if (!post.metaDescription) { count++; problems.push('MetaDesc') }
+      else {
+        const length = post.metaDescription.length
+        if (length < 120) { count++; problems.push('MetaDesc短') }
+        else if (length > 160) { count++; problems.push('MetaDesc長') }
+      }
+
       if (count > 0) {
-        postIssueCount[post._id] = { post, count }
+        postIssueCount[post._id] = { post, count, problems }
       }
     })
 
     const sorted = Object.values(postIssueCount)
       .sort((a, b) => b.count - a.count)
-      .slice(0, 5)
+      .slice(0, 10)
 
     if (sorted.length > 0) {
-      console.log('🎯 優先対応が必要な記事（TOP5）:\n')
+      console.log('🎯 優先対応が必要な記事（TOP10）:\n')
       sorted.forEach((item, i) => {
-        const { post, count } = item
-        const missing = []
-        if (!post.excerpt) missing.push('Excerpt')
-        if (!post.metaDescription) missing.push('Meta Description')
+        const { post, count, problems } = item
 
         console.log(`${i + 1}. ${post.title}`)
         console.log(`   ID: ${post._id}`)
-        console.log(`   不足項目(${count}): ${missing.join(', ')}`)
-        console.log(`   URL: /posts/${post.slug}\n`)
+        console.log(`   不足項目(${count}): ${problems.join(', ')}`)
+        console.log(`   URL: /posts/${post.slug?.current || 'N/A'}\n`)
       })
     }
 
@@ -185,8 +255,9 @@ async function findPostsWithoutImages() {
 
 /**
  * 文字数不足の記事を検出
+ * デフォルト: 2000文字未満（ユーザビリティ重視）
  */
-async function findShortPosts(minChars = 1500) {
+async function findShortPosts(minChars = 2000) {
   const query = `*[_type == "post"] {
     _id,
     title,
@@ -223,7 +294,8 @@ async function findShortPosts(minChars = 1500) {
 
     shortPosts.sort((a, b) => a.charCount - b.charCount)
 
-    console.log(`\n📏 文字数不足の記事（${minChars}文字未満）: ${shortPosts.length}件\n`)
+    console.log(`\n📏 文字数不足の記事（${minChars}文字未満）: ${shortPosts.length}件`)
+    console.log('   ⚠️ 注意: ユーザビリティを最優先し、必要に応じて文字数よりも内容の質を重視してください\n')
 
     if (shortPosts.length > 0) {
       console.log('🎯 文字数が特に少ない記事（TOP10）:\n')
@@ -326,7 +398,7 @@ async function generateReport() {
   const imageIssues = await findPostsWithoutImages()
   console.log('='.repeat(60))
 
-  const shortPosts = await findShortPosts(1500)
+  const shortPosts = await findShortPosts(2000)
   console.log('='.repeat(60))
 
   const missingNextSteps = await findPostsWithoutNextSteps()
@@ -337,18 +409,32 @@ async function generateReport() {
   console.log(`  古い記事（6ヶ月以上更新なし）: ${oldPosts.length}件`)
 
   if (metadataIssues) {
-    const metadataTotal = new Set([
-      ...metadataIssues.noExcerpt.map(p => p._id),
+    const criticalIssues = new Set([
+      ...metadataIssues.noSlug.map(p => p._id),
+      ...metadataIssues.noCategories.map(p => p._id),
       ...metadataIssues.noMetaDescription.map(p => p._id)
     ]).size
-    console.log(`  メタデータ不足: ${metadataTotal}件`)
+
+    const totalMetadataIssues = new Set([
+      ...metadataIssues.noSlug.map(p => p._id),
+      ...metadataIssues.noCategories.map(p => p._id),
+      ...metadataIssues.noTags.map(p => p._id),
+      ...metadataIssues.noExcerpt.map(p => p._id),
+      ...metadataIssues.noMetaDescription.map(p => p._id),
+      ...metadataIssues.excerptTooShort.map(p => p._id),
+      ...metadataIssues.metaDescriptionTooShort.map(p => p._id),
+      ...metadataIssues.metaDescriptionTooLong.map(p => p._id)
+    ]).size
+
+    console.log(`  🔴 重大な問題（Slug/Categories/MetaDesc欠損）: ${criticalIssues}件`)
+    console.log(`  必須フィールド・メタデータ不足: ${totalMetadataIssues}件`)
   }
 
   if (imageIssues) {
     console.log(`  画像が全くなし: ${imageIssues.noImages.length}件`)
   }
 
-  console.log(`  文字数不足（<1500文字）: ${shortPosts.length}件`)
+  console.log(`  文字数不足（<2000文字）: ${shortPosts.length}件 ※ユーザビリティ優先`)
   console.log(`  「次のステップ」セクションなし: ${missingNextSteps.length}件`)
 
   console.log('\n='.repeat(60))
@@ -374,7 +460,7 @@ if (require.main === module) {
       break
 
     case 'short':
-      const minChars = parseInt(args[1]) || 1500
+      const minChars = parseInt(args[1]) || 2000
       findShortPosts(minChars).catch(console.error)
       break
 
@@ -391,24 +477,36 @@ if (require.main === module) {
 📝 ProReNata 記事メンテナンスツール
 
 使い方:
-  node scripts/maintenance.js <コマンド> [オプション]
+  SANITY_API_TOKEN=<token> node scripts/maintenance.js <コマンド> [オプション]
 
 コマンド:
   old [月数]          古い記事を検出（デフォルト: 6ヶ月）
-  metadata            メタデータ不足の記事を検出
+  metadata            必須フィールド・メタデータ不足を包括的にチェック
+                      - Slug、Categories、Tags
+                      - Excerpt（50文字以上推奨）
+                      - Meta Description（120-160文字推奨）
   images              画像なしの記事を検出
-  short [文字数]      文字数不足の記事を検出（デフォルト: 1500文字）
+  short [文字数]      文字数不足の記事を検出（デフォルト: 2000文字）
+                      ※ユーザビリティ優先、内容の質を重視
   nextsteps           「次のステップ」セクションがない記事を検出
-  report              総合レポートを生成
+                      ※現在はフロントエンド側で自動表示
+  report              総合レポートを生成（全チェックを一括実行）
 
 例:
-  node scripts/maintenance.js old 3          # 3ヶ月以上更新なしの記事
-  node scripts/maintenance.js short 2000     # 2000文字未満の記事
-  node scripts/maintenance.js nextsteps      # 次のステップなしの記事
-  node scripts/maintenance.js report         # 全体レポート
+  # 総合レポート（推奨）
+  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js report
+
+  # 個別チェック
+  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js old 3
+  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js metadata
+  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js short 2500
+
+チェック項目:
+  🔴 重大: Slug、Categories、Meta Description欠損
+  ⚠️  推奨: Tags、Excerpt、文字数、画像
 
 環境変数:
-  SANITY_API_TOKEN が必要です
+  SANITY_API_TOKEN が必要です（書き込み権限不要）
       `)
   }
 }
