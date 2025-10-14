@@ -23,12 +23,19 @@ export default async function Home() {
     <>
       <Header />
 
+      {/* Test custom background colors */}
+      <div className="p-4 mb-4">
+        <div className="bg-link-internal p-2 mb-2">Internal Link Test</div>
+        <div className="bg-link-affiliate p-2">Affiliate Link Test</div>
+      </div>
+
       {/* Full-width Hero Image */}
-      <div className="mb-16">
+      <div className="mb-16 flex justify-center">
         <img
           src="/hero-image.png"
           alt="看護助手サポート"
-          className="w-full h-96 object-contain"
+          className="h-auto max-h-96 object-contain"
+          style={{ maxWidth: '800px', width: '100%' }}
         />
       </div>
 

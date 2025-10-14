@@ -136,50 +136,46 @@ function CustomLink({
   // 内部リンクで新しいタブで開かない場合はNext.js Linkを使用
   if (!shouldOpenInNewTab && !isExternal) {
     return (
-      <span className="inline-block bg-link-internal px-1">
-        <Link
-          href={href}
-          className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
-        >
-          {children}
-        </Link>
-      </span>
+      <Link
+        href={href}
+        className="inline-block bg-link-internal px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+      >
+        {children}
+      </Link>
     )
   }
 
   // 通常の外部リンク
   if (isAffiliate) {
     return (
-      <span className="inline-block bg-link-affiliate px-1">
-        <a
-          href={href}
-          target={shouldOpenInNewTab ? "_blank" : undefined}
-          rel={shouldOpenInNewTab ? "noopener noreferrer" : undefined}
-          className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
-          data-external={isExternal}
-          data-affiliate={isAffiliate}
-          data-new-tab={shouldOpenInNewTab}
-          data-affiliate-link="true"
-        >
-          {children}
-          {shouldOpenInNewTab && (
-            <span
-              className="inline-block ml-1 text-xs"
-              aria-label={isExternal ? "外部リンク（新しいタブで開く）" : "新しいタブで開く"}
-              title={isExternal ? "外部リンク（新しいタブで開く）" : "新しいタブで開く"}
-            >
-              🔗
-            </span>
-          )}
+      <a
+        href={href}
+        target={shouldOpenInNewTab ? "_blank" : undefined}
+        rel={shouldOpenInNewTab ? "noopener noreferrer" : undefined}
+        className="inline-block bg-link-affiliate px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+        data-external={isExternal}
+        data-affiliate={isAffiliate}
+        data-new-tab={shouldOpenInNewTab}
+        data-affiliate-link="true"
+      >
+        {children}
+        {shouldOpenInNewTab && (
           <span
             className="inline-block ml-1 text-xs"
-            aria-label="PR・アフィリエイトリンク"
-            title="PR・アフィリエイトリンク"
+            aria-label={isExternal ? "外部リンク（新しいタブで開く）" : "新しいタブで開く"}
+            title={isExternal ? "外部リンク（新しいタブで開く）" : "新しいタブで開く"}
           >
-            📢
+            🔗
           </span>
-        </a>
-      </span>
+        )}
+        <span
+          className="inline-block ml-1 text-xs"
+          aria-label="PR・アフィリエイトリンク"
+          title="PR・アフィリエイトリンク"
+        >
+          📢
+        </span>
+      </a>
     )
   }
 
