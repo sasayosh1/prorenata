@@ -1,106 +1,149 @@
 /**
- * もしもアフィリエイト リンクデータベース
- * 
+ * アフィリエイトリンクデータベース
+ *
  * リンクコードは絶対に変更しない
  * 定期的にリンク有効性をチェック
  * 無効になったリンクは別の案件に差し替え
  */
 
 const MOSHIMO_LINKS = {
-  // 転職サービス
-  renewcare: {
-    name: 'リニューケア',
-    description: '関西圏に特化した介護職・看護助手の転職',
-    category: '転職・求人',
-    targetArticles: ['転職', '求人', '関西', '大阪', '兵庫', '京都', '辞めたい'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>関西圏で看護助手・介護職の転職をお考えの方はこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '🔍 関西圏で転職をお考えの方へ',
-    linkText: '関西圏に特化した転職サービス「リニューケア」はこちら',
-    url: '//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880',
+  // 就職・転職サービス
+  albatross: {
+    name: 'アルバトロス転職',
+    description: 'LINEのみで完結可能な転職支援サービス',
+    category: '就職・転職',
+    targetArticles: ['転職', '求人', '辞めたい', 'キャリア', 'LINE'],
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>LINEのみで完結可能なアルバトロス転職はこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" width="1" height="1" style="border:none;" loading="lazy">',
+    appealText: '📱 LINEで簡単に転職活動をしたい方へ',
+    linkText: 'LINEのみで完結「アルバトロス転職」はこちら',
+    url: '//af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074',
     active: true,
-    addedDate: '2025-10-10'
+    addedDate: '2025-10-14',
+    reward: '20,000円',
+    condition: 'お問い合わせフォームより申し込み完了後'
   },
 
   humanlifecare: {
     name: 'ヒューマンライフケア',
     description: '介護・介護職・介護士・ケアマネージャーの求人',
-    category: '転職・求人',
+    category: '就職・転職',
     targetArticles: ['転職', '求人', '介護', 'ケアマネ', '辞めたい', 'キャリア'],
     html: '<a href="//af.moshimo.com/af/c/click?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>介護・看護助手の求人をお探しの方はこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717" width="1" height="1" style="border:none;" loading="lazy">',
     appealText: '💼 転職・求人をお探しの方へ',
     linkText: '介護職・看護助手の求人なら「ヒューマンライフケア」',
     url: '//af.moshimo.com/af/c/click?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717',
     active: true,
-    addedDate: '2025-10-10'
+    addedDate: '2025-10-10',
+    reward: '15,385円',
+    condition: 'WEB応募完了'
   },
 
-  pasonalifecare: {
-    name: 'パソナライフケア',
-    description: '介護職の求職者向け人材サービス',
-    category: '転職・求人',
-    targetArticles: ['転職', '求人', '未経験', 'なるには', '辞めたい'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>「ありがとう」が嬉しい、いつまでも必要とされ続けるお仕事</a><img src="//i.moshimo.com/af/i/impression?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '✨ やりがいのある仕事をお探しの方へ',
-    linkText: '「ありがとう」が嬉しい介護職の求人【パソナライフケア】',
-    url: '//af.moshimo.com/af/c/click?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816',
+  kaigobatake: {
+    name: 'かいご畑',
+    description: '介護職専門の人材サービス',
+    category: '就職・転職',
+    targetArticles: ['転職', '求人', '介護', '未経験', '資格', '辞めたい'],
+    html: '<a href="https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" rel="nofollow">かいご畑で介護職・看護助手の求人を探す</a><img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" alt="">',
+    appealText: '🌾 介護職専門の求人をお探しの方へ',
+    linkText: '介護職・看護助手の求人なら「かいご畑」',
+    url: 'https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY',
     active: true,
-    addedDate: '2025-10-10'
+    addedDate: '2025-10-14',
+    reward: '6,000円',
+    condition: '新規人材サービス登録'
   },
 
-  // 商品・グッズ
-  claasshop: {
-    name: 'クラースショップ',
-    description: '介護靴・ケアシューズ',
-    category: '商品・グッズ',
-    targetArticles: ['シューズ', '靴', 'グッズ', '必要なもの', '1日の流れ', '夜勤'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207866&p_id=3406&pc_id=8115&pl_id=48263" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>看護助手・介護職向けシューズはこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5207866&p_id=3406&pc_id=8115&pl_id=48263" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '👟 快適なワークシューズをお探しの方へ',
-    linkText: '介護職・看護助手向けケアシューズ【クラースショップ】',
-    url: '//af.moshimo.com/af/c/click?a_id=5207866&p_id=3406&pc_id=8115&pl_id=48263',
+  // アイテム・商品
+  nursery: {
+    name: 'ナースリー',
+    description: '看護・医療・介護ユニフォーム専門店',
+    category: 'アイテム',
+    targetArticles: ['制服', 'ユニフォーム', 'グッズ', '必要なもの', '靴', 'シューズ'],
+    html: '<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3755453&pid=892161180" rel="nofollow"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3755453&pid=892161180" height="1" width="1" border="0">看護助手向けユニフォーム・グッズを探す</a>',
+    appealText: '👔 ユニフォーム・グッズをお探しの方へ',
+    linkText: '看護・介護ユニフォーム専門店「ナースリー」',
+    url: '//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3755453&pid=892161180',
     active: true,
-    addedDate: '2025-10-10'
+    addedDate: '2025-10-14',
+    reward: '10.47%（9.52%）',
+    condition: '商品購入'
+  },
+
+  amazon: {
+    name: 'Amazonアソシエイト',
+    description: 'Amazon商品購入',
+    category: 'アイテム',
+    targetArticles: ['グッズ', '靴', 'シューズ', '本', '書籍', '必要なもの'],
+    html: '<!-- Amazonアソシエイトリンク tag=ptb875pmj49-22 -->',
+    appealText: '📦 看護助手・介護職向けグッズをお探しの方へ',
+    linkText: 'Amazonで看護助手グッズを探す',
+    url: 'https://www.amazon.co.jp/?tag=ptb875pmj49-22',
+    active: true,
+    addedDate: '2025-10-14',
+    reward: '1.8%',
+    condition: '商品購入',
+    note: 'もしものコードを取得次第更新予定'
   },
 
   rakuten: {
     name: '楽天市場',
     description: '楽天市場での商品購入',
-    category: '商品・グッズ',
+    category: 'アイテム',
     targetArticles: ['シューズ', '靴', 'グッズ', '制服', 'ユニフォーム', '必要なもの'],
     html: '<a href="//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天市場</a><img src="//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621" width="1" height="1" style="border:none;" loading="lazy">',
     appealText: '🛍️ 看護助手・介護職向けグッズをお探しの方へ',
     linkText: '楽天市場で看護助手グッズを探す',
     url: '//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621',
     active: true,
-    addedDate: '2025-10-10'
+    addedDate: '2025-10-10',
+    reward: '2%',
+    condition: '商品購入'
   },
 
   // 退職代行サービス
-  taishokudaikou: {
-    name: '汐留パートナーズ法律事務所',
+  miyabi: {
+    name: '弁護士法人みやび',
     description: '弁護士による退職代行サービス',
     category: '退職代行',
-    targetArticles: ['辞めたい', '退職', '辞める', '転職', '辞め方', '理由'],
-    html: '<a href="https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100" title="">汐留パートナーズ法律事務所の退職代行サービス</a>',
+    targetArticles: ['辞めたい', '退職', '辞める', '転職', '辞め方', '理由', '弁護士'],
+    html: '<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3515026&pid=892170743" rel="nofollow"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3515026&pid=892170743" height="1" width="1" border="0">弁護士による退職代行サービス</a>',
     appealText: '⚖️ 退職でお悩みの方へ',
-    linkText: '弁護士による退職代行サービス【汐留パートナーズ】',
-    url: 'https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100',
-    active: true,
-    addedDate: '2025-10-10'
-  },
-
-  murisapo: {
-    name: 'セルフ退職ムリサポ!',
-    description: '自力＋伴走サポートによるセルフ退職支援サービス',
-    category: '退職代行',
-    targetArticles: ['辞めたい', '退職', '辞める', '転職', '辞め方', '自分で', 'セルフ'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211243&p_id=5787&pc_id=16026&pl_id=74424" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>退職代行は利用したくない方はこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5211243&p_id=5787&pc_id=16026&pl_id=74424" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '📝 自分で退職したい方へ',
-    linkText: 'セルフ退職支援サービス「ムリサポ!」はこちら',
-    url: '//af.moshimo.com/af/c/click?a_id=5211243&p_id=5787&pc_id=16026&pl_id=74424',
+    linkText: '弁護士による退職代行サービス【弁護士法人みやび】',
+    url: '//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3515026&pid=892170743',
     active: true,
     addedDate: '2025-10-14',
-    reward: '5,000円',
-    condition: '新規お問い合せ完了'
+    reward: '16,500円',
+    condition: '商品購入'
+  },
+
+  sokuyame: {
+    name: '退職代行 即ヤメ',
+    description: 'スピード退職代行サービス',
+    category: '退職代行',
+    targetArticles: ['辞めたい', '退職', '辞める', 'すぐ', '即日', '辞め方'],
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211257&p_id=4655&pc_id=12227&pl_id=61921" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>即日退職可能な退職代行サービス</a><img src="//i.moshimo.com/af/i/impression?a_id=5211257&p_id=4655&pc_id=12227&pl_id=61921" width="1" height="1" style="border:none;" loading="lazy">',
+    appealText: '⚡ すぐに退職したい方へ',
+    linkText: '即日退職可能な「退職代行 即ヤメ」',
+    url: '//af.moshimo.com/af/c/click?a_id=5211257&p_id=4655&pc_id=12227&pl_id=61921',
+    active: true,
+    addedDate: '2025-10-14',
+    reward: '15,000円',
+    condition: 'webからの退職代行サービスの依頼'
+  },
+
+  gaia: {
+    name: '弁護士法人ガイア法律事務所',
+    description: '弁護士による退職代行・相談サービス',
+    category: '退職代行',
+    targetArticles: ['辞めたい', '退職', '辞める', '相談', 'LINE', '弁護士'],
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211256&p_id=5546&pc_id=15198&pl_id=71517" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>LINEで相談できる退職代行サービス</a><img src="//i.moshimo.com/af/i/impression?a_id=5211256&p_id=5546&pc_id=15198&pl_id=71517" width="1" height="1" style="border:none;" loading="lazy">',
+    appealText: '💬 LINEで気軽に相談したい方へ',
+    linkText: 'LINEで相談「弁護士法人ガイア法律事務所」',
+    url: '//af.moshimo.com/af/c/click?a_id=5211256&p_id=5546&pc_id=15198&pl_id=71517',
+    active: true,
+    addedDate: '2025-10-14',
+    reward: '14,000円',
+    condition: 'LINEもしくはメールでの相談問い合わせ完了後'
   }
 }
 
@@ -119,7 +162,7 @@ function suggestLinksForArticle(articleTitle, articleBody = '') {
   Object.entries(MOSHIMO_LINKS).forEach(([key, link]) => {
     if (!link.active) return
 
-    const matchCount = link.targetArticles.filter(keyword => 
+    const matchCount = link.targetArticles.filter(keyword =>
       text.includes(keyword.toLowerCase())
     ).length
 
