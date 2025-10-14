@@ -43,3 +43,6 @@ next-env.d.ts
 
 # sanity token tracking
 .sanity-token-issued
+# Temporary Python scripts with credentials
+get_article_data_v2.py
+list_recent_articles.py
