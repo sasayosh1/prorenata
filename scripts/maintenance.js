@@ -244,6 +244,73 @@ async function findShortPosts(minChars = 1500) {
 }
 
 /**
+ * 次のステップセクションがない記事を検出
+ */
+async function findPostsWithoutNextSteps() {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    _createdAt,
+    "categories": categories[]->title
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const missingNextSteps = []
+
+    posts.forEach(post => {
+      if (!post.body || !Array.isArray(post.body)) {
+        missingNextSteps.push(post)
+        return
+      }
+
+      // 「次のステップ」H2見出しの検出
+      const hasNextStepsH2 = post.body.some(block =>
+        block._type === 'block' &&
+        block.style === 'h2' &&
+        block.children?.some(child =>
+          child.text?.includes('次のステップ')
+        )
+      )
+
+      if (!hasNextStepsH2) {
+        missingNextSteps.push(post)
+      }
+    })
+
+    // 作成日でソート（新しい記事順）
+    missingNextSteps.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt))
+
+    console.log(`\n🔗 「次のステップ」セクションがない記事: ${missingNextSteps.length}件\n`)
+
+    if (missingNextSteps.length > 0) {
+      console.log('🎯 最近作成された記事で「次のステップ」がない記事（TOP15）:\n')
+      missingNextSteps.slice(0, 15).forEach((post, i) => {
+        const createdDate = new Date(post._createdAt)
+        const daysAgo = Math.floor((Date.now() - createdDate.getTime()) / (1000 * 60 * 60 * 24))
+
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   作成日: ${daysAgo}日前 (${createdDate.toLocaleDateString('ja-JP')})`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+
+      if (missingNextSteps.length > 15) {
+        console.log(`   ... 他${missingNextSteps.length - 15}件\n`)
+      }
+    }
+
+    return missingNextSteps
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return []
+  }
+}
+
+/**
  * 総合レポートを生成
  */
 async function generateReport() {
@@ -260,6 +327,9 @@ async function generateReport() {
   console.log('='.repeat(60))
 
   const shortPosts = await findShortPosts(1500)
+  console.log('='.repeat(60))
+
+  const missingNextSteps = await findPostsWithoutNextSteps()
   console.log('='.repeat(60))
 
   // サマリー
@@ -279,6 +349,7 @@ async function generateReport() {
   }
 
   console.log(`  文字数不足（<1500文字）: ${shortPosts.length}件`)
+  console.log(`  「次のステップ」セクションなし: ${missingNextSteps.length}件`)
 
   console.log('\n='.repeat(60))
 }
@@ -307,6 +378,10 @@ if (require.main === module) {
       findShortPosts(minChars).catch(console.error)
       break
 
+    case 'nextsteps':
+      findPostsWithoutNextSteps().catch(console.error)
+      break
+
     case 'report':
       generateReport().catch(console.error)
       break
@@ -323,11 +398,13 @@ if (require.main === module) {
   metadata            メタデータ不足の記事を検出
   images              画像なしの記事を検出
   short [文字数]      文字数不足の記事を検出（デフォルト: 1500文字）
+  nextsteps           「次のステップ」セクションがない記事を検出
   report              総合レポートを生成
 
 例:
   node scripts/maintenance.js old 3          # 3ヶ月以上更新なしの記事
   node scripts/maintenance.js short 2000     # 2000文字未満の記事
+  node scripts/maintenance.js nextsteps      # 次のステップなしの記事
   node scripts/maintenance.js report         # 全体レポート
 
 環境変数:
@@ -341,5 +418,6 @@ module.exports = {
   findPostsMissingMetadata,
   findPostsWithoutImages,
   findShortPosts,
+  findPostsWithoutNextSteps,
   generateReport
 }

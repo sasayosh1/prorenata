@@ -51,7 +51,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
     <>
       <Header />
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 py-8">
         {/* ヘッダー */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">記事一覧</h1>
@@ -160,9 +160,9 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
           ホームに戻る
         </Link>
       </div>
-    </div>
+      </div>
 
-    <Footer />
-  </>
+      <Footer />
+    </>
   )
 }

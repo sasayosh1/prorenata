@@ -86,6 +86,21 @@ const MOSHIMO_LINKS = {
     url: 'https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100',
     active: true,
     addedDate: '2025-10-10'
+  },
+
+  murisapo: {
+    name: 'セルフ退職ムリサポ!',
+    description: '自力＋伴走サポートによるセルフ退職支援サービス',
+    category: '退職代行',
+    targetArticles: ['辞めたい', '退職', '辞める', '転職', '辞め方', '自分で', 'セルフ'],
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211243&p_id=5787&pc_id=16026&pl_id=74424" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>退職代行は利用したくない方はこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5211243&p_id=5787&pc_id=16026&pl_id=74424" width="1" height="1" style="border:none;" loading="lazy">',
+    appealText: '📝 自分で退職したい方へ',
+    linkText: 'セルフ退職支援サービス「ムリサポ!」はこちら',
+    url: '//af.moshimo.com/af/c/click?a_id=5211243&p_id=5787&pc_id=16026&pl_id=74424',
+    active: true,
+    addedDate: '2025-10-14',
+    reward: '5,000円',
+    condition: '新規お問い合せ完了'
   }
 }
 
