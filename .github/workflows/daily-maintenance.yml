@@ -1,0 +1,50 @@
+name: Daily Article Maintenance Check
+
+on:
+  schedule:
+    # 毎日AM1:00 (UTC) = 日本時間AM10:00に実行
+    - cron: '0 1 * * *'
+  workflow_dispatch: # 手動実行も可能にする
+
+jobs:
+  maintenance_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run maintenance script - All checks
+        run: |
+          echo "=== 記事品質メンテナンスチェック開始 ==="
+          SANITY_API_TOKEN=${{ secrets.SANITY_API_TOKEN }} node scripts/maintenance.js all
+        continue-on-error: true
+
+      - name: Create issue if problems found
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const date = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[メンテナンス] 記事品質チェックで問題を検出 (${date})`,
+              body: `## 記事品質チェック結果\n\n定期メンテナンスチェックで問題が検出されました。\n\n詳細はワークフローログを確認してください:\n${context.payload.repository.html_url}/actions/runs/${context.runId}\n\n---\n**実行時刻**: ${date}\n**チェック項目**:\n- 必須フィールド (Slug, Categories)\n- SEO (Meta Description: 120-160文字)\n- 推奨フィールド (Tags, Excerpt)\n- 文字数 (推奨2000文字以上)\n- 次のステップセクション`,
+              labels: ['maintenance', 'article-quality']
+            });
+
+      - name: Post summary
+        if: always()
+        run: |
+          echo "✅ メンテナンスチェック完了"
+          echo "📊 実行時刻: $(TZ=Asia/Tokyo date '+%Y年%m月%d日 %H:%M')"
