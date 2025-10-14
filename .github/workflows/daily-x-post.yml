@@ -2,8 +2,9 @@ name: Daily X Auto Post
 
 on:
   schedule:
-    # 毎日PM9:00 (JST) = PM12:00 (UTC)
-    - cron: '0 12 * * *'
+    # 毎日PM8:30頃 (JST) = PM11:30 (UTC) に起動
+    # スクリプト内で0〜60分のランダム待機後に投稿（実質PM8:30〜9:30の間）
+    - cron: '30 11 * * *'
   workflow_dispatch: # 手動実行も可能にする
 
 jobs:

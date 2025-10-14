@@ -197,12 +197,30 @@ async function updatePostHistory(postId) {
 }
 
 /**
+ * ランダムな待機時間を追加（スパム対策）
+ * 0〜60分の間でランダムに待機
+ */
+async function randomDelay() {
+  const delayMinutes = Math.floor(Math.random() * 60) // 0〜60分
+  const delayMs = delayMinutes * 60 * 1000
+
+  console.log(`⏰ スパム対策: ${delayMinutes}分待機します...`)
+
+  await new Promise(resolve => setTimeout(resolve, delayMs))
+
+  console.log('✅ 待機完了\n')
+}
+
+/**
  * メイン処理
  */
 async function main() {
   console.log('🚀 X自動投稿スクリプト開始\n')
 
   try {
+    // 0. ランダムな待機時間（スパム対策）
+    await randomDelay()
+
     // 1. ランダムに記事を選択
     const post = await getRandomArticle()
     console.log('')
