@@ -158,14 +158,36 @@ async function postToX(post, summary) {
 
   // 記事URLを生成
   const articleUrl = `https://prorenata.jp/posts/${post.slug.current}`
+  console.log(`🔗 記事URL長: ${articleUrl.length}文字`)
+
+  // URL長を考慮してサマリー文字数を調整
+  const MAX_TWEET_LENGTH = 280
+  const LINE_BREAKS_LENGTH = 2 // "\n\n" 分
+  const availableSummaryLength = MAX_TWEET_LENGTH - articleUrl.length - LINE_BREAKS_LENGTH
+  console.log(`📐 要約に使える最大文字数: ${availableSummaryLength}文字`)
+
+  if (availableSummaryLength <= 0) {
+    throw new Error('記事URLが長すぎるため、ツイート文字数を計算できません')
+  }
+
+  let adjustedSummary = summary
+  if (adjustedSummary.length > availableSummaryLength) {
+    const ellipsis = '…'
+    const cutLength = Math.max(availableSummaryLength - ellipsis.length, 0)
+    adjustedSummary = adjustedSummary.substring(0, cutLength)
+    if (cutLength > 0) {
+      adjustedSummary += ellipsis
+    }
+    console.log(`✂️ 要約を短縮しました（${adjustedSummary.length}文字）`)
+  }
 
   // ツイート本文を作成
-  const tweetText = `${summary}\n\n${articleUrl}`
+  const tweetText = `${adjustedSummary}\n\n${articleUrl}`
 
   console.log(`📊 投稿文字数: ${tweetText.length}文字`)
 
-  if (tweetText.length > 280) {
-    console.error(`❌ ツイートが280文字を超えています（${tweetText.length}文字）`)
+  if (tweetText.length > MAX_TWEET_LENGTH) {
+    console.error(`❌ ツイートが${MAX_TWEET_LENGTH}文字を超えています（${tweetText.length}文字）`)
     process.exit(1)
   }
 
