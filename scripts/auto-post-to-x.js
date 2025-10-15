@@ -38,10 +38,9 @@ if (!SANITY_CONFIG.token || !GEMINI_API_KEY || !X_CONFIG.appKey || !X_CONFIG.app
   process.exit(1)
 }
 
-// クライアント初期化
+// クライアント初期化（環境変数チェック後に初期化）
 const sanityClient = createClient(SANITY_CONFIG)
 const xClient = new TwitterApi(X_CONFIG)
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
 
 /**
  * 公開済み記事からランダムに1記事を取得
@@ -97,9 +96,9 @@ async function getRandomArticle() {
 async function generateSummary(post) {
   console.log('🤖 Gemini APIで要約を生成中...')
 
-  const model = genAI.getGenerativeModel({
-    model: 'gemini-1.5-flash-latest'
-  })
+  // Initialize Gemini AI client inside function (after env vars are loaded)
+  const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
+  const model = genAI.getGenerativeModel({ model: 'gemini-pro' })
 
   // 記事本文をプレーンテキストに変換
   const bodyText = post.body
