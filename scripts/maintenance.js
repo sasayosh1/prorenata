@@ -383,6 +383,145 @@ async function findPostsWithoutNextSteps() {
 }
 
 /**
+ * アフィリエイトリンクの適切性をチェック
+ * 1. 記事内容とリンクの関連性
+ * 2. 連続するアフィリエイトリンクの検出
+ */
+async function checkAffiliateLinks() {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    "categories": categories[]->title
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const issues = {
+      consecutiveLinks: [], // 連続リンク
+      tooManyLinks: [],      // リンク数が多すぎる
+      irrelevantLinks: []    // 記事内容と関連性が低い
+    }
+
+    posts.forEach(post => {
+      if (!post.body || !Array.isArray(post.body)) return
+
+      let affiliateCount = 0
+      let lastWasAffiliate = false
+      let consecutiveCount = 0
+      const affiliateBlocks = []
+
+      post.body.forEach((block, index) => {
+        // アフィリエイトリンクの検出
+        const isAffiliate = block.markDefs?.some(def =>
+          def._type === 'link' &&
+          (def.href?.includes('af.moshimo.com') ||
+           def.href?.includes('amazon.co.jp') ||
+           def.href?.includes('tcs-asp.net'))
+        )
+
+        if (isAffiliate) {
+          affiliateCount++
+          affiliateBlocks.push({ index, block })
+
+          if (lastWasAffiliate) {
+            consecutiveCount++
+          } else {
+            consecutiveCount = 1
+          }
+
+          lastWasAffiliate = true
+        } else {
+          // コンテンツブロック（normal, h2, h3など）
+          if (block._type === 'block' && block.style && block.style.match(/^(normal|h2|h3)$/)) {
+            lastWasAffiliate = false
+          }
+        }
+
+        // 連続アフィリエイトリンクの検出（2個以上）
+        if (consecutiveCount >= 2 && !issues.consecutiveLinks.some(p => p._id === post._id)) {
+          issues.consecutiveLinks.push({
+            ...post,
+            consecutiveCount,
+            exampleText: block.children?.map(c => c.text).join('').substring(0, 50)
+          })
+        }
+      })
+
+      // アフィリエイトリンク数チェック（4個以上）
+      if (affiliateCount >= 4) {
+        issues.tooManyLinks.push({
+          ...post,
+          affiliateCount
+        })
+      }
+
+      // 記事内容との関連性チェック（簡易版）
+      // 「資格」記事に退職代行リンクなど
+      const titleLower = post.title.toLowerCase()
+      const hasRetirementLink = affiliateBlocks.some(ab =>
+        ab.block.children?.some(child =>
+          child.text?.includes('退職代行') ||
+          child.text?.includes('汐留パートナーズ')
+        )
+      )
+
+      if (hasRetirementLink && !titleLower.includes('退職') && !titleLower.includes('辞め')) {
+        issues.irrelevantLinks.push({
+          ...post,
+          linkType: '退職代行',
+          reason: 'タイトルに「退職」「辞める」が含まれていないのに退職代行リンクがあります'
+        })
+      }
+    })
+
+    console.log('\n🔗 アフィリエイトリンクチェック:\n')
+    console.log(`  🔴 連続するアフィリエイトリンク: ${issues.consecutiveLinks.length}件`)
+    console.log(`  ⚠️  リンク数が多すぎる（4個以上）: ${issues.tooManyLinks.length}件`)
+    console.log(`  ⚠️  記事内容と関連性が低い可能性: ${issues.irrelevantLinks.length}件\n`)
+
+    if (issues.consecutiveLinks.length > 0) {
+      console.log('🎯 連続するアフィリエイトリンクがある記事:\n')
+      issues.consecutiveLinks.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   連続数: ${post.consecutiveCount}個`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    if (issues.tooManyLinks.length > 0) {
+      console.log('🎯 アフィリエイトリンクが多すぎる記事:\n')
+      issues.tooManyLinks.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   リンク数: ${post.affiliateCount}個（推奨: 2-3個）`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    if (issues.irrelevantLinks.length > 0) {
+      console.log('🎯 記事内容と関連性が低い可能性のある記事:\n')
+      issues.irrelevantLinks.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   リンク種別: ${post.linkType}`)
+        console.log(`   理由: ${post.reason}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    return issues
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return null
+  }
+}
+
+/**
  * 総合レポートを生成
  */
 async function generateReport() {
@@ -402,6 +541,9 @@ async function generateReport() {
   console.log('='.repeat(60))
 
   const missingNextSteps = await findPostsWithoutNextSteps()
+  console.log('='.repeat(60))
+
+  const affiliateIssues = await checkAffiliateLinks()
   console.log('='.repeat(60))
 
   // サマリー
@@ -437,6 +579,12 @@ async function generateReport() {
   console.log(`  文字数不足（<2000文字）: ${shortPosts.length}件 ※ユーザビリティ優先`)
   console.log(`  「次のステップ」セクションなし: ${missingNextSteps.length}件`)
 
+  if (affiliateIssues) {
+    console.log(`  🔴 連続するアフィリエイトリンク: ${affiliateIssues.consecutiveLinks.length}件`)
+    console.log(`  ⚠️  リンク数が多すぎる: ${affiliateIssues.tooManyLinks.length}件`)
+    console.log(`  ⚠️  記事内容と関連性が低い可能性: ${affiliateIssues.irrelevantLinks.length}件`)
+  }
+
   console.log('\n='.repeat(60))
 }
 
@@ -468,6 +616,10 @@ if (require.main === module) {
       findPostsWithoutNextSteps().catch(console.error)
       break
 
+    case 'affiliate':
+      checkAffiliateLinks().catch(console.error)
+      break
+
     case 'report':
       generateReport().catch(console.error)
       break
@@ -490,6 +642,10 @@ if (require.main === module) {
                       ※ユーザビリティ優先、内容の質を重視
   nextsteps           「次のステップ」セクションがない記事を検出
                       ※現在はフロントエンド側で自動表示
+  affiliate           アフィリエイトリンクの適切性をチェック
+                      - 連続するリンクの検出
+                      - リンク数（推奨: 2-3個）
+                      - 記事内容との関連性
   report              総合レポートを生成（全チェックを一括実行）
 
 例:
@@ -517,5 +673,6 @@ module.exports = {
   findPostsWithoutImages,
   findShortPosts,
   findPostsWithoutNextSteps,
+  checkAffiliateLinks,
   generateReport
 }

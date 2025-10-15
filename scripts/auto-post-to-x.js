@@ -25,34 +25,22 @@ const X_CONFIG = {
 }
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-const SUMMARY_ONLY = (process.env.X_SUMMARY_ONLY || '').toLowerCase() === 'true'
 
 // 必須環境変数チェック
-const missing = []
-if (!SANITY_CONFIG.token) missing.push('SANITY_API_TOKEN')
-if (!GEMINI_API_KEY) missing.push('GEMINI_API_KEY')
-
-if (!SUMMARY_ONLY) {
-  if (!X_CONFIG.appKey) missing.push('X_API_KEY')
-  if (!X_CONFIG.appSecret) missing.push('X_API_SECRET')
-  if (!X_CONFIG.accessToken) missing.push('X_ACCESS_TOKEN')
-  if (!X_CONFIG.accessSecret) missing.push('X_ACCESS_TOKEN_SECRET')
-}
-
-if (missing.length) {
-  console.error('❌ 必須環境変数が不足しています:')
-  missing.forEach(key => console.error(`  - ${key}`))
-  console.error('ℹ️  サマリーモードで実行する場合は X_SUMMARY_ONLY=true を設定してください。')
+if (!SANITY_CONFIG.token || !GEMINI_API_KEY || !X_CONFIG.appKey || !X_CONFIG.appSecret || !X_CONFIG.accessToken || !X_CONFIG.accessSecret) {
+  console.error('❌ 必須環境変数が設定されていません:')
+  console.error('  - SANITY_API_TOKEN:', !!SANITY_CONFIG.token)
+  console.error('  - GEMINI_API_KEY:', !!GEMINI_API_KEY)
+  console.error('  - X_API_KEY:', !!X_CONFIG.appKey)
+  console.error('  - X_API_SECRET:', !!X_CONFIG.appSecret)
+  console.error('  - X_ACCESS_TOKEN:', !!X_CONFIG.accessToken)
+  console.error('  - X_ACCESS_TOKEN_SECRET:', !!X_CONFIG.accessSecret)
   process.exit(1)
-}
-
-if (SUMMARY_ONLY) {
-  console.log('ℹ️  サマリーモードを有効化: Xには投稿せず、要約のみ出力します。')
 }
 
 // クライアント初期化（環境変数チェック後に初期化）
 const sanityClient = createClient(SANITY_CONFIG)
-const xClient = SUMMARY_ONLY ? null : new TwitterApi(X_CONFIG)
+const xClient = new TwitterApi(X_CONFIG)
 
 /**
  * 公開済み記事からランダムに1記事を取得
@@ -188,15 +176,6 @@ async function postToX(post, summary) {
 
   const tweetText = `${adjustedSummary}\n\n${articleUrl}`
   console.log(`📊 投稿文字数: ${tweetText.length}文字`)
-
-  if (SUMMARY_ONLY) {
-    console.log('\n📝 サマリーモード（X投稿なし）')
-    console.log('----------------------------------------')
-    console.log(tweetText)
-    console.log('----------------------------------------\n')
-    return { data: { id: 'summary-mode' }, text: tweetText }
-  }
-
   console.log('🐦 Xに投稿中...')
 
   if (tweetText.length > MAX_TWEET_LENGTH) {
@@ -264,7 +243,7 @@ async function main() {
     const summary = await generateSummary(post)
     console.log('')
 
-    // 3. Xに投稿
+    // 3. Xに投稿（またはサマリーモード出力）
     const tweet = await postToX(post, summary)
     console.log('')
 

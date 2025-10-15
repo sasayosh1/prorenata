@@ -29,23 +29,8 @@ async function generateAndSaveArticle() {
 
   // 2. Select a topic
   console.log("Selecting a topic...");
-  let selectedTopic;
-  try {
-    const query = `*[_type == "post" && defined(tags)].tags`;
-    const tagsArrays = await sanityClient.fetch(query);
-    const allTags = [].concat.apply([], tagsArrays);
-    const uniqueTags = [...new Set(allTags)];
-    if (uniqueTags.length === 0) {
-      console.error("No tags found to select a topic from.");
-      return;
-    }
-    const randomIndex = Math.floor(Math.random() * uniqueTags.length);
-    selectedTopic = uniqueTags[randomIndex];
-    console.log(`Topic selected: "${selectedTopic}"`);
-  } catch (error) {
-    console.error("Error selecting topic from Sanity:", error);
-    return;
-  }
+  let selectedTopic = "働きながら転職活動"; // Forced topic for this task
+  console.log(`Topic selected: "${selectedTopic}"`);
 
   // 3. Generate content with Gemini
   console.log("Generating article content with Gemini AI...");

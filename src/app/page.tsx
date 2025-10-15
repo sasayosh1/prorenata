@@ -23,12 +23,6 @@ export default async function Home() {
     <>
       <Header />
 
-      {/* Test custom background colors */}
-      <div className="p-4 mb-4">
-        <div className="bg-link-internal p-2 mb-2">Internal Link Test</div>
-        <div className="bg-link-affiliate p-2">Affiliate Link Test</div>
-      </div>
-
       {/* Full-width Hero Image */}
       <div className="mb-16 flex justify-center">
         <img
