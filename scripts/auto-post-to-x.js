@@ -25,22 +25,34 @@ const X_CONFIG = {
 }
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
+const SUMMARY_ONLY = (process.env.X_SUMMARY_ONLY || '').toLowerCase() === 'true'
 
 // 必須環境変数チェック
-if (!SANITY_CONFIG.token || !GEMINI_API_KEY || !X_CONFIG.appKey || !X_CONFIG.appSecret || !X_CONFIG.accessToken || !X_CONFIG.accessSecret) {
-  console.error('❌ 必須環境変数が設定されていません:')
-  console.error('  - SANITY_API_TOKEN:', !!SANITY_CONFIG.token)
-  console.error('  - GEMINI_API_KEY:', !!GEMINI_API_KEY)
-  console.error('  - X_API_KEY:', !!X_CONFIG.appKey)
-  console.error('  - X_API_SECRET:', !!X_CONFIG.appSecret)
-  console.error('  - X_ACCESS_TOKEN:', !!X_CONFIG.accessToken)
-  console.error('  - X_ACCESS_TOKEN_SECRET:', !!X_CONFIG.accessSecret)
+const missing = []
+if (!SANITY_CONFIG.token) missing.push('SANITY_API_TOKEN')
+if (!GEMINI_API_KEY) missing.push('GEMINI_API_KEY')
+
+if (!SUMMARY_ONLY) {
+  if (!X_CONFIG.appKey) missing.push('X_API_KEY')
+  if (!X_CONFIG.appSecret) missing.push('X_API_SECRET')
+  if (!X_CONFIG.accessToken) missing.push('X_ACCESS_TOKEN')
+  if (!X_CONFIG.accessSecret) missing.push('X_ACCESS_TOKEN_SECRET')
+}
+
+if (missing.length) {
+  console.error('❌ 必須環境変数が不足しています:')
+  missing.forEach(key => console.error(`  - ${key}`))
+  console.error('ℹ️  サマリーモードで実行する場合は X_SUMMARY_ONLY=true を設定してください。')
   process.exit(1)
+}
+
+if (SUMMARY_ONLY) {
+  console.log('ℹ️  サマリーモードを有効化: Xには投稿せず、要約のみ出力します。')
 }
 
 // クライアント初期化（環境変数チェック後に初期化）
 const sanityClient = createClient(SANITY_CONFIG)
-const xClient = new TwitterApi(X_CONFIG)
+const xClient = SUMMARY_ONLY ? null : new TwitterApi(X_CONFIG)
 
 /**
  * 公開済み記事からランダムに1記事を取得
@@ -154,17 +166,10 @@ ${bodyText.substring(0, 1000)}
  * Xに投稿
  */
 async function postToX(post, summary) {
-  console.log('🐦 Xに投稿中...')
-
-  // 記事URLを生成
   const articleUrl = `https://prorenata.jp/posts/${post.slug.current}`
-  console.log(`🔗 記事URL長: ${articleUrl.length}文字`)
-
-  // URL長を考慮してサマリー文字数を調整
   const MAX_TWEET_LENGTH = 280
   const LINE_BREAKS_LENGTH = 2 // "\n\n" 分
   const availableSummaryLength = MAX_TWEET_LENGTH - articleUrl.length - LINE_BREAKS_LENGTH
-  console.log(`📐 要約に使える最大文字数: ${availableSummaryLength}文字`)
 
   if (availableSummaryLength <= 0) {
     throw new Error('記事URLが長すぎるため、ツイート文字数を計算できません')
@@ -181,22 +186,28 @@ async function postToX(post, summary) {
     console.log(`✂️ 要約を短縮しました（${adjustedSummary.length}文字）`)
   }
 
-  // ツイート本文を作成
   const tweetText = `${adjustedSummary}\n\n${articleUrl}`
-
   console.log(`📊 投稿文字数: ${tweetText.length}文字`)
+
+  if (SUMMARY_ONLY) {
+    console.log('\n📝 サマリーモード（X投稿なし）')
+    console.log('----------------------------------------')
+    console.log(tweetText)
+    console.log('----------------------------------------\n')
+    return { data: { id: 'summary-mode' }, text: tweetText }
+  }
+
+  console.log('🐦 Xに投稿中...')
 
   if (tweetText.length > MAX_TWEET_LENGTH) {
     console.error(`❌ ツイートが${MAX_TWEET_LENGTH}文字を超えています（${tweetText.length}文字）`)
     process.exit(1)
   }
 
-  // Xに投稿
   try {
     const tweet = await xClient.v2.tweet(tweetText)
     console.log('✅ Xに投稿成功!')
     console.log(`🔗 ツイートID: ${tweet.data.id}`)
-
     return tweet
   } catch (error) {
     console.error('❌ X投稿エラー:', error)
