@@ -411,8 +411,23 @@ async function checkAffiliateLinks() {
       let lastWasAffiliate = false
       let consecutiveCount = 0
       const affiliateBlocks = []
+      let inSelectionSection = false // 「〇〇選」セクション内かどうか
 
       post.body.forEach((block, index) => {
+        // 「〇〇選」セクションの検出（H2見出しに「3選」「5選」などが含まれる）
+        if (block._type === 'block' && block.style === 'h2') {
+          const h2Text = block.children?.map(c => c.text).join('') || ''
+          const matches = h2Text.match(/([0-9]+)選/)
+
+          if (matches) {
+            const count = parseInt(matches[1])
+            // 10選までを「〇〇選」セクションとして認識
+            inSelectionSection = (count >= 1 && count <= 10)
+          } else {
+            inSelectionSection = false
+          }
+        }
+
         // アフィリエイトリンクの検出
         const isAffiliate = block.markDefs?.some(def =>
           def._type === 'link' &&
@@ -440,7 +455,8 @@ async function checkAffiliateLinks() {
         }
 
         // 連続アフィリエイトリンクの検出（2個以上）
-        if (consecutiveCount >= 2 && !issues.consecutiveLinks.some(p => p._id === post._id)) {
+        // ただし「〇〇選」セクション内は除外
+        if (consecutiveCount >= 2 && !inSelectionSection && !issues.consecutiveLinks.some(p => p._id === post._id)) {
           issues.consecutiveLinks.push({
             ...post,
             consecutiveCount,
