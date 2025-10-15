@@ -97,7 +97,9 @@ async function getRandomArticle() {
 async function generateSummary(post) {
   console.log('🤖 Gemini APIで要約を生成中...')
 
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+  const model = genAI.getGenerativeModel({
+    model: 'gemini-1.5-flash-latest'
+  })
 
   // 記事本文をプレーンテキストに変換
   const bodyText = post.body
