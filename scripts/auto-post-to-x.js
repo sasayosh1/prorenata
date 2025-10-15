@@ -98,7 +98,8 @@ async function generateSummary(post) {
 
   // Initialize Gemini AI client inside function (after env vars are loaded)
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
-  const model = genAI.getGenerativeModel({ model: 'gemini-pro' })
+  // Use gemini-1.5-flash (supported in v1beta API)
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
   // 記事本文をプレーンテキストに変換
   const bodyText = post.body
