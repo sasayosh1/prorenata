@@ -538,6 +538,201 @@ async function checkAffiliateLinks() {
 }
 
 /**
+ * YMYL（Your Money Your Life）対策チェック
+ * 1. 断定表現の検出
+ * 2. 統計データ・数字の出典確認（簡易版）
+ * 3. 古い記事の検出（給与・法律情報）
+ * 4. 医療行為に関する記述チェック
+ */
+async function checkYMYL() {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    _updatedAt,
+    "categories": categories[]->title
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const issues = {
+      absoluteExpressions: [],    // 断定表現
+      missingCitations: [],        // 出典なしの数字・統計
+      oldArticles: [],             // 古い記事（6ヶ月以上）
+      medicalProcedures: []        // 医療行為の誤記述の可能性
+    }
+
+    // 断定表現の禁止ワード
+    const absoluteWords = [
+      '絶対に', '絶対', '必ず', '確実に', '100%',
+      '誰でも', 'すべての人が', '間違いなく', '完璧',
+      '保証します', '必ず〜できます'
+    ]
+
+    // 統計キーワード（出典が必要）
+    const statisticsKeywords = [
+      '平均', '年収', '月給', '時給', '万円', '調査',
+      'データ', '統計', '割合', '%', 'パーセント'
+    ]
+
+    // 医療行為の注意キーワード
+    const medicalKeywords = [
+      '注射', '採血', '点滴', '投薬', '診断', '処方',
+      '医療行為', '治療'
+    ]
+
+    // 6ヶ月前の基準日
+    const sixMonthsAgo = new Date()
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6)
+
+    posts.forEach(post => {
+      if (!post.body || !Array.isArray(post.body)) return
+
+      // 本文テキストを抽出
+      const bodyText = post.body
+        .filter(block => block._type === 'block' && block.children)
+        .map(block => block.children.map(child => child.text || '').join(''))
+        .join('\n')
+
+      // 1. 断定表現のチェック
+      const foundAbsolutes = []
+      absoluteWords.forEach(word => {
+        if (bodyText.includes(word)) {
+          foundAbsolutes.push(word)
+        }
+      })
+
+      if (foundAbsolutes.length > 0) {
+        issues.absoluteExpressions.push({
+          ...post,
+          foundWords: [...new Set(foundAbsolutes)], // 重複削除
+          count: foundAbsolutes.length
+        })
+      }
+
+      // 2. 統計データの出典確認（簡易版）
+      // 統計キーワードを含むがリンクがないブロックを検出
+      const hasStatistics = statisticsKeywords.some(keyword => bodyText.includes(keyword))
+
+      if (hasStatistics) {
+        const hasExternalLink = post.body.some(block =>
+          block.markDefs?.some(def =>
+            def._type === 'link' &&
+            def.href &&
+            (def.href.includes('mhlw.go.jp') ||      // 厚生労働省
+             def.href.includes('meti.go.jp') ||      // 経済産業省
+             def.href.includes('go.jp') ||           // その他官公庁
+             def.href.includes('jil.go.jp'))         // 労働政策研究
+          )
+        )
+
+        if (!hasExternalLink) {
+          issues.missingCitations.push({
+            ...post,
+            reason: '統計データや数字が含まれていますが、公的機関へのリンクが見つかりません'
+          })
+        }
+      }
+
+      // 3. 古い記事の検出（給与・法律情報を含む記事）
+      const lastUpdate = new Date(post._updatedAt)
+      const isSalaryRelated = post.title.includes('給料') ||
+                             post.title.includes('年収') ||
+                             post.title.includes('月給') ||
+                             bodyText.includes('平均年収') ||
+                             bodyText.includes('平均月給')
+
+      if (isSalaryRelated && lastUpdate < sixMonthsAgo) {
+        const daysSince = Math.floor((Date.now() - lastUpdate.getTime()) / (1000 * 60 * 60 * 24))
+        issues.oldArticles.push({
+          ...post,
+          daysSinceUpdate: daysSince,
+          reason: '給与・年収情報を含む記事は6ヶ月ごとの更新が推奨されます'
+        })
+      }
+
+      // 4. 医療行為に関する記述チェック
+      const hasMedicalKeywords = medicalKeywords.some(keyword => bodyText.includes(keyword))
+
+      if (hasMedicalKeywords) {
+        // 「できない」「禁止」などの否定表現があるかチェック
+        const hasNegation = bodyText.includes('できません') ||
+                           bodyText.includes('できない') ||
+                           bodyText.includes('禁止') ||
+                           bodyText.includes('行えません')
+
+        if (!hasNegation) {
+          issues.medicalProcedures.push({
+            ...post,
+            reason: '医療行為に関する記述がありますが、看護助手ができないことを明記していない可能性があります'
+          })
+        }
+      }
+    })
+
+    console.log('\n🏥 YMYL（Your Money Your Life）対策チェック:\n')
+    console.log(`  🔴 断定表現あり: ${issues.absoluteExpressions.length}件`)
+    console.log(`  ⚠️  統計データの出典不明: ${issues.missingCitations.length}件`)
+    console.log(`  ⚠️  古い給与・年収情報（6ヶ月以上更新なし）: ${issues.oldArticles.length}件`)
+    console.log(`  ⚠️  医療行為の記述要確認: ${issues.medicalProcedures.length}件\n`)
+
+    if (issues.absoluteExpressions.length > 0) {
+      console.log('🎯 断定表現が含まれる記事:\n')
+      issues.absoluteExpressions.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   検出された断定表現: ${post.foundWords.join(', ')}`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   推奨: 「〜の傾向があります」「一般的には〜」などに変更\n`)
+      })
+    }
+
+    if (issues.missingCitations.length > 0) {
+      console.log('🎯 統計データの出典が不明な記事:\n')
+      issues.missingCitations.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   理由: ${post.reason}`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   推奨: 厚生労働省などの公的機関データへのリンクを追加\n`)
+      })
+    }
+
+    if (issues.oldArticles.length > 0) {
+      console.log('🎯 更新が必要な給与・年収情報を含む記事:\n')
+      issues.oldArticles.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   最終更新: ${post.daysSinceUpdate}日前`)
+        console.log(`   理由: ${post.reason}`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    if (issues.medicalProcedures.length > 0) {
+      console.log('🎯 医療行為の記述を確認すべき記事:\n')
+      issues.medicalProcedures.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   理由: ${post.reason}`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   推奨: 看護助手が「できないこと」を明確に記載\n`)
+      })
+    }
+
+    return issues
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return null
+  }
+}
+
+/**
  * 総合レポートを生成
  */
 async function generateReport() {
@@ -560,6 +755,9 @@ async function generateReport() {
   console.log('='.repeat(60))
 
   const affiliateIssues = await checkAffiliateLinks()
+  console.log('='.repeat(60))
+
+  const ymylIssues = await checkYMYL()
   console.log('='.repeat(60))
 
   // サマリー
@@ -601,6 +799,13 @@ async function generateReport() {
     console.log(`  ⚠️  記事内容と関連性が低い可能性: ${affiliateIssues.irrelevantLinks.length}件`)
   }
 
+  if (ymylIssues) {
+    console.log(`  🔴 YMYL: 断定表現あり: ${ymylIssues.absoluteExpressions.length}件`)
+    console.log(`  ⚠️  YMYL: 統計データの出典不明: ${ymylIssues.missingCitations.length}件`)
+    console.log(`  ⚠️  YMYL: 古い給与・年収情報: ${ymylIssues.oldArticles.length}件`)
+    console.log(`  ⚠️  YMYL: 医療行為の記述要確認: ${ymylIssues.medicalProcedures.length}件`)
+  }
+
   console.log('\n='.repeat(60))
 }
 
@@ -636,6 +841,10 @@ if (require.main === module) {
       checkAffiliateLinks().catch(console.error)
       break
 
+    case 'ymyl':
+      checkYMYL().catch(console.error)
+      break
+
     case 'report':
       generateReport().catch(console.error)
       break
@@ -662,6 +871,11 @@ if (require.main === module) {
                       - 連続するリンクの検出
                       - リンク数（推奨: 2-3個）
                       - 記事内容との関連性
+  ymyl                YMYL（Your Money Your Life）対策チェック
+                      - 断定表現の検出（「絶対」「必ず」など）
+                      - 統計データの出典確認
+                      - 古い給与・年収情報（6ヶ月以上更新なし）
+                      - 医療行為の記述チェック
   report              総合レポートを生成（全チェックを一括実行）
 
 例:
@@ -690,5 +904,6 @@ module.exports = {
   findShortPosts,
   findPostsWithoutNextSteps,
   checkAffiliateLinks,
+  checkYMYL,
   generateReport
 }
