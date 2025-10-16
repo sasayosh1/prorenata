@@ -23,18 +23,47 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run X auto-post script
+      - name: Generate X summary text
         run: node scripts/auto-post-to-x.js
         env:
           SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_SECRET: ${{ secrets.X_API_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
 
-      - name: Post summary
+      - name: Append summary to Issue
+        if: always() && vars.X_SUMMARY_ISSUE_NUMBER != ''
+        uses: actions/github-script@v7
+        env:
+          SUMMARY_ISSUE_NUMBER: ${{ vars.X_SUMMARY_ISSUE_NUMBER }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumber = parseInt(process.env.SUMMARY_ISSUE_NUMBER, 10)
+            if (!Number.isInteger(issueNumber)) {
+              core.setFailed('X_SUMMARY_ISSUE_NUMBER must be set to a valid issue number')
+            } else {
+              const fs = require('fs')
+              const path = 'x-summary.txt'
+              if (fs.existsSync(path)) {
+                const body = fs.readFileSync(path, 'utf8')
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body,
+                })
+              } else {
+                core.warning('x-summary.txt が存在しないため、Issue へのコメント追加をスキップしました。')
+              }
+            }
+
+      - name: Show summary in logs
         if: always()
         run: |
-          echo "✅ X自動投稿処理完了"
-          echo "📊 実行時刻: $(TZ=Asia/Tokyo date '+%Y年%m月%d日 %H:%M')"
+          if [ -f x-summary.txt ]; then
+            echo '✅ X自動投稿処理完了'
+            echo '📄 生成された要約:'
+            echo '----------------------------------------'
+            cat x-summary.txt
+            echo '----------------------------------------'
+          else
+            echo '⚠️ 要約ファイルが生成されませんでした'
