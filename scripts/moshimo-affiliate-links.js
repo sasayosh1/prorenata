@@ -70,19 +70,19 @@ const MOSHIMO_LINKS = {
   },
 
   amazon: {
-    name: 'Amazonアソシエイト',
+    name: 'Amazon（もしもアフィリエイト経由）',
     description: 'Amazon商品購入',
     category: 'アイテム',
     targetArticles: ['グッズ', '靴', 'シューズ', '本', '書籍', '必要なもの'],
-    html: '<!-- Amazonアソシエイトリンク tag=ptb875pmj49-22 -->',
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>Amazonで看護助手グッズを探す</a><img src="//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161" width="1" height="1" style="border:none;" loading="lazy">',
     appealText: '📦 看護助手・介護職向けグッズをお探しの方へ',
     linkText: 'Amazonで看護助手グッズを探す',
-    url: 'https://www.amazon.co.jp/?tag=ptb875pmj49-22',
+    url: '//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161',
     active: true,
-    addedDate: '2025-10-14',
-    reward: '1.8%',
+    addedDate: '2025-10-16',
+    reward: '2.0%（もしも経由）',
     condition: '商品購入',
-    note: 'もしものコードを取得次第更新予定'
+    note: 'もしもアフィリエイト経由で一括管理'
   },
 
   rakuten: {
