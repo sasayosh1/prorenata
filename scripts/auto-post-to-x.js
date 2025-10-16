@@ -1,5 +1,5 @@
 /**
- * X投稿用サマリー生成スクリプト
+ * X投稿サマリー生成スクリプト
  *
  * 公開済み記事からランダムに1件を選び、Gemini APIで約140文字の要約を作成。
  * 生成した要約を x-summary.txt に保存し、GitHub Actions などから手動投稿に活用できます。
@@ -104,25 +104,22 @@ ${bodyText}
 
 async function saveSummary(post, summary) {
   const now = new Date()
-  const jstFormatter = new Intl.DateTimeFormat('ja-JP', {
-    timeZone: 'Asia/Tokyo',
-    dateStyle: 'short',
-    timeStyle: 'short',
-  })
-  const jstTimestamp = jstFormatter.format(now)
+  const isoTimestamp = now.toISOString()
   const articleUrl = `https://prorenata.jp/posts/${post.slug.current}`
 
-  const summaryRecord = [
-    `### ${post.title}`,
-    `- 実行時刻 (JST): ${jstTimestamp}`,
-    `- 記事URL: ${articleUrl}`,
-    '',
-    summary,
-    '',
-  ].join('\n')
+  const summaryRecord = JSON.stringify(
+    {
+      title: post.title,
+      timestamp: isoTimestamp,
+      articleUrl,
+      summary,
+    },
+    null,
+    2,
+  )
 
-  await fs.promises.writeFile('x-summary.txt', summaryRecord, 'utf8')
-  console.log('📝 要約を x-summary.txt に保存しました')
+  await fs.promises.writeFile('x-summary.json', summaryRecord, 'utf8')
+  console.log('📝 要約を x-summary.json に保存しました')
 }
 
 async function main() {

@@ -44,9 +44,9 @@ jobs:
             }
 
             const fs = require('fs')
-            const path = 'x-summary.txt'
+            const path = 'x-summary.json'
             if (!fs.existsSync(path)) {
-              core.warning('x-summary.txt が存在しないため、Issue へのコメント追加をスキップしました。')
+              core.warning('x-summary.json が存在しないため、Issue へのコメント追加をスキップしました。')
               return
             }
 
@@ -70,11 +70,8 @@ jobs:
       - name: Show summary in logs
         if: always()
         run: |
-          if [ -f x-summary.txt ]; then
+          if [ -f x-summary.json ]; then
             echo "✅ Xサマリー生成完了"
-            echo "📄 生成された要約:"
-            echo "----------------------------------------"
-            cat x-summary.txt
-            echo "----------------------------------------"
+            cat x-summary.json
           else
             echo "⚠️ 要約ファイルが生成されませんでした"
