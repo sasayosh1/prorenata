@@ -12,6 +12,7 @@ export default defineConfig({
   title: 'ProReNata',
   projectId: '72m8vhy2',
   dataset: 'production',
+  studioHost: 'prorenata',
   apiVersion: '2024-01-01',
   plugins: [structureTool(), visionTool()],
   schema: {
