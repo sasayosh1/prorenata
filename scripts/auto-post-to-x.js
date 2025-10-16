@@ -91,10 +91,7 @@ ${bodyText}
   const result = await model.generateContent(prompt)
   const response = await result.response
   let summary = response.text().trim().replace(/\s+/g, ' ')
-
-  if (summary.length > 140) {
-    summary = summary.slice(0, 137) + '...'
-  }
+  summary = finalizeSummary(summary)
 
   console.log(`✅ 要約生成完了（${summary.length}文字）`)
   console.log(`📝 要約:\n${summary}`)
@@ -147,3 +144,32 @@ async function main() {
 }
 
 main()
+
+function finalizeSummary(text) {
+  const MAX_LENGTH = 140
+  let result = text
+
+  if (result.length > MAX_LENGTH) {
+    const sentenceEndings = ['。', '！', '？', '!', '?']
+    const slicePoint = sentenceEndings
+      .map((mark) => result.lastIndexOf(mark, MAX_LENGTH - 1))
+      .reduce((max, index) => Math.max(max, index), -1)
+
+    if (slicePoint !== -1) {
+      result = result.slice(0, slicePoint + 1)
+    } else {
+      result = result.slice(0, MAX_LENGTH)
+    }
+  }
+
+  result = result.trim()
+
+  if (!/[。！？!?]$/.test(result)) {
+    if (result.length >= MAX_LENGTH) {
+      result = result.slice(0, MAX_LENGTH - 1)
+    }
+    result = `${result}。`
+  }
+
+  return result
+}
