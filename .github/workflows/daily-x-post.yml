@@ -10,6 +10,9 @@ on:
 jobs:
   post_to_x:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
 
     steps:
       - name: Checkout repository
@@ -75,3 +78,4 @@ jobs:
             cat x-summary.json
           else
             echo "⚠️ 要約ファイルが生成されませんでした"
+          fi
