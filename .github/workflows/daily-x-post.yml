@@ -39,20 +39,31 @@ jobs:
           script: |
             const issueNumber = parseInt(process.env.SUMMARY_ISSUE_NUMBER, 10)
             if (!Number.isInteger(issueNumber)) {
-              core.setFailed('X_SUMMARY_ISSUE_NUMBER must be set to a valid issue number')
-            } else {
-              const fs = require('fs')
-              const path = 'x-summary.txt'
-              if (fs.existsSync(path)) {
-                const body = fs.readFileSync(path, 'utf8')
-                await github.rest.issues.createComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: issueNumber,
-                  body,
-                })
+              core.warning('X_SUMMARY_ISSUE_NUMBER が正しい数値ではないため、Issue への投稿をスキップします。')
+              return
+            }
+
+            const fs = require('fs')
+            const path = 'x-summary.txt'
+            if (!fs.existsSync(path)) {
+              core.warning('x-summary.txt が存在しないため、Issue へのコメント追加をスキップしました。')
+              return
+            }
+
+            const body = fs.readFileSync(path, 'utf8')
+
+            try {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body,
+              })
+            } catch (error) {
+              if (error.status === 404) {
+                core.warning(`Issue #${issueNumber} が見つからないため、コメント追加をスキップしました。`)
               } else {
-                core.warning('x-summary.txt が存在しないため、Issue へのコメント追加をスキップしました。')
+                throw error
               }
             }
 
@@ -60,10 +71,10 @@ jobs:
         if: always()
         run: |
           if [ -f x-summary.txt ]; then
-            echo '✅ X自動投稿処理完了'
-            echo '📄 生成された要約:'
-            echo '----------------------------------------'
+            echo "✅ Xサマリー生成完了"
+            echo "📄 生成された要約:"
+            echo "----------------------------------------"
             cat x-summary.txt
-            echo '----------------------------------------'
+            echo "----------------------------------------"
           else
-            echo '⚠️ 要約ファイルが生成されませんでした'
+            echo "⚠️ 要約ファイルが生成されませんでした"
