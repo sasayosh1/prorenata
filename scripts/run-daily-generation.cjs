@@ -11,7 +11,7 @@ const SANITY_CONFIG = {
   token: process.env.SANITY_WRITE_TOKEN 
 };
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Reverted to process.env.GEMINI_API_KEY
 
 // --- Main Logic ---
 
@@ -24,13 +24,28 @@ async function generateAndSaveArticle() {
     process.exit(1);
   }
   const sanityClient = createClient(SANITY_CONFIG);
-  const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const genAI = new GoogleGenerativeAI(GEMINI_API_KEY, { apiVersion: 'v1' }); // Kept apiVersion: 'v1'
+  const model = genAI.getGenerativeModel({ model: "gemini-pro-latest" }); // Kept gemini-pro-latest
 
   // 2. Select a topic
   console.log("Selecting a topic...");
-  let selectedTopic = "働きながら転職活動"; // Forced topic for this task
-  console.log(`Topic selected: "${selectedTopic}"`);
+  let selectedTopic; // Reverted to random topic selection
+  try {
+    const query = `*[_type == "post" && defined(tags)].tags`;
+    const tagsArrays = await sanityClient.fetch(query);
+    const allTags = [].concat.apply([], tagsArrays);
+    const uniqueTags = [...new Set(allTags)];
+    if (uniqueTags.length === 0) {
+      console.error("No tags found to select a topic from.");
+      return;
+    }
+    const randomIndex = Math.floor(Math.random() * uniqueTags.length);
+    selectedTopic = uniqueTags[randomIndex];
+    console.log(`Topic selected: "${selectedTopic}"`);
+  } catch (error) {
+    console.error("Error selecting topic from Sanity:", error);
+    return;
+  }
 
   // 3. Generate content with Gemini
   console.log("Generating article content with Gemini AI...");
@@ -69,7 +84,20 @@ async function generateAndSaveArticle() {
   try {
     const result = await model.generateContent(prompt);
     const response = await result.response;
-    const text = response.text().replace(/```json/g, '').replace(/```/g, '');
+    let text = response.text();
+
+    // Extract JSON part using regex
+    const jsonMatch = text.match(/```json\n([\s\S]*?)\n```/);
+    if (jsonMatch && jsonMatch[1]) {
+      text = jsonMatch[1];
+    } else {
+      // Fallback if not wrapped in ```json
+      const genericJsonMatch = text.match(/```\n([\s\S]*?)\n```/);
+      if (genericJsonMatch && genericJsonMatch[1]) {
+        text = genericJsonMatch[1];
+      }
+    }
+
     generatedArticle = JSON.parse(text);
     console.log("Successfully generated article content.");
   } catch (error) {
