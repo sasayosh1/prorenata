@@ -8,7 +8,7 @@
  * preceding paragraph so that the actual link appears last in the section.
  */
 
-require('dotenv').config()
+require('dotenv').config({ path: ['.env.local', '.env'] })
 const { createClient } = require('@sanity/client')
 const { randomUUID } = require('crypto')
 
