@@ -52,6 +52,14 @@ SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/update-rakuten-links.js
   - `scripts/replace-affiliate-links.js`
   - `scripts/analyze-links-to-replace.js`
 
+### 7. Gemini AIによる記事ドラフト生成 ✅
+- **日時**: 2025-10-17
+- **内容**: Gemini AIを使用して「看護助手 働きながら転職活動 成功のコツ」に関する記事ドラフトを生成し、Sanityに保存しました。
+- **ドラフトID**: `drafts.gxyxv316c0oeG6AdOIZRvr`
+- **特記事項**: 
+  - 生成スクリプトのJSONパース問題を修正しました。
+  - `gemini-pro-latest`モデルと`apiVersion: 'v1'`を使用するように設定しました。
+
 ---
 
 ## 現在のアフィリエイトリンク状況
@@ -91,7 +99,7 @@ SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/update-rakuten-links.js
 ## 重要な環境変数
 
 ```bash
-SANITY_API_TOKEN=skLO0Z8Z9t3rAst81SAjJlRqta2H6FZ5xleaPsjNTDKT2d65ySbmIUeHhphwLsNu9eKkqBIYQKWCP03wt3ByClazBFYTEHZO4imKmtyCOxAnYlkcyIh8bJTV19i1ByM8OCTezIeVAnVTOF9SJ4aO3HDeuDVE1JV5ID36pU4i0AlSqpFIFkeF
+SANITY_API_TOKEN=skPFlui2yNjyM39wGsffTHiC5yOPj0nwCA0Kw31sRVZAiijcOq1A6S8Gnr1KDa4mY9HJIxCXGGJcsOs45AWgsUQSmTbwBARZHaMvBSUwqgR8FMLwQZS8cH1NQ5qJg1A6gDs5ug7bImqm0rSONuGQYrFr3NdJ5bVKwVOr88KXzWBw7KLLcnAh
 ```
 
 ---
@@ -151,8 +159,9 @@ f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示
 
 1. ✅ 楽天市場リンク移行 - **完了**
 2. ✅ アフィリエイトリンク一括置き換え - **完了**
-3. ⚠️ リンク背景色表示問題の解決
-4. 📋 画像表示機能の動作確認
+3. ✅ Gemini AIによる記事ドラフト生成 - **完了**
+4. ⚠️ リンク背景色表示問題の解決
+5. 📋 画像表示機能の動作確認
 
 ---
 
