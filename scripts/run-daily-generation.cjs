@@ -29,7 +29,7 @@ async function generateAndSaveArticle() {
 
   // 2. Select a topic
   console.log("Selecting a topic...");
-  let selectedTopic; // Reverted to random topic selection
+  let selectedTopic;
   try {
     const query = `*[_type == "post" && defined(tags)].tags`;
     const tagsArrays = await sanityClient.fetch(query);
@@ -55,10 +55,10 @@ async function generateAndSaveArticle() {
     # 指示
     - テーマ: "看護助手と${selectedTopic}"
     - 文字数: 本文全体で1500〜2500文字
-    - 構成: 導入文、H2見出し3〜5個、まとめのH2見出し、その下に「より良い職場環境を探している方へ」というH3見出しを必ず含めること。
+    - 構成: 導入文、H2見出し3〜5個、まとめのH2見出しを必ず含めること。
     - トーン: 読者に寄り添う、プロフェッショナルかつ共感的な「です・ます」調。
     - 内部リンク: 本文中に、関連しそうな他の記事へのリンクを [INTERNAL_LINK: 関連キーワード] という形式で1〜2箇所挿入してください。
-    - アフィリエイトリンク: 「より良い職場環境を探している方へ」のH3セクションに、テーマに合ったアフィリエイトリンクのプレースホルダーを [AFFILIATE_LINK: 転職] や [AFFILIATE_LINK: 退職代行] の形式で1〜2個挿入してください。
+    - アフィリエイトリンク: 本文中に、テーマに合ったアフィリエイトリンクのプレースホルダーを [AFFILIATE_LINK: 転職] や [AFFILIATE_LINK: 退職代行] の形式で1〜2個挿入してください。
 
     # 出力形式
     以下のJSON形式で、キーは英語、値は日本語で出力してください。本文(body)はSanityのPortable Text形式に従ってください。
@@ -74,7 +74,6 @@ async function generateAndSaveArticle() {
         // ... more blocks ...
         {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "まとめ"}]},
         {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(まとめの本文)"}]},
-        {"_type": "block", "style": "h3", "children": [{"_type": "span", "text": "より良い職場環境を探している方へ"}]},
         {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(アフィリエイト誘導文) [AFFILIATE_LINK: 転職]"}]}
       ]
     }
