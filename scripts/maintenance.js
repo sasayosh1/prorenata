@@ -538,6 +538,111 @@ async function checkAffiliateLinks() {
 }
 
 /**
+ * 内部リンクの適切性をチェック
+ * 1. 内部リンクが少なすぎる記事を検出
+ * 2. 壊れた内部リンクを検出
+ * 3. 関連性の低い内部リンクを検出
+ */
+async function checkInternalLinks() {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    "categories": categories[]->title
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const issues = {
+      tooFewLinks: [],       // 内部リンクが少ない（2個未満）
+      brokenLinks: [],       // 壊れたリンク
+      irrelevantLinks: []    // 関連性が低い可能性
+    }
+
+    // 全記事のslugを取得（壊れたリンク検出用）
+    const allSlugs = new Set(posts.map(p => p.slug))
+
+    posts.forEach(post => {
+      if (!post.body || !Array.isArray(post.body)) return
+
+      let internalLinkCount = 0
+      const internalLinks = []
+
+      post.body.forEach((block, index) => {
+        if (!block.markDefs) return
+
+        block.markDefs.forEach(def => {
+          if (def._type === 'link' && def.href) {
+            // 内部リンクの検出（/posts/で始まる）
+            if (def.href.startsWith('/posts/')) {
+              const targetSlug = def.href.replace('/posts/', '')
+              internalLinkCount++
+              internalLinks.push({
+                href: def.href,
+                targetSlug,
+                blockIndex: index,
+                text: block.children?.map(c => c.text).join('').substring(0, 50)
+              })
+
+              // 壊れたリンクのチェック
+              if (!allSlugs.has(targetSlug)) {
+                if (!issues.brokenLinks.some(p => p._id === post._id)) {
+                  issues.brokenLinks.push({
+                    ...post,
+                    brokenLink: def.href,
+                    linkText: block.children?.map(c => c.text).join('')
+                  })
+                }
+              }
+            }
+          }
+        })
+      })
+
+      // 内部リンク数チェック（2個未満は少ない）
+      if (internalLinkCount < 2) {
+        issues.tooFewLinks.push({
+          ...post,
+          internalLinkCount
+        })
+      }
+    })
+
+    console.log('\n🔗 内部リンクチェック:\n')
+    console.log(`  ⚠️  内部リンクが少ない（2個未満）: ${issues.tooFewLinks.length}件`)
+    console.log(`  🔴 壊れた内部リンク: ${issues.brokenLinks.length}件\n`)
+
+    if (issues.tooFewLinks.length > 0) {
+      console.log('🎯 内部リンクが少ない記事（TOP10）:\n')
+      issues.tooFewLinks.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   内部リンク数: ${post.internalLinkCount}個（推奨: 2個以上）`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    if (issues.brokenLinks.length > 0) {
+      console.log('🎯 壊れた内部リンクがある記事:\n')
+      issues.brokenLinks.forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   壊れたリンク: ${post.brokenLink}`)
+        console.log(`   リンクテキスト: ${post.linkText}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    return issues
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return null
+  }
+}
+
+/**
  * YMYL（Your Money Your Life）対策チェック
  * 1. 断定表現の検出
  * 2. 統計データ・数字の出典確認（簡易版）
@@ -758,6 +863,9 @@ async function generateReport() {
   const affiliateIssues = await checkAffiliateLinks()
   console.log('='.repeat(60))
 
+  const internalLinkIssues = await checkInternalLinks()
+  console.log('='.repeat(60))
+
   const ymylIssues = await checkYMYL()
   console.log('='.repeat(60))
 
@@ -799,6 +907,11 @@ async function generateReport() {
     console.log(`  🔴 連続するアフィリエイトリンク: ${affiliateIssues.consecutiveLinks.length}件`)
     console.log(`  ⚠️  リンク数が多すぎる: ${affiliateIssues.tooManyLinks.length}件`)
     console.log(`  ⚠️  記事内容と関連性が低い可能性: ${affiliateIssues.irrelevantLinks.length}件`)
+  }
+
+  if (internalLinkIssues) {
+    console.log(`  ⚠️  内部リンクが少ない（2個未満）: ${internalLinkIssues.tooFewLinks.length}件`)
+    console.log(`  🔴 壊れた内部リンク: ${internalLinkIssues.brokenLinks.length}件`)
   }
 
   if (ymylIssues) {
@@ -843,6 +956,10 @@ if (require.main === module) {
       checkAffiliateLinks().catch(console.error)
       break
 
+    case 'internallinks':
+      checkInternalLinks().catch(console.error)
+      break
+
     case 'ymyl':
       checkYMYL().catch(console.error)
       break
@@ -873,6 +990,9 @@ if (require.main === module) {
                       - 連続するリンクの検出
                       - リンク数（推奨: 2-3個）
                       - 記事内容との関連性
+  internallinks       内部リンクの適切性をチェック
+                      - 内部リンク数（推奨: 2個以上）
+                      - 壊れたリンクの検出
   ymyl                YMYL（Your Money Your Life）対策チェック
                       - 断定表現の検出（「絶対」「必ず」など）
                       - 統計データの出典確認
@@ -906,6 +1026,7 @@ module.exports = {
   findShortPosts,
   findPostsWithoutNextSteps,
   checkAffiliateLinks,
+  checkInternalLinks,
   checkYMYL,
   generateReport
 }

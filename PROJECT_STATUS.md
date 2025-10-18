@@ -41,6 +41,28 @@
   - `scripts/remove-orphaned-ctas.js`
 - **重要度**: ユーザー体験向上とGoogle品質評価改善
 
+### 🔗 内部リンク自動設置完了 ✅
+- **日時**: 2025-10-18
+- **内容**: 全記事に適切な内部リンクを自動設置し、SEO強化とユーザビリティ向上を実現
+- **実施内容**:
+  1. **内部リンク自動設置スクリプト作成** - `scripts/add-internal-links.js`
+     - キーワードベースの関連記事検出システム（30+キーワードマッピング）
+     - セクション（H2/H3）ごとの内容分析
+     - 最大2リンク/セクションで過剰配置を防止
+     - 📖 アイコン付きの視認性向上デザイン
+  2. **全142記事に639個の内部リンクを設置**
+     - セクション末尾または項目後に自然に配置
+     - 記事内容との関連性を考慮した適切なリンク選定
+  3. **maintenance.jsに内部リンクチェック機能追加**
+     - 内部リンク数チェック（推奨: 2個以上）
+     - 壊れた内部リンクの検出
+- **最終結果**（maintenance.js internallinksチェックより）:
+  - **内部リンク不足**: 142記事中わずか7記事のみ（95%が適切なリンク数を確保）
+  - **壊れたリンク**: 0件（完璧！）
+- **スクリプト**:
+  - `scripts/add-internal-links.js` - 内部リンク自動設置
+- **重要度**: SEO強化（内部リンク構造改善）、ユーザー回遊率向上
+
 ### 🔧 環境設定更新 ✅
 - **日時**: 2025-10-18（2回目更新）
 - **内容**: Sanity API Tokenを新しいEditorトークンに更新
@@ -84,6 +106,7 @@
 - `scripts/update-rakuten-links.js` - 楽天リンク一括更新
 - `scripts/optimize-affiliate-links.js` - アフィリエイトリンク最適化（2025-10-18追加）
 - `scripts/remove-orphaned-ctas.js` - 孤立したCTA訴求文削除（2025-10-18追加）
+- `scripts/add-internal-links.js` - 内部リンク自動設置（2025-10-18追加）
 - `scripts/check-images.js` - 記事内画像確認
 
 実行方法：
@@ -93,6 +116,8 @@ SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/optimize-affiliate-links.js chec
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/optimize-affiliate-links.js optimize-all --apply
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/remove-orphaned-ctas.js check
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/remove-orphaned-ctas.js remove --apply
+SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/add-internal-links.js check
+SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/add-internal-links.js add-all --apply
 ```
 
 ### 3. リンク表示UI改善 ✅
@@ -236,12 +261,13 @@ f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示
 6. ✅ maintenance.jsの「次のステップ」チェック無効化 - **完了** (RelatedPostsコンポーネントで自動表示済み)
 7. ✅ 「まとめ」セクションガイドライン追加 - **完了**
 8. ✅ 孤立したCTA訴求文削除（74記事、119ブロック削除） - **完了**
-9. 📋 文字数不足記事の自動加筆（118記事、Gemini API使用）
-10. 📋 Excerpt/MetaDescription自動生成（8記事、Gemini API使用）
-11. ⚠️ リンク背景色表示問題の解決
-12. 📋 画像表示機能の動作確認
+9. ✅ 内部リンク自動設置（142記事、639リンク） - **完了**
+10. 📋 文字数不足記事の自動加筆（118記事、Gemini API使用）
+11. 📋 Excerpt/MetaDescription自動生成（8記事、Gemini API使用）
+12. ⚠️ リンク背景色表示問題の解決
+13. 📋 画像表示機能の動作確認
 
 ---
 
 生成日時: 2025-10-13
-最終更新: 2025-10-18 (孤立したCTA訴求文削除完了)
+最終更新: 2025-10-18 (内部リンク自動設置完了)
