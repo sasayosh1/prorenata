@@ -36,6 +36,22 @@
 - **ファイル**: `.env.local`
 - **新トークン**: sk6aDnvJ91tY4de0Eg9PFTTquPWsT7y9IWRc2fUOq1iCuDoYDDGhji9MuYM7bOyRzfAGAVudElwqZeZQbGIeO5E7pyavsALDH9LxU3PAY9ecCAYUZr8vsa39vLhheqrofqfFYG7HmpQlWnC86fgHAnBuEfpE75LIWdojoYLzJJWKtq9PQ1W2
 
+### 🚨 重大インシデント：Git保存漏れによる他環境での作業停止 ⚠️
+- **日時**: 2025-10-18
+- **インシデント内容**:
+  - YMYL対策とアフィリエイトリンク最適化の作業完了後、ユーザーから「全部保存」の指示があったにも関わらず、git commit & pushを実行せず
+  - その結果、他の環境で作業を継続できず、大きな時間のムダが発生
+  - ドキュメント更新(PROJECT_STATUS.md)とmaintenance.js修正も保存されていなかった
+- **原因**:
+  - 「全部保存」の指示を受けた時点で即座にgit保存を実行しなかった
+  - 作業完了時の自動保存プロトコルが徹底されていなかった
+- **対策**:
+  - **今後は作業完了時に必ず自動的に `git add -A && git commit && git push` を実行**
+  - ユーザーへの確認は不要、自動実行を徹底
+  - 「全部保存」「保存」などの指示があった時点で即座に実行
+- **影響**: ユーザーの貴重な時間を無駄にした重大なミス
+- **再発防止**: このインシデントをPROJECT_STATUS.mdに記録し、今後同様のミスを防止
+
 ---
 
 ## 以前の重要な変更
@@ -202,10 +218,10 @@ f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示
 3. ✅ Gemini AIによる記事ドラフト生成 - **完了**
 4. ✅ YMYL対策（断定表現、出典リンク、医療行為制限） - **完了**
 5. ✅ アフィリエイトリンク最適化（第1フェーズ52記事） - **完了**
-6. 📋 アフィリエイトリンク最適化（残り15記事）
-7. 📋 文字数不足記事の自動加筆（117記事、Gemini API使用）
-8. 📋 Excerpt/MetaDescription自動生成（7記事、Gemini API使用）
-9. 📋 maintenance.jsの「次のステップ」チェック無効化（RelatedPostsコンポーネントで自動表示済み）
+6. ✅ maintenance.jsの「次のステップ」チェック無効化 - **完了** (RelatedPostsコンポーネントで自動表示済み)
+7. 📋 アフィリエイトリンク最適化（残り15記事）
+8. 📋 文字数不足記事の自動加筆（117記事、Gemini API使用）
+9. 📋 Excerpt/MetaDescription自動生成（7記事、Gemini API使用）
 10. ⚠️ リンク背景色表示問題の解決
 11. 📋 画像表示機能の動作確認
 
