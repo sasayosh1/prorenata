@@ -2,6 +2,29 @@
 
 ## 最新の重要な変更
 
+### 📝 文字数不足記事の自動加筆完了 ✅
+- **日時**: 2025-10-19
+- **内容**: Gemini APIを使用して文字数不足記事を自動加筆
+- **実施内容**:
+  1. **加筆スクリプト作成** - `scripts/expand-short-posts.js`
+     - Gemini 2.0 Flash Experimental モデル使用
+     - YMYL準拠のコンテンツ生成（断定表現回避、柔らかい表現使用）
+     - 既存の記事構造を維持しながらセクションごとに内容追加
+     - Sanity Portable Text形式への自動変換
+     - DRY RUNモード（プレビュー）と--applyモード（実行）
+  2. **103記事を一括加筆**
+     - 対象: 2000文字未満の記事103件
+     - 加筆完了: 103件（成功率100%）
+     - エラー: 0件
+     - 平均文字数増加: **+2,408文字/記事**
+     - APIレート制限対策: 各リクエスト後に2秒待機
+  3. **検証完了**
+     - 2000文字未満の記事: **0件**（完全解消！）
+     - 生成コンテンツの品質確認済み（自然な日本語、適切な見出し構造）
+- **コスト**: 約30円（Gemini API有料範囲内）
+- **使用モデル**: gemini-2.0-flash-exp
+- **重要度**: SEO強化（文字数確保）、ユーザー価値向上
+
 ### 🏥 YMYL対策完了 ✅
 - **日時**: 2025-10-18
 - **内容**: 医療・健康分野のGoogle品質基準（YMYL）に準拠した記事品質向上施策を完了
@@ -107,6 +130,7 @@
 - `scripts/optimize-affiliate-links.js` - アフィリエイトリンク最適化（2025-10-18追加）
 - `scripts/remove-orphaned-ctas.js` - 孤立したCTA訴求文削除（2025-10-18追加）
 - `scripts/add-internal-links.js` - 内部リンク自動設置（2025-10-18追加）
+- `scripts/expand-short-posts.js` - 文字数不足記事自動加筆（2025-10-19追加）
 - `scripts/check-images.js` - 記事内画像確認
 
 実行方法：
@@ -118,6 +142,9 @@ SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/remove-orphaned-ctas.js check
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/remove-orphaned-ctas.js remove --apply
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/add-internal-links.js check
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/add-internal-links.js add-all --apply
+SANITY_API_TOKEN=$SANITY_API_TOKEN GEMINI_API_KEY=$GEMINI_API_KEY node scripts/expand-short-posts.js check
+SANITY_API_TOKEN=$SANITY_API_TOKEN GEMINI_API_KEY=$GEMINI_API_KEY node scripts/expand-short-posts.js expand <POST_ID> --apply
+SANITY_API_TOKEN=$SANITY_API_TOKEN GEMINI_API_KEY=$GEMINI_API_KEY node scripts/expand-short-posts.js expand-all --apply
 ```
 
 ### 3. リンク表示UI改善 ✅
@@ -262,7 +289,7 @@ f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示
 7. ✅ 「まとめ」セクションガイドライン追加 - **完了**
 8. ✅ 孤立したCTA訴求文削除（74記事、119ブロック削除） - **完了**
 9. ✅ 内部リンク自動設置（142記事、639リンク） - **完了**
-10. 📋 文字数不足記事の自動加筆（118記事、Gemini API使用）
+10. ✅ 文字数不足記事の自動加筆（103記事、Gemini API使用） - **完了**
 11. 📋 Excerpt/MetaDescription自動生成（8記事、Gemini API使用）
 12. ⚠️ リンク背景色表示問題の解決
 13. 📋 画像表示機能の動作確認
@@ -270,4 +297,4 @@ f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示
 ---
 
 生成日時: 2025-10-13
-最終更新: 2025-10-18 (内部リンク自動設置完了)
+最終更新: 2025-10-19 (文字数不足記事自動加筆完了)
