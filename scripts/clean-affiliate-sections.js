@@ -12,6 +12,7 @@
 require('dotenv').config({ path: ['.env.local', '.env'] })
 const { createClient } = require('@sanity/client')
 const { randomUUID } = require('crypto')
+const { GoogleGenerativeAI } = require('@google/generative-ai')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -53,9 +54,68 @@ function buildSummaryBlock(title) {
         _type: 'span',
         _key: `span-${randomUUID()}`,
         marks: [],
-        text: `この記事「${title}」で紹介したポイントを踏まえ、自分の働き方やキャリアの希望に合った選択肢を見極めてください。気になるテーマは上記の各セクションを参考にしながら、必要に応じて専門家や支援サービスに相談し、無理のない形で次のステップにつなげましょう。`,
+        text: `この記事「${title}」の要点を踏まえ、自分の働き方や体力・希望条件を整理し、ムリのない判断につなげてください。気になるテーマは各セクションを振り返り、必要に応じて関連情報を確認したうえで次の一歩へ。`,
       },
     ],
+  }
+}
+
+async function buildSmartSummaryBlocks(title, body) {
+  const apiKey = process.env.GEMINI_API_KEY
+  if (!apiKey) return [buildSummaryBlock(title)]
+
+  const genAI = new GoogleGenerativeAI(apiKey)
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
+
+  // 直近の本文から要約に使える文を抽出
+  const lastBlocks = []
+  for (let i = body.length - 1; i >= 0 && lastBlocks.length < 40; i--) {
+    const b = body[i]
+    if (b && b._type === 'block') lastBlocks.push(blockText(b))
+  }
+  const context = lastBlocks.reverse().join('\n')
+
+  const prompt = `以下は日本語の記事の抜粋です。記事タイトルは「${title}」。
+抜粋内容から、読者の行動につながる実用的なまとめを作成してください。
+条件:
+- 冒頭に2〜3文の要約（です・ます調）
+- 続けて ● で始まる箇条書きを3項目（読者が次に取れる行動・確認ポイント）
+- 最後に中立的で自然な訴求文(1文)。アフィリエイト訴求は行わない。
+出力はテキストのみ。
+
+【抜粋】\n${context}`
+
+  try {
+    const res = await model.generateContent(prompt)
+    const txt = (await res.response.text()).trim()
+    const lines = txt.split(/\n+/).map((l) => l.trim()).filter(Boolean)
+    const blocks = []
+    for (const line of lines) {
+      if (/^●/.test(line)) {
+        blocks.push({
+          _type: 'block',
+          _key: `li-${randomUUID()}`,
+          style: 'normal',
+          listItem: 'bullet',
+          level: 1,
+          markDefs: [],
+          children: [
+            { _type: 'span', _key: `sp-${randomUUID()}`, marks: [], text: line.replace(/^●\s*/, '') },
+          ],
+        })
+      } else {
+        blocks.push({
+          _type: 'block',
+          _key: `p-${randomUUID()}`,
+          style: 'normal',
+          markDefs: [],
+          children: [{ _type: 'span', _key: `s-${randomUUID()}`, marks: [], text: line }],
+        })
+      }
+    }
+    return blocks.length ? blocks : [buildSummaryBlock(title)]
+  } catch (e) {
+    return [buildSummaryBlock(title)]
   }
 }
 
@@ -114,7 +174,7 @@ function removeBannedMarks(block, slug) {
   }
 }
 
-function processBody(body, slug, title) {
+async function processBody(body, slug, title) {
   const cleaned = []
 
   for (const block of body) {
@@ -142,8 +202,21 @@ function processBody(body, slug, title) {
     }
 
     const nextBlock = cleaned[i + 1]
-    if (!nextBlock || nextBlock._type !== 'block' || nextBlock.style !== 'normal' || blockText(nextBlock).trim().length === 0) {
-      cleaned.splice(i + 1, nextBlock && nextBlock.style === 'normal' ? 1 : 0, buildSummaryBlock(title))
+    const needSmart = () => {
+      if (!nextBlock) return true
+      if (nextBlock._type !== 'block' || nextBlock.style !== 'normal') return true
+      const t = blockText(nextBlock).trim()
+      if (!t) return true
+      if (/この記事「.+」/u.test(t)) return true // 旧汎用テキストを検出
+      return false
+    }
+    if (needSmart()) {
+      const smart = await buildSmartSummaryBlocks(title, cleaned.slice(0, i))
+      if (nextBlock && nextBlock._type === 'block' && nextBlock.style === 'normal') {
+        cleaned.splice(i + 1, 1, ...smart)
+      } else {
+        cleaned.splice(i + 1, 0, ...smart)
+      }
     }
   }
 
@@ -161,7 +234,7 @@ async function run() {
 
   for (const post of posts) {
     const slug = post.slug?.current || ''
-    const newBody = processBody(post.body || [], slug, post.title)
+    const newBody = await processBody(post.body || [], slug, post.title)
 
     if (JSON.stringify(newBody) === JSON.stringify(post.body)) {
       continue
