@@ -29,11 +29,16 @@
 - **第2フェーズ**: 残り19記事を追加最適化完了
   - 合計13記事を最適化（6記事は既に最適化済み）
   - 連続リンク削減、無関係リンク削除を実施
+- **第3フェーズ**: 孤立した訴求文（CTA）の削除完了
+  - 74記事から119個の孤立したCTAブロックを削除
+  - リンク削除後に残っていた「退職でお悩みの方へ」「について詳しくはこちら」等の訴求文を整理
 - **最終結果**（maintenance.js reportより）:
   - **連続リンク**: 35件 → **1件**（97%改善！）
   - **リンク多すぎ**: 40件 → **0件**（100%解消！）
   - **関連性低い**: 48件 → **10件**（79%改善！）
-- **新規スクリプト**: `scripts/optimize-affiliate-links.js`
+- **新規スクリプト**:
+  - `scripts/optimize-affiliate-links.js`
+  - `scripts/remove-orphaned-ctas.js`
 - **重要度**: ユーザー体験向上とGoogle品質評価改善
 
 ### 🔧 環境設定更新 ✅
@@ -78,6 +83,7 @@
 - `scripts/list-unique-affiliate-links.js` - ユニークなリンク一覧
 - `scripts/update-rakuten-links.js` - 楽天リンク一括更新
 - `scripts/optimize-affiliate-links.js` - アフィリエイトリンク最適化（2025-10-18追加）
+- `scripts/remove-orphaned-ctas.js` - 孤立したCTA訴求文削除（2025-10-18追加）
 - `scripts/check-images.js` - 記事内画像確認
 
 実行方法：
@@ -85,6 +91,8 @@
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/analyze-affiliate-links.js
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/optimize-affiliate-links.js check
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/optimize-affiliate-links.js optimize-all --apply
+SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/remove-orphaned-ctas.js check
+SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/remove-orphaned-ctas.js remove --apply
 ```
 
 ### 3. リンク表示UI改善 ✅
@@ -227,12 +235,13 @@ f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示
 5. ✅ アフィリエイトリンク最適化（全記事完了） - **完了**
 6. ✅ maintenance.jsの「次のステップ」チェック無効化 - **完了** (RelatedPostsコンポーネントで自動表示済み)
 7. ✅ 「まとめ」セクションガイドライン追加 - **完了**
-8. 📋 文字数不足記事の自動加筆（118記事、Gemini API使用）
-9. 📋 Excerpt/MetaDescription自動生成（8記事、Gemini API使用）
-10. ⚠️ リンク背景色表示問題の解決
-11. 📋 画像表示機能の動作確認
+8. ✅ 孤立したCTA訴求文削除（74記事、119ブロック削除） - **完了**
+9. 📋 文字数不足記事の自動加筆（118記事、Gemini API使用）
+10. 📋 Excerpt/MetaDescription自動生成（8記事、Gemini API使用）
+11. ⚠️ リンク背景色表示問題の解決
+12. 📋 画像表示機能の動作確認
 
 ---
 
 生成日時: 2025-10-13
-最終更新: 2025-10-18 (アフィリエイトリンク最適化完了・「まとめ」セクションガイドライン追加)
+最終更新: 2025-10-18 (孤立したCTA訴求文削除完了)
