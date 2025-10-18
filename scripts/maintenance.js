@@ -751,8 +751,9 @@ async function generateReport() {
   const shortPosts = await findShortPosts(2000)
   console.log('='.repeat(60))
 
-  const missingNextSteps = await findPostsWithoutNextSteps()
-  console.log('='.repeat(60))
+  // 次のステップチェックは無効化（RelatedPostsコンポーネントで自動表示済み）
+  // const missingNextSteps = await findPostsWithoutNextSteps()
+  // console.log('='.repeat(60))
 
   const affiliateIssues = await checkAffiliateLinks()
   console.log('='.repeat(60))
@@ -791,7 +792,8 @@ async function generateReport() {
   }
 
   console.log(`  文字数不足（<2000文字）: ${shortPosts.length}件 ※ユーザビリティ優先`)
-  console.log(`  「次のステップ」セクションなし: ${missingNextSteps.length}件`)
+  // 「次のステップ」チェックは無効化（RelatedPostsコンポーネントで自動表示済み）
+  // console.log(`  「次のステップ」セクションなし: ${missingNextSteps.length}件`)
 
   if (affiliateIssues) {
     console.log(`  🔴 連続するアフィリエイトリンク: ${affiliateIssues.consecutiveLinks.length}件`)

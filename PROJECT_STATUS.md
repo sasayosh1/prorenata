@@ -1,6 +1,44 @@
-# ProReNata プロジェクト現状報告 (2025-10-13)
+# ProReNata プロジェクト現状報告 (2025-10-18)
 
 ## 最新の重要な変更
+
+### 🏥 YMYL対策完了 ✅
+- **日時**: 2025-10-18
+- **内容**: 医療・健康分野のGoogle品質基準（YMYL）に準拠した記事品質向上施策を完了
+- **完了項目**:
+  1. **断定表現の修正** - 37記事
+     - 「絶対」「必ず」「間違いなく」などの断定表現を柔らかい表現に変更
+     - スクリプト: `scripts/fix-absolute-expressions.js`
+  2. **統計データ出典リンク追加** - 14記事、16件の出典追加
+     - 給与・施設統計データに厚生労働省等の公的機関出典を追加
+     - スクリプト: `scripts/add-citations.js`
+  3. **医療行為の制限セクション追加** - 47記事
+     - 「看護助手ができないこと（重要）」セクションを追加
+     - 注射・投薬など医療行為の禁止事項を明記
+     - スクリプト: `scripts/add-medical-restrictions.js`
+- **重要度**: Google検索品質向上のための最重要施策
+
+### 📊 アフィリエイトリンク最適化完了（第1フェーズ） ✅
+- **日時**: 2025-10-18
+- **コミット**: (保存済み)
+- **内容**: 記事内アフィリエイトリンクの品質改善を実施
+- **最適化結果**: 52記事で111リンク削除
+  - **連続リンク削減**: 55リンク削除（2つ以上連続するリンクの間引き）
+  - **無関係リンク削除**: 23リンク削除（退職代行リンクを非退職記事から削除）
+  - **過剰リンク削減**: 33リンク削除（1記事あたり最大3リンクに制限）
+- **残作業**: 15記事未処理（タイムアウトのため）
+- **新規スクリプト**: `scripts/optimize-affiliate-links.js`
+- **重要度**: ユーザー体験向上とGoogle品質評価改善
+
+### 🔧 環境設定更新 ✅
+- **日時**: 2025-10-18
+- **内容**: Sanity API Tokenを新しいEditorトークンに更新
+- **ファイル**: `.env.local`
+- **新トークン**: sk6aDnvJ91tY4de0Eg9PFTTquPWsT7y9IWRc2fUOq1iCuDoYDDGhji9MuYM7bOyRzfAGAVudElwqZeZQbGIeO5E7pyavsALDH9LxU3PAY9ecCAYUZr8vsa39vLhheqrofqfFYG7HmpQlWnC86fgHAnBuEfpE75LIWdojoYLzJJWKtq9PQ1W2
+
+---
+
+## 以前の重要な変更
 
 ### 1. 楽天市場アフィリエイトリンク移行完了 ✅
 - **日時**: 2025-10-13
@@ -16,12 +54,14 @@
 - `scripts/analyze-affiliate-links.js` - 全記事のアフィリエイトリンク分析
 - `scripts/list-unique-affiliate-links.js` - ユニークなリンク一覧
 - `scripts/update-rakuten-links.js` - 楽天リンク一括更新
+- `scripts/optimize-affiliate-links.js` - アフィリエイトリンク最適化（2025-10-18追加）
 - `scripts/check-images.js` - 記事内画像確認
 
 実行方法：
 ```bash
 SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/analyze-affiliate-links.js
-SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/update-rakuten-links.js
+SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/optimize-affiliate-links.js check
+SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/optimize-affiliate-links.js optimize-all --apply
 ```
 
 ### 3. リンク表示UI改善 ✅
@@ -160,10 +200,16 @@ f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示
 1. ✅ 楽天市場リンク移行 - **完了**
 2. ✅ アフィリエイトリンク一括置き換え - **完了**
 3. ✅ Gemini AIによる記事ドラフト生成 - **完了**
-4. ⚠️ リンク背景色表示問題の解決
-5. 📋 画像表示機能の動作確認
+4. ✅ YMYL対策（断定表現、出典リンク、医療行為制限） - **完了**
+5. ✅ アフィリエイトリンク最適化（第1フェーズ52記事） - **完了**
+6. 📋 アフィリエイトリンク最適化（残り15記事）
+7. 📋 文字数不足記事の自動加筆（117記事、Gemini API使用）
+8. 📋 Excerpt/MetaDescription自動生成（7記事、Gemini API使用）
+9. 📋 maintenance.jsの「次のステップ」チェック無効化（RelatedPostsコンポーネントで自動表示済み）
+10. ⚠️ リンク背景色表示問題の解決
+11. 📋 画像表示機能の動作確認
 
 ---
 
 生成日時: 2025-10-13
-最終更新: Gemini
+最終更新: 2025-10-18 (YMYL対策・アフィリエイトリンク最適化追記)
