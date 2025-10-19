@@ -298,6 +298,18 @@ async function main() {
   console.log('📝 文字数不足記事自動加筆ツール\n');
   console.log('============================================================\n');
 
+  // Draft記事を自動Publish
+  if (apply && (command === 'expand' || command === 'expand-all')) {
+    const { publishAllDrafts } = require('./publish-drafts');
+    console.log('🔄 Draft記事を自動的にPublishします...\n');
+    const publishResult = await publishAllDrafts(true);
+
+    if (publishResult.published > 0) {
+      console.log(`✅ ${publishResult.published}件のDraft記事をPublishしました\n`);
+      console.log('============================================================\n');
+    }
+  }
+
   try {
     if (command === 'check') {
       const shortPosts = await findShortPosts(2000);

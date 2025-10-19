@@ -116,6 +116,18 @@ async function main() {
   console.log('🗑️  Body内「もくじ」見出し削除ツール\n');
   console.log('============================================================\n');
 
+  // Draft記事を自動Publish
+  if (apply && command === 'remove') {
+    const { publishAllDrafts } = require('./publish-drafts');
+    console.log('🔄 Draft記事を自動的にPublishします...\n');
+    const publishResult = await publishAllDrafts(true);
+
+    if (publishResult.published > 0) {
+      console.log(`✅ ${publishResult.published}件のDraft記事をPublishしました\n`);
+      console.log('============================================================\n');
+    }
+  }
+
   try {
     const postsWithTOC = await findPostsWithTOC();
 
