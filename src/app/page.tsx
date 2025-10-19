@@ -65,7 +65,7 @@ export default async function Home() {
             {/* Recent Posts */}
             {recentPosts.length > 0 ? (
               <div className="space-y-6">
-                {recentPosts.map((post) => {
+                {recentPosts.filter(post => post.slug?.current).map((post) => {
                   const { label } = formatPostDate(post)
 
                   return (

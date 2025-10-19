@@ -138,7 +138,8 @@ function CustomLink({
     return (
       <Link
         href={href}
-        className="inline-block bg-link-internal px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+        className="inline-block px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+        style={{ backgroundColor: '#fff4f4' }}
       >
         {children}
       </Link>
@@ -152,7 +153,8 @@ function CustomLink({
         href={href}
         target={shouldOpenInNewTab ? "_blank" : undefined}
         rel={shouldOpenInNewTab ? "noopener noreferrer" : undefined}
-        className="inline-block bg-link-affiliate px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+        className="inline-block px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
+        style={{ backgroundColor: '#f4ffff' }}
         data-external={isExternal}
         data-affiliate={isAffiliate}
         data-new-tab={shouldOpenInNewTab}
@@ -334,34 +336,34 @@ export const portableTextComponents: PortableTextComponents = {
     h5: ({ children, value }) => <CustomHeading level={5} value={value}>{children}</CustomHeading>,
     h6: ({ children, value }) => <CustomHeading level={6} value={value}>{children}</CustomHeading>,
   },
-  
+
   // リスト
   list: {
     bullet: CustomList,
     number: ({ children }) => <CustomList type="number">{children}</CustomList>,
   },
-  
+
   listItem: {
     bullet: CustomListItem,
     number: CustomListItem,
   },
-  
+
   // マーク（インライン要素）
   marks: {
-    // リンク（これが最重要機能）
-    link: CustomLink,
-    
+    // リンクは無効化 - ユーザビリティ向上のため本文中のリンクは表示しない
+    link: ({ children }) => <>{children}</>,
+
     // テキスト装飾
     strong: CustomStrong,
     em: CustomEm,
-    
+
     // 将来の拡張用：カスタムマーク
     highlight: ({ children }) => (
       <mark className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">
         {children}
       </mark>
     ),
-    
+
     code: ({ children }) => (
       <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm font-mono">
         {children}
