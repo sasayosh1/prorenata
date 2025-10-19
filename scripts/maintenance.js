@@ -838,6 +838,75 @@ async function checkYMYL() {
 }
 
 /**
+ * Body内の「もくじ」見出しを検出
+ * 理由: body外部に自動生成される目次があるため、body内の「もくじ」見出しは不要
+ */
+async function findPostsWithTOC() {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    "categories": categories[]->title
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const postsWithTOC = []
+
+    posts.forEach(post => {
+      if (!post.body || !Array.isArray(post.body)) return
+
+      const tocBlocks = post.body.filter(block => {
+        if (block._type !== 'block') return false
+        if (block.style !== 'h2' && block.style !== 'h3') return false
+
+        const text = block.children
+          ?.map(c => c.text || '')
+          .join('')
+          .trim()
+
+        return /^(もくじ|目次|この記事の目次)$/i.test(text)
+      })
+
+      if (tocBlocks.length > 0) {
+        postsWithTOC.push({
+          ...post,
+          tocCount: tocBlocks.length,
+          tocStyles: tocBlocks.map(b => b.style)
+        })
+      }
+    })
+
+    console.log(`\n📑 Body内に「もくじ」見出しを含む記事: ${postsWithTOC.length}件`)
+    console.log('   理由: body外部に自動生成目次があるため、body内の「もくじ」見出しは削除推奨\n')
+
+    if (postsWithTOC.length > 0) {
+      console.log('🎯 「もくじ」見出しを含む記事（TOP10）:\n')
+      postsWithTOC.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   もくじ見出し数: ${post.tocCount}個 (${post.tocStyles.join(', ')})`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}\n`)
+      })
+
+      if (postsWithTOC.length > 10) {
+        console.log(`   ... 他${postsWithTOC.length - 10}件\n`)
+      }
+
+      console.log('   削除するには:')
+      console.log('   node scripts/remove-toc-headings.js remove --apply\n')
+    }
+
+    return postsWithTOC
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return []
+  }
+}
+
+/**
  * 総合レポートを生成
  */
 async function generateReport() {
@@ -867,6 +936,9 @@ async function generateReport() {
   console.log('='.repeat(60))
 
   const ymylIssues = await checkYMYL()
+  console.log('='.repeat(60))
+
+  const postsWithTOC = await findPostsWithTOC()
   console.log('='.repeat(60))
 
   // サマリー
@@ -921,6 +993,8 @@ async function generateReport() {
     console.log(`  ⚠️  YMYL: 医療行為の記述要確認: ${ymylIssues.medicalProcedures.length}件`)
   }
 
+  console.log(`  🔴 Body内に「もくじ」見出しあり: ${postsWithTOC.length}件（削除推奨）`)
+
   console.log('\n='.repeat(60))
 }
 
@@ -964,6 +1038,10 @@ if (require.main === module) {
       checkYMYL().catch(console.error)
       break
 
+    case 'toc':
+      findPostsWithTOC().catch(console.error)
+      break
+
     case 'report':
       generateReport().catch(console.error)
       break
@@ -998,6 +1076,8 @@ if (require.main === module) {
                       - 統計データの出典確認
                       - 古い給与・年収情報（6ヶ月以上更新なし）
                       - 医療行為の記述チェック
+  toc                 Body内の「もくじ」見出しを検出
+                      - body外部に自動生成目次があるため削除推奨
   report              総合レポートを生成（全チェックを一括実行）
 
 例:
@@ -1028,5 +1108,6 @@ module.exports = {
   checkAffiliateLinks,
   checkInternalLinks,
   checkYMYL,
+  findPostsWithTOC,
   generateReport
 }
