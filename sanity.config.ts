@@ -4,8 +4,9 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { PreviewAction } from './src/sanity/actions/PreviewAction'
 
-const devUrl = 'http://localhost:3000'
 const prodUrl = 'https://prorenata.jp'
+const previewSecret = process.env.SANITY_STUDIO_PREVIEW_SECRET
+const previewBaseUrl = process.env.SANITY_STUDIO_PREVIEW_BASE_URL || prodUrl
 
 export default defineConfig({
   name: 'default',
@@ -14,7 +15,10 @@ export default defineConfig({
   dataset: 'production',
   studioHost: 'prorenata',
   apiVersion: '2024-01-01',
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool(),
+    visionTool()
+  ],
   schema: {
     types: schemaTypes,
   },
@@ -26,7 +30,7 @@ export default defineConfig({
       return prev
     },
     productionUrl: async (prev, { document }) => {
-      const baseUrl = devUrl
+      const baseUrl = previewBaseUrl
       if (
         document._type === 'post' &&
         document.slug &&
@@ -34,7 +38,12 @@ export default defineConfig({
         'current' in document.slug &&
         document.slug.current
       ) {
-        return `${baseUrl}/posts/${document.slug.current}`
+        const url = new URL(`${baseUrl}/api/preview`)
+        url.searchParams.set('slug', document.slug.current as string)
+        if (previewSecret) {
+          url.searchParams.set('secret', previewSecret)
+        }
+        return url.toString()
       }
       return prev
     },
