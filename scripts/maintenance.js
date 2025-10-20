@@ -8,7 +8,15 @@
  * - 文字数不足の記事検出
  */
 
+const path = require('path')
+const { spawn } = require('child_process')
 const { createClient } = require('@sanity/client')
+const {
+  blocksToPlainText,
+  generateExcerpt,
+  generateMetaDescription,
+  generateSlugFromTitle,
+} = require('./utils/postHelpers')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -17,6 +25,61 @@ const client = createClient({
   token: process.env.SANITY_API_TOKEN,
   useCdn: false
 })
+
+async function getCategoryResources() {
+  try {
+    const categories = await client.fetch(`*[_type == "category"] { _id, title }`)
+    const map = new Map()
+
+    categories.forEach(category => {
+      if (category?._id && category?.title) {
+        map.set(category.title, category._id)
+      }
+    })
+
+    return {
+      categories,
+      map,
+      fallback: categories[0] || null,
+    }
+  } catch (error) {
+    console.error('❌ カテゴリ取得エラー:', error.message)
+    return { categories: [], map: new Map(), fallback: null }
+  }
+}
+
+function sanitiseSlugValue(slug) {
+  return (slug || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9-]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+async function ensureUniqueSlug(candidate, excludeId) {
+  let base = sanitiseSlugValue(candidate)
+  if (!base) {
+    base = generateSlugFromTitle('看護助手-article')
+  }
+
+  let attempt = 0
+  let slug = base
+
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const existing = await client.fetch(
+      `*[_type == "post" && slug.current == $slug && _id != $id][0] { _id }`,
+      { slug, id: excludeId }
+    )
+
+    if (!existing) {
+      return slug
+    }
+
+    attempt += 1
+    slug = sanitiseSlugValue(`${base}-${Date.now().toString().slice(-6)}-${attempt}`)
+  }
+}
 
 /**
  * 古い記事を検出（6ヶ月以上更新なし）
@@ -211,6 +274,162 @@ async function findPostsMissingMetadata() {
   }
 }
 
+async function autoFixMetadata() {
+  console.log('\n🛠️ メタデータ自動修復を開始します\n')
+
+  const { categories, fallback } = await getCategoryResources()
+
+  const posts = await client.fetch(`
+    *[_type == "post" && (
+      !defined(slug.current) ||
+      count(categories) == 0 ||
+      !defined(excerpt) ||
+      length(excerpt) < 50 ||
+      !defined(metaDescription) ||
+      length(metaDescription) < 120 ||
+      length(metaDescription) > 160
+    )] {
+      _id,
+      title,
+      slug,
+      excerpt,
+      metaDescription,
+      body,
+      "categories": categories[]->{ _id, title }
+    }
+  `)
+
+  if (!posts || posts.length === 0) {
+    console.log('✅ 修復対象の記事はありません')
+    return { total: 0, updated: 0 }
+  }
+
+  console.log(`対象記事: ${posts.length}件\n`)
+
+  let updated = 0
+
+  for (const post of posts) {
+    const updates = {}
+    const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
+    const currentCategories = Array.isArray(post.categories) ? post.categories.filter(Boolean) : []
+    let categoryRefs = currentCategories
+      .filter(category => category?._id)
+      .map(category => ({ _type: 'reference', _ref: category._id }))
+
+    if (categoryRefs.length === 0 && fallback) {
+      categoryRefs = [{ _type: 'reference', _ref: fallback._id }]
+    }
+
+    if ((!post.slug || !post.slug.current) && publishedId) {
+      const slugCandidate = generateSlugFromTitle(post.title)
+      // eslint-disable-next-line no-await-in-loop
+      const uniqueSlug = await ensureUniqueSlug(slugCandidate, publishedId)
+      updates.slug = {
+        _type: 'slug',
+        current: uniqueSlug,
+      }
+    }
+
+    if (categoryRefs.length > 0 && (!post.categories || post.categories.length === 0)) {
+      updates.categories = categoryRefs
+    }
+
+    const plainText = blocksToPlainText(post.body)
+
+    if (!post.excerpt || post.excerpt.length < 50) {
+      const excerpt = generateExcerpt(plainText, post.title)
+      updates.excerpt = excerpt
+    }
+
+    const categoriesForMeta = (updates.categories || categoryRefs || currentCategories)
+      .map(ref => {
+        if (ref?._ref) {
+          const match = categories.find(category => category._id === ref._ref)
+          return match?.title
+        }
+        return ref?.title
+      })
+      .filter(Boolean)
+
+    const metaSource = updates.excerpt || post.excerpt || generateExcerpt(plainText, post.title)
+
+    if (!post.metaDescription || post.metaDescription.length < 120 || post.metaDescription.length > 160) {
+      const metaDescription = generateMetaDescription(post.title, metaSource, categoriesForMeta)
+      updates.metaDescription = metaDescription
+    }
+
+    if (Object.keys(updates).length === 0) {
+      continue
+    }
+
+    await client
+      .patch(post._id)
+      .set(updates)
+      .commit()
+
+    if (post._id !== publishedId) {
+      await client
+        .patch(publishedId)
+        .set(updates)
+        .commit()
+        .catch(() => null)
+    }
+
+    updated += 1
+    console.log(`✅ ${post.title}`)
+    if (updates.slug) {
+      console.log(`   スラッグ: ${updates.slug.current}`)
+    }
+    if (updates.categories) {
+      console.log('   カテゴリを自動設定しました')
+    }
+    if (updates.excerpt) {
+      console.log('   Excerpt を再生成しました')
+    }
+    if (updates.metaDescription) {
+      console.log('   Meta Description を再生成しました')
+    }
+    console.log()
+  }
+
+  console.log(`🛠️ 自動修復完了: ${updated}/${posts.length}件を更新`)
+
+  const repairTasks = [
+    { script: 'convert-placeholder-links.js', args: [], label: 'プレースホルダーリンク変換' },
+    { script: 'fix-all-link-issues.js', args: [], label: 'リンク問題一括修正' },
+    { script: 'fix-affiliate-link-text.js', args: [], label: 'アフィリエイトリンクテキスト修正' },
+    { script: 'remove-broken-internal-links.js', args: [], label: '壊れた内部リンク削除' },
+    { script: 'remove-toc-headings.js', args: ['remove', '--apply'], label: 'Body内「もくじ」見出し削除' },
+  ]
+
+  for (const task of repairTasks) {
+    // eslint-disable-next-line no-await-in-loop
+    await runNodeScript(task.script, task.args, task.label)
+  }
+
+  return { total: posts.length, updated }
+}
+
+function runNodeScript(scriptName, args = [], label) {
+  return new Promise((resolve) => {
+    const scriptPath = path.resolve(__dirname, scriptName)
+    console.log(`\n▶ ${label}`)
+    const child = spawn('node', [scriptPath, ...args], {
+      env: process.env,
+      stdio: 'inherit',
+    })
+
+    child.on('exit', (code) => {
+      if (code === 0) {
+        console.log(`✅ ${label} 完了`)
+      } else {
+        console.log(`⚠️ ${label} でエラーが発生しました (exit ${code})`)
+      }
+      resolve({ code })
+    })
+  })
+}
+
 /**
  * 画像なし記事を検出
  */
@@ -386,6 +605,7 @@ async function findPostsWithoutNextSteps() {
  * アフィリエイトリンクの適切性をチェック
  * 1. 記事内容とリンクの関連性
  * 2. 連続するアフィリエイトリンクの検出
+ * 3. ASPアフィリエイトリンク数（2個超過）
  */
 async function checkAffiliateLinks() {
   const query = `*[_type == "post"] {
@@ -400,7 +620,8 @@ async function checkAffiliateLinks() {
     const posts = await client.fetch(query)
     const issues = {
       consecutiveLinks: [], // 連続リンク
-      tooManyLinks: [],      // リンク数が多すぎる
+      tooManyLinks: [],      // リンク数が多すぎる（全体4個以上）
+      tooManyASPLinks: [],   // ASPアフィリエイトが2個超過（新規）
       irrelevantLinks: []    // 記事内容と関連性が低い
     }
 
@@ -408,6 +629,7 @@ async function checkAffiliateLinks() {
       if (!post.body || !Array.isArray(post.body)) return
 
       let affiliateCount = 0
+      let aspAffiliateCount = 0 // ASPアフィリエイト（転職・退職代行）のカウント
       let lastWasAffiliate = false
       let consecutiveCount = 0
       const affiliateBlocks = []
@@ -436,9 +658,22 @@ async function checkAffiliateLinks() {
            def.href?.includes('tcs-asp.net'))
         )
 
+        // ASPアフィリエイトの検出（Amazon・楽天以外）
+        const isASPAffiliate = block.markDefs?.some(def =>
+          def._type === 'link' &&
+          def.href &&
+          (def.href.includes('af.moshimo.com') || def.href.includes('tcs-asp.net')) &&
+          !def.href.includes('p_id=54') && // 楽天市場を除外
+          !def.href.includes('p_id=170')   // Amazon（もしも経由）を除外
+        )
+
         if (isAffiliate) {
           affiliateCount++
           affiliateBlocks.push({ index, block })
+
+          if (isASPAffiliate) {
+            aspAffiliateCount++
+          }
 
           if (lastWasAffiliate) {
             consecutiveCount++
@@ -473,6 +708,14 @@ async function checkAffiliateLinks() {
         })
       }
 
+      // ASPアフィリエイトリンク数チェック（2個超過）
+      if (aspAffiliateCount > 2) {
+        issues.tooManyASPLinks.push({
+          ...post,
+          aspAffiliateCount
+        })
+      }
+
       // 記事内容との関連性チェック（簡易版）
       // 「資格」記事に退職代行リンクなど
       const titleLower = post.title.toLowerCase()
@@ -495,6 +738,7 @@ async function checkAffiliateLinks() {
     console.log('\n🔗 アフィリエイトリンクチェック:\n')
     console.log(`  🔴 連続するアフィリエイトリンク: ${issues.consecutiveLinks.length}件`)
     console.log(`  ⚠️  リンク数が多すぎる（4個以上）: ${issues.tooManyLinks.length}件`)
+    console.log(`  🔴 ASPアフィリエイトが2個超過: ${issues.tooManyASPLinks.length}件（新ルール）`)
     console.log(`  ⚠️  記事内容と関連性が低い可能性: ${issues.irrelevantLinks.length}件\n`)
 
     if (issues.consecutiveLinks.length > 0) {
@@ -516,6 +760,18 @@ async function checkAffiliateLinks() {
         console.log(`   リンク数: ${post.affiliateCount}個（推奨: 2-3個）`)
         console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
         console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    if (issues.tooManyASPLinks.length > 0) {
+      console.log('🎯 ASPアフィリエイトリンクが2個を超える記事:\n')
+      issues.tooManyASPLinks.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   ASPリンク数: ${post.aspAffiliateCount}個（推奨: 最大2個）`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   注: Amazon・楽天は別カウント\n`)
       })
     }
 
@@ -541,7 +797,8 @@ async function checkAffiliateLinks() {
  * 内部リンクの適切性をチェック
  * 1. 内部リンクが少なすぎる記事を検出
  * 2. 壊れた内部リンクを検出
- * 3. 関連性の低い内部リンクを検出
+ * 3. 内部リンクが多すぎる記事を検出（3個超過）
+ * 4. 内部リンクとアフィリエイトリンクが同時配置されている記事を検出
  */
 async function checkInternalLinks() {
   const query = `*[_type == "post"] {
@@ -556,8 +813,9 @@ async function checkInternalLinks() {
     const posts = await client.fetch(query)
     const issues = {
       tooFewLinks: [],       // 内部リンクが少ない（2個未満）
+      tooManyLinks: [],      // 内部リンクが多すぎる（3個超過）
       brokenLinks: [],       // 壊れたリンク
-      irrelevantLinks: []    // 関連性が低い可能性
+      mixedWithAffiliate: [] // 内部リンクとアフィリエイトリンクが同じブロックに配置
     }
 
     // 全記事のslugを取得（壊れたリンク検出用）
@@ -568,9 +826,14 @@ async function checkInternalLinks() {
 
       let internalLinkCount = 0
       const internalLinks = []
+      const internalLinkBlockIndices = new Set()
+      const affiliateLinkBlockIndices = new Set()
 
       post.body.forEach((block, index) => {
         if (!block.markDefs) return
+
+        let hasInternalLink = false
+        let hasAffiliateLink = false
 
         block.markDefs.forEach(def => {
           if (def._type === 'link' && def.href) {
@@ -578,6 +841,7 @@ async function checkInternalLinks() {
             if (def.href.startsWith('/posts/')) {
               const targetSlug = def.href.replace('/posts/', '')
               internalLinkCount++
+              hasInternalLink = true
               internalLinks.push({
                 href: def.href,
                 targetSlug,
@@ -596,8 +860,22 @@ async function checkInternalLinks() {
                 }
               }
             }
+
+            // アフィリエイトリンクの検出
+            if (def.href.includes('af.moshimo.com') ||
+                def.href.includes('amazon.co.jp') ||
+                def.href.includes('tcs-asp.net')) {
+              hasAffiliateLink = true
+            }
           }
         })
+
+        if (hasInternalLink) {
+          internalLinkBlockIndices.add(index)
+        }
+        if (hasAffiliateLink) {
+          affiliateLinkBlockIndices.add(index)
+        }
       })
 
       // 内部リンク数チェック（2個未満は少ない）
@@ -607,10 +885,36 @@ async function checkInternalLinks() {
           internalLinkCount
         })
       }
+
+      // 内部リンク数チェック（3個超過）
+      if (internalLinkCount > 3) {
+        issues.tooManyLinks.push({
+          ...post,
+          internalLinkCount
+        })
+      }
+
+      // 内部リンクとアフィリエイトリンクが近接しているかチェック
+      // 同じブロックまたは隣接ブロック（±2ブロック以内）に両方が存在する場合
+      for (const internalIdx of internalLinkBlockIndices) {
+        for (const affiliateIdx of affiliateLinkBlockIndices) {
+          if (Math.abs(internalIdx - affiliateIdx) <= 2) {
+            if (!issues.mixedWithAffiliate.some(p => p._id === post._id)) {
+              issues.mixedWithAffiliate.push({
+                ...post,
+                blockDistance: Math.abs(internalIdx - affiliateIdx)
+              })
+            }
+            break
+          }
+        }
+      }
     })
 
     console.log('\n🔗 内部リンクチェック:\n')
     console.log(`  ⚠️  内部リンクが少ない（2個未満）: ${issues.tooFewLinks.length}件`)
+    console.log(`  🔴 内部リンクが多すぎる（3個超過）: ${issues.tooManyLinks.length}件（新ルール）`)
+    console.log(`  🔴 内部リンクとアフィリエイトが近接: ${issues.mixedWithAffiliate.length}件（新ルール）`)
     console.log(`  🔴 壊れた内部リンク: ${issues.brokenLinks.length}件\n`)
 
     if (issues.tooFewLinks.length > 0) {
@@ -621,6 +925,30 @@ async function checkInternalLinks() {
         console.log(`   内部リンク数: ${post.internalLinkCount}個（推奨: 2個以上）`)
         console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
         console.log(`   URL: /posts/${post.slug}\n`)
+      })
+    }
+
+    if (issues.tooManyLinks.length > 0) {
+      console.log('🎯 内部リンクが多すぎる記事（TOP10）:\n')
+      issues.tooManyLinks.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   内部リンク数: ${post.internalLinkCount}個（推奨: 最大2-3個）`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   注: ユーザビリティ最優先。無理に最大数を配置しない\n`)
+      })
+    }
+
+    if (issues.mixedWithAffiliate.length > 0) {
+      console.log('🎯 内部リンクとアフィリエイトリンクが近接している記事（TOP10）:\n')
+      issues.mixedWithAffiliate.slice(0, 10).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   ブロック間距離: ${post.blockDistance}ブロック以内`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   推奨: 内部リンクとアフィリエイトリンクは別の場所に配置\n`)
       })
     }
 
@@ -907,6 +1235,161 @@ async function findPostsWithTOC() {
 }
 
 /**
+ * 箇条書きでセクションを終えている記事を検出
+ * 理由: 各セクションは本文（まとめ文）で締めくくる必要がある
+ */
+async function checkSectionEndings() {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    "categories": categories[]->title
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const issues = []
+
+    posts.forEach(post => {
+      if (!post.body || !Array.isArray(post.body)) return
+
+      const h2Indices = []
+      post.body.forEach((block, index) => {
+        if (block._type === 'block' && block.style === 'h2') {
+          h2Indices.push(index)
+        }
+      })
+
+      // 各H2セクションをチェック
+      for (let i = 0; i < h2Indices.length; i++) {
+        const sectionStart = h2Indices[i]
+        const sectionEnd = i < h2Indices.length - 1 ? h2Indices[i + 1] : post.body.length
+
+        // セクション内の最後のブロックを取得
+        let lastContentBlock = null
+        for (let j = sectionEnd - 1; j > sectionStart; j--) {
+          const block = post.body[j]
+          if (block._type === 'block' && (block.style === 'normal' || block.listItem)) {
+            lastContentBlock = { block, index: j }
+            break
+          }
+        }
+
+        // 最後のブロックが箇条書き（listItem）かチェック
+        if (lastContentBlock && lastContentBlock.block.listItem) {
+          const h2Text = post.body[sectionStart].children?.map(c => c.text).join('') || ''
+
+          if (!issues.some(p => p._id === post._id)) {
+            issues.push({
+              ...post,
+              sectionTitle: h2Text,
+              sectionIndex: i + 1,
+              totalSections: h2Indices.length
+            })
+          }
+          break // 1つ見つかれば記事全体として記録
+        }
+      }
+    })
+
+    console.log(`\n📝 箇条書きでセクションを終えている記事: ${issues.length}件`)
+    console.log('   理由: 各セクションは本文（まとめ文）で締めくくる必要があります\n')
+
+    if (issues.length > 0) {
+      console.log('🎯 箇条書きでセクションを終えている記事（TOP15）:\n')
+      issues.slice(0, 15).forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   問題のセクション: 「${post.sectionTitle}」（${post.sectionIndex}/${post.totalSections}セクション目）`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   推奨: 箇条書きの後に2〜3文のまとめ文を追加\n`)
+      })
+
+      if (issues.length > 15) {
+        console.log(`   ... 他${issues.length - 15}件\n`)
+      }
+    }
+
+    return issues
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return []
+  }
+}
+
+/**
+ * H2まとめセクション後にH2セクションがある記事を検出
+ * 理由: 「まとめ」は記事の最後のH2セクションである必要がある
+ */
+async function checkH2AfterSummary() {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    "categories": categories[]->title
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const issues = []
+
+    posts.forEach(post => {
+      if (!post.body || !Array.isArray(post.body)) return
+
+      const h2Blocks = []
+      post.body.forEach((block, index) => {
+        if (block._type === 'block' && block.style === 'h2') {
+          const text = block.children?.map(c => c.text).join('') || ''
+          h2Blocks.push({ text, index })
+        }
+      })
+
+      // 「まとめ」セクションを探す
+      const summaryIndex = h2Blocks.findIndex(h2 =>
+        h2.text.includes('まとめ') || h2.text.includes('まとめ')
+      )
+
+      // 「まとめ」が見つかり、かつそれが最後のH2でない場合
+      if (summaryIndex !== -1 && summaryIndex < h2Blocks.length - 1) {
+        const sectionsAfterSummary = h2Blocks.slice(summaryIndex + 1).map(h2 => h2.text)
+
+        issues.push({
+          ...post,
+          summaryTitle: h2Blocks[summaryIndex].text,
+          sectionsAfter: sectionsAfterSummary,
+          summaryPosition: summaryIndex + 1,
+          totalH2Sections: h2Blocks.length
+        })
+      }
+    })
+
+    console.log(`\n📋 「まとめ」の後にH2セクションがある記事: ${issues.length}件`)
+    console.log('   理由: 「まとめ」は記事の最後のH2セクションである必要があります\n')
+
+    if (issues.length > 0) {
+      console.log('🎯 「まとめ」の後にH2セクションがある記事:\n')
+      issues.forEach((post, i) => {
+        console.log(`${i + 1}. ${post.title}`)
+        console.log(`   ID: ${post._id}`)
+        console.log(`   「まとめ」の位置: ${post.summaryPosition}/${post.totalH2Sections}セクション目`)
+        console.log(`   「まとめ」の後のセクション: ${post.sectionsAfter.join(', ')}`)
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
+        console.log(`   URL: /posts/${post.slug}`)
+        console.log(`   推奨: 「まとめ」を最後のH2セクションに移動、または後続セクションを削除\n`)
+      })
+    }
+
+    return issues
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return []
+  }
+}
+
+/**
  * 総合レポートを生成
  */
 async function generateReport() {
@@ -939,6 +1422,12 @@ async function generateReport() {
   console.log('='.repeat(60))
 
   const postsWithTOC = await findPostsWithTOC()
+  console.log('='.repeat(60))
+
+  const sectionEndingIssues = await checkSectionEndings()
+  console.log('='.repeat(60))
+
+  const h2AfterSummaryIssues = await checkH2AfterSummary()
   console.log('='.repeat(60))
 
   // サマリー
@@ -978,11 +1467,14 @@ async function generateReport() {
   if (affiliateIssues) {
     console.log(`  🔴 連続するアフィリエイトリンク: ${affiliateIssues.consecutiveLinks.length}件`)
     console.log(`  ⚠️  リンク数が多すぎる: ${affiliateIssues.tooManyLinks.length}件`)
+    console.log(`  🔴 ASPアフィリエイトが2個超過: ${affiliateIssues.tooManyASPLinks.length}件（新ルール）`)
     console.log(`  ⚠️  記事内容と関連性が低い可能性: ${affiliateIssues.irrelevantLinks.length}件`)
   }
 
   if (internalLinkIssues) {
     console.log(`  ⚠️  内部リンクが少ない（2個未満）: ${internalLinkIssues.tooFewLinks.length}件`)
+    console.log(`  🔴 内部リンクが多すぎる（3個超過）: ${internalLinkIssues.tooManyLinks.length}件（新ルール）`)
+    console.log(`  🔴 内部リンクとアフィリエイトが近接: ${internalLinkIssues.mixedWithAffiliate.length}件（新ルール）`)
     console.log(`  🔴 壊れた内部リンク: ${internalLinkIssues.brokenLinks.length}件`)
   }
 
@@ -994,6 +1486,9 @@ async function generateReport() {
   }
 
   console.log(`  🔴 Body内に「もくじ」見出しあり: ${postsWithTOC.length}件（削除推奨）`)
+
+  console.log(`  🔴 箇条書きでセクションを終えている: ${sectionEndingIssues.length}件（新ルール）`)
+  console.log(`  🔴 「まとめ」の後にH2セクションあり: ${h2AfterSummaryIssues.length}件（新ルール）`)
 
   console.log('\n='.repeat(60))
 }
@@ -1042,8 +1537,20 @@ if (require.main === module) {
       findPostsWithTOC().catch(console.error)
       break
 
+    case 'sectionendings':
+      checkSectionEndings().catch(console.error)
+      break
+
+    case 'h2aftersummary':
+      checkH2AfterSummary().catch(console.error)
+      break
+
     case 'report':
       generateReport().catch(console.error)
+      break
+
+    case 'autofix':
+      autoFixMetadata().catch(console.error)
       break
 
     default:
@@ -1067,9 +1574,11 @@ if (require.main === module) {
   affiliate           アフィリエイトリンクの適切性をチェック
                       - 連続するリンクの検出
                       - リンク数（推奨: 2-3個）
+                      - ASPアフィリエイト数（最大2個）【新ルール】
                       - 記事内容との関連性
   internallinks       内部リンクの適切性をチェック
-                      - 内部リンク数（推奨: 2個以上）
+                      - 内部リンク数（推奨: 2個以上、最大2-3個）
+                      - 内部リンクとアフィリエイトの近接チェック【新ルール】
                       - 壊れたリンクの検出
   ymyl                YMYL（Your Money Your Life）対策チェック
                       - 断定表現の検出（「絶対」「必ず」など）
@@ -1078,7 +1587,12 @@ if (require.main === module) {
                       - 医療行為の記述チェック
   toc                 Body内の「もくじ」見出しを検出
                       - body外部に自動生成目次があるため削除推奨
+  sectionendings      箇条書きでセクションを終えている記事を検出【新ルール】
+                      - 各セクションは本文（まとめ文）で締めくくる必要がある
+  h2aftersummary      「まとめ」の後にH2セクションがある記事を検出【新ルール】
+                      - 「まとめ」は記事の最後のH2セクションである必要がある
   report              総合レポートを生成（全チェックを一括実行）
+  autofix             スラッグ・カテゴリ・メタディスクリプションを自動修復
 
 例:
   # 総合レポート（推奨）
@@ -1109,5 +1623,8 @@ module.exports = {
   checkInternalLinks,
   checkYMYL,
   findPostsWithTOC,
-  generateReport
+  checkSectionEndings,
+  checkH2AfterSummary,
+  generateReport,
+  autoFixMetadata
 }
