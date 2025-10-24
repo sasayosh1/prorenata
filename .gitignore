@@ -46,3 +46,7 @@ next-env.d.ts
 # Temporary Python scripts with credentials
 get_article_data_v2.py
 list_recent_articles.py
+
+# X投稿履歴（ローカル管理）
+posts_tweeted.json
+x-summary.json

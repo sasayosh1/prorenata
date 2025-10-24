@@ -23,7 +23,30 @@ jobs:
         run: npm install
 
       - name: Run article generation script
+        id: generate
         run: node scripts/run-daily-generation.cjs
         env:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        continue-on-error: true
+
+      - name: Create issue if generation failed
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const date = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[記事生成] 自動生成に失敗しました (${date})`,
+              body: `## 記事自動生成エラー\n\n定期的な記事生成プロセスが失敗しました。\n\n詳細はワークフローログを確認してください:\n${context.payload.repository.html_url}/actions/runs/${context.runId}\n\n---\n**実行時刻**: ${date}\n**スクリプト**: scripts/run-daily-generation.cjs\n**考えられる原因**:\n- Gemini API エラー\n- Sanity API エラー\n- 環境変数の問題\n- トピック選択の失敗\n- 著者ドキュメント不在`,
+              labels: ['automation', 'article-generation', 'bug']
+            });
+
+      - name: Post summary
+        if: always()
+        run: |
+          echo "✅ 記事生成プロセス完了"
+          echo "📊 実行時刻: $(TZ=Asia/Tokyo date '+%Y年%m月%d日 %H:%M')"

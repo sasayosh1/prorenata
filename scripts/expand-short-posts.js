@@ -26,7 +26,7 @@ const client = createClient({
 
 // Gemini API初期化
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' }); // Updated to gemini-2.5-flash for consistency
 
 /**
  * 文字数をカウント
@@ -220,6 +220,69 @@ function convertToSanityBlocks(text) {
 }
 
 /**
+ * excerptを生成
+ */
+async function generateExcerpt(post) {
+  const prompt = `
+あなたは病棟で働く20歳の看護助手「白崎セラ」です。
+
+以下の記事について、120〜160文字の要約（excerpt）を作成してください。
+
+# 記事タイトル
+${post.title}
+
+# 記事カテゴリ
+${post.categories?.join(', ') || 'なし'}
+
+# 記事本文の抜粋
+${extractTextFromBody(post.body).substring(0, 500)}
+
+# 要約のルール
+- 120〜160文字
+- 読者（看護助手）の悩みや関心に触れる
+- 記事の価値・メリットを明確に
+- 「わたし」の視点で、穏やかな「です・ます」調
+- 断定表現を避ける
+
+# 出力
+要約文のみを出力してください。
+`;
+
+  try {
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    let excerpt = response.text().trim();
+
+    // 文字数を120-160に調整
+    if (excerpt.length > 160) {
+      excerpt = excerpt.substring(0, 157) + '...';
+    }
+
+    return excerpt;
+  } catch (error) {
+    console.error(`⚠️ excerpt生成エラー: ${error.message}`);
+    return null;
+  }
+}
+
+/**
+ * 本文からテキストを抽出（excerpt生成用）
+ */
+function extractTextFromBody(body) {
+  if (!body || !Array.isArray(body)) return '';
+
+  return body
+    .filter(block => block._type === 'block' && block.children)
+    .map(block =>
+      block.children
+        .filter(child => child._type === 'span' && child.text)
+        .map(child => child.text)
+        .join('')
+    )
+    .join('\n');
+}
+
+/**
  * 記事を加筆
  */
 async function expandPost(postId, apply = false) {
@@ -278,14 +341,30 @@ async function expandPost(postId, apply = false) {
     const newBody = [...post.body, ...additionalBlocks];
     const newChars = countCharacters(newBody);
 
+    // excerptを生成（加筆後の本文を使用）
+    console.log(`   🔄 excerpt（要約）を生成中...`);
+    const updatedPost = { ...post, body: newBody };
+    const newExcerpt = await generateExcerpt(updatedPost);
+
+    // 更新データを準備
+    const updateData = { body: newBody };
+    if (newExcerpt) {
+      updateData.excerpt = newExcerpt;
+      console.log(`   ✅ excerpt生成完了（${newExcerpt.length}文字）`);
+    }
+
     // 更新
     await client
       .patch(postId)
-      .set({ body: newBody })
+      .set(updateData)
       .commit();
 
     console.log(`   ✅ 記事を更新しました`);
-    console.log(`   文字数: ${currentChars}文字 → ${newChars}文字（+${newChars - currentChars}文字）\n`);
+    console.log(`   文字数: ${currentChars}文字 → ${newChars}文字（+${newChars - currentChars}文字）`);
+    if (newExcerpt) {
+      console.log(`   excerpt: ${newExcerpt.substring(0, 50)}...`);
+    }
+    console.log();
 
     return { expanded: true, error: false, before: currentChars, after: newChars };
 

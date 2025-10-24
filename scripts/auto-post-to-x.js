@@ -28,6 +28,31 @@ if (!SANITY_CONFIG.token || !GEMINI_API_KEY) {
 
 const sanityClient = createClient(SANITY_CONFIG)
 
+// 投稿履歴を読み込む
+function loadTweetHistory() {
+  const historyPath = 'posts_tweeted.json'
+  try {
+    if (fs.existsSync(historyPath)) {
+      const data = fs.readFileSync(historyPath, 'utf8')
+      return JSON.parse(data)
+    }
+  } catch (error) {
+    console.warn('⚠️ 投稿履歴の読み込みに失敗しました:', error.message)
+  }
+  return []
+}
+
+// 過去30日分の投稿済み記事IDを取得
+function getRecentlyTweetedIds() {
+  const history = loadTweetHistory()
+  const thirtyDaysAgo = new Date()
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
+
+  return history
+    .filter(record => new Date(record.timestamp) > thirtyDaysAgo)
+    .map(record => record.postId)
+}
+
 async function getRandomArticle() {
   console.log('📚 公開済み記事を取得中...')
 
@@ -42,10 +67,22 @@ async function getRandomArticle() {
     "categories": categories[]->title
   }`
 
-  const posts = await sanityClient.fetch(query)
+  const allPosts = await sanityClient.fetch(query)
 
-  if (!posts || posts.length === 0) {
+  if (!allPosts || allPosts.length === 0) {
     throw new Error('公開済み記事が見つかりません')
+  }
+
+  // 過去30日分の投稿済み記事を除外
+  const recentlyTweetedIds = getRecentlyTweetedIds()
+  const availablePosts = allPosts.filter(post => !recentlyTweetedIds.includes(post._id))
+
+  console.log(`📊 総記事数: ${allPosts.length}, 除外: ${recentlyTweetedIds.length}, 利用可能: ${availablePosts.length}`)
+
+  // 利用可能な記事がない場合は全記事から選択
+  const posts = availablePosts.length > 0 ? availablePosts : allPosts
+  if (availablePosts.length === 0) {
+    console.warn('⚠️ 過去30日分の除外後、利用可能な記事がないため全記事から選択します')
   }
 
   const randomIndex = Math.floor(Math.random() * posts.length)
@@ -123,6 +160,25 @@ async function saveSummary(post, summary) {
 
   await fs.promises.writeFile('x-summary.json', summaryRecord, 'utf8')
   console.log('📝 要約を x-summary.json に保存しました')
+
+  // 投稿履歴に記録を追加
+  const history = loadTweetHistory()
+  history.push({
+    postId: post._id,
+    title: post.title,
+    slug: post.slug.current,
+    timestamp: isoTimestamp,
+  })
+
+  // 最新100件のみ保持（ファイルサイズ管理）
+  const trimmedHistory = history.slice(-100)
+
+  await fs.promises.writeFile(
+    'posts_tweeted.json',
+    JSON.stringify(trimmedHistory, null, 2),
+    'utf8'
+  )
+  console.log('📜 投稿履歴を posts_tweeted.json に記録しました')
 }
 
 async function main() {
