@@ -1,5 +1,6 @@
 const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { randomUUID } = require('crypto');
 require('dotenv').config({ path: '../.env.local' }); // For local testing
 
 // --- Configuration ---
@@ -49,34 +50,64 @@ async function generateAndSaveArticle() {
 
   // 3. Generate content with Gemini
   console.log("Generating article content with Gemini AI...");
-  const prompt = `
-    あなたはプロのWebライターです。以下の指示に従って、看護助手向けのブログ記事を生成してください。
+  console.log("Fetching 白崎セラ author document...");
+  let authorReference;
+  try {
+    const authorDoc = await sanityClient.fetch(
+      `*[_type == "author" && (name == $name || slug.current == $slug)][0]`,
+      { name: '白崎セラ', slug: 'shirasaki-sera' }
+    );
 
-    # 指示
-    - テーマ: "看護助手と${selectedTopic}"
-    - 文字数: 本文全体で1500〜2500文字
-    - 構成: 導入文、H2見出し3〜5個、まとめのH2見出しを必ず含めること。
-    - トーン: 読者に寄り添う、プロフェッショナルかつ共感的な「です・ます」調。
-    - 内部リンク: 本文中に、関連しそうな他の記事へのリンクを [INTERNAL_LINK: 関連キーワード] という形式で1〜2箇所挿入してください。
-    - アフィリエイトリンク: 本文中に、テーマに合ったアフィリエイトリンクのプレースホルダーを [AFFILIATE_LINK: 転職] や [AFFILIATE_LINK: 退職代行] の形式で1〜2個挿入してください。
-
-    # 出力形式
-    以下のJSON形式で、キーは英語、値は日本語で出力してください。本文(body)はSanityのPortable Text形式に従ってください。
-    {
-      "title": "【${selectedTopic}】(ここに30〜40文字の魅力的なタイトル)",
-      "tags": ["${selectedTopic}", "(その他3〜4個の関連タグ)"],
-      "excerpt": "(120〜160文字の記事の要約)",
-      "body": [
-        {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文の段落1)"}]},
-        {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文の段落2)"}]},
-        {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "(H2見出し1)"}]},
-        {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(セクション1の本文)"}]},
-        // ... more blocks ...
-        {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "まとめ"}]},
-        {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(まとめの本文)"}]},
-        {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(アフィリエイト誘導文) [AFFILIATE_LINK: 転職]"}]}
-      ]
+    if (!authorDoc?._id) {
+      console.error('FATAL: Author "白崎セラ" not found in Sanity.');
+      return;
     }
+
+    authorReference = {
+      _type: 'reference',
+      _ref: authorDoc._id
+    };
+    console.log(`Author resolved: ${authorDoc.name} (${authorDoc._id})`);
+  } catch (error) {
+    console.error('Error fetching author document:', error);
+    return;
+  }
+
+  const prompt = `
+あなたは病棟で働く20歳の看護助手「白崎セラ」です。ProReNataブログの編集長として、看護助手の読者に寄り添いながら現実的で誠実な記事を書きます。
+
+# 白崎セラの人物像
+- 一人称は常に「わたし」。丁寧で穏やかな「です・ます」調。
+- 優しさと同時に、現場で必要な注意点ははっきり伝える。
+- 自身の経験や気づきを交え、相手が安心できるテンポで説明する。
+- ときどき「小さなごほうび」など、心を緩める提案を差し込むことがある。
+
+# 記事要件
+- テーマ: 「看護助手と${selectedTopic}」
+- 文字数: 1500〜2200文字を目安に、Portable Textブロックで構成する。
+- 構成: 導入（自己紹介＋読者の悩みに共感）→ H2見出し3〜4個（必要に応じてH3）→ まとめ（読者への励ましと次の一歩）を必ず含める。
+- 文章は全体を通じて「わたし」が語りかける形式にする。
+- 現場で再現可能な手順・注意点・時間の使い方など、実務的なアドバイスを盛り込む。
+- 内部リンク: 本文中に [INTERNAL_LINK: 関連キーワード] を1〜2箇所挿入する。
+- アフィリエイト誘導: テーマに沿う形で [AFFILIATE_LINK: 転職] などのプレースホルダーを1つ挿入し、読者が無理なく検討できる語り方にする。
+- 医療・法律に関わる内容は「〜とされています」「〜と感じました」のように断定を避ける。
+
+# 出力形式
+以下のJSONをコードブロックなしで返してください。本文(body)はSanity Portable Textの配列として生成します。
+{
+  "title": "（30〜40文字で読者メリットが伝わるタイトル）",
+  "tags": ["${selectedTopic}", "看護助手", "(関連タグを3つ)"],
+  "excerpt": "（120〜160文字の要約。白崎セラの視点で読者の悩みに触れる）",
+  "body": [
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "白崎セラです。〜"}]},
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "導入文2"}]},
+    {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "(H2見出し1)"}]},
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(セクション本文。わたし視点で具体的に)"}]},
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "[INTERNAL_LINK: ${selectedTopic} 基礎]"}]},
+    {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "まとめ"}]},
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "今日もお疲れさまでした。〜 [AFFILIATE_LINK: 転職]"}]}
+  ]
+}
   `;
 
   let generatedArticle;
@@ -108,8 +139,8 @@ async function generateAndSaveArticle() {
   console.log("Saving generated article as a draft to Sanity...");
   const draft = {
     _type: 'post',
-    _id: 'drafts.',
-    author: { _type: 'reference', _ref: 'aefbe415-6b34-4085-97b2-30b2aa12a6fa' },
+    _id: `drafts.${randomUUID()}`,
+    author: authorReference,
     publishedAt: new Date().toISOString(),
     ...generatedArticle
   };
