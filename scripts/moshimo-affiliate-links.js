@@ -8,21 +8,6 @@
 
 const MOSHIMO_LINKS = {
   // 就職・転職サービス
-  albatross: {
-    name: 'アルバトロス転職',
-    description: 'LINEのみで完結可能な転職支援サービス',
-    category: '就職・転職',
-    targetArticles: ['転職', '求人', '辞めたい', 'キャリア', 'LINE'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>LINEのみで完結可能なアルバトロス転職はこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '📱 LINEで簡単に転職活動をしたい方へ',
-    linkText: 'LINEのみで完結「アルバトロス転職」はこちら',
-    url: '//af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074',
-    active: true,
-    addedDate: '2025-10-14',
-    reward: '20,000円',
-    condition: 'お問い合わせフォームより申し込み完了後'
-  },
-
   humanlifecare: {
     name: 'ヒューマンライフケア',
     description: '介護・介護職・介護士・ケアマネージャーの求人',
@@ -129,21 +114,6 @@ const MOSHIMO_LINKS = {
     addedDate: '2025-10-14',
     reward: '15,000円',
     condition: 'webからの退職代行サービスの依頼'
-  },
-
-  gaia: {
-    name: '弁護士法人ガイア法律事務所',
-    description: '弁護士による退職代行・相談サービス',
-    category: '退職代行',
-    targetArticles: ['辞めたい', '退職', '辞める', '相談', 'LINE', '弁護士'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5211256&p_id=5546&pc_id=15198&pl_id=71517" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>LINEで相談できる退職代行サービス</a><img src="//i.moshimo.com/af/i/impression?a_id=5211256&p_id=5546&pc_id=15198&pl_id=71517" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '💬 LINEで気軽に相談したい方へ',
-    linkText: 'LINEで相談「弁護士法人ガイア法律事務所」',
-    url: '//af.moshimo.com/af/c/click?a_id=5211256&p_id=5546&pc_id=15198&pl_id=71517',
-    active: true,
-    addedDate: '2025-10-14',
-    reward: '14,000円',
-    condition: 'LINEもしくはメールでの相談問い合わせ完了後'
   }
 }
 
