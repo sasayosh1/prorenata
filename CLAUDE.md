@@ -86,10 +86,12 @@ vercel --previewe
 - **内容**: 全記事の品質チェック（必須フィールド、SEO、文字数など）
 
 **2. 記事自動生成**
-- **実行時刻**: 毎日 深夜3:00 (JST)
+- **実行時刻**: 毎週 水・土・日 深夜3:00 (JST)
+- **実行頻度**: 週3回（月12-13回）
 - **ワークフロー**: `.github/workflows/daily-draft.yml`
-- **生成エンジン**: Gemini API
+- **生成エンジン**: Gemini API (gemini-2.5-flash)
 - **API キー**: GitHub Secrets (`GEMINI_API_KEY`) に設定済み
+- **コスト**: 約¥59/月（変更前: ¥147/月、60%削減）
 
 ### キーワード戦略（黄金比）
 
@@ -125,6 +127,16 @@ vercel --previewe
    - 緊急復旧: `src/sanity/actions/PreviewAction.tsx` を再作成
    - `sanity.config.ts` の PreviewAction 設定を再構築
    - 今後の予防策をCLAUDE.mdに追記（削除・変更の完全禁止）
+
+5. 💰 **記事生成頻度の最適化とコスト削減** (2025-10-25)
+   - 記事自動生成を毎日実行から週3回（水・土・日）に変更
+   - Gemini API使用料を60%削減（¥147/月 → ¥59/月）
+   - 全費用の100%がGemini APIによるものと判明
+   - 夜間スクリプト群の包括的改善を実施：
+     - Gemini APIモデルをgemini-2.5-flashに統一
+     - 記事生成失敗時のGitHub Issue自動作成機能追加
+     - X投稿の重複回避機構実装（30日履歴管理）
+     - excerpt自動更新機能追加（白崎セラ口調で一貫性保持）
 
 ## ⚠️ 重要なルール
 
