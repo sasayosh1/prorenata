@@ -26,6 +26,19 @@ const client = createClient({
   useCdn: false
 })
 
+function normalizeTitle(title) {
+  return (title || '')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase()
+}
+
+function getRecencyScore(post) {
+  const updated = post._updatedAt ? new Date(post._updatedAt).getTime() : 0
+  const created = post._createdAt ? new Date(post._createdAt).getTime() : 0
+  return Math.max(updated, created)
+}
+
 async function getCategoryResources() {
   try {
     const categories = await client.fetch(`*[_type == "category"] { _id, title }`)
@@ -78,6 +91,97 @@ async function ensureUniqueSlug(candidate, excludeId) {
 
     attempt += 1
     slug = sanitiseSlugValue(`${base}-${Date.now().toString().slice(-6)}-${attempt}`)
+  }
+}
+
+async function removeDuplicatePosts(apply = false) {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    "slug": slug.current,
+    _createdAt,
+    _updatedAt
+  }`
+
+  try {
+    const posts = await client.fetch(query)
+    const duplicateGroups = []
+    const deletions = new Map()
+
+    const collectDuplicates = (keyFn, type) => {
+      const map = new Map()
+
+      posts.forEach(post => {
+        const key = keyFn(post)
+        if (!key) return
+        if (!map.has(key)) {
+          map.set(key, [])
+        }
+        map.get(key)?.push(post)
+      })
+
+      map.forEach((group, key) => {
+          if (!group || group.length < 2) return
+          const sorted = group.sort((a, b) => getRecencyScore(b) - getRecencyScore(a))
+          const keeper = sorted[0]
+          const removed = sorted.slice(1)
+
+          removed.forEach(post => {
+            if (!deletions.has(post._id)) {
+              deletions.set(post._id, { post, reason: `${type}:${key}`, keep: keeper })
+            }
+          })
+
+          duplicateGroups.push({
+            type,
+            key,
+            keep: keeper,
+            remove: removed,
+          })
+      })
+    }
+
+    collectDuplicates(post => post.slug?.toLowerCase(), 'slug')
+    collectDuplicates(post => normalizeTitle(post.title), 'title')
+
+    if (duplicateGroups.length === 0) {
+      console.log('\n✅ 重複するタイトル/Slugは見つかりませんでした。\n')
+      return { duplicateGroups, deletions: [] }
+    }
+
+    console.log(`\n⚠️ 重複記事を検出: ${duplicateGroups.length}グループ / 削除候補 ${deletions.size}件\n`)
+
+    duplicateGroups.forEach((group, index) => {
+      console.log(`${index + 1}. 重複タイプ: ${group.type} (${group.key})`)
+      console.log(`   残す記事: ${group.keep.title} (${group.keep._id})`)
+      if (group.remove.length > 0) {
+        group.remove.forEach(post => {
+          console.log(`   削除候補: ${post.title} (${post._id}) 更新: ${post._updatedAt || 'N/A'}`)
+        })
+      }
+      console.log('')
+    })
+
+    if (!apply) {
+      console.log('ℹ️  削除を実行するには --apply オプションを付けて再実行してください。')
+      return { duplicateGroups, deletions: Array.from(deletions.values()) }
+    }
+
+    console.log('\n🗑️  重複記事の削除を実行します...\n')
+    for (const { post, reason, keep } of deletions.values()) {
+      try {
+        await client.delete(post._id)
+        console.log(`✅ Deleted: ${post.title} (${post._id}) [${reason}] -> kept ${keep._id}`)
+      } catch (error) {
+        console.error(`❌ 削除失敗: ${post._id} (${reason}) - ${error.message}`)
+      }
+    }
+
+    console.log('\n🎉 重複記事の処理が完了しました。\n')
+    return { duplicateGroups, deletions: Array.from(deletions.values()) }
+  } catch (error) {
+    console.error('❌ 重複チェック中にエラーが発生しました:', error.message)
+    return { duplicateGroups: [], deletions: [] }
   }
 }
 
@@ -1553,6 +1657,13 @@ if (require.main === module) {
       autoFixMetadata().catch(console.error)
       break
 
+    case 'dedupe':
+      {
+        const apply = args.includes('--apply')
+        removeDuplicatePosts(apply).catch(console.error)
+      }
+      break
+
     default:
       console.log(`
 📝 ProReNata 記事メンテナンスツール
@@ -1591,6 +1702,8 @@ if (require.main === module) {
                       - 各セクションは本文（まとめ文）で締めくくる必要がある
   h2aftersummary      「まとめ」の後にH2セクションがある記事を検出【新ルール】
                       - 「まとめ」は記事の最後のH2セクションである必要がある
+  dedupe [--apply]     タイトル・Slugの重複を検出し、古い記事を削除
+                      - --apply を付けると削除を実行（デフォルトはプレビュー）
   report              総合レポートを生成（全チェックを一括実行）
   autofix             スラッグ・カテゴリ・メタディスクリプションを自動修復
 
