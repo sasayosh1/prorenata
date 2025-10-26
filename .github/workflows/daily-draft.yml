@@ -2,8 +2,8 @@ name: Daily Article Draft Generation
 
 on:
   schedule:
-    # 月・水・金のPM6:00 (UTC) = 日本時間AM3:00に実行
-    - cron: '0 18 * * 1,3,5'
+    # 毎日PM5:00 (UTC) = 日本時間AM2:00に実行
+    - cron: '0 17 * * *'
   workflow_dispatch: # 手動実行も可能にする
 
 jobs:
