@@ -1630,6 +1630,24 @@ if (require.main === module) {
       generateReport().catch(console.error)
       break
 
+    case 'all':
+      (async () => {
+        try {
+          console.log('\n📊 === 総合メンテナンス開始 ===\n')
+          console.log('ステップ1: 総合レポート生成（問題検出）\n')
+          await generateReport()
+          console.log('\n' + '='.repeat(60))
+          console.log('\nステップ2: 自動修復実行\n')
+          await autoFixMetadata()
+          console.log('\n' + '='.repeat(60))
+          console.log('\n✅ === 総合メンテナンス完了 ===\n')
+        } catch (error) {
+          console.error('❌ 総合メンテナンス中にエラーが発生:', error.message)
+          process.exit(1)
+        }
+      })()
+      break
+
     case 'autofix':
       autoFixMetadata().catch(console.error)
       break
@@ -1662,11 +1680,10 @@ if (require.main === module) {
   affiliate           アフィリエイトリンクの適切性をチェック
                       - 連続するリンクの検出
                       - リンク数（推奨: 2-3個）
-                      - ASPアフィリエイト数（最大2個）【新ルール】
                       - 記事内容との関連性
   internallinks       内部リンクの適切性をチェック
                       - 内部リンク数（推奨: 2個以上、最大2-3個）
-                      - 内部リンクとアフィリエイトの近接チェック【新ルール】
+                      - 内部リンクとアフィリエイトの近接チェック
                       - 壊れたリンクの検出
   ymyl                YMYL（Your Money Your Life）対策チェック
                       - 断定表現の検出（「絶対」「必ず」など）
@@ -1675,18 +1692,29 @@ if (require.main === module) {
                       - 医療行為の記述チェック
   toc                 Body内の「もくじ」見出しを検出
                       - body外部に自動生成目次があるため削除推奨
-  sectionendings      箇条書きでセクションを終えている記事を検出【新ルール】
+  sectionendings      箇条書きでセクションを終えている記事を検出
                       - 各セクションは本文（まとめ文）で締めくくる必要がある
-  h2aftersummary      「まとめ」の後にH2セクションがある記事を検出【新ルール】
+  h2aftersummary      「まとめ」の後にH2セクションがある記事を検出
                       - 「まとめ」は記事の最後のH2セクションである必要がある
-  dedupe [--apply]     タイトル・Slugの重複を検出し、古い記事を削除
+  dedupe [--apply]    タイトル・Slugの重複を検出し、古い記事を削除
                       - --apply を付けると削除を実行（デフォルトはプレビュー）
   report              総合レポートを生成（全チェックを一括実行）
   autofix             スラッグ・カテゴリ・メタディスクリプションを自動修復
+                      - Excerpt・Meta Description を白崎セラ口調で再生成
+                      - プレースホルダーリンク変換、壊れたリンク削除など
+  all                 総合メンテナンス（report + autofix を順次実行）★推奨
+                      - 問題を検出し、自動修復可能なものはすべて修正
+                      - GitHub Actions で週3回自動実行
 
 例:
-  # 総合レポート（推奨）
+  # 総合メンテナンス（検出＋自動修正、最推奨）★
+  SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js all
+
+  # 総合レポート（検出のみ）
   SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js report
+
+  # 自動修正のみ
+  SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js autofix
 
   # 個別チェック
   SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js old 3
