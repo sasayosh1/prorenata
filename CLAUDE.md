@@ -183,6 +183,23 @@ vercel --previewe
      - 「今だけでなく、未来の自分も守る」金銭感覚
    - Sanity APIトークンエラー修正（GitHub Secrets更新）
 
+7. 🔐 **セキュリティインフラ完全構築** (2025-10-26)
+   - 5層のセキュリティ保護システム構築完了
+   - **ローカル保護（3層）**:
+     - `.gitignore` 更新: `.env*`, `*.secret`, `*.private` を除外
+     - Git pre-commit フック: 秘密情報検出・コミット阻止（APIキーパターン検出）
+     - direnv 導入: `.env.local` 自動読み込み（プロジェクト入室時）
+     - `~/.env_keys` 作成: 全APIキー一元管理（chmod 600）
+   - **GitHub保護（2層）**:
+     - Secret Scanning 有効化: リポジトリ全体スキャン
+     - Push Protection 有効化: プッシュ時秘密情報検査
+     - GitHub Actions Secrets 登録: OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY
+   - **ビルドワークフロー追加**:
+     - `.github/workflows/build.yml` 作成
+     - Node.js 20 + pnpm 8 でビルド
+     - メモリ上限4GB設定 (--max-old-space-size=4096)
+     - ビルド時に全APIキーを環境変数として注入
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
