@@ -738,7 +738,6 @@ async function checkAffiliateLinks() {
     const issues = {
       consecutiveLinks: [], // 連続リンク
       tooManyLinks: [],      // リンク数が多すぎる（全体4個以上）
-      tooManyASPLinks: [],   // ASPアフィリエイトが2個超過（新規）
       irrelevantLinks: []    // 記事内容と関連性が低い
     }
 
@@ -746,7 +745,6 @@ async function checkAffiliateLinks() {
       if (!post.body || !Array.isArray(post.body)) return
 
       let affiliateCount = 0
-      let aspAffiliateCount = 0 // ASPアフィリエイト（転職・退職代行）のカウント
       let lastWasAffiliate = false
       let consecutiveCount = 0
       const affiliateBlocks = []
@@ -775,22 +773,9 @@ async function checkAffiliateLinks() {
            def.href?.includes('tcs-asp.net'))
         )
 
-        // ASPアフィリエイトの検出（Amazon・楽天以外）
-        const isASPAffiliate = block.markDefs?.some(def =>
-          def._type === 'link' &&
-          def.href &&
-          (def.href.includes('af.moshimo.com') || def.href.includes('tcs-asp.net')) &&
-          !def.href.includes('p_id=54') && // 楽天市場を除外
-          !def.href.includes('p_id=170')   // Amazon（もしも経由）を除外
-        )
-
         if (isAffiliate) {
           affiliateCount++
           affiliateBlocks.push({ index, block })
-
-          if (isASPAffiliate) {
-            aspAffiliateCount++
-          }
 
           if (lastWasAffiliate) {
             consecutiveCount++
@@ -825,14 +810,6 @@ async function checkAffiliateLinks() {
         })
       }
 
-      // ASPアフィリエイトリンク数チェック（2個超過）
-      if (aspAffiliateCount > 2) {
-        issues.tooManyASPLinks.push({
-          ...post,
-          aspAffiliateCount
-        })
-      }
-
       // 記事内容との関連性チェック（簡易版）
       // 「資格」記事に退職代行リンクなど
       const titleLower = post.title.toLowerCase()
@@ -855,7 +832,6 @@ async function checkAffiliateLinks() {
     console.log('\n🔗 アフィリエイトリンクチェック:\n')
     console.log(`  🔴 連続するアフィリエイトリンク: ${issues.consecutiveLinks.length}件`)
     console.log(`  ⚠️  リンク数が多すぎる（4個以上）: ${issues.tooManyLinks.length}件`)
-    console.log(`  🔴 ASPアフィリエイトが2個超過: ${issues.tooManyASPLinks.length}件（新ルール）`)
     console.log(`  ⚠️  記事内容と関連性が低い可能性: ${issues.irrelevantLinks.length}件\n`)
 
     if (issues.consecutiveLinks.length > 0) {
@@ -877,18 +853,6 @@ async function checkAffiliateLinks() {
         console.log(`   リンク数: ${post.affiliateCount}個（推奨: 2-3個）`)
         console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
         console.log(`   URL: /posts/${post.slug}\n`)
-      })
-    }
-
-    if (issues.tooManyASPLinks.length > 0) {
-      console.log('🎯 ASPアフィリエイトリンクが2個を超える記事:\n')
-      issues.tooManyASPLinks.slice(0, 10).forEach((post, i) => {
-        console.log(`${i + 1}. ${post.title}`)
-        console.log(`   ID: ${post._id}`)
-        console.log(`   ASPリンク数: ${post.aspAffiliateCount}個（推奨: 最大2個）`)
-        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
-        console.log(`   URL: /posts/${post.slug}`)
-        console.log(`   注: Amazon・楽天は別カウント\n`)
       })
     }
 
