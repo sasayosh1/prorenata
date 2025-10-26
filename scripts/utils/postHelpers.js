@@ -1,0 +1,290 @@
+/**
+ * Sanity 記事のヘルパー関数
+ * - テキスト抽出
+ * - Excerpt 生成（白崎セラ口調）
+ * - Meta Description 生成（白崎セラ口調、SEO最適化）
+ * - Slug 生成
+ */
+
+/**
+ * Sanity の body ブロックをプレーンテキストに変換
+ * リンクURL、HTMLタグ、マークダウンは除去し、テキストのみを抽出
+ *
+ * @param {Array} blocks - Sanity body ブロック配列
+ * @returns {string} プレーンテキスト
+ */
+function blocksToPlainText(blocks) {
+  if (!blocks || !Array.isArray(blocks)) {
+    return ''
+  }
+
+  return blocks
+    .filter(block => block._type === 'block' && block.children)
+    .map(block => {
+      return block.children
+        .filter(child => child.text)
+        .map(child => child.text)
+        .join('')
+    })
+    .join('\n')
+    .trim()
+}
+
+/**
+ * 白崎セラ口調で excerpt を生成
+ *
+ * 口調の特徴:
+ * - 穏やかで丁寧、柔らかいが芯の通った口調
+ * - 「わたし」一人称
+ * - 「です・ます」調
+ * - 読者に寄り添いつつ、現実的な視点も
+ * - 「〜してみませんか？」「〜かもしれません」など柔らかい表現
+ *
+ * @param {string} plainText - 記事本文のプレーンテキスト
+ * @param {string} title - 記事タイトル
+ * @returns {string} excerpt（100-150文字程度）
+ */
+function generateExcerpt(plainText, title) {
+  if (!plainText || plainText.length < 50) {
+    return `${title}について、わたしの経験も交えながらお話ししていきます。少しでも皆さんのお役に立てれば嬉しいです。`
+  }
+
+  // 本文の最初の200文字を取得
+  const firstPart = plainText.substring(0, 200).trim()
+
+  // 句点で分割して、最初の1-2文を取得
+  const sentences = firstPart.split(/[。！？]/).filter(s => s.trim().length > 0)
+
+  if (sentences.length === 0) {
+    return `${title}について、わたしの経験も交えながらお話ししていきます。少しでも皆さんのお役に立てれば嬉しいです。`
+  }
+
+  // 最初の1-2文を使用（100文字程度に調整）
+  let excerpt = sentences[0]
+  if (excerpt.length < 80 && sentences.length > 1) {
+    excerpt += '。' + sentences[1]
+  }
+
+  // 白崎セラ口調の締めくくりフレーズを追加
+  const closingPhrases = [
+    '。少しでも参考になれば嬉しいです。',
+    '。無理なく続けるためのヒントをお伝えします。',
+    '。わたしの経験も交えながらお話ししますね。',
+    '。一緒に考えていきましょう。',
+    '。皆さんのお役に立てれば幸いです。'
+  ]
+
+  // ランダムに締めくくりフレーズを選択
+  const closingPhrase = closingPhrases[Math.floor(Math.random() * closingPhrases.length)]
+
+  // 150文字以内に調整
+  if ((excerpt + closingPhrase).length > 150) {
+    excerpt = excerpt.substring(0, 120 - closingPhrase.length)
+    // 文の途中で切れないように、最後の句点まで戻る
+    const lastPeriod = excerpt.lastIndexOf('。')
+    if (lastPeriod > 50) {
+      excerpt = excerpt.substring(0, lastPeriod)
+    }
+  }
+
+  return excerpt + closingPhrase
+}
+
+/**
+ * SEO最適化された Meta Description を生成（白崎セラ口調）
+ *
+ * 要件:
+ * - 100-180文字を目安（ユーザビリティやSEO優先）
+ * - キーワードを含む
+ * - 白崎セラ口調を維持
+ * - 読者に寄り添う表現
+ * - excerpt とは別のテキストを生成（excerpt の要約版ではない）
+ *
+ * @param {string} title - 記事タイトル
+ * @param {string} plainText - 記事本文のプレーンテキスト
+ * @param {Array<string>} categories - カテゴリ配列
+ * @returns {string} metaDescription（100-180文字程度）
+ */
+function generateMetaDescription(title, plainText, categories = []) {
+  // カテゴリ文字列を生成
+  const categoryText = categories.length > 0 ? categories[0] : '看護助手'
+
+  // 本文から最初の2-3文を取得（excerpt とは異なる部分を使用）
+  const sentences = plainText
+    .substring(0, 400)
+    .split(/[。！？]/)
+    .filter(s => s.trim().length > 10)
+
+  let baseText = ''
+
+  // タイトルのキーワードを含む文を優先的に選択
+  const titleKeywords = title
+    .replace(/[「」『』【】\(\)（）]/g, '')
+    .split(/[・、\s]/)
+    .filter(w => w.length > 1)
+
+  const relevantSentences = sentences.filter(sentence =>
+    titleKeywords.some(keyword => sentence.includes(keyword))
+  )
+
+  if (relevantSentences.length > 0) {
+    baseText = relevantSentences[0]
+  } else if (sentences.length > 0) {
+    baseText = sentences[0]
+  } else {
+    baseText = title
+  }
+
+  // 白崎セラ口調の導入フレーズ
+  const introPhases = [
+    '看護助手として働く中で',
+    'このブログでは',
+    'わたしの経験から',
+    '現場で働く皆さんに',
+    '日々の業務で'
+  ]
+
+  // SEO最適化された締めくくりフレーズ
+  const seoClosingPhrases = [
+    '。現場目線で詳しくお伝えします。',
+    '。実体験をもとに解説します。',
+    '。わたしの経験も交えてお話しします。',
+    '。具体的な方法をご紹介します。',
+    '。無理なく続けるヒントをお届けします。'
+  ]
+
+  const intro = introPhases[Math.floor(Math.random() * introPhases.length)]
+  const closing = seoClosingPhrases[Math.floor(Math.random() * seoClosingPhrases.length)]
+
+  // Meta Description を組み立て
+  let metaDescription = `${intro}、${baseText.trim()}`
+
+  // 180文字以内に調整（ユーザビリティやSEO優先）
+  const maxLength = 180 - closing.length
+  if (metaDescription.length > maxLength) {
+    metaDescription = metaDescription.substring(0, maxLength)
+    // 文の途中で切れないように調整
+    const lastComma = metaDescription.lastIndexOf('、')
+    const lastPeriod = metaDescription.lastIndexOf('。')
+    const cutPoint = Math.max(lastComma, lastPeriod)
+    if (cutPoint > 60) {
+      metaDescription = metaDescription.substring(0, cutPoint)
+    }
+  }
+
+  metaDescription += closing
+
+  // 100文字未満の場合は補足情報を追加
+  if (metaDescription.length < 100 && sentences.length > 1) {
+    const secondSentence = sentences[1].substring(0, 50)
+    const additionalText = `${secondSentence}など、`
+    const newLength = metaDescription.length - closing.length + additionalText.length + closing.length
+
+    if (newLength <= 180) {
+      metaDescription = metaDescription.replace(closing, additionalText + closing)
+    }
+  }
+
+  return metaDescription
+}
+
+/**
+ * タイトルと本文から最も適切なカテゴリを選択
+ *
+ * @param {string} title - 記事タイトル
+ * @param {string} plainText - 記事本文のプレーンテキスト
+ * @param {Array<Object>} allCategories - 全カテゴリ配列 [{_id, title, description}]
+ * @returns {Object|null} 最も適切なカテゴリオブジェクト
+ */
+function selectBestCategory(title, plainText, allCategories) {
+  if (!allCategories || allCategories.length === 0) {
+    return null
+  }
+
+  const text = (title + ' ' + plainText.substring(0, 500)).toLowerCase()
+
+  // カテゴリごとのキーワードマッピング
+  const categoryKeywords = {
+    '給与・待遇': ['給料', '給与', '年収', '月給', '時給', '賞与', 'ボーナス', '手当', '待遇', '福利厚生'],
+    '退職・転職サポート': ['退職', '辞め', '辞める', '転職', 'キャリアチェンジ', '退職代行'],
+    '就職・転職活動': ['就職', '転職活動', '求人', '面接', '履歴書', '職務経歴書', '志望動機'],
+    'キャリア・資格': ['キャリア', 'キャリア形成', 'キャリアアップ', '資格取得', 'スキルアップ'],
+    '資格取得': ['資格', '認定', '免許', '試験', '受験', '勉強'],
+    '仕事内容・役割': ['仕事内容', '業務内容', '役割', '職務', '1日', 'スケジュール', '担当'],
+    '患者対応': ['患者', '患者さん', 'コミュニケーション', '接遇', '対応'],
+    '悩み・相談': ['悩み', '相談', 'ストレス', '不安', '心配', '精神的', '負担', 'メンタル'],
+    '必要なスキル': ['スキル', '能力', 'コツ', 'テクニック', '上達', '向上'],
+    '効率化テクニック': ['効率', '時短', '工夫', '改善', 'コツ', 'テクニック'],
+    '実務・ノウハウ': ['実務', 'ノウハウ', '現場', '実践', '経験', '実際'],
+    '感染対策': ['感染', '衛生', '清潔', '手洗い', 'マスク', '消毒'],
+    '医療現場の基本': ['医療', '医療現場', '病院', '基本', '基礎', '医療知識'],
+    '看護師への道': ['看護師', '正看護師', '准看護師', '看護学校', '目指す'],
+    '職場別情報': ['病院', 'クリニック', '介護施設', '老人ホーム', '訪問', '職場'],
+    '基礎知識・入門': ['基礎', '入門', '初心者', '未経験', '始め方', 'とは']
+  }
+
+  // 各カテゴリのスコアを計算
+  const scores = allCategories.map(category => {
+    const keywords = categoryKeywords[category.title] || []
+    let score = 0
+
+    // タイトルでのマッチは2倍のスコア
+    keywords.forEach(keyword => {
+      if (title.toLowerCase().includes(keyword)) {
+        score += 2
+      }
+      if (plainText.substring(0, 500).toLowerCase().includes(keyword)) {
+        score += 1
+      }
+    })
+
+    return { category, score }
+  })
+
+  // スコアでソート
+  scores.sort((a, b) => b.score - a.score)
+
+  // スコアが0より大きい最上位カテゴリを返す
+  if (scores[0].score > 0) {
+    return scores[0].category
+  }
+
+  // マッチするものがない場合は「基礎知識・入門」を返す
+  return allCategories.find(cat => cat.title === '基礎知識・入門') || allCategories[0]
+}
+
+/**
+ * タイトルから URL スラッグを生成
+ *
+ * ルール:
+ * - 小文字に変換
+ * - 英数字とハイフンのみ許可
+ * - 連続するハイフンを1つに
+ * - 前後のハイフンを削除
+ *
+ * @param {string} title - 記事タイトル
+ * @returns {string} URL スラッグ
+ */
+function generateSlugFromTitle(title) {
+  if (!title) {
+    return 'nursing-assistant-article'
+  }
+
+  // 日本語を削除し、英数字とハイフンのみ残す
+  return title
+    .toLowerCase()
+    .replace(/\s+/g, '-')           // スペースをハイフンに
+    .replace(/[^a-z0-9-]/g, '-')    // 英数字とハイフン以外をハイフンに
+    .replace(/-+/g, '-')            // 連続するハイフンを1つに
+    .replace(/^-|-$/g, '')          // 前後のハイフンを削除
+    .substring(0, 200)              // 最大200文字
+    || 'nursing-assistant-article'  // 空の場合のデフォルト
+}
+
+module.exports = {
+  blocksToPlainText,
+  generateExcerpt,
+  generateMetaDescription,
+  generateSlugFromTitle,
+  selectBestCategory
+}

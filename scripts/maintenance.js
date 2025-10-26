@@ -16,6 +16,7 @@ const {
   generateExcerpt,
   generateMetaDescription,
   generateSlugFromTitle,
+  selectBestCategory,
 } = require('./utils/postHelpers')
 
 const client = createClient({
@@ -287,13 +288,14 @@ async function findPostsMissingMetadata() {
       }
 
       // Meta Description チェック（SEO）
+      // 100-180文字を目安（ユーザビリティやSEO優先）
       if (!post.metaDescription) {
         issues.noMetaDescription.push(post)
       } else {
         const length = post.metaDescription.length
-        if (length < 120) {
+        if (length < 100) {
           issues.metaDescriptionTooShort.push({ ...post, metaLength: length })
-        } else if (length > 160) {
+        } else if (length > 180) {
           issues.metaDescriptionTooLong.push({ ...post, metaLength: length })
         }
       }
@@ -309,8 +311,8 @@ async function findPostsMissingMetadata() {
 
     console.log('\n【SEO（Meta Description）】')
     console.log(`  🔴 Meta Description なし: ${issues.noMetaDescription.length}件`)
-    console.log(`  ⚠️  Meta Description 短すぎ (<120文字): ${issues.metaDescriptionTooShort.length}件`)
-    console.log(`  ⚠️  Meta Description 長すぎ (>160文字): ${issues.metaDescriptionTooLong.length}件`)
+    console.log(`  ⚠️  Meta Description 短すぎ (<100文字): ${issues.metaDescriptionTooShort.length}件`)
+    console.log(`  ⚠️  Meta Description 長すぎ (>180文字): ${issues.metaDescriptionTooLong.length}件`)
 
     const criticalIssues = new Set([
       ...issues.noSlug.map(p => p._id),
@@ -346,8 +348,8 @@ async function findPostsMissingMetadata() {
       if (!post.metaDescription) { count++; problems.push('MetaDesc') }
       else {
         const length = post.metaDescription.length
-        if (length < 120) { count++; problems.push('MetaDesc短') }
-        else if (length > 160) { count++; problems.push('MetaDesc長') }
+        if (length < 100) { count++; problems.push('MetaDesc短') }
+        else if (length > 180) { count++; problems.push('MetaDesc長') }
       }
 
       if (count > 0) {
@@ -390,8 +392,8 @@ async function autoFixMetadata() {
       !defined(excerpt) ||
       length(excerpt) < 50 ||
       !defined(metaDescription) ||
-      length(metaDescription) < 120 ||
-      length(metaDescription) > 160
+      length(metaDescription) < 100 ||
+      length(metaDescription) > 180
     )] {
       _id,
       title,
@@ -420,8 +422,15 @@ async function autoFixMetadata() {
       .filter(category => category?._id)
       .map(category => ({ _type: 'reference', _ref: category._id }))
 
-    if (categoryRefs.length === 0 && fallback) {
-      categoryRefs = [{ _type: 'reference', _ref: fallback._id }]
+    // カテゴリが空の場合、本文から最適なカテゴリを自動選択
+    if (categoryRefs.length === 0) {
+      const plainText = blocksToPlainText(post.body)
+      const bestCategory = selectBestCategory(post.title, plainText, categories)
+      if (bestCategory) {
+        categoryRefs = [{ _type: 'reference', _ref: bestCategory._id }]
+      } else if (fallback) {
+        categoryRefs = [{ _type: 'reference', _ref: fallback._id }]
+      }
     }
 
     if ((!post.slug || !post.slug.current) && publishedId) {
@@ -455,10 +464,10 @@ async function autoFixMetadata() {
       })
       .filter(Boolean)
 
-    const metaSource = updates.excerpt || post.excerpt || generateExcerpt(plainText, post.title)
-
-    if (!post.metaDescription || post.metaDescription.length < 120 || post.metaDescription.length > 160) {
-      const metaDescription = generateMetaDescription(post.title, metaSource, categoriesForMeta)
+    // Meta Description は plainText から直接生成（excerpt とは別）
+    // 100-180文字を目安（ユーザビリティやSEO優先）
+    if (!post.metaDescription || post.metaDescription.length < 100 || post.metaDescription.length > 180) {
+      const metaDescription = generateMetaDescription(post.title, plainText, categoriesForMeta)
       updates.metaDescription = metaDescription
     }
 
@@ -485,13 +494,17 @@ async function autoFixMetadata() {
       console.log(`   スラッグ: ${updates.slug.current}`)
     }
     if (updates.categories) {
-      console.log('   カテゴリを自動設定しました')
+      const selectedCategories = updates.categories
+        .map(ref => categories.find(c => c._id === ref._ref)?.title)
+        .filter(Boolean)
+        .join(', ')
+      console.log(`   カテゴリを自動設定: ${selectedCategories}`)
     }
     if (updates.excerpt) {
       console.log('   Excerpt を再生成しました')
     }
     if (updates.metaDescription) {
-      console.log('   Meta Description を再生成しました')
+      console.log(`   Meta Description を再生成しました (${updates.metaDescription.length}文字)`)
     }
     console.log()
   }
@@ -1676,7 +1689,7 @@ if (require.main === module) {
   metadata            必須フィールド・メタデータ不足を包括的にチェック
                       - Slug、Categories、Tags
                       - Excerpt（50文字以上推奨）
-                      - Meta Description（120-160文字推奨）
+                      - Meta Description（100-180文字推奨、SEO・ユーザビリティ優先）
   images              画像なしの記事を検出
   short [文字数]      文字数不足の記事を検出（デフォルト: 2000文字）
                       ※ユーザビリティ優先、内容の質を重視
