@@ -226,6 +226,17 @@ vercel --previewe
      - ローカルテスト: drafts.9d8dddf8-d2b7-480c-92b6-4c1725837885
      - GitHub Actions: drafts.73924fd4-b938-4911-aadf-9549d306ef08
 
+10. 🔑 **ローカル環境の Sanity トークン設定** (2025-10-26)
+   - **問題**: ローカルスクリプトで Sanity API 401/403 エラーが発生
+     - セキュリティインフラ構築時に `~/.env_keys` に Sanity トークンが未登録
+     - `scripts/maintenance.js` など編集系スクリプトが実行不可
+   - **対応**:
+     - `~/.env_keys` に SANITY_WRITE_TOKEN と SANITY_API_TOKEN を追加
+     - `.env.template` に Sanity トークン項目を追加
+     - `scripts/test-sanity-write.js` 追加（書き込み権限テスト用）
+     - Pre-commit フック修正：`.env.template` を除外リストに追加
+   - **結果**: ローカル環境で Sanity API への書き込み権限が正常に動作
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
