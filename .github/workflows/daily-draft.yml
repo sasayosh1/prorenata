@@ -28,7 +28,6 @@ jobs:
         env:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        continue-on-error: true
 
       - name: Create issue if generation failed
         if: failure()
