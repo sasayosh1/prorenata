@@ -237,6 +237,22 @@ vercel --previewe
      - Pre-commit フック修正：`.env.template` を除外リストに追加
    - **結果**: ローカル環境で Sanity API への書き込み権限が正常に動作
 
+11. ✨ **メンテナンススクリプトの白崎セラ口調対応** (2025-10-26)
+   - **追加ファイル**: `scripts/utils/postHelpers.js` 作成
+     - `blocksToPlainText`: body ブロックをプレーンテキストに変換（リンクURLは除去）
+     - `generateExcerpt`: 白崎セラ口調で excerpt を生成（100-150文字）
+     - `generateMetaDescription`: 白崎セラ口調で metaDescription を生成（100-180文字、excerpt とは別）
+     - `generateSlugFromTitle`: タイトルから URL スラッグを生成
+     - `selectBestCategory`: タイトル・本文から最適なカテゴリを自動選択
+   - **変更内容**:
+     - excerpt と metaDescription を明確に区別（metaDescription は excerpt の要約版ではない）
+     - カテゴリが空の場合、既存17種類のカテゴリから最適なものを自動選択
+     - Meta Description 長さ基準を緩和（120-160文字 → 100-180文字、ユーザビリティやSEO優先）
+   - **白崎セラ口調の実装**:
+     - 導入フレーズ: 「看護助手として働く中で」「わたしの経験から」など
+     - 締めフレーズ: 「現場目線で詳しくお伝えします」「無理なく続けるヒントをお届けします」など
+     - 穏やかで丁寧、柔らかいが芯の通った口調を維持
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
