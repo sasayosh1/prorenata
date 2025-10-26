@@ -48,7 +48,20 @@ async function generateAndSaveArticle() {
     return;
   }
 
-  // 3. Generate content with Gemini
+  // 3. Fetch categories
+  console.log("Fetching categories...");
+  let categories;
+  let categoryNames;
+  try {
+    categories = await sanityClient.fetch(`*[_type == "category"] | order(title asc) { _id, title, description }`);
+    categoryNames = categories.map(cat => cat.title).join('、');
+    console.log(`Categories loaded: ${categories.length}種類`);
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return;
+  }
+
+  // 4. Generate content with Gemini
   console.log("Generating article content with Gemini AI...");
   console.log("Fetching 白崎セラ author document...");
   let authorReference;
@@ -91,11 +104,14 @@ async function generateAndSaveArticle() {
 - 内部リンク: 本文中に [INTERNAL_LINK: 関連キーワード] を1〜2箇所挿入する。
 - アフィリエイト誘導: テーマに沿う形で [AFFILIATE_LINK: 転職] などのプレースホルダーを1つ挿入し、読者が無理なく検討できる語り方にする。
 - 医療・法律に関わる内容は「〜とされています」「〜と感じました」のように断定を避ける。
+- カテゴリ選択: 以下のカテゴリから記事内容に最も適したものを1つ選択してください。
+  利用可能なカテゴリ: ${categoryNames}
 
 # 出力形式
 以下のJSONをコードブロックなしで返してください。本文(body)はSanity Portable Textの配列として生成します。
 {
   "title": "（30〜40文字で読者メリットが伝わるタイトル）",
+  "category": "（上記のカテゴリリストから1つ選択。完全一致で記載）",
   "tags": ["${selectedTopic}", "看護助手", "(関連タグを3つ)"],
   "excerpt": "（120〜160文字の要約。白崎セラの視点で読者の悩みに触れる）",
   "body": [
@@ -135,20 +151,50 @@ async function generateAndSaveArticle() {
     return;
   }
 
-  // 4. Save draft to Sanity
+  // 5. Convert category name to reference
+  let categoryReference;
+  if (generatedArticle.category) {
+    const matchedCategory = categories.find(cat => cat.title === generatedArticle.category);
+    if (matchedCategory) {
+      categoryReference = [{
+        _type: 'reference',
+        _ref: matchedCategory._id
+      }];
+      console.log(`Category matched: ${generatedArticle.category}`);
+    } else {
+      console.warn(`Warning: Category "${generatedArticle.category}" not found. Using fallback.`);
+      // フォールバック: 「基礎知識・入門」を使用
+      const fallback = categories.find(cat => cat.title === '基礎知識・入門');
+      if (fallback) {
+        categoryReference = [{
+          _type: 'reference',
+          _ref: fallback._id
+        }];
+        console.log(`Using fallback category: 基礎知識・入門`);
+      }
+    }
+  }
+
+  // 6. Save draft to Sanity
   console.log("Saving generated article as a draft to Sanity...");
+  const { category, ...articleWithoutCategory } = generatedArticle;
   const draft = {
     _type: 'post',
     _id: `drafts.${randomUUID()}`,
     author: authorReference,
     publishedAt: new Date().toISOString(),
-    ...generatedArticle
+    categories: categoryReference,
+    ...articleWithoutCategory
   };
 
   try {
     const createdDraft = await sanityClient.create(draft);
     console.log("\n--- Process Complete ---");
     console.log(`Successfully created new draft in Sanity with ID: ${createdDraft._id}`);
+    if (categoryReference) {
+      const catTitle = categories.find(c => c._id === categoryReference[0]._ref)?.title;
+      console.log(`Category: ${catTitle}`);
+    }
   } catch (error) {
     console.error("Error saving draft to Sanity:", error);
   }
