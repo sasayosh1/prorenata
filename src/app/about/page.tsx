@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -30,6 +31,53 @@ export default function AboutPage() {
             
             <div className="prose max-w-none pt-8 pb-8 text-gray-900">
               <div className="space-y-8">
+                {/* 白崎セラのプロフィールカード */}
+                <section className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 shadow-md">
+                  <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                    {/* プロフィール画像 */}
+                    <div className="flex-shrink-0">
+                      <div className="relative w-48 h-48 rounded-full overflow-hidden ring-4 ring-white shadow-xl">
+                        <Image
+                          src="/images/shirasaki-sera.jpg"
+                          alt="白崎セラ"
+                          fill
+                          className="object-cover"
+                          priority
+                        />
+                      </div>
+                    </div>
+
+                    {/* プロフィール情報 */}
+                    <div className="flex-1 text-center md:text-left">
+                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                        白崎セラ
+                      </h2>
+                      <p className="text-cyan-700 font-semibold mb-4">
+                        ProReNata 運営者 / 看護助手
+                      </p>
+                      <div className="space-y-3 text-gray-700">
+                        <div className="flex items-center justify-center md:justify-start gap-2">
+                          <span className="text-cyan-600">👤</span>
+                          <span>20歳</span>
+                        </div>
+                        <div className="flex items-center justify-center md:justify-start gap-2">
+                          <span className="text-cyan-600">🏥</span>
+                          <span>病棟で看護助手として勤務</span>
+                        </div>
+                        <div className="flex items-center justify-center md:justify-start gap-2">
+                          <span className="text-cyan-600">✍️</span>
+                          <span>看護助手の皆さんに寄り添う記事を執筆</span>
+                        </div>
+                      </div>
+                      <div className="mt-6 p-4 bg-white rounded-lg shadow-sm">
+                        <p className="text-sm text-gray-600 italic">
+                          「必要なときに、必要な言葉を届けたい。わたしが現場で感じたこと、調べて確かめたことを、落ち着いて伝えていきます。」
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
                 <section>
                   <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
                     初めまして、白崎セラです

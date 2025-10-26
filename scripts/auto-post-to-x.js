@@ -9,24 +9,39 @@ const fs = require('fs')
 const { createClient } = require('@sanity/client')
 const { GoogleGenerativeAI } = require('@google/generative-ai')
 
+const SANITY_TOKEN = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN || ''
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY
+
+if (!GEMINI_API_KEY) {
+  console.error('❌ GEMINI_API_KEY が設定されていません')
+  process.exit(1)
+}
+
+const SANITY_TOKEN_SOURCE = SANITY_TOKEN
+  ? (process.env.SANITY_WRITE_TOKEN ? 'SANITY_WRITE_TOKEN' : 'SANITY_API_TOKEN')
+  : 'anonymous (token not provided)'
+console.log(`🔐 Sanity token source: ${SANITY_TOKEN_SOURCE}`)
+
 const SANITY_CONFIG = {
   projectId: '72m8vhy2',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  token: process.env.SANITY_API_TOKEN,
-  useCdn: false,
 }
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-
-if (!SANITY_CONFIG.token || !GEMINI_API_KEY) {
-  console.error('❌ 必須環境変数が不足しています:')
-  console.error('  - SANITY_API_TOKEN:', !!SANITY_CONFIG.token)
-  console.error('  - GEMINI_API_KEY:', !!GEMINI_API_KEY)
-  process.exit(1)
-}
-
-const sanityClient = createClient(SANITY_CONFIG)
+let currentSanityToken = SANITY_TOKEN || null
+let sanityClient = createSanityClient(currentSanityToken)
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
+const geminiModel = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
+const POSTS_QUERY = `*[_type == "post" && !(_id in path("drafts.**"))] | order(_updatedAt desc) {
+  _id,
+  title,
+  slug,
+  excerpt,
+  body,
+  publishedAt,
+  _createdAt,
+  "categories": categories[]->title
+}`
 
 // 投稿履歴を読み込む
 function loadTweetHistory() {
@@ -53,34 +68,77 @@ function getRecentlyTweetedIds() {
     .map(record => record.postId)
 }
 
+async function fetchPublishedPostsWithRetry(maxAttempts = 3) {
+  let lastError
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      console.log(`   ↳ Sanity fetch attempt ${attempt}/${maxAttempts}`)
+      const posts = await sanityClient.fetch(POSTS_QUERY)
+      return Array.isArray(posts) ? posts : []
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error))
+      const status =
+        error?.statusCode ||
+        error?.response?.statusCode ||
+        error?.response?.status ||
+        error?.status
+      const detailMessage =
+        error?.response?.body?.message ||
+        error?.response?.body?.error ||
+        error?.message ||
+        'unknown error'
+
+      if (status === 401) {
+        if (currentSanityToken) {
+          console.warn('⚠️ Sanityトークンが無効または期限切れのため、匿名クライアントに切り替えます（公開データのみ取得）。')
+          currentSanityToken = null
+          sanityClient = createSanityClient(null)
+          continue
+        }
+
+        throw new Error('Sanity APIが401を返しました。データセットが非公開の場合は有効なトークンを設定してください。')
+      }
+
+      if (attempt === maxAttempts) {
+        break
+      }
+
+      const waitMs = attempt * 2000
+      console.warn(`⚠️ Sanity記事取得に失敗しました (${detailMessage}). ${waitMs / 1000}s後にリトライします...`)
+      await sleep(waitMs)
+    }
+  }
+
+  throw new Error(`Sanity記事取得に連続で失敗しました: ${lastError?.message || 'unknown error'}`)
+}
+
 async function getRandomArticle() {
   console.log('📚 公開済み記事を取得中...')
 
-  const query = `*[_type == "post" && !(_id in path("drafts.**"))] | order(_updatedAt desc) {
-    _id,
-    title,
-    slug,
-    excerpt,
-    body,
-    publishedAt,
-    _createdAt,
-    "categories": categories[]->title
-  }`
-
-  const allPosts = await sanityClient.fetch(query)
+  const allPosts = await fetchPublishedPostsWithRetry()
 
   if (!allPosts || allPosts.length === 0) {
     throw new Error('公開済み記事が見つかりません')
   }
 
+  const validPosts = allPosts.filter(post => post?.slug?.current)
+  if (validPosts.length === 0) {
+    throw new Error('slugが設定された公開記事が存在しません')
+  }
+
+  if (validPosts.length !== allPosts.length) {
+    console.warn(`⚠️ slug未設定の記事を ${allPosts.length - validPosts.length}件スキップしました`)
+  }
+
   // 過去30日分の投稿済み記事を除外
   const recentlyTweetedIds = getRecentlyTweetedIds()
-  const availablePosts = allPosts.filter(post => !recentlyTweetedIds.includes(post._id))
+  const availablePosts = validPosts.filter(post => !recentlyTweetedIds.includes(post._id))
 
-  console.log(`📊 総記事数: ${allPosts.length}, 除外: ${recentlyTweetedIds.length}, 利用可能: ${availablePosts.length}`)
+  console.log(`📊 総記事数: ${validPosts.length}, 除外: ${recentlyTweetedIds.length}, 利用可能: ${availablePosts.length}`)
 
   // 利用可能な記事がない場合は全記事から選択
-  const posts = availablePosts.length > 0 ? availablePosts : allPosts
+  const posts = availablePosts.length > 0 ? availablePosts : validPosts
   if (availablePosts.length === 0) {
     console.warn('⚠️ 過去30日分の除外後、利用可能な記事がないため全記事から選択します')
   }
@@ -92,11 +150,8 @@ async function getRandomArticle() {
   return selectedPost
 }
 
-async function generateSummary(post) {
+async function generateSummary(post, maxAttempts = 3) {
   console.log('🤖 Gemini APIで要約を生成中...')
-
-  const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
 
   const bodyText = (post.body || [])
     .filter((block) => block._type === 'block' && block.children)
@@ -131,15 +186,37 @@ ${bodyText}
 白崎セラとしての投稿文のみを出力してください。
 `
 
-  const result = await model.generateContent(prompt)
-  const response = await result.response
-  let summary = response.text().trim().replace(/\s+/g, ' ')
-  summary = finalizeSummary(summary)
+  let lastError
 
-  console.log(`✅ 要約生成完了（${summary.length}文字）`)
-  console.log(`📝 要約:\n${summary}`)
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const result = await geminiModel.generateContent(prompt)
+      const response = await result.response
 
-  return summary
+      if (!response || typeof response.text !== 'function') {
+        throw new Error('Gemini APIのレスポンス形式が想定外でした')
+      }
+
+      let summary = response.text().trim().replace(/\s+/g, ' ')
+      summary = finalizeSummary(summary)
+
+      console.log(`✅ 要約生成完了（${summary.length}文字）`)
+      console.log(`📝 要約:\n${summary}`)
+
+      return summary
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error))
+      if (attempt === maxAttempts) {
+        break
+      }
+
+      const waitMs = attempt * 2000
+      console.warn(`⚠️ Gemini APIでエラーが発生しました (${lastError.message})。${waitMs / 1000}s後に再試行します...`)
+      await sleep(waitMs)
+    }
+  }
+
+  throw new Error(`Gemini APIによる要約生成に失敗しました: ${lastError?.message || 'unknown error'}`)
 }
 
 async function saveSummary(post, summary) {
@@ -207,6 +284,10 @@ async function main() {
 
 main()
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 function finalizeSummary(text) {
   const MAX_LENGTH = 140
   let result = text
@@ -234,4 +315,14 @@ function finalizeSummary(text) {
   }
 
   return result
+}
+function createSanityClient(token) {
+  const client = createClient({
+    ...SANITY_CONFIG,
+    token: token || undefined,
+    useCdn: token ? false : true,
+  })
+  const label = token ? (process.env.SANITY_WRITE_TOKEN ? 'SANITY_WRITE_TOKEN' : 'SANITY_API_TOKEN') : 'anonymous (no token)'
+  console.log(`📡 Sanity client initialized with ${label}`)
+  return client
 }
