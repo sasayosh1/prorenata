@@ -213,6 +213,19 @@ vercel --previewe
    - **X自動投稿**: 毎日 PM8:30-PM9:30の間でランダム投稿（スパム対策、変更なし）
    - 目的: 記事生成後すぐにメンテナンスチェックを実行し、効率化
 
+9. 🔧 **記事自動生成の認証エラー修正** (2025-10-26)
+   - **問題**: ワークフローは成功表示だが実際には記事が生成されていなかった
+   - **原因**: SANITY_WRITE_TOKEN が期限切れ（401 Unauthorized エラー）
+     - ワークフローの `continue-on-error: true` により失敗が隠蔽されていた
+   - **対応**:
+     - 新しい Sanity API トークンを発行
+     - GitHub Secrets の SANITY_WRITE_TOKEN を更新
+     - `.env.local` にも SANITY_WRITE_TOKEN を追加
+     - ローカル・GitHub Actions 両方でテスト成功確認
+   - **結果**: 記事自動生成が正常に動作開始
+     - ローカルテスト: drafts.9d8dddf8-d2b7-480c-92b6-4c1725837885
+     - GitHub Actions: drafts.73924fd4-b938-4911-aadf-9549d306ef08
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
