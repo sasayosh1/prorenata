@@ -227,6 +227,14 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
     )
   }
 
+  if (isDisclaimerBlock(value)) {
+    return (
+      <p className="mb-6 rounded-md border border-yellow-200 bg-yellow-50 px-4 py-3 text-sm leading-relaxed text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+        {children}
+      </p>
+    )
+  }
+
   return (
     <p className="mb-6 leading-relaxed text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
       {children}
@@ -238,6 +246,12 @@ function isReferenceBlock(value?: PortableTextBlock) {
   if (!value || !Array.isArray(value.children)) return false
   const firstChildText = value.children[0]?.text?.trim()
   return firstChildText?.startsWith('参考')
+}
+
+function isDisclaimerBlock(value?: PortableTextBlock) {
+  if (!value || !Array.isArray(value.children)) return false
+  const firstChildText = value.children[0]?.text?.trim()
+  return firstChildText?.startsWith('免責事項')
 }
 
 function extractReferenceInfo(value?: PortableTextBlock) {
