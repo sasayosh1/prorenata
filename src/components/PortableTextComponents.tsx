@@ -205,12 +205,55 @@ function CustomLink({
 }
 
 // カスタム段落コンポーネント（リンクが含まれる可能性があるため）
-function CustomParagraph(props: PortableTextComponentProps<PortableTextBlock>) {
+function CustomParagraph({ children, value }: PortableTextComponentProps<PortableTextBlock>) {
+  if (isReferenceBlock(value)) {
+    const reference = extractReferenceInfo(value)
+    return (
+      <p className="mb-6 leading-relaxed text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+        <span>参考: </span>
+        {reference.url ? (
+          <a
+            href={reference.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 underline"
+          >
+            {reference.label}
+          </a>
+        ) : (
+          <span>{reference.label}</span>
+        )}
+      </p>
+    )
+  }
+
   return (
-    <p className="mb-6 leading-relaxed text-gray-900 [&]:!text-gray-900" style={{color: '#111827 !important'}}>
-      {props.children}
+    <p className="mb-6 leading-relaxed text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+      {children}
     </p>
   )
+}
+
+function isReferenceBlock(value?: PortableTextBlock) {
+  if (!value || !Array.isArray(value.children)) return false
+  const firstChildText = value.children[0]?.text?.trim()
+  return firstChildText?.startsWith('参考')
+}
+
+function extractReferenceInfo(value?: PortableTextBlock) {
+  if (!value) return { label: '', url: '' }
+
+  const linkSpan = value.children?.find(
+    (child) => Array.isArray((child as { marks?: string[] }).marks) && (child as { marks?: string[] }).marks?.length
+  ) as { text?: string; marks?: string[] } | undefined
+
+  const markKey = linkSpan?.marks?.[0]
+  const markDef = value.markDefs?.find((mark) => mark._key === markKey) as { href?: string } | undefined
+
+  return {
+    label: linkSpan?.text || '',
+    url: markDef?.href || '',
+  }
 }
 
 // カスタム見出しコンポーネント
