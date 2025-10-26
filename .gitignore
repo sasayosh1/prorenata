@@ -50,3 +50,10 @@ list_recent_articles.py
 # X投稿履歴（ローカル管理）
 posts_tweeted.json
 x-summary.json
+
+# secrets
+.env
+.env.*
+!.env.template
+*.secret
+*.private
