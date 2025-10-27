@@ -4,7 +4,86 @@
  * - Excerpt 生成（白崎セラ口調）
  * - Meta Description 生成（白崎セラ口調、SEO最適化）
  * - Slug 生成
+ * - 不要な挨拶文削除
  */
+
+/**
+ * 記事冒頭の不要な挨拶文を削除
+ *
+ * 削除対象パターン：
+ * - 「こんにちは」「はじめまして」などの挨拶
+ * - 「ProReNataブログ編集長の白崎セラです」などの自己紹介
+ * - 「病棟で看護助手として働き始めて」などの背景説明
+ *
+ * @param {Array} blocks - Sanity body ブロック配列
+ * @returns {Array} 挨拶文を削除したブロック配列
+ */
+function removeGreetings(blocks) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  // 削除対象パターン（正規表現）
+  const greetingPatterns = [
+    /^(皆さん、)?こんにちは[！!、,]?\s*/,
+    /^はじめまして[。、,]?\s*/,
+    /ProReNataブログ(編集長の)?白崎セラです[。、,]?\s*/g,
+    /白崎セラです[。、,]?\s*/g,
+    /ProReNataブログへようこそ[！!。、,]?\s*/g,
+    /病棟で看護助手として働き(始めて|ながら)[^。]*?[。、,]\s*/g,
+    /もうすぐ\d+年になります[。、,]?\s*/g,
+    /皆さんの毎日の[「"]お疲れさま[」"]を応援しています[。、,]?\s*/g,
+  ]
+
+  const result = []
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+
+    // block タイプでない場合はそのまま保持
+    if (block._type !== 'block' || !block.children || !Array.isArray(block.children)) {
+      result.push(block)
+      continue
+    }
+
+    // テキストを結合
+    let text = block.children
+      .filter(child => child.text)
+      .map(child => child.text)
+      .join('')
+
+    // 挨拶パターンを削除
+    let originalText = text
+    for (const pattern of greetingPatterns) {
+      text = text.replace(pattern, '')
+    }
+
+    // テキストが変更されなかった、または完全に空になった場合
+    if (text === originalText) {
+      // 変更なし - そのまま保持
+      result.push(block)
+    } else if (text.trim().length === 0) {
+      // 完全に空になった - このブロックをスキップ（削除）
+      continue
+    } else {
+      // テキストが変更された - 新しいブロックを作成
+      const newBlock = {
+        ...block,
+        children: [
+          {
+            _type: 'span',
+            _key: block.children[0]?._key || `span-${Date.now()}`,
+            text: text.trim(),
+            marks: []
+          }
+        ]
+      }
+      result.push(newBlock)
+    }
+  }
+
+  return result
+}
 
 /**
  * Sanity の body ブロックをプレーンテキストに変換
@@ -286,5 +365,6 @@ module.exports = {
   generateExcerpt,
   generateMetaDescription,
   generateSlugFromTitle,
-  selectBestCategory
+  selectBestCategory,
+  removeGreetings
 }

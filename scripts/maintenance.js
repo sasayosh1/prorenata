@@ -17,6 +17,7 @@ const {
   generateMetaDescription,
   generateSlugFromTitle,
   selectBestCategory,
+  removeGreetings,
 } = require('./utils/postHelpers')
 
 const client = createClient({
@@ -508,6 +509,14 @@ async function autoFixMetadata() {
       }
     }
 
+    // 記事冒頭の不要な挨拶文を削除
+    if (post.body && Array.isArray(post.body)) {
+      const cleanedBody = removeGreetings(post.body)
+      if (JSON.stringify(cleanedBody) !== JSON.stringify(post.body)) {
+        updates.body = cleanedBody
+      }
+    }
+
     if ((!post.slug || !post.slug.current) && publishedId) {
       const slugCandidate = generateSlugFromTitle(post.title)
       // eslint-disable-next-line no-await-in-loop
@@ -567,6 +576,9 @@ async function autoFixMetadata() {
     console.log(`✅ ${post.title}`)
     if (updates.slug) {
       console.log(`   スラッグ: ${updates.slug.current}`)
+    }
+    if (updates.body) {
+      console.log('   記事冒頭の挨拶文を削除しました')
     }
     if (updates.categories) {
       const selectedCategories = updates.categories
