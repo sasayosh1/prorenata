@@ -48,7 +48,7 @@ function removeGreetings(blocks) {
 
     // テキストを結合
     let text = block.children
-      .filter(child => child.text)
+      .filter(child => child && child.text)
       .map(child => child.text)
       .join('')
 
@@ -98,10 +98,10 @@ function blocksToPlainText(blocks) {
   }
 
   return blocks
-    .filter(block => block._type === 'block' && block.children)
+    .filter(block => block && block._type === 'block' && block.children && Array.isArray(block.children))
     .map(block => {
       return block.children
-        .filter(child => child.text)
+        .filter(child => child && child.text)
         .map(child => child.text)
         .join('')
     })

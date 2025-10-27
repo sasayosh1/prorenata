@@ -538,7 +538,7 @@ async function autoFixMetadata() {
       updates.excerpt = excerpt
     }
 
-    const categoriesForMeta = (updates.categories || categoryRefs || currentCategories)
+    const categoriesForMeta = (updates.categories || categoryRefs || currentCategories || [])
       .map(ref => {
         if (ref?._ref) {
           const match = categories.find(category => category._id === ref._ref)
@@ -1635,7 +1635,9 @@ async function generateReport() {
   if (affiliateIssues) {
     console.log(`  🔴 連続するアフィリエイトリンク: ${affiliateIssues.consecutiveLinks.length}件`)
     console.log(`  ⚠️  リンク数が多すぎる: ${affiliateIssues.tooManyLinks.length}件`)
-    console.log(`  🔴 ASPアフィリエイトが2個超過: ${affiliateIssues.tooManyASPLinks.length}件（新ルール）`)
+    if (affiliateIssues.tooManyASPLinks) {
+      console.log(`  🔴 ASPアフィリエイトが2個超過: ${affiliateIssues.tooManyASPLinks.length}件（新ルール）`)
+    }
     console.log(`  ⚠️  記事内容と関連性が低い可能性: ${affiliateIssues.irrelevantLinks.length}件`)
   }
 
@@ -1733,6 +1735,8 @@ if (require.main === module) {
           console.log('\n✅ === 総合メンテナンス完了 ===\n')
         } catch (error) {
           console.error('❌ 総合メンテナンス中にエラーが発生:', error.message)
+          console.error('スタックトレース:')
+          console.error(error.stack)
           process.exit(1)
         }
       })()
