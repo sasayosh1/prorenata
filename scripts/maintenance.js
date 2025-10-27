@@ -18,6 +18,7 @@ const {
   generateSlugFromTitle,
   selectBestCategory,
   removeGreetings,
+  removePlaceholderLinks,
 } = require('./utils/postHelpers')
 
 const client = createClient({
@@ -510,10 +511,22 @@ async function autoFixMetadata() {
     }
 
     // 記事冒頭の不要な挨拶文を削除
+    let greetingsRemoved = false
     if (post.body && Array.isArray(post.body)) {
       const cleanedBody = removeGreetings(post.body)
       if (JSON.stringify(cleanedBody) !== JSON.stringify(post.body)) {
         updates.body = cleanedBody
+        greetingsRemoved = true
+      }
+    }
+
+    // プレースホルダーリンクを削除
+    let placeholdersRemoved = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithoutPlaceholders = removePlaceholderLinks(updates.body || post.body)
+      if (JSON.stringify(bodyWithoutPlaceholders) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithoutPlaceholders
+        placeholdersRemoved = true
       }
     }
 
@@ -577,8 +590,11 @@ async function autoFixMetadata() {
     if (updates.slug) {
       console.log(`   スラッグ: ${updates.slug.current}`)
     }
-    if (updates.body) {
+    if (greetingsRemoved) {
       console.log('   記事冒頭の挨拶文を削除しました')
+    }
+    if (placeholdersRemoved) {
+      console.log('   プレースホルダーリンク ([INTERNAL_LINK], [AFFILIATE_LINK]) を削除しました')
     }
     if (updates.categories) {
       const selectedCategories = updates.categories

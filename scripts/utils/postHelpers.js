@@ -360,11 +360,83 @@ function generateSlugFromTitle(title) {
     || 'nursing-assistant-article'  // 空の場合のデフォルト
 }
 
+/**
+ * プレースホルダーリンクを削除
+ *
+ * 削除対象パターン：
+ * - [INTERNAL_LINK: キーワード]
+ * - [AFFILIATE_LINK: キーワード]
+ *
+ * @param {Array} blocks - Sanity body ブロック配列
+ * @returns {Array} プレースホルダーを削除したブロック配列
+ */
+function removePlaceholderLinks(blocks) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  // 削除対象パターン（正規表現）
+  const placeholderPatterns = [
+    /\[INTERNAL_LINK:[^\]]+\]/g,
+    /\[AFFILIATE_LINK:[^\]]+\]/g,
+  ]
+
+  const result = []
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+
+    // block タイプでない場合はそのまま保持
+    if (block._type !== 'block' || !block.children || !Array.isArray(block.children)) {
+      result.push(block)
+      continue
+    }
+
+    // テキストを結合
+    let text = block.children
+      .filter(child => child && child.text)
+      .map(child => child.text)
+      .join('')
+
+    // プレースホルダーパターンを削除
+    let originalText = text
+    for (const pattern of placeholderPatterns) {
+      text = text.replace(pattern, '')
+    }
+
+    // テキストが変更されなかった、または完全に空になった場合
+    if (text === originalText) {
+      // 変更なし - そのまま保持
+      result.push(block)
+    } else if (text.trim().length === 0) {
+      // 完全に空になった - このブロックをスキップ（削除）
+      continue
+    } else {
+      // テキストが変更された - 新しいブロックを作成
+      const newBlock = {
+        ...block,
+        children: [
+          {
+            _type: 'span',
+            _key: block.children[0]?._key || `span-${Date.now()}`,
+            text: text.trim(),
+            marks: []
+          }
+        ]
+      }
+      result.push(newBlock)
+    }
+  }
+
+  return result
+}
+
 module.exports = {
   blocksToPlainText,
   generateExcerpt,
   generateMetaDescription,
   generateSlugFromTitle,
   selectBestCategory,
-  removeGreetings
+  removeGreetings,
+  removePlaceholderLinks
 }

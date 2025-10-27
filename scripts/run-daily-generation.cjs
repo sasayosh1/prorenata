@@ -209,8 +209,6 @@ async function generateAndSaveArticle() {
 - 構成: 導入（自己紹介＋読者の悩みに共感）→ H2見出し3〜4個（必要に応じてH3）→ まとめ（読者への励ましと次の一歩）を必ず含める。
 - 文章は全体を通じて「わたし」が語りかける形式にする。
 - 現場で再現可能な手順・注意点・時間の使い方など、実務的なアドバイスを盛り込む。
-- 内部リンク: 本文中に [INTERNAL_LINK: 関連キーワード] を1〜2箇所挿入する。
-- アフィリエイト誘導: テーマに沿う形で [AFFILIATE_LINK: 転職] などのプレースホルダーを1つ挿入し、読者が無理なく検討できる語り方にする。
 - 医療・法律に関わる内容は「〜とされています」「〜と感じました」のように断定を避ける。
 - **カテゴリ選択（重要）**: 利用可能なカテゴリ: ${categoryNames}
   **優先カテゴリ**: 「${priorityCategory.title}」を最優先で選択してください（現在記事数が少ないため）。
@@ -236,9 +234,8 @@ async function generateAndSaveArticle() {
     {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "導入文2"}]},
     {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "(H2見出し1)"}]},
     {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(セクション本文。わたし視点で具体的に)"}]},
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "[INTERNAL_LINK: ${selectedTopic} 基礎]"}]},
     {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "まとめ"}]},
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "今日もお疲れさまでした。〜 [AFFILIATE_LINK: 転職]"}]}
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "今日もお疲れさまでした。〜"}]}
   ]
 }
   `;
