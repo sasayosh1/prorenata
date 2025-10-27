@@ -382,6 +382,25 @@ vercel --previewe
      - Exit code 0 で完全成功
    - **効果**: GitHub Actionsの週次メンテナンス（月・水・金 AM3:00）が正常に動作するように修正
 
+19. 🐛 **GitHub Actions メンテナンスワークフローの権限エラー修正** (2025-10-27)
+   - **問題**: GitHub Actionsで2つのエラーが発生
+     - `Insufficient permissions; permission "update" required` (Sanity API)
+     - `Resource not accessible by integration` (GitHub Issues)
+   - **原因特定**:
+     - ワークフローに `permissions` セクションがなく `issues: write` 権限が不足
+     - `maintenance.js` は `SANITY_API_TOKEN` を使用するが、ワークフローは `SANITY_WRITE_TOKEN` のみ設定
+     - 環境変数がインライン設定でスクリプトに正しく渡されていなかった
+   - **修正内容**:
+     - `.github/workflows/daily-maintenance.yml` に `permissions` セクション追加
+       - `contents: read` と `issues: write` を明示的に設定
+     - 環境変数を `env:` ブロックで設定
+       - `SANITY_API_TOKEN` と `SANITY_WRITE_TOKEN` の両方を設定
+     - インライン環境変数設定から `env:` ブロックに変更
+   - **効果**:
+     - GitHub Issue自動作成機能が正常に動作
+     - Sanity API への書き込み権限が正しく設定される
+     - 週次メンテナンス（月・水・金 AM3:00）が正常実行可能に
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
