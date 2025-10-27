@@ -365,6 +365,23 @@ vercel --previewe
      - SEO最適化にも寄与（導入文が記事の内容を直接説明）
      - 新規記事・既存記事ともに自動的にクリーニング
 
+18. 🐛 **挨拶文削除機能のnullセーフティエラーを修正** (2025-10-27)
+   - **問題**: GitHub Actionsでメンテナンススクリプトが "Cannot read properties of undefined (reading 'length')" エラーで失敗
+   - **原因特定**:
+     - `postHelpers.js` の `blocksToPlainText()` で `block.children` が配列かチェックしていなかった
+     - `maintenance.js` の `categoriesForMeta` で全カテゴリ変数が undefined の場合に空配列フォールバックがなかった
+     - `maintenance.js` で削除済みの `tooManyASPLinks` プロパティにアクセスしていた
+   - **修正内容**:
+     - `scripts/utils/postHelpers.js` (line 101): `Array.isArray(block.children)` チェック追加
+     - `scripts/maintenance.js` (line 541): `|| []` フォールバック追加
+     - `scripts/maintenance.js` (line 1638): `tooManyASPLinks` の存在チェック追加
+     - `scripts/maintenance.js` (line 1736-1737): スタックトレース出力追加（デバッグ改善）
+   - **テスト結果**:
+     - ローカルテストで正常動作確認
+     - 9件のDraft記事のPublishが成功
+     - Exit code 0 で完全成功
+   - **効果**: GitHub Actionsの週次メンテナンス（月・水・金 AM3:00）が正常に動作するように修正
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
