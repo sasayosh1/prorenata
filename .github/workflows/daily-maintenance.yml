@@ -9,6 +9,9 @@ on:
 jobs:
   maintenance_check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
 
     steps:
       - name: Checkout repository
@@ -23,9 +26,12 @@ jobs:
         run: npm install
 
       - name: Run maintenance script - All checks and auto-fix
+        env:
+          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
         run: |
           echo "=== 総合メンテナンス開始（検出＋自動修正） ==="
-          SANITY_WRITE_TOKEN=${{ secrets.SANITY_WRITE_TOKEN }} node scripts/maintenance.js all
+          node scripts/maintenance.js all
 
       - name: Create issue if problems found
         if: failure()
