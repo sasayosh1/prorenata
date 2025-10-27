@@ -361,6 +361,78 @@ function generateSlugFromTitle(title) {
 }
 
 /**
+ * 記事の締めくくり文を削除
+ * 「次のステップ」セクションへの誘導を妨げる文章を削除
+ *
+ * @param {Array} blocks - Portable Text blocks
+ * @returns {Array} - 処理後のブロック配列
+ */
+function removeClosingRemarks(blocks) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  // 削除対象パターン（正規表現）
+  const closingPatterns = [
+    /ProReNataブログは、頑張る看護助手さんをいつでも応援しています[。、,]?\s*/g,
+    /また次回の記事でお会いしましょう[！!。、,]?\s*/g,
+    /次回のブログも、どうぞお楽しみに[！!。、,]?\s*/g,
+    /次回もお楽しみに[！!。、,]?\s*/g,
+    /どうぞお楽しみに[！!。、,]?\s*/g,
+    /次回も(また)?お会いしましょう[！!。、,]?\s*/g,
+  ]
+
+  const result = []
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+
+    // block タイプでない場合はそのまま保持
+    if (block._type !== 'block' || !block.children || !Array.isArray(block.children)) {
+      result.push(block)
+      continue
+    }
+
+    // テキストを結合
+    let text = block.children
+      .filter(child => child && child.text)
+      .map(child => child.text)
+      .join('')
+
+    // 締めくくりパターンを削除
+    let originalText = text
+    for (const pattern of closingPatterns) {
+      text = text.replace(pattern, '')
+    }
+
+    // テキストが変更されなかった、または完全に空になった場合
+    if (text === originalText) {
+      // 変更なし - そのまま保持
+      result.push(block)
+    } else if (text.trim().length === 0) {
+      // 完全に空になった - このブロックをスキップ（削除）
+      continue
+    } else {
+      // テキストが変更された - 新しいブロックを作成
+      const newBlock = {
+        ...block,
+        children: [
+          {
+            _type: 'span',
+            _key: block.children[0]?._key || `span-${Date.now()}`,
+            text: text.trim(),
+            marks: []
+          }
+        ]
+      }
+      result.push(newBlock)
+    }
+  }
+
+  return result
+}
+
+/**
  * プレースホルダーリンクを削除
  *
  * 削除対象パターン：
@@ -431,6 +503,124 @@ function removePlaceholderLinks(blocks) {
   return result
 }
 
+/**
+ * アフィリエイトリンクを独立した段落として分離する
+ * @param {Array} blocks - Portable Text blocks
+ * @returns {Array} - 処理後のブロック配列
+ */
+function separateAffiliateLinks(blocks) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  // アフィリエイトリンクのパターン（ドメイン検出）
+  const affiliatePatterns = [
+    /a8\.net/i,
+    /affiliate-b\.com/i,
+    /moshimo\.com/i,
+    /valuecommerce\.ne\.jp/i,
+    /linksynergy\.com/i,
+    /track\./i,
+  ]
+
+  const result = []
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+
+    // ブロックタイプがblock以外、またはchildrenがない場合はそのまま追加
+    if (block._type !== 'block' || !block.children || !Array.isArray(block.children)) {
+      result.push(block)
+      continue
+    }
+
+    // markDefsにアフィリエイトリンクが含まれているかチェック
+    const hasAffiliateLink = block.markDefs?.some(markDef => {
+      if (!markDef.href) return false
+      return affiliatePatterns.some(pattern => pattern.test(markDef.href))
+    })
+
+    // アフィリエイトリンクがない場合はそのまま追加
+    if (!hasAffiliateLink) {
+      result.push(block)
+      continue
+    }
+
+    // アフィリエイトリンクがある場合、段落を分割
+    const affiliateMarkKey = block.markDefs?.find(markDef => {
+      if (!markDef.href) return false
+      return affiliatePatterns.some(pattern => pattern.test(markDef.href))
+    })?._key
+
+    if (!affiliateMarkKey) {
+      result.push(block)
+      continue
+    }
+
+    // children配列を解析して、アフィリエイトリンクの位置を特定
+    const beforeChildren = []
+    const affiliateChildren = []
+    const afterChildren = []
+    let foundAffiliate = false
+    let isAfter = false
+
+    for (const child of block.children) {
+      if (child.marks && Array.isArray(child.marks) && child.marks.includes(affiliateMarkKey)) {
+        // アフィリエイトリンクのspan
+        affiliateChildren.push(child)
+        foundAffiliate = true
+        isAfter = true
+      } else if (!isAfter) {
+        // リンク前のテキスト
+        beforeChildren.push(child)
+      } else {
+        // リンク後のテキスト
+        afterChildren.push(child)
+      }
+    }
+
+    // リンク前のテキストがある場合、段落として追加
+    if (beforeChildren.length > 0) {
+      const beforeText = beforeChildren.map(c => c.text || '').join('').trim()
+      if (beforeText.length > 0) {
+        result.push({
+          ...block,
+          children: beforeChildren,
+          markDefs: [] // リンク前の段落にはmarkDefsは不要
+        })
+      }
+    }
+
+    // アフィリエイトリンクを独立した段落として追加
+    if (affiliateChildren.length > 0) {
+      result.push({
+        ...block,
+        children: affiliateChildren,
+        markDefs: block.markDefs // markDefsはそのまま保持
+      })
+    }
+
+    // リンク後のテキストがある場合、段落として追加
+    if (afterChildren.length > 0) {
+      const afterText = afterChildren.map(c => c.text || '').join('').trim()
+      if (afterText.length > 0) {
+        result.push({
+          ...block,
+          children: afterChildren,
+          markDefs: [] // リンク後の段落にはmarkDefsは不要
+        })
+      }
+    }
+
+    // アフィリエイトリンクが見つからなかった場合は元のブロックを追加
+    if (!foundAffiliate) {
+      result.push(block)
+    }
+  }
+
+  return result
+}
+
 module.exports = {
   blocksToPlainText,
   generateExcerpt,
@@ -438,5 +628,7 @@ module.exports = {
   generateSlugFromTitle,
   selectBestCategory,
   removeGreetings,
-  removePlaceholderLinks
+  removeClosingRemarks,
+  removePlaceholderLinks,
+  separateAffiliateLinks
 }

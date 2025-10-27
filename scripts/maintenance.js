@@ -18,7 +18,9 @@ const {
   generateSlugFromTitle,
   selectBestCategory,
   removeGreetings,
+  removeClosingRemarks,
   removePlaceholderLinks,
+  separateAffiliateLinks,
 } = require('./utils/postHelpers')
 
 const client = createClient({
@@ -520,6 +522,16 @@ async function autoFixMetadata() {
       }
     }
 
+    // 記事末尾の締めくくり文を削除
+    let closingRemarksRemoved = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithoutClosing = removeClosingRemarks(updates.body || post.body)
+      if (JSON.stringify(bodyWithoutClosing) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithoutClosing
+        closingRemarksRemoved = true
+      }
+    }
+
     // プレースホルダーリンクを削除
     let placeholdersRemoved = false
     if (post.body && Array.isArray(post.body)) {
@@ -527,6 +539,16 @@ async function autoFixMetadata() {
       if (JSON.stringify(bodyWithoutPlaceholders) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithoutPlaceholders
         placeholdersRemoved = true
+      }
+    }
+
+    // アフィリエイトリンクを独立した段落として分離
+    let affiliateLinksSeparated = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithSeparatedLinks = separateAffiliateLinks(updates.body || post.body)
+      if (JSON.stringify(bodyWithSeparatedLinks) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithSeparatedLinks
+        affiliateLinksSeparated = true
       }
     }
 
@@ -593,8 +615,14 @@ async function autoFixMetadata() {
     if (greetingsRemoved) {
       console.log('   記事冒頭の挨拶文を削除しました')
     }
+    if (closingRemarksRemoved) {
+      console.log('   記事末尾の締めくくり文を削除しました（次のステップセクションへの誘導改善）')
+    }
     if (placeholdersRemoved) {
       console.log('   プレースホルダーリンク ([INTERNAL_LINK], [AFFILIATE_LINK]) を削除しました')
+    }
+    if (affiliateLinksSeparated) {
+      console.log('   アフィリエイトリンクを独立した段落として分離しました')
     }
     if (updates.categories) {
       const selectedCategories = updates.categories

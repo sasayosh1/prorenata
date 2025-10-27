@@ -407,8 +407,8 @@ export const portableTextComponents: PortableTextComponents = {
 
   // マーク（インライン要素）
   marks: {
-    // リンクは無効化 - ユーザビリティ向上のため本文中のリンクは表示しない
-    link: ({ children }) => <>{children}</>,
+    // リンクはCustomLinkコンポーネントでレンダリング（アフィリエイトリンクにPR表示）
+    link: CustomLink,
 
     // テキスト装飾
     strong: CustomStrong,
