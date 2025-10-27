@@ -380,6 +380,81 @@ async function findPostsMissingMetadata() {
   }
 }
 
+async function recategorizeAllPosts() {
+  console.log('\n🔄 全記事のカテゴリ再評価を開始します\n')
+
+  const { categories, fallback } = await getCategoryResources()
+
+  const posts = await client.fetch(`
+    *[_type == "post"] {
+      _id,
+      title,
+      body,
+      "categories": categories[]->{ _id, title }
+    }
+  `)
+
+  if (!posts || posts.length === 0) {
+    console.log('✅ 記事が見つかりません')
+    return { total: 0, updated: 0 }
+  }
+
+  console.log(`対象記事: ${posts.length}件\n`)
+
+  let updated = 0
+  let unchanged = 0
+
+  for (const post of posts) {
+    const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
+    const currentCategories = Array.isArray(post.categories) ? post.categories.filter(Boolean) : []
+
+    // 本文からテキスト抽出
+    const plainText = blocksToPlainText(post.body)
+
+    // 最適なカテゴリを選択
+    const bestCategory = selectBestCategory(post.title, plainText, categories)
+
+    if (!bestCategory) {
+      console.log(`⚠️ ${post.title}`)
+      console.log(`   カテゴリを自動選択できませんでした\n`)
+      continue
+    }
+
+    // 現在のカテゴリと比較
+    const currentCategoryId = currentCategories.length > 0 ? currentCategories[0]._id : null
+    const currentCategoryTitle = currentCategories.length > 0 ? currentCategories[0].title : 'なし'
+
+    if (currentCategoryId === bestCategory._id) {
+      unchanged++
+      continue
+    }
+
+    // カテゴリを更新
+    const categoryRefs = [{ _type: 'reference', _ref: bestCategory._id }]
+
+    await client
+      .patch(post._id)
+      .set({ categories: categoryRefs })
+      .commit()
+
+    if (post._id !== publishedId) {
+      await client
+        .patch(publishedId)
+        .set({ categories: categoryRefs })
+        .commit()
+        .catch(() => null)
+    }
+
+    updated++
+    console.log(`✅ ${post.title}`)
+    console.log(`   カテゴリ変更: ${currentCategoryTitle} → ${bestCategory.title}\n`)
+  }
+
+  console.log(`\n🔄 カテゴリ再評価完了: ${updated}件を更新、${unchanged}件は変更なし（合計: ${posts.length}件）\n`)
+
+  return { total: posts.length, updated, unchanged }
+}
+
 async function autoFixMetadata() {
   console.log('\n🛠️ メタデータ自動修復を開始します\n')
 
@@ -1637,7 +1712,10 @@ if (require.main === module) {
           console.log('ステップ1: 総合レポート生成（問題検出）\n')
           await generateReport()
           console.log('\n' + '='.repeat(60))
-          console.log('\nステップ2: 自動修復実行\n')
+          console.log('\nステップ2: カテゴリ再評価\n')
+          await recategorizeAllPosts()
+          console.log('\n' + '='.repeat(60))
+          console.log('\nステップ3: 自動修復実行\n')
           await autoFixMetadata()
           console.log('\n' + '='.repeat(60))
           console.log('\n✅ === 総合メンテナンス完了 ===\n')
@@ -1650,6 +1728,10 @@ if (require.main === module) {
 
     case 'autofix':
       autoFixMetadata().catch(console.error)
+      break
+
+    case 'recategorize':
+      recategorizeAllPosts().catch(console.error)
       break
 
     case 'dedupe':
@@ -1702,9 +1784,12 @@ if (require.main === module) {
   autofix             スラッグ・カテゴリ・メタディスクリプションを自動修復
                       - Excerpt・Meta Description を白崎セラ口調で再生成
                       - プレースホルダーリンク変換、壊れたリンク削除など
-  all                 総合メンテナンス（report + autofix を順次実行）★推奨
-                      - 問題を検出し、自動修復可能なものはすべて修正
-                      - GitHub Actions で週3回自動実行
+  recategorize        全記事のカテゴリを再評価して最適なカテゴリに変更
+                      - タイトル・本文から最適なカテゴリを自動選択
+                      - 現在のカテゴリと異なる場合のみ更新
+  all                 総合メンテナンス（report + recategorize + autofix を順次実行）★推奨
+                      - 問題を検出し、カテゴリ再評価、自動修復可能なものはすべて修正
+                      - GitHub Actions で週3回自動実行（月・水・金 AM3:00）
 
 例:
   # 総合メンテナンス（検出＋自動修正、最推奨）★
@@ -1715,6 +1800,9 @@ if (require.main === module) {
 
   # 自動修正のみ
   SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js autofix
+
+  # 全記事のカテゴリを再評価
+  SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js recategorize
 
   # 個別チェック
   SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js old 3
@@ -1744,5 +1832,6 @@ module.exports = {
   checkSectionEndings,
   checkH2AfterSummary,
   generateReport,
-  autoFixMetadata
+  autoFixMetadata,
+  recategorizeAllPosts
 }

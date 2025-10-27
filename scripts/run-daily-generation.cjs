@@ -48,14 +48,100 @@ async function generateAndSaveArticle() {
     return;
   }
 
-  // 3. Fetch categories
+  // 3. Determine keyword tail type (Short/Middle/Long)
+  console.log("Determining keyword tail type...");
+  let targetTail = 'long'; // Default to long tail
+  try {
+    const posts = await sanityClient.fetch(`*[_type == "post"] { title }`);
+
+    const tailCount = { short: 0, middle: 0, long: 0 };
+    posts.forEach(post => {
+      const length = post.title.length;
+      if (length <= 30) {
+        tailCount.short++;
+      } else if (length <= 45) {
+        tailCount.middle++;
+      } else {
+        tailCount.long++;
+      }
+    });
+
+    const total = posts.length;
+    const shortPercent = (tailCount.short / total) * 100;
+    const middlePercent = (tailCount.middle / total) * 100;
+    const longPercent = (tailCount.long / total) * 100;
+
+    // Target ratios from CLAUDE.md (Short 1 : Middle 3 : Long 5)
+    const targetShort = 12.5; // 10-15%
+    const targetMiddle = 37.5; // 35-40%
+    const targetLong = 50; // 45-55%
+
+    const shortDiff = targetShort - shortPercent;
+    const middleDiff = targetMiddle - middlePercent;
+    const longDiff = targetLong - longPercent;
+
+    console.log(`現在のテール分布: ショート${shortPercent.toFixed(1)}%, ミドル${middlePercent.toFixed(1)}%, ロング${longPercent.toFixed(1)}%`);
+    console.log(`目標比率: ショート${targetShort}%, ミドル${targetMiddle}%, ロング${targetLong}%`);
+
+    // Select most deficient tail type
+    if (longDiff > 0 && longDiff >= middleDiff && longDiff >= shortDiff) {
+      targetTail = 'long';
+      console.log(`テールバランス調整: ロングテール優先（${longDiff.toFixed(1)}%不足）`);
+    } else if (middleDiff > 0 && middleDiff >= shortDiff) {
+      targetTail = 'middle';
+      console.log(`テールバランス調整: ミドルテール優先（${middleDiff.toFixed(1)}%不足）`);
+    } else if (shortDiff > 0) {
+      targetTail = 'short';
+      console.log(`テールバランス調整: ショートテール優先（${shortDiff.toFixed(1)}%不足）`);
+    } else {
+      // All targets met, default to long tail (most valuable for SEO)
+      targetTail = 'long';
+      console.log(`テールバランス調整: すべて適正範囲、ロングテール生成（SEO最優先）`);
+    }
+  } catch (error) {
+    console.error('Error analyzing tail distribution:', error);
+    console.log('Defaulting to long tail...');
+  }
+
+  // 4. Fetch categories and determine priority category
   console.log("Fetching categories...");
   let categories;
   let categoryNames;
+  let priorityCategory = null;
   try {
     categories = await sanityClient.fetch(`*[_type == "category"] | order(title asc) { _id, title, description }`);
     categoryNames = categories.map(cat => cat.title).join('、');
     console.log(`Categories loaded: ${categories.length}種類`);
+
+    // Get post count per category to balance distribution
+    const posts = await sanityClient.fetch(`*[_type == "post"] { "categories": categories[]->title }`);
+    const categoryCount = {};
+    categories.forEach(cat => {
+      categoryCount[cat.title] = 0;
+    });
+
+    posts.forEach(post => {
+      if (post.categories && post.categories.length > 0) {
+        post.categories.forEach(catTitle => {
+          if (categoryCount[catTitle] !== undefined) {
+            categoryCount[catTitle]++;
+          }
+        });
+      }
+    });
+
+    // Sort categories by post count (ascending) and pick from bottom 5
+    const sortedCategories = Object.entries(categoryCount)
+      .sort((a, b) => a[1] - b[1])
+      .slice(0, 5); // Get 5 least populated categories
+
+    // Randomly select one from the bottom 5
+    const randomIndex = Math.floor(Math.random() * sortedCategories.length);
+    const [priorityCategoryTitle, count] = sortedCategories[randomIndex];
+    priorityCategory = categories.find(cat => cat.title === priorityCategoryTitle);
+
+    console.log(`カテゴリバランス調整: "${priorityCategory.title}" を優先（現在${count}件）`);
+    console.log(`記事数が少ないカテゴリTOP5: ${sortedCategories.map(([name, cnt]) => `${name}(${cnt})`).join(', ')}`);
   } catch (error) {
     console.error('Error fetching categories:', error);
     return;
@@ -86,6 +172,28 @@ async function generateAndSaveArticle() {
     return;
   }
 
+  // Define title length based on tail type
+  let titleLengthGuide = '';
+  let titleExample = '';
+  let titleMinLength = 0;
+  let titleMaxLength = 0;
+  if (targetTail === 'short') {
+    titleLengthGuide = '20〜30文字（シンプルで直接的）';
+    titleExample = '例: 「看護助手の給料を徹底解説」（15文字）';
+    titleMinLength = 20;
+    titleMaxLength = 30;
+  } else if (targetTail === 'middle') {
+    titleLengthGuide = '31〜45文字（具体的で魅力的）';
+    titleExample = '例: 「看護助手の給料が低い理由と年収アップの3つの方法」（27文字）';
+    titleMinLength = 31;
+    titleMaxLength = 45;
+  } else { // long
+    titleLengthGuide = '46〜65文字（超具体的でロングテール）';
+    titleExample = '例: 「【2025年最新】看護助手の給料が低い理由とは？夜勤・資格・転職で年収アップする完全ガイド」（50文字）';
+    titleMinLength = 46;
+    titleMaxLength = 65;
+  }
+
   const prompt = `
 あなたは病棟で働く20歳の看護助手「白崎セラ」です。ProReNataブログの編集長として、看護助手の読者に寄り添いながら現実的で誠実な記事を書きます。
 
@@ -104,13 +212,22 @@ async function generateAndSaveArticle() {
 - 内部リンク: 本文中に [INTERNAL_LINK: 関連キーワード] を1〜2箇所挿入する。
 - アフィリエイト誘導: テーマに沿う形で [AFFILIATE_LINK: 転職] などのプレースホルダーを1つ挿入し、読者が無理なく検討できる語り方にする。
 - 医療・法律に関わる内容は「〜とされています」「〜と感じました」のように断定を避ける。
-- カテゴリ選択: 以下のカテゴリから記事内容に最も適したものを1つ選択してください。
-  利用可能なカテゴリ: ${categoryNames}
+- **カテゴリ選択（重要）**: 利用可能なカテゴリ: ${categoryNames}
+  **優先カテゴリ**: 「${priorityCategory.title}」を最優先で選択してください（現在記事数が少ないため）。
+  テーマと合致する場合は必ず「${priorityCategory.title}」を選択し、どうしても合わない場合のみ他のカテゴリを選んでください。
+- **タイトル文字数（SEO戦略・絶対厳守）**:
+  **${titleLengthGuide}**
+  **最低${titleMinLength}文字、最大${titleMaxLength}文字**
+  ${titleExample}
+
+  **【重要】タイトルは必ず${titleMinLength}文字以上${titleMaxLength}文字以内で作成してください。**
+  **これはSEO戦略（ショート1:ミドル3:ロング5）の根幹であり、絶対に守ってください。**
+  **${titleMinLength}文字未満のタイトルは不合格です。必ず${titleMinLength}文字以上にしてください。**
 
 # 出力形式
 以下のJSONをコードブロックなしで返してください。本文(body)はSanity Portable Textの配列として生成します。
 {
-  "title": "（30〜40文字で読者メリットが伝わるタイトル）",
+  "title": "（${titleLengthGuide}で読者メリットが伝わるタイトル）",
   "category": "（上記のカテゴリリストから1つ選択。完全一致で記載）",
   "tags": ["${selectedTopic}", "看護助手", "(関連タグを3つ)"],
   "excerpt": "（120〜160文字の要約。白崎セラの視点で読者の悩みに触れる）",
@@ -191,9 +308,37 @@ async function generateAndSaveArticle() {
     const createdDraft = await sanityClient.create(draft);
     console.log("\n--- Process Complete ---");
     console.log(`Successfully created new draft in Sanity with ID: ${createdDraft._id}`);
+
+    // Verify tail type
+    const titleLength = generatedArticle.title.length;
+    let actualTail = '';
+    if (titleLength <= 30) {
+      actualTail = 'short';
+    } else if (titleLength <= 45) {
+      actualTail = 'middle';
+    } else {
+      actualTail = 'long';
+    }
+
+    console.log(`Title: "${generatedArticle.title}" (${titleLength}文字)`);
+    console.log(`Target tail: ${targetTail.toUpperCase()} / Actual tail: ${actualTail.toUpperCase()}`);
+
+    if (actualTail === targetTail) {
+      console.log(`✅ テールタイプが正しく生成されました（${targetTail}）`);
+    } else {
+      console.log(`⚠️  テールタイプが異なります（目標: ${targetTail}, 実際: ${actualTail}）`);
+    }
+
     if (categoryReference) {
       const catTitle = categories.find(c => c._id === categoryReference[0]._ref)?.title;
       console.log(`Category: ${catTitle}`);
+
+      // Check if priority category was respected
+      if (catTitle === priorityCategory.title) {
+        console.log(`✅ 優先カテゴリ「${priorityCategory.title}」が正しく選択されました`);
+      } else {
+        console.log(`⚠️  優先カテゴリ「${priorityCategory.title}」ではなく「${catTitle}」が選択されました`);
+      }
     }
   } catch (error) {
     console.error("Error saving draft to Sanity:", error);
