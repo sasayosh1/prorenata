@@ -16,6 +16,7 @@ const {
   generateExcerpt,
   generateMetaDescription,
   generateSlugFromTitle,
+  generateTags,
   selectBestCategory,
   removeGreetings,
   removeClosingRemarks,
@@ -400,12 +401,13 @@ async function recategorizeAllPosts() {
 
   if (!posts || posts.length === 0) {
     console.log('✅ 記事が見つかりません')
-    return { total: 0, updated: 0 }
+    return { total: 0, updated: 0, assignedToFallback: 0 }
   }
 
   console.log(`対象記事: ${posts.length}件\n`)
 
   let updated = 0
+  let assignedToFallback = 0
   let unchanged = 0
 
   for (const post of posts) {
@@ -416,7 +418,12 @@ async function recategorizeAllPosts() {
     const plainText = blocksToPlainText(post.body)
 
     // 最適なカテゴリを選択
-    const bestCategory = selectBestCategory(post.title, plainText, categories)
+    let bestCategory = selectBestCategory(post.title, plainText, categories)
+
+    if (!bestCategory && fallback) {
+      bestCategory = fallback
+      assignedToFallback++
+    }
 
     if (!bestCategory) {
       console.log(`⚠️ ${post.title}`)
@@ -454,9 +461,9 @@ async function recategorizeAllPosts() {
     console.log(`   カテゴリ変更: ${currentCategoryTitle} → ${bestCategory.title}\n`)
   }
 
-  console.log(`\n🔄 カテゴリ再評価完了: ${updated}件を更新、${unchanged}件は変更なし（合計: ${posts.length}件）\n`)
+  console.log(`\n🔄 カテゴリ再評価完了: ${updated}件を更新、${unchanged}件は変更なし、フォールバック適用: ${assignedToFallback}件（合計: ${posts.length}件）\n`)
 
-  return { total: posts.length, updated, unchanged }
+  return { total: posts.length, updated, unchanged, assignedToFallback }
 }
 
 async function autoFixMetadata() {
@@ -573,6 +580,15 @@ async function autoFixMetadata() {
       updates.excerpt = excerpt
     }
 
+    // Tagsが2つ以下の場合、追加タグを自動生成
+    if (!post.tags || post.tags.length <= 2) {
+      // 既存のタグから selectedTopic を推測（看護助手以外の最初のタグ、空でないもの）
+      const existingTags = (post.tags || []).filter(tag => tag && tag.trim().length > 0)
+      const selectedTopic = existingTags.find(tag => tag !== '看護助手') || '悩み'
+      const generatedTags = generateTags(post.title, plainText, selectedTopic)
+      updates.tags = generatedTags
+    }
+
     const categoriesForMeta = (updates.categories || categoryRefs || currentCategories || [])
       .map(ref => {
         if (ref?._ref) {
@@ -633,6 +649,9 @@ async function autoFixMetadata() {
     }
     if (updates.excerpt) {
       console.log('   Excerpt を再生成しました')
+    }
+    if (updates.tags) {
+      console.log(`   Tags を補完しました: ${updates.tags.join(', ')}`)
     }
     if (updates.metaDescription) {
       console.log(`   Meta Description を再生成しました (${updates.metaDescription.length}文字)`)

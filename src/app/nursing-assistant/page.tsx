@@ -5,7 +5,7 @@ import Link from 'next/link'
 export const metadata = {
   title: '看護助手向け情報サイト | ProReNata - 現場経験者が教える実践的ガイド',
   description: '看護助手として働く方、目指す方のための情報サイト。転職、資格、給与、現場ノウハウなど実践的な情報を現場経験者が詳しく解説します。',
-  keywords: '看護助手,看護補助者,転職,資格,給料,医療現場,ノウハウ,キャリア',
+  keywords: '看護助手,看護補助者,転職,退職,資格,給料,医療現場,ノウハウ,人間関係,感染対策',
   openGraph: {
     title: '看護助手向け情報サイト | ProReNata',
     description: '看護助手として働く方、目指す方のための専門情報サイト',
@@ -36,46 +36,81 @@ export default async function NursingAssistantPage() {
 
   const categories = [
     {
-      title: '基礎知識・入門',
-      icon: '📚',
+      title: '転職',
+      icon: '🧭',
       color: 'bg-blue-50 border-blue-200 text-blue-800',
-      description: '看護助手の基本的な知識と入門情報',
-      topics: ['仕事内容', '必要なスキル', '医療現場の基本', '適性診断']
+      description: '求人の探し方や応募書類、面接準備など転職活動を進めるためのステップを丁寧に解説します。',
+      topics: ['求人選び', '履歴書・職歴書', '面接対策', '転職後の定着']
     },
     {
-      title: 'キャリア・資格',
-      icon: '🎯',
-      color: 'bg-green-50 border-green-200 text-green-800',
-      description: 'キャリア形成、資格取得、転職に関する情報',
-      topics: ['転職活動', '資格取得', '看護師への道', 'スキルアップ']
+      title: '退職',
+      icon: '🚪',
+      color: 'bg-sky-50 border-sky-200 text-sky-800',
+      description: '円満退職の段取りや退職願の書き方、退職代行の検討ポイントなどをまとめています。',
+      topics: ['退職手続き', '引き継ぎ', '有給消化', '退職代行']
     },
     {
-      title: '給与・待遇',
-      icon: '💰',
-      color: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-      description: '給与、待遇、労働条件に関する情報',
-      topics: ['給与相場', '夜勤手当', 'ボーナス', '福利厚生']
+      title: '仕事内容',
+      icon: '📋',
+      color: 'bg-indigo-50 border-indigo-200 text-indigo-800',
+      description: '病棟や外来などで担当する業務や1日の流れを現場目線で整理。できる・できない業務も明確にします。',
+      topics: ['日勤の流れ', 'できる仕事・できない仕事', '配属別の違い', '働き方']
     },
     {
-      title: '実務・ノウハウ',
-      icon: '⚕️',
+      title: '実務',
+      icon: '🛠️',
       color: 'bg-red-50 border-red-200 text-red-800',
-      description: '現場での実務や効率化のテクニック',
-      topics: ['患者対応', '感染対策', '記録業務', '効率化']
+      description: '身体介助や物品準備など現場で欠かせない手順を具体的に紹介。段取りのコツも解説します。',
+      topics: ['移乗・体位変換', '清潔ケア', '物品管理', '記録のコツ']
     },
     {
-      title: '職場別情報',
-      icon: '🏥',
+      title: '給与',
+      icon: '💰',
+      color: 'bg-amber-50 border-amber-200 text-amber-800',
+      description: '看護助手の給与水準や手当、昇給の仕組みをデータと体験談から読み解きます。',
+      topics: ['給与相場', '夜勤手当', '賞与', '副業・収入アップ']
+    },
+    {
+      title: '資格',
+      icon: '🎓',
+      color: 'bg-emerald-50 border-emerald-200 text-emerald-800',
+      description: '取得しやすい資格や研修情報、学習の進め方、資格手当につながる制度を紹介します。',
+      topics: ['初任者研修', '介護福祉士', '認定資格', '学習計画']
+    },
+    {
+      title: '看護師',
+      icon: '👩‍⚕️',
       color: 'bg-purple-50 border-purple-200 text-purple-800',
-      description: '病院、クリニック、介護施設など職場別の情報',
-      topics: ['病院vs.クリニック', '介護施設', '精神科', '手術室']
+      description: '看護師を目指したい方に向けて学校選びや勉強法、両立の工夫などステップアップ情報をまとめました。',
+      topics: ['進学ルート', '奨学金', '受験対策', '両立のコツ']
     },
     {
-      title: '悩み・相談',
+      title: '患者対応',
+      icon: '🤝',
+      color: 'bg-teal-50 border-teal-200 text-teal-800',
+      description: '安心してもらえる声かけや接遇のポイント、認知症ケアなど患者さんとの向き合い方を解説します。',
+      topics: ['接遇マナー', '声かけフレーズ', '認知症ケア', '家族対応']
+    },
+    {
+      title: '悩み',
       icon: '💭',
       color: 'bg-pink-50 border-pink-200 text-pink-800',
-      description: '職場での悩みや相談に関するアドバイス',
-      topics: ['人間関係', 'ストレス対処', '転職の悩み', '新人の不安']
+      description: '夜勤の疲れや仕事の不安など、心がしんどいときの向き合い方を体験談とともにお届けします。',
+      topics: ['ストレスケア', '不安との付き合い方', 'モチベーション', '働き続ける工夫']
+    },
+    {
+      title: '人間関係',
+      icon: '👥',
+      color: 'bg-gray-50 border-gray-200 text-gray-800',
+      description: '上司・先輩との連携方法や職場コミュニケーションのコツを共有。トラブル回避の知恵もまとめています。',
+      topics: ['チーム連携', '相談の仕方', '伝え方', 'トラブル対策']
+    },
+    {
+      title: '感染対策',
+      icon: '🧴',
+      color: 'bg-lime-50 border-lime-200 text-lime-800',
+      description: '日々の感染対策や季節ごとの注意点、チェックリストを最新情報とともに掲載します。',
+      topics: ['手指衛生', '個人防護具', '環境整備', '季節対策']
     }
   ]
 
@@ -83,21 +118,21 @@ export default async function NursingAssistantPage() {
     {
       title: '【完全ガイド】看護助手とは？仕事内容から必要なスキルまで徹底解説',
       description: '看護助手の基本的な仕事内容、必要なスキル、向いている人の特徴を初心者向けに分かりやすく解説します。',
-      category: '基礎知識',
+      category: '仕事内容',
       readTime: '8分',
       featured: true
     },
     {
       title: '看護助手の転職成功マニュアル｜求人の選び方から面接対策まで',
       description: '転職を成功させるための具体的な方法を、求人選びから面接対策まで詳しくご紹介します。',
-      category: 'キャリア',
+      category: '転職',
       readTime: '12分',
       featured: true
     },
     {
       title: '【2024年最新】看護助手の給料相場｜職場別・地域別に徹底比較',
       description: '最新の給料相場を職場別・地域別に詳しく比較。手当やボーナスの実態も含めて解説します。',
-      category: '給与・待遇',
+      category: '給与',
       readTime: '9分',
       featured: true
     }
@@ -135,7 +170,7 @@ export default async function NursingAssistantPage() {
                 <div className="text-blue-100">記事数</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">6</div>
+                <div className="text-3xl font-bold text-white">{categories.length}</div>
                 <div className="text-blue-100">カテゴリ</div>
               </div>
               <div className="text-center">

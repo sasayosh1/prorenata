@@ -72,28 +72,33 @@ export default function Footer() {
               </h3>
               <ul className="mt-4 space-y-2">
                 <li>
-                  <Link href="/categories/basics" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    基礎知識・入門
+                  <Link href="/categories/job-hunting" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    転職
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/categories/resignation" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    退職
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/categories/job-description" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    仕事内容
                   </Link>
                 </li>
                 <li>
                   <Link href="/categories/practice" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    実務・ノウハウ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/categories/career" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    キャリア・資格
+                    実務
                   </Link>
                 </li>
                 <li>
                   <Link href="/categories/salary" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    給与・待遇
+                    給与
                   </Link>
                 </li>
                 <li>
-                  <Link href="/categories/consultation" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    悩み・相談
+                  <Link href="/categories/nurse-path" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    看護師
                   </Link>
                 </li>
               </ul>

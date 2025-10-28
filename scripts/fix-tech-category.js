@@ -23,17 +23,17 @@ async function fixTechCategoryPosts() {
     {
       id: '73924fd4-b938-4911-aadf-9549d306ef08',
       title: '心に寄り添う看護助手のあなたへ：精神的な負担を軽くするヒント',
-      newCategory: '悩み・相談'
+      newCategory: '悩み'
     },
     {
       id: '9d8dddf8-d2b7-480c-92b6-4c1725837885',
       title: '日々のケアが自信に変わる！看護助手として「わたしらしいブランド」を築く方法',
-      newCategory: 'キャリア・資格'
+      newCategory: '転職'
     },
     {
       id: 'gxyxv316c0oeG6AdOIZRvr',
       title: '【看護助手の転職】忙しい毎日でも大丈夫！働きながら理想の職場を見つける方法',
-      newCategory: '就職・転職活動'
+      newCategory: '転職'
     }
   ];
 

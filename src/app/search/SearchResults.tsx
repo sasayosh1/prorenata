@@ -177,12 +177,17 @@ export default function SearchResults() {
                   className="w-full px-3 py-2 text-sm border border-slate-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">すべて</option>
-                  <option value="基礎知識・入門">基礎知識・入門</option>
-                  <option value="キャリア・資格">キャリア・資格</option>
-                  <option value="給与・待遇">給与・待遇</option>
-                  <option value="実務・ノウハウ">実務・ノウハウ</option>
-                  <option value="職場別情報">職場別情報</option>
-                  <option value="悩み・相談">悩み・相談</option>
+                  <option value="転職">転職</option>
+                  <option value="退職">退職</option>
+                  <option value="仕事内容">仕事内容</option>
+                  <option value="実務">実務</option>
+                  <option value="給与">給与</option>
+                  <option value="資格">資格</option>
+                  <option value="看護師">看護師</option>
+                  <option value="患者対応">患者対応</option>
+                  <option value="悩み">悩み</option>
+                  <option value="人間関係">人間関係</option>
+                  <option value="感染対策">感染対策</option>
                 </select>
               </div>
 
