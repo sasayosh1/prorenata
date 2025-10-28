@@ -134,8 +134,8 @@ vercel --previewe
 - **実行頻度**: 毎日（月30回）
 - **ワークフロー**: `.github/workflows/daily-x-post.yml`
 - **内容**: ランダム記事をX（Twitter）に自動投稿
-- **生成エンジン**: Gemini API (gemini-1.5-flash-001) ⚠️ **Pro禁止**
-- **月間コスト**: 約¥15-45（gemini-1.5-flash-001使用時、120-140文字要約生成）
+- **生成エンジン**: Excerpt直接使用（Gemini API不使用）
+- **月間コスト**: 完全無料（Excerptは既に白崎セラ口調で最適化済み）
 
 ### キーワード戦略（黄金比）
 
@@ -461,6 +461,28 @@ vercel --previewe
      - **月間コスト総額：¥21-55**（予算¥300の7-18%）
    - **Google Cloud予算アラート**: ¥300/月に設定済み
 
+22. ✅ **X自動投稿のExcerpt直接使用化（完全無料化）** (2025-10-29)
+   - **問題**: gemini-1.5-flash-001もv1beta APIで404エラー（Flashモデル全体が非対応）
+   - **対応**:
+     - Gemini API依存を完全削除
+     - Excerpt直接使用に変更（既に白崎セラ口調で最適化済み）
+     - GoogleGenerativeAI依存関係を削除
+     - GEMINI_API_KEYチェックを削除
+   - **質の評価**:
+     - Excerptは `scripts/utils/postHelpers.js` の `generateExcerpt()` で生成
+     - 記事全体を理解した上で100-150文字に要約
+     - 「わたし」一人称、丁寧な「です・ます」調を維持
+     - 読者のメリット明確、自然な句読点
+     - 140文字制限に自動調整
+   - **コスト削減効果**:
+     - 修正前：¥15-45/月（Gemini API使用）
+     - 修正後：完全無料（Excerpt直接使用）
+   - **最終設定（週1回実行、記事生成のみGemini API使用）**:
+     - 記事自動生成：週1回（月曜AM2:00）→ ¥6-10/月（gemini-1.5-flash-001）
+     - メンテナンス：週1回（月曜AM3:00）→ 無料（Gemini API未使用）
+     - X自動投稿：毎日 → **完全無料**（Excerpt直接使用）
+     - **月間コスト総額：¥6-10**（予算¥300の2-3%）
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
@@ -497,4 +519,9 @@ vercel --previewe
 - 理由: Proモデルは料金が約17-67倍高額（¥545/月 vs ¥30-50/月）
 - 新しいスクリプトを作成する際は必ず `gemini-1.5-flash-001` を使用すること
 - 存在しないモデル名（例: `gemini-2.5-flash`）を指定すると自動的にProにフォールバックするため注意
+- **現在のGemini API使用状況**:
+  - `scripts/run-daily-generation.cjs`: gemini-1.5-flash-001 使用（週1回）
+  - `scripts/expand-short-posts.js`: gemini-1.5-flash-001 使用（手動実行のみ）
+  - `scripts/clean-affiliate-sections.js`: gemini-1.5-flash-001 使用（手動実行のみ）
+  - `scripts/auto-post-to-x.js`: **Gemini API不使用**（Excerpt直接使用）
 - 違反した場合は重大な課金が発生するため最重要違反となる
