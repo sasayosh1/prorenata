@@ -31,7 +31,7 @@ const SANITY_CONFIG = {
 let currentSanityToken = SANITY_TOKEN || null
 let sanityClient = createSanityClient(currentSanityToken)
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
-const geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' }) // 正しいFlashモデルを使用（Proモデルへのフォールバック防止）
+const geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' }) // Flashモデル（-latestはv1betaで非対応）
 const POSTS_QUERY = `*[_type == "post" && !(_id in path("drafts.**"))] | order(_updatedAt desc) {
   _id,
   title,

@@ -118,9 +118,9 @@ vercel --previewe
 - **実行時刻**: 毎週 月曜 深夜2:00 (JST)
 - **実行頻度**: 週1回（月4-5回）
 - **ワークフロー**: `.github/workflows/daily-draft.yml`
-- **生成エンジン**: Gemini API (gemini-1.5-flash-latest) ⚠️ **Pro禁止**
+- **生成エンジン**: Gemini API (gemini-1.5-flash) ⚠️ **Pro禁止**
 - **API キー**: GitHub Secrets (`GEMINI_API_KEY`) に設定済み
-- **月間コスト**: 約¥6-10（gemini-1.5-flash-latest使用時）
+- **月間コスト**: 約¥6-10（gemini-1.5-flash使用時）
 
 **2. メンテナンスチェック**
 - **実行時刻**: 毎週 月曜 深夜3:00 (JST) - 記事生成の1時間後
@@ -134,8 +134,8 @@ vercel --previewe
 - **実行頻度**: 毎日（月30回）
 - **ワークフロー**: `.github/workflows/daily-x-post.yml`
 - **内容**: ランダム記事をX（Twitter）に自動投稿
-- **生成エンジン**: Gemini API (gemini-1.5-flash-latest) ⚠️ **Pro禁止**
-- **月間コスト**: 約¥15-45（gemini-1.5-flash-latest使用時、120-140文字要約生成）
+- **生成エンジン**: Gemini API (gemini-1.5-flash) ⚠️ **Pro禁止**
+- **月間コスト**: 約¥15-45（gemini-1.5-flash使用時、120-140文字要約生成）
 
 ### キーワード戦略（黄金比）
 
@@ -441,7 +441,7 @@ vercel --previewe
    - **根本原因**:
      - 全スクリプトで存在しない「gemini-2.5-flash」モデルを指定
      - 結果、自動的にGemini 2.5 Proにフォールバック
-     - Pro料金：$5.00/1M output tokens（gemini-1.5-flash-latestの約17倍）
+     - Pro料金：$5.00/1M output tokens（gemini-1.5-flashの約17倍）
    - **緊急対応**:
      - 記事自動生成・メンテナンスワークフローを即座に停止
      - 4つのスクリプト全てを修正：
@@ -449,12 +449,12 @@ vercel --previewe
        - `scripts/expand-short-posts.js`
        - `scripts/clean-affiliate-sections.js`
        - `scripts/auto-post-to-x.js`
-     - モデル名を「gemini-1.5-flash-latest」に統一
+     - モデル名を「gemini-1.5-flash」に統一
    - **コスト削減効果**:
      - 修正前：¥545/月（20記事、Proモデル）
-     - 修正後：¥30-50/月（同条件、gemini-1.5-flash-latest）→ **約90-95%削減**
+     - 修正後：¥30-50/月（同条件、gemini-1.5-flash）→ **約90-95%削減**
      - 週1回実行時：¥6-10/月
-   - **最終設定（週1回実行、すべてgemini-1.5-flash-latest使用）**:
+   - **最終設定（週1回実行、すべてgemini-1.5-flash使用）**:
      - 記事自動生成：週1回（月曜AM2:00）→ ¥6-10/月
      - メンテナンス：週1回（月曜AM3:00）→ 無料（Gemini API未使用）
      - X自動投稿：毎日 → ¥15-45/月
@@ -492,9 +492,9 @@ vercel --previewe
 
 **🚨 Gemini API Pro モデル使用の完全禁止**
 - **絶対に Gemini Pro モデルを使用してはいけません**（最重要ルール）
-- 使用可能なモデル: `gemini-1.5-flash-latest` **のみ**
+- 使用可能なモデル: `gemini-1.5-flash` **のみ**
 - 使用禁止モデル: `gemini-2.5-pro`, `gemini-1.5-pro`, その他すべてのProモデル
 - 理由: Proモデルは料金が約17-67倍高額（¥545/月 vs ¥30-50/月）
-- 新しいスクリプトを作成する際は必ず `gemini-1.5-flash-latest` を使用すること
+- 新しいスクリプトを作成する際は必ず `gemini-1.5-flash` を使用すること
 - 存在しないモデル名（例: `gemini-2.5-flash`）を指定すると自動的にProにフォールバックするため注意
 - 違反した場合は重大な課金が発生するため最重要違反となる

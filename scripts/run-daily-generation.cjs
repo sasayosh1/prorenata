@@ -26,7 +26,7 @@ async function generateAndSaveArticle() {
   }
   const sanityClient = createClient(SANITY_CONFIG);
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" }); // 正しいFlashモデルを使用（Proモデルへのフォールバック防止）
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // Flashモデル（-latestはv1betaで非対応）
 
   // 2. Select a topic
   console.log("Selecting a topic...");

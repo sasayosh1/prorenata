@@ -65,7 +65,7 @@ async function buildSmartSummaryBlocks(title, body) {
   if (!apiKey) return [buildSummaryBlock(title)]
 
   const genAI = new GoogleGenerativeAI(apiKey)
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' }) // 正しいFlashモデルを使用（Proモデルへのフォールバック防止）
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' }) // Flashモデル（-latestはv1betaで非対応）
 
   // 直近の本文から要約に使える文を抽出
   const lastBlocks = []
