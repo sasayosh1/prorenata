@@ -26,7 +26,7 @@ const client = createClient({
 
 // Gemini API初期化
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' }); // Updated to gemini-2.5-flash for consistency
+const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' }); // 正しいFlashモデルを使用（Proモデルへのフォールバック防止）
 
 /**
  * 文字数をカウント
