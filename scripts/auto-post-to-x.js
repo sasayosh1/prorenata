@@ -1,21 +1,16 @@
 /**
  * X投稿サマリー生成スクリプト
  *
- * 公開済み記事からランダムに1件を選び、Gemini APIで約140文字の要約を作成。
+ * 公開済み記事からランダムに1件を選び、Excerptから約140文字の要約を作成。
  * 生成した要約を x-summary.txt に保存し、GitHub Actions などから手動投稿に活用できます。
+ *
+ * 注: Gemini API不使用（完全無料、Excerptは既に白崎セラ口調で最適化済み）
  */
 
 const fs = require('fs')
 const { createClient } = require('@sanity/client')
-const { GoogleGenerativeAI } = require('@google/generative-ai')
 
 const SANITY_TOKEN = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN || ''
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-
-if (!GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY が設定されていません')
-  process.exit(1)
-}
 
 const SANITY_TOKEN_SOURCE = SANITY_TOKEN
   ? (process.env.SANITY_WRITE_TOKEN ? 'SANITY_WRITE_TOKEN' : 'SANITY_API_TOKEN')
@@ -30,8 +25,6 @@ const SANITY_CONFIG = {
 
 let currentSanityToken = SANITY_TOKEN || null
 let sanityClient = createSanityClient(currentSanityToken)
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
-const geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' }) // 安定版Flash（バージョン指定）、Pro絶対禁止
 const POSTS_QUERY = `*[_type == "post" && !(_id in path("drafts.**"))] | order(_updatedAt desc) {
   _id,
   title,
@@ -150,73 +143,29 @@ async function getRandomArticle() {
   return selectedPost
 }
 
-async function generateSummary(post, maxAttempts = 3) {
-  console.log('🤖 Gemini APIで要約を生成中...')
+async function generateSummary(post) {
+  console.log('📝 Excerptから要約を生成中...')
 
-  const bodyText = (post.body || [])
-    .filter((block) => block._type === 'block' && block.children)
-    .map((block) => block.children.map((child) => child.text || '').join(''))
-    .join('\n')
-    .slice(0, 2000)
+  // Excerpt を使用（既に白崎セラ口調で最適化済み）
+  let summary = post.excerpt || ''
 
-  const prompt = `
-あなたは病棟で働く20歳の看護助手「白崎セラ」です。ProReNataブログの編集長として、看護助手仲間に寄り添うX（旧Twitter）投稿を作成してください。
-
-# 白崎セラの話し方
-- 一人称は「わたし」。丁寧で穏やかな「です・ます」調。
-- 優しさと誠実さを大切にしつつ、現場で役立つ一言や注意点を添える。
-- 読者が無理をしないよう、さりげない労いを入れても良い。
-
-# 投稿条件
-- 日本語で120〜140文字
-- ハッシュタグとURLは禁止
-- 記事を読みたくなる具体的なメリットを含める
-- 末尾は自然な句読点で締める
-
-# 記事タイトル
-${post.title}
-
-# 記事概要
-${post.excerpt || ''}
-
-# 本文抜粋
-${bodyText}
-
-# 出力
-白崎セラとしての投稿文のみを出力してください。
-`
-
-  let lastError
-
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      const result = await geminiModel.generateContent(prompt)
-      const response = await result.response
-
-      if (!response || typeof response.text !== 'function') {
-        throw new Error('Gemini APIのレスポンス形式が想定外でした')
-      }
-
-      let summary = response.text().trim().replace(/\s+/g, ' ')
-      summary = finalizeSummary(summary)
-
-      console.log(`✅ 要約生成完了（${summary.length}文字）`)
-      console.log(`📝 要約:\n${summary}`)
-
-      return summary
-    } catch (error) {
-      lastError = error instanceof Error ? error : new Error(String(error))
-      if (attempt === maxAttempts) {
-        break
-      }
-
-      const waitMs = attempt * 2000
-      console.warn(`⚠️ Gemini APIでエラーが発生しました (${lastError.message})。${waitMs / 1000}s後に再試行します...`)
-      await sleep(waitMs)
-    }
+  // Excerpt が空の場合は本文の最初の部分を使用
+  if (!summary || summary.trim().length === 0) {
+    console.warn('⚠️ Excerptが空のため、本文から抽出します')
+    const bodyText = (post.body || [])
+      .filter((block) => block._type === 'block' && block.children)
+      .map((block) => block.children.map((child) => child.text || '').join(''))
+      .join('\n')
+    summary = bodyText.slice(0, 200)
   }
 
-  throw new Error(`Gemini APIによる要約生成に失敗しました: ${lastError?.message || 'unknown error'}`)
+  // 140文字に調整
+  summary = finalizeSummary(summary.trim())
+
+  console.log(`✅ 要約生成完了（${summary.length}文字）`)
+  console.log(`📝 要約:\n${summary}`)
+
+  return summary
 }
 
 async function saveSummary(post, summary) {
