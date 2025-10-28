@@ -45,6 +45,598 @@ function getRecencyScore(post) {
   return Math.max(updated, created)
 }
 
+function deepClone(value) {
+  if (typeof structuredClone === 'function') {
+    return structuredClone(value)
+  }
+  return JSON.parse(JSON.stringify(value))
+}
+
+const AFFILIATE_HOST_KEYWORDS = [
+  'af.moshimo.com',
+  'a8.net',
+  'px.a8.net',
+  'moshimo.com',
+  'item.rakuten.co.jp',
+  'hb.afl.rakuten.co.jp',
+  'amazon.co.jp',
+  'ck.jp.ap.valuecommerce.com',
+  'fam-ad.com'
+]
+
+const CTA_TEXT_PATTERNS = [
+  '転職・求人をお探しの方へ',
+  '転職・求人をお探しの方は',
+  '求人をお探しの方は',
+  'やりがいのある仕事をお探しの方へ',
+  '介護職・看護助手の求人なら',
+  '求人サイトなどを活用',
+  '求人情報を探している方は',
+  '働き方改革に真剣に取り組んでいる職場を探している方は'
+]
+
+const REFERENCE_MAPPINGS = [
+  {
+    keywords: ['厚生労働省', '介護従事者処遇状況等調査'],
+    url: 'https://www.mhlw.go.jp/toukei/list/176-1.html'
+  },
+  {
+    keywords: ['厚生労働省', '賃金構造基本統計調査'],
+    url: 'https://www.mhlw.go.jp/toukei/list/chinginkouzou.html'
+  },
+  {
+    keywords: ['厚生労働省', '医療施設調査'],
+    url: 'https://www.mhlw.go.jp/toukei/list/79-1.html'
+  },
+  {
+    keywords: ['看護師等学校養成所', '卒業生就業状況'],
+    url: 'https://www.mhlw.go.jp/toukei/list/100-1.html'
+  },
+  {
+    keywords: ['総務省', '労働力調査'],
+    url: 'https://www.stat.go.jp/data/roudou/'
+  },
+  {
+    keywords: ['日本看護協会', '看護統計'],
+    url: 'https://www.nurse.or.jp/home/statistics/index.html'
+  },
+  {
+    keywords: ['日本看護協会', '看護職員の需給', '働き方調査'],
+    url: 'https://www.nurse.or.jp/home/publication/pdf/report/2023_jinzai_chousa.pdf'
+  },
+  {
+    keywords: ['労働政策研究', '研修機構'],
+    url: 'https://www.jil.go.jp/'
+  },
+  {
+    keywords: ['東京都', '産業労働局', '医療事務', '賃金実態調査'],
+    url: 'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2023/03/15/13.html'
+  }
+]
+
+/**
+ * Portable Text ブロックからテキストを抽出
+ * @param {Object} block
+ * @returns {string}
+ */
+function extractBlockText(block) {
+  if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+    return ''
+  }
+  return block.children
+    .map(child => (child && typeof child.text === 'string' ? child.text : ''))
+    .join('')
+    .trim()
+}
+
+/**
+ * ブロックが内部リンクのみで構成されているか判定
+ * @param {Object} block
+ * @returns {{isInternalLinkOnly: boolean, isInternalLink: boolean}}
+ */
+function analyseLinkBlock(block) {
+  if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+    return { isInternalLinkOnly: false, isInternalLink: false }
+  }
+
+  if (!Array.isArray(block.markDefs) || block.markDefs.length === 0) {
+    return { isInternalLinkOnly: false, isInternalLink: false }
+  }
+
+  const linkMarks = new Map()
+  block.markDefs.forEach(def => {
+    if (def && def._type === 'link' && typeof def.href === 'string') {
+      linkMarks.set(def._key, def.href)
+    }
+  })
+
+  if (linkMarks.size === 0) {
+    return { isInternalLinkOnly: false, isInternalLink: false }
+  }
+
+  let hasInternalLink = false
+  let allChildrenAreLinks = true
+
+  block.children.forEach(child => {
+    if (!child || typeof child.text !== 'string') {
+      return
+    }
+    const text = child.text.trim()
+    const marks = Array.isArray(child.marks) ? child.marks : []
+    const hasLinkMark = marks.some(markKey => {
+      const href = linkMarks.get(markKey)
+      if (typeof href !== 'string') return false
+      return href.startsWith('/posts/') || href.includes('/posts/')
+    })
+
+    if (hasLinkMark) {
+      hasInternalLink = true
+    }
+
+    if (text.length > 0 && !hasLinkMark) {
+      allChildrenAreLinks = false
+    }
+  })
+
+  return {
+    isInternalLinkOnly: allChildrenAreLinks && hasInternalLink,
+    isInternalLink: hasInternalLink
+  }
+}
+
+function hasAffiliateLink(block) {
+  if (!block || block._type !== 'block' || !Array.isArray(block.markDefs)) {
+    return false
+  }
+  return block.markDefs.some(def => {
+    if (!def || typeof def.href !== 'string') {
+      return false
+    }
+    return AFFILIATE_HOST_KEYWORDS.some(keyword => def.href.includes(keyword))
+  })
+}
+
+function ensureHttpsUrl(url) {
+  if (!url || typeof url !== 'string') {
+    return null
+  }
+  let trimmed = url.trim()
+  if (trimmed.startsWith('//')) {
+    trimmed = `https:${trimmed}`
+  }
+  if (/^http:\/\//i.test(trimmed)) {
+    trimmed = trimmed.replace(/^http:\/\//i, 'https://')
+  }
+  if (!/^https?:\/\//i.test(trimmed)) {
+    trimmed = `https://${trimmed.replace(/^\/+/, '')}`
+  }
+  return trimmed
+}
+
+function isTopLevelUrl(url) {
+  try {
+    const parsed = new URL(url)
+    return parsed.pathname === '/' || parsed.pathname === '' || parsed.pathname === '/index.html'
+  } catch (error) {
+    return false
+  }
+}
+
+function matchReferenceMapping(label) {
+  if (!label) return null
+  const normalized = label.toLowerCase()
+  for (const mapping of REFERENCE_MAPPINGS) {
+    const match = mapping.keywords.every(keyword => normalized.includes(keyword.toLowerCase()))
+    if (match) {
+      return mapping.url
+    }
+  }
+  return null
+}
+
+async function resolveReferenceUrl(url, cache) {
+  if (!url) return null
+  const normalized = ensureHttpsUrl(url)
+  if (!normalized) return null
+
+  if (cache.has(normalized)) {
+    return cache.get(normalized)
+  }
+
+  const attemptFetch = async (targetUrl, method) => {
+    try {
+      const response = await fetch(targetUrl, { method, redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0' } })
+      if (response.ok && response.status < 400) {
+        return response.url || targetUrl
+      }
+    } catch (error) {
+      return null
+    }
+    return null
+  }
+
+  let finalUrl = await attemptFetch(normalized, 'HEAD')
+  if (!finalUrl) {
+    finalUrl = await attemptFetch(normalized, 'GET')
+  }
+
+  cache.set(normalized, finalUrl)
+  return finalUrl
+}
+
+/**
+ * Bodyブロックから関連記事セクションや重複段落を除去する
+ * - 「関連記事」「関連リンク」などのセクションを削除
+ * - 内部リンクブロックは1つに制限
+ * - 同一段落の重複を除去
+ * - 連続リンクブロックを削除
+ *
+ * @param {Array} blocks
+ * @returns {{body: Array, removedRelated: number, removedDuplicateParagraphs: number, removedInternalLinks: number}}
+ */
+function sanitizeBodyBlocks(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return {
+      body: blocks,
+      removedRelated: 0,
+      removedDuplicateParagraphs: 0,
+      removedInternalLinks: 0,
+      removedForbiddenSections: 0,
+      removedSummaryHelpers: 0,
+      removedAffiliateCtas: 0,
+      removedSummaryHeadings: 0,
+      disclaimerAdded: 0
+    }
+  }
+
+  const cleaned = []
+  const seenParagraphs = new Set()
+  let removedRelated = 0
+  let removedDuplicates = 0
+  let removedInternalLinks = 0
+  let removedForbiddenSections = 0
+  let removedSummaryHelpers = 0
+  let removedAffiliateCtas = 0
+  let removedSummaryHeadings = 0
+  let skipForbiddenSection = false
+  let internalLinkCount = 0
+  let affiliateLinkCount = 0
+  let previousWasLinkBlock = false
+  let summaryHeadingSeen = false
+  let hasDisclaimer = false
+  const DISCLAIMER_TEXT = '免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。'
+
+  for (const block of blocks) {
+    if (!block || block._type !== 'block') {
+      if (skipForbiddenSection) {
+        continue
+      }
+      cleaned.push(block)
+      previousWasLinkBlock = false
+      continue
+    }
+
+    const text = extractBlockText(block)
+    const normalizedText = text.replace(/\s+/g, ' ').trim()
+
+    if (skipForbiddenSection) {
+      if (block.style === 'h2') {
+        skipForbiddenSection = false
+      } else {
+        continue
+      }
+    }
+
+    // 「関連記事」見出しやテキストを削除
+    const isRelatedHeading =
+      (block.style === 'h2' || block.style === 'h3' || block.style === 'h4') &&
+      /関連記事|関連リンク|関連記事集/.test(normalizedText)
+
+    const isRelatedParagraph =
+      /関連記事|関連リンク|こちらの記事/.test(normalizedText) &&
+      (!block.listItem || block.listItem === 'bullet')
+
+    if (isRelatedHeading || isRelatedParagraph) {
+      removedRelated += 1
+      previousWasLinkBlock = false
+      continue
+    }
+
+    // リスト項目内の関連記事リンクを削除
+    if (block.listItem && /関連記事|関連リンク/.test(normalizedText)) {
+      removedRelated += 1
+      previousWasLinkBlock = false
+      continue
+    }
+
+    const affiliateMarkDefs = Array.isArray(block.markDefs)
+      ? block.markDefs.filter(
+          def =>
+            def &&
+            def._type === 'link' &&
+            typeof def.href === 'string' &&
+            AFFILIATE_HOST_KEYWORDS.some(keyword => def.href.includes(keyword))
+        )
+      : []
+
+    if (
+      affiliateMarkDefs.length === 0 &&
+      CTA_TEXT_PATTERNS.some(pattern => normalizedText.includes(pattern))
+    ) {
+      removedAffiliateCtas += 1
+      previousWasLinkBlock = false
+      continue
+    }
+
+    if (affiliateMarkDefs.length > 0) {
+      const affiliateKeys = new Set(affiliateMarkDefs.map(def => def._key))
+      const nonAffiliateChildren = []
+      const affiliateChildrenByKey = new Map()
+
+      block.children.forEach(child => {
+        const childMarks = Array.isArray(child?.marks) ? child.marks : []
+        const childAffiliateMarks = childMarks.filter(mark => affiliateKeys.has(mark))
+
+        if (childAffiliateMarks.length === 0) {
+          if (child?.text?.trim()) {
+            nonAffiliateChildren.push({
+              ...child,
+              marks: childMarks.filter(mark => !affiliateKeys.has(mark))
+            })
+          }
+          return
+        }
+
+        childAffiliateMarks.forEach(markKey => {
+          if (!affiliateChildrenByKey.has(markKey)) {
+            affiliateChildrenByKey.set(markKey, [])
+          }
+          affiliateChildrenByKey.get(markKey).push({
+            ...child,
+            _key: `${child._key || `child-${Date.now()}`}-${markKey}`
+          })
+        })
+      })
+
+      if (nonAffiliateChildren.length > 0) {
+        cleaned.push({
+          ...block,
+          _key: `${block._key || `block-${Date.now()}`}-cta-text`,
+          children: nonAffiliateChildren,
+          markDefs: Array.isArray(block.markDefs)
+            ? block.markDefs.filter(def => !affiliateKeys.has(def._key))
+            : []
+        })
+      }
+
+      for (const markKey of affiliateChildrenByKey.keys()) {
+        const spans = affiliateChildrenByKey.get(markKey)
+        if (!spans || spans.length === 0) {
+          continue
+        }
+
+        if (affiliateLinkCount >= 2) {
+          removedAffiliateCtas += spans.length
+          continue
+        }
+
+        const markDef = affiliateMarkDefs.find(def => def._key === markKey)
+        if (!markDef) {
+          continue
+        }
+
+        cleaned.push({
+          _type: 'block',
+          _key: `${block._key || `block-${Date.now()}`}-cta-link-${markKey}`,
+          style: 'normal',
+          children: spans,
+          markDefs: [markDef]
+        })
+
+        affiliateLinkCount += 1
+        previousWasLinkBlock = true
+      }
+
+      previousWasLinkBlock = true
+      continue
+    }
+
+    // 「看護助手ができないこと（重要）」などの禁止セクションを削除
+    if (
+      block.style === 'h2' &&
+      /看護助手ができないこと|禁止行為/.test(normalizedText)
+    ) {
+      removedForbiddenSections += 1
+      skipForbiddenSection = true
+      previousWasLinkBlock = false
+      continue
+    }
+
+    // 「今日のポイント」というテキストは削除（リスト含む）
+    if (/今日のポイント/.test(normalizedText)) {
+      removedSummaryHelpers += 1
+      previousWasLinkBlock = false
+      continue
+    }
+
+    // 最終更新日行を削除
+    if (/^最終更新日/.test(normalizedText)) {
+      removedSummaryHelpers += 1
+      previousWasLinkBlock = false
+      continue
+    }
+
+    if (block.style === 'h2' && /まとめ/.test(normalizedText)) {
+      if (!summaryHeadingSeen) {
+        summaryHeadingSeen = true
+        const sanitizedHeading = {
+          ...block,
+          children: [
+            {
+              _type: 'span',
+              _key: block.children?.[0]?._key || `${block._key || 'block'}-summary`,
+              text: 'まとめ',
+              marks: []
+            }
+          ]
+        }
+        cleaned.push(sanitizedHeading)
+      } else {
+        removedSummaryHeadings += 1
+      }
+      previousWasLinkBlock = false
+      continue
+    }
+
+    if (normalizedText.startsWith('免責事項')) {
+      hasDisclaimer = true
+    }
+
+    const { isInternalLinkOnly, isInternalLink } = analyseLinkBlock(block)
+
+    if (isInternalLink) {
+      internalLinkCount += 1
+
+      // 2つ目以降の内部リンク、または連続リンクは削除
+      if (internalLinkCount > 1 || previousWasLinkBlock) {
+        removedInternalLinks += 1
+        previousWasLinkBlock = previousWasLinkBlock || isInternalLinkOnly
+        continue
+      }
+
+      previousWasLinkBlock = isInternalLinkOnly
+      cleaned.push(block)
+      continue
+    }
+
+    previousWasLinkBlock = false
+
+    // 重複段落の除外（40文字以上の段落のみ）
+    if (normalizedText.length >= 40) {
+      if (seenParagraphs.has(normalizedText)) {
+        removedDuplicates += 1
+        continue
+      }
+      seenParagraphs.add(normalizedText)
+    }
+
+    cleaned.push(block)
+  }
+
+  if (!hasDisclaimer) {
+    cleaned.push({
+      _type: 'block',
+      _key: `disclaimer-${Date.now()}`,
+      style: 'normal',
+      markDefs: [],
+      children: [
+        {
+          _type: 'span',
+          _key: `disclaimer-span-${Date.now()}`,
+          text: DISCLAIMER_TEXT,
+          marks: []
+        }
+      ]
+    })
+  }
+
+  return {
+    body: cleaned,
+    removedRelated,
+    removedDuplicateParagraphs: removedDuplicates,
+    removedInternalLinks,
+    removedForbiddenSections,
+    removedSummaryHelpers,
+    removedAffiliateCtas,
+    removedSummaryHeadings,
+    disclaimerAdded: hasDisclaimer ? 0 : 1
+  }
+}
+
+async function normalizeReferenceLinks(blocks, articleTitle = '') {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, fixed: 0, unresolved: [] }
+  }
+
+  const clonedBlocks = deepClone(blocks)
+  let fixed = 0
+  const unresolved = []
+  const cache = new Map()
+
+  const getLabelForMark = (block, markKey) => {
+    if (!block || !Array.isArray(block.children)) return ''
+    return block.children
+      .filter(child => Array.isArray(child?.marks) && child.marks.includes(markKey))
+      .map(child => child.text || '')
+      .join('')
+      .trim()
+  }
+
+  for (const block of clonedBlocks) {
+    if (!block || block._type !== 'block') continue
+    const text = extractBlockText(block)
+    const normalized = text.replace(/\s+/g, ' ').trim()
+    if (!normalized.startsWith('参考')) continue
+    if (!Array.isArray(block.markDefs) || block.markDefs.length === 0) continue
+
+    const referenceMarks = block.markDefs.filter(def => def && def._type === 'link' && typeof def.href === 'string')
+    if (referenceMarks.length === 0) continue
+
+    let blockModified = false
+
+    for (const markDef of referenceMarks) {
+      const currentUrl = ensureHttpsUrl(markDef.href)
+      const label = getLabelForMark(block, markDef._key) || normalized.replace(/^参考[:：]?\s*/, '')
+      const mappingUrl = matchReferenceMapping(label)
+
+      let targetUrl = ensureHttpsUrl(mappingUrl || currentUrl)
+
+      if (!targetUrl) {
+        unresolved.push({ articleTitle, label, url: currentUrl })
+        continue
+      }
+
+      let resolvedUrl = await resolveReferenceUrl(targetUrl, cache)
+      if (!resolvedUrl && mappingUrl) {
+        resolvedUrl = ensureHttpsUrl(mappingUrl)
+      }
+
+      if (resolvedUrl && isTopLevelUrl(resolvedUrl) && mappingUrl) {
+        resolvedUrl = ensureHttpsUrl(mappingUrl)
+      }
+
+      if (!resolvedUrl || isTopLevelUrl(resolvedUrl)) {
+        unresolved.push({ articleTitle, label, url: currentUrl })
+        continue
+      }
+
+      if (resolvedUrl !== markDef.href) {
+        markDef.href = resolvedUrl
+        fixed += 1
+        blockModified = true
+      }
+    }
+
+    if (blockModified) {
+      // 余分な markDefs を整理（重複解除）
+      const uniqueDefs = []
+      const seenKeys = new Set()
+      block.markDefs.forEach(def => {
+        if (!def || !def._key || seenKeys.has(def._key)) return
+        seenKeys.add(def._key)
+        uniqueDefs.push(def)
+      })
+      block.markDefs = uniqueDefs
+    }
+  }
+
+  return {
+    body: clonedBlocks,
+    fixed,
+    unresolved
+  }
+}
+
 async function getCategoryResources() {
   try {
     const categories = await client.fetch(`*[_type == "category"] { _id, title }`)
@@ -559,6 +1151,41 @@ async function autoFixMetadata() {
       }
     }
 
+    // 関連記事セクションや重複段落を除去
+    let relatedSectionsRemoved = 0
+    let duplicateParagraphsRemoved = 0
+    let extraInternalLinksRemoved = 0
+    let forbiddenSectionsRemoved = 0
+    let summaryHelpersRemoved = 0
+    let affiliateCtasRemoved = 0
+    let summaryHeadingsRemoved = 0
+    let disclaimersAdded = 0
+    let referencesFixed = 0
+    let unresolvedReferences = []
+    if (post.body && Array.isArray(post.body)) {
+      const sanitised = sanitizeBodyBlocks(updates.body || post.body)
+      if (JSON.stringify(sanitised.body) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = sanitised.body
+      }
+      relatedSectionsRemoved = sanitised.removedRelated
+      duplicateParagraphsRemoved = sanitised.removedDuplicateParagraphs
+      extraInternalLinksRemoved = sanitised.removedInternalLinks
+      forbiddenSectionsRemoved = sanitised.removedForbiddenSections
+      summaryHelpersRemoved = sanitised.removedSummaryHelpers
+      affiliateCtasRemoved = sanitised.removedAffiliateCtas
+      summaryHeadingsRemoved = sanitised.removedSummaryHeadings
+      disclaimersAdded = sanitised.disclaimerAdded
+
+      const referenceResult = await normalizeReferenceLinks(updates.body || post.body, post.title)
+      if (referenceResult.fixed > 0) {
+        updates.body = referenceResult.body
+        referencesFixed = referenceResult.fixed
+      } else if (referenceResult.body !== (updates.body || post.body)) {
+        updates.body = referenceResult.body
+      }
+      unresolvedReferences = referenceResult.unresolved
+    }
+
     if ((!post.slug || !post.slug.current) && publishedId) {
       const slugCandidate = generateSlugFromTitle(post.title)
       // eslint-disable-next-line no-await-in-loop
@@ -640,6 +1267,37 @@ async function autoFixMetadata() {
     if (affiliateLinksSeparated) {
       console.log('   アフィリエイトリンクを独立した段落として分離しました')
     }
+    if (relatedSectionsRemoved > 0) {
+      console.log(`   関連記事セクションを削除しました (${relatedSectionsRemoved}ブロック)`)
+    }
+    if (duplicateParagraphsRemoved > 0) {
+      console.log(`   重複段落を削除しました (${duplicateParagraphsRemoved}ブロック)`)
+    }
+    if (extraInternalLinksRemoved > 0) {
+      console.log(`   余分な内部リンクを削除しました (${extraInternalLinksRemoved}リンク)`)
+    }
+    if (forbiddenSectionsRemoved > 0) {
+      console.log(`   禁止セクションを削除しました (${forbiddenSectionsRemoved}セクション)`)
+    }
+    if (summaryHelpersRemoved > 0) {
+      console.log(`   まとめ補助テキストを削除しました (${summaryHelpersRemoved}ブロック)`)
+    }
+    if (affiliateCtasRemoved > 0) {
+      console.log(`   アフィリエイト訴求ブロックを削除しました (${affiliateCtasRemoved}ブロック)`)
+    }
+    if (summaryHeadingsRemoved > 0) {
+      console.log(`   重複した「まとめ」見出しを整理しました (${summaryHeadingsRemoved}見出し)`)
+    }
+    if (disclaimersAdded > 0) {
+      console.log('   免責事項を追記しました')
+    }
+    if (referencesFixed > 0) {
+      console.log(`   出典リンクを更新しました (${referencesFixed}件)`)
+    }
+    if (unresolvedReferences.length > 0) {
+      const preview = unresolvedReferences.slice(0, 3).map(ref => ref.label || ref.url).join(', ')
+      console.log(`   ⚠️  確認が必要な出典リンクがあります (${unresolvedReferences.length}件): ${preview}`)
+    }
     if (updates.categories) {
       const selectedCategories = updates.categories
         .map(ref => categories.find(c => c._id === ref._ref)?.title)
@@ -675,6 +1333,178 @@ async function autoFixMetadata() {
   }
 
   return { total: posts.length, updated }
+}
+
+/**
+ * 本文全体から関連記事セクション・重複段落・余計な内部リンクを整理
+ */
+async function sanitizeAllBodies() {
+  console.log('\n🧹 本文内の関連記事・重複段落の自動整理を開始します\n')
+
+  const posts = await client.fetch(`
+    *[_type == "post"] {
+      _id,
+      title,
+      body
+    }
+  `)
+
+  if (!posts || posts.length === 0) {
+    console.log('✅ 対象記事はありません')
+    return {
+      total: 0,
+      updated: 0,
+      relatedRemoved: 0,
+      duplicateParagraphsRemoved: 0,
+      extraInternalLinksRemoved: 0,
+      forbiddenSectionsRemoved: 0,
+      summaryHelpersRemoved: 0,
+      referencesFixed: 0,
+      unresolvedReferences: [],
+      affiliateCtasRemoved: 0,
+      summaryHeadingsRemoved: 0,
+      disclaimersAdded: 0
+    }
+  }
+
+  let updated = 0
+  let totalRelatedRemoved = 0
+  let totalDuplicatesRemoved = 0
+  let totalInternalLinksRemoved = 0
+  let totalForbiddenSectionsRemoved = 0
+  let totalSummaryHelpersRemoved = 0
+  let totalAffiliateCtasRemoved = 0
+  let totalSummaryHeadingsRemoved = 0
+  let totalDisclaimersAdded = 0
+  let totalReferencesFixed = 0
+  const unresolvedReferences = []
+
+  for (const post of posts) {
+    if (!Array.isArray(post.body) || post.body.length === 0) {
+      continue
+    }
+
+    const sanitised = sanitizeBodyBlocks(post.body)
+    let {
+      body,
+      removedRelated,
+      removedDuplicateParagraphs,
+      removedInternalLinks,
+      removedForbiddenSections,
+      removedSummaryHelpers,
+      removedAffiliateCtas,
+      removedSummaryHeadings,
+      disclaimerAdded
+    } = sanitised
+
+    const referenceResult = await normalizeReferenceLinks(body, post.title)
+    body = referenceResult.body
+    totalReferencesFixed += referenceResult.fixed
+    if (referenceResult.unresolved.length > 0) {
+      referenceResult.unresolved.forEach(item => {
+        unresolvedReferences.push({
+          articleTitle: item.articleTitle || post.title,
+          label: item.label,
+          url: item.url
+        })
+      })
+    }
+
+    if (
+      removedRelated === 0 &&
+      removedDuplicateParagraphs === 0 &&
+      removedInternalLinks === 0 &&
+      removedForbiddenSections === 0 &&
+      removedSummaryHelpers === 0 &&
+      removedAffiliateCtas === 0 &&
+      removedSummaryHeadings === 0 &&
+      disclaimerAdded === 0 &&
+      referenceResult.fixed === 0
+    ) {
+      continue
+    }
+
+    await client
+      .patch(post._id)
+      .set({ body })
+      .commit()
+
+    const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
+    if (publishedId !== post._id) {
+      await client
+        .patch(publishedId)
+        .set({ body })
+        .commit()
+        .catch(() => null)
+    }
+
+    updated += 1
+    totalRelatedRemoved += removedRelated
+    totalDuplicatesRemoved += removedDuplicateParagraphs
+    totalInternalLinksRemoved += removedInternalLinks
+    totalForbiddenSectionsRemoved += removedForbiddenSections
+    totalSummaryHelpersRemoved += removedSummaryHelpers
+    totalAffiliateCtasRemoved += removedAffiliateCtas
+    totalSummaryHeadingsRemoved += removedSummaryHeadings
+    totalDisclaimersAdded += disclaimerAdded
+
+    console.log(`✅ ${post.title}`)
+    if (removedRelated > 0) {
+      console.log(`   関連記事セクションを削除: ${removedRelated}ブロック`)
+    }
+    if (removedDuplicateParagraphs > 0) {
+      console.log(`   重複段落を削除: ${removedDuplicateParagraphs}ブロック`)
+    }
+    if (removedInternalLinks > 0) {
+      console.log(`   余分な内部リンクを削除: ${removedInternalLinks}リンク`)
+    }
+    if (removedForbiddenSections > 0) {
+      console.log(`   禁止セクションを削除: ${removedForbiddenSections}セクション`)
+    }
+    if (removedSummaryHelpers > 0) {
+      console.log(`   まとめ補助テキストを削除: ${removedSummaryHelpers}ブロック`)
+    }
+    if (removedAffiliateCtas > 0) {
+      console.log(`   アフィリエイト訴求ブロックを削除: ${removedAffiliateCtas}ブロック`)
+    }
+    if (removedSummaryHeadings > 0) {
+      console.log(`   重複した「まとめ」見出しを整理: ${removedSummaryHeadings}見出し`)
+    }
+    if (disclaimerAdded > 0) {
+      console.log('   免責事項を追記しました')
+    }
+    if (referenceResult.fixed > 0) {
+      console.log(`   出典リンクを更新: ${referenceResult.fixed}件`)
+    }
+  }
+
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 免責事項追記:${totalDisclaimersAdded}）\n`)
+
+  if (unresolvedReferences.length > 0) {
+    console.log('⚠️  以下の出典リンクは自動修正できませんでした。手動確認をお願いします。')
+    unresolvedReferences.slice(0, 10).forEach((item, index) => {
+      console.log(`  ${index + 1}. ${item.articleTitle} -> ${item.label || '出典不明'} (${item.url || 'URL不明'})`)
+    })
+    if (unresolvedReferences.length > 10) {
+      console.log(`  ...他 ${unresolvedReferences.length - 10}件`)
+    }
+    console.log()
+  }
+
+  return {
+    total: posts.length,
+    updated,
+    relatedRemoved: totalRelatedRemoved,
+    duplicateParagraphsRemoved: totalDuplicatesRemoved,
+    extraInternalLinksRemoved: totalInternalLinksRemoved,
+    forbiddenSectionsRemoved: totalForbiddenSectionsRemoved,
+    summaryHelpersRemoved: totalSummaryHelpersRemoved,
+    referencesFixed: totalReferencesFixed,
+    unresolvedReferences,
+    affiliateCtasRemoved: totalAffiliateCtasRemoved,
+    summaryHeadingsRemoved: totalSummaryHeadingsRemoved,
+    disclaimersAdded: totalDisclaimersAdded
+  }
 }
 
 function runNodeScript(scriptName, args = [], label) {
@@ -1790,16 +2620,19 @@ if (require.main === module) {
           await generateReport()
           console.log('\n' + '='.repeat(60))
           console.log('\nステップ2: カテゴリ再評価\n')
-          await recategorizeAllPosts()
-          console.log('\n' + '='.repeat(60))
-          console.log('\nステップ3: 自動修復実行\n')
-          await autoFixMetadata()
-          console.log('\n' + '='.repeat(60))
-          console.log('\n✅ === 総合メンテナンス完了 ===\n')
-        } catch (error) {
-          console.error('❌ 総合メンテナンス中にエラーが発生:', error.message)
-          console.error('スタックトレース:')
-          console.error(error.stack)
+      await recategorizeAllPosts()
+      console.log('\n' + '='.repeat(60))
+      console.log('\nステップ3: 自動修復実行\n')
+      await autoFixMetadata()
+      console.log('\n' + '='.repeat(60))
+      console.log('\nステップ4: 本文内関連記事・重複段落の整理\n')
+      await sanitizeAllBodies()
+      console.log('\n' + '='.repeat(60))
+      console.log('\n✅ === 総合メンテナンス完了 ===\n')
+    } catch (error) {
+      console.error('❌ 総合メンテナンス中にエラーが発生:', error.message)
+      console.error('スタックトレース:')
+      console.error(error.stack)
           process.exit(1)
         }
       })()
@@ -1807,6 +2640,10 @@ if (require.main === module) {
 
     case 'autofix':
       autoFixMetadata().catch(console.error)
+      break
+
+    case 'sanitize':
+      sanitizeAllBodies().catch(console.error)
       break
 
     case 'recategorize':
