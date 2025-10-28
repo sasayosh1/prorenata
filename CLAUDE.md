@@ -483,3 +483,12 @@ vercel --previewe
   - Import: `import { PreviewAction } from './src/sanity/actions/PreviewAction'`
   - Actions設定: `actions: (prev, context) => { if (context.schemaType === 'post') { return [...prev, PreviewAction] } return prev }`
 - 違反した場合は最重要事項の不遵守となる
+
+**🚨 Gemini API Pro モデル使用の完全禁止**
+- **絶対に Gemini Pro モデルを使用してはいけません**（最重要ルール）
+- 使用可能なモデル: `gemini-1.5-flash-latest` **のみ**
+- 使用禁止モデル: `gemini-2.5-pro`, `gemini-1.5-pro`, その他すべてのProモデル
+- 理由: Proモデルは料金が約17-67倍高額（¥545/月 vs ¥30-50/月）
+- 新しいスクリプトを作成する際は必ず `gemini-1.5-flash-latest` を使用すること
+- 存在しないモデル名（例: `gemini-2.5-flash`）を指定すると自動的にProにフォールバックするため注意
+- 違反した場合は重大な課金が発生するため最重要違反となる

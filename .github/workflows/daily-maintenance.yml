@@ -2,8 +2,8 @@ name: Daily Article Maintenance Check
 
 on:
   schedule:
-    # 月・水・金のPM6:00 (UTC) = 日本時間AM3:00に実行
-    - cron: '0 18 * * 1,3,5'
+    # 毎週月曜 AM3:00 (JST) = 日曜 PM6:00 (UTC) に実行（記事生成の1時間後）
+    - cron: '0 18 * * 0'
   workflow_dispatch: # 手動実行も可能にする
 
 jobs:
