@@ -120,7 +120,7 @@ vercel --previewe
 - **ワークフロー**: `.github/workflows/daily-draft.yml`
 - **生成エンジン**: Gemini API (gemini-1.5-flash-latest) ⚠️ **Pro禁止**
 - **API キー**: GitHub Secrets (`GEMINI_API_KEY`) に設定済み
-- **月間コスト**: 約¥6-10（Flash使用時）
+- **月間コスト**: 約¥6-10（gemini-1.5-flash-latest使用時）
 
 **2. メンテナンスチェック**
 - **実行時刻**: 毎週 月曜 深夜3:00 (JST) - 記事生成の1時間後
@@ -135,7 +135,7 @@ vercel --previewe
 - **ワークフロー**: `.github/workflows/daily-x-post.yml`
 - **内容**: ランダム記事をX（Twitter）に自動投稿
 - **生成エンジン**: Gemini API (gemini-1.5-flash-latest) ⚠️ **Pro禁止**
-- **月間コスト**: 約¥15-45（Flash使用時、120-140文字要約生成）
+- **月間コスト**: 約¥15-45（gemini-1.5-flash-latest使用時、120-140文字要約生成）
 
 ### キーワード戦略（黄金比）
 
@@ -177,7 +177,7 @@ vercel --previewe
    - Gemini API使用料を60%削減（¥147/月 → ¥59/月）
    - 全費用の100%がGemini APIによるものと判明
    - 夜間スクリプト群の包括的改善を実施：
-     - Gemini APIモデルをgemini-2.5-flashに統一
+     - Gemini APIモデルをgemini-2.5-flashに統一（⚠️ 後に存在しないモデルと判明、Proにフォールバックしていた）
      - 記事生成失敗時のGitHub Issue自動作成機能追加
      - X投稿の重複回避機構実装（30日履歴管理）
      - excerpt自動更新機能追加（白崎セラ口調で一貫性保持）
@@ -441,7 +441,7 @@ vercel --previewe
    - **根本原因**:
      - 全スクリプトで存在しない「gemini-2.5-flash」モデルを指定
      - 結果、自動的にGemini 2.5 Proにフォールバック
-     - Pro料金：$5.00/1M output tokens（Flashの約17倍）
+     - Pro料金：$5.00/1M output tokens（gemini-1.5-flash-latestの約17倍）
    - **緊急対応**:
      - 記事自動生成・メンテナンスワークフローを即座に停止
      - 4つのスクリプト全てを修正：
@@ -452,11 +452,11 @@ vercel --previewe
      - モデル名を「gemini-1.5-flash-latest」に統一
    - **コスト削減効果**:
      - 修正前：¥545/月（20記事、Proモデル）
-     - 修正後：¥30-50/月（同条件、Flashモデル）→ **約90-95%削減**
+     - 修正後：¥30-50/月（同条件、gemini-1.5-flash-latest）→ **約90-95%削減**
      - 週1回実行時：¥6-10/月
-   - **最終設定（週1回実行）**:
+   - **最終設定（週1回実行、すべてgemini-1.5-flash-latest使用）**:
      - 記事自動生成：週1回（月曜AM2:00）→ ¥6-10/月
-     - メンテナンス：週1回（月曜AM3:00）→ 無料
+     - メンテナンス：週1回（月曜AM3:00）→ 無料（Gemini API未使用）
      - X自動投稿：毎日 → ¥15-45/月
      - **月間コスト総額：¥21-55**（予算¥300の7-18%）
    - **Google Cloud予算アラート**: ¥300/月に設定済み
