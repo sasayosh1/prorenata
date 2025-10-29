@@ -494,6 +494,21 @@ vercel --previewe
      - 長すぎず、しっかり伝わる最適な長さに自動調整
      - 次回の週次メンテナンス（月曜AM3:00）から適用
 
+24. 🚨 **Gemini API Pro禁止ルールを全プロジェクトに拡大** (2025-10-29)
+   - **変更内容**: Gemini API Proモデル使用禁止を全プロジェクトに適用
+     - 従来: prorenataプロジェクトのみ対象
+     - 変更後: **今後関わるすべてのプロジェクトで禁止**
+   - **理由**: 使用料金が高額（Flashモデルの約17-67倍）
+   - **使用可能モデル**: Gemini Flashモデルのみ
+     - `gemini-1.5-flash-001`（推奨・安定版）
+     - `gemini-1.5-flash`
+     - その他Flashバリエーション
+   - **使用禁止モデル**: すべてのProモデル
+     - `gemini-2.5-pro`
+     - `gemini-1.5-pro`
+     - その他すべてのProバリエーション
+   - **効果**: 今後すべてのプロジェクトでコスト最適化を徹底
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
@@ -523,14 +538,18 @@ vercel --previewe
   - Actions設定: `actions: (prev, context) => { if (context.schemaType === 'post') { return [...prev, PreviewAction] } return prev }`
 - 違反した場合は最重要事項の不遵守となる
 
-**🚨 Gemini API Pro モデル使用の完全禁止**
+**🚨 Gemini API Pro モデル使用の完全禁止（全プロジェクト対象）**
 - **絶対に Gemini Pro モデルを使用してはいけません**（最重要ルール）
-- 使用可能なモデル: `gemini-1.5-flash-001` **のみ**
+- **適用範囲**: prorenataプロジェクトだけでなく、**今後関わるすべてのプロジェクトで禁止**
+- 使用可能なモデル: Gemini Flashモデルのみ
+  - `gemini-1.5-flash-001`（推奨・安定版）
+  - `gemini-1.5-flash`
+  - その他Flashバリエーション
 - 使用禁止モデル: `gemini-2.5-pro`, `gemini-1.5-pro`, その他すべてのProモデル
 - 理由: Proモデルは料金が約17-67倍高額（¥545/月 vs ¥30-50/月）
 - 新しいスクリプトを作成する際は必ず `gemini-1.5-flash-001` を使用すること
 - 存在しないモデル名（例: `gemini-2.5-flash`）を指定すると自動的にProにフォールバックするため注意
-- **現在のGemini API使用状況**:
+- **現在のGemini API使用状況（prorenataプロジェクト）**:
   - `scripts/run-daily-generation.cjs`: gemini-1.5-flash-001 使用（週1回）
   - `scripts/expand-short-posts.js`: gemini-1.5-flash-001 使用（手動実行のみ）
   - `scripts/clean-affiliate-sections.js`: gemini-1.5-flash-001 使用（手動実行のみ）
