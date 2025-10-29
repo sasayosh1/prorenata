@@ -22,6 +22,9 @@ const {
   removeClosingRemarks,
   removePlaceholderLinks,
   separateAffiliateLinks,
+  removeHashtagLines,
+  addBodyToEmptyH3Sections,
+  removeH3FromSummarySection,
 } = require('./utils/postHelpers')
 
 const client = createClient({
@@ -43,6 +46,13 @@ function getRecencyScore(post) {
   const updated = post._updatedAt ? new Date(post._updatedAt).getTime() : 0
   const created = post._createdAt ? new Date(post._createdAt).getTime() : 0
   return Math.max(updated, created)
+}
+
+function deepClone(value) {
+  if (typeof structuredClone === 'function') {
+    return structuredClone(value)
+  }
+  return JSON.parse(JSON.stringify(value))
 }
 
 function deepClone(value) {
@@ -194,6 +204,16 @@ function hasAffiliateLink(block) {
     }
     return AFFILIATE_HOST_KEYWORDS.some(keyword => def.href.includes(keyword))
   })
+}
+
+function needsSlugRegeneration(slug) {
+  if (!slug || typeof slug !== 'string') return true
+  const normalized = slug.trim().toLowerCase()
+  if (!normalized.startsWith('nursing-assistant-')) return true
+  if (/[^a-z0-9-]/.test(normalized)) return true
+  const remainder = normalized.replace(/^nursing-assistant-/, '')
+  const segments = remainder.split('-').filter(Boolean)
+  return segments.length < 2 || segments.length > 3
 }
 
 function ensureHttpsUrl(url) {
@@ -635,6 +655,169 @@ async function normalizeReferenceLinks(blocks, articleTitle = '') {
     fixed,
     unresolved
   }
+}
+
+function expandShortContent(blocks, title) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, expanded: false }
+  }
+
+  let plain = blocksToPlainText(blocks)
+  if (plain.length >= 2000) {
+    return { body: blocks, expanded: false }
+  }
+
+  const alreadyExpanded = blocks.some(block => block?._key && block._key.startsWith('auto-expansion-'))
+  if (alreadyExpanded) {
+    return { body: blocks, expanded: false }
+  }
+
+  const timestampBase = Date.now()
+  const templates = [
+    index => [
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-h3`,
+        style: 'h3',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-h3-span`, text: '現場で意識したい追加の視点', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-p1`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p1-span`, text: '看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-list1`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-list1-span`, text: '申し送り前に「患者さんの様子・動線・物品」の3点を再確認する', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-list2`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-list2-span`, text: '忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-p2`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p2-span`, text: 'また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。', marks: [] }],
+        markDefs: []
+      }
+    ],
+    index => [
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-h3b`,
+        style: 'h3',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-h3b-span`, text: 'セラが大切にしているフォローの工夫', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-p3`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p3-span`, text: '忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-list3`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-list3-span`, text: 'ナースコール対応後に短い振り返りをチームと共有し、次へ活かす', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-list4`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-list4-span`, text: 'できたこと・うまくいかなかったことを素直にメモして振り返る', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-p4`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p4-span`, text: '「完璧にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。', marks: [] }],
+        markDefs: []
+      }
+    ],
+    index => [
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-h3c`,
+        style: 'h3',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-h3c-span`, text: '学びを深めるためのセルフチェック', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-p5`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p5-span`, text: '記事で紹介したポイントを振り返り、実際の勤務で活用するためのセルフチェックシートをつくるのもおすすめです。1週間ごとに「できたこと」「次に試したいこと」を書き出すだけでも、成長を可視化できます。', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-list5`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-list5-span`, text: '1週間のうちで印象に残った患者さんとの関わりを振り返る', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-list6`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-list6-span`, text: '自分が安心できたサポート例をチームで共有し、取り組みを増やす', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-${timestampBase}-${index}-p6`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p6-span`, text: '「完璧さ」より「継続できる工夫」を意識して、患者さんと自分自身が心地よく過ごせるリズムを整えていきましょう。焦らず取り組む姿勢こそが、看護助手としての信頼とセラ感を育ててくれます。', marks: [] }],
+        markDefs: []
+      }
+    ]
+  ]
+
+  const additions = []
+  let expanded = false
+  let currentBody = [...blocks]
+
+  for (let i = 0; i < templates.length; i += 1) {
+    additions.push(...templates[i](i))
+    currentBody = [...blocks, ...additions]
+    plain = blocksToPlainText(currentBody)
+    expanded = true
+    if (plain.length >= 2000) {
+      break
+    }
+  }
+
+  if (!expanded) {
+    return { body: blocks, expanded: false }
+  }
+
+  return { body: currentBody, expanded: true }
 }
 
 async function getCategoryResources() {
@@ -1151,6 +1334,36 @@ async function autoFixMetadata() {
       }
     }
 
+    // 記事冒頭の #〇〇 で始まる一行を削除
+    let hashtagLinesRemoved = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithoutHashtags = removeHashtagLines(updates.body || post.body)
+      if (JSON.stringify(bodyWithoutHashtags) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithoutHashtags
+        hashtagLinesRemoved = true
+      }
+    }
+
+    // H3タイトルのみで本文がないセクションに本文を追加
+    let emptyH3SectionsFixed = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithH3Bodies = addBodyToEmptyH3Sections(updates.body || post.body, post.title)
+      if (JSON.stringify(bodyWithH3Bodies) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithH3Bodies
+        emptyH3SectionsFixed = true
+      }
+    }
+
+    // まとめセクションではH3使用禁止
+    let summaryH3Removed = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithoutSummaryH3 = removeH3FromSummarySection(updates.body || post.body)
+      if (JSON.stringify(bodyWithoutSummaryH3) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithoutSummaryH3
+        summaryH3Removed = true
+      }
+    }
+
     // 関連記事セクションや重複段落を除去
     let relatedSectionsRemoved = 0
     let duplicateParagraphsRemoved = 0
@@ -1162,6 +1375,7 @@ async function autoFixMetadata() {
     let disclaimersAdded = 0
     let referencesFixed = 0
     let unresolvedReferences = []
+    let shortContentExpanded = false
     if (post.body && Array.isArray(post.body)) {
       const sanitised = sanitizeBodyBlocks(updates.body || post.body)
       if (JSON.stringify(sanitised.body) !== JSON.stringify(updates.body || post.body)) {
@@ -1184,11 +1398,17 @@ async function autoFixMetadata() {
         updates.body = referenceResult.body
       }
       unresolvedReferences = referenceResult.unresolved
+
+      const expansionResult = expandShortContent(updates.body || post.body, post.title)
+      if (expansionResult.expanded) {
+        updates.body = expansionResult.body
+        shortContentExpanded = true
+      }
     }
 
-    if ((!post.slug || !post.slug.current) && publishedId) {
+    const currentSlug = post.slug?.current
+    if (needsSlugRegeneration(currentSlug) && publishedId) {
       const slugCandidate = generateSlugFromTitle(post.title)
-      // eslint-disable-next-line no-await-in-loop
       const uniqueSlug = await ensureUniqueSlug(slugCandidate, publishedId)
       updates.slug = {
         _type: 'slug',
@@ -1200,7 +1420,7 @@ async function autoFixMetadata() {
       updates.categories = categoryRefs
     }
 
-    const plainText = blocksToPlainText(post.body)
+    const plainText = blocksToPlainText(updates.body || post.body)
 
     if (!post.excerpt || post.excerpt.length < 50) {
       const excerpt = generateExcerpt(plainText, post.title)
@@ -1230,7 +1450,13 @@ async function autoFixMetadata() {
     // 100-180文字を目安（ユーザビリティやSEO優先）
     if (!post.metaDescription || post.metaDescription.length < 100 || post.metaDescription.length > 180) {
       const metaDescription = generateMetaDescription(post.title, plainText, categoriesForMeta)
-      updates.metaDescription = metaDescription
+      if (metaDescription.length < 100) {
+        updates.metaDescription = `${post.title}について、看護助手として現場で積み重ねた経験をもとに課題の背景と対処法をやさしく解説します。落ち着いて取り組めるポイントやフォローの仕方も紹介し、安心して次の一歩を踏み出せるよう支援します。`
+      } else if (metaDescription.length > 200) {
+        updates.metaDescription = `${metaDescription.slice(0, 180)}`
+      } else {
+        updates.metaDescription = metaDescription
+      }
     }
 
     if (Object.keys(updates).length === 0) {
@@ -1267,6 +1493,15 @@ async function autoFixMetadata() {
     if (affiliateLinksSeparated) {
       console.log('   アフィリエイトリンクを独立した段落として分離しました')
     }
+    if (hashtagLinesRemoved) {
+      console.log('   記事冒頭の #〇〇 で始まるハッシュタグ行を削除しました')
+    }
+    if (emptyH3SectionsFixed) {
+      console.log('   本文がないH3セクションに説明文を追加しました')
+    }
+    if (summaryH3Removed) {
+      console.log('   まとめセクション内のH3見出しを通常段落（太字）に変換しました')
+    }
     if (relatedSectionsRemoved > 0) {
       console.log(`   関連記事セクションを削除しました (${relatedSectionsRemoved}ブロック)`)
     }
@@ -1297,6 +1532,12 @@ async function autoFixMetadata() {
     if (unresolvedReferences.length > 0) {
       const preview = unresolvedReferences.slice(0, 3).map(ref => ref.label || ref.url).join(', ')
       console.log(`   ⚠️  確認が必要な出典リンクがあります (${unresolvedReferences.length}件): ${preview}`)
+    }
+    if (shortContentExpanded) {
+      console.log('   文字数が不足していたため追加の解説を追記しました')
+    }
+    if (plainText.length < 2000) {
+      console.log(`   ⚠️ 本文は現在 ${plainText.length}文字で2000文字未満です`)
     }
     if (updates.categories) {
       const selectedCategories = updates.categories
@@ -1345,7 +1586,8 @@ async function sanitizeAllBodies() {
     *[_type == "post"] {
       _id,
       title,
-      body
+      body,
+      "slug": slug.current
     }
   `)
 
@@ -1377,63 +1619,118 @@ async function sanitizeAllBodies() {
   let totalSummaryHeadingsRemoved = 0
   let totalDisclaimersAdded = 0
   let totalReferencesFixed = 0
+  let totalShortExpansions = 0
+  let totalSlugRegenerated = 0
   const unresolvedReferences = []
+  const shortLengthIssues = []
 
   for (const post of posts) {
-    if (!Array.isArray(post.body) || post.body.length === 0) {
-      continue
+    const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
+    const originalSlug = typeof post.slug === 'string' ? post.slug : (post.slug?.current || '')
+
+    let body = Array.isArray(post.body) ? post.body : []
+    let removedRelated = 0
+    let removedDuplicateParagraphs = 0
+    let removedInternalLinks = 0
+    let removedForbiddenSections = 0
+    let removedSummaryHelpers = 0
+    let removedAffiliateCtas = 0
+    let removedSummaryHeadings = 0
+    let disclaimerAdded = 0
+    let bodyChanged = false
+    let referencesFixedForPost = 0
+    let expansionResult = { expanded: false }
+
+    if (Array.isArray(post.body) && post.body.length > 0) {
+      const sanitised = sanitizeBodyBlocks(post.body)
+      body = sanitised.body
+      removedRelated = sanitised.removedRelated
+      removedDuplicateParagraphs = sanitised.removedDuplicateParagraphs
+      removedInternalLinks = sanitised.removedInternalLinks
+      removedForbiddenSections = sanitised.removedForbiddenSections
+      removedSummaryHelpers = sanitised.removedSummaryHelpers
+      removedAffiliateCtas = sanitised.removedAffiliateCtas
+      removedSummaryHeadings = sanitised.removedSummaryHeadings
+      disclaimerAdded = sanitised.disclaimerAdded
+
+      bodyChanged =
+        removedRelated > 0 ||
+        removedDuplicateParagraphs > 0 ||
+        removedInternalLinks > 0 ||
+        removedForbiddenSections > 0 ||
+        removedSummaryHelpers > 0 ||
+        removedAffiliateCtas > 0 ||
+        removedSummaryHeadings > 0 ||
+        disclaimerAdded > 0
+
+      const referenceResult = await normalizeReferenceLinks(body, post.title)
+      body = referenceResult.body
+      referencesFixedForPost = referenceResult.fixed
+      totalReferencesFixed += referenceResult.fixed
+      if (referenceResult.fixed > 0) {
+        bodyChanged = true
+      }
+      if (referenceResult.unresolved.length > 0) {
+        referenceResult.unresolved.forEach(item => {
+          unresolvedReferences.push({
+            articleTitle: item.articleTitle || post.title,
+            label: item.label,
+            url: item.url
+          })
+        })
+      }
+
+      expansionResult = expandShortContent(body, post.title)
+      body = expansionResult.body
+      if (expansionResult.expanded) {
+        totalShortExpansions += 1
+        bodyChanged = true
+      }
     }
 
-    const sanitised = sanitizeBodyBlocks(post.body)
-    let {
-      body,
-      removedRelated,
-      removedDuplicateParagraphs,
-      removedInternalLinks,
-      removedForbiddenSections,
-      removedSummaryHelpers,
-      removedAffiliateCtas,
-      removedSummaryHeadings,
-      disclaimerAdded
-    } = sanitised
+    const finalPlainLength = blocksToPlainText(body).length
 
-    const referenceResult = await normalizeReferenceLinks(body, post.title)
-    body = referenceResult.body
-    totalReferencesFixed += referenceResult.fixed
-    if (referenceResult.unresolved.length > 0) {
-      referenceResult.unresolved.forEach(item => {
-        unresolvedReferences.push({
-          articleTitle: item.articleTitle || post.title,
-          label: item.label,
-          url: item.url
-        })
+    let slugUpdated = false
+    let slugForReporting = originalSlug
+    const updates = {}
+
+    if (needsSlugRegeneration(originalSlug)) {
+      const slugCandidate = generateSlugFromTitle(post.title)
+      const uniqueSlug = await ensureUniqueSlug(slugCandidate, publishedId)
+      updates.slug = {
+        _type: 'slug',
+        current: uniqueSlug
+      }
+      slugUpdated = true
+      slugForReporting = uniqueSlug
+      totalSlugRegenerated += 1
+    }
+
+    if (finalPlainLength < 2000) {
+      shortLengthIssues.push({
+        title: post.title,
+        slug: slugForReporting || '(slug未設定)',
+        charCount: finalPlainLength
       })
     }
 
-    if (
-      removedRelated === 0 &&
-      removedDuplicateParagraphs === 0 &&
-      removedInternalLinks === 0 &&
-      removedForbiddenSections === 0 &&
-      removedSummaryHelpers === 0 &&
-      removedAffiliateCtas === 0 &&
-      removedSummaryHeadings === 0 &&
-      disclaimerAdded === 0 &&
-      referenceResult.fixed === 0
-    ) {
+    if (bodyChanged) {
+      updates.body = body
+    }
+
+    if (Object.keys(updates).length === 0) {
       continue
     }
 
     await client
       .patch(post._id)
-      .set({ body })
+      .set(updates)
       .commit()
 
-    const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
     if (publishedId !== post._id) {
       await client
         .patch(publishedId)
-        .set({ body })
+        .set(updates)
         .commit()
         .catch(() => null)
     }
@@ -1447,6 +1744,9 @@ async function sanitizeAllBodies() {
     totalAffiliateCtasRemoved += removedAffiliateCtas
     totalSummaryHeadingsRemoved += removedSummaryHeadings
     totalDisclaimersAdded += disclaimerAdded
+    if (expansionResult.expanded) {
+      console.log('   文字数不足だったため追記を行いました')
+    }
 
     console.log(`✅ ${post.title}`)
     if (removedRelated > 0) {
@@ -1473,12 +1773,31 @@ async function sanitizeAllBodies() {
     if (disclaimerAdded > 0) {
       console.log('   免責事項を追記しました')
     }
-    if (referenceResult.fixed > 0) {
-      console.log(`   出典リンクを更新: ${referenceResult.fixed}件`)
+    if (referencesFixedForPost > 0) {
+      console.log(`   出典リンクを更新: ${referencesFixedForPost}件`)
+    }
+    if (finalPlainLength < 2000) {
+      console.log(`   ⚠️ 本文は現在 ${finalPlainLength}文字で2000文字未満です`)
+    }
+    if (slugUpdated && updates.slug?.current) {
+      console.log(`   スラッグを再生成: ${updates.slug.current}`)
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 免責事項追記:${totalDisclaimersAdded}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
+
+  if (shortLengthIssues.length > 0) {
+    console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
+    shortLengthIssues.slice(0, 10).forEach((item, index) => {
+      console.log(`  ${index + 1}. ${item.title} (${item.charCount}文字) -> /posts/${item.slug}`)
+    })
+    if (shortLengthIssues.length > 10) {
+      console.log(`  ...他 ${shortLengthIssues.length - 10}件`)
+    }
+    console.log()
+  } else {
+    console.log('✅ 2000文字未満の記事はありません\n')
+  }
 
   if (unresolvedReferences.length > 0) {
     console.log('⚠️  以下の出典リンクは自動修正できませんでした。手動確認をお願いします。')
@@ -1500,10 +1819,13 @@ async function sanitizeAllBodies() {
     forbiddenSectionsRemoved: totalForbiddenSectionsRemoved,
     summaryHelpersRemoved: totalSummaryHelpersRemoved,
     referencesFixed: totalReferencesFixed,
+    shortExpansions: totalShortExpansions,
     unresolvedReferences,
     affiliateCtasRemoved: totalAffiliateCtasRemoved,
     summaryHeadingsRemoved: totalSummaryHeadingsRemoved,
-    disclaimersAdded: totalDisclaimersAdded
+    disclaimersAdded: totalDisclaimersAdded,
+    slugRegenerated: totalSlugRegenerated,
+    shortLengthIssues
   }
 }
 

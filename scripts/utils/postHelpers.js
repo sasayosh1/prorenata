@@ -339,20 +339,96 @@ function selectBestCategory(title, plainText, allCategories) {
  * @param {string} title - 記事タイトル
  * @returns {string} URL スラッグ
  */
+const SLUG_KEYWORD_MAPPINGS = [
+  { keywords: ['精神', 'メンタル', '心', 'ストレス', '不安'], words: ['mental', 'care'] },
+  { keywords: ['ストレス', '負担', '楽になる'], words: ['stress', 'relief'] },
+  { keywords: ['夜勤', '夜間', '交代'], words: ['night', 'shift'] },
+  { keywords: ['給料', '年収', '収入', '手当'], words: ['salary', 'update'] },
+  { keywords: ['資格', '試験', '勉強', '勉強法'], words: ['qualification', 'study'] },
+  { keywords: ['転職', '異業種', '一般企業', 'キャリア', '求人'], words: ['career', 'change'] },
+  { keywords: ['医療事務'], words: ['medical', 'office'] },
+  { keywords: ['面接'], words: ['interview', 'tips'] },
+  { keywords: ['仕事内容', '業務', '役割'], words: ['job', 'role'] },
+  { keywords: ['体験談', '経験談'], words: ['experience', 'story'] },
+  { keywords: ['志望動機'], words: ['motivation', 'points'] },
+  { keywords: ['家庭', '両立', 'ワークライフ'], words: ['work', 'life'] },
+  { keywords: ['サポート', '支援'], words: ['team', 'support'] },
+  { keywords: ['患者', '安全', '観察', '急変'], words: ['patient', 'safety'] },
+  { keywords: ['学校', '進学'], words: ['school', 'path'] },
+  { keywords: ['辞め', '退職'], words: ['resignation', 'advice'] },
+  { keywords: ['未経験'], words: ['no', 'experience'] },
+  { keywords: ['理想', '診断', '選び方', '職場'], words: ['workplace', 'fit'] },
+  { keywords: ['コツ'], words: ['practical', 'tips'] },
+  { keywords: ['スケジュール', '一日', '流れ'], words: ['daily', 'schedule'] },
+  { keywords: ['長期', '続ける'], words: ['long', 'term'] },
+  { keywords: ['フォロー'], words: ['follow', 'care'] },
+  { keywords: ['ポイント'], words: ['key', 'points'] },
+  { keywords: ['相場', '比較'], words: ['market', 'info'] },
+  { keywords: ['おすすめ', '選'], words: ['recommended', 'options'] },
+]
+
+const SLUG_FALLBACK_WORDS = ['care', 'guide', 'tips', 'support', 'insights', 'advice', 'focus', 'path', 'growth']
+const SLUG_STOP_WORDS = new Set(['nursing', 'assistant', 'article', 'blog', 'prorenata'])
+
 function generateSlugFromTitle(title) {
-  if (!title) {
-    return 'nursing-assistant-article'
+  const originalTitle = title || ''
+  const normalizedTitle = originalTitle.toLowerCase()
+  const collectedWords = []
+
+  SLUG_KEYWORD_MAPPINGS.forEach(mapping => {
+    const hit = mapping.keywords.some(keyword =>
+      originalTitle.includes(keyword) || normalizedTitle.includes(keyword)
+    )
+    if (hit) {
+      collectedWords.push(...mapping.words)
+    }
+  })
+
+  const asciiBase = originalTitle
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+
+  const asciiTokens = asciiBase
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/[\s-]+/)
+    .filter(token => token.length >= 3 && !SLUG_STOP_WORDS.has(token) && !/^\d+$/.test(token))
+
+  collectedWords.push(...asciiTokens)
+
+  const uniqueWords = []
+  const seen = new Set()
+
+  collectedWords.forEach(word => {
+    const sanitized = word.replace(/[^a-z0-9]/g, '')
+    if (!sanitized || SLUG_STOP_WORDS.has(sanitized) || /^\d+$/.test(sanitized)) {
+      return
+    }
+    if (!seen.has(sanitized)) {
+      seen.add(sanitized)
+      uniqueWords.push(sanitized)
+    }
+  })
+
+  for (const fallback of SLUG_FALLBACK_WORDS) {
+    if (uniqueWords.length >= 2) break
+    if (!seen.has(fallback)) {
+      seen.add(fallback)
+      uniqueWords.push(fallback)
+    }
   }
 
-  // 日本語を削除し、英数字とハイフンのみ残す
-  return title
-    .toLowerCase()
-    .replace(/\s+/g, '-')           // スペースをハイフンに
-    .replace(/[^a-z0-9-]/g, '-')    // 英数字とハイフン以外をハイフンに
-    .replace(/-+/g, '-')            // 連続するハイフンを1つに
-    .replace(/^-|-$/g, '')          // 前後のハイフンを削除
-    .substring(0, 200)              // 最大200文字
-    || 'nursing-assistant-article'  // 空の場合のデフォルト
+  if (uniqueWords.length === 1) {
+    uniqueWords.push('guide')
+  }
+
+  const finalWords = uniqueWords.slice(0, 3)
+
+  if (finalWords.length === 0) {
+    return 'nursing-assistant-guide'
+  }
+
+  return `nursing-assistant-${finalWords.join('-')}`
 }
 
 /**
@@ -677,6 +753,169 @@ function separateAffiliateLinks(blocks) {
   return result
 }
 
+/**
+ * 記事冒頭の #〇〇 で始まる一行を削除
+ *
+ * 削除対象パターン：
+ * - #看護助手
+ * - #転職
+ * など、ハッシュタグのような見出し
+ *
+ * @param {Array} blocks - Sanity body ブロック配列
+ * @returns {Array} ハッシュタグ行を削除したブロック配列
+ */
+function removeHashtagLines(blocks) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  const result = []
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+
+    // block タイプでない場合はそのまま保持
+    if (block._type !== 'block' || !block.children || !Array.isArray(block.children)) {
+      result.push(block)
+      continue
+    }
+
+    // テキストを結合
+    const text = block.children
+      .map(child => child.text || '')
+      .join('')
+      .trim()
+
+    // #で始まる1行のみのブロックを削除（記事冒頭5ブロック以内）
+    if (i < 5 && /^#[^\s]+$/.test(text)) {
+      continue // このブロックをスキップ
+    }
+
+    result.push(block)
+  }
+
+  return result
+}
+
+/**
+ * H3タイトルのみで本文がないセクションに本文を追加
+ *
+ * H3見出しの直後に別の見出し（H2/H3）が来る場合、
+ * そのH3セクションに本文がないため、簡単な説明文を追加
+ *
+ * @param {Array} blocks - Sanity body ブロック配列
+ * @param {string} title - 記事タイトル（コンテキスト）
+ * @returns {Array} 本文を追加したブロック配列
+ */
+function addBodyToEmptyH3Sections(blocks, title) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  const result = []
+  const { randomUUID } = require('crypto')
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+    result.push(block)
+
+    // H3見出しかチェック
+    if (block._type === 'block' && block.style === 'h3') {
+      const nextBlock = blocks[i + 1]
+
+      // 次のブロックが見出し（H2/H3）または存在しない場合、本文がない
+      const isNextBlockHeading = nextBlock && nextBlock._type === 'block' && (nextBlock.style === 'h2' || nextBlock.style === 'h3')
+      const isLastBlock = i === blocks.length - 1
+
+      if (isNextBlockHeading || isLastBlock) {
+        // H3見出しのテキストを取得
+        const h3Text = block.children
+          .map(child => child.text || '')
+          .join('')
+          .trim()
+
+        // 簡単な本文を追加
+        const bodyText = `${h3Text}について、具体的に見ていきましょう。`
+
+        const bodyBlock = {
+          _type: 'block',
+          _key: `body-${randomUUID()}`,
+          style: 'normal',
+          markDefs: [],
+          children: [
+            {
+              _type: 'span',
+              _key: `span-${randomUUID()}`,
+              marks: [],
+              text: bodyText
+            }
+          ]
+        }
+
+        result.push(bodyBlock)
+      }
+    }
+  }
+
+  return result
+}
+
+/**
+ * まとめセクションではH3使用禁止
+ *
+ * 「まとめ」H2見出し以降に出現するH3見出しを、
+ * 通常の段落（太字）に変換する
+ *
+ * @param {Array} blocks - Sanity body ブロック配列
+ * @returns {Array} H3を通常段落に変換したブロック配列
+ */
+function removeH3FromSummarySection(blocks) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  let inSummarySection = false
+  const result = []
+
+  for (const block of blocks) {
+    // H2見出しが「まとめ」の場合、フラグをON
+    if (block._type === 'block' && block.style === 'h2') {
+      const h2Text = block.children
+        .map(child => child.text || '')
+        .join('')
+        .trim()
+
+      if (h2Text === 'まとめ') {
+        inSummarySection = true
+      } else {
+        // 別のH2見出しが来たらフラグをOFF
+        inSummarySection = false
+      }
+
+      result.push(block)
+      continue
+    }
+
+    // まとめセクション内のH3を通常段落（太字）に変換
+    if (inSummarySection && block._type === 'block' && block.style === 'h3') {
+      const convertedBlock = {
+        ...block,
+        style: 'normal',
+        children: block.children.map(child => ({
+          ...child,
+          marks: [...(child.marks || []), 'strong']
+        }))
+      }
+      result.push(convertedBlock)
+      continue
+    }
+
+    result.push(block)
+  }
+
+  return result
+}
+
 module.exports = {
   blocksToPlainText,
   generateExcerpt,
@@ -687,5 +926,8 @@ module.exports = {
   removeGreetings,
   removeClosingRemarks,
   removePlaceholderLinks,
-  separateAffiliateLinks
+  separateAffiliateLinks,
+  removeHashtagLines,
+  addBodyToEmptyH3Sections,
+  removeH3FromSummarySection
 }
