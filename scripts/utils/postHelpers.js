@@ -798,16 +798,17 @@ function removeHashtagLines(blocks) {
 }
 
 /**
- * H3タイトルのみで本文がないセクションに本文を追加
+ * H3タイトルのみで本文がないセクションに本文を追加（Gemini API使用）
  *
  * H3見出しの直後に別の見出し（H2/H3）が来る場合、
- * そのH3セクションに本文がないため、簡単な説明文を追加
+ * 前後のコンテキストを理解して自然な本文を生成
  *
  * @param {Array} blocks - Sanity body ブロック配列
  * @param {string} title - 記事タイトル（コンテキスト）
- * @returns {Array} 本文を追加したブロック配列
+ * @param {Object} geminiModel - Gemini APIモデル（オプション）
+ * @returns {Promise<Array>} 本文を追加したブロック配列
  */
-function addBodyToEmptyH3Sections(blocks, title) {
+async function addBodyToEmptyH3Sections(blocks, title, geminiModel = null) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
     return blocks
   }
@@ -815,44 +816,103 @@ function addBodyToEmptyH3Sections(blocks, title) {
   const result = []
   const { randomUUID } = require('crypto')
 
+  // Gemini APIが利用できない場合は、簡易版を使用
+  if (!geminiModel) {
+    for (let i = 0; i < blocks.length; i++) {
+      const block = blocks[i]
+      result.push(block)
+
+      if (block._type === 'block' && block.style === 'h3') {
+        const nextBlock = blocks[i + 1]
+        const isNextBlockHeading = nextBlock && nextBlock._type === 'block' && (nextBlock.style === 'h2' || nextBlock.style === 'h3')
+        const isLastBlock = i === blocks.length - 1
+
+        if (isNextBlockHeading || isLastBlock) {
+          const h3Text = block.children.map(child => child.text || '').join('').trim()
+          const bodyText = `${h3Text}について、具体的に見ていきましょう。`
+
+          result.push({
+            _type: 'block',
+            _key: `body-${randomUUID()}`,
+            style: 'normal',
+            markDefs: [],
+            children: [{ _type: 'span', _key: `span-${randomUUID()}`, marks: [], text: bodyText }]
+          })
+        }
+      }
+    }
+    return result
+  }
+
+  // Gemini APIを使用して高品質な本文を生成
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i]
     result.push(block)
 
-    // H3見出しかチェック
     if (block._type === 'block' && block.style === 'h3') {
       const nextBlock = blocks[i + 1]
-
-      // 次のブロックが見出し（H2/H3）または存在しない場合、本文がない
       const isNextBlockHeading = nextBlock && nextBlock._type === 'block' && (nextBlock.style === 'h2' || nextBlock.style === 'h3')
       const isLastBlock = i === blocks.length - 1
 
       if (isNextBlockHeading || isLastBlock) {
         // H3見出しのテキストを取得
-        const h3Text = block.children
-          .map(child => child.text || '')
-          .join('')
-          .trim()
+        const h3Text = block.children.map(child => child.text || '').join('').trim()
 
-        // 簡単な本文を追加
-        const bodyText = `${h3Text}について、具体的に見ていきましょう。`
-
-        const bodyBlock = {
-          _type: 'block',
-          _key: `body-${randomUUID()}`,
-          style: 'normal',
-          markDefs: [],
-          children: [
-            {
-              _type: 'span',
-              _key: `span-${randomUUID()}`,
-              marks: [],
-              text: bodyText
+        // 前後のコンテキストを取得（前のH2セクション、周辺の段落）
+        let contextBefore = ''
+        let currentH2 = ''
+        for (let j = i - 1; j >= 0; j--) {
+          const prevBlock = blocks[j]
+          if (prevBlock._type === 'block') {
+            if (prevBlock.style === 'h2') {
+              currentH2 = prevBlock.children.map(c => c.text || '').join('').trim()
+              break
             }
-          ]
+            if (prevBlock.style === 'normal') {
+              const text = prevBlock.children.map(c => c.text || '').join('').trim()
+              contextBefore = text + ' ' + contextBefore
+              if (contextBefore.length > 200) break
+            }
+          }
         }
 
-        result.push(bodyBlock)
+        // Gemini APIで本文を生成
+        const prompt = `あなたは20歳の看護助手「白崎セラ」です。一人称「わたし」、丁寧な「です・ます」調で書いてください。
+
+記事タイトル: ${title}
+現在のセクション（H2）: ${currentH2}
+H3見出し: ${h3Text}
+前のコンテキスト: ${contextBefore}
+
+このH3見出しに続く本文を2〜3文（80〜150文字）で書いてください。
+- 前後の文脈に自然につながる内容
+- 白崎セラの優しい口調
+- 読者に役立つ具体的な情報
+- 本文のみ出力（見出しや装飾なし）`
+
+        try {
+          const geminiResult = await geminiModel.generateContent(prompt)
+          const response = await geminiResult.response
+          const bodyText = response.text().trim()
+
+          result.push({
+            _type: 'block',
+            _key: `body-${randomUUID()}`,
+            style: 'normal',
+            markDefs: [],
+            children: [{ _type: 'span', _key: `span-${randomUUID()}`, marks: [], text: bodyText }]
+          })
+        } catch (error) {
+          // エラー時は簡易版を使用
+          const bodyText = `${h3Text}について、具体的に見ていきましょう。`
+          result.push({
+            _type: 'block',
+            _key: `body-${randomUUID()}`,
+            style: 'normal',
+            markDefs: [],
+            children: [{ _type: 'span', _key: `span-${randomUUID()}`, marks: [], text: bodyText }]
+          })
+        }
       }
     }
   }
@@ -861,59 +921,173 @@ function addBodyToEmptyH3Sections(blocks, title) {
 }
 
 /**
- * まとめセクションではH3使用禁止
+ * まとめセクションを最適化（Gemini API使用）
  *
- * 「まとめ」H2見出し以降に出現するH3見出しを、
- * 通常の段落（太字）に変換する
+ * 「まとめ」セクション全体を簡潔に再構築：
+ * - 本文のみ、または「本文→箇条書き→締め」の形式
+ * - だらだら長いのを避ける
+ * - 次のステップやアフィリエイトリンクへの誘導を強化
  *
  * @param {Array} blocks - Sanity body ブロック配列
- * @returns {Array} H3を通常段落に変換したブロック配列
+ * @param {string} title - 記事タイトル（コンテキスト）
+ * @param {Object} geminiModel - Gemini APIモデル（オプション）
+ * @returns {Promise<Array>} 最適化されたブロック配列
  */
-function removeH3FromSummarySection(blocks) {
+async function optimizeSummarySection(blocks, title, geminiModel = null) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
     return blocks
   }
 
-  let inSummarySection = false
-  const result = []
+  const { randomUUID } = require('crypto')
 
-  for (const block of blocks) {
-    // H2見出しが「まとめ」の場合、フラグをON
+  // まとめセクションを検出
+  let summaryIndex = -1
+  let nextSectionIndex = -1
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
     if (block._type === 'block' && block.style === 'h2') {
-      const h2Text = block.children
-        .map(child => child.text || '')
-        .join('')
-        .trim()
+      const h2Text = block.children.map(child => child.text || '').join('').trim()
 
       if (h2Text === 'まとめ') {
-        inSummarySection = true
-      } else {
-        // 別のH2見出しが来たらフラグをOFF
-        inSummarySection = false
+        summaryIndex = i
+      } else if (summaryIndex !== -1 && i > summaryIndex) {
+        // まとめの後に別のH2が来た
+        nextSectionIndex = i
+        break
       }
-
-      result.push(block)
-      continue
     }
-
-    // まとめセクション内のH3を通常段落（太字）に変換
-    if (inSummarySection && block._type === 'block' && block.style === 'h3') {
-      const convertedBlock = {
-        ...block,
-        style: 'normal',
-        children: block.children.map(child => ({
-          ...child,
-          marks: [...(child.marks || []), 'strong']
-        }))
-      }
-      result.push(convertedBlock)
-      continue
-    }
-
-    result.push(block)
   }
 
-  return result
+  // まとめセクションがない場合はそのまま返す
+  if (summaryIndex === -1) {
+    return blocks
+  }
+
+  // まとめセクションの内容を取得
+  const endIndex = nextSectionIndex !== -1 ? nextSectionIndex : blocks.length
+  const summaryBlocks = blocks.slice(summaryIndex + 1, endIndex)
+
+  // Gemini APIが利用できない場合は、H3を削除するのみ
+  if (!geminiModel) {
+    const result = blocks.slice(0, summaryIndex + 1)
+
+    for (const block of summaryBlocks) {
+      if (block._type === 'block' && block.style === 'h3') {
+        // H3を通常段落（太字）に変換
+        result.push({
+          ...block,
+          style: 'normal',
+          children: block.children.map(child => ({
+            ...child,
+            marks: [...(child.marks || []), 'strong']
+          }))
+        })
+      } else {
+        result.push(block)
+      }
+    }
+
+    if (nextSectionIndex !== -1) {
+      result.push(...blocks.slice(nextSectionIndex))
+    }
+    return result
+  }
+
+  // 記事全体のコンテキストを取得（まとめより前の内容）
+  const articleContext = blocks
+    .slice(0, summaryIndex)
+    .filter(b => b._type === 'block' && (b.style === 'h2' || b.style === 'normal'))
+    .map(b => b.children.map(c => c.text || '').join('').trim())
+    .filter(Boolean)
+    .join('\n')
+    .slice(0, 1500)
+
+  // 現在のまとめ内容
+  const currentSummary = summaryBlocks
+    .filter(b => b._type === 'block')
+    .map(b => b.children.map(c => c.text || '').join('').trim())
+    .filter(Boolean)
+    .join('\n')
+
+  // Gemini APIでまとめセクションを最適化
+  const prompt = `あなたは20歳の看護助手「白崎セラ」です。一人称「わたし」、丁寧な「です・ます」調で書いてください。
+
+記事タイトル: ${title}
+
+記事の主な内容:
+${articleContext}
+
+現在のまとめ:
+${currentSummary}
+
+この記事のまとめセクションを簡潔に書き直してください。
+
+**要件**:
+1. 200〜300文字程度の簡潔なまとめ
+2. 形式は以下のいずれか:
+   - 本文のみ（2〜3段落）
+   - 本文（1段落）→ 箇条書き（●で始まる2〜3項目）→ 締めの文（1文）
+3. だらだら長いのは避ける
+4. 締めの文で「次のステップ」や「行動」を促す
+5. H3見出しは使わない
+
+**出力形式**:
+プレーンテキストで出力してください。箇条書きは ● で始めてください。`
+
+  try {
+    const geminiResult = await geminiModel.generateContent(prompt)
+    const response = await geminiResult.response
+    const optimizedText = response.text().trim()
+
+    // テキストを段落と箇条書きに分解
+    const lines = optimizedText.split('\n').map(l => l.trim()).filter(Boolean)
+    const newSummaryBlocks = []
+
+    for (const line of lines) {
+      if (line.startsWith('●')) {
+        // 箇条書き
+        newSummaryBlocks.push({
+          _type: 'block',
+          _key: `li-${randomUUID()}`,
+          style: 'normal',
+          listItem: 'bullet',
+          level: 1,
+          markDefs: [],
+          children: [
+            { _type: 'span', _key: `span-${randomUUID()}`, marks: [], text: line.replace(/^●\s*/, '') }
+          ]
+        })
+      } else {
+        // 通常段落
+        newSummaryBlocks.push({
+          _type: 'block',
+          _key: `p-${randomUUID()}`,
+          style: 'normal',
+          markDefs: [],
+          children: [
+            { _type: 'span', _key: `span-${randomUUID()}`, marks: [], text: line }
+          ]
+        })
+      }
+    }
+
+    // まとめセクションを置き換え
+    const result = [
+      ...blocks.slice(0, summaryIndex + 1),
+      ...newSummaryBlocks
+    ]
+
+    if (nextSectionIndex !== -1) {
+      result.push(...blocks.slice(nextSectionIndex))
+    }
+
+    return result
+  } catch (error) {
+    // エラー時は元のブロックを返す
+    console.error('まとめセクション最適化エラー:', error.message)
+    return blocks
+  }
 }
 
 module.exports = {
@@ -929,5 +1103,5 @@ module.exports = {
   separateAffiliateLinks,
   removeHashtagLines,
   addBodyToEmptyH3Sections,
-  removeH3FromSummarySection
+  optimizeSummarySection
 }

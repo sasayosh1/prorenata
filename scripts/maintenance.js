@@ -11,6 +11,7 @@
 const path = require('path')
 const { spawn } = require('child_process')
 const { createClient } = require('@sanity/client')
+const { GoogleGenerativeAI } = require('@google/generative-ai')
 const {
   blocksToPlainText,
   generateExcerpt,
@@ -24,7 +25,7 @@ const {
   separateAffiliateLinks,
   removeHashtagLines,
   addBodyToEmptyH3Sections,
-  removeH3FromSummarySection,
+  optimizeSummarySection,
 } = require('./utils/postHelpers')
 
 const client = createClient({
@@ -1244,6 +1245,17 @@ async function recategorizeAllPosts() {
 async function autoFixMetadata() {
   console.log('\n🛠️ メタデータ自動修復を開始します\n')
 
+  // Gemini APIモデルのインスタンス化（H3セクション・まとめ最適化用）
+  let geminiModel = null
+  const geminiApiKey = process.env.GEMINI_API_KEY
+  if (geminiApiKey) {
+    const genAI = new GoogleGenerativeAI(geminiApiKey)
+    geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' })
+    console.log('✅ Gemini API使用可能（H3セクション・まとめ最適化）')
+  } else {
+    console.log('⚠️  GEMINI_API_KEY未設定（簡易版を使用）')
+  }
+
   const { categories, fallback } = await getCategoryResources()
 
   const posts = await client.fetch(`
@@ -1344,23 +1356,23 @@ async function autoFixMetadata() {
       }
     }
 
-    // H3タイトルのみで本文がないセクションに本文を追加
+    // H3タイトルのみで本文がないセクションに本文を追加（Gemini API使用）
     let emptyH3SectionsFixed = false
     if (post.body && Array.isArray(post.body)) {
-      const bodyWithH3Bodies = addBodyToEmptyH3Sections(updates.body || post.body, post.title)
+      const bodyWithH3Bodies = await addBodyToEmptyH3Sections(updates.body || post.body, post.title, geminiModel)
       if (JSON.stringify(bodyWithH3Bodies) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithH3Bodies
         emptyH3SectionsFixed = true
       }
     }
 
-    // まとめセクションではH3使用禁止
-    let summaryH3Removed = false
+    // まとめセクションの最適化（Gemini API使用）
+    let summaryOptimized = false
     if (post.body && Array.isArray(post.body)) {
-      const bodyWithoutSummaryH3 = removeH3FromSummarySection(updates.body || post.body)
-      if (JSON.stringify(bodyWithoutSummaryH3) !== JSON.stringify(updates.body || post.body)) {
-        updates.body = bodyWithoutSummaryH3
-        summaryH3Removed = true
+      const optimizedBody = await optimizeSummarySection(updates.body || post.body, post.title, geminiModel)
+      if (JSON.stringify(optimizedBody) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = optimizedBody
+        summaryOptimized = true
       }
     }
 
@@ -1499,8 +1511,8 @@ async function autoFixMetadata() {
     if (emptyH3SectionsFixed) {
       console.log('   本文がないH3セクションに説明文を追加しました')
     }
-    if (summaryH3Removed) {
-      console.log('   まとめセクション内のH3見出しを通常段落（太字）に変換しました')
+    if (summaryOptimized) {
+      console.log('   まとめセクションを最適化しました（簡潔化・アクション誘導強化）')
     }
     if (relatedSectionsRemoved > 0) {
       console.log(`   関連記事セクションを削除しました (${relatedSectionsRemoved}ブロック)`)
