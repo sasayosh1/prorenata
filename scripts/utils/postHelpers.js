@@ -1090,6 +1090,184 @@ ${currentSummary}
   }
 }
 
+/**
+ * アフィリエイトリンクを記事に自動追加
+ *
+ * - 記事内容に応じて最適なリンクを選択
+ * - 「まとめ」セクションの前に挿入
+ * - 本文とは分離した独立ブロックとして配置
+ *
+ * @param {Array} blocks - Portable Text ブロック配列
+ * @param {string} title - 記事タイトル
+ * @returns {Array} アフィリエイトリンクが追加されたブロック配列
+ */
+function addAffiliateLinksToArticle(blocks, title) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  // moshimo-affiliate-links.jsをインポート
+  const { suggestLinksForArticle, createMoshimoLinkBlock } = require('../moshimo-affiliate-links')
+
+  // 記事本文を取得してリンク提案
+  const bodyText = blocksToPlainText(blocks)
+  const suggestions = suggestLinksForArticle(title, bodyText)
+
+  // 提案がない場合はそのまま返す
+  if (!suggestions || suggestions.length === 0) {
+    return blocks
+  }
+
+  // 最も適切なリンク1-2個を選択（ユーザビリティ重視）
+  const selectedLinks = suggestions.slice(0, 2)
+
+  // まとめセクションの位置を検出
+  let summaryIndex = -1
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+    if (block._type === 'block' && block.style === 'h2') {
+      const h2Text = block.children.map(child => child.text || '').join('').trim()
+      if (h2Text === 'まとめ') {
+        summaryIndex = i
+        break
+      }
+    }
+  }
+
+  // まとめセクションがない場合は、記事の最後に挿入
+  const insertPosition = summaryIndex !== -1 ? summaryIndex : blocks.length
+
+  // 新しいブロック配列を構築
+  const result = blocks.slice(0, insertPosition)
+
+  // アフィリエイトリンクブロックを追加
+  selectedLinks.forEach(link => {
+    const linkBlock = createMoshimoLinkBlock(link.key)
+    if (linkBlock) {
+      result.push(linkBlock)
+    }
+  })
+
+  // 残りのブロックを追加
+  if (insertPosition < blocks.length) {
+    result.push(...blocks.slice(insertPosition))
+  }
+
+  return result
+}
+
+/**
+ * 出典リンクを記事に自動追加（YMYL対策）
+ *
+ * - 記事内容に応じて信頼できる出典を追加
+ * - 厚生労働省、医療機関などの公式データ
+ *
+ * @param {Array} blocks - Portable Text ブロック配列
+ * @param {string} title - 記事タイトル
+ * @returns {Array} 出典リンクが追加されたブロック配列
+ */
+function addSourceLinksToArticle(blocks, title) {
+  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+    return blocks
+  }
+
+  const { randomUUID } = require('crypto')
+
+  // 出典リンクのデータベース
+  const sourcesDatabase = {
+    給与: {
+      name: '厚生労働省 令和4年度介護従事者処遇状況等調査結果',
+      url: 'https://www.mhlw.go.jp/toukei/saikin/hw/kaigo/jyujisya/22/index.html',
+      description: '介護職員・看護助手の給与に関する公式統計データ'
+    },
+    資格: {
+      name: '厚生労働省 介護員養成研修について',
+      url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000197235.html',
+      description: '介護職員初任者研修など資格取得に関する公式情報'
+    },
+    仕事内容: {
+      name: '日本看護協会 看護補助者の業務範囲',
+      url: 'https://www.nurse.or.jp/',
+      description: '看護助手の役割と業務範囲に関する公式見解'
+    }
+  }
+
+  // タイトルから適切な出典を選択
+  let selectedSource = null
+  for (const [keyword, source] of Object.entries(sourcesDatabase)) {
+    if (title.includes(keyword)) {
+      selectedSource = source
+      break
+    }
+  }
+
+  // 該当する出典がない場合はそのまま返す
+  if (!selectedSource) {
+    return blocks
+  }
+
+  // まとめセクションの最後に出典リンクを追加
+  let summaryEndIndex = -1
+  let summaryStartIndex = -1
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+    if (block._type === 'block' && block.style === 'h2') {
+      const h2Text = block.children.map(child => child.text || '').join('').trim()
+
+      if (h2Text === 'まとめ') {
+        summaryStartIndex = i
+      } else if (summaryStartIndex !== -1 && i > summaryStartIndex) {
+        // まとめの後に別のH2が来た
+        summaryEndIndex = i
+        break
+      }
+    }
+  }
+
+  // まとめセクションがない場合は、記事の最後に追加
+  const insertPosition = summaryEndIndex !== -1 ? summaryEndIndex : blocks.length
+
+  // 出典リンクブロックを作成
+  const linkMarkKey = `link-${randomUUID()}`
+  const sourceBlock = {
+    _type: 'block',
+    _key: `source-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [
+      {
+        _key: linkMarkKey,
+        _type: 'link',
+        href: selectedSource.url
+      }
+    ],
+    children: [
+      {
+        _type: 'span',
+        _key: `span-${randomUUID()}`,
+        text: '参考資料：',
+        marks: []
+      },
+      {
+        _type: 'span',
+        _key: `span-${randomUUID()}`,
+        text: selectedSource.name,
+        marks: [linkMarkKey]
+      }
+    ]
+  }
+
+  // 新しいブロック配列を構築
+  const result = blocks.slice(0, insertPosition)
+  result.push(sourceBlock)
+
+  if (insertPosition < blocks.length) {
+    result.push(...blocks.slice(insertPosition))
+  }
+
+  return result
+}
+
 module.exports = {
   blocksToPlainText,
   generateExcerpt,
@@ -1103,5 +1281,7 @@ module.exports = {
   separateAffiliateLinks,
   removeHashtagLines,
   addBodyToEmptyH3Sections,
-  optimizeSummarySection
+  optimizeSummarySection,
+  addAffiliateLinksToArticle,
+  addSourceLinksToArticle
 }

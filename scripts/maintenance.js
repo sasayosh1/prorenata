@@ -26,6 +26,8 @@ const {
   removeHashtagLines,
   addBodyToEmptyH3Sections,
   optimizeSummarySection,
+  addAffiliateLinksToArticle,
+  addSourceLinksToArticle,
 } = require('./utils/postHelpers')
 
 const client = createClient({
@@ -1376,6 +1378,26 @@ async function autoFixMetadata() {
       }
     }
 
+    // アフィリエイトリンクの自動追加（収益最適化）
+    let affiliateLinksAdded = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithAffiliateLinks = addAffiliateLinksToArticle(updates.body || post.body, post.title)
+      if (JSON.stringify(bodyWithAffiliateLinks) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithAffiliateLinks
+        affiliateLinksAdded = true
+      }
+    }
+
+    // 出典リンクの自動追加（YMYL対策）
+    let sourceLinksAdded = false
+    if (post.body && Array.isArray(post.body)) {
+      const bodyWithSourceLinks = addSourceLinksToArticle(updates.body || post.body, post.title)
+      if (JSON.stringify(bodyWithSourceLinks) !== JSON.stringify(updates.body || post.body)) {
+        updates.body = bodyWithSourceLinks
+        sourceLinksAdded = true
+      }
+    }
+
     // 関連記事セクションや重複段落を除去
     let relatedSectionsRemoved = 0
     let duplicateParagraphsRemoved = 0
@@ -1513,6 +1535,12 @@ async function autoFixMetadata() {
     }
     if (summaryOptimized) {
       console.log('   まとめセクションを最適化しました（簡潔化・アクション誘導強化）')
+    }
+    if (affiliateLinksAdded) {
+      console.log('   アフィリエイトリンクを自動追加しました（収益最適化）')
+    }
+    if (sourceLinksAdded) {
+      console.log('   出典リンクを自動追加しました（YMYL対策）')
     }
     if (relatedSectionsRemoved > 0) {
       console.log(`   関連記事セクションを削除しました (${relatedSectionsRemoved}ブロック)`)
