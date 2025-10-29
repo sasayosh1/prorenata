@@ -216,7 +216,8 @@ function needsSlugRegeneration(slug) {
   if (/[^a-z0-9-]/.test(normalized)) return true
   const remainder = normalized.replace(/^nursing-assistant-/, '')
   const segments = remainder.split('-').filter(Boolean)
-  return segments.length < 2 || segments.length > 3
+  // 2-4個の単語を許容、数字のみのセグメントは不適切（SEO対策）
+  return segments.length < 2 || segments.length > 4 || segments.some(seg => /^\d+$/.test(seg))
 }
 
 function ensureHttpsUrl(url) {

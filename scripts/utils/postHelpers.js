@@ -422,7 +422,7 @@ function generateSlugFromTitle(title) {
     uniqueWords.push('guide')
   }
 
-  const finalWords = uniqueWords.slice(0, 3)
+  const finalWords = uniqueWords.slice(0, 4)
 
   if (finalWords.length === 0) {
     return 'nursing-assistant-guide'
