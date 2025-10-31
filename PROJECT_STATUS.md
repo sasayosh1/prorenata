@@ -58,6 +58,22 @@
   3. **検証完了**
      - 2000文字未満の記事: **0件**（完全解消！）
      - 生成コンテンツの品質確認済み（自然な日本語、適切な見出し構造）
+
+### ♻️ メンテナンスワークフローの Gemini 最適化 ✅
+- **日時**: 2025-10-31
+- **内容**: メンテ実行時のGemini呼び出しを完全制御し、閲覧数上位だけをAI整備できるよう改善。
+- **実施内容**:
+  1. **Geminiトグル導入**  
+     - `MAINTENANCE_ENABLE_GEMINI` が設定されている場合のみAPI初期化。未設定時は無料で実行。  
+     - H3追記・まとめ補強は新たなフォールバックロジックで記事内容に沿った短文を生成。
+  2. **アクセス上位ローテーション**  
+     - `views` フィールドから上位記事を抽出し、`geminiMaintainedAt`（新フィールド）に最終実行日時を記録。  
+     - `sanitize --top-views=10 --cooldown=30` でクールダウン済みの記事から自動選出。
+  3. **個別ターゲット実行に対応**  
+     - `--slugs=foo,bar` オプションで指定記事のみ整備。  
+     - Gemini実行時は `geminiMaintainedAt` をSanityへ書き戻し、履歴管理を一元化。
+- **コミット**: f556bc1
+- **重要度**: APIコストの最適化と看板記事の品質維持
 - **コスト**: 約30円（Gemini API有料範囲内）
 - **使用モデル**: gemini-2.0-flash-exp
 - **重要度**: SEO強化（文字数確保）、ユーザー価値向上
@@ -305,6 +321,7 @@ SANITY_API_TOKEN=skPFlui2yNjyM39wGsffTHiC5yOPj0nwCA0Kw31sRVZAiijcOq1A6S8Gnr1KDa4
 ## 直近のgit履歴
 
 ```
+f556bc1 Update maintenance workflow with Gemini toggles and targeted runs
 4a32232 feat: アフィリエイトリンク一括置き換え完了（最重要インシデント級）
 ea0b248 docs: プロジェクト現状報告書を追加
 f4f00b7 feat: 楽天市場アフィリエイトリンク移行とリンク表示改善
