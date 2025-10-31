@@ -29,6 +29,12 @@ export default function Header() {
             タグ
           </Link>
           <Link
+            href="/categories"
+            className="font-medium text-gray-900 hover:text-cyan-600 transition-colors duration-200"
+          >
+            カテゴリ
+          </Link>
+          <Link
             href="/about"
             className="font-medium text-gray-900 hover:text-cyan-600 transition-colors duration-200"
           >
