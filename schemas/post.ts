@@ -208,6 +208,14 @@ export default defineType({
       readOnly: true,
       initialValue: 0,
     }),
+    defineField({
+      name: 'geminiMaintainedAt',
+      title: 'Gemini Maintained At',
+      type: 'datetime',
+      readOnly: true,
+      hidden: true,
+      description: 'Geminiでのメンテナンス実行日時（自動更新）',
+    }),
   ],
   preview: {
     select: { title: 'title', media: 'mainImage', subtitle: 'slug.current', description: 'body' },

@@ -10,6 +10,7 @@
 
 const path = require('path')
 const { spawn } = require('child_process')
+const { randomUUID } = require('crypto')
 const { createClient } = require('@sanity/client')
 const { GoogleGenerativeAI } = require('@google/generative-ai')
 const {
@@ -29,12 +30,13 @@ const {
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
 } = require('./utils/postHelpers')
+const { MOSHIMO_LINKS } = require('./moshimo-affiliate-links')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
-  token: process.env.SANITY_API_TOKEN,
+  token: process.env.SANITY_API_TOKEN || process.env.SANITY_WRITE_TOKEN || process.env.SANITY_TOKEN,
   useCdn: false
 })
 
@@ -74,7 +76,8 @@ const AFFILIATE_HOST_KEYWORDS = [
   'hb.afl.rakuten.co.jp',
   'amazon.co.jp',
   'ck.jp.ap.valuecommerce.com',
-  'fam-ad.com'
+  'fam-ad.com',
+  'tcs-asp.net'
 ]
 
 const CTA_TEXT_PATTERNS = [
@@ -91,41 +94,106 @@ const CTA_TEXT_PATTERNS = [
 const REFERENCE_MAPPINGS = [
   {
     keywords: ['厚生労働省', '介護従事者処遇状況等調査'],
-    url: 'https://www.mhlw.go.jp/toukei/list/176-1.html'
+    url: 'https://www.mhlw.go.jp/toukei/list/176-1.html',
+    label: '厚生労働省 令和5年度介護従事者処遇状況等調査'
   },
   {
     keywords: ['厚生労働省', '賃金構造基本統計調査'],
-    url: 'https://www.mhlw.go.jp/toukei/list/chinginkouzou.html'
+    url: 'https://www.mhlw.go.jp/toukei/list/chinginkouzou.html',
+    label: '厚生労働省 賃金構造基本統計調査'
   },
   {
     keywords: ['厚生労働省', '医療施設調査'],
-    url: 'https://www.mhlw.go.jp/toukei/list/79-1.html'
+    url: 'https://www.mhlw.go.jp/toukei/list/79-1.html',
+    label: '厚生労働省 医療施設調査'
   },
   {
     keywords: ['看護師等学校養成所', '卒業生就業状況'],
-    url: 'https://www.mhlw.go.jp/toukei/list/100-1.html'
+    url: 'https://www.mhlw.go.jp/toukei/list/100-1.html',
+    label: '厚生労働省 看護師等学校養成所卒業生就業状況調査'
   },
   {
     keywords: ['総務省', '労働力調査'],
-    url: 'https://www.stat.go.jp/data/roudou/'
+    url: 'https://www.stat.go.jp/data/roudou/',
+    label: '総務省 労働力調査'
   },
   {
     keywords: ['日本看護協会', '看護統計'],
-    url: 'https://www.nurse.or.jp/home/statistics/index.html'
+    url: 'https://www.nurse.or.jp/home/statistics/index.html',
+    label: '日本看護協会 看護統計'
   },
   {
     keywords: ['日本看護協会', '看護職員の需給', '働き方調査'],
-    url: 'https://www.nurse.or.jp/home/publication/pdf/report/2023_jinzai_chousa.pdf'
+    url: 'https://www.nurse.or.jp/home/publication/pdf/report/2023_jinzai_chousa.pdf',
+    label: '日本看護協会 看護職員の需給・働き方調査'
   },
   {
     keywords: ['労働政策研究', '研修機構'],
-    url: 'https://www.jil.go.jp/'
+    url: 'https://www.jil.go.jp/',
+    label: '労働政策研究・研修機構 調査データ'
   },
   {
     keywords: ['東京都', '産業労働局', '医療事務', '賃金実態調査'],
-    url: 'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2023/03/15/13.html'
+    url: 'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2023/03/15/13.html',
+    label: '東京都産業労働局 医療現場賃金実態調査'
   }
 ]
+
+const YMYL_REPLACEMENTS = [
+  { pattern: /絶対に/g, replacement: '基本的に' },
+  { pattern: /絶対/g, replacement: '基本的に' },
+  { pattern: /必ず/g, replacement: 'できるだけ' },
+  { pattern: /間違いなく/g, replacement: 'ほとんどの場合' },
+  { pattern: /100％/g, replacement: 'ほぼ' },
+  { pattern: /100%/g, replacement: 'ほぼ' },
+  { pattern: /誰でも/g, replacement: '多くの方が' },
+  { pattern: /すべての人が/g, replacement: '多くの人が' },
+  { pattern: /確実に/g, replacement: '着実に' },
+  { pattern: /保証します/g, replacement: 'サポートします' },
+  { pattern: /完璧/g, replacement: '十分' }
+]
+
+const NUMERIC_REFERENCE_HINTS = [
+  {
+    keywords: ['年収', '月給', '給与', '給料', '手当', '収入', '賃金', '賞与'],
+    mapping: REFERENCE_MAPPINGS[0]
+  },
+  {
+    keywords: ['離職', '退職', '労働力', '就業', '雇用'],
+    mapping: REFERENCE_MAPPINGS[4]
+  },
+  {
+    keywords: ['病院', '病床', '医療施設'],
+    mapping: REFERENCE_MAPPINGS[2]
+  },
+  {
+    keywords: ['資格', '研修', '学校', '進学'],
+    mapping: REFERENCE_MAPPINGS[3]
+  },
+  {
+    keywords: ['看護協会', '看護職員', '需給'],
+    mapping: REFERENCE_MAPPINGS[6]
+  }
+]
+
+const MEDICAL_KEYWORDS = [
+  '注射',
+  '点滴',
+  '採血',
+  '投薬',
+  '医療行為',
+  '処置',
+  '診療',
+  '血圧',
+  'バイタル',
+  '検温',
+  '診断',
+  '処方',
+  '治療'
+]
+
+const MEDICAL_NOTICE_TEXT =
+  '看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。'
 
 /**
  * Portable Text ブロックからテキストを抽出
@@ -209,15 +277,22 @@ function hasAffiliateLink(block) {
   })
 }
 
+const INVALID_SLUG_SEGMENTS = new Set(['article', 'articles', 'blog', 'post'])
+
 function needsSlugRegeneration(slug) {
   if (!slug || typeof slug !== 'string') return true
   const normalized = slug.trim().toLowerCase()
   if (!normalized.startsWith('nursing-assistant-')) return true
-  if (/[^a-z0-9-]/.test(normalized)) return true
+  if (/[^a-z-]/.test(normalized)) return true
+
   const remainder = normalized.replace(/^nursing-assistant-/, '')
   const segments = remainder.split('-').filter(Boolean)
-  // 2-4個の単語を許容、数字のみのセグメントは不適切（SEO対策）
-  return segments.length < 2 || segments.length > 4 || segments.some(seg => /^\d+$/.test(seg))
+
+  if (segments.length < 2 || segments.length > 3) {
+    return true
+  }
+
+  return segments.some(segment => segment.length < 3 || INVALID_SLUG_SEGMENTS.has(segment))
 }
 
 function ensureHttpsUrl(url) {
@@ -252,10 +327,850 @@ function matchReferenceMapping(label) {
   for (const mapping of REFERENCE_MAPPINGS) {
     const match = mapping.keywords.every(keyword => normalized.includes(keyword.toLowerCase()))
     if (match) {
-      return mapping.url
+      return mapping
     }
   }
   return null
+}
+
+function findReferenceForText(text) {
+  if (!text) return null
+  const normalized = text.toLowerCase()
+
+  for (const mapping of REFERENCE_MAPPINGS) {
+    const match = mapping.keywords.every(keyword => normalized.includes(keyword.toLowerCase()))
+    if (match) {
+      return mapping
+    }
+  }
+
+  for (const hint of NUMERIC_REFERENCE_HINTS) {
+    const match = hint.keywords.some(keyword => normalized.includes(keyword.toLowerCase()))
+    if (match && hint.mapping) {
+      return hint.mapping
+    }
+  }
+
+  const numericPattern = /\d{2,}\s*(万円|円|％|%|人|件|施設|時間|割|割合|ポイント)/g
+  if (numericPattern.test(text)) {
+    return REFERENCE_MAPPINGS[0]
+  }
+
+  if (normalized.includes('統計') || normalized.includes('調査') || normalized.includes('データ')) {
+    return REFERENCE_MAPPINGS[5]
+  }
+
+  return null
+}
+
+function createReferenceBlock(mapping) {
+  if (!mapping || !mapping.url) return null
+
+  const linkKey = `link-${randomUUID()}`
+  return {
+    _type: 'block',
+    _key: `reference-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [
+      {
+        _key: linkKey,
+        _type: 'link',
+        href: ensureHttpsUrl(mapping.url)
+      }
+    ],
+    children: [
+      {
+        _type: 'span',
+        _key: `reference-span-label-${randomUUID()}`,
+        text: '参考: ',
+        marks: []
+      },
+      {
+        _type: 'span',
+        _key: `reference-span-link-${randomUUID()}`,
+        text: mapping.label || mapping.url,
+        marks: [linkKey]
+      }
+    ]
+  }
+}
+
+function isReferenceBlock(block) {
+  if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+    return false
+  }
+  const text = extractBlockText(block).trim()
+  return /^参考[:：]/.test(text)
+}
+
+function normalizeAffiliateUrl(url) {
+  const normalized = ensureHttpsUrl(url)
+  if (!normalized) return null
+  return normalized.replace(/^https?:\/\//, '').replace(/\/$/, '')
+}
+
+function getAffiliateMetaFromBlock(block) {
+  if (!block || !Array.isArray(block.markDefs)) return null
+
+  for (const def of block.markDefs) {
+    if (!def || def._type !== 'link' || typeof def.href !== 'string') continue
+    const normalizedHref = normalizeAffiliateUrl(def.href)
+    if (!normalizedHref) continue
+
+    for (const [key, link] of Object.entries(MOSHIMO_LINKS)) {
+      if (!link || !link.active) continue
+      const normalizedLinkUrl = normalizeAffiliateUrl(link.url)
+      if (!normalizedLinkUrl) continue
+
+      if (
+        normalizedHref.includes(normalizedLinkUrl) ||
+        normalizedLinkUrl.includes(normalizedHref)
+      ) {
+        return { key, ...link }
+      }
+    }
+  }
+
+  return null
+}
+
+function createAffiliateContextBlock(meta) {
+  if (!meta || !meta.appealText) return null
+  const appeal = meta.appealText.replace(/：\s*$/, '').trim()
+  const description = (meta.description || '').replace(/。$/u, '')
+  const contextText = `${appeal}。${description}を紹介しています。`
+
+  return {
+    _type: 'block',
+    _key: `affiliate-context-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `affiliate-context-span-${randomUUID()}`,
+        text: contextText,
+        marks: []
+      }
+    ]
+  }
+}
+
+function isAffiliateRelevant(meta, combinedText, currentPost) {
+  if (!meta) return false
+  if (!combinedText || typeof combinedText !== 'string') {
+    return true
+  }
+
+  const text = combinedText.toLowerCase()
+  const slug = (typeof currentPost?.slug === 'string'
+    ? currentPost.slug
+    : currentPost?.slug?.current || '').toLowerCase()
+  const categoryNames = (currentPost?.categories || [])
+    .map(category => (typeof category === 'string' ? category : category?.title || ''))
+    .join(' ')
+    .toLowerCase()
+
+  if (meta.category === '退職代行') {
+    const hasKeyword = /退職|離職|辞め|辞職|退社|退職代行/.test(text)
+    const slugMatches = /retire|resign|quit/.test(slug)
+    const categoryMatches = /退職|辞め/.test(categoryNames)
+    if (!slugMatches && !categoryMatches) {
+      return false
+    }
+    return hasKeyword || slugMatches || categoryMatches
+  }
+
+  if (meta.category === '就職・転職') {
+    const hasKeyword = /転職|求人|就職|応募|面接|志望動機|キャリア|採用/.test(text)
+    const slugMatches = /career|job|転職/.test(slug)
+    const categoryMatches = /転職|求人/.test(categoryNames)
+    if (!slugMatches && !categoryMatches) {
+      return false
+    }
+    return hasKeyword || slugMatches || categoryMatches
+  }
+
+  if (meta.category === 'アイテム') {
+    const hasKeyword = /グッズ|ユニフォーム|靴|シューズ|持ち物|アイテム|道具|備品/.test(text)
+    const slugMatches = /goods|item|uniform/.test(slug)
+    const categoryMatches = /持ち物|アイテム|グッズ/.test(categoryNames)
+    if (!slugMatches && !categoryMatches) {
+      return false
+    }
+    return hasKeyword || slugMatches || categoryMatches
+  }
+
+  return true
+}
+
+function ensureAffiliateContextBlocks(blocks, currentPost) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: 0 }
+  }
+
+  const articlePlainText = blocksToPlainText(blocks)
+  const combinedText = `${currentPost?.title || ''} ${articlePlainText}`.toLowerCase()
+  const result = []
+  let added = 0
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+
+    if (block?._key?.startsWith('affiliate-context-')) {
+      const nextBlock = blocks[i + 1]
+      const nextMeta = hasAffiliateLink(nextBlock) ? getAffiliateMetaFromBlock(nextBlock) : null
+      if (!nextMeta || !isAffiliateRelevant(nextMeta, combinedText, currentPost)) {
+        continue
+      }
+    }
+
+    if (hasAffiliateLink(block)) {
+      const meta = getAffiliateMetaFromBlock(block)
+      if (!isAffiliateRelevant(meta, combinedText, currentPost)) {
+        continue
+      }
+      const previousBlock = result[result.length - 1]
+      let needsContext = true
+
+      if (previousBlock && !hasAffiliateLink(previousBlock)) {
+        const prevText = extractBlockText(previousBlock)
+        if (
+          prevText.length >= 40 ||
+          (meta &&
+            (prevText.includes(meta.appealText.replace(/：\s*$/, '').trim()) ||
+             prevText.includes(meta.name)))
+        ) {
+          needsContext = false
+        }
+      }
+
+      if (needsContext && meta) {
+        const contextBlock = createAffiliateContextBlock(meta)
+        if (contextBlock) {
+          result.push(contextBlock)
+          added += 1
+        }
+      }
+    }
+
+    result.push(block)
+  }
+
+  return { body: result, added }
+}
+
+function removeIrrelevantAffiliateBlocks(blocks, currentPost) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, removed: 0 }
+  }
+
+  const articlePlainText = blocksToPlainText(blocks)
+  const combinedText = `${currentPost?.title || ''} ${articlePlainText}`.toLowerCase()
+  const filtered = []
+  let removed = 0
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+
+    if (hasAffiliateLink(block)) {
+      const meta = getAffiliateMetaFromBlock(block)
+      if (!isAffiliateRelevant(meta, combinedText, currentPost)) {
+        removed += 1
+
+        const last = filtered[filtered.length - 1]
+        if (last && last._key && last._key.startsWith('affiliate-context-')) {
+          filtered.pop()
+        }
+        continue
+      }
+    }
+
+    filtered.push(block)
+  }
+
+  return { body: filtered, removed }
+}
+
+function removeInvalidInternalLinks(blocks, validHrefSet) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, removed: 0 }
+  }
+  if (!validHrefSet || validHrefSet.size === 0) {
+    return { body: blocks, removed: 0 }
+  }
+
+  const result = []
+  let removed = 0
+
+  blocks.forEach(block => {
+    if (!block || block._type !== 'block') {
+      result.push(block)
+      return
+    }
+
+    let hasInvalidLink = false
+    if (Array.isArray(block.markDefs)) {
+      block.markDefs.forEach(def => {
+        if (def && def._type === 'link' && typeof def.href === 'string' && def.href.startsWith('/posts/')) {
+          if (!validHrefSet.has(def.href)) {
+            hasInvalidLink = true
+          }
+        }
+      })
+    }
+
+    if (hasInvalidLink) {
+      removed += 1
+      return
+    }
+
+    result.push(block)
+  })
+
+  return { body: result, removed }
+}
+
+function ensureMedicalScopeNotice(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: false }
+  }
+
+  const plainText = blocksToPlainText(blocks)
+  const normalized = plainText.toLowerCase()
+  const hasKeyword = MEDICAL_KEYWORDS.some(keyword => normalized.includes(keyword.toLowerCase()))
+
+  if (!hasKeyword) {
+    return { body: blocks, added: false }
+  }
+
+  if (/医療行為.*(できません|行えません)/.test(normalized) || /看護助手.*できない/.test(normalized)) {
+    return { body: blocks, added: false }
+  }
+
+  const noticeBlock = {
+    _type: 'block',
+    _key: `medical-notice-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `medical-notice-span-${randomUUID()}`,
+        text: MEDICAL_NOTICE_TEXT,
+        marks: []
+      }
+    ]
+  }
+
+  let insertIndex = blocks.length
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (!block || block._type !== 'block') continue
+    const text = extractBlockText(block).toLowerCase()
+    if (MEDICAL_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
+      insertIndex = i + 1
+      break
+    }
+  }
+
+  const result = [...blocks]
+  if (insertIndex >= result.length) {
+    result.push(noticeBlock)
+  } else {
+    result.splice(insertIndex, 0, noticeBlock)
+  }
+
+  return { body: result, added: true }
+}
+
+function createSectionClosingBlock(title) {
+  const normalizedTitle = title.replace(/^(H2:|#|##)\s*/, '').trim()
+  const text = `${normalizedTitle || 'この内容'}では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。`
+  return {
+    _type: 'block',
+    _key: `section-closing-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `section-closing-span-${randomUUID()}`,
+        text,
+        marks: []
+      }
+    ]
+  }
+}
+
+function ensureSectionClosingParagraphs(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: 0 }
+  }
+
+  const result = [...blocks]
+  let added = 0
+  let index = 0
+
+  while (index < result.length) {
+    const block = result[index]
+    if (block && block._type === 'block' && block.style === 'h2') {
+      const title = extractBlockText(block).trim()
+      if (title === 'まとめ') {
+        index += 1
+        continue
+      }
+
+      let sectionEnd = index + 1
+      let lastContentIndex = -1
+
+      while (sectionEnd < result.length) {
+        const nextBlock = result[sectionEnd]
+        if (nextBlock && nextBlock._type === 'block' && nextBlock.style === 'h2') {
+          break
+        }
+        if (nextBlock && nextBlock._type === 'block' && extractBlockText(nextBlock).trim().length > 0) {
+          lastContentIndex = sectionEnd
+        }
+        sectionEnd += 1
+      }
+
+      if (lastContentIndex !== -1) {
+        const lastBlock = result[lastContentIndex]
+        if (lastBlock && lastBlock.listItem) {
+          const nextBlock = result[lastContentIndex + 1]
+          const nextText = nextBlock ? extractBlockText(nextBlock).trim() : ''
+
+          if (!/無理のない範囲で/.test(nextText)) {
+            const closingBlock = createSectionClosingBlock(title)
+            result.splice(lastContentIndex + 1, 0, closingBlock)
+            added += 1
+            index = lastContentIndex + 2
+            continue
+          }
+        }
+      }
+    }
+    index += 1
+  }
+
+  return { body: result, added }
+}
+
+function moveSummaryToEnd(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, moved: false }
+  }
+
+  const summaryIndex = blocks.findIndex(block =>
+    block &&
+    block._type === 'block' &&
+    block.style === 'h2' &&
+    extractBlockText(block).trim() === 'まとめ'
+  )
+
+  if (summaryIndex === -1) {
+    return { body: blocks, moved: false }
+  }
+
+  let nextSectionIndex = -1
+  for (let i = summaryIndex + 1; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (block && block._type === 'block' && block.style === 'h2') {
+      nextSectionIndex = i
+      break
+    }
+  }
+
+  if (nextSectionIndex === -1) {
+    return { body: blocks, moved: false }
+  }
+
+  const summarySlice = blocks.slice(summaryIndex, nextSectionIndex)
+  const remaining = [...blocks.slice(0, summaryIndex), ...blocks.slice(nextSectionIndex)]
+
+  let insertIndex = remaining.length
+  const disclaimerIndex = remaining.findIndex(block =>
+    block &&
+    block._type === 'block' &&
+    extractBlockText(block).trim().startsWith('免責事項')
+  )
+
+  if (disclaimerIndex !== -1) {
+    insertIndex = disclaimerIndex
+  }
+
+  const newBody = [
+    ...remaining.slice(0, insertIndex),
+    ...summarySlice,
+    ...remaining.slice(insertIndex)
+  ]
+
+  return { body: newBody, moved: true }
+}
+
+function replaceYMYLTerms(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, replaced: 0 }
+  }
+
+  let replaced = 0
+  const updated = blocks.map(block => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+      return block
+    }
+
+    let blockModified = false
+    const newChildren = block.children.map(child => {
+      if (!child || typeof child.text !== 'string') {
+        return child
+      }
+
+      let newText = child.text
+      let childModified = false
+
+      for (const { pattern, replacement } of YMYL_REPLACEMENTS) {
+        pattern.lastIndex = 0
+        const nextText = newText.replace(pattern, replacement)
+        if (nextText !== newText) {
+          newText = nextText
+          childModified = true
+        }
+      }
+
+      if (childModified) {
+        blockModified = true
+        replaced += 1
+        return { ...child, text: newText }
+      }
+
+      return child
+    })
+
+    if (blockModified) {
+      return { ...block, children: newChildren }
+    }
+
+    return block
+  })
+
+  return { body: updated, replaced }
+}
+
+function ensureReferenceBlocks(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: 0 }
+  }
+
+  const existingReferenceUrls = new Set()
+  blocks.forEach(block => {
+    if (isReferenceBlock(block) && Array.isArray(block.markDefs)) {
+      block.markDefs.forEach(def => {
+        if (def && def._type === 'link' && def.href) {
+          const normalizedUrl = ensureHttpsUrl(def.href)
+          if (normalizedUrl) {
+            existingReferenceUrls.add(normalizedUrl)
+          }
+        }
+      })
+    }
+  })
+
+  const result = []
+  let added = 0
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    result.push(block)
+
+    if (!block || block._type !== 'block' || isReferenceBlock(block)) {
+      continue
+    }
+
+    const text = extractBlockText(block).trim()
+    if (!text) continue
+
+    const mapping = findReferenceForText(text)
+    if (!mapping) continue
+
+    let hasReferenceNearby = false
+    for (let offset = 1; offset <= 2; offset += 1) {
+      const nextBlock = blocks[i + offset]
+      if (isReferenceBlock(nextBlock)) {
+        hasReferenceNearby = true
+        break
+      }
+    }
+
+    if (hasReferenceNearby) {
+      continue
+    }
+
+    const normalizedUrl = ensureHttpsUrl(mapping.url)
+    if (existingReferenceUrls.has(normalizedUrl)) {
+      continue
+    }
+
+    const referenceBlock = createReferenceBlock(mapping)
+    if (referenceBlock) {
+      result.push(referenceBlock)
+      existingReferenceUrls.add(normalizedUrl)
+      added += 1
+    }
+  }
+
+  return { body: result, added }
+}
+
+function extractSlugSegments(slug) {
+  return (slug || '')
+    .replace(/^\/posts\//, '')
+    .replace(/^nursing-assistant-/, '')
+    .split('-')
+    .map(seg => seg.trim())
+    .filter(Boolean)
+}
+
+function extractTitleKeywords(title) {
+  if (!title) return []
+  const cleaned = title
+    .replace(/[「」『』【】（）()［］\[\]]/g, ' ')
+    .replace(/[!?！？]/g, ' ')
+  return Array.from(
+    new Set(
+      cleaned
+        .split(/[・\s、,。]+/)
+        .map(token => token.trim())
+        .filter(token => token.length >= 2 && token.length <= 20)
+    )
+  )
+}
+
+function countInternalLinks(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return 0
+  }
+
+  let count = 0
+  blocks.forEach(block => {
+    if (!block || block._type !== 'block') return
+    const { isInternalLink } = analyseLinkBlock(block)
+    if (isInternalLink) {
+      count += 1
+    }
+  })
+  return count
+}
+
+function createInternalLinkBlock(target) {
+  if (!target || !target.slug) return null
+  const href = target.slug.startsWith('/posts/')
+    ? target.slug
+    : `/posts/${target.slug}`
+  const linkKey = `link-${randomUUID()}`
+  const introText = '詳しくは「'
+  const outroText = '」でも現場のポイントを詳しく解説しています。'
+
+  return {
+    _type: 'block',
+    _key: `internal-link-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [
+      {
+        _key: linkKey,
+        _type: 'link',
+        href
+      }
+    ],
+    children: [
+      {
+        _type: 'span',
+        _key: `internal-link-span-intro-${randomUUID()}`,
+        text: introText,
+        marks: []
+      },
+      {
+        _type: 'span',
+        _key: `internal-link-span-title-${randomUUID()}`,
+        text: target.title,
+        marks: [linkKey]
+      },
+      {
+        _type: 'span',
+        _key: `internal-link-span-outro-${randomUUID()}`,
+        text: outroText,
+        marks: []
+      }
+    ]
+  }
+}
+
+function selectInternalLinkTarget(currentPost, catalog) {
+  if (!currentPost || !Array.isArray(catalog) || catalog.length === 0) {
+    return null
+  }
+
+  const currentSlug = typeof currentPost.slug === 'string'
+    ? currentPost.slug
+    : currentPost.slug?.current
+  const normalizedSlug = (currentSlug || '').replace(/^\/posts\//, '')
+  const currentSegments = new Set(extractSlugSegments(normalizedSlug))
+  const currentCategories = new Set(
+    (currentPost.categories || [])
+      .map(cat => (typeof cat === 'string' ? cat : cat?.title))
+      .filter(Boolean)
+  )
+  const currentTitle = (currentPost.title || '').toLowerCase()
+
+  let best = null
+  let bestScore = -Infinity
+
+  for (const candidate of catalog) {
+    if (!candidate.slug || candidate.slug === normalizedSlug) {
+      continue
+    }
+
+    let score = 0
+
+    candidate.categories.forEach(category => {
+      if (currentCategories.has(category)) {
+        score += 6
+      }
+    })
+
+    const sharedSegments = candidate.slugSegments.filter(seg => currentSegments.has(seg))
+    score += sharedSegments.length * 3
+
+    candidate.titleKeywords.forEach(keyword => {
+      const keywordLower = keyword.toLowerCase()
+      if (keyword && currentTitle.includes(keywordLower)) {
+        score += 2
+      }
+    })
+
+    if (
+      (candidate.slugSegments.includes('career') || candidate.slugSegments.includes('change')) &&
+      (currentTitle.includes('転職') || currentTitle.includes('キャリア'))
+    ) {
+      score += 2
+    }
+
+    if (
+      candidate.slugSegments.includes('salary') &&
+      (currentTitle.includes('給料') || currentTitle.includes('年収'))
+    ) {
+      score += 2
+    }
+
+    if (score > bestScore || (score === bestScore && candidate.recency > (best?.recency || 0))) {
+      best = candidate
+      bestScore = score
+    }
+  }
+
+  if (!best && catalog.length > 0) {
+    best = catalog.find(item => item.slug !== normalizedSlug) || null
+  }
+
+  return best || null
+}
+
+function ensureInternalLinkBlock(blocks, currentPost, catalog) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: false, target: null }
+  }
+
+  const internalLinkCount = countInternalLinks(blocks)
+  if (internalLinkCount > 0) {
+    return { body: blocks, added: false, target: null }
+  }
+
+  const target = selectInternalLinkTarget(currentPost, catalog)
+  if (!target) {
+    return { body: blocks, added: false, target: null }
+  }
+
+  const existingInternalLinkHref = new Set()
+  blocks.forEach(block => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.markDefs)) return
+    block.markDefs.forEach(def => {
+      if (def && def._type === 'link' && typeof def.href === 'string' && def.href.startsWith('/posts/')) {
+        existingInternalLinkHref.add(def.href)
+      }
+    })
+  })
+
+  const targetHref = target.slug.startsWith('/posts/')
+    ? target.slug
+    : `/posts/${target.slug}`
+
+  if (existingInternalLinkHref.has(targetHref)) {
+    return { body: blocks, added: false, target: null }
+  }
+
+  const linkBlock = createInternalLinkBlock(target)
+  if (!linkBlock) {
+    return { body: blocks, added: false, target: null }
+  }
+
+  const newBody = [...blocks]
+  const summaryIndex = newBody.findIndex(block =>
+    block &&
+    block._type === 'block' &&
+    block.style === 'h2' &&
+    extractBlockText(block).trim() === 'まとめ'
+  )
+
+  const disclaimerIndex = newBody.findIndex(block =>
+    block &&
+    block._type === 'block' &&
+    extractBlockText(block).trim().startsWith('免責事項')
+  )
+
+  let insertIndex = summaryIndex !== -1 ? summaryIndex : disclaimerIndex
+  if (insertIndex === -1) {
+    insertIndex = newBody.length
+  }
+
+  while (insertIndex > 0) {
+    const previousBlock = newBody[insertIndex - 1]
+    if (
+      previousBlock &&
+      (hasAffiliateLink(previousBlock) ||
+        (previousBlock._key && previousBlock._key.startsWith('affiliate-context-')))
+    ) {
+      insertIndex -= 1
+      continue
+    }
+    break
+  }
+
+  newBody.splice(insertIndex, 0, linkBlock)
+
+  return { body: newBody, added: true, target }
+}
+
+async function fetchInternalLinkCatalog() {
+  const posts = await client.fetch(`
+    *[_type == "post"] {
+      "slug": slug.current,
+      title,
+      _updatedAt,
+      "categories": categories[]->{ title }
+    }
+  `)
+
+  return posts
+    .filter(post => typeof post.slug === 'string' && post.slug)
+    .map(post => ({
+      slug: post.slug,
+      title: post.title || '',
+      categories: (post.categories || []).map(cat => cat?.title).filter(Boolean),
+      slugSegments: extractSlugSegments(post.slug),
+      titleKeywords: extractTitleKeywords(post.title),
+      recency: post._updatedAt ? new Date(post._updatedAt).getTime() : 0
+    }))
 }
 
 async function resolveReferenceUrl(url, cache) {
@@ -611,9 +1526,9 @@ async function normalizeReferenceLinks(blocks, articleTitle = '') {
     for (const markDef of referenceMarks) {
       const currentUrl = ensureHttpsUrl(markDef.href)
       const label = getLabelForMark(block, markDef._key) || normalized.replace(/^参考[:：]?\s*/, '')
-      const mappingUrl = matchReferenceMapping(label)
+      const mapping = matchReferenceMapping(label)
 
-      let targetUrl = ensureHttpsUrl(mappingUrl || currentUrl)
+      let targetUrl = ensureHttpsUrl((mapping && mapping.url) || currentUrl)
 
       if (!targetUrl) {
         unresolved.push({ articleTitle, label, url: currentUrl })
@@ -621,12 +1536,12 @@ async function normalizeReferenceLinks(blocks, articleTitle = '') {
       }
 
       let resolvedUrl = await resolveReferenceUrl(targetUrl, cache)
-      if (!resolvedUrl && mappingUrl) {
-        resolvedUrl = ensureHttpsUrl(mappingUrl)
+      if (!resolvedUrl && mapping?.url) {
+        resolvedUrl = ensureHttpsUrl(mapping.url)
       }
 
-      if (resolvedUrl && isTopLevelUrl(resolvedUrl) && mappingUrl) {
-        resolvedUrl = ensureHttpsUrl(mappingUrl)
+      if (resolvedUrl && isTopLevelUrl(resolvedUrl) && mapping?.url) {
+        resolvedUrl = ensureHttpsUrl(mapping.url)
       }
 
       if (!resolvedUrl || isTopLevelUrl(resolvedUrl)) {
@@ -671,13 +1586,15 @@ function expandShortContent(blocks, title) {
     return { body: blocks, expanded: false }
   }
 
-  const alreadyExpanded = blocks.some(block => block?._key && block._key.startsWith('auto-expansion-'))
-  if (alreadyExpanded) {
-    return { body: blocks, expanded: false }
-  }
+  const hasPrimaryExpansion = blocks.some(
+    block => block?._key && block._key.startsWith('auto-expansion-') && !block._key.startsWith('auto-expansion-extra-')
+  )
+  const hasExtraExpansion = blocks.some(
+    block => block?._key && block._key.startsWith('auto-expansion-extra-')
+  )
 
   const timestampBase = Date.now()
-  const templates = [
+  const primaryTemplates = [
     index => [
       {
         _type: 'block',
@@ -803,17 +1720,114 @@ function expandShortContent(blocks, title) {
     ]
   ]
 
+  const extraTemplates = [
+    index => [
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-h3`,
+        style: 'h3',
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-h3-span`, text: 'さらに安心感を高めるフォロー例', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-p1`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-p1-span`, text: 'セクションで紹介した内容に加えて、勤務後の振り返りノートを活用すると自分の成長や癖が見えてきます。たとえば「今日は患者さんの不安をどう受け止められたか」「次はどんな声かけを試したいか」を箇条書きで記録するだけでも、翌日のアクションが明確になります。', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-list1`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-list1-span`, text: '勤務の前後で「今日意識したいこと」「できたこと」をそれぞれ3つ書き出す', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-list2`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-list2-span`, text: '患者さんからの感謝や対応の工夫を小さく共有し、チーム全体で活用する', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-p2`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-p2-span`, text: 'こうした積み重ねは数値化しにくいものの、患者さんや同僚が安心して頼れる雰囲気づくりに直結します。忙しい日も、振り返りの2〜3分を確保することが自分の余裕にもつながるので、無理のない範囲で取り入れてみてくださいね。', marks: [] }],
+        markDefs: []
+      }
+    ],
+    index => [
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-h3b`,
+        style: 'h3',
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-h3b-span`, text: '現場で役立つミニケーススタディ', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-p3`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-p3-span`, text: 'たとえば「夜勤帯で患者さんの不眠が続いた」ケースでは、環境調整と声かけのタイミングが重要になります。照明を一段落とし、声のトーンを落として状況を尋ねるだけでも緊張が和らぐことがあります。状況を看護師へ共有する際は、「いつ」「どんな状態だったか」を短くまとめ、必要時に医師へ相談できるよう準備しましょう。', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-list3`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-list3-span`, text: '落ち着いた声で状況を確認し、患者さんの不安に寄り添う', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-list4`,
+        style: 'normal',
+        listItem: 'bullet',
+        level: 1,
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-list4-span`, text: '必要な情報（時間帯・症状・対応内容）を簡潔に整理して申し送る', marks: [] }],
+        markDefs: []
+      },
+      {
+        _type: 'block',
+        _key: `auto-expansion-extra-${timestampBase}-${index}-p4`,
+        style: 'normal',
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-p4-span`, text: 'どの職場でも共有の質が高まるほど、安心して引き継ぎを受け取れるようになります。セラも新人時代は実例を先輩から教わりながら、少しずつ引き継ぎメモの品質を上げてきました。迷ったら一人で抱え込まず、チームの経験を頼って大丈夫ですよ。', marks: [] }],
+        markDefs: []
+      }
+    ]
+  ]
+
   const additions = []
   let expanded = false
   let currentBody = [...blocks]
 
-  for (let i = 0; i < templates.length; i += 1) {
-    additions.push(...templates[i](i))
-    currentBody = [...blocks, ...additions]
-    plain = blocksToPlainText(currentBody)
-    expanded = true
-    if (plain.length >= 2000) {
-      break
+  if (!hasPrimaryExpansion) {
+    for (let i = 0; i < primaryTemplates.length; i += 1) {
+      additions.push(...primaryTemplates[i](i))
+      currentBody = [...blocks, ...additions]
+      plain = blocksToPlainText(currentBody)
+      expanded = true
+      if (plain.length >= 2000) {
+        break
+      }
+    }
+  } else if (plain.length < 2000 && !hasExtraExpansion) {
+    for (let i = 0; i < extraTemplates.length; i += 1) {
+      additions.push(...extraTemplates[i](i))
+      currentBody = [...blocks, ...additions]
+      plain = blocksToPlainText(currentBody)
+      expanded = true
+      if (plain.length >= 2000) {
+        break
+      }
     }
   }
 
@@ -849,10 +1863,25 @@ async function getCategoryResources() {
 function sanitiseSlugValue(slug) {
   return (slug || '')
     .toLowerCase()
-    .replace(/[^a-z0-9-]/g, '-')
+    .replace(/[^a-z-]/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '')
 }
+
+const SLUG_VARIANT_WORDS = [
+  'insights',
+  'journey',
+  'support',
+  'compass',
+  'focus',
+  'pathway',
+  'practice',
+  'navigator',
+  'plan',
+  'toolbox',
+  'approach',
+  'ideas'
+]
 
 async function ensureUniqueSlug(candidate, excludeId) {
   let base = sanitiseSlugValue(candidate)
@@ -860,10 +1889,51 @@ async function ensureUniqueSlug(candidate, excludeId) {
     base = generateSlugFromTitle('看護助手-article')
   }
 
+  if (!base.startsWith('nursing-assistant-')) {
+    base = `nursing-assistant-${base.replace(/^nursing-assistant-?/, '')}`
+  }
+
+  let baseSegments = base.replace(/^nursing-assistant-/, '').split('-').filter(Boolean)
+  if (baseSegments.length === 0) {
+    baseSegments = ['care', 'guide']
+  } else if (baseSegments.length === 1) {
+    baseSegments.push('guide')
+  } else if (baseSegments.length > 3) {
+    baseSegments = baseSegments.slice(0, 3)
+  }
+
+  baseSegments = baseSegments.map(seg => seg.replace(/[^a-z]/g, '')).filter(Boolean)
+  if (baseSegments.length < 2) {
+    baseSegments = ['care', 'guide']
+  }
+
   let attempt = 0
-  let slug = base
 
   for (;;) {
+    let segments = [...baseSegments]
+
+    if (attempt > 0) {
+      const variantIndex = (attempt - 1) % SLUG_VARIANT_WORDS.length
+      const cycle = Math.floor((attempt - 1) / SLUG_VARIANT_WORDS.length)
+      let variantWord = SLUG_VARIANT_WORDS[variantIndex]
+      if (cycle > 0) {
+        const suffixChar = String.fromCharCode(97 + ((cycle - 1) % 26))
+        variantWord = `${variantWord}${suffixChar}`
+      }
+
+      if (segments.length === 3) {
+        segments[segments.length - 1] = variantWord
+      } else {
+        segments.push(variantWord)
+      }
+    }
+
+    if (segments.length > 3) {
+      segments = segments.slice(0, 3)
+    }
+
+    const slug = `nursing-assistant-${segments.join('-')}`
+
     // eslint-disable-next-line no-await-in-loop
     const existing = await client.fetch(
       `*[_type == "post" && slug.current == $slug && _id != $id][0] { _id }`,
@@ -875,7 +1945,6 @@ async function ensureUniqueSlug(candidate, excludeId) {
     }
 
     attempt += 1
-    slug = sanitiseSlugValue(`${base}-${Date.now().toString().slice(-6)}-${attempt}`)
   }
 }
 
@@ -1250,13 +2319,19 @@ async function autoFixMetadata() {
 
   // Gemini APIモデルのインスタンス化（H3セクション・まとめ最適化用）
   let geminiModel = null
-  const geminiApiKey = process.env.GEMINI_API_KEY
+  const enableGemini =
+    process.env.MAINTENANCE_ENABLE_GEMINI === '1' ||
+    process.env.MAINTENANCE_ENABLE_GEMINI?.toLowerCase() === 'true'
+
+  const geminiApiKey = enableGemini ? process.env.GEMINI_API_KEY : null
   if (geminiApiKey) {
     const genAI = new GoogleGenerativeAI(geminiApiKey)
     geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' })
     console.log('✅ Gemini API使用可能（H3セクション・まとめ最適化）')
+  } else if (enableGemini) {
+    console.log('⚠️  MAINTENANCE_ENABLE_GEMINI=1ですが GEMINI_API_KEY が未設定です（簡易版を使用）')
   } else {
-    console.log('⚠️  GEMINI_API_KEY未設定（簡易版を使用）')
+    console.log('ℹ️  Gemini API は無効化されています（MAINTENANCE_ENABLE_GEMINI を設定すると有効化できます）')
   }
 
   const { categories, fallback } = await getCategoryResources()
@@ -1287,6 +2362,13 @@ async function autoFixMetadata() {
   }
 
   console.log(`対象記事: ${posts.length}件\n`)
+
+  const internalLinkCatalog = await fetchInternalLinkCatalog()
+  const internalLinkHrefSet = new Set(
+    internalLinkCatalog.map(item =>
+      item.slug.startsWith('/posts/') ? item.slug : `/posts/${item.slug}`
+    )
+  )
 
   let updated = 0
 
@@ -1382,7 +2464,11 @@ async function autoFixMetadata() {
     // アフィリエイトリンクの自動追加（収益最適化）
     let affiliateLinksAdded = false
     if (post.body && Array.isArray(post.body)) {
-      const bodyWithAffiliateLinks = addAffiliateLinksToArticle(updates.body || post.body, post.title)
+      const bodyWithAffiliateLinks = addAffiliateLinksToArticle(
+        updates.body || post.body,
+        post.title,
+        post
+      )
       if (JSON.stringify(bodyWithAffiliateLinks) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithAffiliateLinks
         affiliateLinksAdded = true
@@ -1411,6 +2497,17 @@ async function autoFixMetadata() {
     let referencesFixed = 0
     let unresolvedReferences = []
     let shortContentExpanded = false
+    let referenceBlocksAdded = 0
+    let ymyReplacements = 0
+    let affiliateContextsAdded = 0
+    let internalLinkAdded = false
+    let internalLinkTarget = null
+    let affiliateBlocksRemoved = 0
+    let medicalNoticeAdded = false
+    let sectionClosingsAdded = 0
+    let summaryMoved = false
+    let h3BodiesAdded = false
+    let summaryAdjusted = false
     if (post.body && Array.isArray(post.body)) {
       const sanitised = sanitizeBodyBlocks(updates.body || post.body)
       if (JSON.stringify(sanitised.body) !== JSON.stringify(updates.body || post.body)) {
@@ -1434,10 +2531,73 @@ async function autoFixMetadata() {
       }
       unresolvedReferences = referenceResult.unresolved
 
+      const referenceInsertResult = ensureReferenceBlocks(updates.body || post.body)
+      if (referenceInsertResult.added > 0) {
+        updates.body = referenceInsertResult.body
+        referenceBlocksAdded = referenceInsertResult.added
+      }
+
+      const invalidInternalRemoval = removeInvalidInternalLinks(updates.body || post.body, internalLinkHrefSet)
+      if (invalidInternalRemoval.removed > 0) {
+        updates.body = invalidInternalRemoval.body
+        extraInternalLinksRemoved += invalidInternalRemoval.removed
+        bodyChanged = true
+      }
+
+      const irrelevantAffiliateResult = removeIrrelevantAffiliateBlocks(updates.body || post.body, post)
+      if (irrelevantAffiliateResult.removed > 0) {
+        updates.body = irrelevantAffiliateResult.body
+        affiliateBlocksRemoved += irrelevantAffiliateResult.removed
+        bodyChanged = true
+      }
+
       const expansionResult = expandShortContent(updates.body || post.body, post.title)
       if (expansionResult.expanded) {
         updates.body = expansionResult.body
         shortContentExpanded = true
+      }
+
+      const ymyResult = replaceYMYLTerms(updates.body || post.body)
+      if (ymyResult.replaced > 0) {
+        updates.body = ymyResult.body
+        ymyReplacements = ymyResult.replaced
+        bodyChanged = true
+      }
+
+      const affiliateContextResult = ensureAffiliateContextBlocks(updates.body || post.body, post)
+      if (affiliateContextResult.added > 0) {
+        updates.body = affiliateContextResult.body
+        affiliateContextsAdded = affiliateContextResult.added
+        bodyChanged = true
+      }
+
+      const sectionClosingResult = ensureSectionClosingParagraphs(updates.body || post.body)
+      if (sectionClosingResult.added > 0) {
+        updates.body = sectionClosingResult.body
+        sectionClosingsAdded = sectionClosingResult.added
+        bodyChanged = true
+      }
+
+      const medicalNoticeResult = ensureMedicalScopeNotice(updates.body || post.body)
+      if (medicalNoticeResult.added) {
+        updates.body = medicalNoticeResult.body
+        medicalNoticeAdded = true
+        bodyChanged = true
+      }
+
+      const summaryMoveResult = moveSummaryToEnd(updates.body || post.body)
+      if (summaryMoveResult.moved) {
+        updates.body = summaryMoveResult.body
+        summaryMoved = true
+        bodyChanged = true
+      }
+
+      const internalLinkResult = ensureInternalLinkBlock(updates.body || post.body, post, internalLinkCatalog)
+      if (internalLinkResult.added) {
+        updates.body = internalLinkResult.body
+        internalLinkAdded = true
+        internalLinkTarget = internalLinkResult.target
+        bodyChanged = true
       }
     }
 
@@ -1543,6 +2703,34 @@ async function autoFixMetadata() {
     if (sourceLinksAdded) {
       console.log('   出典リンクを自動追加しました（YMYL対策）')
     }
+    if (referenceBlocksAdded > 0) {
+      console.log(`   出典リンクを追加しました (${referenceBlocksAdded}件)`)
+    }
+    if (ymyReplacements > 0) {
+      console.log(`   断定表現をやわらげました (${ymyReplacements}箇所)`)
+    }
+    if (affiliateContextsAdded > 0) {
+      console.log(`   アフィリエイト訴求文を追加しました (${affiliateContextsAdded}ブロック)`)
+    }
+    if (affiliateBlocksRemoved > 0) {
+      console.log(`   関連性の低いアフィリエイトリンクを削除しました (${affiliateBlocksRemoved}ブロック)`)
+    }
+    if (sectionClosingsAdded > 0) {
+      console.log(`   セクション末尾にフォロー文を追加しました (${sectionClosingsAdded}ブロック)`)
+    }
+    if (medicalNoticeAdded) {
+      console.log('   医療行為に関する注意書きを追記しました')
+    }
+    if (summaryMoved) {
+      console.log('   「まとめ」セクションを記事末尾へ移動しました')
+    }
+    if (internalLinkAdded) {
+      if (internalLinkTarget && internalLinkTarget.title) {
+        console.log(`   内部リンクを追加しました: ${internalLinkTarget.title}`)
+      } else {
+        console.log('   内部リンクを追加しました')
+      }
+    }
     if (relatedSectionsRemoved > 0) {
       console.log(`   関連記事セクションを削除しました (${relatedSectionsRemoved}ブロック)`)
     }
@@ -1620,17 +2808,118 @@ async function autoFixMetadata() {
 /**
  * 本文全体から関連記事セクション・重複段落・余計な内部リンクを整理
  */
-async function sanitizeAllBodies() {
+
+async function getTopViewedCandidates(limit = 10, cooldownDays = 30) {
+  const windowSize = Math.max(limit * 4, limit + 10)
+  const cutoff = new Date()
+  cutoff.setDate(cutoff.getDate() - cooldownDays)
+  const cutoffTime = cutoff.getTime()
+
+  const candidates = await client.fetch(
+    `
+    *[_type == "post" && defined(slug.current)]
+      | order(coalesce(views, 0) desc)[0...$window] {
+        "slug": slug.current,
+        views,
+        geminiMaintainedAt
+      }
+  `,
+    { window: windowSize }
+  )
+
+  if (!candidates || candidates.length === 0) {
+    return []
+  }
+
+  const stale = []
+  const recent = []
+
+  candidates.forEach(candidate => {
+    const slug = (candidate.slug || '').trim()
+    if (!slug) return
+    const maintainedAt = candidate.geminiMaintainedAt ? Date.parse(candidate.geminiMaintainedAt) : 0
+    const record = {
+      slug,
+      views: typeof candidate.views === 'number' ? candidate.views : 0,
+      geminiMaintainedAt: candidate.geminiMaintainedAt || null,
+      cooldownSatisfied: !maintainedAt || maintainedAt < cutoffTime
+    }
+    if (record.cooldownSatisfied) {
+      stale.push(record)
+    } else {
+      recent.push(record)
+    }
+  })
+
+  const final = []
+
+  stale.slice(0, limit).forEach(record => final.push(record))
+
+  if (final.length < limit) {
+    for (const record of recent) {
+      if (final.length >= limit) break
+      final.push(record)
+    }
+  }
+
+  return final.slice(0, limit)
+}
+
+async function sanitizeAllBodies(options = {}) {
   console.log('\n🧹 本文内の関連記事・重複段落の自動整理を開始します\n')
 
-  const posts = await client.fetch(`
+  const { slugs = null } = options
+  const enableGemini =
+    process.env.MAINTENANCE_ENABLE_GEMINI === '1' ||
+    process.env.MAINTENANCE_ENABLE_GEMINI?.toLowerCase() === 'true'
+
+  let geminiModel = null
+  if (enableGemini) {
+    console.log('✅ MAINTENANCE_ENABLE_GEMINI=1 を検出（Gemini API を利用します）')
+    const geminiApiKey = process.env.GEMINI_API_KEY
+    if (geminiApiKey) {
+      const genAI = new GoogleGenerativeAI(geminiApiKey)
+      geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' })
+    } else {
+      console.log('⚠️  MAINTENANCE_ENABLE_GEMINI=1 ですが GEMINI_API_KEY が未設定です（簡易版を使用します）')
+    }
+  } else {
+    console.log('ℹ️  Gemini API は無効化されています。必要に応じて MAINTENANCE_ENABLE_GEMINI=1 を設定してください。')
+  }
+
+  let fetchQuery = `
     *[_type == "post"] {
       _id,
       title,
       body,
-      "slug": slug.current
+      "slug": slug.current,
+      _updatedAt,
+      "categories": categories[]->{ title },
+      views,
+      geminiMaintainedAt
     }
-  `)
+  `
+  const queryParams = {}
+
+  if (Array.isArray(slugs) && slugs.length > 0) {
+    const uniqueSlugs = [...new Set(slugs.filter(Boolean))].sort()
+    console.log(`🔍 指定スラッグのみを対象に実行します (${uniqueSlugs.length}件): ${uniqueSlugs.join(', ')}`)
+    fetchQuery = `
+      *[_type == "post" && slug.current in $slugs] {
+        _id,
+        title,
+        body,
+        "slug": slug.current,
+        _updatedAt,
+        "categories": categories[]->{ title },
+        views,
+        geminiMaintainedAt
+      }
+    `
+    queryParams.slugs = uniqueSlugs
+  }
+
+  const posts = await client.fetch(fetchQuery, queryParams)
 
   if (!posts || posts.length === 0) {
     console.log('✅ 対象記事はありません')
@@ -1650,6 +2939,35 @@ async function sanitizeAllBodies() {
     }
   }
 
+  let internalLinkSource = posts
+  if (Array.isArray(slugs) && slugs.length > 0) {
+    internalLinkSource = await client.fetch(`
+      *[_type == "post" && defined(slug.current)] {
+        _id,
+        title,
+        "slug": slug.current,
+        _updatedAt,
+        "categories": categories[]->{ title }
+      }
+    `)
+  }
+
+  const internalLinkCatalog = internalLinkSource
+    .filter(post => typeof post.slug === 'string' && post.slug)
+    .map(post => ({
+      slug: post.slug,
+      title: post.title || '',
+      categories: (post.categories || []).map(cat => cat?.title).filter(Boolean),
+      slugSegments: extractSlugSegments(post.slug),
+      titleKeywords: extractTitleKeywords(post.title),
+      recency: post._updatedAt ? new Date(post._updatedAt).getTime() : 0
+    }))
+  const internalLinkHrefSet = new Set(
+    internalLinkCatalog.map(item =>
+      item.slug.startsWith('/posts/') ? item.slug : `/posts/${item.slug}`
+    )
+  )
+
   let updated = 0
   let totalRelatedRemoved = 0
   let totalDuplicatesRemoved = 0
@@ -1661,7 +2979,17 @@ async function sanitizeAllBodies() {
   let totalDisclaimersAdded = 0
   let totalReferencesFixed = 0
   let totalShortExpansions = 0
+  let totalReferenceInsertions = 0
+  let totalYMYLReplacements = 0
+  let totalAffiliateContextAdded = 0
+  let totalAffiliateBlocksRemoved = 0
+  let totalInternalLinksAdded = 0
+  let totalMedicalNoticesAdded = 0
+  let totalSectionClosingsAdded = 0
+  let totalSummaryMoved = 0
   let totalSlugRegenerated = 0
+  let totalH3BodiesAdded = 0
+  let totalSummariesOptimized = 0
   const unresolvedReferences = []
   const shortLengthIssues = []
 
@@ -1681,6 +3009,15 @@ async function sanitizeAllBodies() {
     let bodyChanged = false
     let referencesFixedForPost = 0
     let expansionResult = { expanded: false }
+    let referenceBlocksAdded = 0
+    let ymyReplacements = 0
+    let affiliateContextsAdded = 0
+    let internalLinkAdded = false
+    let internalLinkTarget = null
+    let affiliateBlocksRemoved = 0
+    let medicalNoticeAdded = false
+    let sectionClosingsAdded = 0
+    let summaryMoved = false
 
     if (Array.isArray(post.body) && post.body.length > 0) {
       const sanitised = sanitizeBodyBlocks(post.body)
@@ -1704,6 +3041,20 @@ async function sanitizeAllBodies() {
         removedSummaryHeadings > 0 ||
         disclaimerAdded > 0
 
+      const bodyAfterH3 = await addBodyToEmptyH3Sections(body, post.title, enableGemini ? geminiModel : null)
+      if (JSON.stringify(bodyAfterH3) !== JSON.stringify(body)) {
+        body = bodyAfterH3
+        h3BodiesAdded = true
+        bodyChanged = true
+      }
+
+      const summaryOptimised = await optimizeSummarySection(body, post.title, enableGemini ? geminiModel : null)
+      if (JSON.stringify(summaryOptimised) !== JSON.stringify(body)) {
+        body = summaryOptimised
+        summaryAdjusted = true
+        bodyChanged = true
+      }
+
       const referenceResult = await normalizeReferenceLinks(body, post.title)
       body = referenceResult.body
       referencesFixedForPost = referenceResult.fixed
@@ -1721,10 +3072,77 @@ async function sanitizeAllBodies() {
         })
       }
 
+      const referenceInsertResult = ensureReferenceBlocks(body)
+      if (referenceInsertResult.added > 0) {
+        body = referenceInsertResult.body
+        referenceBlocksAdded += referenceInsertResult.added
+        totalReferenceInsertions += referenceInsertResult.added
+        bodyChanged = true
+      }
+
+      const invalidInternalRemoval = removeInvalidInternalLinks(body, internalLinkHrefSet)
+      if (invalidInternalRemoval.removed > 0) {
+        body = invalidInternalRemoval.body
+        removedInternalLinks += invalidInternalRemoval.removed
+        bodyChanged = true
+      }
+
+      const irrelevantAffiliateResult = removeIrrelevantAffiliateBlocks(body, post)
+      if (irrelevantAffiliateResult.removed > 0) {
+        body = irrelevantAffiliateResult.body
+        affiliateBlocksRemoved += irrelevantAffiliateResult.removed
+        bodyChanged = true
+      }
+
       expansionResult = expandShortContent(body, post.title)
       body = expansionResult.body
       if (expansionResult.expanded) {
         totalShortExpansions += 1
+        bodyChanged = true
+      }
+
+      const ymyResult = replaceYMYLTerms(body)
+      if (ymyResult.replaced > 0) {
+        body = ymyResult.body
+        ymyReplacements += ymyResult.replaced
+        totalYMYLReplacements += ymyResult.replaced
+        bodyChanged = true
+      }
+
+      const sectionClosingResult = ensureSectionClosingParagraphs(body)
+      if (sectionClosingResult.added > 0) {
+        body = sectionClosingResult.body
+        sectionClosingsAdded += sectionClosingResult.added
+        bodyChanged = true
+      }
+
+      const medicalNoticeResult = ensureMedicalScopeNotice(body)
+      if (medicalNoticeResult.added) {
+        body = medicalNoticeResult.body
+        medicalNoticeAdded = true
+        bodyChanged = true
+      }
+
+      const summaryMoveResult = moveSummaryToEnd(body)
+      if (summaryMoveResult.moved) {
+        body = summaryMoveResult.body
+        summaryMoved = true
+        bodyChanged = true
+      }
+
+      const affiliateContextResult = ensureAffiliateContextBlocks(body, post)
+      if (affiliateContextResult.added > 0) {
+        body = affiliateContextResult.body
+        affiliateContextsAdded += affiliateContextResult.added
+        bodyChanged = true
+      }
+
+      const internalLinkResult = ensureInternalLinkBlock(body, post, internalLinkCatalog)
+      if (internalLinkResult.added) {
+        body = internalLinkResult.body
+        internalLinkAdded = true
+        internalLinkTarget = internalLinkResult.target
+        totalInternalLinksAdded += 1
         bodyChanged = true
       }
     }
@@ -1759,6 +3177,10 @@ async function sanitizeAllBodies() {
       updates.body = body
     }
 
+    if (enableGemini && geminiModel) {
+      updates.geminiMaintainedAt = new Date().toISOString()
+    }
+
     if (Object.keys(updates).length === 0) {
       continue
     }
@@ -1785,6 +3207,21 @@ async function sanitizeAllBodies() {
     totalAffiliateCtasRemoved += removedAffiliateCtas
     totalSummaryHeadingsRemoved += removedSummaryHeadings
     totalDisclaimersAdded += disclaimerAdded
+    totalAffiliateBlocksRemoved += affiliateBlocksRemoved
+    totalAffiliateContextAdded += affiliateContextsAdded
+    if (medicalNoticeAdded) {
+      totalMedicalNoticesAdded += 1
+    }
+    totalSectionClosingsAdded += sectionClosingsAdded
+    if (summaryMoved) {
+      totalSummaryMoved += 1
+    }
+    if (h3BodiesAdded) {
+      totalH3BodiesAdded += 1
+    }
+    if (summaryAdjusted) {
+      totalSummariesOptimized += 1
+    }
     if (expansionResult.expanded) {
       console.log('   文字数不足だったため追記を行いました')
     }
@@ -1811,11 +3248,45 @@ async function sanitizeAllBodies() {
     if (removedSummaryHeadings > 0) {
       console.log(`   重複した「まとめ」見出しを整理: ${removedSummaryHeadings}見出し`)
     }
+    if (affiliateBlocksRemoved > 0) {
+      console.log(`   関連性の低いアフィリエイトリンクを削除: ${affiliateBlocksRemoved}ブロック`)
+    }
     if (disclaimerAdded > 0) {
       console.log('   免責事項を追記しました')
     }
     if (referencesFixedForPost > 0) {
       console.log(`   出典リンクを更新: ${referencesFixedForPost}件`)
+    }
+    if (referenceBlocksAdded > 0) {
+      console.log(`   出典リンクを追加: ${referenceBlocksAdded}件`)
+    }
+    if (ymyReplacements > 0) {
+      console.log(`   断定表現を柔らかく調整: ${ymyReplacements}箇所`)
+    }
+    if (affiliateContextsAdded > 0) {
+      console.log(`   アフィリエイト訴求文を補強: ${affiliateContextsAdded}ブロック`)
+    }
+    if (h3BodiesAdded) {
+      console.log('   H3セクションに本文を追加しました')
+    }
+    if (summaryAdjusted) {
+      console.log('   まとめセクションを整えました')
+    }
+    if (sectionClosingsAdded > 0) {
+      console.log(`   セクション末尾にフォロー文を追加: ${sectionClosingsAdded}セクション`)
+    }
+    if (medicalNoticeAdded) {
+      console.log('   医療行為に関する注意書きを追記しました')
+    }
+    if (summaryMoved) {
+      console.log('   「まとめ」セクションを末尾へ移動しました')
+    }
+    if (internalLinkAdded) {
+      if (internalLinkTarget && internalLinkTarget.title) {
+        console.log(`   内部リンクを追加: ${internalLinkTarget.title}`)
+      } else {
+        console.log('   内部リンクを追加しました')
+      }
     }
     if (finalPlainLength < 2000) {
       console.log(`   ⚠️ 本文は現在 ${finalPlainLength}文字で2000文字未満です`)
@@ -1825,7 +3296,7 @@ async function sanitizeAllBodies() {
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -1860,11 +3331,21 @@ async function sanitizeAllBodies() {
     forbiddenSectionsRemoved: totalForbiddenSectionsRemoved,
     summaryHelpersRemoved: totalSummaryHelpersRemoved,
     referencesFixed: totalReferencesFixed,
+    referencesInserted: totalReferenceInsertions,
     shortExpansions: totalShortExpansions,
     unresolvedReferences,
     affiliateCtasRemoved: totalAffiliateCtasRemoved,
     summaryHeadingsRemoved: totalSummaryHeadingsRemoved,
     disclaimersAdded: totalDisclaimersAdded,
+    ymylSoftened: totalYMYLReplacements,
+    affiliateContextsAdded: totalAffiliateContextAdded,
+    affiliateBlocksRemoved: totalAffiliateBlocksRemoved,
+    h3BodiesAdded: totalH3BodiesAdded,
+    summariesOptimized: totalSummariesOptimized,
+    medicalNoticesAdded: totalMedicalNoticesAdded,
+    sectionClosingsAdded: totalSectionClosingsAdded,
+    summariesMoved: totalSummaryMoved,
+    internalLinksAdded: totalInternalLinksAdded,
     slugRegenerated: totalSlugRegenerated,
     shortLengthIssues
   }
@@ -2236,8 +3717,8 @@ async function checkInternalLinks() {
   try {
     const posts = await client.fetch(query)
     const issues = {
-      tooFewLinks: [],       // 内部リンクが少ない（2個未満）
-      tooManyLinks: [],      // 内部リンクが多すぎる（3個超過）
+      tooFewLinks: [],       // 内部リンクが少ない（1本未満）
+      tooManyLinks: [],      // 内部リンクが多すぎる（1本超過）
       brokenLinks: [],       // 壊れたリンク
       mixedWithAffiliate: [] // 内部リンクとアフィリエイトリンクが同じブロックに配置
     }
@@ -2302,16 +3783,16 @@ async function checkInternalLinks() {
         }
       })
 
-      // 内部リンク数チェック（2個未満は少ない）
-      if (internalLinkCount < 2) {
+      // 内部リンク数チェック（1本未満は不足）
+      if (internalLinkCount < 1) {
         issues.tooFewLinks.push({
           ...post,
           internalLinkCount
         })
       }
 
-      // 内部リンク数チェック（3個超過）
-      if (internalLinkCount > 3) {
+      // 内部リンク数チェック（1本超過は多すぎる）
+      if (internalLinkCount > 1) {
         issues.tooManyLinks.push({
           ...post,
           internalLinkCount
@@ -2336,8 +3817,8 @@ async function checkInternalLinks() {
     })
 
     console.log('\n🔗 内部リンクチェック:\n')
-    console.log(`  ⚠️  内部リンクが少ない（2個未満）: ${issues.tooFewLinks.length}件`)
-    console.log(`  🔴 内部リンクが多すぎる（3個超過）: ${issues.tooManyLinks.length}件（新ルール）`)
+    console.log(`  ⚠️  内部リンクが不足（1本未満）: ${issues.tooFewLinks.length}件`)
+    console.log(`  🔴 内部リンクが多すぎる（1本超過）: ${issues.tooManyLinks.length}件（新ルール）`)
     console.log(`  🔴 内部リンクとアフィリエイトが近接: ${issues.mixedWithAffiliate.length}件（新ルール）`)
     console.log(`  🔴 壊れた内部リンク: ${issues.brokenLinks.length}件\n`)
 
@@ -2346,7 +3827,7 @@ async function checkInternalLinks() {
       issues.tooFewLinks.slice(0, 10).forEach((post, i) => {
         console.log(`${i + 1}. ${post.title}`)
         console.log(`   ID: ${post._id}`)
-        console.log(`   内部リンク数: ${post.internalLinkCount}個（推奨: 2個以上）`)
+        console.log(`   内部リンク数: ${post.internalLinkCount}本（推奨: 1本）`)
         console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
         console.log(`   URL: /posts/${post.slug}\n`)
       })
@@ -2357,10 +3838,10 @@ async function checkInternalLinks() {
       issues.tooManyLinks.slice(0, 10).forEach((post, i) => {
         console.log(`${i + 1}. ${post.title}`)
         console.log(`   ID: ${post._id}`)
-        console.log(`   内部リンク数: ${post.internalLinkCount}個（推奨: 最大2-3個）`)
+        console.log(`   内部リンク数: ${post.internalLinkCount}本（推奨: 1本）`)
         console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`)
         console.log(`   URL: /posts/${post.slug}`)
-        console.log(`   注: ユーザビリティ最優先。無理に最大数を配置しない\n`)
+        console.log(`   注: ユーザビリティ最優先。本文中は1本に制限してください\n`)
       })
     }
 
@@ -2898,8 +4379,8 @@ async function generateReport() {
   }
 
   if (internalLinkIssues) {
-    console.log(`  ⚠️  内部リンクが少ない（2個未満）: ${internalLinkIssues.tooFewLinks.length}件`)
-    console.log(`  🔴 内部リンクが多すぎる（3個超過）: ${internalLinkIssues.tooManyLinks.length}件（新ルール）`)
+    console.log(`  ⚠️  内部リンクが不足（1本未満）: ${internalLinkIssues.tooFewLinks.length}件`)
+    console.log(`  🔴 内部リンクが多すぎる（1本超過）: ${internalLinkIssues.tooManyLinks.length}件（新ルール）`)
     console.log(`  🔴 内部リンクとアフィリエイトが近接: ${internalLinkIssues.mixedWithAffiliate.length}件（新ルール）`)
     console.log(`  🔴 壊れた内部リンク: ${internalLinkIssues.brokenLinks.length}件`)
   }
@@ -3005,9 +4486,55 @@ if (require.main === module) {
       autoFixMetadata().catch(console.error)
       break
 
-    case 'sanitize':
-      sanitizeAllBodies().catch(console.error)
+    case 'sanitize': {
+      (async () => {
+        const optionArgs = args.slice(1)
+        const options = {}
+        let topViewsLimit = null
+        let cooldownDays = parseInt(process.env.MAINTENANCE_GEMINI_COOLDOWN_DAYS, 10)
+        if (Number.isNaN(cooldownDays) || cooldownDays <= 0) {
+          cooldownDays = 30
+        }
+
+        optionArgs.forEach(arg => {
+          if (!arg) return
+          if (arg.startsWith('--slugs=')) {
+            const value = arg.replace('--slugs=', '')
+            const slugs = value.split(',').map(s => s.trim()).filter(Boolean)
+            if (slugs.length > 0) {
+              options.slugs = slugs
+            }
+          } else if (arg.startsWith('--top-views=')) {
+            const value = parseInt(arg.replace('--top-views=', ''), 10)
+            if (!Number.isNaN(value) && value > 0) {
+              topViewsLimit = value
+            }
+          } else if (arg.startsWith('--cooldown=')) {
+            const value = parseInt(arg.replace('--cooldown=', ''), 10)
+            if (!Number.isNaN(value) && value > 0) {
+              cooldownDays = value
+            }
+          }
+        })
+
+        if (!options.slugs && topViewsLimit !== null) {
+          const candidates = await getTopViewedCandidates(topViewsLimit, cooldownDays)
+          if (candidates.length === 0) {
+            console.log('⚠️  条件に合致する記事が見つからなかったため、メンテナンスをスキップします。')
+            return
+          }
+          const staleCount = candidates.filter(item => item.cooldownSatisfied).length
+          const reusedCount = candidates.length - staleCount
+          options.slugs = candidates.map(candidate => candidate.slug)
+          console.log(
+            `👀 アクセス上位 ${options.slugs.length} 件を対象にメンテナンスを実行します（クールダウン経過: ${staleCount}件${reusedCount ? ` / 期間内: ${reusedCount}件` : ''}）`
+          )
+        }
+
+        await sanitizeAllBodies(options)
+      })().catch(console.error)
       break
+    }
 
     case 'recategorize':
       recategorizeAllPosts().catch(console.error)
@@ -3040,10 +4567,10 @@ if (require.main === module) {
                       ※現在はフロントエンド側で自動表示
   affiliate           アフィリエイトリンクの適切性をチェック
                       - 連続するリンクの検出
-                      - リンク数（推奨: 2-3個）
+                      - リンク数（推奨: 2個以内）
                       - 記事内容との関連性
   internallinks       内部リンクの適切性をチェック
-                      - 内部リンク数（推奨: 2個以上、最大2-3個）
+                      - 内部リンク数（推奨: 1本、最大1本）
                       - 内部リンクとアフィリエイトの近接チェック
                       - 壊れたリンクの検出
   ymyl                YMYL（Your Money Your Life）対策チェック
@@ -3066,6 +4593,11 @@ if (require.main === module) {
   recategorize        全記事のカテゴリを再評価して最適なカテゴリに変更
                       - タイトル・本文から最適なカテゴリを自動選択
                       - 現在のカテゴリと異なる場合のみ更新
+  sanitize [--slugs=slug1,slug2] [--top-views=10] [--cooldown=30]
+                      本文を自動整備（関連記事・重複段落・内部リンク最適化など）
+                      - --slugs     : 対象スラッグをカンマ区切りで指定
+                      - --top-views : 閲覧数上位から指定件数を抽出（クールダウン経過分を優先）
+                      - --cooldown  : --top-views指定時のクールダウン日数（デフォルト30日）
   all                 総合メンテナンス（report + recategorize + autofix を順次実行）★推奨
                       - 問題を検出し、カテゴリ再評価、自動修復可能なものはすべて修正
                       - GitHub Actions で週3回自動実行（月・水・金 AM3:00）

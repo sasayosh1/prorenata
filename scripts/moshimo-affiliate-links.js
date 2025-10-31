@@ -114,6 +114,21 @@ const MOSHIMO_LINKS = {
     addedDate: '2025-10-14',
     reward: '15,000円',
     condition: 'webからの退職代行サービスの依頼'
+  },
+
+  shiodome: {
+    name: '弁護士法人汐留パートナーズ',
+    description: '弁護士による退職代行サービス',
+    category: '退職代行',
+    targetArticles: ['退職', '辞めたい', '退職理由', '退職代行'],
+    html: '<a href="https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>弁護士法人汐留パートナーズの退職代行サービス</a>',
+    appealText: '⚖️ 退職でお悩みの方へ',
+    linkText: '弁護士による退職代行サービス【汐留パートナーズ】',
+    url: 'https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100',
+    active: true,
+    addedDate: '2025-10-30',
+    reward: '要確認',
+    condition: 'WEB申込み完了'
   }
 }
 

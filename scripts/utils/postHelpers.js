@@ -109,6 +109,179 @@ function blocksToPlainText(blocks) {
     .trim()
 }
 
+function stripFormatting(text = '') {
+  return text
+    .replace(/[*_`]/g, '')
+    .replace(/^[●・-]\s*/, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function truncateText(text = '', max = 60) {
+  if (text.length <= max) return text
+  return `${text.slice(0, max - 1)}…`
+}
+
+const H3_FALLBACK_PATTERNS = [
+  {
+    keywords: ['睡眠', '眠', '休息', '仮眠'],
+    template: ({ h3Text, bulletSample }) =>
+      `「${h3Text}」では、短時間でも深く休める工夫を取り入れてみましょう。${bulletSample ? `例えば「${bulletSample}」のような習慣をメモしておくと、翌日の体調が安定します。` : '照明や水分補給を見直すだけでも、夜勤明けの疲労感が和らぎます。'}`
+  },
+  {
+    keywords: ['夜勤', '夜間', '深夜'],
+    template: ({ h3Text, sectionTitle, bulletSample }) =>
+      `${sectionTitle ? `${sectionTitle}の場面では` : '夜勤帯のケアでは'}、${h3Text}を意識して情報共有すると安心です。${bulletSample ? `「${bulletSample}」のようなチェックポイントを持っておくと、申し送りがぐっと楽になります。` : '声のトーンや照明の調整など、患者さんが安心できる雰囲気づくりを忘れずに。'}`
+  },
+  {
+    keywords: ['声', 'コミュ', '伝え', '会話', '質問'],
+    template: ({ h3Text, bulletSample }) =>
+      `「${h3Text}」では、患者さんの表情を見ながら一言添えるだけでも安心感が高まります。${bulletSample ? `「${bulletSample}」のような声掛けを決めておくと、落ち着いて伝えられます。` : '返答まで少し待つ余裕を持ち、理解できたか確認しながら進めましょう。'}`
+  },
+  {
+    keywords: ['ストレス', '不安', 'メンタル', '心', '気持ち'],
+    template: ({ h3Text, sectionTitle }) =>
+      `${sectionTitle || 'このセクション'}で触れた「${h3Text}」は、自分の気持ちを客観的に振り返る時間を確保するだけでも前向きに取り組めます。感じた負担は短いメモにして、看護師や同僚と共有しておくと安心です。`
+  },
+  {
+    keywords: ['転職', 'キャリア', '進学', '資格', '学校'],
+    template: ({ h3Text }) =>
+      `「${h3Text}」を考えるときは、今の業務で得た経験を整理し、次に磨きたい力を言葉にしてみましょう。学習方法やスケジュールを小さく試すことで、無理のないステップを描けます。`
+  },
+  {
+    keywords: ['患者', '家族', '利用者', '対応', '介助'],
+    template: ({ h3Text, bulletSample }) =>
+      `${h3Text}では、患者さんの反応をこまめに観察しながら声掛けをしていくことが大切です。${bulletSample ? `「${bulletSample}」のような支援のコツを共有しておくと、チーム全体で温かな対応ができます。` : '小さな変化も看護師へ伝え、安心感につながるサポートを重ねましょう。'}`
+  },
+  {
+    keywords: ['安全', '注意', '事故', 'トラブル'],
+    template: ({ h3Text, bulletSample }) =>
+      `「${h3Text}」に臨む前に、事前のチェックリストを整えておくと焦らずに対応できます。${bulletSample ? `特に「${bulletSample}」のような確認事項は共有メモにしておくと安心です。` : '声に出して手順をなぞるだけでもヒヤリハットを減らせます。'}`
+  },
+  {
+    keywords: ['段取り', '準備', '整理', '効率', '工夫'],
+    template: ({ h3Text, sectionTitle }) =>
+      `${sectionTitle || '業務全体'}をスムーズに進めるためにも、「${h3Text}」は申し送り前に整えておくのがコツです。必要な物品をまとめておくだけでも、患者さんへの対応に余裕が生まれます。`
+  }
+]
+
+function generateFallbackH3Paragraph({ articleTitle, sectionTitle, h3Text, bulletSamples = [] }) {
+  const cleanedHeading = stripFormatting(h3Text || '')
+  const normalized = cleanedHeading.toLowerCase()
+  const firstBullet = bulletSamples.length > 0 ? truncateText(stripFormatting(bulletSamples[0])) : ''
+
+  for (const pattern of H3_FALLBACK_PATTERNS) {
+    if (pattern.keywords.some(keyword => normalized.includes(keyword))) {
+      return pattern.template({
+        articleTitle,
+        sectionTitle,
+        h3Text: cleanedHeading,
+        bulletSample: firstBullet
+      })
+    }
+  }
+
+  const anchor = sectionTitle ? `「${sectionTitle}」の場面で` : '現場のケアで'
+  return `${anchor}「${cleanedHeading}」に向き合うときは、患者さんの様子をこまめにメモしながら看護師へ共有する流れを作っておきましょう。${firstBullet ? `例えば「${firstBullet}」のようなポイントを押さえておくと、安心感につながります。` : '焦らず一つずつ確認し、無理のない範囲で工夫を積み重ねることが大切です。'}`
+}
+
+function buildFallbackSummaryBlocks({ articleTitle, summaryBlocks, leadingBlocks }) {
+  const { randomUUID } = require('crypto')
+
+  const getText = block =>
+    stripFormatting(
+      (block?.children || [])
+        .map(child => child?.text || '')
+        .join('')
+    )
+
+  const bulletCandidates = summaryBlocks
+    .filter(block => block && (block.listItem === 'bullet' || block.style === 'h3'))
+    .map(getText)
+    .filter(Boolean)
+
+  if (bulletCandidates.length < 3) {
+    const additional = []
+    let currentH2 = ''
+    leadingBlocks.forEach(block => {
+      if (!block || block._type !== 'block') return
+      if (block.style === 'h2') {
+        currentH2 = getText(block)
+        return
+      }
+      if (block.style === 'h3') {
+        const text = getText(block)
+        if (text) {
+          additional.push(`${currentH2 ? `${currentH2}の視点で` : ''}${text}に目を向ける`)
+        }
+      } else if (block.listItem === 'bullet') {
+        const text = getText(block)
+        if (text) {
+          additional.push(text)
+        }
+      }
+    })
+    bulletCandidates.push(...additional)
+  }
+
+  const highlights = []
+  bulletCandidates.forEach(text => {
+    const cleaned = truncateText(text)
+    if (cleaned && !highlights.includes(cleaned)) {
+      highlights.push(cleaned)
+    }
+  })
+
+  const makeParagraph = text => ({
+    _type: 'block',
+    _key: `summary-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `summary-span-${randomUUID()}`,
+        marks: [],
+        text
+      }
+    ]
+  })
+
+  const makeBullet = text => ({
+    _type: 'block',
+    _key: `summary-bullet-${randomUUID()}`,
+    style: 'normal',
+    listItem: 'bullet',
+    level: 1,
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `summary-bullet-span-${randomUUID()}`,
+        marks: [],
+        text
+      }
+    ]
+  })
+
+  const result = []
+  result.push(
+    makeParagraph(`${articleTitle}でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。`)
+  )
+
+  if (highlights.length > 0) {
+    result.push(makeParagraph('すぐに試しやすい行動のヒントは次の通りです。'))
+    highlights.slice(0, 3).forEach(text => result.push(makeBullet(text)))
+  }
+
+  result.push(
+    makeParagraph('あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。')
+  )
+
+  return result
+}
+
+
 /**
  * 白崎セラ口調で excerpt を生成
  *
@@ -422,7 +595,7 @@ function generateSlugFromTitle(title) {
     uniqueWords.push('guide')
   }
 
-  const finalWords = uniqueWords.slice(0, 4)
+  const finalWords = uniqueWords.slice(0, 3)
 
   if (finalWords.length === 0) {
     return 'nursing-assistant-guide'
@@ -815,11 +988,17 @@ async function addBodyToEmptyH3Sections(blocks, title, geminiModel = null) {
 
   const result = []
   const { randomUUID } = require('crypto')
+  let currentH2 = ''
 
   // Gemini APIが利用できない場合は、簡易版を使用
   if (!geminiModel) {
     for (let i = 0; i < blocks.length; i++) {
       const block = blocks[i]
+
+      if (block._type === 'block' && block.style === 'h2') {
+        currentH2 = block.children.map(child => child.text || '').join('').trim()
+      }
+
       result.push(block)
 
       if (block._type === 'block' && block.style === 'h3') {
@@ -829,7 +1008,24 @@ async function addBodyToEmptyH3Sections(blocks, title, geminiModel = null) {
 
         if (isNextBlockHeading || isLastBlock) {
           const h3Text = block.children.map(child => child.text || '').join('').trim()
-          const bodyText = `${h3Text}について、具体的に見ていきましょう。`
+          const bulletSamples = []
+          for (let j = i + 1; j < blocks.length; j++) {
+            const lookahead = blocks[j]
+            if (!lookahead || lookahead._type !== 'block') continue
+            if (lookahead.style === 'h2' || lookahead.style === 'h3') {
+              break
+            }
+            if (lookahead.listItem === 'bullet') {
+              bulletSamples.push(lookahead.children?.map(child => child.text || '').join('') || '')
+              if (bulletSamples.length >= 2) break
+            }
+          }
+          const bodyText = generateFallbackH3Paragraph({
+            articleTitle: title,
+            sectionTitle: currentH2,
+            h3Text,
+            bulletSamples
+          })
 
           result.push({
             _type: 'block',
@@ -970,23 +1166,14 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
 
   // Gemini APIが利用できない場合は、H3を削除するのみ
   if (!geminiModel) {
-    const result = blocks.slice(0, summaryIndex + 1)
-
-    for (const block of summaryBlocks) {
-      if (block._type === 'block' && block.style === 'h3') {
-        // H3を通常段落（太字）に変換
-        result.push({
-          ...block,
-          style: 'normal',
-          children: block.children.map(child => ({
-            ...child,
-            marks: [...(child.marks || []), 'strong']
-          }))
-        })
-      } else {
-        result.push(block)
-      }
-    }
+    const result = [
+      ...blocks.slice(0, summaryIndex + 1),
+      ...buildFallbackSummaryBlocks({
+        articleTitle: title,
+        summaryBlocks,
+        leadingBlocks: blocks.slice(0, summaryIndex)
+      })
+    ]
 
     if (nextSectionIndex !== -1) {
       result.push(...blocks.slice(nextSectionIndex))
@@ -1101,7 +1288,28 @@ ${currentSummary}
  * @param {string} title - 記事タイトル
  * @returns {Array} アフィリエイトリンクが追加されたブロック配列
  */
-function addAffiliateLinksToArticle(blocks, title) {
+function isAffiliateSuggestionRelevant(link, combinedText, slug, categoryNames) {
+  if (!link) return false
+
+  if (link.category === '退職代行') {
+    const textMatches = /退職|退社|辞め|離職|退職代行/.test(combinedText)
+    const slugMatches = /retire|resign|quit/.test(slug)
+    const categoryMatches = /退職|辞め/.test(categoryNames)
+    return textMatches && (slugMatches || categoryMatches)
+  }
+
+  if (link.category === '就職・転職') {
+    return /転職|求人|就職|応募|面接|キャリア|採用/.test(combinedText)
+  }
+
+  if (link.category === 'アイテム') {
+    return /グッズ|ユニフォーム|靴|シューズ|持ち物|アイテム|道具|備品/.test(combinedText)
+  }
+
+  return true
+}
+
+function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
     return blocks
   }
@@ -1113,13 +1321,24 @@ function addAffiliateLinksToArticle(blocks, title) {
   const bodyText = blocksToPlainText(blocks)
   const suggestions = suggestLinksForArticle(title, bodyText)
 
+  const slug = typeof currentPost?.slug === 'string'
+    ? currentPost.slug
+    : (currentPost?.slug?.current || '')
+  const categoryNames = (currentPost?.categories || [])
+    .map(category => (typeof category === 'string' ? category : category?.title || ''))
+    .join(' ')
+    .toLowerCase()
+  const combinedText = `${title} ${bodyText}`.toLowerCase()
+
   // 提案がない場合はそのまま返す
   if (!suggestions || suggestions.length === 0) {
     return blocks
   }
 
   // 最も適切なリンク1-2個を選択（ユーザビリティ重視）
-  const selectedLinks = suggestions.slice(0, 2)
+  const selectedLinks = suggestions
+    .filter(link => isAffiliateSuggestionRelevant(link, combinedText, slug.toLowerCase(), categoryNames))
+    .slice(0, 2)
 
   // まとめセクションの位置を検出
   let summaryIndex = -1
