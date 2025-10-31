@@ -1035,8 +1035,8 @@ function createInternalLinkBlock(target) {
     ? target.slug
     : `/posts/${target.slug}`
   const linkKey = `link-${randomUUID()}`
-  const introText = '詳しくは「'
-  const outroText = '」でも現場のポイントを詳しく解説しています。'
+  const introText = '詳しくは'
+  const outroText = 'でも現場のポイントを詳しく解説しています。'
 
   return {
     _type: 'block',
@@ -1059,7 +1059,7 @@ function createInternalLinkBlock(target) {
       {
         _type: 'span',
         _key: `internal-link-span-title-${randomUUID()}`,
-        text: target.title,
+        text: `「${target.title}」`,
         marks: [linkKey]
       },
       {
