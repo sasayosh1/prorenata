@@ -312,6 +312,72 @@ function ensureHttpsUrl(url) {
   return trimmed
 }
 
+function extractAffiliateHref(rawHref) {
+  if (!rawHref || typeof rawHref !== 'string') {
+    return rawHref
+  }
+  let target = rawHref.trim()
+  if (!target) return target
+
+  const anchorMatch = target.match(/href\s*=\s*"(https?:\/\/[^"\s<>]+|\/\/[^"\s<>]+)"/i)
+  if (anchorMatch) {
+    target = anchorMatch[1]
+  } else {
+    const urlMatch = target.match(/(https?:\/\/[^"'\s<>]+|\/\/[^"'\s<>]+)/i)
+    if (urlMatch) {
+      target = urlMatch[1]
+    }
+  }
+
+  target = target.replace(/&amp;/g, '&')
+
+  if (target.startsWith('//')) {
+    target = `https:${target}`
+  }
+
+  return target
+}
+
+function normalizeAffiliateLinkMarks(blocks) {
+  if (!Array.isArray(blocks)) {
+    return { body: blocks, normalized: 0 }
+  }
+
+  let normalized = 0
+  const normalizedBlocks = blocks.map(block => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.markDefs) || block.markDefs.length === 0) {
+      return block
+    }
+
+    let blockChanged = false
+    const markDefs = block.markDefs.map(def => {
+      if (!def || def._type !== 'link' || typeof def.href !== 'string') {
+        return def
+      }
+
+      const href = def.href.trim()
+      if (!href) {
+        return def
+      }
+
+      const normalizedHref = extractAffiliateHref(href)
+      if (normalizedHref && normalizedHref !== href) {
+        blockChanged = true
+        return { ...def, href: normalizedHref }
+      }
+      return def
+    })
+
+    if (blockChanged) {
+      normalized += 1
+      return { ...block, markDefs }
+    }
+    return block
+  })
+
+  return { body: normalizedBlocks, normalized }
+}
+
 function isTopLevelUrl(url) {
   try {
     const parsed = new URL(url)
@@ -2453,6 +2519,7 @@ async function autoFixMetadata() {
 
     // まとめセクションの最適化（Gemini API使用）
     let summaryOptimized = false
+    let affiliateLinksNormalized = 0
     if (post.body && Array.isArray(post.body)) {
       const optimizedBody = await optimizeSummarySection(updates.body || post.body, post.title, geminiModel)
       if (JSON.stringify(optimizedBody) !== JSON.stringify(updates.body || post.body)) {
@@ -2482,6 +2549,14 @@ async function autoFixMetadata() {
       if (JSON.stringify(bodyWithSourceLinks) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithSourceLinks
         sourceLinksAdded = true
+      }
+    }
+
+    if (post.body && Array.isArray(post.body)) {
+      const normalized = normalizeAffiliateLinkMarks(updates.body || post.body)
+      if (normalized.normalized > 0) {
+        updates.body = normalized.body
+        affiliateLinksNormalized = normalized.normalized
       }
     }
 
@@ -2708,6 +2783,9 @@ async function autoFixMetadata() {
     }
     if (ymyReplacements > 0) {
       console.log(`   断定表現をやわらげました (${ymyReplacements}箇所)`)
+    }
+    if (affiliateLinksNormalized > 0) {
+      console.log(`   アフィリエイトリンクのURLを正規化しました (${affiliateLinksNormalized}件)`)
     }
     if (affiliateContextsAdded > 0) {
       console.log(`   アフィリエイト訴求文を追加しました (${affiliateContextsAdded}ブロック)`)
@@ -2983,6 +3061,7 @@ async function sanitizeAllBodies(options = {}) {
   let totalYMYLReplacements = 0
   let totalAffiliateContextAdded = 0
   let totalAffiliateBlocksRemoved = 0
+  let totalAffiliateLinksNormalized = 0
   let totalInternalLinksAdded = 0
   let totalMedicalNoticesAdded = 0
   let totalSectionClosingsAdded = 0
@@ -3018,6 +3097,9 @@ async function sanitizeAllBodies(options = {}) {
     let medicalNoticeAdded = false
     let sectionClosingsAdded = 0
     let summaryMoved = false
+    let h3BodiesAdded = false
+    let summaryAdjusted = false
+    let affiliateLinksNormalizedForPost = 0
 
     if (Array.isArray(post.body) && post.body.length > 0) {
       const sanitised = sanitizeBodyBlocks(post.body)
@@ -3091,6 +3173,13 @@ async function sanitizeAllBodies(options = {}) {
       if (irrelevantAffiliateResult.removed > 0) {
         body = irrelevantAffiliateResult.body
         affiliateBlocksRemoved += irrelevantAffiliateResult.removed
+        bodyChanged = true
+      }
+
+      const normalizedLinks = normalizeAffiliateLinkMarks(body)
+      if (normalizedLinks.normalized > 0) {
+        body = normalizedLinks.body
+        affiliateLinksNormalizedForPost += normalizedLinks.normalized
         bodyChanged = true
       }
 
@@ -3209,6 +3298,7 @@ async function sanitizeAllBodies(options = {}) {
     totalDisclaimersAdded += disclaimerAdded
     totalAffiliateBlocksRemoved += affiliateBlocksRemoved
     totalAffiliateContextAdded += affiliateContextsAdded
+    totalAffiliateLinksNormalized += affiliateLinksNormalizedForPost
     if (medicalNoticeAdded) {
       totalMedicalNoticesAdded += 1
     }
@@ -3266,6 +3356,9 @@ async function sanitizeAllBodies(options = {}) {
     if (affiliateContextsAdded > 0) {
       console.log(`   アフィリエイト訴求文を補強: ${affiliateContextsAdded}ブロック`)
     }
+    if (affiliateLinksNormalizedForPost > 0) {
+      console.log(`   アフィリエイトリンクのURLを正規化: ${affiliateLinksNormalizedForPost}リンク`)
+    }
     if (h3BodiesAdded) {
       console.log('   H3セクションに本文を追加しました')
     }
@@ -3296,7 +3389,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -3340,6 +3433,7 @@ async function sanitizeAllBodies(options = {}) {
     ymylSoftened: totalYMYLReplacements,
     affiliateContextsAdded: totalAffiliateContextAdded,
     affiliateBlocksRemoved: totalAffiliateBlocksRemoved,
+    affiliateLinksNormalized: totalAffiliateLinksNormalized,
     h3BodiesAdded: totalH3BodiesAdded,
     summariesOptimized: totalSummariesOptimized,
     medicalNoticesAdded: totalMedicalNoticesAdded,
