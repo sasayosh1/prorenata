@@ -92,6 +92,11 @@ const nextConfig = {
         destination: '/posts/:slug',
         permanent: true,
       },
+      {
+        source: '/article/:slug',
+        destination: '/posts/:slug',
+        permanent: true,
+      },
     ]
   },
   
