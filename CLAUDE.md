@@ -615,20 +615,37 @@ vercel --previewe
   - Actions設定: `actions: (prev, context) => { if (context.schemaType === 'post') { return [...prev, PreviewAction] } return prev }`
 - 違反した場合は最重要事項の不遵守となる
 
-**🚨 Gemini API Pro モデル使用の完全禁止（全プロジェクト対象）**
+**🚨 Gemini API モデル選択の絶対ルール（全プロジェクト対象）**
 - **絶対に Gemini Pro モデルを使用してはいけません**（最重要ルール）
+- **絶対にバージョン指定なしのFlashモデルを使用してはいけません**（最重要ルール）
+- **Vertex AI の使用は絶対禁止**（最重要ルール）
 - **適用範囲**: prorenataプロジェクトだけでなく、**今後関わるすべてのプロジェクトで禁止**
-- 使用可能なモデル: Gemini Flashモデルのみ
-  - `gemini-1.5-flash-001`（推奨・安定版）
-  - `gemini-1.5-flash`
-  - その他Flashバリエーション
-- 使用禁止モデル: `gemini-2.5-pro`, `gemini-1.5-pro`, その他すべてのProモデル
-- 理由: Proモデルは料金が約17-67倍高額（¥545/月 vs ¥30-50/月）
-- 新しいスクリプトを作成する際は必ず `gemini-1.5-flash-001` を使用すること
-- 存在しないモデル名（例: `gemini-2.5-flash`）を指定すると自動的にProにフォールバックするため注意
+- **重大な経緯**:
+  - 過去にバージョン指定なしモデル（`gemini-1.5-flash`, `gemini-2.5-flash`）を使用した際、自動的にProにフォールバックし、Vertex AI経由で課金された
+  - 結果として多大な課金が発生（通常APIの数十倍高額）
+  - この経験から、バージョン固定（`-001`付き）モデルのみ使用するルールを確立
+- **使用可能なモデル**: バージョン固定（`-001`付き）のFlashモデルのみ
+  - `gemini-2.0-flash-lite-001`（推奨・最低コスト）
+  - `gemini-2.0-flash-001`（標準Flash、品質優先時のみ）
+- **使用禁止モデル**:
+  - すべてのProモデル（`gemini-2.5-pro`, `gemini-1.5-pro`等）
+  - バージョン指定なしのFlashモデル（`gemini-2.5-flash`, `gemini-1.5-flash`等）
+  - 存在しないモデル名（自動的にProにフォールバックするため）
+- **理由**:
+  - Proモデルは料金が約17-67倍高額（¥545/月 vs ¥30-50/月）
+  - バージョン指定なしモデルは自動的にProにフォールバック
+  - Vertex AI経由の課金は通常APIの数十倍高額
+  - コスト管理と安定性のため、バージョン固定モデルのみ使用
+- **新規スクリプト作成時の必須ルール**:
+  - 必ず `gemini-2.0-flash-lite-001` を使用すること（最低コスト）
+  - 品質が不足する場合のみ `gemini-2.0-flash-001` を検討
+  - バージョン固定（`-001`付き）以外のモデルは絶対に使用しない
 - **現在のGemini API使用状況（prorenataプロジェクト）**:
-  - `scripts/run-daily-generation.cjs`: gemini-1.5-flash-001 使用（週1回）
-  - `scripts/expand-short-posts.js`: gemini-1.5-flash-001 使用（手動実行のみ）
-  - `scripts/clean-affiliate-sections.js`: gemini-1.5-flash-001 使用（手動実行のみ）
+  - `scripts/run-daily-generation.cjs`: gemini-2.0-flash-lite-001 使用（週1回）
+  - `scripts/expand-short-posts.js`: gemini-2.0-flash-lite-001 使用（手動実行のみ）
+  - `scripts/clean-affiliate-sections.js`: gemini-2.0-flash-lite-001 使用（手動実行のみ）
   - `scripts/auto-post-to-x.js`: **Gemini API不使用**（Excerpt直接使用）
+- **モデル移行履歴**:
+  - 2025-11-04以前: `gemini-1.5-flash-001`（廃止により404エラー）
+  - 2025-11-04以降: `gemini-2.0-flash-lite-001`（バージョン固定、最低コスト、Proフォールバック防止、Vertex AI禁止）
 - 違反した場合は重大な課金が発生するため最重要違反となる

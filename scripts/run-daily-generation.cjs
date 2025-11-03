@@ -26,7 +26,7 @@ async function generateAndSaveArticle() {
   }
   const sanityClient = createClient(SANITY_CONFIG);
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); // 最新安定版Flash、Pro絶対禁止
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" }); // バージョン固定、Proフォールバック防止、Vertex AI禁止
 
   // 2. Select a topic
   console.log("Selecting a topic...");
