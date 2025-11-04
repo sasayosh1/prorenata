@@ -29,7 +29,7 @@ function createSanityClient(isDraftMode = false) {
 
 export async function generateStaticParams() {
   const client = createSanityClient()
-  const query = `*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`
+  const query = `*[_type == "post" && !(_id in path("drafts.**")) && defined(slug.current) && defined(body[0])]{ "slug": slug.current }`
   const slugs: { slug: string }[] = await client.fetch(query)
   return slugs.map((s: { slug: string }) => ({ slug: s.slug }))
 }
