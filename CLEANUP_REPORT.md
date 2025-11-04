@@ -45,6 +45,10 @@
 - `src/app/page-backup.tsx`
 → **アーカイブ先**: `archive/backup-pages/`
 
+#### 6. 追加整理（2025-11-04）
+- `next.config.ts` - `next.config.js`へ移行済みのため削除
+- `deskStructure.ts` - 現行の `sanity.config.ts` で構造を定義済みのため未使用ファイルを削除
+
 ### 🔧 修正されたファイル
 
 #### 1. `src/app/layout.tsx`
