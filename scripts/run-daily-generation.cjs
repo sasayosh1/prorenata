@@ -1,6 +1,7 @@
 const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { randomUUID } = require('crypto');
+const { SERA_FULL_PERSONA } = require('./utils/seraPersona');
 require('dotenv').config({ path: '../.env.local' }); // For local testing
 
 // --- Configuration ---
@@ -151,7 +152,7 @@ async function generateAndSaveArticle() {
   }
 
   const prompt = `
-あなたは20歳の看護助手「白崎セラ」。一人称「わたし」、丁寧な「です・ます」調で、現場経験を交えながら読者に寄り添う記事を書きます。
+${SERA_FULL_PERSONA}
 
 # 記事要件
 - テーマ: 「看護助手と${selectedTopic}」

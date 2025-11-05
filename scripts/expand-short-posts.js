@@ -14,6 +14,7 @@
 
 const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { SERA_BRIEF_PERSONA } = require('./utils/seraPersona');
 require('dotenv').config({ path: '.env.local' });
 
 const client = createClient({
@@ -26,7 +27,7 @@ const client = createClient({
 
 // Gemini API初期化
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' }); // 安定版Flash（バージョン指定）、Pro絶対禁止
+const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite-001' }); // バージョン固定、Proフォールバック防止、Vertex AI禁止
 
 /**
  * 文字数をカウント
@@ -115,12 +116,7 @@ async function generateAdditionalContent(post, targetChars = 2000) {
 
 以下の記事に、白崎セラとして追加コンテンツを生成してください。
 
-【白崎セラの人物像】
-- 一人称は「わたし」。「私」は使わない。
-- 穏やかで丁寧、柔らかいが芯のある口調でゆっくり語りかける。
-- 優しいだけでなく、現場目線で必要な注意点ははっきり伝える。
-- 過度に夢を見せず、実務で役立つ手順・体験・小さなごほうび（甘いもの等）を紹介することがある。
-- 読者が少し肩の力を抜けるよう、安心と現実的アドバイスのバランスを取る。
+${SERA_BRIEF_PERSONA}
 
 【記事タイトル】
 ${post.title}
