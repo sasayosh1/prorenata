@@ -586,6 +586,29 @@ vercel --previewe
      - アフィリエイトリンクの不自然な配置を防止（ユーザビリティ向上）
      - 週次メンテナンス（月曜AM3:00）で自動適用
 
+28. 🔧 **白崎セラのペルソナ定義モジュール化＆GA4設定** (2025-11-05)
+   - **ペルソナ定義の共通モジュール化**:
+     - 新規作成: `scripts/utils/seraPersona.js`
+     - SERA_FULL_PERSONA: 記事生成用の詳細なペルソナ定義
+     - SERA_BRIEF_PERSONA: 記事拡張用の簡潔版
+     - LANGUAGE_RULES_SUMMARY: ドキュメント用の要約
+   - **「がんばる」禁止ルール追加**:
+     - 理由: 読者はすでに全力で取り組んでいる。励ましの意味でも誤解や反発を招く可能性がある
+     - 代替表現: 「取り組む」「進める」「実行する」「応援しています」「サポートします」など
+     - 休息の重要性: 「休むのも仕事のうち」。しっかり休息を取ることで、しっかり働ける。心と身体は繋がっている
+   - **既存スクリプトの更新**:
+     - `scripts/run-daily-generation.cjs`: SERA_FULL_PERSONAを使用
+     - `scripts/expand-short-posts.js`: SERA_BRIEF_PERSONAを使用
+     - 両スクリプトのGeminiモデルを gemini-2.0-flash-lite-001 に更新（コスト最適化）
+   - **GA4設定完了**:
+     - `.env.local`に NEXT_PUBLIC_GA_ID=G-HV2JLW3DPB を追加
+     - 既存のGA4実装コード（layout.tsx, analytics.ts, Analytics.tsx）を確認済み
+   - **メリット**:
+     - ペルソナ定義の一元管理による保守性向上
+     - 言葉遣いルールの一貫性保証
+     - 今後の更新が1箇所で完結
+     - コード重複の削減
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
