@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -34,15 +33,17 @@ export default function AboutPage() {
                 {/* 白崎セラのプロフィールカード */}
                 <section className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 shadow-md">
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    {/* プロフィール画像 */}
+                    {/* プロフィール動画 */}
                     <div className="flex-shrink-0">
                       <div className="relative w-48 h-48 rounded-full overflow-hidden ring-4 ring-white shadow-xl">
-                        <Image
-                          src="/images/shirasaki-sera.jpg"
-                          alt="白崎セラ"
-                          fill
-                          className="object-cover"
-                          priority
+                        <video
+                          src="/videos/shirasaki-sera.mp4"
+                          className="h-full w-full object-cover"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          aria-label="白崎セラの自己紹介動画"
                         />
                       </div>
                     </div>
