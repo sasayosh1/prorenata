@@ -71,7 +71,7 @@ export default function AboutPage() {
                       </div>
                       <div className="mt-6 p-4 bg-white rounded-lg shadow-sm">
                         <p className="text-sm text-gray-600 italic">
-                          「必要なときに、必要な言葉を届けたい。わたしが現場で感じたこと、調べて確かめたことを、落ち着いて伝えていきます。」
+                          「必要なときに、必要な言葉を届けたい。わたしが現場で感じたことや、調べて確かめたことを、落ち着いて伝えていきたいんです。」
                         </p>
                       </div>
                     </div>
@@ -82,25 +82,72 @@ export default function AboutPage() {
                   <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
                     初めまして、白崎セラです
                   </h2>
-                  <p className="text-lg leading-7 text-gray-700 mb-6">
-                    看護助手として病棟で働きながら、同じ立場の皆さんに寄り添える場所をつくりたい──そんな思いで ProReNata を運営しています。
-                    「必要なときに、必要な言葉を届けたい」という気持ちから、ラテン語の医療用語 <em>Pro Re Nata</em> をサイト名に選びました。
-                    わたしが現場で感じたこと、調べて確かめたことを、落ち着いて伝えていきます。
-                  </p>
+                  <div className="space-y-4 text-lg leading-7 text-gray-700">
+                    <p>
+                      看護助手として病棟で働きながら、同じ立場の皆さんに寄り添える場所をつくりたい──そんな思いで
+                      <span className="mx-1 font-semibold text-cyan-600">ProReNata</span> を運営しています。
+                    </p>
+                    <p>
+                      「必要なときに、必要な言葉を届けたい」。その気持ちをそのまま名前にしたくて、ラテン語の医療用語
+                      <em> Pro Re Nata</em>（必要なときに）をサイト名に選びました。現場で感じたことも、調べて確かめたことも、
+                      安心して持ち帰れる形で伝えていけたらと思っています。
+                    </p>
+                  </div>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
+                    このブログを作った理由
+                  </h2>
+                  <div className="space-y-4 text-lg leading-7 text-gray-700">
+                    <p>
+                      現場にいると、何度も感じることがあります。看護助手は患者さんのいちばんそばで支える大切な存在なのに、
+                      仕事やキャリアについて調べられる場所が本当に少ないということです。
+                    </p>
+                    <p>
+                      疑問や不安を抱えたまま働いていたり、「調べたいのに、調べる場所が見つからない」まま誰にも頼れず頑張っていたり──そんな方を多く見てきました。
+                    </p>
+                    <p className="font-medium text-gray-800">
+                      だからせめて、必要なときに寄りかかれる場所をつくりたい。
+                    </p>
+                    <p>
+                      必要なときに、必要な分だけ持ち帰れる情報。そのためにこのブログをはじめました。
+                    </p>
+                  </div>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
                     わたしが大切にしていること
                   </h2>
-                  <div className="space-y-4 text-gray-700">
+                  <div className="space-y-4 text-lg leading-7 text-gray-700">
                     <p>
-                      看護助手は、患者さんにいちばん近いところで支える大切な存在です。それなのに、実務やキャリアについての情報が少なくて、
-                      不安を抱えたまま働いている方が多いと感じています。
+                      看護助手は、患者さんのそばで支える大切な仕事です。でも、業務やキャリアの情報が少なく、
+                      「分からないまま続けてしまう」状況も多いと感じています。
                     </p>
                     <p>
-                      ProReNataでは、わたし自身の体験に加え、信頼できるデータや専門家の意見を組み合わせてお届けします。
-                      優しい言葉だけに寄りかからず、必要なときには現実的な視点もしっかり伝える──それがわたしの「寄り添う」かたちです。
+                      ProReNata では、わたし自身の体験に加えて信頼できるデータや専門家の意見も合わせてお届けします。
+                      やさしい言葉だけに寄りかからず、必要なときには現実的な視点もちゃんと伝える。それが、わたしなりの「寄り添う」かたちです。
+                    </p>
+                  </div>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
+                    目指している未来
+                  </h2>
+                  <div className="space-y-4 text-lg leading-7 text-gray-700">
+                    <p>
+                      このブログを、“看護助手で終わる”という前提のない場所に育てたいと思っています。
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>看護助手として働き続ける</li>
+                      <li>看護師をめざす</li>
+                      <li>別の医療職に進む</li>
+                      <li>まったく新しい道を選ぶ</li>
+                    </ul>
+                    <p>
+                      どれを選んでもいい。その選択肢を「自分の人生に置いていい」と思える場所にしたいです。いつか、読者さんの「人生の分岐点」に寄り添える存在になれたら──そう願っています。
                     </p>
                   </div>
                 </section>
@@ -113,7 +160,7 @@ export default function AboutPage() {
                     <div className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">基礎知識・スキル</h3>
                       <p className="text-sm text-gray-600">
-                        先輩方から教わったことや、現場で役立った工夫を整理し、初めての方にも分かりやすくまとめています。
+                        はじめての方でも迷わないよう、現場で役立つ基本的な知識やコツを整理してお届けします。
                       </p>
                     </div>
                     <div className="border border-gray-200 rounded-lg p-6">
@@ -125,13 +172,13 @@ export default function AboutPage() {
                     <div className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">現場ノウハウ</h3>
                       <p className="text-sm text-gray-600">
-                        患者さんへの声かけ、チーム連携、夜勤の乗り越え方など、毎日の業務をラクにする視点を共有します。
+                        患者さんとの関わり方やチーム連携、夜勤の乗り越え方など、現場でラクになる視点を共有します。
                       </p>
                     </div>
                     <div className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">業界情報</h3>
                       <p className="text-sm text-gray-600">
-                        法改正や制度の変更、デジタル医療の動きなど、知っておきたいトピックを噛み砕いて解説します。
+                        制度や動向など、知っておきたいトピックを噛み砕いて紹介し、必要なタイミングで更新します。
                       </p>
                     </div>
                   </div>
@@ -149,15 +196,19 @@ export default function AboutPage() {
                       </li>
                       <li className="flex items-start">
                         <span className="text-cyan-600 mr-2">✓</span>
-                        <span>看護助手としての視点を忘れず、読者一人ひとりの不安に寄り添います。</span>
+                        <span>看護助手としての視点を忘れず、一人ひとりの不安に寄り添います。</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-cyan-600 mr-2">✓</span>
-                        <span>学び続けるための資料やチェックリストなど、現場で使えるリソースを増やします。</span>
+                        <span>現場で使える資料やチェックリストを少しずつ増やしていきます。</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-cyan-600 mr-2">✓</span>
-                        <span>最新の制度やトレンドを追いかけ、必要なタイミングで更新します。</span>
+                        <span>制度やトレンドは、必要なタイミングでアップデートします。</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-cyan-600 mr-2">✓</span>
+                        <span>無理をしすぎず、それぞれのペースで前に進めるよう一緒に考えていきます。</span>
                       </li>
                     </ul>
                   </div>
@@ -170,7 +221,7 @@ export default function AboutPage() {
                       無理をしすぎず、一緒に前へ進んでいきましょう
                     </h3>
                     <p className="text-gray-600 mb-6">
-                      今日の業務、お疲れさまでした。ご質問や記事のリクエストがあれば、いつでもお寄せください。小さなごほうびを忘れずに、また明日も頑張りましょう。
+                      今日の業務、お疲れさまでした。ご質問や記事のリクエストがあれば、いつでも届けてください。小さなごほうびも忘れずに……そして明日も、いっしょに頑張っていきましょう。
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                       <Link
