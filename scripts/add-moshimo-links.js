@@ -1,6 +1,6 @@
 require('dotenv').config({ path: require('path').resolve(__dirname, '../.env.local') })
 const { createClient } = require('@sanity/client')
-const { MOSHIMO_LINKS, suggestLinksForArticle, createMoshimoLinkBlock } = require('./moshimo-affiliate-links')
+const { MOSHIMO_LINKS, suggestLinksForArticle, createMoshimoLinkBlocks } = require('./moshimo-affiliate-links')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -31,11 +31,18 @@ function distributeLinks(originalBody, suggestedLinks) {
   const insertedLinkKeys = new Set();
   const MIN_BLOCKS_BETWEEN_LINKS = 5; // リンク間の最小ブロック数
   const insertionPlan = []; // Stores { index, linkBlock }
+  const existingAffiliateKeys = new Set(
+    originalBody
+      .filter(block => block?._type === 'affiliateEmbed' && typeof block.linkKey === 'string')
+      .map(block => block.linkKey)
+  );
 
   // 記事の長さに応じて挿入するリンク数を調整
   // 例: 記事が長い場合はより多くのリンクを挿入
   const maxLinksToInsert = Math.min(suggestedLinks.length, Math.floor(originalBody.length / 10) + 1); // 10ブロックごとに1リンク程度
-  let linksToDistribute = suggestedLinks.slice(0, maxLinksToInsert);
+  let linksToDistribute = suggestedLinks
+    .filter(link => !existingAffiliateKeys.has(link.key))
+    .slice(0, maxLinksToInsert);
 
   let blocksSinceLastLink = 0;
   let lastInsertedLinkKey = null;
@@ -60,10 +67,10 @@ function distributeLinks(originalBody, suggestedLinks) {
       const linkToInsertIndex = linksToDistribute.findIndex(link => link.key !== lastInsertedLinkKey);
       if (linkToInsertIndex !== -1) {
         const linkToInsert = linksToDistribute.splice(linkToInsertIndex, 1)[0]; // Remove and get the link
-        const linkBlock = createMoshimoLinkBlock(linkToInsert.key);
+        const linkBlocks = createMoshimoLinkBlocks(linkToInsert.key);
 
-        if (linkBlock) {
-          insertionPlan.push({ index: i + 1, linkBlock }); // Insert after current block
+        if (linkBlocks && linkBlocks.length) {
+          insertionPlan.push({ index: i + 1, linkBlocks }); // Insert after current block
           insertedLinkKeys.add(linkToInsert.key);
           lastInsertedLinkKey = linkToInsert.key;
           blocksSinceLastLink = 0; // Reset counter
@@ -74,8 +81,8 @@ function distributeLinks(originalBody, suggestedLinks) {
 
   // Apply insertions in reverse order to avoid index issues
   for (let i = insertionPlan.length - 1; i >= 0; i--) {
-    const { index, linkBlock } = insertionPlan[i];
-    newBody.splice(index, 0, linkBlock);
+    const { index, linkBlocks } = insertionPlan[i];
+    newBody.splice(index, 0, ...linkBlocks);
   }
 
   // If any links are left to distribute (e.g., article too short, no suitable normal blocks),
@@ -83,8 +90,8 @@ function distributeLinks(originalBody, suggestedLinks) {
   if (linksToDistribute.length > 0) {
     let currentBodyLength = newBody.length;
     for (const link of linksToDistribute) {
-      const linkBlock = createMoshimoLinkBlock(link.key);
-      if (linkBlock) {
+      const linkBlocks = createMoshimoLinkBlocks(link.key);
+      if (linkBlocks && linkBlocks.length) {
         // 既存のリンクブロックとの間に最低1つのノーマルブロックを挟む
         if (currentBodyLength > 0 && newBody[currentBodyLength - 1]._type === 'block' && newBody[currentBodyLength - 1].style !== 'normal') {
             const emptyParagraphBlock = {
@@ -97,8 +104,8 @@ function distributeLinks(originalBody, suggestedLinks) {
             newBody.push(emptyParagraphBlock);
             currentBodyLength++;
         }
-        newBody.push(linkBlock);
-        currentBodyLength++;
+        newBody.push(...linkBlocks);
+        currentBodyLength += linkBlocks.length;
       }
     }
   }
@@ -134,9 +141,19 @@ async function main() {
 
     if (suggestions.length === 0) continue
 
+    const existingKeys = new Set(
+      (post.body || [])
+        .filter(block => block?._type === 'affiliateEmbed' && typeof block.linkKey === 'string')
+        .map(block => block.linkKey)
+    )
+
     // 最適なリンクを1-2個選択 (これはdistributeLinks内で調整されるため、ここではそのまま渡す)
     // distributeLinks関数内で記事の長さに応じて挿入するリンク数を調整する
-    const selectedLinks = suggestions; // すべての候補を渡す
+    const selectedLinks = suggestions.filter(link => !existingKeys.has(link.key));
+
+    if (selectedLinks.length === 0) {
+      continue
+    }
 
     plan.push({
       _id: post._id,

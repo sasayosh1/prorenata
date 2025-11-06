@@ -454,6 +454,17 @@ export const portableTextComponents: PortableTextComponents = {
         </figure>
       )
     },
+    affiliateEmbed: ({ value }: { value?: { provider?: string; html?: string; label?: string } }) => {
+      if (!value?.html) return null
+
+      return (
+        <div
+          className="my-6 rounded-md border border-gray-200 bg-gray-50 p-4 text-gray-900"
+          data-provider={value.provider || 'affiliate'}
+          dangerouslySetInnerHTML={{ __html: value.html }}
+        />
+      )
+    },
   },
 }
 

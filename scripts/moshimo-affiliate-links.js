@@ -163,8 +163,8 @@ function suggestLinksForArticle(articleTitle, articleBody = '') {
   return suggestions.sort((a, b) => b.matchScore - a.matchScore)
 }
 
-// Portable Text形式のリンクブロックを生成
-function createMoshimoLinkBlock(linkKey) {
+// Portable Text形式のリンクブロック + 埋め込みブロックを生成
+function createMoshimoLinkBlocks(linkKey) {
   const link = MOSHIMO_LINKS[linkKey]
   if (!link || !link.active) return null
 
@@ -172,8 +172,9 @@ function createMoshimoLinkBlock(linkKey) {
   const spanKey1 = 'span-' + Math.random().toString(36).substr(2, 9)
   const spanKey2 = 'span-' + Math.random().toString(36).substr(2, 9)
   const linkMarkKey = 'link-' + Math.random().toString(36).substr(2, 9)
+  const embedKey = 'affiliate-' + Math.random().toString(36).substr(2, 9)
 
-  return {
+  const ctaBlock = {
     _type: 'block',
     _key: blockKey,
     style: 'normal',
@@ -199,11 +200,22 @@ function createMoshimoLinkBlock(linkKey) {
       }
     ]
   }
+
+  const embedBlock = {
+    _type: 'affiliateEmbed',
+    _key: embedKey,
+    provider: link.name,
+    linkKey,
+    label: link.linkText,
+    html: link.html
+  }
+
+  return [ctaBlock, embedBlock]
 }
 
 module.exports = {
   MOSHIMO_LINKS,
   getLinksByCategory,
   suggestLinksForArticle,
-  createMoshimoLinkBlock
+  createMoshimoLinkBlocks
 }

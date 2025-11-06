@@ -753,7 +753,7 @@ function removeClosingRemarks(blocks) {
  * @returns {Array} プレースホルダーを削除したブロック配列
  */
 function removePlaceholderLinks(blocks) {
-  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
     return blocks
   }
 
@@ -763,54 +763,60 @@ function removePlaceholderLinks(blocks) {
     /\[AFFILIATE_LINK:[^\]]+\]/g,
   ]
 
-  const result = []
+  const cleanedBlocks = []
 
-  for (let i = 0; i < blocks.length; i++) {
-    const block = blocks[i]
-
-    // block タイプでない場合はそのまま保持
-    if (block._type !== 'block' || !block.children || !Array.isArray(block.children)) {
-      result.push(block)
+  for (const block of blocks) {
+    if (block?._type !== 'block' || !Array.isArray(block.children)) {
+      cleanedBlocks.push(block)
       continue
     }
 
-    // テキストを結合
-    let text = block.children
-      .filter(child => child && child.text)
-      .map(child => child.text)
-      .join('')
+    let blockChanged = false
+    const newChildren = []
 
-    // プレースホルダーパターンを削除
-    let originalText = text
-    for (const pattern of placeholderPatterns) {
-      text = text.replace(pattern, '')
-    }
-
-    // テキストが変更されなかった、または完全に空になった場合
-    if (text === originalText) {
-      // 変更なし - そのまま保持
-      result.push(block)
-    } else if (text.trim().length === 0) {
-      // 完全に空になった - このブロックをスキップ（削除）
-      continue
-    } else {
-      // テキストが変更された - 新しいブロックを作成
-      const newBlock = {
-        ...block,
-        children: [
-          {
-            _type: 'span',
-            _key: block.children[0]?._key || `span-${Date.now()}`,
-            text: text.trim(),
-            marks: []
-          }
-        ]
+    for (const child of block.children) {
+      if (!child || typeof child.text !== 'string') {
+        newChildren.push(child)
+        continue
       }
-      result.push(newBlock)
+
+      let newText = child.text
+      placeholderPatterns.forEach(pattern => {
+        const replaced = newText.replace(pattern, '')
+        if (replaced !== newText) {
+          blockChanged = true
+          newText = replaced
+        }
+      })
+
+      if (newText.length === 0) {
+        blockChanged = true
+        continue
+      }
+
+      newChildren.push({
+        ...child,
+        text: newText
+      })
     }
+
+    if (!blockChanged) {
+      cleanedBlocks.push(block)
+      continue
+    }
+
+    if (newChildren.length === 0) {
+      // プレースホルダーのみだった場合はブロックごと削除
+      continue
+    }
+
+    cleanedBlocks.push({
+      ...block,
+      children: newChildren
+    })
   }
 
-  return result
+  return cleanedBlocks
 }
 
 /**
@@ -1320,7 +1326,7 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
   }
 
   // moshimo-affiliate-links.jsをインポート
-  const { suggestLinksForArticle, createMoshimoLinkBlock } = require('../moshimo-affiliate-links')
+  const { suggestLinksForArticle, createMoshimoLinkBlocks } = require('../moshimo-affiliate-links')
 
   // 記事本文を取得してリンク提案
   const bodyText = blocksToPlainText(blocks)
@@ -1340,9 +1346,16 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
     return blocks
   }
 
+  const existingAffiliateKeys = new Set(
+    blocks
+      .filter(block => block?._type === 'affiliateEmbed' && typeof block.linkKey === 'string')
+      .map(block => block.linkKey)
+  )
+
   // 最も適切なリンク1-2個を選択（ユーザビリティ重視）
   const selectedLinks = suggestions
     .filter(link => isAffiliateSuggestionRelevant(link, combinedText, slug.toLowerCase(), categoryNames))
+    .filter(link => !existingAffiliateKeys.has(link.key))
     .slice(0, 2)
 
   // まとめセクションの位置を検出
@@ -1366,9 +1379,9 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
 
   // アフィリエイトリンクブロックを追加
   selectedLinks.forEach(link => {
-    const linkBlock = createMoshimoLinkBlock(link.key)
-    if (linkBlock) {
-      result.push(linkBlock)
+    const linkBlocks = createMoshimoLinkBlocks(link.key)
+    if (linkBlocks && linkBlocks.length > 0) {
+      result.push(...linkBlocks)
     }
   })
 
@@ -1398,35 +1411,57 @@ function addSourceLinksToArticle(blocks, title) {
   const { randomUUID } = require('crypto')
 
   // 出典リンクのデータベース
-  const sourcesDatabase = {
-    給与: {
+  const sourcesDatabase = [
+    {
+      keywords: ['給与', '年収', '給料', '賃金', '収入', 'ボーナス', '手当'],
       name: '厚生労働省 令和4年度介護従事者処遇状況等調査結果',
       url: 'https://www.mhlw.go.jp/toukei/saikin/hw/kaigo/jyujisya/22/index.html',
       description: '介護職員・看護助手の給与に関する公式統計データ'
     },
-    資格: {
+    {
+      keywords: ['資格', '研修', '初任者研修', '実務者研修', '学び直し', 'カリキュラム'],
       name: '厚生労働省 介護員養成研修について',
       url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000197235.html',
       description: '介護職員初任者研修など資格取得に関する公式情報'
     },
-    仕事内容: {
+    {
+      keywords: ['仕事内容', '業務内容', '役割', '業務範囲', 'できること', 'できないこと'],
       name: '日本看護協会 看護補助者の業務範囲',
       url: 'https://www.nurse.or.jp/',
       description: '看護助手の役割と業務範囲に関する公式見解'
+    },
+    {
+      keywords: ['離職', '退職', '人手不足', '労働力', '求人倍率'],
+      name: '総務省 労働力調査',
+      url: 'https://www.stat.go.jp/data/roudou/',
+      description: '労働力人口や離職動向に関する公式データ'
+    },
+    {
+      keywords: ['病院数', '病床数', '医療施設', '入院患者', '外来患者'],
+      name: '厚生労働省 医療施設調査',
+      url: 'https://www.mhlw.go.jp/toukei/list/79-1.html',
+      description: '医療施設や病床数に関する統計データ'
     }
-  }
+  ]
 
-  // タイトルから適切な出典を選択
-  let selectedSource = null
-  for (const [keyword, source] of Object.entries(sourcesDatabase)) {
-    if (title.includes(keyword)) {
-      selectedSource = source
-      break
-    }
-  }
+  const searchableText = `${title} ${blocksToPlainText(blocks)}`.toLowerCase()
+
+  const selectedSource = sourcesDatabase.find(source =>
+    source.keywords.some(keyword => searchableText.includes(keyword.toLowerCase()))
+  )
 
   // 該当する出典がない場合はそのまま返す
   if (!selectedSource) {
+    return blocks
+  }
+
+  const alreadyHasSource = blocks.some(block =>
+    block?._type === 'block' &&
+    Array.isArray(block.markDefs) &&
+    block.markDefs.some(def => def?.href === selectedSource.url)
+  )
+
+  if (alreadyHasSource) {
     return blocks
   }
 

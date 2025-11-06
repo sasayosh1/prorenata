@@ -42,5 +42,43 @@ export const blockContent = defineType({
       type: 'image',
       options: { hotspot: true },
     }),
+    defineArrayMember({
+      title: 'Affiliate Embed',
+      name: 'affiliateEmbed',
+      type: 'object',
+      fields: [
+        {
+          title: 'プロバイダ',
+          name: 'provider',
+          type: 'string',
+          readOnly: true,
+        },
+        {
+          title: 'リンク識別子',
+          name: 'linkKey',
+          type: 'string',
+          readOnly: true,
+        },
+        {
+          title: '表示ラベル',
+          name: 'label',
+          type: 'string',
+          readOnly: true,
+        },
+        {
+          title: '埋め込みHTML',
+          name: 'html',
+          type: 'text',
+          rows: 4,
+          readOnly: true,
+        },
+      ],
+      preview: {
+        select: {
+          title: 'label',
+          subtitle: 'provider',
+        },
+      },
+    }),
   ],
 })
