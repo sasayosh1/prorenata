@@ -92,6 +92,11 @@ function removeGreetings(blocks) {
  * @param {Array} blocks - Sanity body ブロック配列
  * @returns {string} プレーンテキスト
  */
+function removePersonaName(text = '') {
+  if (!text) return ''
+  return text.replace(/白崎セラ/g, '看護助手')
+}
+
 function blocksToPlainText(blocks) {
   if (!blocks || !Array.isArray(blocks)) {
     return ''
@@ -298,7 +303,7 @@ function buildFallbackSummaryBlocks({ articleTitle, summaryBlocks, leadingBlocks
  */
 function generateExcerpt(plainText, title) {
   if (!plainText || plainText.length < 50) {
-    return `${title}について、わたしの経験も交えながらお話ししていきます。少しでも皆さんのお役に立てれば嬉しいです。`
+    return removePersonaName(`${title}について、わたしの経験も交えながらお話ししていきます。少しでも皆さんのお役に立てれば嬉しいです。`)
   }
 
   // 本文の最初の200文字を取得
@@ -308,7 +313,7 @@ function generateExcerpt(plainText, title) {
   const sentences = firstPart.split(/[。！？]/).filter(s => s.trim().length > 0)
 
   if (sentences.length === 0) {
-    return `${title}について、わたしの経験も交えながらお話ししていきます。少しでも皆さんのお役に立てれば嬉しいです。`
+    return removePersonaName(`${title}について、わたしの経験も交えながらお話ししていきます。少しでも皆さんのお役に立てれば嬉しいです。`)
   }
 
   // 最初の1-2文を使用（100文字程度に調整）
@@ -339,7 +344,7 @@ function generateExcerpt(plainText, title) {
     }
   }
 
-  return excerpt + closingPhrase
+  return removePersonaName(excerpt + closingPhrase)
 }
 
 /**
@@ -437,7 +442,7 @@ function generateMetaDescription(title, plainText, categories = []) {
     }
   }
 
-  return metaDescription
+  return removePersonaName(metaDescription)
 }
 
 /**
