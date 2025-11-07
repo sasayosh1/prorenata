@@ -151,6 +151,44 @@ export default defineType({
               title: 'Alternative text',
             }
           ]
+        },
+        {
+          name: 'affiliateEmbed',
+          title: 'Affiliate Embed',
+          type: 'object',
+          fields: [
+            {
+              name: 'provider',
+              title: 'プロバイダ',
+              type: 'string',
+              readOnly: true,
+            },
+            {
+              name: 'linkKey',
+              title: 'リンク識別子',
+              type: 'string',
+              readOnly: true,
+            },
+            {
+              name: 'label',
+              title: '表示ラベル',
+              type: 'string',
+              readOnly: true,
+            },
+            {
+              name: 'html',
+              title: '埋め込みHTML',
+              type: 'text',
+              rows: 4,
+              readOnly: true,
+            },
+          ],
+          preview: {
+            select: {
+              title: 'label',
+              subtitle: 'provider',
+            },
+          },
         }
       ],
       validation: rule => rule.required(),
@@ -166,6 +204,7 @@ export default defineType({
       title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: [{type: 'category'}] }],
+      validation: rule => rule.min(1)
     }),
     defineField({
       name: 'tags',
