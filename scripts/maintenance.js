@@ -155,6 +155,9 @@ const YMYL_REPLACEMENTS = [
   { pattern: /完璧/g, replacement: '十分' }
 ]
 
+const DISCLAIMER_TEXT =
+  '免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。'
+
 const NUMERIC_REFERENCE_HINTS = [
   {
     keywords: ['年収', '月給', '給与', '給料', '手当', '収入', '賃金', '賞与'],
@@ -872,6 +875,78 @@ function ensureSectionClosingParagraphs(blocks) {
   return { body: result, added }
 }
 
+function createDisclaimerBlock() {
+  return {
+    _type: 'block',
+    _key: `disclaimer-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `disclaimer-span-${randomUUID()}`,
+        text: DISCLAIMER_TEXT,
+        marks: []
+      }
+    ]
+  }
+}
+
+function isDisclaimerBlock(block) {
+  if (!block || block._type !== 'block') {
+    return false
+  }
+  const text = extractBlockText(block)
+  if (!text) return false
+  return /^免責事項[:：]/.test(text.trim())
+}
+
+function ensureDisclaimerPlacement(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, moved: false, added: false }
+  }
+
+  const disclaimerBlocks = []
+  const remainder = []
+  let firstDisclaimerIndex = -1
+
+  blocks.forEach((block, index) => {
+    if (isDisclaimerBlock(block)) {
+      disclaimerBlocks.push(block)
+      if (firstDisclaimerIndex === -1) {
+        firstDisclaimerIndex = index
+      }
+    } else {
+      remainder.push(block)
+    }
+  })
+
+  if (disclaimerBlocks.length === 1 && firstDisclaimerIndex === blocks.length - 1) {
+    // すでに記事末尾にある場合は変更不要
+    return { body: blocks, moved: false, added: false }
+  }
+
+  let disclaimerBlock = disclaimerBlocks[0]
+  const added = !disclaimerBlock
+  if (!disclaimerBlock) {
+    disclaimerBlock = createDisclaimerBlock()
+  }
+
+  const finalBody = [
+    ...remainder,
+    {
+      ...disclaimerBlock,
+      _key: disclaimerBlock._key || `disclaimer-${randomUUID()}`
+    }
+  ]
+
+  return {
+    body: finalBody,
+    moved: true,
+    added
+  }
+}
+
 function moveSummaryToEnd(blocks) {
   if (!Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, moved: false }
@@ -1357,8 +1432,6 @@ function sanitizeBodyBlocks(blocks) {
   let previousWasLinkBlock = false
   let summaryHeadingSeen = false
   let hasDisclaimer = false
-  const DISCLAIMER_TEXT = '免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。'
-
   for (const block of blocks) {
     if (!block || block._type !== 'block') {
       if (skipForbiddenSection) {
@@ -2650,6 +2723,7 @@ async function autoFixMetadata() {
     let affiliateCtasRemoved = 0
     let summaryHeadingsRemoved = 0
     let disclaimersAdded = 0
+    let disclaimerRepositioned = false
     let referencesFixed = 0
     let unresolvedReferences = []
     let shortContentExpanded = false
@@ -2914,6 +2988,9 @@ async function autoFixMetadata() {
     if (disclaimersAdded > 0) {
       console.log('   免責事項を追記しました')
     }
+    if (disclaimerRepositioned) {
+      console.log('   免責事項を「まとめ」直後に再配置しました')
+    }
     if (referencesFixed > 0) {
       console.log(`   出典リンクを更新しました (${referencesFixed}件)`)
     }
@@ -3102,7 +3179,8 @@ async function sanitizeAllBodies(options = {}) {
       unresolvedReferences: [],
       affiliateCtasRemoved: 0,
       summaryHeadingsRemoved: 0,
-      disclaimersAdded: 0
+      disclaimersAdded: 0,
+      disclaimersMoved: 0
     }
   }
 
@@ -3144,6 +3222,7 @@ async function sanitizeAllBodies(options = {}) {
   let totalAffiliateCtasRemoved = 0
   let totalSummaryHeadingsRemoved = 0
   let totalDisclaimersAdded = 0
+  let totalDisclaimersMoved = 0
   let totalReferencesFixed = 0
   let totalShortExpansions = 0
   let totalReferenceInsertions = 0
@@ -3341,6 +3420,16 @@ async function sanitizeAllBodies(options = {}) {
         bodyChanged = true
       }
 
+      const disclaimerPlacementResult = ensureDisclaimerPlacement(body)
+      if (disclaimerPlacementResult.moved) {
+        body = disclaimerPlacementResult.body
+        disclaimerRepositioned = true
+        bodyChanged = true
+        if (disclaimerPlacementResult.added) {
+          disclaimerAdded += 1
+        }
+      }
+
       const affiliateContextResult = ensureAffiliateContextBlocks(body, post)
       if (affiliateContextResult.added > 0) {
         body = affiliateContextResult.body
@@ -3418,6 +3507,9 @@ async function sanitizeAllBodies(options = {}) {
     totalAffiliateCtasRemoved += removedAffiliateCtas
     totalSummaryHeadingsRemoved += removedSummaryHeadings
     totalDisclaimersAdded += disclaimerAdded
+    if (disclaimerRepositioned) {
+      totalDisclaimersMoved += 1
+    }
     totalAffiliateBlocksRemoved += affiliateBlocksRemoved
     totalAffiliateContextAdded += affiliateContextsAdded
     totalAffiliateLinksNormalized += affiliateLinksNormalizedForPost
@@ -3465,6 +3557,9 @@ async function sanitizeAllBodies(options = {}) {
     }
     if (disclaimerAdded > 0) {
       console.log('   免責事項を追記しました')
+    }
+    if (disclaimerRepositioned) {
+      console.log('   免責事項を「まとめ」直後に再配置しました')
     }
     if (referencesFixedForPost > 0) {
       console.log(`   出典リンクを更新: ${referencesFixedForPost}件`)
@@ -3517,7 +3612,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -3559,6 +3654,7 @@ async function sanitizeAllBodies(options = {}) {
     affiliateCtasRemoved: totalAffiliateCtasRemoved,
     summaryHeadingsRemoved: totalSummaryHeadingsRemoved,
     disclaimersAdded: totalDisclaimersAdded,
+    disclaimersMoved: totalDisclaimersMoved,
     ymylSoftened: totalYMYLReplacements,
     affiliateContextsAdded: totalAffiliateContextAdded,
     affiliateBlocksRemoved: totalAffiliateBlocksRemoved,
