@@ -119,6 +119,10 @@ async function main() {
   const dryRun = !args.includes('--execute')
 
   const line = '='.repeat(60)
+  const slugArg = args.find(arg => arg.startsWith('--slugs='))
+  const targetSlugs = slugArg
+    ? slugArg.replace('--slugs=', '').split(',').map(s => s.trim()).filter(Boolean)
+    : null
   console.log(line)
   console.log('🔗 もしもアフィリエイトリンク配置ツール')
   console.log(line)
@@ -129,8 +133,13 @@ async function main() {
   }
 
   // 全記事を取得
-  const posts = await client.fetch('*[_type == "post"] { _id, title, "slug": slug.current, body }')
-  console.log('📚 総記事数: ' + posts.length + '件\n')
+  let posts = await client.fetch('*[_type == "post"] { _id, title, "slug": slug.current, body }')
+  console.log('📚 総記事数: ' + posts.length + '件')
+  if (targetSlugs && targetSlugs.length > 0) {
+    posts = posts.filter(post => targetSlugs.includes(post.slug))
+    console.log('🎯 対象スラッグ: ' + targetSlugs.join(', '))
+  }
+  console.log()
 
   const plan = []
   let totalLinksPlanned = 0
