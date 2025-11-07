@@ -1403,56 +1403,73 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
  * @param {string} title - 記事タイトル
  * @returns {Array} 出典リンクが追加されたブロック配列
  */
+const SOURCE_RULES = [
+  {
+    name: '厚生労働省 令和5年度介護従事者処遇状況等調査',
+    url: 'https://www.mhlw.go.jp/toukei/list/176-1.html',
+    keywords: ['給与', '年収', '給料', '賃金', '収入', 'ボーナス', '基本給', '手当'],
+    minScore: 2
+  },
+  {
+    name: '厚生労働省 賃金構造基本統計調査',
+    url: 'https://www.mhlw.go.jp/toukei/list/chinginkouzou.html',
+    keywords: ['賃金構造', '賃金統計', '賃金実態', '基本統計'],
+    minScore: 1
+  },
+  {
+    name: '総務省 労働力調査',
+    url: 'https://www.stat.go.jp/data/roudou/',
+    keywords: ['離職', '退職', '辞める', '人手不足', '労働力', '求人倍率', '転職活動'],
+    minScore: 1
+  },
+  {
+    name: '厚生労働省 介護員養成研修について',
+    url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000197235.html',
+    keywords: ['初任者研修', '実務者研修', '介護員養成', '資格取得', '研修費用', '学び直し'],
+    minScore: 1
+  },
+  {
+    name: '日本看護協会 看護補助者の業務範囲',
+    url: 'https://www.nurse.or.jp/home/statistics/index.html',
+    keywords: ['業務範囲', 'できること', 'できないこと', '役割', '看護協会', '仕事内容'],
+    minScore: 2
+  },
+  {
+    name: '厚生労働省 医療施設調査',
+    url: 'https://www.mhlw.go.jp/toukei/list/79-1.html',
+    keywords: ['病床', '医療施設', '病院数', '入院患者', '外来患者', 'ベッド数'],
+    minScore: 1
+  }
+]
+
+function normalizeTextForMatching(text = '') {
+  return text.replace(/\s+/g, '').replace(/[、。]/g, '')
+}
+
+function findBestSourceRule(text = '') {
+  const normalized = normalizeTextForMatching(text)
+  for (const rule of SOURCE_RULES) {
+    const score = rule.keywords.reduce((count, keyword) => {
+      return normalized.includes(keyword) ? count + 1 : count
+    }, 0)
+    if (score >= (rule.minScore || 1)) {
+      return rule
+    }
+  }
+  return null
+}
+
 function addSourceLinksToArticle(blocks, title) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
-    return blocks
+    return { body: blocks, addedSource: null }
   }
 
   const { randomUUID } = require('crypto')
+  const combinedText = `${title}\n${blocksToPlainText(blocks)}`
+  const selectedSource = findBestSourceRule(combinedText)
 
-  // 出典リンクのデータベース
-  const sourcesDatabase = [
-    {
-      keywords: ['給与', '年収', '給料', '賃金', '収入', 'ボーナス', '手当'],
-      name: '厚生労働省 令和4年度介護従事者処遇状況等調査結果',
-      url: 'https://www.mhlw.go.jp/toukei/saikin/hw/kaigo/jyujisya/22/index.html',
-      description: '介護職員・看護助手の給与に関する公式統計データ'
-    },
-    {
-      keywords: ['資格', '研修', '初任者研修', '実務者研修', '学び直し', 'カリキュラム'],
-      name: '厚生労働省 介護員養成研修について',
-      url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000197235.html',
-      description: '介護職員初任者研修など資格取得に関する公式情報'
-    },
-    {
-      keywords: ['仕事内容', '業務内容', '役割', '業務範囲', 'できること', 'できないこと'],
-      name: '日本看護協会 看護補助者の業務範囲',
-      url: 'https://www.nurse.or.jp/',
-      description: '看護助手の役割と業務範囲に関する公式見解'
-    },
-    {
-      keywords: ['離職', '退職', '人手不足', '労働力', '求人倍率'],
-      name: '総務省 労働力調査',
-      url: 'https://www.stat.go.jp/data/roudou/',
-      description: '労働力人口や離職動向に関する公式データ'
-    },
-    {
-      keywords: ['病院数', '病床数', '医療施設', '入院患者', '外来患者'],
-      name: '厚生労働省 医療施設調査',
-      url: 'https://www.mhlw.go.jp/toukei/list/79-1.html',
-      description: '医療施設や病床数に関する統計データ'
-    }
-  ]
-
-  const searchableText = `${title} ${blocksToPlainText(blocks)}`.toLowerCase()
-
-  const selectedSource = sourcesDatabase.find(source =>
-    source.keywords.some(keyword => searchableText.includes(keyword.toLowerCase()))
-  )
-
-  // 該当する出典がない場合はそのまま返す
   if (!selectedSource) {
-    return blocks
+    return { body: blocks, addedSource: null }
   }
 
   const alreadyHasSource = blocks.some(block =>
@@ -1462,10 +1479,9 @@ function addSourceLinksToArticle(blocks, title) {
   )
 
   if (alreadyHasSource) {
-    return blocks
+    return { body: blocks, addedSource: null }
   }
 
-  // まとめセクションの最後に出典リンクを追加
   let summaryEndIndex = -1
   let summaryStartIndex = -1
 
@@ -1477,17 +1493,14 @@ function addSourceLinksToArticle(blocks, title) {
       if (h2Text === 'まとめ') {
         summaryStartIndex = i
       } else if (summaryStartIndex !== -1 && i > summaryStartIndex) {
-        // まとめの後に別のH2が来た
         summaryEndIndex = i
         break
       }
     }
   }
 
-  // まとめセクションがない場合は、記事の最後に追加
   const insertPosition = summaryEndIndex !== -1 ? summaryEndIndex : blocks.length
 
-  // 出典リンクブロックを作成
   const linkMarkKey = `link-${randomUUID()}`
   const sourceBlock = {
     _type: 'block',
@@ -1516,7 +1529,6 @@ function addSourceLinksToArticle(blocks, title) {
     ]
   }
 
-  // 新しいブロック配列を構築
   const result = blocks.slice(0, insertPosition)
   result.push(sourceBlock)
 
@@ -1524,7 +1536,13 @@ function addSourceLinksToArticle(blocks, title) {
     result.push(...blocks.slice(insertPosition))
   }
 
-  return result
+  return {
+    body: result,
+    addedSource: {
+      name: selectedSource.name,
+      url: selectedSource.url
+    }
+  }
 }
 
 module.exports = {

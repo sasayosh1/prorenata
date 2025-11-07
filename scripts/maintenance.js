@@ -2544,12 +2544,12 @@ async function autoFixMetadata() {
     }
 
     // 出典リンクの自動追加（YMYL対策）
-    let sourceLinksAdded = false
+    let sourceLinkDetails = null
     if (post.body && Array.isArray(post.body)) {
-      const bodyWithSourceLinks = addSourceLinksToArticle(updates.body || post.body, post.title)
-      if (JSON.stringify(bodyWithSourceLinks) !== JSON.stringify(updates.body || post.body)) {
-        updates.body = bodyWithSourceLinks
-        sourceLinksAdded = true
+      const sourceLinkResult = addSourceLinksToArticle(updates.body || post.body, post.title)
+      if (sourceLinkResult && sourceLinkResult.addedSource) {
+        updates.body = sourceLinkResult.body
+        sourceLinkDetails = sourceLinkResult.addedSource
       }
     }
 
@@ -2776,8 +2776,8 @@ async function autoFixMetadata() {
     if (affiliateLinksAdded) {
       console.log('   アフィリエイトリンクを自動追加しました（収益最適化）')
     }
-    if (sourceLinksAdded) {
-      console.log('   出典リンクを自動追加しました（YMYL対策）')
+    if (sourceLinkDetails) {
+      console.log(`   出典リンクを自動追加しました（${sourceLinkDetails.name}）`)
     }
     if (referenceBlocksAdded > 0) {
       console.log(`   出典リンクを追加しました (${referenceBlocksAdded}件)`)
