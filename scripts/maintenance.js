@@ -892,6 +892,44 @@ function createDisclaimerBlock() {
   }
 }
 
+function replaceSeraWithWatashi(text) {
+  if (!text || typeof text !== 'string') {
+    return text
+  }
+  return text.replace(/セラ/g, 'わたし')
+}
+
+function normalizePersonaInHeading(block) {
+  if (!block || block._type !== 'block' || block.style !== 'h2') {
+    return { block, changed: false }
+  }
+
+  const originalText = extractBlockText(block)
+  if (!originalText.includes('セラ')) {
+    return { block, changed: false }
+  }
+
+  const newChildren = Array.isArray(block.children)
+    ? block.children.map(child => {
+        if (!child || typeof child.text !== 'string') {
+          return child
+        }
+        return {
+          ...child,
+          text: replaceSeraWithWatashi(child.text)
+        }
+      })
+    : block.children
+
+  return {
+    block: {
+      ...block,
+      children: newChildren
+    },
+    changed: true
+  }
+}
+
 function isDisclaimerBlock(block) {
   if (!block || block._type !== 'block') {
     return false
@@ -1432,6 +1470,7 @@ function sanitizeBodyBlocks(blocks) {
   let previousWasLinkBlock = false
   let summaryHeadingSeen = false
   let hasDisclaimer = false
+  let personaHeadingsFixed = 0
   for (const block of blocks) {
     if (!block || block._type !== 'block') {
       if (skipForbiddenSection) {
@@ -1614,6 +1653,14 @@ function sanitizeBodyBlocks(blocks) {
       continue
     }
 
+    if (block.style === 'h2') {
+      const personaResult = normalizePersonaInHeading(block)
+      if (personaResult.changed) {
+        block = personaResult.block
+        personaHeadingsFixed += 1
+      }
+    }
+
     if (normalizedText.startsWith('免責事項')) {
       hasDisclaimer = true
     }
@@ -1675,7 +1722,8 @@ function sanitizeBodyBlocks(blocks) {
     removedSummaryHelpers,
     removedAffiliateCtas,
     removedSummaryHeadings,
-    disclaimerAdded: hasDisclaimer ? 0 : 1
+    disclaimerAdded: hasDisclaimer ? 0 : 1,
+    personaHeadingsFixed
   }
 }
 
@@ -2722,6 +2770,7 @@ async function autoFixMetadata() {
     let summaryHelpersRemoved = 0
     let affiliateCtasRemoved = 0
     let summaryHeadingsRemoved = 0
+    let personaHeadingsFixed = 0
     let disclaimersAdded = 0
     let disclaimerRepositioned = false
     let referencesFixed = 0
@@ -2751,6 +2800,7 @@ async function autoFixMetadata() {
       affiliateCtasRemoved = sanitised.removedAffiliateCtas
       summaryHeadingsRemoved = sanitised.removedSummaryHeadings
       disclaimersAdded = sanitised.disclaimerAdded
+      personaHeadingsFixed = sanitised.personaHeadingsFixed || 0
 
       const referenceResult = await normalizeReferenceLinks(updates.body || post.body, post.title)
       if (referenceResult.fixed > 0) {
@@ -2988,8 +3038,14 @@ async function autoFixMetadata() {
     if (disclaimersAdded > 0) {
       console.log('   免責事項を追記しました')
     }
+    if (personaHeadingsFixed > 0) {
+      console.log(`   H2見出しから「セラ」を除去しました (${personaHeadingsFixed}見出し)`)
+    }
     if (disclaimerRepositioned) {
       console.log('   免責事項を「まとめ」直後に再配置しました')
+    }
+    if (personaHeadingsFixed > 0) {
+      console.log(`   H2見出しから「セラ」を除去: ${personaHeadingsFixed}見出し`)
     }
     if (referencesFixed > 0) {
       console.log(`   出典リンクを更新しました (${referencesFixed}件)`)
@@ -3179,6 +3235,7 @@ async function sanitizeAllBodies(options = {}) {
       unresolvedReferences: [],
       affiliateCtasRemoved: 0,
       summaryHeadingsRemoved: 0,
+      personaHeadingsFixed: 0,
       disclaimersAdded: 0,
       disclaimersMoved: 0
     }
@@ -3221,6 +3278,7 @@ async function sanitizeAllBodies(options = {}) {
   let totalSummaryHelpersRemoved = 0
   let totalAffiliateCtasRemoved = 0
   let totalSummaryHeadingsRemoved = 0
+  let totalPersonaHeadingFixes = 0
   let totalDisclaimersAdded = 0
   let totalDisclaimersMoved = 0
   let totalReferencesFixed = 0
@@ -3283,6 +3341,7 @@ async function sanitizeAllBodies(options = {}) {
       removedAffiliateCtas = sanitised.removedAffiliateCtas
       removedSummaryHeadings = sanitised.removedSummaryHeadings
       disclaimerAdded = sanitised.disclaimerAdded
+      personaHeadingsFixed = sanitised.personaHeadingsFixed || 0
 
       bodyChanged =
         removedRelated > 0 ||
@@ -3292,7 +3351,8 @@ async function sanitizeAllBodies(options = {}) {
         removedSummaryHelpers > 0 ||
         removedAffiliateCtas > 0 ||
         removedSummaryHeadings > 0 ||
-        disclaimerAdded > 0
+        disclaimerAdded > 0 ||
+        personaHeadingsFixed > 0
 
       const bodyAfterH3 = await addBodyToEmptyH3Sections(body, post.title, enableGemini ? geminiModel : null)
       if (JSON.stringify(bodyAfterH3) !== JSON.stringify(body)) {
@@ -3506,6 +3566,7 @@ async function sanitizeAllBodies(options = {}) {
     totalSummaryHelpersRemoved += removedSummaryHelpers
     totalAffiliateCtasRemoved += removedAffiliateCtas
     totalSummaryHeadingsRemoved += removedSummaryHeadings
+    totalPersonaHeadingFixes += personaHeadingsFixed
     totalDisclaimersAdded += disclaimerAdded
     if (disclaimerRepositioned) {
       totalDisclaimersMoved += 1
@@ -3612,7 +3673,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -3653,6 +3714,7 @@ async function sanitizeAllBodies(options = {}) {
     unresolvedReferences,
     affiliateCtasRemoved: totalAffiliateCtasRemoved,
     summaryHeadingsRemoved: totalSummaryHeadingsRemoved,
+    personaHeadingsFixed: totalPersonaHeadingFixes,
     disclaimersAdded: totalDisclaimersAdded,
     disclaimersMoved: totalDisclaimersMoved,
     ymylSoftened: totalYMYLReplacements,
