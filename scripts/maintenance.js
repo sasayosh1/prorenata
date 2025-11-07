@@ -30,6 +30,7 @@ const {
   optimizeSummarySection,
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
+  buildFallbackSummaryBlocks,
 } = require('./utils/postHelpers')
 const { MOSHIMO_LINKS } = require('./moshimo-affiliate-links')
 
@@ -220,6 +221,41 @@ function isReferenceBlock(block) {
     return false
   }
   return Array.isArray(block.markDefs) && block.markDefs.some(def => def?._type === 'link')
+}
+
+function ensureSummarySection(blocks, title) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: false }
+  }
+  const hasSummary = blocks.some(
+    block => block?._type === 'block' && block.style === 'h2' && extractBlockText(block) === 'まとめ'
+  )
+  if (hasSummary) {
+    return { body: blocks, added: false }
+  }
+  const summaryHeading = {
+    _type: 'block',
+    _key: `summary-heading-${randomUUID()}`,
+    style: 'h2',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `summary-heading-span-${randomUUID()}`,
+        marks: [],
+        text: 'まとめ'
+      }
+    ]
+  }
+  const fallbackSummary = buildFallbackSummaryBlocks({
+    articleTitle: title,
+    summaryBlocks: [],
+    leadingBlocks: blocks.slice(-40)
+  })
+  return {
+    body: [...blocks, summaryHeading, ...fallbackSummary],
+    added: true
+  }
 }
 
 /**
@@ -2540,6 +2576,14 @@ async function autoFixMetadata() {
       }
     }
 
+    if (post.body && Array.isArray(post.body)) {
+      const summaryEnsureResult = ensureSummarySection(updates.body || post.body, post.title)
+      if (summaryEnsureResult.added) {
+        updates.body = summaryEnsureResult.body
+        summaryOptimized = true
+      }
+    }
+
     const hasAffiliateEmbed = Array.isArray(updates.body || post.body)
       ? (updates.body || post.body).some(block => block?._type === 'affiliateEmbed')
       : false
@@ -3181,6 +3225,13 @@ async function sanitizeAllBodies(options = {}) {
       const summaryOptimised = await optimizeSummarySection(body, post.title, enableGemini ? geminiModel : null)
       if (JSON.stringify(summaryOptimised) !== JSON.stringify(body)) {
         body = summaryOptimised
+        summaryAdjusted = true
+        bodyChanged = true
+      }
+
+      const summaryEnsureResult = ensureSummarySection(body, post.title)
+      if (summaryEnsureResult.added) {
+        body = summaryEnsureResult.body
         summaryAdjusted = true
         bodyChanged = true
       }
@@ -4312,6 +4363,63 @@ async function findPostsWithTOC() {
 }
 
 /**
+ * 「まとめ」セクションが欠落している記事を検出
+ * 理由: 最後のH2は必ず「まとめ」に固定して読了体験を揃えるため
+ */
+async function findPostsMissingSummary() {
+  const query = `*[_type == "post" && count(body[_type == "block" && style == "h2" && pt::text(@) == "まとめ"]) == 0]{
+    _id,
+    title,
+    "slug": slug.current,
+    _updatedAt,
+    publishedAt
+  } | order(_updatedAt desc)`
+
+  try {
+    const posts = await client.fetch(query)
+
+    if (!posts || posts.length === 0) {
+      console.log('\n✅ すべての記事で「まとめ」セクションが確認できました\n')
+      return []
+    }
+
+    console.log(`\n⚠️ 「まとめ」セクションが欠落している記事: ${posts.length}件\n`)
+    posts.slice(0, 20).forEach((post, index) => {
+      const updatedAt = post._updatedAt ? new Date(post._updatedAt).toLocaleString('ja-JP') : '不明'
+      console.log(`${index + 1}. ${post.title}`)
+      console.log(`   Slug: ${post.slug || '(未設定)'}`)
+      console.log(`   最終更新: ${updatedAt}`)
+      if (post.publishedAt) {
+        console.log(`   公開日: ${new Date(post.publishedAt).toLocaleDateString('ja-JP')}`)
+      }
+      console.log('')
+    })
+
+    const slugCommandSample = posts
+      .slice(0, 10)
+      .map(post => post.slug)
+      .filter(Boolean)
+      .join(',')
+
+    console.log('🛠 修正手順:')
+    console.log('   1) 影響スラッグを確認（上記一覧）')
+    if (slugCommandSample) {
+      console.log(
+        `   2) node scripts/maintenance.js sanitize --slugs=${slugCommandSample} --force-links`
+      )
+    } else {
+      console.log('   2) node scripts/maintenance.js sanitize --slugs=<slug> --force-links')
+    }
+    console.log('      ※ sanitize 実行で「まとめ」見出し＋フォールバック本文を自動追記\n')
+
+    return posts
+  } catch (error) {
+    console.error('❌ エラー:', error.message)
+    return []
+  }
+}
+
+/**
  * 箇条書きでセクションを終えている記事を検出
  * 理由: 各セクションは本文（まとめ文）で締めくくる必要がある
  */
@@ -4616,6 +4724,10 @@ if (require.main === module) {
       findPostsWithTOC().catch(console.error)
       break
 
+    case 'missing-summary':
+      findPostsMissingSummary().catch(console.error)
+      break
+
     case 'sectionendings':
       checkSectionEndings().catch(console.error)
       break
@@ -4754,6 +4866,8 @@ if (require.main === module) {
                       - 医療行為の記述チェック
   toc                 Body内の「もくじ」見出しを検出
                       - body外部に自動生成目次があるため削除推奨
+  missing-summary     「まとめ」セクションが欠落している記事を検出
+                      - 週次メンテ前に実行し、sanitizeで自動復旧
   sectionendings      箇条書きでセクションを終えている記事を検出
                       - 各セクションは本文（まとめ文）で締めくくる必要がある
   h2aftersummary      「まとめ」の後にH2セクションがある記事を検出
@@ -4815,6 +4929,7 @@ module.exports = {
   checkInternalLinks,
   checkYMYL,
   findPostsWithTOC,
+  findPostsMissingSummary,
   checkSectionEndings,
   checkH2AfterSummary,
   generateReport,

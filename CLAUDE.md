@@ -609,6 +609,18 @@ vercel --previewe
      - 今後の更新が1箇所で完結
      - コード重複の削減
 
+29. 🧩 **「まとめ」セクション監視＆復旧フローを追加** (2025-11-07)
+   - **背景**: 新規記事や大幅改稿後に「まとめ」H2を別タイトルへ差し替えると、週次メンテが走るまで締めのトーンが崩れるケースが発生（例: `nursing-assistant-mental-care-support`）
+   - **実装内容**:
+     - `scripts/maintenance.js` に `findPostsMissingSummary()` を追加し、`node scripts/maintenance.js missing-summary` で欠損を即検出できるようにした
+     - CLIヘルプへ新コマンドを追記し、週次メンテ前でもゼロチェック可能に
+   - **運用ルール**:
+     - 週次の `sanitize` 実行前に `missing-summary` を走らせ、結果が0件でない場合は `sanitize --slugs=<comma区切り> --force-links` で復旧
+     - sanitize は「まとめ」見出し＋フォールバック本文を自動追記するため、手動での書き直しは不要
+   - **今回の復旧**:
+     - `node scripts/maintenance.js sanitize --slugs=nursing-assistant-mental-care-support --force-links` を実行し、当該記事に再び「まとめ」セクションを挿入
+     - コマンド後に `missing-summary` を再実行し、全記事0件を確認済み
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
