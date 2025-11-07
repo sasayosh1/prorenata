@@ -211,6 +211,17 @@ function extractBlockText(block) {
     .trim()
 }
 
+function isReferenceBlock(block) {
+  if (!block || block._type !== 'block') {
+    return false
+  }
+  const text = extractBlockText(block)
+  if (!text.startsWith('参考資料')) {
+    return false
+  }
+  return Array.isArray(block.markDefs) && block.markDefs.some(def => def?._type === 'link')
+}
+
 /**
  * ブロックが内部リンクのみで構成されているか判定
  * @param {Object} block
@@ -2529,16 +2540,41 @@ async function autoFixMetadata() {
       }
     }
 
+    const hasAffiliateEmbed = Array.isArray(updates.body || post.body)
+      ? (updates.body || post.body).some(block => block?._type === 'affiliateEmbed')
+      : false
+    if (forceLinkMaintenance || !hasAffiliateEmbed) {
+      const affiliateResult = addAffiliateLinksToArticle(updates.body || post.body, post.title, post)
+      if (affiliateResult.addedLinks > 0) {
+        updates.body = affiliateResult.body
+        affiliateLinksAdded = true
+        affiliateLinksInserted = affiliateResult.addedLinks
+        totalAffiliateLinksInserted += affiliateResult.addedLinks
+      }
+    }
+
+    const hasReferenceBlock = Array.isArray(updates.body || post.body)
+      ? (updates.body || post.body).some(block => isReferenceBlock(block))
+      : false
+    if (forceLinkMaintenance || !hasReferenceBlock) {
+      const sourceLinkResult = addSourceLinksToArticle(updates.body || post.body, post.title)
+      if (sourceLinkResult && sourceLinkResult.addedSource) {
+        updates.body = sourceLinkResult.body
+        sourceLinkDetails = sourceLinkResult.addedSource
+        sourceLinkAdded = sourceLinkResult.addedSource
+      }
+    }
+
     // アフィリエイトリンクの自動追加（収益最適化）
     let affiliateLinksAdded = false
     if (post.body && Array.isArray(post.body)) {
-      const bodyWithAffiliateLinks = addAffiliateLinksToArticle(
+      const affiliateResult = addAffiliateLinksToArticle(
         updates.body || post.body,
         post.title,
         post
       )
-      if (JSON.stringify(bodyWithAffiliateLinks) !== JSON.stringify(updates.body || post.body)) {
-        updates.body = bodyWithAffiliateLinks
+      if (affiliateResult.addedLinks > 0) {
+        updates.body = affiliateResult.body
         affiliateLinksAdded = true
       }
     }
@@ -2951,6 +2987,10 @@ async function sanitizeAllBodies(options = {}) {
   const enableGemini =
     process.env.MAINTENANCE_ENABLE_GEMINI === '1' ||
     process.env.MAINTENANCE_ENABLE_GEMINI?.toLowerCase() === 'true'
+  const forceLinkMaintenance =
+    options.forceLinks ||
+    process.env.MAINTENANCE_FORCE_LINKS === '1' ||
+    process.env.MAINTENANCE_FORCE_LINKS?.toLowerCase() === 'true'
 
   let geminiModel = null
   if (enableGemini) {
@@ -2964,6 +3004,10 @@ async function sanitizeAllBodies(options = {}) {
     }
   } else {
     console.log('ℹ️  Gemini API は無効化されています。必要に応じて MAINTENANCE_ENABLE_GEMINI=1 を設定してください。')
+  }
+
+  if (forceLinkMaintenance) {
+    console.log('🔁 アフィリエイト・出典リンクの再配置を強制モードで実行します')
   }
 
   let fetchQuery = `
@@ -3065,6 +3109,7 @@ async function sanitizeAllBodies(options = {}) {
   let totalAffiliateLinksNormalized = 0
   let totalInternalLinksAdded = 0
   let totalMedicalNoticesAdded = 0
+  let totalAffiliateLinksInserted = 0
   let totalSectionClosingsAdded = 0
   let totalSummaryMoved = 0
   let totalSlugRegenerated = 0
@@ -3101,6 +3146,8 @@ async function sanitizeAllBodies(options = {}) {
     let h3BodiesAdded = false
     let summaryAdjusted = false
     let affiliateLinksNormalizedForPost = 0
+    let affiliateLinksInserted = 0
+    let sourceLinkAdded = null
 
     if (Array.isArray(post.body) && post.body.length > 0) {
       const sanitised = sanitizeBodyBlocks(post.body)
@@ -3197,6 +3244,29 @@ async function sanitizeAllBodies(options = {}) {
         ymyReplacements += ymyResult.replaced
         totalYMYLReplacements += ymyResult.replaced
         bodyChanged = true
+      }
+
+      const hasAffiliateEmbedInBody = body.some(block => block?._type === 'affiliateEmbed')
+      if (forceLinkMaintenance || !hasAffiliateEmbedInBody) {
+        const affiliateResult = addAffiliateLinksToArticle(body, post.title, post)
+        if (affiliateResult.addedLinks > 0) {
+          body = affiliateResult.body
+          affiliateLinksInserted = affiliateResult.addedLinks
+          totalAffiliateLinksInserted += affiliateResult.addedLinks
+          bodyChanged = true
+        }
+      }
+
+      const hasReferenceBlockInBody = body.some(block => isReferenceBlock(block))
+      if (forceLinkMaintenance || !hasReferenceBlockInBody) {
+        const sourceResult = addSourceLinksToArticle(body, post.title)
+        if (sourceResult && sourceResult.addedSource) {
+          body = sourceResult.body
+          referenceBlocksAdded += 1
+          totalReferenceInsertions += 1
+          sourceLinkAdded = sourceResult.addedSource
+          bodyChanged = true
+        }
       }
 
       const sectionClosingResult = ensureSectionClosingParagraphs(body)
@@ -3363,6 +3433,12 @@ async function sanitizeAllBodies(options = {}) {
     if (h3BodiesAdded) {
       console.log('   H3セクションに本文を追加しました')
     }
+    if (affiliateLinksInserted > 0) {
+      console.log(`   アフィリエイトリンクを追加: ${affiliateLinksInserted}件`)
+    }
+    if (sourceLinkAdded) {
+      console.log(`   出典リンクを追加: ${sourceLinkAdded.name}`)
+    }
     if (summaryAdjusted) {
       console.log('   まとめセクションを整えました')
     }
@@ -3390,7 +3466,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -3419,6 +3495,7 @@ async function sanitizeAllBodies(options = {}) {
   return {
     total: posts.length,
     updated,
+    affiliateLinksInserted: totalAffiliateLinksInserted,
     relatedRemoved: totalRelatedRemoved,
     duplicateParagraphsRemoved: totalDuplicatesRemoved,
     extraInternalLinksRemoved: totalInternalLinksRemoved,
@@ -4599,6 +4676,8 @@ if (require.main === module) {
             if (slugs.length > 0) {
               options.slugs = slugs
             }
+          } else if (arg === '--force-links') {
+            options.forceLinks = true
           } else if (arg.startsWith('--top-views=')) {
             const value = parseInt(arg.replace('--top-views=', ''), 10)
             if (!Number.isNaN(value) && value > 0) {
@@ -4688,11 +4767,12 @@ if (require.main === module) {
   recategorize        全記事のカテゴリを再評価して最適なカテゴリに変更
                       - タイトル・本文から最適なカテゴリを自動選択
                       - 現在のカテゴリと異なる場合のみ更新
-  sanitize [--slugs=slug1,slug2] [--top-views=10] [--cooldown=30]
+  sanitize [--slugs=slug1,slug2] [--top-views=10] [--cooldown=30] [--force-links]
                       本文を自動整備（関連記事・重複段落・内部リンク最適化など）
-                      - --slugs     : 対象スラッグをカンマ区切りで指定
-                      - --top-views : 閲覧数上位から指定件数を抽出（クールダウン経過分を優先）
-                      - --cooldown  : --top-views指定時のクールダウン日数（デフォルト30日）
+                      - --slugs       : 対象スラッグをカンマ区切りで指定
+                      - --top-views   : 閲覧数上位から指定件数を抽出（クールダウン経過分を優先）
+                      - --cooldown    : --top-views指定時のクールダウン日数（デフォルト30日）
+                      - --force-links : アフィリエイト/内部/出典リンクを全記事で再配置
   all                 総合メンテナンス（report + recategorize + autofix を順次実行）★推奨
                       - 問題を検出し、カテゴリ再評価、自動修復可能なものはすべて修正
                       - GitHub Actions で週3回自動実行（月・水・金 AM3:00）

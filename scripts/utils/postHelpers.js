@@ -114,6 +114,16 @@ function blocksToPlainText(blocks) {
     .trim()
 }
 
+function blockPlainText(block) {
+  if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+    return ''
+  }
+  return block.children
+    .map(child => (child && typeof child.text === 'string' ? child.text : ''))
+    .join('')
+    .trim()
+}
+
 function stripFormatting(text = '') {
   return text
     .replace(/[*_`]/g, '')
@@ -1322,28 +1332,25 @@ function isAffiliateSuggestionRelevant(link, combinedText, slug, categoryNames) 
 
 function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
-    return blocks
+    return { body: blocks, addedLinks: 0 }
   }
 
-  // moshimo-affiliate-links.jsをインポート
   const { suggestLinksForArticle, createMoshimoLinkBlocks } = require('../moshimo-affiliate-links')
-
-  // 記事本文を取得してリンク提案
   const bodyText = blocksToPlainText(blocks)
   const suggestions = suggestLinksForArticle(title, bodyText)
 
-  const slug = typeof currentPost?.slug === 'string'
+  const slug = (typeof currentPost?.slug === 'string'
     ? currentPost.slug
-    : (currentPost?.slug?.current || '')
+    : currentPost?.slug?.current || ''
+  ).toLowerCase()
   const categoryNames = (currentPost?.categories || [])
     .map(category => (typeof category === 'string' ? category : category?.title || ''))
     .join(' ')
     .toLowerCase()
   const combinedText = `${title} ${bodyText}`.toLowerCase()
 
-  // 提案がない場合はそのまま返す
   if (!suggestions || suggestions.length === 0) {
-    return blocks
+    return { body: blocks, addedLinks: 0 }
   }
 
   const existingAffiliateKeys = new Set(
@@ -1352,45 +1359,140 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
       .map(block => block.linkKey)
   )
 
-  // 最も適切なリンク1-2個を選択（ユーザビリティ重視）
-  const selectedLinks = suggestions
-    .filter(link => isAffiliateSuggestionRelevant(link, combinedText, slug.toLowerCase(), categoryNames))
-    .filter(link => !existingAffiliateKeys.has(link.key))
-    .slice(0, 2)
+  const preferredKeys = resolvePreferredAffiliateKeys(currentPost, combinedText)
+  const prioritizedSuggestions = suggestions.filter(link =>
+    isAffiliateSuggestionRelevant(link, combinedText, slug, categoryNames)
+  )
 
-  // まとめセクションの位置を検出
-  let summaryIndex = -1
+  const selectedLinks = []
+  prioritizedSuggestions.forEach(link => {
+    if (selectedLinks.length >= 2) return
+    if (existingAffiliateKeys.has(link.key)) return
+    if (preferredKeys.length > 0 && !preferredKeys.includes(link.key)) {
+      return
+    }
+    selectedLinks.push(link)
+  })
+
+  if (preferredKeys.length === 0 || selectedLinks.length < 2) {
+    prioritizedSuggestions.forEach(link => {
+      if (selectedLinks.length >= 2) return
+      if (existingAffiliateKeys.has(link.key)) return
+      if (!selectedLinks.includes(link)) {
+        selectedLinks.push(link)
+      }
+    })
+  }
+
+  const resultBlocks = [...blocks]
+  let addedLinks = 0
+  const insertionFallbackIndex = findSummaryInsertIndex(resultBlocks)
+
+  selectedLinks.slice(0, 2).forEach(link => {
+    const linkBlocks = createMoshimoLinkBlocks(link.key)
+    if (!linkBlocks || linkBlocks.length === 0) {
+      return
+    }
+
+    const keywordTargets = AFFILIATE_LINK_KEYWORDS[link.key] || []
+    const sectionIndex = findSectionInsertionIndex(resultBlocks, keywordTargets)
+    const targetIndex = sectionIndex >= 0 ? sectionIndex : insertionFallbackIndex
+
+    resultBlocks.splice(targetIndex, 0, ...linkBlocks)
+    addedLinks += 1
+  })
+
+  return {
+    body: resultBlocks,
+    addedLinks
+  }
+}
+
+function findSummaryInsertIndex(blocks) {
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i]
-    if (block._type === 'block' && block.style === 'h2') {
-      const h2Text = block.children.map(child => child.text || '').join('').trim()
-      if (h2Text === 'まとめ') {
-        summaryIndex = i
-        break
+    if (block?._type === 'block' && block.style === 'h2') {
+      const text = blockPlainText(block)
+      if (text === 'まとめ') {
+        return i
       }
     }
   }
+  return blocks.length
+}
 
-  // まとめセクションがない場合は、記事の最後に挿入
-  const insertPosition = summaryIndex !== -1 ? summaryIndex : blocks.length
+function resolvePreferredAffiliateKeys(post, combinedText) {
+  const text = (combinedText || '').toLowerCase()
+  const slug = (typeof post?.slug === 'string'
+    ? post.slug
+    : post?.slug?.current || ''
+  ).toLowerCase()
+  const categories = (post?.categories || [])
+    .map(category => (typeof category === 'string' ? category : category?.title || ''))
+    .join(' ')
+    .toLowerCase()
 
-  // 新しいブロック配列を構築
-  const result = blocks.slice(0, insertPosition)
-
-  // アフィリエイトリンクブロックを追加
-  selectedLinks.forEach(link => {
-    const linkBlocks = createMoshimoLinkBlocks(link.key)
-    if (linkBlocks && linkBlocks.length > 0) {
-      result.push(...linkBlocks)
+  const matchedKeys = new Set()
+  AFFILIATE_LINK_RULES.forEach(rule => {
+    const matchText = rule.textKeywords.some(keyword => text.includes(keyword))
+    const matchSlug = rule.slugKeywords.some(keyword => slug.includes(keyword))
+    const matchCategory = rule.categoryKeywords.some(keyword => categories.includes(keyword))
+    if (matchText || matchSlug || matchCategory) {
+      rule.linkKeys.forEach(key => matchedKeys.add(key))
     }
   })
 
-  // 残りのブロックを追加
-  if (insertPosition < blocks.length) {
-    result.push(...blocks.slice(insertPosition))
+  return [...matchedKeys]
+}
+
+function findSectionInsertionIndex(blocks, keywords = [], options = {}) {
+  if (!Array.isArray(blocks) || blocks.length === 0 || !keywords || keywords.length === 0) {
+    return -1
   }
 
-  return result
+  const includeHeadings = Boolean(options.includeHeadings)
+  let currentSectionStart = -1
+  let currentSectionMatches = false
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i]
+    if (!block || block._type !== 'block') continue
+
+    if (block.style === 'h2' || block.style === 'h3') {
+      const text = blockPlainText(block)
+      if (text === 'まとめ') {
+        if (currentSectionMatches) {
+          return determineSectionInsertIndex(blocks, currentSectionStart, i, includeHeadings)
+        }
+        return -1
+      }
+
+      if (currentSectionMatches) {
+        return determineSectionInsertIndex(blocks, currentSectionStart, i, includeHeadings)
+      }
+
+      currentSectionStart = i
+      currentSectionMatches = keywords.some(keyword => text.includes(keyword))
+    }
+  }
+
+  if (currentSectionMatches) {
+    return determineSectionInsertIndex(blocks, currentSectionStart, blocks.length, includeHeadings)
+  }
+  return -1
+}
+
+function determineSectionInsertIndex(blocks, startIndex, endIndex, includeHeadings) {
+  let insertIndex = endIndex
+  for (let i = endIndex - 1; i > startIndex; i--) {
+    const block = blocks[i]
+    if (!block || block._type !== 'block') continue
+    if (block.listItem) continue
+    if (block.style === 'normal') {
+      return i + 1
+    }
+  }
+  return includeHeadings ? endIndex : -1
 }
 
 /**
@@ -1441,6 +1543,44 @@ const SOURCE_RULES = [
     minScore: 1
   }
 ]
+
+const AFFILIATE_LINK_RULES = [
+  {
+    textKeywords: ['転職', '求人', 'キャリア', '応募', '面接', '志望動機', '就職'],
+    slugKeywords: ['career', 'job', 'application', 'interview'],
+    categoryKeywords: ['転職', '求人', 'キャリア'],
+    linkKeys: ['humanlifecare', 'kaigobatake']
+  },
+  {
+    textKeywords: ['退職', '離職', '辞め', '辞職', '退社', '退職代行'],
+    slugKeywords: ['resign', 'retire', 'quit'],
+    categoryKeywords: ['退職'],
+    linkKeys: ['miyabi', 'sokuyame', 'shiodome']
+  },
+  {
+    textKeywords: ['持ち物', '道具', 'アイテム', 'グッズ', 'ナースシューズ', 'ユニフォーム', 'カバン', 'ケア用品'],
+    slugKeywords: ['uniform', 'item', 'goods', 'bag'],
+    categoryKeywords: ['持ち物', 'グッズ', '道具'],
+    linkKeys: ['amazon', 'rakuten', 'nursery']
+  },
+  {
+    textKeywords: ['資格', '研修', '受講', '学び直し', '学校', '講座'],
+    slugKeywords: ['qualification', 'school', 'study'],
+    categoryKeywords: ['資格', '学び'],
+    linkKeys: ['amazon', 'rakuten']
+  }
+]
+
+const AFFILIATE_LINK_KEYWORDS = {
+  humanlifecare: ['転職', '求人', 'キャリア', '応募', '面接'],
+  kaigobatake: ['転職', '求人', '介護職', '資格', '未経験'],
+  miyabi: ['退職', '離職', '辞める', '退社', '退職代行'],
+  sokuyame: ['退職', '即日', '今すぐ', '退職代行'],
+  shiodome: ['退職', '弁護士', '退職手続き'],
+  amazon: ['持ち物', 'グッズ', '道具', '用品', 'アイテム', 'バッグ', 'ケア製品'],
+  rakuten: ['持ち物', 'グッズ', '道具', 'アイテム', 'ショッピング'],
+  nursery: ['ユニフォーム', '制服', 'スクラブ', 'シューズ']
+}
 
 function normalizeTextForMatching(text = '') {
   return text.replace(/\s+/g, '').replace(/[、。]/g, '')

@@ -126,6 +126,15 @@
   3. `scripts/maintenance.js` 側では追加した資料名をログ出力するようにし、挿入結果を追跡可能にした。
 - **重要度**: YMYL対策の実効性向上と誤った出典リンク挿入の防止
 
+### 🔁 リンク再配置ワークフローの強化 ✅
+- **日時**: 2025-11-07
+- **内容**: アフィリエイト・内部リンク・出典リンクを `sanitize` フェーズで常時再評価し、`--force-links` または `MAINTENANCE_FORCE_LINKS=1` で全記事に再配置できるよう改修。
+- **実施内容**:
+  1. `scripts/utils/postHelpers.js` の `addAffiliateLinksToArticle` を、セクション末尾への配置・カテゴリ別案件マッピング対応＆返り値を `{ body, addedLinks }` 化。
+  2. `scripts/maintenance.js` の `sanitizeAllBodies` にリンク再構築ロジックを組み込み、ログ/統計を追加。CLIから `--force-links` を指定可能にし、`purge-body-links.cjs` で全削除→再配置の手順を整備。
+  3. 既存記事159本の本文リンクを一掃した上で、`sanitize --force-links` を実行し、文脈に沿ったリンクのみを再挿入。
+- **重要度**: 収益導線と出典整備を自動で回復できる体制の確立
+
 ### ✍️ 新記事3本をSanityへ公開 ✅
 - **日時**: 2025-11-06
 - **内容**: サーチコンソールのクエリ分析を踏まえ、需要が高かったテーマを白崎セラの語り口で記事化。
