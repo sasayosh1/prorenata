@@ -702,6 +702,29 @@ vercel --previewe
      - toyamablog: http://localhost:4000 + http://localhost:4444
      - プロジェクト切り替え時の混乱がなくなり、作業効率が向上
 
+36. 📚 **医療用語データベースとメンテナンススクリプト追加** (2025-11-09)
+   - **背景**: 医療用語記事の管理を効率化し、コンテンツ品質を向上させる必要があった
+   - **実装内容**:
+     - **新規スクリプト追加**（13ファイル）:
+       - `check-medical-terms-article.cjs`: 医療用語記事の検証
+       - `expand-medical-terms-claude.cjs`: Claude APIによる用語展開
+       - `expand-medical-terms-manual.cjs`: 手動用語展開用ツール
+       - `expand-medical-terms.cjs`: 基本用語展開機能
+       - `update-*-section.cjs`: 各セクション更新スクリプト（9種類）
+         - 略語、解剖、医療器具、薬剤、栄養・排泄、体位変換、医療処置、症状・観察、バイタルサイン
+       - `verify-article-data.cjs`: 記事データ検証ツール
+       - `utils/categoryMappings.js`: カテゴリマッピング定義
+     - **既存ファイル更新**:
+       - `ARTICLE_GUIDE.md`: 医療用語ガイドラインを更新
+       - `PROJECT_KNOWLEDGE_BASE.md`: プロジェクト知識ベースに医療用語管理を追加
+       - `scripts/maintenance.js`: メンテナンス機能を拡張
+       - `scripts/utils/postHelpers.js`: ヘルパー関数を改善
+   - **効果**:
+     - 医療用語記事の更新作業が自動化され、作業効率が大幅に向上
+     - 用語の一貫性とコンテンツ品質が向上
+     - スクリプトによる検証で人為的ミスを削減
+     - 医療用語データベースの拡張が容易に
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
