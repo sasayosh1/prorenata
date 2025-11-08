@@ -95,9 +95,9 @@ const CTA_TEXT_PATTERNS = [
 
 const REFERENCE_MAPPINGS = [
   {
-    keywords: ['厚生労働省', '介護従事者処遇状況等調査'],
-    url: 'https://www.mhlw.go.jp/toukei/list/176-1.html',
-    label: '厚生労働省 令和5年度介護従事者処遇状況等調査'
+    keywords: ['厚生労働省', '統計', '介護', '処遇', '賃金'],
+    url: 'https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html',
+    label: '厚生労働省 統計情報・白書'
   },
   {
     keywords: ['厚生労働省', '賃金構造基本統計調査'],
@@ -110,24 +110,19 @@ const REFERENCE_MAPPINGS = [
     label: '厚生労働省 医療施設調査'
   },
   {
-    keywords: ['看護師等学校養成所', '卒業生就業状況'],
-    url: 'https://www.mhlw.go.jp/toukei/list/100-1.html',
-    label: '厚生労働省 看護師等学校養成所卒業生就業状況調査'
+    keywords: ['看護職員', '需給', '人材', '配置', '検討会'],
+    url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html',
+    label: '厚生労働省 看護職員需給分科会'
+  },
+  {
+    keywords: ['介護員', '養成', '研修', '資格'],
+    url: 'https://www.mhlw.go.jp/stf/newpage_08272.html',
+    label: '厚生労働省 介護人材対策まとめ'
   },
   {
     keywords: ['総務省', '労働力調査'],
     url: 'https://www.stat.go.jp/data/roudou/',
-    label: '総務省 労働力調査'
-  },
-  {
-    keywords: ['日本看護協会', '看護統計'],
-    url: 'https://www.nurse.or.jp/home/statistics/index.html',
-    label: '日本看護協会 看護統計'
-  },
-  {
-    keywords: ['日本看護協会', '看護職員の需給', '働き方調査'],
-    url: 'https://www.nurse.or.jp/home/publication/pdf/report/2023_jinzai_chousa.pdf',
-    label: '日本看護協会 看護職員の需給・働き方調査'
+    label: '総務省 統計局 労働力調査'
   },
   {
     keywords: ['労働政策研究', '研修機構'],
@@ -1729,13 +1724,14 @@ function sanitizeBodyBlocks(blocks) {
 
 async function normalizeReferenceLinks(blocks, articleTitle = '') {
   if (!Array.isArray(blocks) || blocks.length === 0) {
-    return { body: blocks, fixed: 0, unresolved: [] }
+    return { body: blocks, fixed: 0, unresolved: [], removed: 0 }
   }
 
   const clonedBlocks = deepClone(blocks)
   let fixed = 0
   const unresolved = []
   const cache = new Map()
+  let removedInvalid = 0
 
   const getLabelForMark = (block, markKey) => {
     if (!block || !Array.isArray(block.children)) return ''
@@ -1746,7 +1742,8 @@ async function normalizeReferenceLinks(blocks, articleTitle = '') {
       .trim()
   }
 
-  for (const block of clonedBlocks) {
+  for (let i = 0; i < clonedBlocks.length; i += 1) {
+    const block = clonedBlocks[i]
     if (!block || block._type !== 'block') continue
     const text = extractBlockText(block)
     const normalized = text.replace(/\s+/g, ' ').trim()
@@ -1757,6 +1754,7 @@ async function normalizeReferenceLinks(blocks, articleTitle = '') {
     if (referenceMarks.length === 0) continue
 
     let blockModified = false
+    let hasValidLink = false
 
     for (const markDef of referenceMarks) {
       const currentUrl = ensureHttpsUrl(markDef.href)
@@ -1781,9 +1779,21 @@ async function normalizeReferenceLinks(blocks, articleTitle = '') {
 
       if (!resolvedUrl || isTopLevelUrl(resolvedUrl)) {
         unresolved.push({ articleTitle, label, url: currentUrl })
+        block.markDefs = block.markDefs.filter(def => def._key !== markDef._key)
+        block.children = block.children.map(child => {
+          if (!child || !Array.isArray(child.marks)) {
+            return child
+          }
+          return {
+            ...child,
+            marks: child.marks.filter(markKey => markKey !== markDef._key)
+          }
+        })
+        blockModified = true
         continue
       }
 
+      hasValidLink = true
       if (resolvedUrl !== markDef.href) {
         markDef.href = resolvedUrl
         fixed += 1
@@ -1791,23 +1801,28 @@ async function normalizeReferenceLinks(blocks, articleTitle = '') {
       }
     }
 
-    if (blockModified) {
-      // 余分な markDefs を整理（重複解除）
-      const uniqueDefs = []
-      const seenKeys = new Set()
-      block.markDefs.forEach(def => {
-        if (!def || !def._key || seenKeys.has(def._key)) return
-        seenKeys.add(def._key)
-        uniqueDefs.push(def)
-      })
-      block.markDefs = uniqueDefs
+    const uniqueDefs = []
+    const seenKeys = new Set()
+    block.markDefs.forEach(def => {
+      if (!def || !def._key || seenKeys.has(def._key)) return
+      seenKeys.add(def._key)
+      uniqueDefs.push(def)
+    })
+    block.markDefs = uniqueDefs
+
+    if (!hasValidLink) {
+      clonedBlocks[i] = null
+      removedInvalid += 1
     }
   }
 
+  const filteredBlocks = clonedBlocks.filter(Boolean)
+
   return {
-    body: clonedBlocks,
+    body: filteredBlocks,
     fixed,
-    unresolved
+    unresolved,
+    removed: removedInvalid
   }
 }
 
@@ -2722,7 +2737,7 @@ async function autoFixMetadata() {
       ? (updates.body || post.body).some(block => isReferenceBlock(block))
       : false
     if (forceLinkMaintenance || !hasReferenceBlock) {
-      const sourceLinkResult = addSourceLinksToArticle(updates.body || post.body, post.title)
+      const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title)
       if (sourceLinkResult && sourceLinkResult.addedSource) {
         updates.body = sourceLinkResult.body
         sourceLinkDetails = sourceLinkResult.addedSource
@@ -2747,7 +2762,7 @@ async function autoFixMetadata() {
     // 出典リンクの自動追加（YMYL対策）
     let sourceLinkDetails = null
     if (post.body && Array.isArray(post.body)) {
-      const sourceLinkResult = addSourceLinksToArticle(updates.body || post.body, post.title)
+      const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title)
       if (sourceLinkResult && sourceLinkResult.addedSource) {
         updates.body = sourceLinkResult.body
         sourceLinkDetails = sourceLinkResult.addedSource
@@ -2777,6 +2792,7 @@ async function autoFixMetadata() {
     let unresolvedReferences = []
     let shortContentExpanded = false
     let referenceBlocksAdded = 0
+    let referenceBlocksRemoved = 0
     let ymyReplacements = 0
     let affiliateContextsAdded = 0
     let internalLinkAdded = false
@@ -2803,11 +2819,14 @@ async function autoFixMetadata() {
       personaHeadingsFixed = sanitised.personaHeadingsFixed || 0
 
       const referenceResult = await normalizeReferenceLinks(updates.body || post.body, post.title)
-      if (referenceResult.fixed > 0) {
+      if (referenceResult.fixed > 0 || referenceResult.removed > 0 || referenceResult.body !== (updates.body || post.body)) {
         updates.body = referenceResult.body
-        referencesFixed = referenceResult.fixed
-      } else if (referenceResult.body !== (updates.body || post.body)) {
-        updates.body = referenceResult.body
+        if (referenceResult.fixed > 0) {
+          referencesFixed = referenceResult.fixed
+        }
+        if (referenceResult.removed > 0) {
+          referenceBlocksRemoved = referenceResult.removed
+        }
       }
       unresolvedReferences = referenceResult.unresolved
 
@@ -3284,6 +3303,7 @@ async function sanitizeAllBodies(options = {}) {
   let totalReferencesFixed = 0
   let totalShortExpansions = 0
   let totalReferenceInsertions = 0
+  let totalReferenceRemovals = 0
   let totalYMYLReplacements = 0
   let totalAffiliateContextAdded = 0
   let totalAffiliateBlocksRemoved = 0
@@ -3316,6 +3336,7 @@ async function sanitizeAllBodies(options = {}) {
     let referencesFixedForPost = 0
     let expansionResult = { expanded: false }
     let referenceBlocksAdded = 0
+    let referenceBlocksRemoved = 0
     let ymyReplacements = 0
     let affiliateContextsAdded = 0
     let internalLinkAdded = false
@@ -3449,7 +3470,7 @@ async function sanitizeAllBodies(options = {}) {
 
       const hasReferenceBlockInBody = body.some(block => isReferenceBlock(block))
       if (forceLinkMaintenance || !hasReferenceBlockInBody) {
-        const sourceResult = addSourceLinksToArticle(body, post.title)
+        const sourceResult = await addSourceLinksToArticle(body, post.title)
         if (sourceResult && sourceResult.addedSource) {
           body = sourceResult.body
           referenceBlocksAdded += 1
@@ -3574,6 +3595,9 @@ async function sanitizeAllBodies(options = {}) {
     totalAffiliateBlocksRemoved += affiliateBlocksRemoved
     totalAffiliateContextAdded += affiliateContextsAdded
     totalAffiliateLinksNormalized += affiliateLinksNormalizedForPost
+    if (referenceBlocksRemoved > 0) {
+      totalReferenceRemovals += referenceBlocksRemoved
+    }
     if (medicalNoticeAdded) {
       totalMedicalNoticesAdded += 1
     }
@@ -3628,6 +3652,9 @@ async function sanitizeAllBodies(options = {}) {
     if (referenceBlocksAdded > 0) {
       console.log(`   出典リンクを追加: ${referenceBlocksAdded}件`)
     }
+    if (referenceBlocksRemoved > 0) {
+      console.log(`   無効な出典リンクを削除: ${referenceBlocksRemoved}件`)
+    }
     if (ymyReplacements > 0) {
       console.log(`   断定表現を柔らかく調整: ${ymyReplacements}箇所`)
     }
@@ -3673,7 +3700,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -3710,6 +3737,7 @@ async function sanitizeAllBodies(options = {}) {
     summaryHelpersRemoved: totalSummaryHelpersRemoved,
     referencesFixed: totalReferencesFixed,
     referencesInserted: totalReferenceInsertions,
+    referencesRemoved: totalReferenceRemovals,
     shortExpansions: totalShortExpansions,
     unresolvedReferences,
     affiliateCtasRemoved: totalAffiliateCtasRemoved,

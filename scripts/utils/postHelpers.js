@@ -1507,16 +1507,10 @@ function determineSectionInsertIndex(blocks, startIndex, endIndex, includeHeadin
  */
 const SOURCE_RULES = [
   {
-    name: '厚生労働省 令和5年度介護従事者処遇状況等調査',
-    url: 'https://www.mhlw.go.jp/toukei/list/176-1.html',
-    keywords: ['給与', '年収', '給料', '賃金', '収入', 'ボーナス', '基本給', '手当'],
+    name: '厚生労働省 統計情報・白書',
+    url: 'https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html',
+    keywords: ['給与', '年収', '給料', '賃金', '収入', 'ボーナス', '基本給', '手当', '統計'],
     minScore: 2
-  },
-  {
-    name: '厚生労働省 賃金構造基本統計調査',
-    url: 'https://www.mhlw.go.jp/toukei/list/chinginkouzou.html',
-    keywords: ['賃金構造', '賃金統計', '賃金実態', '基本統計'],
-    minScore: 1
   },
   {
     name: '総務省 労働力調査',
@@ -1525,24 +1519,50 @@ const SOURCE_RULES = [
     minScore: 1
   },
   {
-    name: '厚生労働省 介護員養成研修について',
-    url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000197235.html',
-    keywords: ['初任者研修', '実務者研修', '介護員養成', '資格取得', '研修費用', '学び直し'],
+    name: '厚生労働省 看護職員需給分科会',
+    url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html',
+    keywords: ['看護職員', '需給', '人材', '配置', '検討会', '業務範囲'],
     minScore: 1
   },
   {
-    name: '日本看護協会 看護補助者の業務範囲',
-    url: 'https://www.nurse.or.jp/home/statistics/index.html',
-    keywords: ['業務範囲', 'できること', 'できないこと', '役割', '看護協会', '仕事内容'],
-    minScore: 2
-  },
-  {
-    name: '厚生労働省 医療施設調査',
-    url: 'https://www.mhlw.go.jp/toukei/list/79-1.html',
-    keywords: ['病床', '医療施設', '病院数', '入院患者', '外来患者', 'ベッド数'],
+    name: '厚生労働省 介護人材対策まとめ',
+    url: 'https://www.mhlw.go.jp/stf/newpage_08272.html',
+    keywords: ['介護員', '養成', '研修', '資格取得', '研修費用', '学び直し'],
     minScore: 1
   }
 ]
+
+const SOURCE_URL_CACHE = new Map()
+
+async function isSourceUrlReachable(url) {
+  if (!url) return false
+  if (SOURCE_URL_CACHE.has(url)) {
+    return SOURCE_URL_CACHE.get(url)
+  }
+
+  const attempt = async method => {
+    try {
+      const controller = new AbortController()
+      const timeout = setTimeout(() => controller.abort(), 5000)
+      const response = await fetch(url, { method, redirect: 'follow', signal: controller.signal })
+      clearTimeout(timeout)
+      if (response.ok && response.status < 400) {
+        return true
+      }
+    } catch (error) {
+      return false
+    }
+    return false
+  }
+
+  let reachable = await attempt('HEAD')
+  if (!reachable) {
+    reachable = await attempt('GET')
+  }
+
+  SOURCE_URL_CACHE.set(url, reachable)
+  return reachable
+}
 
 const AFFILIATE_LINK_RULES = [
   {
@@ -1599,7 +1619,7 @@ function findBestSourceRule(text = '') {
   return null
 }
 
-function addSourceLinksToArticle(blocks, title) {
+async function addSourceLinksToArticle(blocks, title) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, addedSource: null }
   }
@@ -1619,6 +1639,11 @@ function addSourceLinksToArticle(blocks, title) {
   )
 
   if (alreadyHasSource) {
+    return { body: blocks, addedSource: null }
+  }
+
+  const reachable = await isSourceUrlReachable(selectedSource.url)
+  if (!reachable) {
     return { body: blocks, addedSource: null }
   }
 
@@ -1700,5 +1725,6 @@ module.exports = {
   addBodyToEmptyH3Sections,
   optimizeSummarySection,
   addAffiliateLinksToArticle,
-  addSourceLinksToArticle
+  addSourceLinksToArticle,
+  buildFallbackSummaryBlocks
 }
