@@ -40,11 +40,11 @@
 ```bash
 npm run dev
 ```
-ローカル開発サーバーを起動します（通常はhttp://localhost:3000）
+ローカル開発サーバーを起動します（http://localhost:3000）
 
 ### Sanity Studio起動
 ```bash
-npx sanity dev --port 3333
+npm run dev:sanity
 ```
 SanityのCMSスタジオを起動します（http://localhost:3333）
 
@@ -65,6 +65,14 @@ TypeScriptの型チェックを実行します
 npm run lint
 ```
 コードのリント（構文チェック）を実行します
+
+### カテゴリ・スキーマ同期
+```bash
+SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js sync-categories
+```
+- Sanity Studio のカテゴリ文書を正規ラベル（厚労省/JNA語彙）と説明に自動置換します
+- レガシー名称が表示されたり、新規環境にPullした直後は必ず実行してください
+- 書き込みトークン必須（`SANITY_WRITE_TOKEN`）。実行ログに差し替え結果が表示されます
 
 ## デプロイ
 
@@ -664,6 +672,36 @@ vercel --previewe
       - 404や無関係なリンクは自動的に除去され、常に省庁・専門団体・指定コラムのみを参照
       - 給与/退職/仕事内容などテーマ別に一貫した根拠ページを提示できるようになった
 
+34. 🗂️ **カテゴリ語彙の正規化とStudio同期コマンド導入** (2025-11-09)
+   - **背景**:
+     - Sanity Studio 上に旧「転職・キャリア」「給与・待遇」などのカテゴリ名が残り、スクリプト側の公的語彙（離職理由・賃金水準…）と不一致だった
+     - その結果、`selectBestCategory()` のスコアリングやリンク自動挿入が旧語彙に依存し、退職系/給与系の挙動が不安定だった
+   - **実装内容**:
+     - `scripts/utils/categoryMappings.js` を新設し、正規ラベル・キーワード・説明・参照スニペットを一元管理、`getNormalizedCategoryTitles()` を公開
+     - `scripts/utils/postHelpers.js` / `scripts/maintenance.js` に正規化ロジックを導入し、カテゴリ判定・内部リンク・アフィリエイト判定が公式語彙で動くようにした
+     - `maintenance.js` に `syncCategoryDefinitions()` を追加し、Studio内のカテゴリ文書を自動でリネーム＆説明差し替え
+     - CLIコマンド `node scripts/maintenance.js sync-categories` を追加し、Pull直後や環境復旧時に1コマンドで同期できるようにした
+     - 執筆ドキュメント（`ARTICLE_GUIDE.md` / `PROJECT_KNOWLEDGE_BASE.md`）を更新し、11カテゴリの正式名称と根拠URLを明示
+   - **効果**:
+     - すべてのスクリプトが「離職理由 / 賃金水準 / 就業移動（転職）…」といった公的語彙で統一され、出典リンクやアフィリエイト判定の精度が大幅に向上
+     - Studioで旧名称を見かけた場合も `sync-categories` ですぐに復旧できる運用フローが整備された
+     - 記事作成ガイドに正式カテゴリが掲載されたため、手動入稿時も迷わず同じ語彙を選べる
+
+35. 🔧 **ポート番号を明示的に設定（toyamablogとの競合解消）** (2025-11-09)
+   - **背景**: toyamablogとprorenataの両プロジェクトがデフォルトポート3000を競合し、意図しないプロジェクトが起動する問題が発生
+   - **実装内容**:
+     - prorenata: `package.json` に明示的なポート設定を追加
+       - `dev: next dev -p 3000`（Next.js開発サーバー）
+       - `dev:sanity: npx sanity dev --port 3333`（Sanity Studio）
+     - toyamablog: 同様に明示的なポート設定を追加
+       - `dev: next dev -p 4000`（Next.js開発サーバー）
+       - `dev:sanity: npx sanity dev --port 4444`（Sanity Studio）
+   - **効果**:
+     - 両プロジェクトのポート番号が明確に分離され、競合が完全に解消
+     - prorenata: http://localhost:3000 + http://localhost:3333
+     - toyamablog: http://localhost:4000 + http://localhost:4444
+     - プロジェクト切り替え時の混乱がなくなり、作業効率が向上
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
@@ -691,6 +729,13 @@ vercel --previewe
 - 一次資料リンクは有効性を確認できるURLのみ挿入する。取得できない場合は出典ブロックを作成しない
 - 使用可能な出典は「厚労省jobtag / JNAガイドライン / JNA離職レポート / NsPace Career / コメディカルドットコム / 看護助手ラボ / 介護サーチプラス」のみ。追加したい場合は事前に合意を取る
 - アフィリエイトリンクはAmazon/Rakutenを除き1記事2件まで。CTA文は`affiliateEmbed`枠内で完結させ、枠外にリンクを増やさない
+
+**🗂️ カテゴリ語彙と出典レイヤーの統一**
+- Studioのカテゴリは公的語彙で固定された11ラベル（離職理由 / 賃金水準 / 就業移動（転職）など）以外を追加・改名しない
+- 1記事につき最も関連性の高いカテゴリを1つだけ選択（複数指定禁止）。カテゴリはリンク挿入・出典選定のルールベースとして使用する
+- レガシー名称が表示された場合は `SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js sync-categories` を実行して正規ラベルと説明を同期
+- カテゴリ一覧と想定トピックは `ARTICLE_GUIDE.md` / `PROJECT_KNOWLEDGE_BASE.md` に記載。記事作成・メンテナンス時は必ず参照する
+- ユーザー指示なしでカテゴリを増やす・削除する・命名を変えることは禁止（SEO・出典ポリシーと直結するため）
 
 **🚨 Google Analytics & Search Console コード改変の完全禁止**
 - Google Analytics トラッキングコードの変更は絶対禁止
