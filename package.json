@@ -19,7 +19,8 @@
     "url": "https://github.com/sasayosh1/prorenata"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
+    "dev:sanity": "npx sanity dev --port 3333",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -39,6 +40,7 @@
     "npm": ">=9.6.7"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0",
     "@google/generative-ai": "^0.24.1",
     "@heroicons/react": "^2.2.0",
     "@portabletext/react": "^4.0.3",
