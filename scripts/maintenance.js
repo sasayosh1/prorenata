@@ -32,6 +32,13 @@ const {
   addSourceLinksToArticle,
   buildFallbackSummaryBlocks,
 } = require('./utils/postHelpers')
+const {
+  CATEGORY_DESCRIPTIONS,
+  CATEGORY_REFERENCE_SNIPPETS,
+  CANONICAL_CATEGORY_TITLES,
+  normalizeCategoryTitle,
+  getNormalizedCategoryTitles
+} = require('./utils/categoryMappings')
 const { MOSHIMO_LINKS, NON_LIMITED_AFFILIATE_KEYS } = require('./moshimo-affiliate-links')
 
 const client = createClient({
@@ -594,15 +601,19 @@ function isAffiliateRelevant(meta, combinedText, currentPost) {
   const slug = (typeof currentPost?.slug === 'string'
     ? currentPost.slug
     : currentPost?.slug?.current || '').toLowerCase()
-  const categoryNames = (currentPost?.categories || [])
+  const originalCategoryNames = (currentPost?.categories || [])
     .map(category => (typeof category === 'string' ? category : category?.title || ''))
     .join(' ')
     .toLowerCase()
+  const normalizedCategoryNames = getNormalizedCategoryTitles(currentPost?.categories || [])
+  const normalizedCategorySet = new Set(normalizedCategoryNames)
 
   if (meta.category === '退職代行') {
     const hasKeyword = /退職|離職|辞め|辞職|退社|退職代行/.test(text)
     const slugMatches = /retire|resign|quit/.test(slug)
-    const categoryMatches = /退職|辞め/.test(categoryNames)
+    const categoryMatches =
+      normalizedCategorySet.has('離職理由') ||
+      /退職|辞め/.test(originalCategoryNames)
     if (!slugMatches && !categoryMatches) {
       return false
     }
@@ -612,7 +623,9 @@ function isAffiliateRelevant(meta, combinedText, currentPost) {
   if (meta.category === '就職・転職') {
     const hasKeyword = /転職|求人|就職|応募|面接|志望動機|キャリア|採用/.test(text)
     const slugMatches = /career|job|転職/.test(slug)
-    const categoryMatches = /転職|求人/.test(categoryNames)
+    const categoryMatches =
+      normalizedCategorySet.has('就業移動（転職）') ||
+      /転職|求人/.test(originalCategoryNames)
     if (!slugMatches && !categoryMatches) {
       return false
     }
@@ -622,7 +635,11 @@ function isAffiliateRelevant(meta, combinedText, currentPost) {
   if (meta.category === 'アイテム') {
     const hasKeyword = /グッズ|ユニフォーム|靴|シューズ|持ち物|アイテム|道具|備品/.test(text)
     const slugMatches = /goods|item|uniform/.test(slug)
-    const categoryMatches = /持ち物|アイテム|グッズ/.test(categoryNames)
+    const categoryMatches =
+      normalizedCategoryNames.some(name =>
+        name === '日常業務プロトコル' || name === '業務範囲（療養生活上の世話）'
+      ) ||
+      /持ち物|アイテム|グッズ/.test(originalCategoryNames)
     if (!slugMatches && !categoryMatches) {
       return false
     }
@@ -1226,11 +1243,7 @@ function selectInternalLinkTarget(currentPost, catalog) {
     : currentPost.slug?.current
   const normalizedSlug = (currentSlug || '').replace(/^\/posts\//, '')
   const currentSegments = new Set(extractSlugSegments(normalizedSlug))
-  const currentCategories = new Set(
-    (currentPost.categories || [])
-      .map(cat => (typeof cat === 'string' ? cat : cat?.title))
-      .filter(Boolean)
-  )
+  const currentCategories = new Set(getNormalizedCategoryTitles(currentPost.categories || []))
   const currentTitle = (currentPost.title || '').toLowerCase()
 
   let best = null
@@ -1376,7 +1389,7 @@ async function fetchInternalLinkCatalog() {
     .map(post => ({
       slug: post.slug,
       title: post.title || '',
-      categories: (post.categories || []).map(cat => cat?.title).filter(Boolean),
+      categories: getNormalizedCategoryTitles(post.categories || []),
       slugSegments: extractSlugSegments(post.slug),
       titleKeywords: extractTitleKeywords(post.title),
       recency: post._updatedAt ? new Date(post._updatedAt).getTime() : 0
@@ -2078,24 +2091,86 @@ function expandShortContent(blocks, title) {
 
 async function getCategoryResources() {
   try {
-    const categories = await client.fetch(`*[_type == "category"] { _id, title }`)
+    let categories = await client.fetch(`*[_type == "category"] { _id, title, description }`)
+    categories = await syncCategoryDefinitions(categories)
     const map = new Map()
 
     categories.forEach(category => {
       if (category?._id && category?.title) {
-        map.set(category.title, category._id)
+        const normalized = normalizeCategoryTitle(category.title)
+        map.set(normalized, category._id)
       }
     })
+
+    const fallbackTitle = '業務範囲（療養生活上の世話）'
+    const fallback =
+      categories.find(category => normalizeCategoryTitle(category.title) === fallbackTitle) ||
+      categories[0] ||
+      null
 
     return {
       categories,
       map,
-      fallback: categories[0] || null,
+      fallback,
     }
   } catch (error) {
     console.error('❌ カテゴリ取得エラー:', error.message)
     return { categories: [], map: new Map(), fallback: null }
   }
+}
+
+async function syncCategoryDefinitions(categories = []) {
+  if (!Array.isArray(categories) || categories.length === 0) {
+    return []
+  }
+
+  const synced = []
+  const seenTitles = new Set()
+
+  for (const category of categories) {
+    if (!category?._id) {
+      continue
+    }
+
+    const canonicalTitle = normalizeCategoryTitle(category.title || '') || (category.title || '')
+    const desiredDescription = CATEGORY_DESCRIPTIONS[canonicalTitle] || category.description || ''
+
+    const patch = {}
+    if (canonicalTitle && canonicalTitle !== category.title) {
+      patch.title = canonicalTitle
+    }
+    if (desiredDescription && desiredDescription !== (category.description || '')) {
+      patch.description = desiredDescription
+    }
+
+    if (Object.keys(patch).length > 0) {
+      console.log(`  ✏️  カテゴリ同期: ${category.title || '(untitled)'} → ${patch.title || canonicalTitle}`)
+      await client.patch(category._id).set(patch).commit()
+      synced.push({
+        ...category,
+        ...patch,
+        title: patch.title || canonicalTitle,
+        description: patch.description || desiredDescription
+      })
+    } else {
+      synced.push({
+        ...category,
+        title: canonicalTitle,
+        description: desiredDescription
+      })
+    }
+
+    if (canonicalTitle) {
+      seenTitles.add(canonicalTitle)
+    }
+  }
+
+  const missing = CANONICAL_CATEGORY_TITLES.filter(title => !seenTitles.has(title))
+  if (missing.length > 0) {
+    console.warn(`  ⚠️  Sanityに存在しないカテゴリ: ${missing.join(', ')}`)
+  }
+
+  return synced
 }
 
 function sanitiseSlugValue(slug) {
@@ -2564,7 +2639,7 @@ async function autoFixMetadata() {
   const geminiApiKey = enableGemini ? process.env.GEMINI_API_KEY : null
   if (geminiApiKey) {
     const genAI = new GoogleGenerativeAI(geminiApiKey)
-    geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' })
+    geminiModel = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite-001' })
     console.log('✅ Gemini API使用可能（H3セクション・まとめ最適化）')
   } else if (enableGemini) {
     console.log('⚠️  MAINTENANCE_ENABLE_GEMINI=1ですが GEMINI_API_KEY が未設定です（簡易版を使用）')
@@ -2918,15 +2993,25 @@ async function autoFixMetadata() {
       updates.tags = generatedTags
     }
 
-    const categoriesForMeta = (updates.categories || categoryRefs || currentCategories || [])
+    let categoriesForMeta = (updates.categories || categoryRefs || [])
       .map(ref => {
         if (ref?._ref) {
           const match = categories.find(category => category._id === ref._ref)
-          return match?.title
+          return match ? normalizeCategoryTitle(match.title) : null
         }
-        return ref?.title
+        if (typeof ref === 'string') {
+          return normalizeCategoryTitle(ref)
+        }
+        if (ref?.title) {
+          return normalizeCategoryTitle(ref.title)
+        }
+        return null
       })
       .filter(Boolean)
+
+    if (categoriesForMeta.length === 0 && currentCategories.length > 0) {
+      categoriesForMeta = getNormalizedCategoryTitles(currentCategories)
+    }
 
     // Meta Description は plainText から直接生成（excerpt とは別）
     // 100-180文字を目安（ユーザビリティやSEO優先）
@@ -3182,7 +3267,7 @@ async function sanitizeAllBodies(options = {}) {
     const geminiApiKey = process.env.GEMINI_API_KEY
     if (geminiApiKey) {
       const genAI = new GoogleGenerativeAI(geminiApiKey)
-      geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' })
+      geminiModel = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite-001' })
     } else {
       console.log('⚠️  MAINTENANCE_ENABLE_GEMINI=1 ですが GEMINI_API_KEY が未設定です（簡易版を使用します）')
     }
@@ -5007,6 +5092,13 @@ if (require.main === module) {
       }
       break
 
+    case 'sync-categories':
+      (async () => {
+        const { categories } = await getCategoryResources()
+        console.log(`✅ カテゴリ定義を同期しました (${categories.length}件)`)
+      })().catch(console.error)
+      break
+
     default:
       console.log(`
 📝 ProReNata 記事メンテナンスツール
@@ -5055,6 +5147,7 @@ if (require.main === module) {
   recategorize        全記事のカテゴリを再評価して最適なカテゴリに変更
                       - タイトル・本文から最適なカテゴリを自動選択
                       - 現在のカテゴリと異なる場合のみ更新
+  sync-categories     Sanity Studioのカテゴリ文書を正規ラベルと説明に同期
   sanitize [--slugs=slug1,slug2] [--top-views=10] [--cooldown=30] [--force-links]
                       本文を自動整備（関連記事・重複段落・内部リンク最適化など）
                       - --slugs       : 対象スラッグをカンマ区切りで指定

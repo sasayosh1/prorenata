@@ -7,6 +7,11 @@
  * - 不要な挨拶文削除
  */
 
+const {
+  CATEGORY_KEYWORDS,
+  normalizeCategoryTitle
+} = require('./categoryMappings')
+
 /**
  * 記事冒頭の不要な挨拶文を削除
  *
@@ -468,34 +473,22 @@ function selectBestCategory(title, plainText, allCategories) {
     return null
   }
 
-  const text = (title + ' ' + plainText.substring(0, 500)).toLowerCase()
-
-  // カテゴリごとのキーワードマッピング（2025-10 カテゴリ再編後）
-  const categoryKeywords = {
-    転職: ['転職', '就職', '応募', '履歴書', '面接', '求人', '派遣', '志望動機', '内定', 'エージェント', '職務経歴書'],
-    退職: ['退職', '辞め', '辞める', '離職', '円満', '退社', '退職代行', '退職届', '退職願', '有給', '引き継ぎ'],
-    給与: ['給料', '給与', '年収', '月給', '時給', '賞与', 'ボーナス', '手当', '待遇', '収入', '賃金', '昇給'],
-    仕事内容: ['仕事内容', '業務内容', '役割', '職務', '1日', 'スケジュール', 'できる', 'できない', '種類', '働き方', 'とは'],
-    実務: ['実務', '現場', 'ノウハウ', '介助', '体位変換', '清拭', '排泄', '口腔ケア', '物品', 'シーツ', '記録', 'バイタル', '環境整備', '準備', '手順'],
-    資格: ['資格', '取得', '受験', '勉強', '講座', '研修', '検定', '合格', '通信', '模試', '学習'],
-    看護師: ['看護師', '准看', '正看', '看護学校', '看護大学', '看護学科', '看護師国家試験', '看護学生'],
-    患者対応: ['患者', '患者さん', '接遇', '声かけ', '案内', '安心', '不安', 'コミュニケーション', '気持ち', '寄り添う', '傾聴'],
-    悩み: ['悩み', '相談', 'ストレス', '不安', '心配', '精神的', '負担', 'メンタル', 'つらい', '疲れ', '落ち込む'],
-    人間関係: ['人間関係', '上司', '先輩', '同僚', 'スタッフ', 'チーム', '人付き合い', '関係性', 'トラブル', '雰囲気'],
-    感染対策: ['感染', '衛生', '消毒', 'マスク', '防護', '予防', '清潔', '手洗い', '除菌', 'コロナ', 'インフル', '防護具', '感染症']
-  }
+  const lowerTitle = title.toLowerCase()
+  const lowerBody = plainText.substring(0, 500).toLowerCase()
 
   // 各カテゴリのスコアを計算
   const scores = allCategories.map(category => {
-    const keywords = categoryKeywords[category.title] || []
+    const normalizedTitle = normalizeCategoryTitle(category.title)
+    const keywords = CATEGORY_KEYWORDS[normalizedTitle] || []
     let score = 0
 
     // タイトルでのマッチは2倍のスコア
     keywords.forEach(keyword => {
-      if (title.toLowerCase().includes(keyword)) {
+      const loweredKeyword = keyword.toLowerCase()
+      if (lowerTitle.includes(loweredKeyword)) {
         score += 2
       }
-      if (plainText.substring(0, 500).toLowerCase().includes(keyword)) {
+      if (lowerBody.includes(loweredKeyword)) {
         score += 1
       }
     })
@@ -512,7 +505,8 @@ function selectBestCategory(title, plainText, allCategories) {
   }
 
   // マッチするものがない場合は汎用カテゴリ「仕事内容」を返す
-  return allCategories.find(cat => cat.title === '仕事内容') || allCategories[0]
+  const fallback = allCategories.find(cat => normalizeCategoryTitle(cat.title) === '業務範囲（療養生活上の世話）')
+  return fallback || allCategories[0]
 }
 
 /**
