@@ -32,7 +32,7 @@ const {
   addSourceLinksToArticle,
   buildFallbackSummaryBlocks,
 } = require('./utils/postHelpers')
-const { MOSHIMO_LINKS } = require('./moshimo-affiliate-links')
+const { MOSHIMO_LINKS, NON_LIMITED_AFFILIATE_KEYS } = require('./moshimo-affiliate-links')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -312,7 +312,13 @@ function analyseLinkBlock(block) {
 }
 
 function hasAffiliateLink(block) {
-  if (!block || block._type !== 'block' || !Array.isArray(block.markDefs)) {
+  if (!block) {
+    return false
+  }
+  if (block._type === 'affiliateEmbed' && typeof block.linkKey === 'string') {
+    return true
+  }
+  if (block._type !== 'block' || !Array.isArray(block.markDefs)) {
     return false
   }
   return block.markDefs.some(def => {
@@ -522,7 +528,17 @@ function normalizeAffiliateUrl(url) {
 }
 
 function getAffiliateMetaFromBlock(block) {
-  if (!block || !Array.isArray(block.markDefs)) return null
+  if (!block) return null
+
+  if (block._type === 'affiliateEmbed' && typeof block.linkKey === 'string') {
+    const link = MOSHIMO_LINKS[block.linkKey]
+    if (link && link.active) {
+      return { key: block.linkKey, ...link }
+    }
+    return null
+  }
+
+  if (!Array.isArray(block.markDefs)) return null
 
   for (const def of block.markDefs) {
     if (!def || def._type !== 'link' || typeof def.href !== 'string') continue
@@ -616,60 +632,8 @@ function isAffiliateRelevant(meta, combinedText, currentPost) {
   return true
 }
 
-function ensureAffiliateContextBlocks(blocks, currentPost) {
-  if (!Array.isArray(blocks) || blocks.length === 0) {
-    return { body: blocks, added: 0 }
-  }
-
-  const articlePlainText = blocksToPlainText(blocks)
-  const combinedText = `${currentPost?.title || ''} ${articlePlainText}`.toLowerCase()
-  const result = []
-  let added = 0
-
-  for (let i = 0; i < blocks.length; i += 1) {
-    const block = blocks[i]
-
-    if (block?._key?.startsWith('affiliate-context-')) {
-      const nextBlock = blocks[i + 1]
-      const nextMeta = hasAffiliateLink(nextBlock) ? getAffiliateMetaFromBlock(nextBlock) : null
-      if (!nextMeta || !isAffiliateRelevant(nextMeta, combinedText, currentPost)) {
-        continue
-      }
-    }
-
-    if (hasAffiliateLink(block)) {
-      const meta = getAffiliateMetaFromBlock(block)
-      if (!isAffiliateRelevant(meta, combinedText, currentPost)) {
-        continue
-      }
-      const previousBlock = result[result.length - 1]
-      let needsContext = true
-
-      if (previousBlock && !hasAffiliateLink(previousBlock)) {
-        const prevText = extractBlockText(previousBlock)
-        if (
-          prevText.length >= 40 ||
-          (meta &&
-            (prevText.includes(meta.appealText.replace(/：\s*$/, '').trim()) ||
-             prevText.includes(meta.name)))
-        ) {
-          needsContext = false
-        }
-      }
-
-      if (needsContext && meta) {
-        const contextBlock = createAffiliateContextBlock(meta)
-        if (contextBlock) {
-          result.push(contextBlock)
-          added += 1
-        }
-      }
-    }
-
-    result.push(block)
-  }
-
-  return { body: result, added }
+function ensureAffiliateContextBlocks(blocks) {
+  return { body: blocks, added: 0 }
 }
 
 function removeIrrelevantAffiliateBlocks(blocks, currentPost) {
@@ -681,20 +645,44 @@ function removeIrrelevantAffiliateBlocks(blocks, currentPost) {
   const combinedText = `${currentPost?.title || ''} ${articlePlainText}`.toLowerCase()
   const filtered = []
   let removed = 0
+  const seenKeys = new Set()
+  let serviceCount = 0
+  const SERVICE_LIMIT = 2
 
   for (let i = 0; i < blocks.length; i += 1) {
     const block = blocks[i]
+
+    if (block?._key?.startsWith('affiliate-context-')) {
+      const nextBlock = blocks[i + 1]
+      if (nextBlock && nextBlock._type === 'affiliateEmbed') {
+        removed += 1
+        continue
+      }
+    }
 
     if (hasAffiliateLink(block)) {
       const meta = getAffiliateMetaFromBlock(block)
       if (!isAffiliateRelevant(meta, combinedText, currentPost)) {
         removed += 1
 
-        const last = filtered[filtered.length - 1]
-        if (last && last._key && last._key.startsWith('affiliate-context-')) {
-          filtered.pop()
-        }
         continue
+      }
+
+      const key = meta?.key
+      const isNonLimited = key ? NON_LIMITED_AFFILIATE_KEYS.has(key) : false
+      if (key) {
+        if (seenKeys.has(key)) {
+          removed += 1
+          continue
+        }
+        if (!isNonLimited) {
+          if (serviceCount >= SERVICE_LIMIT) {
+            removed += 1
+            continue
+          }
+          serviceCount += 1
+        }
+        seenKeys.add(key)
       }
     }
 

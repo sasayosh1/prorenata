@@ -1335,7 +1335,12 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
     return { body: blocks, addedLinks: 0 }
   }
 
-  const { suggestLinksForArticle, createMoshimoLinkBlocks } = require('../moshimo-affiliate-links')
+  const {
+    suggestLinksForArticle,
+    createMoshimoLinkBlocks,
+    NON_LIMITED_AFFILIATE_KEYS
+  } = require('../moshimo-affiliate-links')
+  const SERVICE_AFFILIATE_LIMIT = 2
   const bodyText = blocksToPlainText(blocks)
   const suggestions = suggestLinksForArticle(title, bodyText)
 
@@ -1359,36 +1364,47 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
       .map(block => block.linkKey)
   )
 
+  const existingServiceCount = blocks.filter(
+    block => block?._type === 'affiliateEmbed' &&
+      typeof block.linkKey === 'string' &&
+      !NON_LIMITED_AFFILIATE_KEYS.has(block.linkKey)
+  ).length
+  let remainingServiceSlots = Math.max(0, SERVICE_AFFILIATE_LIMIT - existingServiceCount)
+
   const preferredKeys = resolvePreferredAffiliateKeys(currentPost, combinedText)
   const prioritizedSuggestions = suggestions.filter(link =>
     isAffiliateSuggestionRelevant(link, combinedText, slug, categoryNames)
   )
 
   const selectedLinks = []
-  prioritizedSuggestions.forEach(link => {
-    if (selectedLinks.length >= 2) return
-    if (existingAffiliateKeys.has(link.key)) return
+  const trySelect = link => {
+    if (existingAffiliateKeys.has(link.key)) {
+      return
+    }
     if (preferredKeys.length > 0 && !preferredKeys.includes(link.key)) {
       return
     }
-    selectedLinks.push(link)
-  })
+    const isNonLimited = NON_LIMITED_AFFILIATE_KEYS.has(link.key)
+    if (!isNonLimited && remainingServiceSlots <= 0) {
+      return
+    }
+    selectedLinks.push({ link, isNonLimited })
+    if (!isNonLimited) {
+      remainingServiceSlots -= 1
+    }
+  }
 
-  if (preferredKeys.length === 0 || selectedLinks.length < 2) {
-    prioritizedSuggestions.forEach(link => {
-      if (selectedLinks.length >= 2) return
-      if (existingAffiliateKeys.has(link.key)) return
-      if (!selectedLinks.includes(link)) {
-        selectedLinks.push(link)
-      }
-    })
+  prioritizedSuggestions.forEach(trySelect)
+
+  if (preferredKeys.length === 0 && selectedLinks.length === 0 && remainingServiceSlots > 0) {
+    prioritizedSuggestions.forEach(trySelect)
   }
 
   const resultBlocks = [...blocks]
   let addedLinks = 0
   const insertionFallbackIndex = findSummaryInsertIndex(resultBlocks)
 
-  selectedLinks.slice(0, 2).forEach(link => {
+  selectedLinks.forEach(({ link }) => {
     const linkBlocks = createMoshimoLinkBlocks(link.key)
     if (!linkBlocks || linkBlocks.length === 0) {
       return
@@ -1575,7 +1591,7 @@ const AFFILIATE_LINK_RULES = [
     textKeywords: ['退職', '離職', '辞め', '辞職', '退社', '退職代行'],
     slugKeywords: ['resign', 'retire', 'quit'],
     categoryKeywords: ['退職'],
-    linkKeys: ['miyabi', 'sokuyame', 'shiodome']
+    linkKeys: ['miyabi', 'sokuyame']
   },
   {
     textKeywords: ['持ち物', '道具', 'アイテム', 'グッズ', 'ナースシューズ', 'ユニフォーム', 'カバン', 'ケア用品'],
@@ -1596,7 +1612,6 @@ const AFFILIATE_LINK_KEYWORDS = {
   kaigobatake: ['転職', '求人', '介護職', '資格', '未経験'],
   miyabi: ['退職', '離職', '辞める', '退社', '退職代行'],
   sokuyame: ['退職', '即日', '今すぐ', '退職代行'],
-  shiodome: ['退職', '弁護士', '退職手続き'],
   amazon: ['持ち物', 'グッズ', '道具', '用品', 'アイテム', 'バッグ', 'ケア製品'],
   rakuten: ['持ち物', 'グッズ', '道具', 'アイテム', 'ショッピング'],
   nursery: ['ユニフォーム', '制服', 'スクラブ', 'シューズ']

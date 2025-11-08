@@ -116,21 +116,10 @@ const MOSHIMO_LINKS = {
     condition: 'webからの退職代行サービスの依頼'
   },
 
-  shiodome: {
-    name: '弁護士法人汐留パートナーズ',
-    description: '弁護士による退職代行サービス',
-    category: '退職代行',
-    targetArticles: ['退職', '辞めたい', '退職理由', '退職代行'],
-    html: '<a href="https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>弁護士法人汐留パートナーズの退職代行サービス</a>',
-    appealText: '⚖️ 退職でお悩みの方へ',
-    linkText: '弁護士による退職代行サービス【汐留パートナーズ】',
-    url: 'https://www.tcs-asp.net/alink?AC=C110444&LC=SDP1&SQ=5&isq=100',
-    active: true,
-    addedDate: '2025-10-30',
-    reward: '要確認',
-    condition: 'WEB申込み完了'
-  }
+  // 注意: 退職代行カテゴリは現在 miyabi / sokuyame の2案件のみ有効
 }
+
+const NON_LIMITED_AFFILIATE_KEYS = new Set(['amazon', 'rakuten'])
 
 // カテゴリ別にリンクを取得
 function getLinksByCategory(category) {
@@ -164,42 +153,34 @@ function suggestLinksForArticle(articleTitle, articleBody = '') {
 }
 
 // Portable Text形式のリンクブロック + 埋め込みブロックを生成
+function escapeHtml(text = '') {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function wrapAffiliateHtml(link) {
+  const appeal = escapeHtml(link.appealText || '')
+  const note = escapeHtml(link.description || '')
+  return `
+<div class="affiliate-card">
+  ${appeal ? `<p class="affiliate-card__lead">${appeal}</p>` : ''}
+  <div class="affiliate-card__body">
+    ${link.html}
+  </div>
+  ${note ? `<p class="affiliate-card__note">${note}</p>` : ''}
+</div>
+`.trim()
+}
+
 function createMoshimoLinkBlocks(linkKey) {
   const link = MOSHIMO_LINKS[linkKey]
   if (!link || !link.active) return null
 
-  const blockKey = 'block-' + Math.random().toString(36).substr(2, 9)
-  const spanKey1 = 'span-' + Math.random().toString(36).substr(2, 9)
-  const spanKey2 = 'span-' + Math.random().toString(36).substr(2, 9)
-  const linkMarkKey = 'link-' + Math.random().toString(36).substr(2, 9)
   const embedKey = 'affiliate-' + Math.random().toString(36).substr(2, 9)
-
-  const ctaBlock = {
-    _type: 'block',
-    _key: blockKey,
-    style: 'normal',
-    markDefs: [
-      {
-        _key: linkMarkKey,
-        _type: 'link',
-        href: link.url
-      }
-    ],
-    children: [
-      {
-        _type: 'span',
-        _key: spanKey1,
-        text: link.appealText + '： ',
-        marks: []
-      },
-      {
-        _type: 'span',
-        _key: spanKey2,
-        text: link.linkText,
-        marks: [linkMarkKey]
-      }
-    ]
-  }
 
   const embedBlock = {
     _type: 'affiliateEmbed',
@@ -207,14 +188,15 @@ function createMoshimoLinkBlocks(linkKey) {
     provider: link.name,
     linkKey,
     label: link.linkText,
-    html: link.html
+    html: wrapAffiliateHtml(link)
   }
 
-  return [ctaBlock, embedBlock]
+  return [embedBlock]
 }
 
 module.exports = {
   MOSHIMO_LINKS,
+  NON_LIMITED_AFFILIATE_KEYS,
   getLinksByCategory,
   suggestLinksForArticle,
   createMoshimoLinkBlocks
