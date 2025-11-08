@@ -645,14 +645,24 @@ vercel --previewe
       - `SOURCE_RULES` と `REFERENCE_MAPPINGS` を到達確認済みのURLに刷新
 
 32. 💼 **アフィリエイト枠は最大2件（Amazon/Rakuten除く）＋枠内CTAに統一** (2025-11-08)
-    - **背景**: 退職代行記事でCTA段落＋Embedが何度も重複し、さらに扱っていない案件（汐留パートナーズ）が差し込まれていた
+   - **背景**: 退職代行記事でCTA段落＋Embedが何度も重複し、さらに扱っていない案件（汐留パートナーズ）が差し込まれていた
+   - **実装内容**:
+     - `scripts/moshimo-affiliate-links.js` から `shiodome` 案件を削除し、Embed HTML にCTA/説明文を含めた枠デザインを生成
+     - `addAffiliateLinksToArticle()` と `removeIrrelevantAffiliateBlocks()` で「Amazon/Rakuten以外は1記事2件まで」「同じリンクKeyは1回のみ」ルールを強制
+     - `ensureAffiliateContextBlocks()` をノーオペ化し、枠外CTAや重複テキストを自動除去
+   - **効果**:
+     - 退職代行記事でも `弁護士法人みやび` / `退職代行 即ヤメ` の2件に揃い、CTA文は全て枠内に表示
+     - 決まった案件のみ挿入されるため、ユーザーの指示と一致しない提携先が紛れ込むリスクを防止
+
+33. 📚 **一次資料のホワイトリスト化とリンク検証** (2025-11-08)
+    - **背景**: 自動で挿入された出典リンクが404だったり関連性が乏しく、SEO観点で逆効果になっていた
     - **実装内容**:
-      - `scripts/moshimo-affiliate-links.js` から `shiodome` 案件を削除し、Embed HTML にCTA/説明文を含めた枠デザインを生成
-      - `addAffiliateLinksToArticle()` と `removeIrrelevantAffiliateBlocks()` で「Amazon/Rakuten以外は1記事2件まで」「同じリンクKeyは1回のみ」ルールを強制
-      - `ensureAffiliateContextBlocks()` をノーオペ化し、枠外CTAや重複テキストを自動除去
+      - `SOURCE_RULES`/`REFERENCE_MAPPINGS` を厚労省jobtag・JNAガイドライン・NsPace Careerなどユーザー指定URLだけに限定し、HEAD/GETが200のときのみ採用
+      - `addSourceLinksToArticle()` にタイトル/本文/カテゴリ/スラッグを渡してスコアリングし、トピックに最適な出典を1件に絞って挿入
+      - `normalizeReferenceLinks()` が解決できなかった出典ブロックは削除し、ログに `出典削除` を記録
     - **効果**:
-      - 退職代行記事でも `弁護士法人みやび` / `退職代行 即ヤメ` の2件に揃い、CTA文は全て枠内に表示
-      - 決まった案件のみ挿入されるため、ユーザーの指示と一致しない提携先が紛れ込むリスクを防止
+      - 404や無関係なリンクは自動的に除去され、常に省庁・専門団体・指定コラムのみを参照
+      - 給与/退職/仕事内容などテーマ別に一貫した根拠ページを提示できるようになった
 
 ## ⚠️ 重要なルール
 
@@ -679,6 +689,7 @@ vercel --previewe
 - 一人称は本文でも見出しでも常に「わたし」を使用し、キャラ紹介は本文中で最小限に
 - キャラクター性は本文で柔らかく出す。見出し・メタ情報・タイトルでは内輪感を避ける
 - 一次資料リンクは有効性を確認できるURLのみ挿入する。取得できない場合は出典ブロックを作成しない
+- 使用可能な出典は「厚労省jobtag / JNAガイドライン / JNA離職レポート / NsPace Career / コメディカルドットコム / 看護助手ラボ / 介護サーチプラス」のみ。追加したい場合は事前に合意を取る
 - アフィリエイトリンクはAmazon/Rakutenを除き1記事2件まで。CTA文は`affiliateEmbed`枠内で完結させ、枠外にリンクを増やさない
 
 **🚨 Google Analytics & Search Console コード改変の完全禁止**

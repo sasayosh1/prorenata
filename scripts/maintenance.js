@@ -95,44 +95,44 @@ const CTA_TEXT_PATTERNS = [
 
 const REFERENCE_MAPPINGS = [
   {
-    keywords: ['厚生労働省', '統計', '介護', '処遇', '賃金'],
-    url: 'https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html',
-    label: '厚生労働省 統計情報・白書'
+    keywords: ['職業情報提供サイト', 'job tag', '仕事内容', 'タスク'],
+    url: 'https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com',
+    label: '厚生労働省 職業情報提供サイト（看護助手）'
   },
   {
-    keywords: ['厚生労働省', '賃金構造基本統計調査'],
-    url: 'https://www.mhlw.go.jp/toukei/list/chinginkouzou.html',
-    label: '厚生労働省 賃金構造基本統計調査'
+    keywords: ['看護チーム', 'ガイドライン', '連携', '看護補助者活用'],
+    url: 'https://www.nurse.or.jp/nursing/kango_seido/guideline/index.html?utm_source=chatgpt.com',
+    label: '日本看護協会 看護チームにおける看護補助者活用ガイドライン'
   },
   {
-    keywords: ['厚生労働省', '医療施設調査'],
-    url: 'https://www.mhlw.go.jp/toukei/list/79-1.html',
-    label: '厚生労働省 医療施設調査'
+    keywords: ['看護サービス', '療養生活', 'ケア', '患者'],
+    url: 'https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com',
+    label: '日本看護協会 看護サービス提供体制のあり方'
   },
   {
-    keywords: ['看護職員', '需給', '人材', '配置', '検討会'],
-    url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html',
-    label: '厚生労働省 看護職員需給分科会'
+    keywords: ['離職', '退職', '離職率', '処遇', '賃金'],
+    url: 'https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com',
+    label: '日本看護協会 看護補助者の離職状況レポート'
   },
   {
-    keywords: ['介護員', '養成', '研修', '資格'],
-    url: 'https://www.mhlw.go.jp/stf/newpage_08272.html',
-    label: '厚生労働省 介護人材対策まとめ'
+    keywords: ['転職', '年収', 'キャリア', 'NsPace'],
+    url: 'https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com',
+    label: 'NsPace Career 看護助手の転職・年収コラム'
   },
   {
-    keywords: ['総務省', '労働力調査'],
-    url: 'https://www.stat.go.jp/data/roudou/',
-    label: '総務省 統計局 労働力調査'
+    keywords: ['給料', '年収', 'コメディカル'],
+    url: 'https://www.co-medical.com/knowledge/article112/?utm_source=chatgpt.com',
+    label: 'コメディカルドットコム 看護助手の給料解説'
   },
   {
-    keywords: ['労働政策研究', '研修機構'],
-    url: 'https://www.jil.go.jp/',
-    label: '労働政策研究・研修機構 調査データ'
+    keywords: ['やめたほうがいい', '悩み', '看護助手ラボ'],
+    url: 'https://nurse-aide-lab.jp/career/yametahougaii/?utm_source=chatgpt.com',
+    label: '看護助手ラボ 悩みとキャリアの記事'
   },
   {
-    keywords: ['東京都', '産業労働局', '医療事務', '賃金実態調査'],
-    url: 'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2023/03/15/13.html',
-    label: '東京都産業労働局 医療現場賃金実態調査'
+    keywords: ['仕事内容', '解説', '介護サーチプラス'],
+    url: 'https://kaigosearch-plus.jp/columns/nursing-assistant-job-overview?utm_source=chatgpt.com',
+    label: '介護サーチプラス 看護助手の仕事内容コラム'
   }
 ]
 
@@ -2725,7 +2725,7 @@ async function autoFixMetadata() {
       ? (updates.body || post.body).some(block => isReferenceBlock(block))
       : false
     if (forceLinkMaintenance || !hasReferenceBlock) {
-      const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title)
+      const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title, post)
       if (sourceLinkResult && sourceLinkResult.addedSource) {
         updates.body = sourceLinkResult.body
         sourceLinkDetails = sourceLinkResult.addedSource
@@ -2750,7 +2750,7 @@ async function autoFixMetadata() {
     // 出典リンクの自動追加（YMYL対策）
     let sourceLinkDetails = null
     if (post.body && Array.isArray(post.body)) {
-      const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title)
+      const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title, post)
       if (sourceLinkResult && sourceLinkResult.addedSource) {
         updates.body = sourceLinkResult.body
         sourceLinkDetails = sourceLinkResult.addedSource
@@ -3458,7 +3458,7 @@ async function sanitizeAllBodies(options = {}) {
 
       const hasReferenceBlockInBody = body.some(block => isReferenceBlock(block))
       if (forceLinkMaintenance || !hasReferenceBlockInBody) {
-        const sourceResult = await addSourceLinksToArticle(body, post.title)
+        const sourceResult = await addSourceLinksToArticle(body, post.title, post)
         if (sourceResult && sourceResult.addedSource) {
           body = sourceResult.body
           referenceBlocksAdded += 1

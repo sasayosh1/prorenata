@@ -1523,28 +1523,55 @@ function determineSectionInsertIndex(blocks, startIndex, endIndex, includeHeadin
  */
 const SOURCE_RULES = [
   {
-    name: '厚生労働省 統計情報・白書',
-    url: 'https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html',
-    keywords: ['給与', '年収', '給料', '賃金', '収入', 'ボーナス', '基本給', '手当', '統計'],
-    minScore: 2
+    name: '厚生労働省 職業情報提供サイト（看護助手）',
+    url: 'https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com',
+    textKeywords: ['仕事内容', '業務', 'タスク', '役割', 'job tag', '患者対応', 'ケア', '仕事とは'],
+    slugKeywords: ['job', 'role', 'overview', 'detail'],
+    categoryKeywords: ['仕事内容', '患者対応', '実務', '看護師']
   },
   {
-    name: '総務省 労働力調査',
-    url: 'https://www.stat.go.jp/data/roudou/',
-    keywords: ['離職', '退職', '辞める', '人手不足', '労働力', '求人倍率', '転職活動'],
-    minScore: 1
+    name: '日本看護協会 看護チームにおける看護補助者活用ガイドライン',
+    url: 'https://www.nurse.or.jp/nursing/kango_seido/guideline/index.html?utm_source=chatgpt.com',
+    textKeywords: ['ガイドライン', '看護チーム', '連携', '役割分担', '資格', '人間関係'],
+    categoryKeywords: ['資格', '人間関係', '実務', '患者対応']
   },
   {
-    name: '厚生労働省 看護職員需給分科会',
-    url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html',
-    keywords: ['看護職員', '需給', '人材', '配置', '検討会', '業務範囲'],
-    minScore: 1
+    name: '日本看護協会 看護サービス提供体制のあり方',
+    url: 'https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com',
+    textKeywords: ['患者', '療養', '食事', '排泄', '入浴', '移動', '看護サービス'],
+    categoryKeywords: ['患者対応', '実務', '看護師']
   },
   {
-    name: '厚生労働省 介護人材対策まとめ',
-    url: 'https://www.mhlw.go.jp/stf/newpage_08272.html',
-    keywords: ['介護員', '養成', '研修', '資格取得', '研修費用', '学び直し'],
-    minScore: 1
+    name: '日本看護協会 看護補助者の離職状況レポート',
+    url: 'https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com',
+    textKeywords: ['離職', '退職', '離職率', '処遇', '給与', '賃金'],
+    slugKeywords: ['resignation', 'quit', 'salary'],
+    categoryKeywords: ['退職', '給与', '悩み']
+  },
+  {
+    name: 'NsPace Career 看護助手の転職・年収コラム',
+    url: 'https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com',
+    textKeywords: ['転職', '求人', 'キャリア', '面接', '志望動機', '年収'],
+    slugKeywords: ['career', 'job'],
+    categoryKeywords: ['転職', '給与']
+  },
+  {
+    name: 'コメディカルドットコム 看護助手の給料解説',
+    url: 'https://www.co-medical.com/knowledge/article112/?utm_source=chatgpt.com',
+    textKeywords: ['給料', '年収', '月収', 'ボーナス', '相場'],
+    categoryKeywords: ['給与']
+  },
+  {
+    name: '看護助手ラボ 悩みとキャリアの記事',
+    url: 'https://nurse-aide-lab.jp/career/yametahougaii/?utm_source=chatgpt.com',
+    textKeywords: ['悩み', 'やめたほうがいい', '不安', 'ネガティブ', 'ストレス'],
+    categoryKeywords: ['悩み', '退職']
+  },
+  {
+    name: '介護サーチプラス 看護助手の仕事内容コラム',
+    url: 'https://kaigosearch-plus.jp/columns/nursing-assistant-job-overview?utm_source=chatgpt.com',
+    textKeywords: ['仕事内容', '解説', 'コラム', '働き方'],
+    categoryKeywords: ['仕事内容', '実務']
   }
 ]
 
@@ -1621,27 +1648,54 @@ function normalizeTextForMatching(text = '') {
   return text.replace(/\s+/g, '').replace(/[、。]/g, '')
 }
 
-function findBestSourceRule(text = '') {
-  const normalized = normalizeTextForMatching(text)
-  for (const rule of SOURCE_RULES) {
-    const score = rule.keywords.reduce((count, keyword) => {
-      return normalized.includes(keyword) ? count + 1 : count
-    }, 0)
-    if (score >= (rule.minScore || 1)) {
-      return rule
+function findBestSourceRule({ text = '', slug = '', categories = '' }) {
+  const normalizedText = normalizeTextForMatching(text.toLowerCase())
+  const normalizedSlug = slug.toLowerCase()
+  const normalizedCategories = categories.toLowerCase()
+  let bestRule = null
+  let bestScore = 0
+
+  SOURCE_RULES.forEach(rule => {
+    let score = 0
+    if (rule.textKeywords && rule.textKeywords.some(keyword => normalizedText.includes(keyword))) {
+      score += 3
     }
-  }
-  return null
+    if (rule.slugKeywords && rule.slugKeywords.some(keyword => normalizedSlug.includes(keyword))) {
+      score += 2
+    }
+    if (rule.categoryKeywords && rule.categoryKeywords.some(keyword => normalizedCategories.includes(keyword))) {
+      score += 2
+    }
+    if (score > bestScore) {
+      bestScore = score
+      bestRule = rule
+    }
+  })
+
+  return bestScore > 0 ? bestRule : null
 }
 
-async function addSourceLinksToArticle(blocks, title) {
+async function addSourceLinksToArticle(blocks, title, currentPost = null) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, addedSource: null }
   }
 
   const { randomUUID } = require('crypto')
-  const combinedText = `${title}\n${blocksToPlainText(blocks)}`
-  const selectedSource = findBestSourceRule(combinedText)
+  const bodyPlainText = blocksToPlainText(blocks)
+  const combinedText = `${title}\n${bodyPlainText}`
+  const slugText = (typeof currentPost?.slug === 'string'
+    ? currentPost.slug
+    : currentPost?.slug?.current || ''
+  ).toLowerCase()
+  const categoryTitles = (currentPost?.categories || [])
+    .map(category => (typeof category === 'string' ? category : category?.title || ''))
+    .join(' ')
+
+  const selectedSource = findBestSourceRule({
+    text: combinedText,
+    slug: slugText,
+    categories: categoryTitles
+  })
 
   if (!selectedSource) {
     return { body: blocks, addedSource: null }
