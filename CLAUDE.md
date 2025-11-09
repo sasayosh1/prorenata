@@ -740,18 +740,30 @@ vercel --previewe
      - Pro/Vertexへのフォールバックは一切なし（ログ確認済み）、`geminiMaintainedAt` も最新化
      - 免責事項無し・リンク欠落・まとめ欠損といった再発ポイントを0件まで解消
 
-38. 🐛 **GitHub Actions maintenance_check エラー修正** (2025-11-10)
-   - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: forceLinkMaintenance is not defined` エラーが発生
-   - **原因**:
-     - `forceLinkMaintenance` 変数が `sanitizeAllBodies` 関数（line 3259）で定義されていた
-     - しかし `autoFixMetadata` 関数（line 2789, 2802）でも使用されており、そこでは未定義だった
-     - JavaScriptのスコープ問題により ReferenceError が発生
-   - **修正内容**:
-     - `autoFixMetadata` 関数の冒頭（line 2650-2657）に `forceLinkMaintenance` 変数の定義を追加
-     - 環境変数 `MAINTENANCE_FORCE_LINKS` から値を取得するロジックを実装
-     - `sanitizeAllBodies` 関数と同じロジックで一貫性を保持
+38. 🐛 **GitHub Actions maintenance_check エラー修正（2回の修正）** (2025-11-10)
+   - **第1回修正: forceLinkMaintenance変数のスコープエラー**
+     - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: forceLinkMaintenance is not defined` エラーが発生
+     - **原因**:
+       - `forceLinkMaintenance` 変数が `sanitizeAllBodies` 関数（line 3259）で定義されていた
+       - しかし `autoFixMetadata` 関数（line 2789, 2802）でも使用されており、そこでは未定義だった
+       - JavaScriptのスコープ問題により ReferenceError が発生
+     - **修正内容**:
+       - `autoFixMetadata` 関数の冒頭（line 2650-2657）に `forceLinkMaintenance` 変数の定義を追加
+       - 環境変数 `MAINTENANCE_FORCE_LINKS` から値を取得するロジックを実装
+       - `sanitizeAllBodies` 関数と同じロジックで一貫性を保持
+   - **第2回修正: sourceLinkDetails/affiliateLinksAdded変数のスコープエラー**
+     - **問題**: 手動ワークフロー実行後、`ReferenceError: Cannot access 'sourceLinkDetails' before initialization` エラーが発生
+     - **原因**:
+       - `sourceLinkDetails` 変数が line 2815 で使用されているが line 2835 で宣言されていた（Temporal Dead Zone違反）
+       - `affiliateLinksAdded` 変数も同様の問題があった
+       - 重複したコードブロック（lines 2822-2842）が混乱を招いていた
+     - **修正内容**:
+       - `sourceLinkDetails` と `affiliateLinksAdded` を関数スコープに移動（lines 2696-2697）
+       - 各ループ内で変数をリセット（lines 2708-2709）
+       - 重複したコードブロックを削除（lines 2826-2838をコメントに置き換え）
    - **効果**:
-     - GitHub Actions の週次メンテナンスワークフローが正常に動作するように修正
+     - GitHub Actions の週次メンテナンスワークフローが正常に動作
+     - 変数スコープの問題を根本的に解決
      - 今後のメンテナンススクリプト実行時にエラーが発生しない
 
 ## ⚠️ 重要なルール
