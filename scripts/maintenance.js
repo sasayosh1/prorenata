@@ -2647,6 +2647,15 @@ async function autoFixMetadata() {
     console.log('ℹ️  Gemini API は無効化されています（MAINTENANCE_ENABLE_GEMINI を設定すると有効化できます）')
   }
 
+  // アフィリエイト・出典リンクの強制再配置フラグ
+  const forceLinkMaintenance =
+    process.env.MAINTENANCE_FORCE_LINKS === '1' ||
+    process.env.MAINTENANCE_FORCE_LINKS?.toLowerCase() === 'true'
+
+  if (forceLinkMaintenance) {
+    console.log('🔁 アフィリエイト・出典リンクの再配置を強制モードで実行します')
+  }
+
   const { categories, fallback } = await getCategoryResources()
 
   const posts = await client.fetch(`
