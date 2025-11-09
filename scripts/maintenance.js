@@ -2693,6 +2693,8 @@ async function autoFixMetadata() {
   )
 
   let updated = 0
+  let sourceLinkDetails = null
+  let affiliateLinksAdded = false
 
   for (const post of posts) {
     const updates = {}
@@ -2701,6 +2703,10 @@ async function autoFixMetadata() {
     let categoryRefs = currentCategories
       .filter(category => category?._id)
       .map(category => ({ _type: 'reference', _ref: category._id }))
+
+    // 各記事の処理ごとに変数をリセット
+    sourceLinkDetails = null
+    affiliateLinksAdded = false
 
     // カテゴリが空の場合、本文から最適なカテゴリを自動選択
     if (categoryRefs.length === 0) {
@@ -2817,29 +2823,9 @@ async function autoFixMetadata() {
       }
     }
 
-    // アフィリエイトリンクの自動追加（収益最適化）
-    let affiliateLinksAdded = false
-    if (post.body && Array.isArray(post.body)) {
-      const affiliateResult = addAffiliateLinksToArticle(
-        updates.body || post.body,
-        post.title,
-        post
-      )
-      if (affiliateResult.addedLinks > 0) {
-        updates.body = affiliateResult.body
-        affiliateLinksAdded = true
-      }
-    }
+    // アフィリエイトリンクの自動追加（収益最適化）は上部で既に実行済み
 
-    // 出典リンクの自動追加（YMYL対策）
-    let sourceLinkDetails = null
-    if (post.body && Array.isArray(post.body)) {
-      const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title, post)
-      if (sourceLinkResult && sourceLinkResult.addedSource) {
-        updates.body = sourceLinkResult.body
-        sourceLinkDetails = sourceLinkResult.addedSource
-      }
-    }
+    // 出典リンクの自動追加（YMYL対策）は上部で既に実行済み
 
     if (post.body && Array.isArray(post.body)) {
       const normalized = normalizeAffiliateLinkMarks(updates.body || post.body)
