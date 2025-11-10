@@ -17,6 +17,8 @@ const builder = imageUrlBuilder(client)
 
 export const urlFor = (source: SanityImageSource) => builder.image(source)
 
+const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
+
 // 型定義
 export interface SanityImage {
   _type: 'image'
@@ -52,6 +54,7 @@ export interface Post {
   readingTime?: number
   featured?: boolean
   tags?: string[]
+  internalOnly?: boolean
 }
 
 export interface Author {
@@ -95,7 +98,7 @@ export async function getAllPosts(options: { limit?: number; fetchAll?: boolean 
     const limitValue = explicitLimit ?? devLimit
     const limitClause = shouldLimit && limitValue > 0 ? `[0...${limitValue}]` : ''
 
-    const query = `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc) ${limitClause} {
+    const query = `*[_type == "post" && ${PUBLIC_POST_FILTER}] | order(coalesce(publishedAt, _createdAt) desc) ${limitClause} {
       _id,
       title,
       slug,
@@ -115,7 +118,8 @@ export async function getAllPosts(options: { limit?: number; fetchAll?: boolean 
       difficulty,
       readingTime,
       featured,
-      tags
+      tags,
+      internalOnly
     }`
 
     const result = await client.fetch(query)
@@ -139,11 +143,11 @@ export async function getPostsPaginated(page: number = 1, pageSize: number = 15)
     const end = start + pageSize
 
     // 総記事数を取得
-    const totalCountQuery = `count(*[_type == "post"])`
+    const totalCountQuery = `count(*[_type == "post" && ${PUBLIC_POST_FILTER}])`
     const totalCount = await client.fetch(totalCountQuery)
 
     // ページネーション付きで記事を取得
-    const postsQuery = `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc) [$start...$end] {
+    const postsQuery = `*[_type == "post" && ${PUBLIC_POST_FILTER}] | order(coalesce(publishedAt, _createdAt) desc) [$start...$end] {
       _id,
       title,
       slug,
@@ -152,7 +156,8 @@ export async function getPostsPaginated(page: number = 1, pageSize: number = 15)
       excerpt,
       mainImage,
       "categories": categories[]->title,
-      "author": author->{name, slug}
+      "author": author->{name, slug},
+      internalOnly
     }`
 
     const posts = await client.fetch(postsQuery, { start, end })
@@ -175,7 +180,7 @@ export async function getPostsPaginated(page: number = 1, pageSize: number = 15)
 // 検索機能（全記事対象）
 export async function searchPosts(searchTerm: string): Promise<Post[]> {
   try {
-    const query = `*[_type == "post" && (
+    const query = `*[_type == "post" && ${PUBLIC_POST_FILTER} && (
       title match "*${searchTerm}*" ||
       excerpt match "*${searchTerm}*" ||
       categories[]->title match "*${searchTerm}*"
@@ -188,7 +193,8 @@ export async function searchPosts(searchTerm: string): Promise<Post[]> {
       excerpt,
       mainImage,
       "categories": categories[]->title,
-      "author": author->{name, slug}
+      "author": author->{name, slug},
+      internalOnly
     }`
 
     const result = await client.fetch(query)
@@ -233,7 +239,8 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     mainImage,
     "categories": categories[]->title,
     "author": author->{name, slug, image, bio},
-    body
+    body,
+    internalOnly
   }`
   
   return client.fetch(query, { slug })
@@ -280,6 +287,7 @@ export async function getRelatedPosts(
     const query = `*[_type == "post"
       && _id != $currentPostId
       && count((categories[]->title)[@ in $categories]) > 0
+      && ${PUBLIC_POST_FILTER}
     ] | order(_createdAt desc) [0...${limit * 3}] {
       title,
       "slug": slug.current,

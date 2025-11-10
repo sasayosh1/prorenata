@@ -207,6 +207,13 @@ export default defineType({
       validation: rule => rule.min(1)
     }),
     defineField({
+      name: 'internalOnly',
+      title: '内部限定コンテンツ',
+      type: 'boolean',
+      initialValue: false,
+      description: 'true の場合は検索/一覧/サイトマップから除外し、robots noindex を付与します',
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',

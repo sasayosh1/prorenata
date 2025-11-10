@@ -1,6 +1,8 @@
 import { client } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 
+const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
+
 type UrlEntry = {
   url: string
   lastmod: string
@@ -82,7 +84,7 @@ export async function GET() {
       },
     ]
 
-    const postQuery = `*[_type == "post" && !(_id in path("drafts.**")) && defined(slug.current) && defined(body[0])]{
+    const postQuery = `*[_type == "post" && !(_id in path("drafts.**")) && (${PUBLIC_POST_FILTER}) && defined(slug.current) && defined(body[0])]{
       "slug": slug.current,
       "lastmod": coalesce(_updatedAt, publishedAt, _createdAt)
     }`
@@ -98,7 +100,7 @@ export async function GET() {
     const categoryQuery = `*[_type == "category" && defined(slug.current)]{
       "slug": slug.current,
       "lastmod": coalesce(_updatedAt, _createdAt),
-      "postCount": count(*[_type == "post" && !(_id in path("drafts.**")) && references(^._id) && defined(slug.current) && defined(body[0])])
+      "postCount": count(*[_type == "post" && !(_id in path("drafts.**")) && (${PUBLIC_POST_FILTER}) && references(^._id) && defined(slug.current) && defined(body[0])])
     }`
 
     const categories: { slug?: string; lastmod?: string; postCount: number }[] = await client.fetch(categoryQuery)

@@ -765,6 +765,18 @@ vercel --previewe
      - アイテム特化記事ではAmazon/Rakuten/ナースリーを必要数だけ掲載できる
      - それ以外の記事ではアフィリエイト枠が連続しなくなり、ユーザー体験とSEOの両立が可能に
 
+40. 🔐 **内部限定記事フラグ（internalOnly）とNoIndex対応** (2025-11-10)
+   - **背景**: 「退職代行３社のメリット・デメリット徹底比較」のように、各記事からのみ遷移できる内部資料を作りたいという要望
+   - **実装内容**:
+     - `schemas/post.ts` に `internalOnly` (boolean) フィールドを追加。Studioでチェックすると「一覧・検索・サイトマップに出さず、robots noindex」を自動適用
+     - `src/lib/sanity.ts` のクエリ（一覧/検索/関連記事/カウント）を `internalOnly != true` でフィルタし、通常の露出から除外
+     - 記事ページの `generateMetadata` が `internalOnly` を検知すると `<meta name="robots" content="noindex,nofollow">` を設定
+     - サイトマップAPIも `internalOnly` 記事を出力しないよう更新
+     - comparison-of-three-resignation-agencies（draft）に `internalOnly: true` をセットアップ
+   - **運用**:
+     - 内部限定にしたい記事はStudioでチェックを入れるだけ
+     - maintenance/sanitize等は通常通り走る（リンク・出典は整備される）が、フロント露出・検索・サイトマップには載らない
+
 38. 🐛 **GitHub Actions maintenance_check エラー修正（2回の修正）** (2025-11-10)
    - **第1回修正: forceLinkMaintenance変数のスコープエラー**
      - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: forceLinkMaintenance is not defined` エラーが発生
@@ -826,6 +838,7 @@ vercel --previewe
 - レガシー名称が表示された場合は `SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js sync-categories` を実行して正規ラベルと説明を同期
 - カテゴリ一覧と想定トピックは `ARTICLE_GUIDE.md` / `PROJECT_KNOWLEDGE_BASE.md` に記載。記事作成・メンテナンス時は必ず参照する
 - ユーザー指示なしでカテゴリを増やす・削除する・命名を変えることは禁止（SEO・出典ポリシーと直結するため）
+- 内部資料として公開したい記事は `internalOnly` にチェックを入れる。チェック時は一覧/検索/サイトマップから除外され、robots noindex を付与する（手動で noindex メタを追加しない）
 
 **🚨 Google Analytics & Search Console コード改変の完全禁止**
 - Google Analytics トラッキングコードの変更は絶対禁止

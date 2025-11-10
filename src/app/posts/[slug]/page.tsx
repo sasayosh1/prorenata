@@ -50,7 +50,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     readingTime,
     "categories": categories[]->title,
     "author": author->{name},
-    "hasBody": defined(body[0])
+    "hasBody": defined(body[0]),
+    internalOnly
   }`
   
   try {
@@ -80,6 +81,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ].filter(Boolean)
 
     const hasBodyContent = Boolean(post.hasBody)
+    const noIndex = post.internalOnly === true || !hasBodyContent
 
     return {
       title,
@@ -104,12 +106,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title,
         description,
       },
-      robots: hasBodyContent
-        ? undefined
-        : {
+      robots: noIndex
+        ? {
             index: false,
-            follow: true,
-          },
+            follow: false,
+          }
+        : undefined,
     }
   } catch (error) {
     console.error('メタデータ生成エラー:', error)
@@ -146,7 +148,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     contentType,
     tags,
     "categories": categories[]->title,
-    "author": author->{name, slug}
+    "author": author->{name, slug},
+    internalOnly
   }`
   const post = await client.fetch(query, { slug: resolvedParams.slug })
 
