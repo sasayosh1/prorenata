@@ -118,6 +118,16 @@ const CTA_TEXT_PATTERNS = [
   '働き方改革に真剣に取り組んでいる職場を探している方は'
 ]
 
+const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
+
+function isInternalOnly(post) {
+  return Boolean(post?.internalOnly)
+}
+
+function filterOutInternalPosts(posts = []) {
+  return (posts || []).filter(post => !isInternalOnly(post))
+}
+
 const REFERENCE_MAPPINGS = [
   {
     keywords: ['職業情報提供サイト', 'job tag', '仕事内容', 'タスク'],
@@ -2603,14 +2613,17 @@ async function recategorizeAllPosts() {
 
   const { categories, fallback } = await getCategoryResources()
 
-  const posts = await client.fetch(`
-    *[_type == "post"] {
+  const rawPosts = await client.fetch(`
+    *[_type == "post" && (${PUBLIC_POST_FILTER})] {
       _id,
       title,
       body,
-      "categories": categories[]->{ _id, title }
+      "categories": categories[]->{ _id, title },
+      internalOnly
     }
   `)
+
+  const posts = filterOutInternalPosts(rawPosts)
 
   if (!posts || posts.length === 0) {
     console.log('✅ 記事が見つかりません')
@@ -2710,8 +2723,8 @@ async function autoFixMetadata() {
 
   const { categories, fallback } = await getCategoryResources()
 
-  const posts = await client.fetch(`
-    *[_type == "post" && (
+  const rawPosts = await client.fetch(`
+    *[_type == "post" && (${PUBLIC_POST_FILTER}) && (
       !defined(slug.current) ||
       count(categories) == 0 ||
       !defined(excerpt) ||
@@ -2726,9 +2739,12 @@ async function autoFixMetadata() {
       excerpt,
       metaDescription,
       body,
-      "categories": categories[]->{ _id, title }
+      "categories": categories[]->{ _id, title },
+      internalOnly
     }
   `)
+
+  const posts = filterOutInternalPosts(rawPosts)
 
   if (!posts || posts.length === 0) {
     console.log('✅ 修復対象の記事はありません')
@@ -3329,7 +3345,7 @@ async function sanitizeAllBodies(options = {}) {
   }
 
   let fetchQuery = `
-    *[_type == "post"] {
+    *[_type == "post" && (${PUBLIC_POST_FILTER})] {
       _id,
       title,
       body,
@@ -3337,7 +3353,8 @@ async function sanitizeAllBodies(options = {}) {
       _updatedAt,
       "categories": categories[]->{ title },
       views,
-      geminiMaintainedAt
+      geminiMaintainedAt,
+      internalOnly
     }
   `
   const queryParams = {}
@@ -3346,7 +3363,7 @@ async function sanitizeAllBodies(options = {}) {
     const uniqueSlugs = [...new Set(slugs.filter(Boolean))].sort()
     console.log(`🔍 指定スラッグのみを対象に実行します (${uniqueSlugs.length}件): ${uniqueSlugs.join(', ')}`)
     fetchQuery = `
-      *[_type == "post" && slug.current in $slugs] {
+      *[_type == "post" && slug.current in $slugs && (${PUBLIC_POST_FILTER})] {
         _id,
         title,
         body,
@@ -3354,13 +3371,15 @@ async function sanitizeAllBodies(options = {}) {
         _updatedAt,
         "categories": categories[]->{ title },
         views,
-        geminiMaintainedAt
+        geminiMaintainedAt,
+        internalOnly
       }
     `
     queryParams.slugs = uniqueSlugs
   }
 
-  const posts = await client.fetch(fetchQuery, queryParams)
+  const rawPosts = await client.fetch(fetchQuery, queryParams)
+  const posts = filterOutInternalPosts(rawPosts)
 
   if (!posts || posts.length === 0) {
     console.log('✅ 対象記事はありません')
@@ -3384,15 +3403,17 @@ async function sanitizeAllBodies(options = {}) {
 
   let internalLinkSource = posts
   if (Array.isArray(slugs) && slugs.length > 0) {
-    internalLinkSource = await client.fetch(`
-      *[_type == "post" && defined(slug.current)] {
+    const internalSourceRaw = await client.fetch(`
+      *[_type == "post" && (${PUBLIC_POST_FILTER}) && defined(slug.current)] {
         _id,
         title,
         "slug": slug.current,
         _updatedAt,
-        "categories": categories[]->{ title }
+        "categories": categories[]->{ title },
+        internalOnly
       }
     `)
+    internalLinkSource = filterOutInternalPosts(internalSourceRaw)
   }
 
   const internalLinkCatalog = internalLinkSource

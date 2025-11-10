@@ -839,6 +839,7 @@ vercel --previewe
 - カテゴリ一覧と想定トピックは `ARTICLE_GUIDE.md` / `PROJECT_KNOWLEDGE_BASE.md` に記載。記事作成・メンテナンス時は必ず参照する
 - ユーザー指示なしでカテゴリを増やす・削除する・命名を変えることは禁止（SEO・出典ポリシーと直結するため）
 - 内部資料として公開したい記事は `internalOnly` にチェックを入れる。チェック時は一覧/検索/サイトマップから除外され、robots noindex を付与する（手動で noindex メタを追加しない）
+- `internalOnly` にチェックされた記事は `scripts/maintenance.js` の sanitize / autofix / recategorize / その他の自動整形対象から除外される（メンテで触れない）
 
 **🚨 Google Analytics & Search Console コード改変の完全禁止**
 - Google Analytics トラッキングコードの変更は絶対禁止
