@@ -9,6 +9,10 @@
 
 const { createClient } = require('@sanity/client')
 const readline = require('readline')
+const {
+  ensurePortableTextKeys,
+  ensureReferenceKeys
+} = require('./utils/keyHelpers')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -263,11 +267,11 @@ async function createPost() {
         _type: 'slug',
         current: slug
       },
-      body: templates[selectedTemplate].body,
-      categories: [{
+      body: ensurePortableTextKeys(templates[selectedTemplate].body || []),
+      categories: ensureReferenceKeys([{
         _type: 'reference',
         _ref: selectedCategory._id
-      }],
+      }]),
       author: {
         _type: 'reference',
         _ref: defaultAuthor._id

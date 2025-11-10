@@ -207,6 +207,15 @@ export default defineType({
       validation: rule => rule.min(1)
     }),
     defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [{ type: 'author' }],
+      readOnly: true,
+      hidden: true,
+      description: '自動付与される著者情報（編集画面では非表示）',
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

@@ -33,6 +33,10 @@ const {
   buildFallbackSummaryBlocks,
 } = require('./utils/postHelpers')
 const {
+  ensurePortableTextKeys,
+  ensureReferenceKeys
+} = require('./utils/keyHelpers')
+const {
   CATEGORY_DESCRIPTIONS,
   CATEGORY_REFERENCE_SNIPPETS,
   CANONICAL_CATEGORY_TITLES,
@@ -1709,8 +1713,10 @@ function sanitizeBodyBlocks(blocks) {
     })
   }
 
+  const bodyWithKeys = ensurePortableTextKeys(cleaned)
+
   return {
-    body: cleaned,
+    body: bodyWithKeys,
     removedRelated,
     removedDuplicateParagraphs: removedDuplicates,
     removedInternalLinks,
@@ -2602,7 +2608,7 @@ async function recategorizeAllPosts() {
     }
 
     // カテゴリを更新
-    const categoryRefs = [{ _type: 'reference', _ref: bestCategory._id }]
+    const categoryRefs = ensureReferenceKeys([{ _type: 'reference', _ref: bestCategory._id }])
 
     await client
       .patch(post._id)
@@ -2700,9 +2706,11 @@ async function autoFixMetadata() {
     const updates = {}
     const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
     const currentCategories = Array.isArray(post.categories) ? post.categories.filter(Boolean) : []
-    let categoryRefs = currentCategories
+  let categoryRefs = ensureReferenceKeys(
+    currentCategories
       .filter(category => category?._id)
       .map(category => ({ _type: 'reference', _ref: category._id }))
+  )
 
     // 各記事の処理ごとに変数をリセット
     sourceLinkDetails = null
@@ -2713,9 +2721,9 @@ async function autoFixMetadata() {
       const plainText = blocksToPlainText(post.body)
       const bestCategory = selectBestCategory(post.title, plainText, categories)
       if (bestCategory) {
-        categoryRefs = [{ _type: 'reference', _ref: bestCategory._id }]
+        categoryRefs = ensureReferenceKeys([{ _type: 'reference', _ref: bestCategory._id }])
       } else if (fallback) {
-        categoryRefs = [{ _type: 'reference', _ref: fallback._id }]
+        categoryRefs = ensureReferenceKeys([{ _type: 'reference', _ref: fallback._id }])
       }
     }
 

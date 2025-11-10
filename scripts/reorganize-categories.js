@@ -1,4 +1,5 @@
 const { createClient } = require('@sanity/client');
+const { ensureReferenceKeys } = require('./utils/keyHelpers');
 
 const client = createClient({
   projectId: '72m8vhy2',
@@ -107,9 +108,11 @@ async function reorganizeCategories() {
             );
 
             // 古いカテゴリを新しいカテゴリに置き換え
-            const updatedCategories = postData.categories
-              .filter(ref => ref._ref !== mergeId)
-              .concat([{ _type: 'reference', _ref: primaryId }]);
+            const updatedCategories = ensureReferenceKeys(
+              postData.categories
+                .filter(ref => ref._ref !== mergeId)
+                .concat([{ _type: 'reference', _ref: primaryId }])
+            );
 
             // 重複削除
             const uniqueCategories = Array.from(

@@ -2,6 +2,10 @@ const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { randomUUID } = require('crypto');
 const { SERA_FULL_PERSONA } = require('./utils/seraPersona');
+const {
+  ensurePortableTextKeys,
+  ensureReferenceKeys
+} = require('./utils/keyHelpers');
 require('dotenv').config({ path: '../.env.local' }); // For local testing
 
 // --- Configuration ---
@@ -119,10 +123,12 @@ async function generateAndSaveArticle() {
       return;
     }
 
-    authorReference = {
-      _type: 'reference',
-      _ref: authorDoc._id
-    };
+    authorReference = ensureReferenceKeys([
+      {
+        _type: 'reference',
+        _ref: authorDoc._id
+      }
+    ])[0];
     console.log(`Author resolved: ${authorDoc.name} (${authorDoc._id})`);
   } catch (error) {
     console.error('Error fetching author document:', error);
@@ -213,7 +219,7 @@ ${SERA_FULL_PERSONA}
     publishedAt: new Date().toISOString(),
     title: generatedArticle.title,
     tags: generatedArticle.tags,
-    body: generatedArticle.body,
+    body: ensurePortableTextKeys(generatedArticle.body || []),
     categories: [], // メンテナンスで自動選択
     excerpt: '',    // メンテナンスで自動生成
   };

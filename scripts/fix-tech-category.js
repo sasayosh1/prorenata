@@ -1,4 +1,5 @@
 const { createClient } = require('@sanity/client');
+const { ensureReferenceKeys } = require('./utils/keyHelpers');
 
 const client = createClient({
   projectId: '72m8vhy2',
@@ -53,7 +54,7 @@ async function fixTechCategoryPosts() {
       await client
         .patch(draftId)
         .set({
-          categories: [{ _type: 'reference', _ref: categoryId }]
+          categories: ensureReferenceKeys([{ _type: 'reference', _ref: categoryId }])
         })
         .commit()
         .catch(() => null); // drafts がない場合は無視
@@ -62,7 +63,7 @@ async function fixTechCategoryPosts() {
       await client
         .patch(item.id)
         .set({
-          categories: [{ _type: 'reference', _ref: categoryId }]
+          categories: ensureReferenceKeys([{ _type: 'reference', _ref: categoryId }])
         })
         .commit()
         .catch(() => null); // published がない場合は無視

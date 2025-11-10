@@ -740,6 +740,21 @@ vercel --previewe
      - Pro/Vertexへのフォールバックは一切なし（ログ確認済み）、`geminiMaintainedAt` も最新化
      - 免責事項無し・リンク欠落・まとめ欠損といった再発ポイントを0件まで解消
 
+38. 🛠️ **Sanity StudioでのMissing keys / Unknown field警告を根絶** (2025-11-10)
+   - **背景**:
+     - 自動生成された新規記事をStudioで開くと、Body・Categoriesに「Missing keys」、authorに「Unknown field found」が毎回表示されていた
+     - Portable Textブロックやカテゴリ参照に `_key` が付与されておらず、スクリプト側でauthorフィールドを送信している一方でschemaからは削除されていた
+   - **実装内容**:
+     - `scripts/utils/keyHelpers.js` を追加し、Portable Text／参照配列に一意な `_key` を自動的に補う共通ヘルパーを実装
+     - `run-daily-generation.cjs` と `scripts/create-post.js` で生成直後の本文に `_key` を付与し、カテゴリ参照にも `_key` を設定
+     - `scripts/maintenance.js` の `sanitizeBodyBlocks()`、カテゴリ再割当箇所、手動メンテ系スクリプトにヘルパーを導入し、週次メンテでも欠落キーを再付与
+     - Post schema に `author` フィールドを hidden + readOnly で復活させ、Studioフォームには表示しないまま警告だけ抑制
+     - 仕上げに `MAINTENANCE_ENABLE_GEMINI=0` で `node scripts/maintenance.js sanitize` を再実行し、既存160本すべての Body / Categories に `_key` を付与
+   - **効果**:
+     - 新規記事を開いても Missing keys / Unknown field 警告が出なくなり、手動で「Add missing keys」を押す作業が不要に
+     - 既存記事の Portable Text / カテゴリ参照にもキーが揃ったため、Studio/Preview どちらでも安全に編集可能
+     - 今後どのスクリプトで記事を生成・更新しても `_key` が自動付与される仕組みが整備された
+
 38. 🐛 **GitHub Actions maintenance_check エラー修正（2回の修正）** (2025-11-10)
    - **第1回修正: forceLinkMaintenance変数のスコープエラー**
      - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: forceLinkMaintenance is not defined` エラーが発生
