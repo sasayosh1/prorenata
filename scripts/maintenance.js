@@ -93,6 +93,20 @@ const AFFILIATE_HOST_KEYWORDS = [
   'tcs-asp.net'
 ]
 
+const ITEM_ROUNDUP_KEYWORDS = [
+  'アイテム',
+  'グッズ',
+  '持ち物',
+  '便利な道具',
+  '便利グッズ',
+  '必需品',
+  '道具',
+  'おすすめ',
+  '必要なもの'
+]
+const ITEM_ROUNDUP_SELECTION_REGEX = /[0-9０-９]+\s*選/
+const AFFILIATE_MIN_GAP_BLOCKS = 2
+
 const CTA_TEXT_PATTERNS = [
   '転職・求人をお探しの方へ',
   '転職・求人をお探しの方は',
@@ -653,6 +667,23 @@ function isAffiliateRelevant(meta, combinedText, currentPost) {
   return true
 }
 
+function isItemRoundupArticle(post = {}) {
+  const title = (post?.title || '').toLowerCase()
+  const slug = (typeof post?.slug === 'string'
+    ? post.slug
+    : post?.slug?.current || ''
+  ).toLowerCase()
+
+  if (ITEM_ROUNDUP_SELECTION_REGEX.test(title)) {
+    return true
+  }
+
+  return ITEM_ROUNDUP_KEYWORDS.some(keyword => {
+    const normalizedKeyword = keyword.toLowerCase()
+    return title.includes(normalizedKeyword) || slug.includes(normalizedKeyword)
+  })
+}
+
 function ensureAffiliateContextBlocks(blocks) {
   return { body: blocks, added: 0 }
 }
@@ -669,6 +700,8 @@ function removeIrrelevantAffiliateBlocks(blocks, currentPost) {
   const seenKeys = new Set()
   let serviceCount = 0
   const SERVICE_LIMIT = 2
+  const allowDenseAffiliate = isItemRoundupArticle(currentPost)
+  let lastAffiliateIndex = Number.NEGATIVE_INFINITY
 
   for (let i = 0; i < blocks.length; i += 1) {
     const block = blocks[i]
@@ -705,6 +738,19 @@ function removeIrrelevantAffiliateBlocks(blocks, currentPost) {
         }
         seenKeys.add(key)
       }
+
+      if (!allowDenseAffiliate) {
+        const gapSinceLast = filtered.length - lastAffiliateIndex - 1
+        if (Number.isFinite(lastAffiliateIndex) && gapSinceLast < AFFILIATE_MIN_GAP_BLOCKS) {
+          removed += 1
+          continue
+        }
+      }
+
+      filtered.push(block)
+      lastAffiliateIndex = filtered.length - 1
+
+      continue
     }
 
     filtered.push(block)

@@ -119,7 +119,7 @@ const MOSHIMO_LINKS = {
   // 注意: 退職代行カテゴリは現在 miyabi / sokuyame の2案件のみ有効
 }
 
-const NON_LIMITED_AFFILIATE_KEYS = new Set(['amazon', 'rakuten'])
+const NON_LIMITED_AFFILIATE_KEYS = new Set(['amazon', 'rakuten', 'nursery'])
 
 // カテゴリ別にリンクを取得
 function getLinksByCategory(category) {
