@@ -1324,7 +1324,7 @@ function isAffiliateSuggestionRelevant(link, combinedText, slug, categoryNames) 
   return true
 }
 
-function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
+function addAffiliateLinksToArticle(blocks, title, currentPost = null, options = {}) {
   if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, addedLinks: 0 }
   }
@@ -1335,6 +1335,7 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
     NON_LIMITED_AFFILIATE_KEYS
   } = require('../moshimo-affiliate-links')
   const SERVICE_AFFILIATE_LIMIT = 2
+  const disableRetirementAffiliates = Boolean(options.disableRetirementAffiliates)
   const bodyText = blocksToPlainText(blocks)
   const suggestions = suggestLinksForArticle(title, bodyText)
 
@@ -1372,6 +1373,9 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null) {
 
   const selectedLinks = []
   const trySelect = link => {
+    if (disableRetirementAffiliates && link.category === '退職代行') {
+      return
+    }
     if (existingAffiliateKeys.has(link.key)) {
       return
     }

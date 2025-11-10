@@ -777,6 +777,17 @@ vercel --previewe
      - 内部限定にしたい記事はStudioでチェックを入れるだけ
      - maintenance/sanitize等は通常通り走る（リンク・出典は整備される）が、フロント露出・検索・サイトマップには載らない
 
+41. 🔁 **退職記事は内部比較記事へ誘導＆退職代行ASPを除外** (2025-11-10)
+   - **背景**: 退職カテゴリの記事では、今後はアフィリエイトではなく「退職代行３社のメリット・デメリット徹底比較」への内部リンクを貼りたい
+   - **実装内容**:
+     - `shouldAddResignationComparisonLink()` を追加し、離職系カテゴリや本文に「退職/辞めたい/退職代行」などのキーワードがある記事を検出
+     - 対象記事では `removeIrrelevantAffiliateBlocks()` が退職代行系 ASP（みやび/即ヤメ）を全削除、`addAffiliateLinksToArticle()` も再挿入しない
+     - 代わりに `/posts/comparison-of-three-resignation-agencies` への内部リンクブロックを `ensureResignationComparisonLink()` で必ず挿入
+     - 内部リンクの前後2ブロック以内に退職代行ASPが残っている場合は自動で除去
+   - **効果**:
+     - 退職記事からは比較記事への動線が必ず確保され、ASPリンクは自然発生しない
+     - 他カテゴリの記事では従来通り ASP が維持されるため、収益とユーザビリティの両方を担保
+
 38. 🐛 **GitHub Actions maintenance_check エラー修正（2回の修正）** (2025-11-10)
    - **第1回修正: forceLinkMaintenance変数のスコープエラー**
      - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: forceLinkMaintenance is not defined` エラーが発生
@@ -840,6 +851,7 @@ vercel --previewe
 - ユーザー指示なしでカテゴリを増やす・削除する・命名を変えることは禁止（SEO・出典ポリシーと直結するため）
 - 内部資料として公開したい記事は `internalOnly` にチェックを入れる。チェック時は一覧/検索/サイトマップから除外され、robots noindex を付与する（手動で noindex メタを追加しない）
 - `internalOnly` にチェックされた記事は `scripts/maintenance.js` の sanitize / autofix / recategorize / その他の自動整形対象から除外される（メンテで触れない）
+- 退職・離職テーマの記事では退職代行ASPの代わりに「退職代行３社のメリット・デメリット徹底比較」への内部リンクを自動挿入し、同セクション周辺に退職代行ASPを配置しない
 
 **🚨 Google Analytics & Search Console コード改変の完全禁止**
 - Google Analytics トラッキングコードの変更は絶対禁止
