@@ -1793,5 +1793,6 @@ module.exports = {
   optimizeSummarySection,
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
-  buildFallbackSummaryBlocks
+  buildFallbackSummaryBlocks,
+  findSummaryInsertIndex
 }

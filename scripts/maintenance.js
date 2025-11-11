@@ -31,6 +31,7 @@ const {
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
   buildFallbackSummaryBlocks,
+  findSummaryInsertIndex
 } = require('./utils/postHelpers')
 const {
   ensurePortableTextKeys,
