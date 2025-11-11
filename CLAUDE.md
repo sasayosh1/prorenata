@@ -849,7 +849,7 @@ vercel --previewe
 - レガシー名称が表示された場合は `SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js sync-categories` を実行して正規ラベルと説明を同期
 - カテゴリ一覧と想定トピックは `ARTICLE_GUIDE.md` / `PROJECT_KNOWLEDGE_BASE.md` に記載。記事作成・メンテナンス時は必ず参照する
 - ユーザー指示なしでカテゴリを増やす・削除する・命名を変えることは禁止（SEO・出典ポリシーと直結するため）
-- 内部資料として公開したい記事は `internalOnly` にチェックを入れる。チェック時は一覧/検索/サイトマップから除外され、robots noindex を付与する（手動で noindex メタを追加しない）
+- 内部資料として公開したい記事は `internalOnly` にチェックを入れる。チェック時は一覧/検索/サイトマップから除外され、robots noindex を付与する（手動で noindex メタを追加しない）。現在該当: `comparison-of-three-resignation-agencies`, `nursing-assistant-compare-services-perspective`。
 - `internalOnly` にチェックされた記事は `scripts/maintenance.js` の sanitize / autofix / recategorize / その他の自動整形対象から除外される（メンテで触れない）
 - 退職・離職テーマの記事では退職代行ASPの代わりに「退職代行３社のメリット・デメリット徹底比較」への内部リンクを自動挿入し、同セクション周辺に退職代行ASPを配置しない
 
