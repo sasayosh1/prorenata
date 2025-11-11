@@ -745,8 +745,10 @@ function blockContainsLink(block, targetHref) {
   )
 }
 
-function createResignationComparisonBlock() {
+function createResignationComparisonBlock(post = {}) {
   const linkKey = `link-${randomUUID()}`
+  const leadText = '退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。'
+  const linkText = '退職代行３社のメリット・デメリット徹底比較を読む'
   return {
     _type: 'block',
     _key: `resignation-comparison-${randomUUID()}`,
@@ -761,8 +763,14 @@ function createResignationComparisonBlock() {
     children: [
       {
         _type: 'span',
-        _key: `resignation-comparison-span-${randomUUID()}`,
-        text: '退職代行３社のメリット・デメリット徹底比較を読む',
+        _key: `resignation-comparison-lead-${randomUUID()}`,
+        text: `${leadText} `,
+        marks: []
+      },
+      {
+        _type: 'span',
+        _key: `resignation-comparison-link-${randomUUID()}`,
+        text: linkText,
         marks: [linkKey]
       }
     ]
@@ -825,7 +833,7 @@ function ensureResignationComparisonLink(blocks, post, options = {}) {
   }
 
   const insertionIndex = Math.max(0, findSummaryInsertIndex(blocks))
-  const block = createResignationComparisonBlock()
+  const block = createResignationComparisonBlock(post)
   const updated = [...blocks]
   updated.splice(insertionIndex, 0, block)
 
