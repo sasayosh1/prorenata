@@ -4030,6 +4030,7 @@ async function sanitizeAllBodies(options = {}) {
       item.slug.startsWith('/posts/') ? item.slug : `/posts/${item.slug}`
     )
   )
+  const internalLinkTitleMap = buildInternalLinkTitleMap(internalLinkCatalog)
 
   let updated = 0
   let totalRelatedRemoved = 0
