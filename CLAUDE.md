@@ -846,6 +846,23 @@ vercel --previewe
      - GitHub Actions ワークフローが完全に正常動作
      - JavaScript正規表現の適切なエスケープ処理を確立
 
+41. 🐛 **module.exportsの後の孤立したコードを削除** (2025-11-13)
+   - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: denseParagraphsSplit is not defined` エラーが発生
+   - **原因**:
+     - lines 5948-5952に `denseParagraphsSplit` 変数を参照するコードが存在
+     - このコードはmodule.exports（line 5947）の後に配置されており、関数スコープの外にあった
+     - 変数は関数内でのみ定義されているため、module.exports後のコードからはアクセスできずReferenceErrorが発生
+   - **修正内容**:
+     - lines 5948-5952の孤立したコードを完全に削除
+     - 削除したコード：
+       - `if (denseParagraphsSplit > 0) { totalDenseParagraphsSplit += denseParagraphsSplit }`
+       - `if (denseParagraphsSplit > 0) { console.log(\`   長文段落を読みやすく分割: ${denseParagraphsSplit}箇所\`) }`
+     - コミット: b5b7985
+   - **効果**:
+     - GitHub Actions の週次メンテナンスワークフローが正常に動作
+     - module.exportsの後に実行可能なコードが存在しないことを保証
+     - 変数スコープエラーを根本的に解決
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
