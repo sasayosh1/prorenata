@@ -5945,9 +5945,3 @@ module.exports = {
   autoFixMetadata,
   recategorizeAllPosts
 }
-      if (denseParagraphsSplit > 0) {
-        totalDenseParagraphsSplit += denseParagraphsSplit
-      }
-    if (denseParagraphsSplit > 0) {
-      console.log(`   長文段落を読みやすく分割: ${denseParagraphsSplit}箇所`)
-    }
