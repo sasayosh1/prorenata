@@ -107,6 +107,7 @@ const ITEM_ROUNDUP_KEYWORDS = [
 ]
 const ITEM_ROUNDUP_SELECTION_REGEX = /[0-9０-９]+\s*選/
 const AFFILIATE_MIN_GAP_BLOCKS = 2
+const AFFILIATE_PR_LABEL = '[PR]'
 
 const CTA_TEXT_PATTERNS = [
   '転職・求人をお探しの方へ',
@@ -120,9 +121,406 @@ const CTA_TEXT_PATTERNS = [
 ]
 
 const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
+const NEXT_STEPS_PATTERN = /次のステップ/
+const GENERIC_INTERNAL_LINK_TEXTS = new Set(['こちらの記事', 'この記事', 'こちら', 'この記事'])
 
 function isInternalOnly(post) {
   return Boolean(post?.internalOnly)
+}
+
+function chunkParagraphText(text, maxLength = 220) {
+  if (!text || typeof text !== 'string') {
+    return []
+  }
+
+  const sentences = text
+    .split(/(?<=[。．！？!?])/u)
+    .map(sentence => sentence.trim())
+    .filter(Boolean)
+
+  if (sentences.length === 0) {
+    return [text.trim()]
+  }
+
+  const chunks = []
+  let buffer = ''
+
+  sentences.forEach(sentence => {
+    if (!buffer) {
+      buffer = sentence
+      return
+    }
+
+    if ((buffer + sentence).length > maxLength) {
+      chunks.push(buffer.trim())
+      buffer = sentence
+    } else {
+      buffer += sentence
+    }
+  })
+
+  if (buffer.trim()) {
+    chunks.push(buffer.trim())
+  }
+
+  return chunks.length > 0 ? chunks : [text.trim()]
+}
+
+function splitDenseParagraphs(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, splitCount: 0 }
+  }
+
+  const result = []
+  let splitCount = 0
+
+  const isPlainSpanBlock = block =>
+    Array.isArray(block?.children) &&
+    block.children.length > 0 &&
+    block.children.every(
+      child =>
+        child &&
+        child._type === 'span' &&
+        (!Array.isArray(child.marks) || child.marks.length === 0)
+    ) &&
+    (!Array.isArray(block.markDefs) || block.markDefs.length === 0)
+
+  for (const block of blocks) {
+    if (
+      block?._type === 'block' &&
+      block.style === 'normal' &&
+      !block.listItem &&
+      isPlainSpanBlock(block)
+    ) {
+      const text = extractBlockText(block).trim()
+      if (text.length >= 320) {
+        const chunks = chunkParagraphText(text)
+        if (chunks.length > 1) {
+          chunks.forEach(chunk => {
+            result.push({
+              ...block,
+              _key: randomUUID(),
+              children: [
+                {
+                  _type: 'span',
+                  _key: randomUUID(),
+                  text: chunk,
+                  marks: []
+                }
+              ]
+            })
+          })
+          splitCount += chunks.length - 1
+          continue
+        }
+      }
+    }
+
+    result.push(block)
+  }
+
+  return { body: result, splitCount }
+}
+
+function normalizeInternalLinkHref(href = '') {
+  if (typeof href !== 'string' || href.length === 0) {
+    return null
+  }
+  if (href.startsWith('/posts/')) {
+    return href
+  }
+  const match = href.match(/prorenata\\.jp(\\/posts\\/[^?#]+)/)
+  if (match && match[1]) {
+    return match[1]
+  }
+  return null
+}
+
+function buildInternalLinkTitleMap(catalog = []) {
+  const map = new Map()
+  catalog.forEach(item => {
+    if (!item?.slug || !item?.title) return
+    const normalized =
+      item.slug.startsWith('/posts/') ? item.slug : `/posts/${item.slug}`
+    map.set(normalized, item.title)
+    map.set(normalized.replace(/^\\/posts\\//, ''), item.title)
+  })
+  return map
+}
+
+function replaceGenericInternalLinkText(blocks, titleMap) {
+  if (!Array.isArray(blocks) || titleMap.size === 0) {
+    return { body: blocks, replacements: 0 }
+  }
+
+  let replacements = 0
+  const updatedBlocks = blocks.map(block => {
+    if (
+      !block ||
+      block._type !== 'block' ||
+      !Array.isArray(block.children) ||
+      !Array.isArray(block.markDefs) ||
+      block.markDefs.length === 0
+    ) {
+      return block
+    }
+
+    let blockChanged = false
+    const newChildren = block.children.map(child => {
+      if (!child || !Array.isArray(child.marks) || child.marks.length === 0) {
+        return child
+      }
+
+      const trimmed = (child.text || '').trim()
+      if (!GENERIC_INTERNAL_LINK_TEXTS.has(trimmed)) {
+        return child
+      }
+
+      let replacementTitle = null
+      child.marks.some(markKey => {
+        const def = block.markDefs.find(mark => mark._key === markKey)
+        if (!def || def._type !== 'link') return false
+        const normalizedHref = normalizeInternalLinkHref(def.href)
+        if (!normalizedHref) return false
+        replacementTitle =
+          titleMap.get(normalizedHref) ||
+          titleMap.get(normalizedHref.replace(/^\\/posts\\//, ''))
+        return Boolean(replacementTitle)
+      })
+
+      if (replacementTitle) {
+        blockChanged = true
+        replacements += 1
+        return {
+          ...child,
+          text: replacementTitle
+        }
+      }
+      return child
+    })
+
+    if (blockChanged) {
+      return {
+        ...block,
+        children: newChildren
+      }
+    }
+    return block
+  })
+
+  return {
+    body: updatedBlocks,
+    replacements
+  }
+}
+
+function isAffiliateLinkMark(def) {
+  return (
+    def &&
+    def._type === 'link' &&
+    typeof def.href === 'string' &&
+    AFFILIATE_HOST_KEYWORDS.some(keyword => def.href.includes(keyword))
+  )
+}
+
+function ensureAffiliatePrLabels(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: 0 }
+  }
+
+  let added = 0
+  const updatedBlocks = blocks.map(block => {
+    if (
+      !block ||
+      block._type !== 'block' ||
+      !Array.isArray(block.children) ||
+      !Array.isArray(block.markDefs) ||
+      block.markDefs.length === 0
+    ) {
+      return block
+    }
+
+    const affiliateMarkKeys = new Set(
+      block.markDefs.filter(isAffiliateLinkMark).map(def => def._key)
+    )
+    if (affiliateMarkKeys.size === 0) {
+      return block
+    }
+
+    let changed = false
+    const newChildren = []
+    let skipNextPlainLabel = false
+    let lastChildWasPr = false
+
+    for (let i = 0; i < block.children.length; i += 1) {
+      const child = block.children[i]
+
+      const isPlainPr =
+        child &&
+        (!Array.isArray(child.marks) || child.marks.length === 0) &&
+        typeof child.text === 'string' &&
+        child.text.trim() === AFFILIATE_PR_LABEL
+
+      if (skipNextPlainLabel && isPlainPr) {
+        skipNextPlainLabel = false
+        changed = true
+        continue
+      }
+
+      if (isPlainPr) {
+        if (lastChildWasPr) {
+          changed = true
+          continue
+        }
+        lastChildWasPr = true
+        newChildren.push(child)
+        continue
+      }
+
+      lastChildWasPr = false
+
+      if (!child) {
+        newChildren.push(child)
+        continue
+      }
+
+      newChildren.push(child)
+
+      if (!Array.isArray(child.marks) || child.marks.length === 0) {
+        continue
+      }
+
+      const hasAffiliateMark = child.marks.some(markKey => affiliateMarkKeys.has(markKey))
+      if (!hasAffiliateMark) {
+        continue
+      }
+
+      const prev = newChildren.length >= 2 ? newChildren[newChildren.length - 2] : null
+      const next = block.children[i + 1]
+      const selfHasLabel = typeof child.text === 'string' && child.text.includes(AFFILIATE_PR_LABEL)
+      const prevHasLabel =
+        prev &&
+        (!Array.isArray(prev.marks) || prev.marks.length === 0) &&
+        typeof prev.text === 'string' &&
+        prev.text.includes(AFFILIATE_PR_LABEL)
+      const nextHasLabel =
+        next &&
+        (!Array.isArray(next.marks) || next.marks.length === 0) &&
+        typeof next.text === 'string' &&
+        next.text.includes(AFFILIATE_PR_LABEL)
+
+      if (selfHasLabel || prevHasLabel) {
+        if (nextHasLabel) {
+          skipNextPlainLabel = true
+        }
+        continue
+      }
+
+      if (nextHasLabel) {
+        skipNextPlainLabel = true
+        continue
+      }
+
+      const needsSpace = typeof child.text === 'string' && !/\s$/.test(child.text)
+      newChildren.push({
+        _type: 'span',
+        _key: `pr-${randomUUID()}`,
+        marks: [],
+        text: `${needsSpace ? ' ' : ''}${AFFILIATE_PR_LABEL}`
+      })
+      lastChildWasPr = true
+      added += 1
+      changed = true
+    }
+
+    if (changed) {
+      return {
+        ...block,
+        children: newChildren
+      }
+    }
+    return block
+  })
+
+  return {
+    body: updatedBlocks,
+    added
+  }
+}
+
+function isPrLabelBlock(block) {
+  if (!block || block._type !== 'block' || block.listItem) {
+    return false
+  }
+  if (Array.isArray(block.markDefs) && block.markDefs.length > 0) {
+    return false
+  }
+  if (!Array.isArray(block.children) || block.children.length !== 1) {
+    return false
+  }
+  const text = (block.children[0]?.text || '').trim()
+  return text === AFFILIATE_PR_LABEL
+}
+
+function ensureAffiliateEmbedPrBlocks(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, added: 0 }
+  }
+
+  const updated = []
+  let added = 0
+  let skipNextLabel = false
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    if (skipNextLabel) {
+      skipNextLabel = false
+      continue
+    }
+
+    const block = blocks[i]
+    if (block?._type === 'affiliateEmbed') {
+      const prevBlock = updated[updated.length - 1]
+      const nextBlock = blocks[i + 1]
+      const hasLabelBefore = isPrLabelBlock(prevBlock)
+      const hasLabelAfter = isPrLabelBlock(nextBlock)
+
+      if (!hasLabelBefore && !hasLabelAfter) {
+        updated.push({
+          _type: 'block',
+          _key: `pr-${randomUUID()}`,
+          style: 'normal',
+          markDefs: [],
+          children: [
+            {
+              _type: 'span',
+              _key: `pr-span-${randomUUID()}`,
+              marks: [],
+              text: AFFILIATE_PR_LABEL
+            }
+          ]
+        })
+        added += 1
+      }
+      if (hasLabelAfter) {
+        skipNextLabel = true
+      }
+      updated.push(block)
+    } else {
+      const isPrBlock = isPrLabelBlock(block)
+      const prevBlock = updated[updated.length - 1]
+      const prevIsPr = isPrLabelBlock(prevBlock)
+      if (isPrBlock && prevIsPr) {
+        added += 0
+        continue
+      }
+      updated.push(block)
+    }
+  }
+
+  return {
+    body: updated,
+    added
+  }
 }
 
 function filterOutInternalPosts(posts = []) {
@@ -1681,8 +2079,14 @@ function sanitizeBodyBlocks(blocks) {
   let summaryHeadingSeen = false
   let hasDisclaimer = false
   let personaHeadingsFixed = 0
+  let skippingNextStepsSection = false
+  let removedNextStepsSections = 0
+  let denseParagraphsSplit = 0
   for (const block of blocks) {
     if (!block || block._type !== 'block') {
+      if (skippingNextStepsSection) {
+        continue
+      }
       if (skipForbiddenSection) {
         continue
       }
@@ -1694,12 +2098,31 @@ function sanitizeBodyBlocks(blocks) {
     const text = extractBlockText(block)
     const normalizedText = text.replace(/\s+/g, ' ').trim()
 
+    if (skippingNextStepsSection) {
+      if (block.style === 'h2' || block.style === 'h3') {
+        if (!NEXT_STEPS_PATTERN.test(normalizedText)) {
+          skippingNextStepsSection = false
+        }
+      }
+      if (skippingNextStepsSection) {
+        previousWasLinkBlock = false
+        continue
+      }
+    }
+
     if (skipForbiddenSection) {
       if (block.style === 'h2') {
         skipForbiddenSection = false
       } else {
         continue
       }
+    }
+
+    if ((block.style === 'h2' || block.style === 'h3') && NEXT_STEPS_PATTERN.test(normalizedText)) {
+      removedNextStepsSections += 1
+      skippingNextStepsSection = true
+      previousWasLinkBlock = false
+      continue
     }
 
     // 「関連記事」見出しやテキストを削除
@@ -1923,7 +2346,9 @@ function sanitizeBodyBlocks(blocks) {
     })
   }
 
-  const bodyWithKeys = ensurePortableTextKeys(cleaned)
+  const denseSplitResult = splitDenseParagraphs(cleaned)
+  denseParagraphsSplit = denseSplitResult.splitCount
+  const bodyWithKeys = ensurePortableTextKeys(denseSplitResult.body)
 
   return {
     body: bodyWithKeys,
@@ -1935,7 +2360,9 @@ function sanitizeBodyBlocks(blocks) {
     removedAffiliateCtas,
     removedSummaryHeadings,
     disclaimerAdded: hasDisclaimer ? 0 : 1,
-    personaHeadingsFixed
+    personaHeadingsFixed,
+    removedNextStepsSections,
+    denseParagraphsSplit
   }
 }
 
@@ -2913,10 +3340,13 @@ async function autoFixMetadata() {
       item.slug.startsWith('/posts/') ? item.slug : `/posts/${item.slug}`
     )
   )
+  const internalLinkTitleMap = buildInternalLinkTitleMap(internalLinkCatalog)
 
   let updated = 0
   let sourceLinkDetails = null
   let affiliateLinksAdded = false
+  let affiliateLinksInserted = 0
+  let totalAffiliateLinksInserted = 0
 
   for (const post of posts) {
     const updates = {}
@@ -2931,6 +3361,7 @@ async function autoFixMetadata() {
     // 各記事の処理ごとに変数をリセット
     sourceLinkDetails = null
     affiliateLinksAdded = false
+    affiliateLinksInserted = 0
     let shouldInsertComparisonLink = false
 
     // カテゴリが空の場合、本文から最適なカテゴリを自動選択
@@ -3627,6 +4058,10 @@ async function sanitizeAllBodies(options = {}) {
   let totalSlugRegenerated = 0
   let totalH3BodiesAdded = 0
   let totalSummariesOptimized = 0
+  let totalDenseParagraphsSplit = 0
+  let totalGenericLinkTextReplaced = 0
+  let totalAffiliatePrLabelsAdded = 0
+  let totalAffiliateEmbedLabelsAdded = 0
   const unresolvedReferences = []
   const shortLengthIssues = []
 
@@ -3661,7 +4096,12 @@ async function sanitizeAllBodies(options = {}) {
     let affiliateLinksNormalizedForPost = 0
     let affiliateLinksInserted = 0
     let sourceLinkAdded = null
+    let nextStepsSectionsRemoved = 0
     let shouldInsertComparisonLink = false
+    let genericLinkTextReplaced = 0
+    let denseParagraphsSplit = 0
+    let affiliatePrLabelsAdded = 0
+    let affiliateEmbedPrLabelsAdded = 0
 
     if (Array.isArray(post.body) && post.body.length > 0) {
       const sanitised = sanitizeBodyBlocks(post.body)
@@ -3675,6 +4115,11 @@ async function sanitizeAllBodies(options = {}) {
       removedSummaryHeadings = sanitised.removedSummaryHeadings
       disclaimerAdded = sanitised.disclaimerAdded
       personaHeadingsFixed = sanitised.personaHeadingsFixed || 0
+      nextStepsSectionsRemoved = sanitised.removedNextStepsSections || 0
+      denseParagraphsSplit = sanitised.denseParagraphsSplit || 0
+      if (denseParagraphsSplit > 0) {
+        totalDenseParagraphsSplit += denseParagraphsSplit
+      }
 
       bodyChanged =
         removedRelated > 0 ||
@@ -3685,7 +4130,9 @@ async function sanitizeAllBodies(options = {}) {
         removedAffiliateCtas > 0 ||
         removedSummaryHeadings > 0 ||
         disclaimerAdded > 0 ||
-        personaHeadingsFixed > 0
+        personaHeadingsFixed > 0 ||
+        nextStepsSectionsRemoved > 0 ||
+        denseParagraphsSplit > 0
 
       const bodyAfterH3 = await addBodyToEmptyH3Sections(body, post.title, enableGemini ? geminiModel : null)
       if (JSON.stringify(bodyAfterH3) !== JSON.stringify(body)) {
@@ -3756,6 +4203,32 @@ async function sanitizeAllBodies(options = {}) {
         body = normalizedLinks.body
         affiliateLinksNormalizedForPost += normalizedLinks.normalized
         bodyChanged = true
+      }
+
+      const prLabelResult = ensureAffiliatePrLabels(body)
+      if (prLabelResult.added > 0) {
+        body = prLabelResult.body
+        affiliatePrLabelsAdded = prLabelResult.added
+        totalAffiliatePrLabelsAdded += prLabelResult.added
+        bodyChanged = true
+      }
+
+      const embedLabelResult = ensureAffiliateEmbedPrBlocks(body)
+      if (embedLabelResult.added > 0) {
+        body = embedLabelResult.body
+        affiliateEmbedPrLabelsAdded = embedLabelResult.added
+        totalAffiliateEmbedLabelsAdded += embedLabelResult.added
+        bodyChanged = true
+      }
+
+      if (internalLinkTitleMap.size > 0) {
+        const linkTextResult = replaceGenericInternalLinkText(body, internalLinkTitleMap)
+        if (linkTextResult.replacements > 0) {
+          body = linkTextResult.body
+          genericLinkTextReplaced = linkTextResult.replacements
+          totalGenericLinkTextReplaced += linkTextResult.replacements
+          bodyChanged = true
+        }
       }
 
       expansionResult = expandShortContent(body, post.title)
@@ -3966,6 +4439,9 @@ async function sanitizeAllBodies(options = {}) {
     if (affiliateBlocksRemoved > 0) {
       console.log(`   関連性の低いアフィリエイトリンクを削除: ${affiliateBlocksRemoved}ブロック`)
     }
+    if (denseParagraphsSplit > 0) {
+      console.log(`   長文段落を読みやすく分割: ${denseParagraphsSplit}箇所`)
+    }
     if (disclaimerAdded > 0) {
       console.log('   免責事項を追記しました')
     }
@@ -3995,6 +4471,15 @@ async function sanitizeAllBodies(options = {}) {
     }
     if (affiliateLinksInserted > 0) {
       console.log(`   アフィリエイトリンクを追加: ${affiliateLinksInserted}件`)
+    }
+    if (affiliatePrLabelsAdded > 0) {
+      console.log(`   アフィリエイトリンクに[PR]表記を追加: ${affiliatePrLabelsAdded}件`)
+    }
+    if (affiliateEmbedPrLabelsAdded > 0) {
+      console.log(`   アフィリエイトカードに[PR]表記を追加: ${affiliateEmbedPrLabelsAdded}件`)
+    }
+    if (genericLinkTextReplaced > 0) {
+      console.log(`   内部リンクの表示テキストを記事タイトルに変更: ${genericLinkTextReplaced}件`)
     }
     if (sourceLinkAdded) {
       console.log(`   出典リンクを追加: ${sourceLinkAdded.name}`)
@@ -4026,7 +4511,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved}）\n`)
+    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -4082,6 +4567,10 @@ async function sanitizeAllBodies(options = {}) {
     summariesMoved: totalSummaryMoved,
     internalLinksAdded: totalInternalLinksAdded,
     slugRegenerated: totalSlugRegenerated,
+    denseParagraphsSplit: totalDenseParagraphsSplit,
+    genericLinkTextNormalized: totalGenericLinkTextReplaced,
+    affiliatePrLabelsAdded: totalAffiliatePrLabelsAdded,
+    affiliateEmbedLabelsAdded: totalAffiliateEmbedLabelsAdded,
     shortLengthIssues
   }
 }
@@ -5456,3 +5945,9 @@ module.exports = {
   autoFixMetadata,
   recategorizeAllPosts
 }
+      if (denseParagraphsSplit > 0) {
+        totalDenseParagraphsSplit += denseParagraphsSplit
+      }
+    if (denseParagraphsSplit > 0) {
+      console.log(`   長文段落を読みやすく分割: ${denseParagraphsSplit}箇所`)
+    }
