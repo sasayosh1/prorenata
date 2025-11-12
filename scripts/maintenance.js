@@ -229,7 +229,7 @@ function normalizeInternalLinkHref(href = '') {
   if (href.startsWith('/posts/')) {
     return href
   }
-  const match = href.match(/prorenata\\.jp(\\/posts\\/[^?#]+)/)
+  const match = href.match(/prorenata\.jp(\/posts\/[^?#]+)/)
   if (match && match[1]) {
     return match[1]
   }
@@ -243,7 +243,7 @@ function buildInternalLinkTitleMap(catalog = []) {
     const normalized =
       item.slug.startsWith('/posts/') ? item.slug : `/posts/${item.slug}`
     map.set(normalized, item.title)
-    map.set(normalized.replace(/^\\/posts\\//, ''), item.title)
+    map.set(normalized.replace(/^\/posts\//, ''), item.title)
   })
   return map
 }
@@ -284,7 +284,7 @@ function replaceGenericInternalLinkText(blocks, titleMap) {
         if (!normalizedHref) return false
         replacementTitle =
           titleMap.get(normalizedHref) ||
-          titleMap.get(normalizedHref.replace(/^\\/posts\\//, ''))
+          titleMap.get(normalizedHref.replace(/^\/posts\//, ''))
         return Boolean(replacementTitle)
       })
 
