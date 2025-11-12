@@ -814,6 +814,22 @@ vercel --previewe
      - 変数スコープの問題を根本的に解決
      - 今後のメンテナンススクリプト実行時にエラーが発生しない
 
+39. 🐛 **GitHub Actions メンテナンスワークフローのtotalAffiliateLinksInserted変数未定義エラーを修正** (2025-11-13)
+   - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: totalAffiliateLinksInserted is not defined` エラーが発生
+   - **原因**:
+     - `autoFixMetadata` 関数（line 3276）で `totalAffiliateLinksInserted` 変数が未定義
+     - line 3467 で使用されているが、関数スコープで宣言されていなかった
+     - 同様に `affiliateLinksInserted` 変数も未定義だった
+   - **修正内容**:
+     - `totalAffiliateLinksInserted` 変数を関数スコープに追加（line 3349）
+     - `affiliateLinksInserted` 変数を関数スコープに追加（line 3348）
+     - ループ内で `affiliateLinksInserted` をリセット（line 3364）
+     - コミット: fcabe3c
+   - **効果**:
+     - GitHub Actions のメンテナンスワークフローが正常に動作
+     - 変数スコープエラーを完全に解決
+     - 週次メンテナンスが正常に実行可能に
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
