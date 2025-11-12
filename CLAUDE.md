@@ -863,6 +863,22 @@ vercel --previewe
      - module.exportsの後に実行可能なコードが存在しないことを保証
      - 変数スコープエラーを根本的に解決
 
+42. 🐛 **sanitizeAllBodies関数にinternalLinkTitleMapの定義を追加** (2025-11-13)
+   - **問題**: GitHub Actions の `maintenance_check` ワークフローで `ReferenceError: internalLinkTitleMap is not defined` エラーが発生
+   - **原因**:
+     - `sanitizeAllBodies` 関数（line 4224）で `internalLinkTitleMap` 変数が使用されていた
+     - しかし、この変数は `autoFixMetadata` 関数内（line 3343）でのみ定義されており、`sanitizeAllBodies` 関数内では未定義だった
+     - 異なる関数スコープで定義された変数を参照しようとしてReferenceErrorが発生
+   - **修正内容**:
+     - `sanitizeAllBodies` 関数内にも `internalLinkTitleMap` の定義を追加（line 4033）
+     - `const internalLinkTitleMap = buildInternalLinkTitleMap(internalLinkCatalog)` を追加
+     - `internalLinkCatalog` から `internalLinkTitleMap` を生成するロジックを実装
+     - コミット: b36babc
+   - **効果**:
+     - GitHub Actions の週次メンテナンスワークフローが正常に動作
+     - 関数スコープごとに必要な変数を適切に定義
+     - 内部リンクのタイトル置換機能が正常に動作
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
