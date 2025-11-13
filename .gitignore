@@ -57,3 +57,7 @@ x-summary.json
 !.env.template
 *.secret
 *.private
+
+# メンテナンスログ
+maintenance-batch.log
+scripts/tmp/

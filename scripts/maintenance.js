@@ -462,6 +462,95 @@ function isPrLabelBlock(block) {
   return text === AFFILIATE_PR_LABEL
 }
 
+function combineReferenceGroup(blocks) {
+  const markDefs = []
+  const children = [
+    {
+      _type: 'span',
+      _key: `ref-label-${randomUUID()}`,
+      text: '参考: ',
+      marks: []
+    }
+  ]
+
+  blocks.forEach((block, index) => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.markDefs)) {
+      return
+    }
+    const def = block.markDefs.find(d => d && d._type === 'link')
+    if (!def) {
+      return
+    }
+    const newKey = `ref-merged-${randomUUID()}`
+    const label = (block.children || [])
+      .filter(child => Array.isArray(child?.marks) && child.marks.includes(def._key))
+      .map(child => child.text || '')
+      .join('')
+      .trim() || '参考資料'
+    markDefs.push({
+      ...def,
+      _key: newKey
+    })
+    children.push({
+      _type: 'span',
+      _key: `ref-merged-span-${randomUUID()}`,
+      text: label,
+      marks: [newKey]
+    })
+    if (index < blocks.length - 1) {
+      children.push({
+        _type: 'span',
+        _key: `ref-sep-${randomUUID()}`,
+        text: ' / ',
+        marks: []
+      })
+    }
+  })
+
+  return {
+    _type: 'block',
+    _key: `ref-merged-block-${randomUUID()}`,
+    style: 'normal',
+    markDefs,
+    children
+  }
+}
+
+function mergeReferenceBlocks(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, merged: 0 }
+  }
+
+  const result = []
+  let merged = 0
+
+  for (let i = 0; i < blocks.length; ) {
+    const block = blocks[i]
+    if (!isReferenceBlock(block)) {
+      result.push(block)
+      i += 1
+      continue
+    }
+
+    const group = [block]
+    let j = i + 1
+    while (j < blocks.length && isReferenceBlock(blocks[j])) {
+      group.push(blocks[j])
+      j += 1
+    }
+
+    if (group.length === 1) {
+      result.push(block)
+    } else {
+      result.push(combineReferenceGroup(group))
+      merged += group.length - 1
+    }
+    i = j
+  }
+
+  return { body: result, merged }
+}
+
 function ensureAffiliateEmbedPrBlocks(blocks) {
   if (!Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, added: 0 }
@@ -521,6 +610,88 @@ function ensureAffiliateEmbedPrBlocks(blocks) {
     body: updated,
     added
   }
+}
+
+function isLinkOnlyBlock(block) {
+  if (!block || block._type !== 'block') {
+    return false
+  }
+  if (isReferenceBlock(block)) {
+    return true
+  }
+  const analysis = analyseLinkBlock(block)
+  return Boolean(analysis.isInternalLinkOnly)
+}
+
+function createLinkSpacerBlock() {
+  return {
+    _type: 'block',
+    _key: `link-spacer-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `link-spacer-span-${randomUUID()}`,
+        marks: [],
+        text: '補足リンクも参考にしてください。'
+      }
+    ]
+  }
+}
+
+function ensureLinkSpacing(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, moved: 0 }
+  }
+
+  const result = []
+  const queue = []
+  let moved = 0
+
+  const isHeading = block =>
+    block?._type === 'block' && (block.style === 'h2' || block.style === 'h3')
+
+  const flushQueue = () => {
+    while (queue.length > 0) {
+      if (result.length > 0 && isLinkOnlyBlock(result[result.length - 1])) {
+        result.push(createLinkSpacerBlock())
+      }
+      result.push(queue.shift())
+    }
+  }
+
+  for (const block of blocks) {
+    const heading = isHeading(block)
+    const linkBlock = isLinkOnlyBlock(block)
+
+    if (heading) {
+      flushQueue()
+      result.push(block)
+      continue
+    }
+
+    if (linkBlock) {
+      const prev = result[result.length - 1]
+      if (!prev || isHeading(prev) || isLinkOnlyBlock(prev)) {
+        queue.push(block)
+        moved += 1
+        continue
+      }
+      result.push(block)
+      continue
+    }
+
+    result.push(block)
+    flushQueue()
+  }
+
+  if (queue.length > 0) {
+    result.push(createLinkSpacerBlock())
+    flushQueue()
+  }
+
+  return { body: result, moved }
 }
 
 function filterOutInternalPosts(posts = []) {
@@ -4071,6 +4242,8 @@ async function sanitizeAllBodies(options = {}) {
   let totalGenericLinkTextReplaced = 0
   let totalAffiliatePrLabelsAdded = 0
   let totalAffiliateEmbedLabelsAdded = 0
+  let totalReferenceMerges = 0
+  let totalLinkSpacingAdjustments = 0
   const unresolvedReferences = []
   const shortLengthIssues = []
 
@@ -4111,6 +4284,8 @@ async function sanitizeAllBodies(options = {}) {
     let denseParagraphsSplit = 0
     let affiliatePrLabelsAdded = 0
     let affiliateEmbedPrLabelsAdded = 0
+    let referenceMerges = 0
+    let linkSpacingAdjustments = 0
 
     if (Array.isArray(post.body) && post.body.length > 0) {
       const sanitised = sanitizeBodyBlocks(post.body)
@@ -4238,6 +4413,22 @@ async function sanitizeAllBodies(options = {}) {
           totalGenericLinkTextReplaced += linkTextResult.replacements
           bodyChanged = true
         }
+      }
+
+      const mergedReferences = mergeReferenceBlocks(body)
+      if (mergedReferences.merged > 0) {
+        body = mergedReferences.body
+        referenceMerges = mergedReferences.merged
+        totalReferenceMerges += mergedReferences.merged
+        bodyChanged = true
+      }
+
+      const linkSpacingResult = ensureLinkSpacing(body)
+      if (linkSpacingResult.moved > 0) {
+        body = linkSpacingResult.body
+        linkSpacingAdjustments = linkSpacingResult.moved
+        totalLinkSpacingAdjustments += linkSpacingResult.moved
+        bodyChanged = true
       }
 
       expansionResult = expandShortContent(body, post.title)
@@ -4487,6 +4678,12 @@ async function sanitizeAllBodies(options = {}) {
     if (affiliateEmbedPrLabelsAdded > 0) {
       console.log(`   アフィリエイトカードに[PR]表記を追加: ${affiliateEmbedPrLabelsAdded}件`)
     }
+    if (referenceMerges > 0) {
+      console.log(`   連続した参考リンクを統合: ${referenceMerges}件`)
+    }
+    if (linkSpacingAdjustments > 0) {
+      console.log(`   リンクブロックの配置を調整: ${linkSpacingAdjustments}件`)
+    }
     if (genericLinkTextReplaced > 0) {
       console.log(`   内部リンクの表示テキストを記事タイトルに変更: ${genericLinkTextReplaced}件`)
     }
@@ -4520,7 +4717,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded}）\n`)
+    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -4580,6 +4777,8 @@ async function sanitizeAllBodies(options = {}) {
     genericLinkTextNormalized: totalGenericLinkTextReplaced,
     affiliatePrLabelsAdded: totalAffiliatePrLabelsAdded,
     affiliateEmbedLabelsAdded: totalAffiliateEmbedLabelsAdded,
+    referenceBlocksMerged: totalReferenceMerges,
+    linkSpacingAdjustments: totalLinkSpacingAdjustments,
     shortLengthIssues
   }
 }
