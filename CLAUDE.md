@@ -1007,3 +1007,43 @@ vercel --previewe
      - ログファイルがgit管理から除外され、リポジトリがクリーンに
      - 週次メンテナンス（月曜AM3:00）で自動適用
    - **コミット**: 7da7749
+
+45. 📊 **GA4・Search Console連携によるSEO分析システム構築** (2025-11-13)
+   - **背景**: PDCAサイクル構築のため、GA4とSearch Consoleのデータを自動収集・分析する仕組みが必要
+   - **実装内容**:
+     - **Pythonスクリプト作成** (`scripts/analytics/`)
+       - `fetch-gsc-data.py`: Search Consoleデータ取得（過去30日間）
+         - クリック・表示回数・CTR・平均掲載順位
+         - 日付・ページ・クエリ・国・デバイス別ディメンション
+       - `fetch-ga4-data.py`: GA4データ取得（過去30日間）
+         - セッション・ユーザー・イベント・エンゲージメント率
+         - 日付・ページ・デバイス・国別ディメンション
+       - `analyze-seo-performance.py`: SEO分析レポート生成
+         - トップ10ページ分析
+         - トップ20検索クエリ分析
+         - CTR改善機会（表示多いが低CTR）
+         - 掲載順位改善機会（4-10位で表示多い）
+     - **GitHub Actionsワークフロー** (`.github/workflows/daily-analytics.yml`)
+       - 実行時刻: 毎朝 09:00 JST（00:00 UTC）
+       - 処理フロー: GSCデータ取得 → GA4データ取得 → 分析レポート生成 → コミット
+       - エラー時: GitHub Issue自動作成
+       - 手動実行も可能（workflow_dispatch）
+     - **設定ファイル**
+       - `requirements.txt`: Python依存関係（google-analytics-data, google-api-python-client等）
+       - `README.md`: セットアップ・使用方法の詳細ドキュメント
+       - `.gitignore`: データファイル（*.csv, *.md）除外
+   - **設定値**:
+     - GA4プロパティID: `504242963` （ProReNata）
+     - GSCプロパティURL: `https://prorenata.jp/`
+   - **次のステップ（ユーザー側で実施）**:
+     1. GCPサービスアカウント作成＆JSONキー取得
+     2. Search Console API・Analytics Data API有効化
+     3. Search Console へサービスアカウントを招待（Full権限）
+     4. GA4 へサービスアカウントを招待（Analyst/Editor権限）
+     5. GitHub Secretsに `GCP_SERVICE_ACCOUNT_KEY` を設定
+   - **効果**:
+     - 毎日自動でSEOパフォーマンスデータを収集
+     - データ駆動型の改善ポイント特定
+     - PDCAサイクルを回せる基盤が整備
+     - 完全無料（GitHub Actions無料枠内）
+   - **コミット**: de06550
