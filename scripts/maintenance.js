@@ -31,7 +31,8 @@ const {
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
   buildFallbackSummaryBlocks,
-  findSummaryInsertIndex
+  findSummaryInsertIndex,
+  removePersonaName
 } = require('./utils/postHelpers')
 const {
   ensurePortableTextKeys,
@@ -108,6 +109,78 @@ const ITEM_ROUNDUP_KEYWORDS = [
 const ITEM_ROUNDUP_SELECTION_REGEX = /[0-9０-９]+\s*選/
 const AFFILIATE_MIN_GAP_BLOCKS = 2
 const AFFILIATE_PR_LABEL = '[PR]'
+const TITLE_PERSONA_PATTERN = /(白崎セラ|看護助手セラ|現役看護助手セラ|セラ(?=[がはをにのもとで、。！？\s]|$))/g
+const FIRST_PERSON_REGEX = /私(?=(?:たち|達|[はがをもにのでとやへ、。！？\s]|$))/g
+
+function sanitizeTitlePersona(title = '') {
+  if (!title) return title
+  let cleaned = title
+  cleaned = cleaned.replace(/現役看護助手セラ/g, '現役看護助手')
+  cleaned = cleaned.replace(/看護助手セラ/g, '看護助手')
+  cleaned = cleaned.replace(/白崎セラ/g, '')
+  cleaned = cleaned.replace(/セラ(?=[がはをにのもとで、。！？\s]|$)/g, '')
+  cleaned = cleaned.replace(/\s{2,}/g, ' ')
+  cleaned = cleaned.replace(/\s([!！?？、。])/g, '$1')
+  return cleaned.trim()
+}
+
+function normalizeFirstPersonText(text = '') {
+  if (!text) {
+    return { text, count: 0 }
+  }
+  let count = 0
+  let normalized = text.replace(/私たち/g, () => {
+    count += 1
+    return 'わたしたち'
+  })
+  normalized = normalized.replace(/私達/g, () => {
+    count += 1
+    return 'わたしたち'
+  })
+  normalized = normalized.replace(FIRST_PERSON_REGEX, () => {
+    count += 1
+    return 'わたし'
+  })
+  return { text: normalized, count }
+}
+
+function normalizeFirstPersonPronouns(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, replaced: 0 }
+  }
+
+  let replaced = 0
+  const updatedBlocks = blocks.map(block => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+      return block
+    }
+    let blockChanged = false
+    const newChildren = block.children.map(child => {
+      if (!child || typeof child.text !== 'string') {
+        return child
+      }
+      const { text, count } = normalizeFirstPersonText(child.text)
+      if (count > 0) {
+        replaced += count
+        blockChanged = true
+        return {
+          ...child,
+          text
+        }
+      }
+      return child
+    })
+    if (blockChanged) {
+      return {
+        ...block,
+        children: newChildren
+      }
+    }
+    return block
+  })
+
+  return { body: updatedBlocks, replaced }
+}
 
 const CTA_TEXT_PATTERNS = [
   '転職・求人をお探しの方へ',
@@ -4126,6 +4199,8 @@ async function sanitizeAllBodies(options = {}) {
     *[_type == "post" && (${PUBLIC_POST_FILTER})] {
       _id,
       title,
+      excerpt,
+      metaDescription,
       body,
       "slug": slug.current,
       _updatedAt,
@@ -4144,6 +4219,8 @@ async function sanitizeAllBodies(options = {}) {
       *[_type == "post" && slug.current in $slugs && (${PUBLIC_POST_FILTER})] {
         _id,
         title,
+        excerpt,
+        metaDescription,
         body,
         "slug": slug.current,
         _updatedAt,
@@ -4244,6 +4321,10 @@ async function sanitizeAllBodies(options = {}) {
   let totalAffiliateEmbedLabelsAdded = 0
   let totalReferenceMerges = 0
   let totalLinkSpacingAdjustments = 0
+  let totalPersonaTitleFixes = 0
+  let totalPersonaExcerptFixes = 0
+  let totalPersonaMetaFixes = 0
+  let totalPronounAdjustments = 0
   const unresolvedReferences = []
   const shortLengthIssues = []
 
@@ -4286,6 +4367,39 @@ async function sanitizeAllBodies(options = {}) {
     let affiliateEmbedPrLabelsAdded = 0
     let referenceMerges = 0
     let linkSpacingAdjustments = 0
+    let personaTitleUpdated = false
+    let personaExcerptUpdated = false
+    let personaMetaUpdated = false
+    let pronounAdjustments = 0
+    let referenceMerges = 0
+    let linkSpacingAdjustments = 0
+
+    if (typeof post.title === 'string' && TITLE_PERSONA_PATTERN.test(post.title)) {
+      const cleanedTitle = sanitizeTitlePersona(post.title)
+      if (cleanedTitle && cleanedTitle !== post.title) {
+        updates.title = cleanedTitle
+        personaTitleUpdated = true
+        totalPersonaTitleFixes += 1
+      }
+    }
+
+    if (typeof post.excerpt === 'string' && /セラ/.test(post.excerpt)) {
+      const cleanedExcerpt = removePersonaName(post.excerpt)
+      if (cleanedExcerpt !== post.excerpt) {
+        updates.excerpt = cleanedExcerpt
+        personaExcerptUpdated = true
+        totalPersonaExcerptFixes += 1
+      }
+    }
+
+    if (typeof post.metaDescription === 'string' && /セラ/.test(post.metaDescription)) {
+      const cleanedMeta = removePersonaName(post.metaDescription)
+      if (cleanedMeta !== post.metaDescription) {
+        updates.metaDescription = cleanedMeta
+        personaMetaUpdated = true
+        totalPersonaMetaFixes += 1
+      }
+    }
 
     if (Array.isArray(post.body) && post.body.length > 0) {
       const sanitised = sanitizeBodyBlocks(post.body)
@@ -4303,6 +4417,14 @@ async function sanitizeAllBodies(options = {}) {
       denseParagraphsSplit = sanitised.denseParagraphsSplit || 0
       if (denseParagraphsSplit > 0) {
         totalDenseParagraphsSplit += denseParagraphsSplit
+      }
+
+      const pronounResult = normalizeFirstPersonPronouns(body)
+      if (pronounResult.replaced > 0) {
+        body = pronounResult.body
+        pronounAdjustments = pronounResult.replaced
+        totalPronounAdjustments += pronounResult.replaced
+        bodyChanged = true
       }
 
       bodyChanged =
@@ -4678,6 +4800,18 @@ async function sanitizeAllBodies(options = {}) {
     if (affiliateEmbedPrLabelsAdded > 0) {
       console.log(`   アフィリエイトカードに[PR]表記を追加: ${affiliateEmbedPrLabelsAdded}件`)
     }
+    if (personaTitleUpdated) {
+      console.log('   タイトルからキャラクター名を除去しました')
+    }
+    if (personaExcerptUpdated) {
+      console.log('   Excerptのキャラクター名を修正しました')
+    }
+    if (personaMetaUpdated) {
+      console.log('   Meta Descriptionのキャラクター名を修正しました')
+    }
+    if (pronounAdjustments > 0) {
+      console.log(`   一人称を「わたし」に統一: ${pronounAdjustments}箇所`)
+    }
     if (referenceMerges > 0) {
       console.log(`   連続した参考リンクを統合: ${referenceMerges}件`)
     }
@@ -4717,7 +4851,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges}）\n`)
+    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -4779,6 +4913,10 @@ async function sanitizeAllBodies(options = {}) {
     affiliateEmbedLabelsAdded: totalAffiliateEmbedLabelsAdded,
     referenceBlocksMerged: totalReferenceMerges,
     linkSpacingAdjustments: totalLinkSpacingAdjustments,
+    personaTitlesFixed: totalPersonaTitleFixes,
+    personaExcerptsFixed: totalPersonaExcerptFixes,
+    personaMetaFixed: totalPersonaMetaFixes,
+    pronounAdjustments: totalPronounAdjustments,
     shortLengthIssues
   }
 }
