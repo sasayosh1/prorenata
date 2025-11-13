@@ -1064,6 +1064,14 @@ function isAffiliateRelevant(meta, combinedText, currentPost) {
   }
 
   if (meta.category === '就職・転職') {
+    // ネガティブキーワード: 用語解説系は転職リンク不要
+    const isGlossary = /用語.*ガイド|用語.*解説|.*とは|.*の違い|定義|基礎知識|名称.*違い/.test(text) ||
+                       /terminology|glossary|definition/.test(slug)
+
+    if (isGlossary) {
+      return false
+    }
+
     const hasKeyword = /転職|求人|就職|応募|面接|志望動機|キャリア|採用/.test(text)
     const slugMatches = /career|job|転職/.test(slug)
     const categoryMatches =
