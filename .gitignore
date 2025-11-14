@@ -61,7 +61,3 @@ x-summary.json
 # メンテナンスログ
 maintenance-batch.log
 scripts/tmp/
-
-# Analytics data
-data/*.csv
-data/*.md
