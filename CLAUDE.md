@@ -1047,3 +1047,29 @@ vercel --previewe
      - PDCAサイクルを回せる基盤が整備
      - 完全無料（GitHub Actions無料枠内）
    - **コミット**: de06550
+
+46. 🔧 **GitHub Actionsワークフロー修正（Analytics自動コミット対応）** (2025-11-14)
+   - **問題**: GitHub Actionsで生成したAnalyticsデータファイルがコミットできない2つのエラーが発生
+     - エラー1: `.gitignore`で`data/*.csv`と`data/*.md`が除外されていた
+     - エラー2: Pythonキャッシュ設定が原因で「Post Setup Python」エラーが発生
+   - **修正内容**:
+     - **`.gitignore`修正** (commit: 66329f0)
+       - `data/*.csv`と`data/*.md`の除外設定を削除
+       - Analyticsデータファイルをgit管理対象に変更
+       - GitHub Actionsの自動コミットが正常動作するように修正
+     - **GitHub Actionsワークフロー修正** (commit: ed1f5af)
+       - `.github/workflows/daily-analytics.yml`から`cache: 'pip'`と`cache-dependency-path`を削除
+       - Pythonキャッシュエラーを解消
+       - Python依存関係は軽量なためキャッシュ不要
+   - **効果**:
+     - GitHub Actionsでの自動データ収集・コミットが正常動作
+     - 毎朝9:00 JSTに自動実行可能
+     - PDCAサイクルのデータ蓄積が開始
+   - **次のステップ**: ユーザー側でGCPサービスアカウント作成とAPI設定を実施
+
+## ⚠️ 重要なルール
+
+**🚫 UIデザイン変更の完全禁止**
+- レイアウト、色、フォント、スタイルの変更は絶対禁止
+- 詳細は `UI-DESIGN-LOCK.md` を参照
+- 違反した場合は最重要事項の不遵守となる
