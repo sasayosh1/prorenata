@@ -6,6 +6,8 @@
  * 無効になったリンクは別の案件に差し替え
  */
 
+const { randomUUID } = require('crypto')
+
 const MOSHIMO_LINKS = {
   // 就職・転職サービス
   humanlifecare: {
@@ -162,6 +164,36 @@ function escapeHtml(text = '') {
     .replace(/'/g, '&#39;')
 }
 
+const AFFILIATE_CATEGORY_CTA = {
+  '就職・転職': link =>
+    `[PR] 看護助手として次の職場を検討するときは、教育サポートや夜勤体制も合わせて確認してください。${link.name}なら担当者に相談しながら条件を整理できます。`,
+  'アイテム': link =>
+    `[PR] こまめに道具を入れ替えておくとケアの質が安定します。${link.name}で必要なものをまとめてチェックしておくと準備がスムーズです。`,
+  '退職代行': link =>
+    `[PR] 退職手続きに不安がある場合は、専門サービスに早めに相談して流れを確認しましょう。${link.name}なら相談窓口が整っていて段取りを一緒に組み立てられます。`
+}
+
+const AFFILIATE_KEY_CTA = {
+  nursery: link =>
+    `[PR] ユニフォームやポケットオーガナイザーをまとめて揃えるなら${link.name}が便利です。現場で必要なサイズやカラーも細かく選べます。`,
+  amazon: link =>
+    `[PR] 小物や替えのグローブなど、毎日使うアイテムは${link.name}で常備しておくと安心です。`,
+  rakuten: link =>
+    `[PR] 価格や配送スピードを比較しながら買い足したいときは${link.name}が頼りになります。ポイント活用でコストも抑えられます。`
+}
+
+function selectAffiliateCtaText(linkKey, link) {
+  if (!link) return ''
+  if (AFFILIATE_KEY_CTA[linkKey]) {
+    return AFFILIATE_KEY_CTA[linkKey](link)
+  }
+  const template = AFFILIATE_CATEGORY_CTA[link.category]
+  if (template) {
+    return template(link)
+  }
+  return `[PR] 必要なサポートを信頼できるサービスと一緒に確認しておくと、迷わず動けます。${link.name}は看護助手の相談にも対応しています。`
+}
+
 function wrapAffiliateHtml(link) {
   const appeal = escapeHtml(link.appealText || '')
   const note = escapeHtml(link.description || '')
@@ -180,7 +212,21 @@ function createMoshimoLinkBlocks(linkKey) {
   const link = MOSHIMO_LINKS[linkKey]
   if (!link || !link.active) return null
 
-  const embedKey = 'affiliate-' + Math.random().toString(36).substr(2, 9)
+  const embedKey = `affiliate-${randomUUID()}`
+  const ctaBlock = {
+    _type: 'block',
+    _key: `affiliate-cta-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `affiliate-cta-span-${randomUUID()}`,
+        marks: [],
+        text: selectAffiliateCtaText(linkKey, link)
+      }
+    ]
+  }
 
   const embedBlock = {
     _type: 'affiliateEmbed',
@@ -191,7 +237,7 @@ function createMoshimoLinkBlocks(linkKey) {
     html: wrapAffiliateHtml(link)
   }
 
-  return [embedBlock]
+  return [ctaBlock, embedBlock]
 }
 
 module.exports = {

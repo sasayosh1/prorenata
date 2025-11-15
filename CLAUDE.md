@@ -1072,6 +1072,11 @@ vercel --previewe
    - H2/H3見出しの重複、および80文字以上の段落の重複を洗い出しレポートする仕組みを整備
    - コマンドヘルプとエクスポート関数を更新し、他スクリプトからも利用可能に
    - 実行結果: 公開対象163件をスキャンし、90件で重複見出し・本文を検出（例: `/posts/nursing-assistant-care-guide-practice` など). 優先修正対象を把握できるようになった
+48. 🪢 **CTAブロックと重複リライトの強化** (2025-11-15)
+   - `scripts/moshimo-affiliate-links.js` でコンテキスト別CTAテンプレートを追加し、各アフィリエイトリンクの直前に `[PR]` 付き訴求文を自動挿入（転職/アイテム/個別キー対応）
+   - CTAブロックもPortable Textとして生成するため、配置ルールとリンク削除ルールに干渉せずメンテナンスで再配置可能に
+   - `nursing-assistant-career-change-school` を全面リライトし、進学ルート/準備ステップを1回ずつ説明。関連内部リンク（1日ルーティン、看護師ルート記事）と参考資料・免責事項を本文末尾に設置
+   - `nursing-assistant-qualifications-needed` を `sanitize --force-links` で再整備し、新CTA表記・[PR]ブロックが適切に付与されることを確認
 
 ## ⚠️ 重要なルール
 
