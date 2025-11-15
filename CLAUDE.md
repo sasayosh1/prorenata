@@ -1067,6 +1067,12 @@ vercel --previewe
      - PDCAサイクルのデータ蓄積が開始
    - **次のステップ**: ユーザー側でGCPサービスアカウント作成とAPI設定を実施
 
+47. 🔁 **重複セクション検出コマンドと全件スキャン** (2025-11-15)
+   - `scripts/maintenance.js` に `detectDuplicateSections()` ヘルパーと `findDuplicateContentIssues()` を追加し、CLIコマンド `duplicates`（`--slugs` / `--min-length` 対応）を実装
+   - H2/H3見出しの重複、および80文字以上の段落の重複を洗い出しレポートする仕組みを整備
+   - コマンドヘルプとエクスポート関数を更新し、他スクリプトからも利用可能に
+   - 実行結果: 公開対象163件をスキャンし、90件で重複見出し・本文を検出（例: `/posts/nursing-assistant-care-guide-practice` など). 優先修正対象を把握できるようになった
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**

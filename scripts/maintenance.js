@@ -182,6 +182,30 @@ function normalizeFirstPersonPronouns(blocks) {
   return { body: updatedBlocks, replaced }
 }
 
+function normalizeHeadingKey(text = '') {
+  return (text || '')
+    .replace(/[　\s]+/g, '')
+    .replace(/[!！?？。、．,.、・：:；;（）()［］\[\]{}「」『』【】<>〈〉《》…—―-]/g, '')
+    .toLowerCase()
+}
+
+function normalizeParagraphKey(text = '') {
+  return (text || '').replace(/[　\s]+/g, ' ').trim().toLowerCase()
+}
+
+let cachedSummaryHeadingKeys = null
+function isSummaryHeadingKey(normalizedKey) {
+  if (!normalizedKey) {
+    return false
+  }
+  if (!cachedSummaryHeadingKeys) {
+    cachedSummaryHeadingKeys = new Set(
+      SUMMARY_HEADING_KEYWORDS.map(keyword => normalizeHeadingKey(keyword))
+    )
+  }
+  return cachedSummaryHeadingKeys.has(normalizedKey)
+}
+
 const CTA_TEXT_PATTERNS = [
   '転職・求人をお探しの方へ',
   '転職・求人をお探しの方は',
@@ -195,6 +219,7 @@ const CTA_TEXT_PATTERNS = [
 
 const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
 const NEXT_STEPS_PATTERN = /次のステップ/
+const SUMMARY_HEADING_KEYWORDS = ['まとめ', 'さいごに', '最後に', 'おわりに']
 const GENERIC_INTERNAL_LINK_TEXTS = new Set(['こちらの記事', 'この記事', 'こちら', 'この記事'])
 
 function isInternalOnly(post) {
@@ -2618,6 +2643,102 @@ function sanitizeBodyBlocks(blocks) {
   }
 }
 
+function detectDuplicateSections(blocks, options = {}) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { duplicateHeadings: [], duplicateParagraphs: [] }
+  }
+
+  const minParagraphLength = Number.isInteger(options.minParagraphLength)
+    ? options.minParagraphLength
+    : 80
+
+  const headingMap = new Map()
+  const paragraphMap = new Map()
+  let currentHeading = null
+
+  blocks.forEach((block, index) => {
+    if (!block || block._type !== 'block') {
+      return
+    }
+
+    const rawText = extractBlockText(block)
+    const normalizedText = rawText.replace(/\s+/g, ' ').trim()
+    if (!normalizedText) {
+      return
+    }
+
+    if (block.style === 'h2' || block.style === 'h3') {
+      const headingKey = normalizeHeadingKey(normalizedText)
+      if (!headingKey) {
+        currentHeading = null
+        return
+      }
+
+      currentHeading = normalizedText
+
+      if (isSummaryHeadingKey(headingKey)) {
+        return
+      }
+
+      if (!headingMap.has(headingKey)) {
+        headingMap.set(headingKey, {
+          text: normalizedText,
+          style: block.style,
+          occurrences: []
+        })
+      }
+
+      headingMap.get(headingKey).occurrences.push({
+        index,
+        text: normalizedText
+      })
+      return
+    }
+
+    const paragraphKey = normalizeParagraphKey(normalizedText)
+    if (!paragraphKey || paragraphKey.length < minParagraphLength) {
+      return
+    }
+
+    if (!paragraphMap.has(paragraphKey)) {
+      paragraphMap.set(paragraphKey, {
+        preview: normalizedText.slice(0, 80),
+        occurrences: []
+      })
+    }
+
+    paragraphMap.get(paragraphKey).occurrences.push({
+      index,
+      heading: currentHeading
+    })
+  })
+
+  const duplicateHeadings = []
+  headingMap.forEach(value => {
+    if (value.occurrences.length > 1) {
+      duplicateHeadings.push({
+        text: value.text,
+        style: value.style,
+        count: value.occurrences.length,
+        occurrences: value.occurrences
+      })
+    }
+  })
+
+  const duplicateParagraphs = []
+  paragraphMap.forEach(value => {
+    if (value.occurrences.length > 1) {
+      duplicateParagraphs.push({
+        preview: value.preview,
+        count: value.occurrences.length,
+        occurrences: value.occurrences
+      })
+    }
+  })
+
+  return { duplicateHeadings, duplicateParagraphs }
+}
+
 async function normalizeReferenceLinks(blocks, articleTitle = '') {
   if (!Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, fixed: 0, unresolved: [], removed: 0 }
@@ -4371,8 +4492,6 @@ async function sanitizeAllBodies(options = {}) {
     let personaExcerptUpdated = false
     let personaMetaUpdated = false
     let pronounAdjustments = 0
-    let referenceMerges = 0
-    let linkSpacingAdjustments = 0
 
     if (typeof post.title === 'string' && TITLE_PERSONA_PATTERN.test(post.title)) {
       const cleanedTitle = sanitizeTitlePersona(post.title)
@@ -5042,6 +5161,115 @@ async function findShortPosts(minChars = 2000) {
   } catch (error) {
     console.error('❌ エラー:', error.message)
     return []
+  }
+}
+
+/**
+ * 本文内の重複セクションを検出
+ */
+async function findDuplicateContentIssues(options = {}) {
+  const minParagraphLength = Number.isInteger(options.minParagraphLength)
+    ? options.minParagraphLength
+    : 80
+  const slugFilters = Array.isArray(options.slugs) ? options.slugs.filter(Boolean) : null
+
+  let query = `*[_type == "post" && (${PUBLIC_POST_FILTER})] | order(_updatedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    body,
+    _updatedAt
+  }`
+  const params = {}
+
+  if (slugFilters && slugFilters.length > 0) {
+    query = `*[_type == "post" && slug.current in $slugs && (${PUBLIC_POST_FILTER})] {
+      _id,
+      title,
+      "slug": slug.current,
+      body,
+      _updatedAt
+    }`
+    params.slugs = slugFilters
+  }
+
+  try {
+    const rawPosts = await client.fetch(query, params)
+    const posts = filterOutInternalPosts(rawPosts)
+
+    if (!posts || posts.length === 0) {
+      console.log('\n✅ 重複チェック対象の記事はありません\n')
+      return { total: 0, affected: 0, details: [] }
+    }
+
+    const issues = []
+
+    posts.forEach(post => {
+      const detection = detectDuplicateSections(post.body || [], { minParagraphLength })
+      if (
+        detection.duplicateHeadings.length === 0 &&
+        detection.duplicateParagraphs.length === 0
+      ) {
+        return
+      }
+      issues.push({
+        _id: post._id,
+        title: post.title,
+        slug: post.slug,
+        _updatedAt: post._updatedAt,
+        duplicateHeadings: detection.duplicateHeadings,
+        duplicateParagraphs: detection.duplicateParagraphs
+      })
+    })
+
+    issues.sort((a, b) => {
+      const aScore = a.duplicateHeadings.length + a.duplicateParagraphs.length
+      const bScore = b.duplicateHeadings.length + b.duplicateParagraphs.length
+      if (aScore === bScore) {
+        return (b._updatedAt || '').localeCompare(a._updatedAt || '')
+      }
+      return bScore - aScore
+    })
+
+    console.log(
+      `\n🔁 本文重複チェック: ${posts.length}件中 ${issues.length}件で重複疑いを検出 （しきい値: ${minParagraphLength}文字）\n`
+    )
+
+    if (issues.length === 0) {
+      console.log('✅ 重複セクションは検出されませんでした。')
+      return { total: posts.length, affected: 0, details: [] }
+    }
+
+    issues.slice(0, 10).forEach((issue, index) => {
+      console.log(`${index + 1}. ${issue.title}`)
+      console.log(`   ID: ${issue._id}`)
+      console.log(`   URL: /posts/${issue.slug}`)
+      if (issue.duplicateHeadings.length > 0) {
+        console.log(
+          `   ⚠️ 重複見出し: ${issue.duplicateHeadings
+            .map(item => `${item.text} (x${item.count})`)
+            .join(', ')}`
+        )
+      }
+      if (issue.duplicateParagraphs.length > 0) {
+        console.log(
+          `   ⚠️ 重複段落: ${issue.duplicateParagraphs
+            .slice(0, 2)
+            .map(item => `${item.preview}… (x${item.count})`)
+            .join(' / ')}`
+        )
+      }
+      console.log('')
+    })
+
+    if (issues.length > 10) {
+      console.log(`   …他 ${issues.length - 10} 件`)
+    }
+
+    return { total: posts.length, affected: issues.length, details: issues }
+  } catch (error) {
+    console.error('❌ 重複チェック中にエラーが発生しました:', error.message)
+    return { total: 0, affected: 0, details: [], error: error.message }
   }
 }
 
@@ -6173,6 +6401,29 @@ if (require.main === module) {
       recategorizeAllPosts().catch(console.error)
       break
 
+    case 'duplicates':
+      (async () => {
+        const optionArgs = args.slice(1)
+        const options = {}
+        optionArgs.forEach(arg => {
+          if (!arg) return
+          if (arg.startsWith('--slugs=')) {
+            const value = arg.replace('--slugs=', '')
+            const slugs = value.split(',').map(s => s.trim()).filter(Boolean)
+            if (slugs.length > 0) {
+              options.slugs = slugs
+            }
+          } else if (arg.startsWith('--min-length=')) {
+            const value = parseInt(arg.replace('--min-length=', ''), 10)
+            if (!Number.isNaN(value) && value > 0) {
+              options.minParagraphLength = value
+            }
+          }
+        })
+        await findDuplicateContentIssues(options)
+      })().catch(console.error)
+      break
+
     case 'dedupe':
       {
         const apply = args.includes('--apply')
@@ -6203,6 +6454,10 @@ if (require.main === module) {
   images              画像なしの記事を検出
   short [文字数]      文字数不足の記事を検出（デフォルト: 2000文字）
                       ※ユーザビリティ優先、内容の質を重視
+  duplicates [--slugs=slug1,slug2] [--min-length=80]
+                      本文内の重複セクションを検出
+                      - 同一見出しや重複段落を洗い出し、再執筆対象を特定
+                      - --min-length で重複判定する段落の文字数しきい値を指定（デフォルト80）
   nextsteps           「次のステップ」セクションがない記事を検出
                       ※現在はフロントエンド側で自動表示
   affiliate           アフィリエイトリンクの適切性をチェック
@@ -6289,5 +6544,6 @@ module.exports = {
   checkH2AfterSummary,
   generateReport,
   autoFixMetadata,
-  recategorizeAllPosts
+  recategorizeAllPosts,
+  findDuplicateContentIssues
 }
