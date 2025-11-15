@@ -1,9 +1,7 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
-20251015,/,desktop,Japan,3,1,18,1.0,369.356859
 20251016,/,desktop,Japan,3,1,47,0.6666666666666666,363.606559
 20251113,/,desktop,Japan,2,1,10,1.0,602.434392
 20251113,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,1,14,1.0,55.664606
-20251015,/posts/nursing-assistant-labor-law-2024,desktop,Japan,1,1,5,1.0,601.344017
 20251016,/blog,desktop,Japan,1,1,1,1.0,5.081741
 20251016,/posts,desktop,Japan,1,1,12,1.0,28.681671
 20251016,/posts/nursing-assistant-medical-terms,desktop,Japan,1,1,1,1.0,4.796938
