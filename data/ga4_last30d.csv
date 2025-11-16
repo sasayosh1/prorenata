@@ -1,13 +1,8 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
-20251016,/,desktop,Japan,3,1,47,0.6666666666666666,363.606559
+20251115,/,desktop,Japan,3,1,29,0.3333333333333333,13.528130333333332
 20251113,/,desktop,Japan,2,1,10,1.0,602.434392
 20251113,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,1,14,1.0,55.664606
-20251016,/blog,desktop,Japan,1,1,1,1.0,5.081741
-20251016,/posts,desktop,Japan,1,1,12,1.0,28.681671
-20251016,/posts/nursing-assistant-medical-terms,desktop,Japan,1,1,1,1.0,4.796938
-20251016,/posts/nursing-assistant-salary-survey-2024,desktop,Japan,1,1,1,1.0,0.98326
-20251016,/posts/nursing-assistant-starting-salary-comparison,desktop,Japan,1,1,1,1.0,0.961805
-20251016,/posts/nursing-assistant-work-reform-examples,desktop,Japan,1,1,1,1.0,2.440237
+20251115,/posts/nursing-assistant-training-program-revision,desktop,Japan,2,1,11,0.5,13.266507
 20251017,/,desktop,Japan,1,1,4,0.0,3.743806
 20251019,/,desktop,Japan,1,1,35,1.0,258.47537
 20251019,/posts,desktop,Japan,1,1,1,1.0,0.0
@@ -18,3 +13,4 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251110,/,desktop,Japan,1,1,7,1.0,11.80411
 20251113,/about,desktop,Japan,1,1,1,1.0,2.953086
 20251113,/blog,desktop,Japan,1,1,1,1.0,21.217683
+20251115,/search,desktop,Japan,1,1,10,1.0,61.83853
