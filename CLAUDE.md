@@ -1077,6 +1077,11 @@ vercel --previewe
    - CTAブロックもPortable Textとして生成するため、配置ルールとリンク削除ルールに干渉せずメンテナンスで再配置可能に
    - `nursing-assistant-career-change-school` を全面リライトし、進学ルート/準備ステップを1回ずつ説明。関連内部リンク（1日ルーティン、看護師ルート記事）と参考資料・免責事項を本文末尾に設置
    - `nursing-assistant-qualifications-needed` を `sanitize --force-links` で再整備し、新CTA表記・[PR]ブロックが適切に付与されることを確認
+49. 🧩 **重複上位記事の再構成（パート勤務・ストレス対策）** (2025-11-15)
+   - `/posts/nursing-assistant-part-time-day` と `/posts/nursing-assistant-stress-ranking` を完全再執筆し、H2/H3重複や冗長な箇条書きを排除。タイムライン→段取り→まとめのシンプル構成に変更
+   - それぞれ適切な内部リンク（1日ルーティン記事、比較記事）と参考資料・免責事項をまとめ直後へ整理
+   - `node scripts/maintenance.js duplicates --slugs=...` で重複0件を確認し、 `sanitize --force-links` を実行して新CTA・出典・内部リンク配置を強制適用
+   - サニタイズ結果で残った文字数警告（1950文字帯）は追記済み。今後も `duplicates --top-views=20 --cooldown=7` を指標に同手順で順次リライトする
 
 ## ⚠️ 重要なルール
 
