@@ -40,6 +40,21 @@ const MOSHIMO_LINKS = {
     condition: '新規人材サービス登録'
   },
 
+  renewcare: {
+    name: 'リニューケア',
+    description: '関西圏に特化した介護職・看護助手の転職',
+    category: '就職・転職',
+    targetArticles: ['関西', '都市部', '転職', '求人', '相談'],
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>（自由テキスト）</a><img src="//i.moshimo.com/af/i/impression?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" width="1" height="1" style="border:none;" loading="lazy">',
+    appealText: '💼 関西圏の転職相談をしたい方へ',
+    linkText: '関西特化の転職サービス「リニューケア」',
+    url: '//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880',
+    active: true,
+    addedDate: '2025-10-14',
+    reward: '7,000円',
+    condition: '新規会員登録'
+  },
+
   // アイテム・商品
   nursery: {
     name: 'ナースリー',

@@ -4551,9 +4551,9 @@ async function sanitizeAllBodies(options = {}) {
     const linkSanitizeResult = sanitizeLinkMarkDefs(body)
     if (linkSanitizeResult.fixes > 0) {
       body = linkSanitizeResult.body
-      updates.body = body
       linkHrefRepairs = linkSanitizeResult.fixes
       totalLinkHrefRepairs += linkHrefRepairs
+      bodyChanged = true
     }
 
     if (typeof post.title === 'string' && TITLE_PERSONA_PATTERN.test(post.title)) {
@@ -4835,7 +4835,6 @@ async function sanitizeAllBodies(options = {}) {
 
     let slugUpdated = false
     let slugForReporting = originalSlug
-    const updates = {}
 
     if (needsSlugRegeneration(originalSlug)) {
       const slugCandidate = generateSlugFromTitle(post.title)
