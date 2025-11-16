@@ -1785,6 +1785,7 @@ module.exports = {
   generateTags,
   selectBestCategory,
   removeGreetings,
+  removePersonaName,
   removeClosingRemarks,
   removePlaceholderLinks,
   separateAffiliateLinks,
