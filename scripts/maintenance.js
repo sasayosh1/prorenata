@@ -231,6 +231,49 @@ function isMaintenanceLocked(post) {
   return Boolean(post?.maintenanceLocked)
 }
 
+function sanitizeLinkMarkDefs(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, fixes: 0 }
+  }
+
+  let fixes = 0
+  const cleaned = blocks.map(block => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.markDefs) || block.markDefs.length === 0) {
+      return block
+    }
+
+    const updatedMarkDefs = block.markDefs.map(def => {
+      if (
+        !def ||
+        def._type !== 'link' ||
+        typeof def.href !== 'string' ||
+        !def.href.includes('<a')
+      ) {
+        return def
+      }
+
+      const match = def.href.match(/href=\"([^\"]+)\"/i)
+      if (match && match[1]) {
+        fixes += 1
+        return { ...def, href: match[1] }
+      }
+
+      return def
+    })
+
+    if (fixes === 0) {
+      return block
+    }
+
+    return {
+      ...block,
+      markDefs: updatedMarkDefs
+    }
+  })
+
+  return { body: cleaned, fixes }
+}
+
 function chunkParagraphText(text, maxLength = 220) {
   if (!text || typeof text !== 'string') {
     return []
@@ -4457,12 +4500,15 @@ async function sanitizeAllBodies(options = {}) {
   let totalPronounAdjustments = 0
   const unresolvedReferences = []
   const shortLengthIssues = []
+  let totalLinkHrefRepairs = 0
 
   for (const post of posts) {
     const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
     const originalSlug = typeof post.slug === 'string' ? post.slug : (post.slug?.current || '')
 
+    const updates = {}
     let body = Array.isArray(post.body) ? post.body : []
+    let linkHrefRepairs = 0
     let removedRelated = 0
     let removedDuplicateParagraphs = 0
     let removedInternalLinks = 0
@@ -4501,6 +4547,14 @@ async function sanitizeAllBodies(options = {}) {
     let personaExcerptUpdated = false
     let personaMetaUpdated = false
     let pronounAdjustments = 0
+
+    const linkSanitizeResult = sanitizeLinkMarkDefs(body)
+    if (linkSanitizeResult.fixes > 0) {
+      body = linkSanitizeResult.body
+      updates.body = body
+      linkHrefRepairs = linkSanitizeResult.fixes
+      totalLinkHrefRepairs += linkHrefRepairs
+    }
 
     if (typeof post.title === 'string' && TITLE_PERSONA_PATTERN.test(post.title)) {
       const cleanedTitle = sanitizeTitlePersona(post.title)
@@ -4913,6 +4967,9 @@ async function sanitizeAllBodies(options = {}) {
     if (affiliateContextsAdded > 0) {
       console.log(`   アフィリエイト訴求文を補強: ${affiliateContextsAdded}ブロック`)
     }
+    if (linkHrefRepairs > 0) {
+      console.log(`   リンクhrefを修復: ${linkHrefRepairs}件`)
+    }
     if (affiliateLinksNormalizedForPost > 0) {
       console.log(`   アフィリエイトリンクのURLを正規化: ${affiliateLinksNormalizedForPost}リンク`)
     }
@@ -4979,7 +5036,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments}）\n`)
+    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments} / リンクhref修復:${totalLinkHrefRepairs}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -5045,6 +5102,7 @@ async function sanitizeAllBodies(options = {}) {
     personaExcerptsFixed: totalPersonaExcerptFixes,
     personaMetaFixed: totalPersonaMetaFixes,
     pronounAdjustments: totalPronounAdjustments,
+    linkHrefRepairs: totalLinkHrefRepairs,
     shortLengthIssues
   }
 }

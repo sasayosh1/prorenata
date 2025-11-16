@@ -1086,6 +1086,9 @@ vercel --previewe
    - `schemas/post.ts` に `maintenanceLocked` ブールを追加。Studioでは「自動編集ロック」トグルとして表示し、trueにすると自動処理対象から除外
    - `scripts/maintenance.js` の `PUBLIC_POST_FILTER` と `filterOutInternalPosts` を更新し、ロック済み記事をすべてのメンテ／duplicates／sanitize処理から排除（`--slugs=`指定時も取得しない）
    - `shouldAddResignationComparisonLink` など内部処理でもロック状態を尊重するように変更
+51. 🧼 **アフィリエイトhrefの自動修復** (2025-11-16)
+   - `sanitizeAllBodies` に `sanitizeLinkMarkDefs()` を追加し、`href` に `<a ...>` が残っている場合は正規表現で本来のURLを抽出して上書き。修復件数をログと統計に出力
+   - 比較記事（退職代行３社／転職サービス３社）で発生していた「リンクが無効化される問題」の再発を防止
 
 ## ⚠️ 重要なルール
 
