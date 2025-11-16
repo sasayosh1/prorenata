@@ -217,13 +217,18 @@ const CTA_TEXT_PATTERNS = [
   '働き方改革に真剣に取り組んでいる職場を探している方は'
 ]
 
-const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
+const PUBLIC_POST_FILTER =
+  '(!defined(internalOnly) || internalOnly == false) && (!defined(maintenanceLocked) || maintenanceLocked == false)'
 const NEXT_STEPS_PATTERN = /次のステップ/
 const SUMMARY_HEADING_KEYWORDS = ['まとめ', 'さいごに', '最後に', 'おわりに']
 const GENERIC_INTERNAL_LINK_TEXTS = new Set(['こちらの記事', 'この記事', 'こちら', 'この記事'])
 
 function isInternalOnly(post) {
   return Boolean(post?.internalOnly)
+}
+
+function isMaintenanceLocked(post) {
+  return Boolean(post?.maintenanceLocked)
 }
 
 function chunkParagraphText(text, maxLength = 220) {
@@ -793,7 +798,7 @@ function ensureLinkSpacing(blocks) {
 }
 
 function filterOutInternalPosts(posts = []) {
-  return (posts || []).filter(post => !isInternalOnly(post))
+  return (posts || []).filter(post => !isInternalOnly(post) && !isMaintenanceLocked(post))
 }
 
 const RESIGNATION_COMPARISON_SLUG = '/posts/comparison-of-three-resignation-agencies'
@@ -1387,7 +1392,7 @@ function isItemRoundupArticle(post = {}) {
 }
 
 function shouldAddResignationComparisonLink(post = {}, blocks = []) {
-  if (!post || isInternalOnly(post)) return false
+  if (!post || isInternalOnly(post) || isMaintenanceLocked(post)) return false
 
   const normalizedCategories = getNormalizedCategoryTitles(
     (post.categories || [])
@@ -3573,7 +3578,8 @@ async function recategorizeAllPosts() {
       title,
       body,
       "categories": categories[]->{ _id, title },
-      internalOnly
+      internalOnly,
+      maintenanceLocked
     }
   `)
 
@@ -4328,7 +4334,8 @@ async function sanitizeAllBodies(options = {}) {
       "categories": categories[]->{ title },
       views,
       geminiMaintainedAt,
-      internalOnly
+      internalOnly,
+      maintenanceLocked
     }
   `
   const queryParams = {}
@@ -4348,7 +4355,8 @@ async function sanitizeAllBodies(options = {}) {
         "categories": categories[]->{ title },
         views,
         geminiMaintainedAt,
-        internalOnly
+        internalOnly,
+        maintenanceLocked
       }
     `
     queryParams.slugs = uniqueSlugs
@@ -4386,7 +4394,8 @@ async function sanitizeAllBodies(options = {}) {
         "slug": slug.current,
         _updatedAt,
         "categories": categories[]->{ title },
-        internalOnly
+        internalOnly,
+        maintenanceLocked
       }
     `)
     internalLinkSource = filterOutInternalPosts(internalSourceRaw)

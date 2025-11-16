@@ -207,6 +207,13 @@ export default defineType({
       validation: rule => rule.min(1)
     }),
     defineField({
+      name: 'maintenanceLocked',
+      title: '自動編集ロック',
+      type: 'boolean',
+      initialValue: false,
+      description: 'true にするとメンテナンススクリプトや自動処理（バイブコーディング）で本文が変更されなくなります（手動のみ編集可能）',
+    }),
+    defineField({
       name: 'internalOnly',
       title: '内部限定コンテンツ',
       type: 'boolean',

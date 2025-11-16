@@ -1082,6 +1082,10 @@ vercel --previewe
    - それぞれ適切な内部リンク（1日ルーティン記事、比較記事）と参考資料・免責事項をまとめ直後へ整理
    - `node scripts/maintenance.js duplicates --slugs=...` で重複0件を確認し、 `sanitize --force-links` を実行して新CTA・出典・内部リンク配置を強制適用
    - サニタイズ結果で残った文字数警告（1950文字帯）は追記済み。今後も `duplicates --top-views=20 --cooldown=7` を指標に同手順で順次リライトする
+50. 🔒 **メンテナンス・バイブ自動編集ロックを追加** (2025-11-16)
+   - `schemas/post.ts` に `maintenanceLocked` ブールを追加。Studioでは「自動編集ロック」トグルとして表示し、trueにすると自動処理対象から除外
+   - `scripts/maintenance.js` の `PUBLIC_POST_FILTER` と `filterOutInternalPosts` を更新し、ロック済み記事をすべてのメンテ／duplicates／sanitize処理から排除（`--slugs=`指定時も取得しない）
+   - `shouldAddResignationComparisonLink` など内部処理でもロック状態を尊重するように変更
 
 ## ⚠️ 重要なルール
 
