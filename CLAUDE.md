@@ -1090,6 +1090,18 @@ vercel --previewe
    - `sanitizeAllBodies` に `sanitizeLinkMarkDefs()` を追加し、`href` に `<a ...>` が残っている場合は正規表現で本来のURLを抽出して上書き。修復件数をログと統計に出力
    - 比較記事（退職代行３社／転職サービス３社）で発生していた「リンクが無効化される問題」の再発を防止
 
+52. 🐛 **GitHub Actions メンテナンスワークフローのremovePersonaName関数エラー修正** (2025-11-17)
+   - **問題**: GitHub Actions の `maintenance_check` ワークフローで `TypeError: removePersonaName is not a function` エラーが発生
+   - **原因**: `scripts/utils/postHelpers.js` で `removePersonaName` 関数が定義されているが、`module.exports` に含まれていなかった
+   - **修正内容**:
+     - `scripts/utils/postHelpers.js:1788` に `removePersonaName` を `module.exports` に追加
+     - `generateExcerpt` と `generateMetaDescription` で使用されている関数を正しくエクスポート
+   - **テスト結果**:
+     - ✅ インポートテスト成功
+     - ✅ 「白崎セラです」→「看護助手です」の変換動作確認
+     - ✅ 既存テキストへの影響なし確認
+   - **効果**: 週次メンテナンスワークフロー（毎週月曜AM3:00 JST）が正常に実行可能に
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
