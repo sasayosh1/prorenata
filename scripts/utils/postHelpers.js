@@ -12,6 +12,35 @@ const {
   normalizeCategoryTitle
 } = require('./categoryMappings')
 
+const INTRO_PARAGRAPH_PATTERNS = [
+  /\d{1,2}歳/,
+  /現役看護助手/,
+  /あなたを応援/,
+  /一緒に[、,。]?.*お伝え/,
+  /わたしも最初/,
+  /ProReNata/,
+  /落ち着いて伝えて/,
+  /病棟で働きながら/
+]
+
+function isPersonaIntroParagraph(text = '', index = 0) {
+  if (!text) return false
+  if (index > 1) return false
+  const normalized = text.trim()
+  if (normalized.length > 220) {
+    return false
+  }
+
+  const matchCount = INTRO_PARAGRAPH_PATTERNS.filter(pattern => pattern.test(normalized)).length
+  if (matchCount >= 2) {
+    return true
+  }
+
+  const hasFirstPerson = /わたし|私|白崎セラ/.test(normalized)
+  const hasEncouragement = /応援|大丈夫|一緒に頑張|ドキドキ/.test(normalized)
+  return matchCount === 1 && hasFirstPerson && hasEncouragement
+}
+
 /**
  * 記事冒頭の不要な挨拶文を削除
  *
@@ -65,7 +94,9 @@ function removeGreetings(blocks) {
 
     // テキストが変更されなかった、または完全に空になった場合
     if (text === originalText) {
-      // 変更なし - そのまま保持
+      if (isPersonaIntroParagraph(text, i)) {
+        continue
+      }
       result.push(block)
     } else if (text.trim().length === 0) {
       // 完全に空になった - このブロックをスキップ（削除）
@@ -82,6 +113,9 @@ function removeGreetings(blocks) {
             marks: []
           }
         ]
+      }
+      if (isPersonaIntroParagraph(text, i)) {
+        continue
       }
       result.push(newBlock)
     }
