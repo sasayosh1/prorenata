@@ -25,6 +25,7 @@ export default async function Home() {
 
       {/* Full-width Hero Image */}
       <div className="mb-16 flex justify-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/hero-image.png"
           alt="看護助手サポート"

@@ -18,6 +18,7 @@ export default function RankingsDisplay() {
 
   useEffect(() => {
     fetchRankings()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [period])
 
   const fetchRankings = async () => {

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 interface PostsSearchProps {
   initialQuery?: string
@@ -10,7 +10,6 @@ interface PostsSearchProps {
 export default function PostsSearch({ initialQuery = '' }: PostsSearchProps) {
   const [searchTerm, setSearchTerm] = useState(initialQuery || '')
   const router = useRouter()
-  const searchParams = useSearchParams()
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()

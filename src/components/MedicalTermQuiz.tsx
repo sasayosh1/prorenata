@@ -95,6 +95,7 @@ export default function MedicalTermQuiz() {
     if (dailyProgress.questionsAnswered < DAILY_LIMIT && hasEnteredName) {
       loadNewQuestion()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // 統計をLocalStorageに保存

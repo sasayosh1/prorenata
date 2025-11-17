@@ -471,6 +471,7 @@ export const portableTextComponents: PortableTextComponents = {
 
       return (
         <figure className="my-8">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={imageUrl}
             alt={value.alt || ''}
