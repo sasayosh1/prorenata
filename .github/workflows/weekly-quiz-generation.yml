@@ -46,11 +46,14 @@ jobs:
           if git diff --staged --quiet; then
             echo "変更がないためコミットをスキップ"
           else
-            git commit -m "医療用語クイズ問題を自動生成
+            git commit -m "$(cat <<'EOF'
+医療用語クイズ問題を自動生成
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-Co-Authored-By: Claude <noreply@anthropic.com>"
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
             git push
             echo "✅ 新しいクイズ問題を追加しました"
           fi
