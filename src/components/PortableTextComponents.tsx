@@ -139,7 +139,6 @@ function CustomLink({
       <Link
         href={href}
         className="inline-block px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
-        style={{ backgroundColor: '#fff4f4' }}
       >
         {children}
       </Link>
@@ -154,7 +153,6 @@ function CustomLink({
         target={shouldOpenInNewTab ? "_blank" : undefined}
         rel={shouldOpenInNewTab ? "noopener noreferrer" : undefined}
         className="inline-block px-1 text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
-        style={{ backgroundColor: '#f4ffff' }}
         data-external={isExternal}
         data-affiliate={isAffiliate}
         data-new-tab={shouldOpenInNewTab}
@@ -170,13 +168,6 @@ function CustomLink({
             🔗
           </span>
         )}
-        <span
-          className="inline-block ml-1 text-xs"
-          aria-label="PR・アフィリエイトリンク"
-          title="PR・アフィリエイトリンク"
-        >
-          📢
-        </span>
       </a>
     )
   }
@@ -206,10 +197,29 @@ function CustomLink({
 
 // カスタム段落コンポーネント（リンクが含まれる可能性があるため）
 function CustomParagraph({ children, value }: PortableTextComponentProps<PortableTextBlock>) {
+  const inlineAffiliateType = getInlineAffiliateType(value)
+  const isAffiliatePrBlock = isAffiliatePrParagraph(value)
+  const hasInternalLink = containsInternalLink(value) && !inlineAffiliateType
+
+  let paragraphClass = 'leading-relaxed text-gray-900 [&]:!text-gray-900'
+  if (inlineAffiliateType || isAffiliatePrBlock) {
+    if (inlineAffiliateType === 'cta') {
+      // アフィリエイトCTAテキストは通常のスタイルで表示（背景色なし）
+      paragraphClass = `leading-relaxed text-gray-900 [&]:!text-gray-900 mb-2 mt-6`
+    } else if (inlineAffiliateType === 'link' || isAffiliatePrBlock) {
+      // [PR]リンクは薄いブルーの背景色で表示
+      paragraphClass = `leading-relaxed text-gray-900 [&]:!text-gray-900 bg-sky-50/80 border border-sky-100 rounded-md px-4 py-3 mb-6`
+    }
+  } else if (hasInternalLink) {
+    paragraphClass = `${paragraphClass} bg-rose-50/80 border border-rose-100 rounded-md px-4 py-3 mb-6`
+  } else {
+    paragraphClass = `${paragraphClass} mb-6`
+  }
+
   if (isReferenceBlock(value)) {
     const reference = extractReferenceInfo(value)
     return (
-      <p className="mb-6 leading-relaxed text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+      <p className={paragraphClass} style={{ color: '#111827 !important' }}>
         <span>参考: </span>
         {reference.url ? (
           <a
@@ -236,7 +246,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
   }
 
   return (
-    <p className="mb-6 leading-relaxed text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+    <p className={paragraphClass} style={{ color: '#111827 !important' }}>
       {children}
     </p>
   )
@@ -246,6 +256,27 @@ function isReferenceBlock(value?: PortableTextBlock) {
   if (!value || !Array.isArray(value.children)) return false
   const firstChildText = value.children[0]?.text?.trim()
   return firstChildText?.startsWith('参考')
+}
+
+function containsInternalLink(value?: PortableTextBlock) {
+  if (!value || !Array.isArray(value.markDefs)) return false
+  return value.markDefs.some(
+    def => def?._type === 'link' && typeof def.href === 'string' && def.href.startsWith('/posts')
+  )
+}
+
+function getInlineAffiliateType(value?: PortableTextBlock) {
+  if (!value || !value._key) return null
+  const key = value._key.toString()
+  if (key.startsWith('inline-cta-')) return 'cta'
+  if (key.startsWith('inline-link-')) return 'link'
+  return null
+}
+
+function isAffiliatePrParagraph(value?: PortableTextBlock) {
+  if (!value || !Array.isArray(value.children)) return false
+  const firstChildText = value.children[0]?.text?.trim()
+  return typeof firstChildText === 'string' && firstChildText.startsWith('[PR]')
 }
 
 function isDisclaimerBlock(value?: PortableTextBlock) {

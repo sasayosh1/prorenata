@@ -45,7 +45,12 @@ const {
   normalizeCategoryTitle,
   getNormalizedCategoryTitles
 } = require('./utils/categoryMappings')
-const { MOSHIMO_LINKS, NON_LIMITED_AFFILIATE_KEYS } = require('./moshimo-affiliate-links')
+const {
+  MOSHIMO_LINKS,
+  NON_LIMITED_AFFILIATE_KEYS,
+  INLINE_AFFILIATE_KEYS,
+  createInlineAffiliateBlock
+} = require('./moshimo-affiliate-links')
 const { restoreInlineAffiliateEmbeds } = require('./utils/affiliateEmbedCleanup')
 
 const client = createClient({
@@ -55,6 +60,75 @@ const client = createClient({
   token: process.env.SANITY_API_TOKEN || process.env.SANITY_WRITE_TOKEN || process.env.SANITY_TOKEN,
   useCdn: false
 })
+
+function normalizeAffiliateHref(href = '') {
+  if (!href) return ''
+  return href
+    .trim()
+    .replace(/^https?:\/\//i, '')
+    .replace(/^\/\//, '')
+    .replace(/\/+$/, '')
+}
+
+const AFFILIATE_URL_TO_KEY = Object.entries(MOSHIMO_LINKS).reduce((map, [key, link]) => {
+  const normalized = normalizeAffiliateHref(link.url)
+  if (normalized) {
+    map.set(normalized, key)
+  }
+  return map
+}, new Map())
+
+function findAffiliateKeyByHref(href = '') {
+  const normalized = normalizeAffiliateHref(href)
+  if (!normalized) {
+    return null
+  }
+  return AFFILIATE_URL_TO_KEY.get(normalized) || null
+}
+
+function isInlineAffiliateBlock(block) {
+  return Boolean(
+    block &&
+    block._type === 'block' &&
+    typeof block._key === 'string' &&
+    block._key.startsWith('inline-')
+  )
+}
+
+function unwrapInlineAffiliateComposite(block) {
+  if (!block || block._type) {
+    return null
+  }
+  const first = block['0']
+  const second = block['1']
+  if (
+    first &&
+    second &&
+    first._type === 'block' &&
+    second._type === 'block'
+  ) {
+    return [first, second]
+  }
+
+  return null
+}
+
+function findHeadingContext(blocks, startIndex) {
+  for (let i = startIndex - 1; i >= 0; i -= 1) {
+    const block = blocks[i]
+    if (
+      block &&
+      block._type === 'block' &&
+      (block.style === 'h2' || block.style === 'h3')
+    ) {
+      const text = extractBlockText(block).trim()
+      if (text) {
+        return text
+      }
+    }
+  }
+  return ''
+}
 
 function normalizeTitle(title) {
   return (title || '')
@@ -412,6 +486,17 @@ function replaceGenericInternalLinkText(blocks, titleMap) {
       return block
     }
 
+    const inlineAffiliateCandidate =
+      isInlineAffiliateBlock(block) ||
+      block.markDefs.some(def => {
+        const key = findAffiliateKeyByHref(def?.href)
+        return key && INLINE_AFFILIATE_KEYS.has(key)
+      })
+
+    if (inlineAffiliateCandidate) {
+      return block
+    }
+
     let blockChanged = false
     const newChildren = block.children.map(child => {
       if (!child || !Array.isArray(child.marks) || child.marks.length === 0) {
@@ -491,6 +576,17 @@ function ensureAffiliatePrLabels(blocks) {
       block.markDefs.filter(isAffiliateLinkMark).map(def => def._key)
     )
     if (affiliateMarkKeys.size === 0) {
+      return block
+    }
+
+    const inlineAffiliateCandidate =
+      isInlineAffiliateBlock(block) ||
+      block.markDefs.some(def => {
+        const key = findAffiliateKeyByHref(def?.href)
+        return key && INLINE_AFFILIATE_KEYS.has(key)
+      })
+
+    if (inlineAffiliateCandidate) {
       return block
     }
 
@@ -2390,6 +2486,16 @@ function sanitizeBodyBlocks(blocks) {
     }
   }
 
+  const expandedBlocks = []
+  blocks.forEach(block => {
+    const unwrapped = unwrapInlineAffiliateComposite(block)
+    if (unwrapped) {
+      expandedBlocks.push(...unwrapped)
+    } else {
+      expandedBlocks.push(block)
+    }
+  })
+
   const cleaned = []
   const seenParagraphs = new Set()
   let removedRelated = 0
@@ -2409,8 +2515,35 @@ function sanitizeBodyBlocks(blocks) {
   let skippingNextStepsSection = false
   let removedNextStepsSections = 0
   let denseParagraphsSplit = 0
-  for (const block of blocks) {
-    if (!block || block._type !== 'block') {
+  const inlineAffiliateSeenKeys = new Set()
+  for (let blockIndex = 0; blockIndex < expandedBlocks.length; blockIndex += 1) {
+    let block = expandedBlocks[blockIndex]
+    if (!block) {
+      continue
+    }
+
+    if (block._type === 'affiliateEmbed') {
+      if (
+        typeof block.linkKey === 'string' &&
+        INLINE_AFFILIATE_KEYS.has(block.linkKey) &&
+        MOSHIMO_LINKS[block.linkKey]
+      ) {
+        const contextHeading = findHeadingContext(expandedBlocks, blockIndex)
+        const inlineBlocks = createInlineAffiliateBlock(block.linkKey, MOSHIMO_LINKS[block.linkKey], contextHeading)
+        if (inlineBlocks && inlineBlocks.length > 0 && !inlineAffiliateSeenKeys.has(block.linkKey)) {
+          cleaned.push(...inlineBlocks)
+          inlineAffiliateSeenKeys.add(block.linkKey)
+          affiliateLinkCount += 1
+          previousWasLinkBlock = true
+        }
+        continue
+      }
+      cleaned.push(block)
+      previousWasLinkBlock = true
+      continue
+    }
+
+    if (block._type !== 'block') {
       if (skippingNextStepsSection) {
         continue
       }
@@ -2421,9 +2554,57 @@ function sanitizeBodyBlocks(blocks) {
       previousWasLinkBlock = false
       continue
     }
+    if (block.inlineAffiliate) {
+      block = { ...block }
+      delete block.inlineAffiliate
+    }
+    const potentialInlineCta =
+      typeof block._key === 'string' &&
+      (
+        (block._key.includes('inline-block') && block._key.includes('-cta-text')) ||
+        block._key.startsWith('inline-cta-')
+      )
+    if (potentialInlineCta) {
+      const nextBlock = expandedBlocks[blockIndex + 1]
+      if (
+        nextBlock &&
+        nextBlock._type === 'block' &&
+        typeof nextBlock._key === 'string' &&
+        (
+          (nextBlock._key.includes('inline-block') && nextBlock._key.includes('-cta-link')) ||
+          nextBlock._key.startsWith('inline-link-')
+        )
+      ) {
+        const linkMark = nextBlock.markDefs?.find(def => def?._type === 'link' && typeof def.href === 'string')
+        const linkKey = findAffiliateKeyByHref(linkMark?.href)
+        if (linkKey && INLINE_AFFILIATE_KEYS.has(linkKey) && MOSHIMO_LINKS[linkKey] && !inlineAffiliateSeenKeys.has(linkKey)) {
+          const contextHeading = findHeadingContext(expandedBlocks, blockIndex)
+          const inlineBlocks = createInlineAffiliateBlock(linkKey, MOSHIMO_LINKS[linkKey], contextHeading)
+          if (inlineBlocks && inlineBlocks.length > 0) {
+            cleaned.push(...inlineBlocks)
+            inlineAffiliateSeenKeys.add(linkKey)
+            affiliateLinkCount += 1
+            previousWasLinkBlock = true
+            blockIndex += 1
+            continue
+          }
+        }
+      }
+      removedAffiliateCtas += 1
+      continue
+    }
 
     const text = extractBlockText(block)
     const normalizedText = text.replace(/\s+/g, ' ').trim()
+
+    if (normalizedText === '[PR]') {
+      continue
+    }
+
+    if (typeof block._key === 'string' && block._key.startsWith('affiliate-cta-') && normalizedText.startsWith('[PR]')) {
+      removedAffiliateCtas += 1
+      continue
+    }
 
     if (skippingNextStepsSection) {
       if (block.style === 'h2' || block.style === 'h3') {
@@ -2494,6 +2675,26 @@ function sanitizeBodyBlocks(blocks) {
     }
 
     if (affiliateMarkDefs.length > 0) {
+      if (isInlineAffiliateBlock(block)) {
+        const affiliateMark = block.markDefs.find(def => affiliateMarkDefs.some(a => a._key === def._key))
+        const linkKey = affiliateMark ? findAffiliateKeyByHref(affiliateMark.href) : null
+        if (linkKey && INLINE_AFFILIATE_KEYS.has(linkKey) && MOSHIMO_LINKS[linkKey]) {
+          if (inlineAffiliateSeenKeys.has(linkKey)) {
+            continue
+          }
+          const contextHeading = findHeadingContext(expandedBlocks, blockIndex)
+          const inlineBlocks = createInlineAffiliateBlock(linkKey, MOSHIMO_LINKS[linkKey], contextHeading)
+          if (inlineBlocks && inlineBlocks.length > 0) {
+            cleaned.push(...inlineBlocks)
+            inlineAffiliateSeenKeys.add(linkKey)
+          }
+        } else {
+          cleaned.push(block)
+        }
+        affiliateLinkCount += 1
+        previousWasLinkBlock = true
+        continue
+      }
       const affiliateKeys = new Set(affiliateMarkDefs.map(def => def._key))
       const nonAffiliateChildren = []
       const affiliateChildrenByKey = new Map()

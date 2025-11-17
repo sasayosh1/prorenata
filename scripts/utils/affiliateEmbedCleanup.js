@@ -1,4 +1,8 @@
-const { createMoshimoLinkBlocks, MOSHIMO_LINKS } = require('../moshimo-affiliate-links')
+const {
+  createMoshimoLinkBlocks,
+  MOSHIMO_LINKS,
+  INLINE_AFFILIATE_KEYS
+} = require('../moshimo-affiliate-links')
 
 function normalizeAffiliateUrl(url = '') {
   if (!url || typeof url !== 'string') {
@@ -63,6 +67,15 @@ function restoreInlineAffiliateEmbeds(blocks = []) {
 
     const affiliateDefs = originalBlock.markDefs.filter(def => findAffiliateKeyByUrl(def?.href))
     if (affiliateDefs.length === 0) {
+      restoredBlocks.push(originalBlock)
+      continue
+    }
+
+    const hasInlineAffiliate = affiliateDefs.some(def => {
+      const linkKey = findAffiliateKeyByUrl(def?.href)
+      return linkKey && INLINE_AFFILIATE_KEYS.has(linkKey)
+    })
+    if (hasInlineAffiliate) {
       restoredBlocks.push(originalBlock)
       continue
     }

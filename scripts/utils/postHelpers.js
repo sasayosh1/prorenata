@@ -48,7 +48,7 @@ function cleanupPersonaIntroText(text = '') {
     .map(sentence => sentence.trim())
     .filter(Boolean)
 
-  const filtered = sentences.filter(sentence => {
+const filtered = sentences.filter(sentence => {
     if (sentence.length === 0) return false
     const matchCount = INTRO_PARAGRAPH_PATTERNS.filter(pattern => pattern.test(sentence)).length
     const hasFirstPerson = /わたし|私|白崎セラ/.test(sentence)
@@ -60,6 +60,23 @@ function cleanupPersonaIntroText(text = '') {
   })
 
   return filtered.join('')
+}
+
+function isInlineAffiliateBlock(block) {
+  return Boolean(
+    block &&
+    block._type === 'block' &&
+    typeof block._key === 'string' &&
+    block._key.startsWith('inline-')
+  )
+}
+
+function normalizeAffiliateHref(href = '') {
+  return href
+    .trim()
+    .replace(/^https?:\/\//i, '')
+    .replace(/^\/\//, '')
+    .replace(/\/+$/, '')
 }
 
 /**
@@ -1415,12 +1432,37 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
   const {
     suggestLinksForArticle,
     createMoshimoLinkBlocks,
-    NON_LIMITED_AFFILIATE_KEYS
+    NON_LIMITED_AFFILIATE_KEYS,
+    MOSHIMO_LINKS
   } = require('../moshimo-affiliate-links')
   const SERVICE_AFFILIATE_LIMIT = 2
   const disableRetirementAffiliates = Boolean(options.disableRetirementAffiliates)
   const bodyText = blocksToPlainText(blocks)
   const suggestions = suggestLinksForArticle(title, bodyText)
+
+  const affiliateHrefMap = Object.entries(MOSHIMO_LINKS).reduce((map, [key, link]) => {
+    const normalized = normalizeAffiliateHref(link.url || '')
+    if (normalized) {
+      map.set(normalized, key)
+    }
+    return map
+  }, new Map())
+
+  const resolveAffiliateKeyFromHref = href => {
+    const normalized = normalizeAffiliateHref(href || '')
+    if (!normalized) {
+      return null
+    }
+    if (affiliateHrefMap.has(normalized)) {
+      return affiliateHrefMap.get(normalized)
+    }
+    for (const [stored, storedKey] of affiliateHrefMap.entries()) {
+      if (normalized.includes(stored) || stored.includes(normalized)) {
+        return storedKey
+      }
+    }
+    return null
+  }
 
   const slug = (typeof currentPost?.slug === 'string'
     ? currentPost.slug
@@ -1436,11 +1478,20 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
     return { body: blocks, addedLinks: 0 }
   }
 
-  const existingAffiliateKeys = new Set(
-    blocks
-      .filter(block => block?._type === 'affiliateEmbed' && typeof block.linkKey === 'string')
-      .map(block => block.linkKey)
-  )
+  const existingAffiliateKeys = new Set()
+  blocks.forEach(block => {
+    if (block?._type === 'affiliateEmbed' && typeof block.linkKey === 'string') {
+      existingAffiliateKeys.add(block.linkKey)
+      return
+    }
+    if (isInlineAffiliateBlock(block) && Array.isArray(block.markDefs)) {
+      const inlineMark = block.markDefs.find(def => def && def._type === 'link' && typeof def.href === 'string')
+      const inlineKey = inlineMark ? resolveAffiliateKeyFromHref(inlineMark.href) : null
+      if (inlineKey) {
+        existingAffiliateKeys.add(inlineKey)
+      }
+    }
+  })
 
   const existingServiceCount = blocks.filter(
     block => block?._type === 'affiliateEmbed' &&
@@ -1486,14 +1537,14 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
   const insertionFallbackIndex = findSummaryInsertIndex(resultBlocks)
 
   selectedLinks.forEach(({ link }) => {
-    const linkBlocks = createMoshimoLinkBlocks(link.key)
-    if (!linkBlocks || linkBlocks.length === 0) {
-      return
-    }
-
     const keywordTargets = AFFILIATE_LINK_KEYWORDS[link.key] || []
     const sectionIndex = findSectionInsertionIndex(resultBlocks, keywordTargets)
     const targetIndex = sectionIndex >= 0 ? sectionIndex : insertionFallbackIndex
+    const contextHeading = findAffiliateContextHeading(resultBlocks, targetIndex)
+    const linkBlocks = createMoshimoLinkBlocks(link.key, contextHeading)
+    if (!linkBlocks || linkBlocks.length === 0) {
+      return
+    }
 
     resultBlocks.splice(targetIndex, 0, ...linkBlocks)
     addedLinks += 1
@@ -1516,6 +1567,23 @@ function findSummaryInsertIndex(blocks) {
     }
   }
   return blocks.length
+}
+
+function findAffiliateContextHeading(blocks, insertIndex) {
+  for (let i = insertIndex - 1; i >= 0; i -= 1) {
+    const block = blocks[i]
+    if (
+      block &&
+      block._type === 'block' &&
+      (block.style === 'h2' || block.style === 'h3')
+    ) {
+      const text = blockPlainText(block)
+      if (text) {
+        return text
+      }
+    }
+  }
+  return ''
 }
 
 function resolvePreferredAffiliateKeys(post, combinedText) {

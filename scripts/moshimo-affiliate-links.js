@@ -8,6 +8,8 @@
 
 const { randomUUID } = require('crypto')
 
+const INLINE_AFFILIATE_KEYS = new Set(['amazon', 'rakuten', 'nursery'])
+
 const MOSHIMO_LINKS = {
   // 就職・転職サービス
   humanlifecare: {
@@ -77,7 +79,7 @@ const MOSHIMO_LINKS = {
     category: 'アイテム',
     targetArticles: ['制服', 'ユニフォーム', 'グッズ', '必要なもの', '靴', 'シューズ'],
     html: '<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3755453&pid=892161180" rel="nofollow"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3755453&pid=892161180" height="1" width="1" border="0">看護助手向けユニフォーム・グッズを探す</a>',
-    appealText: '👔 ユニフォーム・グッズをお探しの方へ',
+    appealText: '',
     linkText: '看護・介護ユニフォーム専門店「ナースリー」',
     url: '//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3755453&pid=892161180',
     active: true,
@@ -92,7 +94,7 @@ const MOSHIMO_LINKS = {
     category: 'アイテム',
     targetArticles: ['グッズ', '靴', 'シューズ', '本', '書籍', '必要なもの'],
     html: '<a href="//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>Amazonで看護助手グッズを探す</a><img src="//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '📦 看護助手・介護職向けグッズをお探しの方へ',
+    appealText: '',
     linkText: 'Amazonで看護助手グッズを探す',
     url: '//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161',
     active: true,
@@ -108,7 +110,7 @@ const MOSHIMO_LINKS = {
     category: 'アイテム',
     targetArticles: ['シューズ', '靴', 'グッズ', '制服', 'ユニフォーム', '必要なもの'],
     html: '<a href="//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天市場</a><img src="//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '🛍️ 看護助手・介護職向けグッズをお探しの方へ',
+    appealText: '',
     linkText: '楽天市場で看護助手グッズを探す',
     url: '//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621',
     active: true,
@@ -195,33 +197,65 @@ function escapeHtml(text = '') {
 }
 
 const AFFILIATE_CATEGORY_CTA = {
-  '就職・転職': link =>
-    `[PR] 看護助手として次の職場を検討するときは、教育サポートや夜勤体制も合わせて確認してください。${link.name}なら担当者に相談しながら条件を整理できます。`,
-  'アイテム': link =>
-    `[PR] こまめに道具を入れ替えておくとケアの質が安定します。${link.name}で必要なものをまとめてチェックしておくと準備がスムーズです。`,
-  '退職代行': link =>
-    `[PR] 退職手続きに不安がある場合は、専門サービスに早めに相談して流れを確認しましょう。${link.name}なら相談窓口が整っていて段取りを一緒に組み立てられます。`
+  '就職・転職': (link, contextHeading) => {
+    const intro = contextHeading
+      ? `「${contextHeading}」で感じた課題を整理するときは`
+      : '働き方を見直すときは'
+    return `${intro}${link.name}に相談して条件やサポート体制を具体化してみてください。`
+  },
+  'アイテム': (link, contextHeading) => {
+    const intro = contextHeading
+      ? `「${contextHeading}」で使う備品は`
+      : '現場で使う備品は'
+    return `${intro}${link.name}でまとめて揃えておくと準備がスムーズです。`
+  },
+  '退職代行': (link, contextHeading) => {
+    const intro = contextHeading
+      ? `「${contextHeading}」で退職を考えたときは`
+      : '退職の段取りに迷うときは'
+    return `${intro}${link.name}の窓口で手順を確認しながら進めると安心です。`
+  }
+}
+
+function contextualPrefix(contextHeading, base) {
+  if (!contextHeading) return base
+  return `「${contextHeading}」では${base}`
 }
 
 const AFFILIATE_KEY_CTA = {
-  nursery: link =>
-    `[PR] ユニフォームやポケットオーガナイザーをまとめて揃えるなら${link.name}が便利です。現場で必要なサイズやカラーも細かく選べます。`,
-  amazon: link =>
-    `[PR] 小物や替えのグローブなど、毎日使うアイテムは${link.name}で常備しておくと安心です。`,
-  rakuten: link =>
-    `[PR] 価格や配送スピードを比較しながら買い足したいときは${link.name}が頼りになります。ポイント活用でコストも抑えられます。`
+  nursery: (link, contextHeading) => {
+    const prefix = contextHeading
+      ? `「${contextHeading}」で着るユニフォームやポケットオーガナイザーは`
+      : 'ユニフォームやポケットオーガナイザーをまとめて揃えるなら'
+    return `${prefix}${link.name}が便利です。現場で必要なサイズやカラーも細かく選べます。`
+  },
+  amazon: (link, contextHeading) => {
+    const prefix = contextHeading
+      ? `「${contextHeading}」で使う小物や替えのグローブは`
+      : '小物や替えのグローブなど、毎日使うアイテムは'
+    return `${prefix}${link.name}で常備しておくと安心です。`
+  },
+  rakuten: (link, contextHeading) => {
+    const prefix = contextHeading
+      ? `「${contextHeading}」の備品を買い足すときは`
+      : '価格や配送スピードを比較しながら買い足したいときは'
+    return `${prefix}${link.name}が頼りになります。ポイント活用でコストも抑えられます。`
+  }
 }
 
-function selectAffiliateCtaText(linkKey, link) {
+function selectAffiliateCtaText(linkKey, link, contextHeading = '') {
   if (!link) return ''
   if (AFFILIATE_KEY_CTA[linkKey]) {
-    return AFFILIATE_KEY_CTA[linkKey](link)
+    return AFFILIATE_KEY_CTA[linkKey](link, contextHeading)
   }
   const template = AFFILIATE_CATEGORY_CTA[link.category]
   if (template) {
-    return template(link)
+    return template(link, contextHeading)
   }
-  return `[PR] 必要なサポートを信頼できるサービスと一緒に確認しておくと、迷わず動けます。${link.name}は看護助手の相談にも対応しています。`
+  const intro = contextHeading
+    ? `「${contextHeading}」で必要なサポートは`
+    : '必要なサポートは'
+  return `${intro}${link.name}のような信頼できるサービスと一緒に確認しておくと、迷わず動けます。`
 }
 
 function wrapAffiliateHtml(link) {
@@ -238,9 +272,63 @@ function wrapAffiliateHtml(link) {
 `.trim()
 }
 
-function createMoshimoLinkBlocks(linkKey) {
+function createInlineAffiliateBlock(linkKey, link, contextHeading = '') {
+  const ctaText = selectAffiliateCtaText(linkKey, link, contextHeading).trim()
+
+  const infoBlock = {
+    _type: 'block',
+    _key: `inline-cta-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `inline-cta-text-${randomUUID()}`,
+        marks: [],
+        text: ctaText
+      }
+    ]
+  }
+
+  const linkMarkKey = `affiliate-inline-${randomUUID()}`
+  const linkBlock = {
+    _type: 'block',
+    _key: `inline-link-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [
+      {
+        _key: linkMarkKey,
+        _type: 'link',
+        href: link.url,
+        openInNewTab: true
+      }
+    ],
+    children: [
+      {
+        _type: 'span',
+        _key: `inline-pr-${randomUUID()}`,
+        marks: [],
+        text: '[PR] '
+      },
+      {
+        _type: 'span',
+      _key: `inline-link-text-${randomUUID()}`,
+      marks: [linkMarkKey],
+      text: link.linkText
+    }
+  ]
+  }
+
+  return [infoBlock, linkBlock]
+}
+
+function createMoshimoLinkBlocks(linkKey, contextHeading = '') {
   const link = MOSHIMO_LINKS[linkKey]
   if (!link || !link.active) return null
+
+  if (INLINE_AFFILIATE_KEYS.has(linkKey)) {
+    return createInlineAffiliateBlock(linkKey, link, contextHeading)
+  }
 
   const embedKey = `affiliate-${randomUUID()}`
   const ctaBlock = {
@@ -253,7 +341,7 @@ function createMoshimoLinkBlocks(linkKey) {
         _type: 'span',
         _key: `affiliate-cta-span-${randomUUID()}`,
         marks: [],
-        text: selectAffiliateCtaText(linkKey, link)
+        text: selectAffiliateCtaText(linkKey, link, contextHeading)
       }
     ]
   }
@@ -273,7 +361,9 @@ function createMoshimoLinkBlocks(linkKey) {
 module.exports = {
   MOSHIMO_LINKS,
   NON_LIMITED_AFFILIATE_KEYS,
+  INLINE_AFFILIATE_KEYS,
   getLinksByCategory,
   suggestLinksForArticle,
-  createMoshimoLinkBlocks
+  createMoshimoLinkBlocks,
+  createInlineAffiliateBlock
 }

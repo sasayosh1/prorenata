@@ -13,6 +13,15 @@ export const client = createClient({
   useCdn: false,
 })
 
+// Write client for API routes (requires auth token)
+export const sanityWriteClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+  token: process.env.SANITY_API_TOKEN,
+})
+
 const builder = imageUrlBuilder(client)
 
 export const urlFor = (source: SanityImageSource) => builder.image(source)
