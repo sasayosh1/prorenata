@@ -46,6 +46,7 @@ const {
   getNormalizedCategoryTitles
 } = require('./utils/categoryMappings')
 const { MOSHIMO_LINKS, NON_LIMITED_AFFILIATE_KEYS } = require('./moshimo-affiliate-links')
+const { restoreInlineAffiliateEmbeds } = require('./utils/affiliateEmbedCleanup')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -2384,7 +2385,8 @@ function sanitizeBodyBlocks(blocks) {
       removedSummaryHelpers: 0,
       removedAffiliateCtas: 0,
       removedSummaryHeadings: 0,
-      disclaimerAdded: 0
+      disclaimerAdded: 0,
+      restoredAffiliateEmbeds: 0
     }
   }
 
@@ -2673,7 +2675,9 @@ function sanitizeBodyBlocks(blocks) {
 
   const denseSplitResult = splitDenseParagraphs(cleaned)
   denseParagraphsSplit = denseSplitResult.splitCount
-  const bodyWithKeys = ensurePortableTextKeys(denseSplitResult.body)
+  const embedRestoreResult = restoreInlineAffiliateEmbeds(denseSplitResult.body)
+  const bodyWithKeys = ensurePortableTextKeys(embedRestoreResult.body)
+  const restoredAffiliateEmbeds = embedRestoreResult.restored
 
   return {
     body: bodyWithKeys,
@@ -2687,7 +2691,8 @@ function sanitizeBodyBlocks(blocks) {
     disclaimerAdded: hasDisclaimer ? 0 : 1,
     personaHeadingsFixed,
     removedNextStepsSections,
-    denseParagraphsSplit
+    denseParagraphsSplit,
+    restoredAffiliateEmbeds
   }
 }
 
@@ -4492,6 +4497,7 @@ async function sanitizeAllBodies(options = {}) {
   let totalGenericLinkTextReplaced = 0
   let totalAffiliatePrLabelsAdded = 0
   let totalAffiliateEmbedLabelsAdded = 0
+  let totalAffiliateEmbedsRestored = 0
   let totalReferenceMerges = 0
   let totalLinkSpacingAdjustments = 0
   let totalPersonaTitleFixes = 0
@@ -4539,6 +4545,7 @@ async function sanitizeAllBodies(options = {}) {
     let shouldInsertComparisonLink = false
     let genericLinkTextReplaced = 0
     let denseParagraphsSplit = 0
+    let restoredAffiliateEmbeds = 0
     let affiliatePrLabelsAdded = 0
     let affiliateEmbedPrLabelsAdded = 0
     let referenceMerges = 0
@@ -4600,6 +4607,10 @@ async function sanitizeAllBodies(options = {}) {
       if (denseParagraphsSplit > 0) {
         totalDenseParagraphsSplit += denseParagraphsSplit
       }
+      restoredAffiliateEmbeds = sanitised.restoredAffiliateEmbeds || 0
+      if (restoredAffiliateEmbeds > 0) {
+        totalAffiliateEmbedsRestored += restoredAffiliateEmbeds
+      }
 
       const pronounResult = normalizeFirstPersonPronouns(body)
       if (pronounResult.replaced > 0) {
@@ -4620,7 +4631,8 @@ async function sanitizeAllBodies(options = {}) {
         disclaimerAdded > 0 ||
         personaHeadingsFixed > 0 ||
         nextStepsSectionsRemoved > 0 ||
-        denseParagraphsSplit > 0
+        denseParagraphsSplit > 0 ||
+        restoredAffiliateEmbeds > 0
 
       const bodyAfterH3 = await addBodyToEmptyH3Sections(body, post.title, enableGemini ? geminiModel : null)
       if (JSON.stringify(bodyAfterH3) !== JSON.stringify(body)) {
@@ -4942,6 +4954,9 @@ async function sanitizeAllBodies(options = {}) {
     if (affiliateBlocksRemoved > 0) {
       console.log(`   関連性の低いアフィリエイトリンクを削除: ${affiliateBlocksRemoved}ブロック`)
     }
+    if (restoredAffiliateEmbeds > 0) {
+      console.log(`   A8/もしも公式コードを復元: ${restoredAffiliateEmbeds}ブロック`)
+    }
     if (denseParagraphsSplit > 0) {
       console.log(`   長文段落を読みやすく分割: ${denseParagraphsSplit}箇所`)
     }
@@ -5035,7 +5050,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments} / リンクhref修復:${totalLinkHrefRepairs}）\n`)
+    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / 公式コード復元:${totalAffiliateEmbedsRestored} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments} / リンクhref修復:${totalLinkHrefRepairs}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -5095,6 +5110,7 @@ async function sanitizeAllBodies(options = {}) {
     genericLinkTextNormalized: totalGenericLinkTextReplaced,
     affiliatePrLabelsAdded: totalAffiliatePrLabelsAdded,
     affiliateEmbedLabelsAdded: totalAffiliateEmbedLabelsAdded,
+    affiliateEmbedsRestored: totalAffiliateEmbedsRestored,
     referenceBlocksMerged: totalReferenceMerges,
     linkSpacingAdjustments: totalLinkSpacingAdjustments,
     personaTitlesFixed: totalPersonaTitleFixes,

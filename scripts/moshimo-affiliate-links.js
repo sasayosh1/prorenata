@@ -55,6 +55,21 @@ const MOSHIMO_LINKS = {
     condition: '新規会員登録'
   },
 
+  pasonalifecare: {
+    name: 'パソナライフケア',
+    description: '「ありがとう」が嬉しい介護職の転職・派遣サポート',
+    category: '就職・転職',
+    targetArticles: ['転職', '求人', '派遣', '職場', '人間関係'],
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>「ありがとう」が嬉しい、いつまでも必要とされ続けるお仕事</a><img src="//i.moshimo.com/af/i/impression?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816" width="1" height="1" style="border:none;" loading="lazy">',
+    appealText: '🤝 人に寄り添う働き方を探す方へ',
+    linkText: '介護職専門の求人「パソナライフケア」',
+    url: '//af.moshimo.com/af/c/click?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816',
+    active: true,
+    addedDate: '2025-11-11',
+    reward: '5,000円',
+    condition: '新規簡易応募'
+  },
+
   // アイテム・商品
   nursery: {
     name: 'ナースリー',
