@@ -299,6 +299,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'equipment',
     difficulty: 1
   },
+  {
+    id: 'medication-001',
+    term: '与薬（よやく）',
+    reading: 'よやく',
+    meaning: '患者に薬を投与すること。',
+    distractors: ['採血', 'バイタルサイン測定'],
+    category: 'medication',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
