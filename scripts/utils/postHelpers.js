@@ -41,6 +41,27 @@ function isPersonaIntroParagraph(text = '', index = 0) {
   return matchCount === 1 && hasFirstPerson && hasEncouragement
 }
 
+function cleanupPersonaIntroText(text = '') {
+  if (!text) return ''
+  const sentences = text
+    .split(/(?<=[。！？!?\n])/)
+    .map(sentence => sentence.trim())
+    .filter(Boolean)
+
+  const filtered = sentences.filter(sentence => {
+    if (sentence.length === 0) return false
+    const matchCount = INTRO_PARAGRAPH_PATTERNS.filter(pattern => pattern.test(sentence)).length
+    const hasFirstPerson = /わたし|私|白崎セラ/.test(sentence)
+    const hasEncouragement = /応援|大丈夫|一緒に頑張|ドキドキ/.test(sentence)
+    if (matchCount >= 1 && (hasFirstPerson || hasEncouragement)) {
+      return false
+    }
+    return true
+  })
+
+  return filtered.join('')
+}
+
 /**
  * 記事冒頭の不要な挨拶文を削除
  *
@@ -95,6 +116,21 @@ function removeGreetings(blocks) {
     // テキストが変更されなかった、または完全に空になった場合
     if (text === originalText) {
       if (isPersonaIntroParagraph(text, i)) {
+        const cleanedIntro = cleanupPersonaIntroText(text)
+        if (cleanedIntro.trim().length === 0) {
+          continue
+        }
+        result.push({
+          ...block,
+          children: [
+            {
+              _type: 'span',
+              _key: block.children[0]?._key || `span-${Date.now()}`,
+              text: cleanedIntro.trim(),
+              marks: []
+            }
+          ]
+        })
         continue
       }
       result.push(block)
@@ -115,6 +151,19 @@ function removeGreetings(blocks) {
         ]
       }
       if (isPersonaIntroParagraph(text, i)) {
+        const cleanedIntro = cleanupPersonaIntroText(text)
+        if (cleanedIntro.trim().length === 0) {
+          continue
+        }
+        result.push({
+          ...newBlock,
+          children: [
+            {
+              ...newBlock.children[0],
+              text: cleanedIntro.trim()
+            }
+          ]
+        })
         continue
       }
       result.push(newBlock)

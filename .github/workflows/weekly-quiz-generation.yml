@@ -1,0 +1,69 @@
+name: 医療用語クイズ自動生成
+
+on:
+  schedule:
+    # 毎週月曜と木曜の深夜2:00 JST (17:00 UTC前日) に実行
+    - cron: '0 17 * * 0,3'
+  workflow_dispatch: # 手動実行も可能
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  generate-quiz-term:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Node.js環境をセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 依存関係をインストール
+        run: npm ci
+
+      - name: Gitユーザー設定
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: 医療用語クイズ問題を生成
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          node scripts/generate-quiz-term.cjs
+
+      - name: 変更をコミット＆プッシュ
+        run: |
+          git add src/data/medical-terms.ts
+
+          if git diff --staged --quiet; then
+            echo "変更がないためコミットをスキップ"
+          else
+            git commit -m "医療用語クイズ問題を自動生成
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+            git push
+            echo "✅ 新しいクイズ問題を追加しました"
+          fi
+
+      - name: エラー時にGitHub Issue作成
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '医療用語クイズ自動生成に失敗しました',
+              body: `医療用語クイズの自動生成ワークフローが失敗しました。\n\n- ワークフロー実行: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n- ブランチ: ${context.ref}\n- コミット: ${context.sha}\n\nエラー内容を確認してください。`,
+              labels: ['bug', 'automated']
+            });
