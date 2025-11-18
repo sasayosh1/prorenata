@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import MedicalTermQuiz from '@/components/MedicalTermQuiz'
 
 export const metadata: Metadata = {
-  title: '医療用語クイズ | ProReNata',
-  description: '看護助手に必要な医療用語を楽しく学べるクイズです。毎日続けて、現場で使える知識を身につけましょう。',
+  title: 'メディカルクイズ | ProReNata',
+  description: '看護助手に必要な医療知識を楽しく学べるクイズです。毎日続けて、現場で使える知識を身につけましょう。',
 }
 
 export default function QuizPage() {
@@ -23,14 +23,14 @@ export default function QuizPage() {
                   ホーム
                 </Link>
                 <span className="text-gray-300">/</span>
-                <span className="text-gray-900 font-medium">医療用語クイズ</span>
+                <span className="text-gray-900 font-medium">メディカルクイズ</span>
               </nav>
 
               <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                医療用語クイズ
+                メディカルクイズ
               </h1>
               <p className="text-lg leading-7 text-gray-500">
-                看護助手に必要な医療用語を3択クイズで学びましょう
+                看護助手に必要な医療知識を3択クイズで学びましょう
               </p>
             </div>
 
@@ -41,7 +41,7 @@ export default function QuizPage() {
             <div className="pt-8 pb-8 prose max-w-none text-gray-900">
               <h2>クイズについて</h2>
               <p>
-                このクイズでは、看護助手として働く上で必要な医療用語を学ぶことができます。
+                このクイズでは、看護助手として働く上で必要な医療知識を学ぶことができます。
                 バイタルサイン、薬剤、解剖、医療器具、処置・ケアの5つのカテゴリーから出題されます。
               </p>
               <p>

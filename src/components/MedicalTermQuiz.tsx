@@ -41,6 +41,7 @@ export default function MedicalTermQuiz() {
     streak: 0,
     bestStreak: 0,
   })
+  const [askedTermIds, setAskedTermIds] = useState<string[]>([])
 
   const DAILY_LIMIT = 10
 
@@ -72,6 +73,7 @@ export default function MedicalTermQuiz() {
           playerName: progress.playerName,
         }
         setDailyProgress(newProgress)
+        setAskedTermIds([]) // 出題済み問題もリセット
         localStorage.setItem('medicalTermDailyProgress', JSON.stringify(newProgress))
         if (progress.playerName) {
           setPlayerName(progress.playerName)
@@ -115,14 +117,25 @@ export default function MedicalTermQuiz() {
 
   // 新しい問題を読み込む
   const loadNewQuestion = () => {
-    const randomIndex = Math.floor(Math.random() * medicalTerms.length)
-    const term = medicalTerms[randomIndex]
+    // すでに出題された問題を除外
+    const availableTerms = medicalTerms.filter(term => !askedTermIds.includes(term.id))
+
+    // 利用可能な問題がない場合（念のため）
+    if (availableTerms.length === 0) {
+      return
+    }
+
+    const randomIndex = Math.floor(Math.random() * availableTerms.length)
+    const term = availableTerms[randomIndex]
     const shuffledChoices = [term.meaning, ...term.distractors].sort(() => Math.random() - 0.5)
 
     setCurrentTerm(term)
     setChoices(shuffledChoices)
     setSelectedAnswer(null)
     setIsCorrect(null)
+
+    // 出題済みリストに追加
+    setAskedTermIds(prev => [...prev, term.id])
   }
 
   // 名前入力の処理
@@ -135,6 +148,8 @@ export default function MedicalTermQuiz() {
       setDailyProgress(prev => ({ ...prev, playerName: playerName.trim() }))
       // 5問完了していない場合のみ問題を読み込む
       if (dailyProgress.questionsAnswered < DAILY_LIMIT) {
+        setAskedTermIds([]) // 新しいセッション開始時に出題済み問題をリセット
+        setCurrentSessionCorrect(0) // セッション正解数もリセット
         loadNewQuestion()
       }
     }
@@ -220,7 +235,7 @@ export default function MedicalTermQuiz() {
       <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            医療用語クイズへようこそ
+            メディカルクイズへようこそ
           </h2>
           <p className="text-gray-600 mb-4">
             ランキングに参加するために、お名前を入力してください。
@@ -366,7 +381,7 @@ export default function MedicalTermQuiz() {
       <div className="mb-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-bold text-gray-900">
-            医療用語クイズ
+            メディカルクイズ
           </h2>
           <div className="text-right">
             <p className="text-sm text-gray-600">今日の進捗</p>
