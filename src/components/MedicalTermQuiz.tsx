@@ -356,6 +356,11 @@ export default function MedicalTermQuiz() {
     return null
   }
 
+  // currentTermがnullの場合は何も表示しない（TypeScript対策）
+  if (!currentTerm) {
+    return null
+  }
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
       <div className="mb-6">
