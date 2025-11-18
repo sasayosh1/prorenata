@@ -1111,6 +1111,22 @@ vercel --previewe
      - ✅ 既存テキストへの影響なし確認
    - **効果**: 週次メンテナンスワークフロー（毎週月曜AM3:00 JST）が正常に実行可能に
 
+53. 🐛 **MedicalTermQuizのビルドエラー修正** (2025-11-17)
+   - **問題1**: Next.js ESLintエラー - `<a>`タグの使用
+     - `./src/components/MedicalTermQuiz.tsx:331:13` で検出
+     - 内部ナビゲーションに HTML `<a>` タグを使用していた
+   - **問題2**: TypeScript型エラー - `currentTerm` がnullの可能性
+     - `./src/components/MedicalTermQuiz.tsx:382:23` で検出
+     - nullチェックが不十分で型推論が失敗
+   - **修正内容**:
+     - `import Link from 'next/link'` を追加
+     - 2つの `<a>` タグを `<Link>` コンポーネントに置き換え（/quiz/rankings と /）
+     - `currentTerm` のnullチェックを追加（lines 359-362）
+   - **コミット**:
+     - 7e259ba: Next.js ESLintエラー修正
+     - 13f06a1: TypeScript nullチェックエラー修正
+   - **効果**: GitHub Actionsビルドワークフローが成功
+
 ## ⚠️ 重要なルール
 
 **🚫 UIデザイン変更の完全禁止**
