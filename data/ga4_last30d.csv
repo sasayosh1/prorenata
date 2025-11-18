@@ -1,8 +1,13 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
+20251117,/posts/nursing-assistant-night-shift-duties,desktop,Japan,4,1,61,0.5,1307.94538225
 20251115,/,desktop,Japan,3,1,29,0.3333333333333333,13.528130333333332
+20251117,/,desktop,Japan,3,1,41,1.0,1377.1611046666667
+20251117,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,11,0.6666666666666666,1.9761003333333333
 20251113,/,desktop,Japan,2,1,10,1.0,602.434392
 20251113,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,1,14,1.0,55.664606
 20251115,/posts/nursing-assistant-training-program-revision,desktop,Japan,2,1,11,0.5,13.266507
+20251117,/quiz,desktop,Japan,2,1,43,1.0,111.6543845
+20251117,/quiz/rankings,desktop,Japan,2,1,57,1.0,59.153817
 20251019,/,desktop,Japan,1,1,35,1.0,258.47537
 20251019,/posts,desktop,Japan,1,1,1,1.0,0.0
 20251019,/posts/nursing-assistant-career-path-design,desktop,Japan,1,1,1,1.0,0.0
@@ -19,4 +24,13 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251116,"/posts/<a href=""https:/px.a8.net/svt/ejp",desktop,Japan,1,1,4,1.0,2.954466
 20251116,/posts/comparison-of-three-resignation-agencies,desktop,Japan,1,1,17,1.0,728.789259
 20251116,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,1,1,4,1.0,7.864736
-20251117,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,1,1,2,0.0,0.0
+20251117,/about,desktop,Japan,1,1,1,1.0,4.792177
+20251117,/categories,desktop,Japan,1,1,1,1.0,1.264868
+20251117,/categories/job-description,desktop,Japan,1,1,1,1.0,0.0
+20251117,/categories/job-hunting,desktop,Japan,1,1,1,1.0,11.455343
+20251117,/categories/nurse-path,desktop,Japan,1,1,1,1.0,0.0
+20251117,/categories/practice,desktop,Japan,1,1,1,1.0,0.0
+20251117,/categories/resignation,desktop,Japan,1,1,1,1.0,1.348064
+20251117,/categories/salary,desktop,Japan,1,1,1,1.0,0.0
+20251117,/tags,desktop,Japan,1,1,1,1.0,25.37029
+20251118,/posts/nursing-assistant-night-shift-duties,desktop,Japan,1,1,21,1.0,727.356693
