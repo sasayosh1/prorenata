@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { medicalTerms, categories, type MedicalTerm } from '@/data/medical-terms'
 
 interface QuizStats {
@@ -322,18 +323,18 @@ export default function MedicalTermQuiz() {
           </div>
 
           <div className="mt-8 flex gap-4">
-            <a
+            <Link
               href="/quiz/rankings"
               className="flex-1 py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-center"
             >
               ランキングを見る
-            </a>
-            <a
+            </Link>
+            <Link
               href="/"
               className="flex-1 py-3 px-6 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors text-center"
             >
               ホームへ戻る
-            </a>
+            </Link>
           </div>
         </div>
       </div>
