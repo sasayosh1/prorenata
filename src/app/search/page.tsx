@@ -20,13 +20,20 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const query = resolvedParams.q || ''
   
   const allPosts = await getAllPosts()
-  
-  // シンプルな検索ロジック
-  const filteredPosts = query ? 
-    allPosts.filter(post => 
-      post.title.toLowerCase().includes(query.toLowerCase()) ||
-      post.excerpt?.toLowerCase().includes(query.toLowerCase())
-    ) : allPosts
+
+  // 検索ロジック（タイトル、抜粋、スラッグを検索）
+  const filteredPosts = query ?
+    allPosts.filter(post => {
+      const searchQuery = query.toLowerCase().trim()
+      const title = post.title.toLowerCase()
+      const excerpt = post.excerpt?.toLowerCase() || ''
+      const slug = post.slug?.current?.toLowerCase() || ''
+
+      // タイトル、抜粋、スラッグのいずれかに検索語が含まれるかチェック
+      return title.includes(searchQuery) ||
+             excerpt.includes(searchQuery) ||
+             slug.includes(searchQuery)
+    }) : allPosts
 
   return (
     <div className="bg-white min-h-screen">

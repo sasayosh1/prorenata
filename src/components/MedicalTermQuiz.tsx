@@ -42,7 +42,7 @@ export default function MedicalTermQuiz() {
     bestStreak: 0,
   })
 
-  const DAILY_LIMIT = 5
+  const DAILY_LIMIT = 10
 
   // LocalStorageから進捗を読み込む
   useEffect(() => {
