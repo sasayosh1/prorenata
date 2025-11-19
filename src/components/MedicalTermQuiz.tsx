@@ -45,6 +45,29 @@ export default function MedicalTermQuiz() {
 
   const DAILY_LIMIT = 10
 
+  // 新しい問題を読み込む
+  const loadNewQuestion = useCallback(() => {
+    // すでに出題された問題を除外
+    const availableTerms = medicalTerms.filter(term => !askedTermIds.includes(term.id))
+
+    // 利用可能な問題がない場合（念のため）
+    if (availableTerms.length === 0) {
+      return
+    }
+
+    const randomIndex = Math.floor(Math.random() * availableTerms.length)
+    const term = availableTerms[randomIndex]
+    const shuffledChoices = [term.meaning, ...term.distractors].sort(() => Math.random() - 0.5)
+
+    setCurrentTerm(term)
+    setChoices(shuffledChoices)
+    setSelectedAnswer(null)
+    setIsCorrect(null)
+
+    // 出題済みリストに追加
+    setAskedTermIds(prev => [...prev, term.id])
+  }, [askedTermIds])
+
   // LocalStorageから進捗を読み込む
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0]
@@ -127,29 +150,6 @@ export default function MedicalTermQuiz() {
       localStorage.setItem('medicalTermDailyProgress', JSON.stringify(dailyProgress))
     }
   }, [dailyProgress])
-
-  // 新しい問題を読み込む
-  const loadNewQuestion = useCallback(() => {
-    // すでに出題された問題を除外
-    const availableTerms = medicalTerms.filter(term => !askedTermIds.includes(term.id))
-
-    // 利用可能な問題がない場合（念のため）
-    if (availableTerms.length === 0) {
-      return
-    }
-
-    const randomIndex = Math.floor(Math.random() * availableTerms.length)
-    const term = availableTerms[randomIndex]
-    const shuffledChoices = [term.meaning, ...term.distractors].sort(() => Math.random() - 0.5)
-
-    setCurrentTerm(term)
-    setChoices(shuffledChoices)
-    setSelectedAnswer(null)
-    setIsCorrect(null)
-
-    // 出題済みリストに追加
-    setAskedTermIds(prev => [...prev, term.id])
-  }, [askedTermIds])
 
   // 名前入力の処理
   const handleNameSubmit = (e: React.FormEvent) => {
