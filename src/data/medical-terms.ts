@@ -308,6 +308,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'abdomen',
+    term: '腹部',
+    reading: 'ふくぶ',
+    meaning: 'お腹のこと。胃、腸、肝臓など消化器系の臓器や、その他多くの臓器が位置する体の部分。',
+    distractors: ['四肢', '骨盤'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
