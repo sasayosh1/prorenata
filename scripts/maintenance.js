@@ -1017,6 +1017,12 @@ const YMYL_REPLACEMENTS = [
 const DISCLAIMER_TEXT =
   '免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。'
 
+const PERSONA_INTRO_TEXT =
+  '白崎セラです。看護助手として現場で感じた疑問や工夫を、同じ立場の方に向けて落ち着いてまとめていきます。'
+
+const PERSONA_OUTRO_TEXT =
+  'ここまで読んでくださり、ありがとうございます。白崎セラでした。どうか無理をしすぎず、小さなごほうびを用意して心と体を休めてくださいね。'
+
 const NUMERIC_REFERENCE_HINTS = [
   {
     keywords: ['年収', '月給', '給与', '給料', '手当', '収入', '賃金', '賞与'],
@@ -1118,6 +1124,76 @@ function ensureSummarySection(blocks, title) {
     body: [...blocks, summaryHeading, ...fallbackSummary],
     added: true
   }
+}
+
+function createPersonaIntroBlock() {
+  return {
+    _type: 'block',
+    _key: `sera-intro-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `sera-intro-span-${randomUUID()}`,
+        text: PERSONA_INTRO_TEXT,
+        marks: []
+      }
+    ]
+  }
+}
+
+function createPersonaOutroBlock() {
+  return {
+    _type: 'block',
+    _key: `sera-outro-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [],
+    children: [
+      {
+        _type: 'span',
+        _key: `sera-outro-span-${randomUUID()}`,
+        text: PERSONA_OUTRO_TEXT,
+        marks: []
+      }
+    ]
+  }
+}
+
+function ensurePersonaIntroOutro(blocks) {
+  if (!Array.isArray(blocks)) {
+    return { body: blocks, introAdded: false, outroAdded: false }
+  }
+
+  let body = blocks.slice()
+  const introExists = body.some(
+    (block, index) =>
+      index < 6 &&
+      block?._type === 'block' &&
+      extractBlockText(block).includes('白崎セラです')
+  )
+
+  const outroExists = body
+    .slice(-8)
+    .some(
+      block =>
+        block?._type === 'block' && extractBlockText(block).includes('白崎セラでした')
+    )
+
+  let introAdded = false
+  let outroAdded = false
+
+  if (!introExists) {
+    body = [createPersonaIntroBlock(), ...body]
+    introAdded = true
+  }
+
+  if (!outroExists) {
+    body = [...body, createPersonaOutroBlock()]
+    outroAdded = true
+  }
+
+  return { body, introAdded, outroAdded }
 }
 
 /**
@@ -2482,7 +2558,9 @@ function sanitizeBodyBlocks(blocks) {
       removedAffiliateCtas: 0,
       removedSummaryHeadings: 0,
       disclaimerAdded: 0,
-      restoredAffiliateEmbeds: 0
+      restoredAffiliateEmbeds: 0,
+      personaIntroAdded: 0,
+      personaOutroAdded: 0
     }
   }
 
@@ -2512,6 +2590,8 @@ function sanitizeBodyBlocks(blocks) {
   let summaryHeadingSeen = false
   let hasDisclaimer = false
   let personaHeadingsFixed = 0
+  let personaIntroAdded = 0
+  let personaOutroAdded = 0
   let skippingNextStepsSection = false
   let removedNextStepsSections = 0
   let denseParagraphsSplit = 0
@@ -2877,8 +2957,11 @@ function sanitizeBodyBlocks(blocks) {
   const denseSplitResult = splitDenseParagraphs(cleaned)
   denseParagraphsSplit = denseSplitResult.splitCount
   const embedRestoreResult = restoreInlineAffiliateEmbeds(denseSplitResult.body)
-  const bodyWithKeys = ensurePortableTextKeys(embedRestoreResult.body)
+  const personaResult = ensurePersonaIntroOutro(embedRestoreResult.body)
+  const bodyWithKeys = ensurePortableTextKeys(personaResult.body)
   const restoredAffiliateEmbeds = embedRestoreResult.restored
+  personaIntroAdded = personaResult.introAdded ? 1 : 0
+  personaOutroAdded = personaResult.outroAdded ? 1 : 0
 
   return {
     body: bodyWithKeys,
@@ -2893,7 +2976,9 @@ function sanitizeBodyBlocks(blocks) {
     personaHeadingsFixed,
     removedNextStepsSections,
     denseParagraphsSplit,
-    restoredAffiliateEmbeds
+    restoredAffiliateEmbeds,
+    personaIntroAdded,
+    personaOutroAdded
   }
 }
 
@@ -4139,6 +4224,8 @@ async function autoFixMetadata() {
     let affiliateCtasRemoved = 0
     let summaryHeadingsRemoved = 0
     let personaHeadingsFixed = 0
+    let personaIntrosAdded = 0
+    let personaOutrosAdded = 0
     let disclaimersAdded = 0
     let disclaimerRepositioned = false
     let referencesFixed = 0
@@ -4170,6 +4257,8 @@ async function autoFixMetadata() {
       summaryHeadingsRemoved = sanitised.removedSummaryHeadings
       disclaimersAdded = sanitised.disclaimerAdded
       personaHeadingsFixed = sanitised.personaHeadingsFixed || 0
+      personaIntrosAdded = sanitised.personaIntroAdded || 0
+      personaOutrosAdded = sanitised.personaOutroAdded || 0
 
       const referenceResult = await normalizeReferenceLinks(updates.body || post.body, post.title)
       if (referenceResult.fixed > 0 || referenceResult.removed > 0 || referenceResult.body !== (updates.body || post.body)) {
@@ -4676,6 +4765,8 @@ async function sanitizeAllBodies(options = {}) {
   let totalAffiliateCtasRemoved = 0
   let totalSummaryHeadingsRemoved = 0
   let totalPersonaHeadingFixes = 0
+  let totalPersonaIntroAdded = 0
+  let totalPersonaOutroAdded = 0
   let totalDisclaimersAdded = 0
   let totalDisclaimersMoved = 0
   let totalReferencesFixed = 0
@@ -4755,6 +4846,8 @@ async function sanitizeAllBodies(options = {}) {
     let personaExcerptUpdated = false
     let personaMetaUpdated = false
     let pronounAdjustments = 0
+    let personaIntrosAdded = 0
+    let personaOutrosAdded = 0
 
     const linkSanitizeResult = sanitizeLinkMarkDefs(body)
     if (linkSanitizeResult.fixes > 0) {
@@ -4812,6 +4905,8 @@ async function sanitizeAllBodies(options = {}) {
       if (restoredAffiliateEmbeds > 0) {
         totalAffiliateEmbedsRestored += restoredAffiliateEmbeds
       }
+      personaIntrosAdded = sanitised.personaIntroAdded || 0
+      personaOutrosAdded = sanitised.personaOutroAdded || 0
 
       const pronounResult = normalizeFirstPersonPronouns(body)
       if (pronounResult.replaced > 0) {
@@ -4831,6 +4926,8 @@ async function sanitizeAllBodies(options = {}) {
         removedSummaryHeadings > 0 ||
         disclaimerAdded > 0 ||
         personaHeadingsFixed > 0 ||
+        personaIntrosAdded > 0 ||
+        personaOutrosAdded > 0 ||
         nextStepsSectionsRemoved > 0 ||
         denseParagraphsSplit > 0 ||
         restoredAffiliateEmbeds > 0
@@ -5103,6 +5200,8 @@ async function sanitizeAllBodies(options = {}) {
     totalAffiliateCtasRemoved += removedAffiliateCtas
     totalSummaryHeadingsRemoved += removedSummaryHeadings
     totalPersonaHeadingFixes += personaHeadingsFixed
+    totalPersonaIntroAdded += personaIntrosAdded
+    totalPersonaOutroAdded += personaOutrosAdded
     totalDisclaimersAdded += disclaimerAdded
     if (disclaimerRepositioned) {
       totalDisclaimersMoved += 1
@@ -5166,6 +5265,12 @@ async function sanitizeAllBodies(options = {}) {
     }
     if (disclaimerRepositioned) {
       console.log('   免責事項を「まとめ」直後に再配置しました')
+    }
+    if (personaIntrosAdded > 0) {
+      console.log('   冒頭に白崎セラの自己紹介を挿入しました')
+    }
+    if (personaOutrosAdded > 0) {
+      console.log('   締めの白崎セラメッセージを追記しました')
     }
     if (referencesFixedForPost > 0) {
       console.log(`   出典リンクを更新: ${referencesFixedForPost}件`)
@@ -5251,7 +5356,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / 公式コード復元:${totalAffiliateEmbedsRestored} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments} / リンクhref修復:${totalLinkHrefRepairs}）\n`)
+    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 冒頭挨拶:${totalPersonaIntroAdded} / 締め挨拶:${totalPersonaOutroAdded} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / 公式コード復元:${totalAffiliateEmbedsRestored} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments} / リンクhref修復:${totalLinkHrefRepairs}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -5294,6 +5399,8 @@ async function sanitizeAllBodies(options = {}) {
     affiliateCtasRemoved: totalAffiliateCtasRemoved,
     summaryHeadingsRemoved: totalSummaryHeadingsRemoved,
     personaHeadingsFixed: totalPersonaHeadingFixes,
+    personaIntroAdded: totalPersonaIntroAdded,
+    personaOutroAdded: totalPersonaOutroAdded,
     disclaimersAdded: totalDisclaimersAdded,
     disclaimersMoved: totalDisclaimersMoved,
     ymylSoftened: totalYMYLReplacements,
