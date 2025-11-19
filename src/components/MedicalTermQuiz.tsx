@@ -57,7 +57,10 @@ export default function MedicalTermQuiz() {
 
     const randomIndex = Math.floor(Math.random() * availableTerms.length)
     const term = availableTerms[randomIndex]
-    const shuffledChoices = [term.meaning, ...term.distractors].sort(() => Math.random() - 0.5)
+    // distractorは最大2つまでに制限して常に3択にする
+    const shuffledDistractors = [...term.distractors].sort(() => Math.random() - 0.5)
+    const limitedDistractors = shuffledDistractors.slice(0, 2)
+    const shuffledChoices = [term.meaning, ...limitedDistractors].sort(() => Math.random() - 0.5)
 
     setCurrentTerm(term)
     setChoices(shuffledChoices)
