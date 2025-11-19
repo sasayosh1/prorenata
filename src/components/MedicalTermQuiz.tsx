@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { medicalTerms, categories, type MedicalTerm } from '@/data/medical-terms'
 
@@ -94,12 +94,25 @@ export default function MedicalTermQuiz() {
       setHasEnteredName(true)
     }
 
-    // 5問完了していない場合のみ問題を読み込む
-    if (dailyProgress.questionsAnswered < DAILY_LIMIT && hasEnteredName) {
+  }, [])
+
+  // 名前と進捗が揃ったタイミングで問題を読み込む
+  useEffect(() => {
+    if (
+      hasEnteredName &&
+      dailyProgress.date &&
+      dailyProgress.questionsAnswered < DAILY_LIMIT &&
+      !currentTerm
+    ) {
       loadNewQuestion()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [
+    hasEnteredName,
+    dailyProgress.date,
+    dailyProgress.questionsAnswered,
+    currentTerm,
+    loadNewQuestion,
+  ])
 
   // 統計をLocalStorageに保存
   useEffect(() => {
@@ -116,7 +129,7 @@ export default function MedicalTermQuiz() {
   }, [dailyProgress])
 
   // 新しい問題を読み込む
-  const loadNewQuestion = () => {
+  const loadNewQuestion = useCallback(() => {
     // すでに出題された問題を除外
     const availableTerms = medicalTerms.filter(term => !askedTermIds.includes(term.id))
 
@@ -136,7 +149,7 @@ export default function MedicalTermQuiz() {
 
     // 出題済みリストに追加
     setAskedTermIds(prev => [...prev, term.id])
-  }
+  }, [askedTermIds])
 
   // 名前入力の処理
   const handleNameSubmit = (e: React.FormEvent) => {
