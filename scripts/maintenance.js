@@ -4761,6 +4761,8 @@ async function sanitizeAllBodies(options = {}) {
     let removedSummaryHelpers = 0
     let removedAffiliateCtas = 0
     let removedSummaryHeadings = 0
+    let personaHeadingsFixed = 0
+    let personaBodyMentionsRemoved = 0
     let disclaimerAdded = 0
     let bodyChanged = false
     let referencesFixedForPost = 0
@@ -4841,6 +4843,7 @@ async function sanitizeAllBodies(options = {}) {
       removedSummaryHeadings = sanitised.removedSummaryHeadings
       disclaimerAdded = sanitised.disclaimerAdded
       personaHeadingsFixed = sanitised.personaHeadingsFixed || 0
+      personaBodyMentionsRemoved = sanitised.personaBodyMentionsRemoved || 0
       nextStepsSectionsRemoved = sanitised.removedNextStepsSections || 0
       denseParagraphsSplit = sanitised.denseParagraphsSplit || 0
       if (denseParagraphsSplit > 0) {
@@ -4869,6 +4872,7 @@ async function sanitizeAllBodies(options = {}) {
         removedSummaryHeadings > 0 ||
         disclaimerAdded > 0 ||
         personaHeadingsFixed > 0 ||
+        personaBodyMentionsRemoved > 0 ||
         personaBodyMentionsRemoved > 0 ||
         nextStepsSectionsRemoved > 0 ||
         denseParagraphsSplit > 0 ||
