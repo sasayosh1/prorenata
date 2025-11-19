@@ -14,7 +14,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (score < 0 || score > 5 || correctAnswers < 0 || correctAnswers > 5 || totalQuestions !== 5) {
+    const MAX_DAILY_QUESTIONS = 10
+    if (
+      score < 0 ||
+      score > MAX_DAILY_QUESTIONS ||
+      correctAnswers < 0 ||
+      correctAnswers > MAX_DAILY_QUESTIONS ||
+      totalQuestions !== MAX_DAILY_QUESTIONS
+    ) {
       return NextResponse.json(
         { error: 'スコアまたは問題数が正しくありません' },
         { status: 400 }

@@ -145,7 +145,7 @@ export default function RankingsDisplay() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900 font-semibold">
-                            {entry.score}/5
+                            {entry.score}/{entry.totalQuestions}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
