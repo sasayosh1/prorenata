@@ -41,8 +41,9 @@ export default defineType({
       },
       validation: Rule =>
         Rule.required().custom(value => {
-          if (!value) return 'カテゴリ名を選んでください。'
-          if (!CATEGORY_TITLES.includes(value)) {
+          const typedValue = typeof value === 'string' ? value : undefined
+          if (!typedValue) return 'カテゴリ名を選んでください。'
+          if (!CATEGORY_TITLES.includes(typedValue as (typeof CATEGORY_TITLES)[number])) {
             return `「${CATEGORY_TITLES.join(' / ')}」のいずれかを選択してください。`
           }
           return true
