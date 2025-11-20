@@ -10,11 +10,85 @@ import ViewCounter from '@/components/ViewCounter'
 import { ArticleStructuredData, BreadcrumbStructuredData, OrganizationStructuredData } from '@/components/StructuredData'
 import { formatPostDate, getRelatedPosts } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
+import { CATEGORY_SUMMARY, getTagDefinition, type CategorySlug } from '@/data/tagCatalog'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
 const apiVersion = '2024-01-01'
 const token = process.env.SANITY_API_TOKEN
+
+type RawCategory = string | { title?: string | null; slug?: string | null }
+
+interface NormalizedCategory {
+  title: string
+  slug?: string
+}
+
+interface NormalizedTag {
+  label: string
+  slug?: string
+}
+
+const CATEGORY_TITLE_MAP: Record<string, CategorySlug> = Object.entries(CATEGORY_SUMMARY).reduce(
+  (acc, [slug, meta]) => {
+    acc[meta.title] = slug as CategorySlug
+    return acc
+  },
+  {} as Record<string, CategorySlug>
+)
+
+function normalizeCategories(categories?: RawCategory[] | null): NormalizedCategory[] {
+  if (!Array.isArray(categories)) return []
+
+  const seen = new Set<string>()
+
+  return categories
+    .map(category => {
+      if (!category) return null
+
+      if (typeof category === 'string') {
+        const title = category.trim()
+        if (!title) return null
+        const slug = CATEGORY_TITLE_MAP[title]
+        return { title, slug }
+      }
+
+      const title = category.title?.trim()
+      if (!title) return null
+      const slug = category.slug || CATEGORY_TITLE_MAP[title]
+      return { title, slug }
+    })
+    .filter((category): category is NormalizedCategory => {
+      if (!category || seen.has(category.title)) {
+        return false
+      }
+      seen.add(category.title)
+      return true
+    })
+}
+
+function normalizeTags(tags?: string[] | null): NormalizedTag[] {
+  if (!Array.isArray(tags)) return []
+
+  const seen = new Set<string>()
+
+  return tags
+    .map(tag => (typeof tag === 'string' ? tag.trim() : ''))
+    .filter((tag): tag is string => Boolean(tag))
+    .map(tag => {
+      const definition = getTagDefinition(tag)
+      const label = definition?.title || tag
+      const slug = definition?.slug
+      const uniqueKey = slug || label
+
+      if (seen.has(uniqueKey)) {
+        return null
+      }
+      seen.add(uniqueKey)
+      return { label, slug }
+    })
+    .filter((tag): tag is NormalizedTag => Boolean(tag))
+}
 
 function createSanityClient(isDraftMode = false) {
   return createClient({
@@ -48,7 +122,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     metaDescription,
     featured,
     readingTime,
-    "categories": categories[]->title,
+    "categories": categories[]->{title,"slug":slug.current},
     "author": author->{name},
     "hasBody": defined(body[0]),
     internalOnly
@@ -64,6 +138,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       }
     }
 
+    const normalizedCategories = normalizeCategories(post.categories)
+    const categoryTitles = normalizedCategories.map(category => category.title)
+
     const baseUrl = SITE_URL
     const canonicalUrl = `${baseUrl}/posts/${post.slug.current}`
     const publishedTime = post.publishedAt ?? post._createdAt
@@ -75,7 +152,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       `${post.title}について、看護助手として働く皆様のお役に立つ情報をお届けします。`
 
     const keywords = [
-      ...(post.categories || []),
+      ...categoryTitles,
       '看護助手',
       'ProReNata'
     ].filter(Boolean)
@@ -147,15 +224,21 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     readingTime,
     contentType,
     tags,
-    "categories": categories[]->title,
+    "categories": categories[]->{title,"slug":slug.current},
     "author": author->{name, slug},
     internalOnly
   }`
   const post = await client.fetch(query, { slug: resolvedParams.slug })
 
+  const normalizedCategories = normalizeCategories(post?.categories)
+  const categoryTitles = normalizedCategories.map(category => category.title)
+  const normalizedTags = normalizeTags(post?.tags)
+
+  const hasTopicMeta = normalizedCategories.length > 0 || normalizedTags.length > 0
+
   // 関連記事の取得（lib/sanity.tsの共通関数を使用）
   const relatedPosts = post
-    ? await getRelatedPosts(post._id, post.categories, 2)
+    ? await getRelatedPosts(post._id, categoryTitles, 2)
     : []
 
   const hasBody = post && Array.isArray(post.body) && post.body.length > 0
@@ -186,10 +269,16 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     )
   }
 
+  const structuredPost = { ...post, categories: categoryTitles }
+  const categoryChipClass =
+    "inline-flex items-center rounded-full border border-cyan-200 px-3 py-1 text-sm font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors duration-200"
+  const tagChipClass =
+    "inline-flex items-center rounded-full border border-rose-200 px-3 py-1 text-sm font-medium text-rose-700 hover:border-rose-300 hover:bg-rose-50 transition-colors duration-200"
+
   return (
     <>
       {/* 構造化データ（JSON-LD） */}
-      <ArticleStructuredData post={post} />
+      <ArticleStructuredData post={structuredPost} />
       <BreadcrumbStructuredData title={post.title} slug={post.slug.current} />
       <OrganizationStructuredData />
 
@@ -269,6 +358,69 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                     </div>
                   )}
                 </div>
+
+                {hasTopicMeta && (
+                  <div className="my-10 border-y-2 border-gray-200 border-double py-8">
+                    <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+                      {normalizedCategories.length > 0 && (
+                        <div className="flex-1 text-center sm:text-left">
+                          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
+                            カテゴリ
+                          </p>
+                          <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
+                            {normalizedCategories.map(category => {
+                              const key = category.slug || category.title
+                              if (category.slug) {
+                                return (
+                                  <Link
+                                    key={key}
+                                    href={`/categories/${category.slug}`}
+                                    className={categoryChipClass}
+                                  >
+                                    {category.title}
+                                  </Link>
+                                )
+                              }
+                              return (
+                                <span key={key} className={categoryChipClass}>
+                                  {category.title}
+                                </span>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      )}
+                      {normalizedTags.length > 0 && (
+                        <div className="flex-1 text-center sm:text-left">
+                          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
+                            タグ
+                          </p>
+                          <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
+                            {normalizedTags.map(tag => {
+                              const key = tag.slug || tag.label
+                              if (tag.slug) {
+                                return (
+                                  <Link
+                                    key={key}
+                                    href={`/tags/${tag.slug}`}
+                                    className={tagChipClass}
+                                  >
+                                    #{tag.label}
+                                  </Link>
+                                )
+                              }
+                              return (
+                                <span key={key} className={tagChipClass}>
+                                  #{tag.label}
+                                </span>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {/* 関連記事セクション */}
                 {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}

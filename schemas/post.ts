@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'post',
@@ -96,7 +96,7 @@ export default defineType({
       title: 'Body',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [
             {title: 'Normal', value: 'normal'},
@@ -140,8 +140,8 @@ export default defineType({
               }
             ]
           }
-        },
-        {
+        }),
+        defineArrayMember({
           type: 'image',
           options: {hotspot: true},
           fields: [
@@ -151,45 +151,10 @@ export default defineType({
               title: 'Alternative text',
             }
           ]
-        },
-        {
-          name: 'affiliateEmbed',
-          title: 'Affiliate Embed',
-          type: 'object',
-          fields: [
-            {
-              name: 'provider',
-              title: 'プロバイダ',
-              type: 'string',
-              readOnly: true,
-            },
-            {
-              name: 'linkKey',
-              title: 'リンク識別子',
-              type: 'string',
-              readOnly: true,
-            },
-            {
-              name: 'label',
-              title: '表示ラベル',
-              type: 'string',
-              readOnly: true,
-            },
-            {
-              name: 'html',
-              title: '埋め込みHTML',
-              type: 'text',
-              rows: 4,
-              readOnly: true,
-            },
-          ],
-          preview: {
-            select: {
-              title: 'label',
-              subtitle: 'provider',
-            },
-          },
-        }
+        }),
+        defineArrayMember({
+          type: 'affiliateEmbed',
+        }),
       ],
       validation: rule => rule.required(),
     }),
