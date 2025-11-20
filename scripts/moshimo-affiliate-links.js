@@ -89,7 +89,7 @@ const MOSHIMO_LINKS = {
   },
 
   amazon: {
-    name: 'Amazon（もしもアフィリエイト経由）',
+    name: 'Amazon',
     description: 'Amazon商品購入',
     category: 'アイテム',
     targetArticles: ['グッズ', '靴', 'シューズ', '本', '書籍', '必要なもの'],
@@ -101,7 +101,7 @@ const MOSHIMO_LINKS = {
     addedDate: '2025-10-16',
     reward: '2.0%（もしも経由）',
     condition: '商品購入',
-    note: 'もしもアフィリエイト経由で一括管理'
+    note: ''
   },
 
   rakuten: {
