@@ -64,7 +64,41 @@ export default function Pagination({
   }
 
   return (
-    <nav className="flex justify-center items-center space-x-2 mt-8" aria-label="ページネーション">
+    <div className="mt-8 space-y-3" aria-label="ページネーション">
+      {/* Mobile condensed controls */}
+      <div className="flex md:hidden items-center justify-between gap-3">
+        {hasPrevPage ? (
+          <Link
+            href={currentPage === 2 ? baseUrl : `${baseUrl}?page=${currentPage - 1}`}
+            className="flex-1 inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+          >
+            ← 前へ
+          </Link>
+        ) : (
+          <span className="flex-1 inline-flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 px-3 py-2 text-sm font-medium text-gray-400 shadow-sm">
+            ← 前へ
+          </span>
+        )}
+
+        <span className="text-sm font-semibold text-gray-600 min-w-[80px] text-center">
+          {currentPage}/{totalPages}
+        </span>
+
+        {hasNextPage ? (
+          <Link
+            href={`${baseUrl}?page=${currentPage + 1}`}
+            className="flex-1 inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+          >
+            次へ →
+          </Link>
+        ) : (
+          <span className="flex-1 inline-flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 px-3 py-2 text-sm font-medium text-gray-400 shadow-sm">
+            次へ →
+          </span>
+        )}
+      </div>
+
+      <nav className="hidden md:flex justify-center items-center space-x-2" aria-label="ページ番号">
       {/* 前へボタン */}
       {hasPrevPage ? (
         <Link
@@ -126,6 +160,7 @@ export default function Pagination({
           次へ →
         </span>
       )}
-    </nav>
+      </nav>
+    </div>
   )
 }
