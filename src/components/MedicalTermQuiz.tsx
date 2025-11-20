@@ -23,6 +23,7 @@ export default function MedicalTermQuiz() {
   const [choices, setChoices] = useState<string[]>([])
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
+  const [isAnswerConfirmed, setIsAnswerConfirmed] = useState(false)
   const [playerName, setPlayerName] = useState<string>('')
   const [hasEnteredName, setHasEnteredName] = useState(false)
   const [showNameInput, setShowNameInput] = useState(false)
@@ -66,6 +67,7 @@ export default function MedicalTermQuiz() {
     setChoices(shuffledChoices)
     setSelectedAnswer(null)
     setIsCorrect(null)
+    setIsAnswerConfirmed(false)
 
     // 出題済みリストに追加
     setAskedTermIds(prev => [...prev, term.id])
@@ -205,13 +207,18 @@ export default function MedicalTermQuiz() {
 
   // 回答を処理
   const handleAnswer = (answer: string) => {
-    if (selectedAnswer !== null || !currentTerm) return
-
+    if (!currentTerm || isAnswerConfirmed) return
     setSelectedAnswer(answer)
-    const correct = answer === currentTerm.meaning
-    setIsCorrect(correct)
+    setIsCorrect(null)
+  }
 
-    // 統計を更新
+  const confirmAnswer = () => {
+    if (!selectedAnswer || !currentTerm || isAnswerConfirmed) return
+
+    const correct = selectedAnswer === currentTerm.meaning
+    setIsCorrect(correct)
+    setIsAnswerConfirmed(true)
+
     setStats(prevStats => ({
       totalAnswered: prevStats.totalAnswered + 1,
       correctAnswers: prevStats.correctAnswers + (correct ? 1 : 0),
@@ -219,12 +226,10 @@ export default function MedicalTermQuiz() {
       bestStreak: Math.max(prevStats.bestStreak, correct ? prevStats.streak + 1 : 0),
     }))
 
-    // セッション正解数を更新
     if (correct) {
       setCurrentSessionCorrect(prev => prev + 1)
     }
 
-    // 日次進捗を更新
     setDailyProgress(prev => ({
       ...prev,
       questionsAnswered: prev.questionsAnswered + 1,
@@ -232,9 +237,16 @@ export default function MedicalTermQuiz() {
     }))
   }
 
+  const cancelSelection = () => {
+    if (isAnswerConfirmed) return
+    setSelectedAnswer(null)
+  }
+
   // 次の問題へ
   const handleNext = () => {
-    // 5問目の場合はスコアを送信
+    if (!isAnswerConfirmed && dailyProgress.questionsAnswered < DAILY_LIMIT) {
+      return
+    }
     if (dailyProgress.questionsAnswered >= DAILY_LIMIT) {
       submitScore()
     } else {
@@ -427,11 +439,12 @@ export default function MedicalTermQuiz() {
         {choices.map((choice, index) => {
           const isSelected = selectedAnswer === choice
           const isCorrectChoice = choice === currentTerm.meaning
-
           let buttonClass = 'w-full p-4 text-left border-2 rounded-lg transition-colors '
 
-          if (selectedAnswer === null) {
-            buttonClass += 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 cursor-pointer'
+          if (!isAnswerConfirmed) {
+            buttonClass += isSelected
+              ? 'border-blue-500 bg-blue-50 text-blue-900'
+              : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 cursor-pointer'
           } else if (isSelected && isCorrect) {
             buttonClass += 'border-green-500 bg-green-50 text-green-900'
           } else if (isSelected && !isCorrect) {
@@ -446,7 +459,7 @@ export default function MedicalTermQuiz() {
             <button
               key={index}
               onClick={() => handleAnswer(choice)}
-              disabled={selectedAnswer !== null}
+              disabled={isAnswerConfirmed}
               className={buttonClass}
             >
               {choice}
@@ -455,7 +468,24 @@ export default function MedicalTermQuiz() {
         })}
       </div>
 
-      {selectedAnswer !== null && (
+      {selectedAnswer && !isAnswerConfirmed && (
+        <div className="mb-6 flex flex-wrap gap-4">
+          <button
+            onClick={confirmAnswer}
+            className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            決定
+          </button>
+          <button
+            onClick={cancelSelection}
+            className="px-4 py-2 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            キャンセル
+          </button>
+        </div>
+      )}
+
+      {selectedAnswer !== null && isAnswerConfirmed && (
         <div className="mb-6">
           {isCorrect ? (
             <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
@@ -470,7 +500,7 @@ export default function MedicalTermQuiz() {
         </div>
       )}
 
-      {selectedAnswer !== null && (
+      {selectedAnswer !== null && isAnswerConfirmed && (
         <button
           onClick={handleNext}
           className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
