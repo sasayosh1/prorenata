@@ -2,8 +2,8 @@ name: 医療用語クイズ自動生成
 
 on:
   schedule:
-    # 毎週月曜と木曜の深夜2:00 JST (17:00 UTC前日) に実行
-    - cron: '0 17 * * 0,3'
+    # 毎日 深夜2:00 JST (17:00 UTC前日) に実行
+    - cron: '0 17 * * *'
   workflow_dispatch: # 手動実行も可能
 
 permissions:
