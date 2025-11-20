@@ -1,6 +1,6 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
 20251117,/posts/nursing-assistant-night-shift-duties,desktop,Japan,4,1,61,0.5,1307.94538225
-20251118,/posts/nursing-assistant-night-shift-duties,desktop,Japan,4,1,43,0.75,202.87242975
+20251118,/posts/nursing-assistant-night-shift-duties,desktop,Japan,4,1,43,0.75,201.33463675000002
 20251115,/,desktop,Japan,3,1,29,0.3333333333333333,13.528130333333332
 20251117,/,desktop,Japan,3,1,41,1.0,1383.2402686666667
 20251117,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,11,0.6666666666666666,1.9761003333333333
@@ -9,7 +9,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251115,/posts/nursing-assistant-training-program-revision,desktop,Japan,2,1,11,0.5,13.266507
 20251117,/quiz,desktop,Japan,2,1,43,1.0,99.997523
 20251117,/quiz/rankings,desktop,Japan,2,1,57,1.0,48.8828295
-20251020,/posts/nursing-assistant-no-qualification-duties,desktop,Japan,1,1,7,1.0,167.1522
+20251119,/posts/nursing-assistant-night-shift-duties,desktop,Japan,2,1,20,0.5,19.536954
 20251110,/,desktop,Japan,1,1,7,1.0,11.80411
 20251113,/about,desktop,Japan,1,1,1,1.0,2.953086
 20251113,/blog,desktop,Japan,1,1,1,1.0,21.217683
@@ -34,3 +34,5 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251118,/posts/nursing-assistant-job-role-patient,desktop,Japan,1,1,1,1.0,0.001369
 20251118,/quiz/rankings,desktop,Japan,1,1,2,0.0,0.0
 20251118,/search,desktop,Japan,1,1,1,1.0,0.009726
+20251119,/,desktop,Japan,1,1,4,1.0,118.086153
+20251119,/search,desktop,Japan,1,1,6,1.0,53.172774
