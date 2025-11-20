@@ -1,6 +1,7 @@
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import { TAG_CATALOG, type TagDefinition, getTagDefinition } from '@/data/tagCatalog'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
@@ -89,6 +90,10 @@ export interface Category {
   level?: 'main' | 'sub'
   sortOrder?: number
   active?: boolean
+}
+
+export interface TagStat extends TagDefinition {
+  postCount: number
 }
 
 
@@ -315,4 +320,49 @@ export async function getRelatedPosts(
     console.error('関連記事取得エラー:', error)
     return []
   }
+}
+
+const buildTagKeywords = (tag: TagDefinition) => {
+  const base = new Set<string>()
+  tag.keywords.forEach(keyword => {
+    if (keyword) base.add(keyword)
+  })
+  base.add(tag.slug)
+  base.add(tag.title)
+  return Array.from(base)
+}
+
+export async function getCuratedTagStats(): Promise<TagStat[]> {
+  const stats = await Promise.all(
+    TAG_CATALOG.map(async tag => {
+      const keywords = buildTagKeywords(tag)
+      const postCount = await client.fetch<number>(
+        `count(*[_type == "post" && ${PUBLIC_POST_FILTER} && count(tags[@ in $keywords]) > 0])`,
+        { keywords }
+      )
+      return { ...tag, postCount }
+    })
+  )
+
+  return stats.sort((a, b) => b.postCount - a.postCount)
+}
+
+export async function getPostsByTagSlug(tagSlug: string, limit: number = 40): Promise<Post[]> {
+  const definition = getTagDefinition(tagSlug)
+  if (!definition) return []
+
+  const keywords = buildTagKeywords(definition)
+  const query = `*[_type == "post" && ${PUBLIC_POST_FILTER} && count(tags[@ in $keywords]) > 0] | order(coalesce(publishedAt, _createdAt) desc) [0...$limit] {
+    _id,
+    title,
+    slug,
+    _createdAt,
+    publishedAt,
+    excerpt,
+    mainImage,
+    "categories": categories[]->title,
+    internalOnly
+  }`
+
+  return client.fetch(query, { keywords, limit })
 }
