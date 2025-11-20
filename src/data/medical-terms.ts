@@ -317,6 +317,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 's-lamp',
+    term: '吸引器',
+    reading: 'きゅういんき',
+    meaning: '気道内の分泌物などを吸い取るための医療器具',
+    distractors: ['点滴スタンド', '聴診器'],
+    category: 'equipment',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
