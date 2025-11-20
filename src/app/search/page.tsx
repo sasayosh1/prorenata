@@ -1,6 +1,7 @@
-import { getAllPosts, formatPostDate } from '@/lib/sanity'
+import { getAllPosts, formatPostDate, type Post } from '@/lib/sanity'
 import Link from 'next/link'
 import SimpleSearch from '@/components/SimpleSearch'
+import { rankPostsByQuery, buildHighlightSnippet } from '@/lib/searchUtils'
 
 interface SearchPageProps {
   searchParams: Promise<{ q?: string }>
@@ -17,23 +18,12 @@ export const metadata = {
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const resolvedParams = await searchParams
-  const query = resolvedParams.q || ''
-  
-  const allPosts = await getAllPosts()
+  const query = (resolvedParams.q || '').trim()
 
-  // 検索ロジック（タイトル、抜粋、スラッグを検索）
-  const filteredPosts = query ?
-    allPosts.filter(post => {
-      const searchQuery = query.toLowerCase().trim()
-      const title = post.title.toLowerCase()
-      const excerpt = post.excerpt?.toLowerCase() || ''
-      const slug = post.slug?.current?.toLowerCase() || ''
-
-      // タイトル、抜粋、スラッグのいずれかに検索語が含まれるかチェック
-      return title.includes(searchQuery) ||
-             excerpt.includes(searchQuery) ||
-             slug.includes(searchQuery)
-    }) : allPosts
+  const allPosts = await getAllPosts({ fetchAll: true, includeBody: true })
+  const filteredPosts: Post[] = query
+    ? rankPostsByQuery(allPosts, query).slice(0, 100)
+    : allPosts
 
   return (
     <div className="bg-white min-h-screen">
@@ -56,18 +46,14 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             <SimpleSearch placeholder="記事を検索..." />
           </div>
 
-          {/* 検索結果 */}
           {query && (
-            <div className="mb-6">
-              <p className="text-gray-600 text-sm">
-                「{query}」の検索結果: {filteredPosts.length}件
-              </p>
+            <div className="mb-6 text-sm text-gray-600">
+              「{query}」の検索結果: {filteredPosts.length}件
             </div>
           )}
 
-          {/* 記事一覧 */}
           <div className="space-y-4">
-            {filteredPosts.map((post) => (
+            {filteredPosts.map(post => (
               <article key={post._id} className="py-4 border-b border-gray-200 last:border-b-0">
                 <div className="flex items-center justify-between mb-1">
                   {(() => {
@@ -91,10 +77,16 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                   </Link>
                 </h2>
 
-                {post.excerpt && (
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    {post.excerpt}
+                {query ? (
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-3">
+                    {buildHighlightSnippet(post.excerpt || post.bodyPlainText || '', query)}
                   </p>
+                ) : (
+                  post.excerpt && (
+                    <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                  )
                 )}
 
                 <div className="flex items-center justify-between">

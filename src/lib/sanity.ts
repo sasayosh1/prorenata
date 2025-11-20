@@ -64,6 +64,7 @@ export interface Post {
   readingTime?: number
   featured?: boolean
   tags?: string[]
+  bodyPlainText?: string
   internalOnly?: boolean
 }
 
@@ -99,7 +100,7 @@ export interface TagStat extends TagDefinition {
 
 
 // データ取得関数
-export async function getAllPosts(options: { limit?: number; fetchAll?: boolean } = {}): Promise<Post[]> {
+export async function getAllPosts(options: { limit?: number; fetchAll?: boolean; includeBody?: boolean } = {}): Promise<Post[]> {
   try {
     // 開発環境では取得件数を制限して起動時間を短縮する
     const devLimit = process.env.SANITY_DEV_LIMIT
@@ -111,6 +112,8 @@ export async function getAllPosts(options: { limit?: number; fetchAll?: boolean 
     const shouldLimit = !options.fetchAll && ((isDev && devLimit > 0) || (explicitLimit && explicitLimit > 0))
     const limitValue = explicitLimit ?? devLimit
     const limitClause = shouldLimit && limitValue > 0 ? `[0...${limitValue}]` : ''
+
+    const bodyProjection = options.includeBody ? ', "bodyPlainText": pt::text(body)' : ''
 
     const query = `*[_type == "post" && ${PUBLIC_POST_FILTER}] | order(coalesce(publishedAt, _createdAt) desc) ${limitClause} {
       _id,
@@ -133,7 +136,7 @@ export async function getAllPosts(options: { limit?: number; fetchAll?: boolean 
       readingTime,
       featured,
       tags,
-      internalOnly
+      internalOnly${bodyProjection}
     }`
 
     const result = await client.fetch(query)
