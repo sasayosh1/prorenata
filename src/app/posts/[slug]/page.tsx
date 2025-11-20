@@ -41,53 +41,59 @@ function normalizeCategories(categories?: RawCategory[] | null): NormalizedCateg
   if (!Array.isArray(categories)) return []
 
   const seen = new Set<string>()
+  const normalized: NormalizedCategory[] = []
 
-  return categories
-    .map(category => {
-      if (!category) return null
+  for (const category of categories) {
+    if (!category) continue
 
-      if (typeof category === 'string') {
-        const title = category.trim()
-        if (!title) return null
-        const slug = CATEGORY_TITLE_MAP[title]
-        return { title, slug }
-      }
-
+    let normalizedCategory: NormalizedCategory | null = null
+    if (typeof category === 'string') {
+      const title = category.trim()
+      if (!title) continue
+      const slug = CATEGORY_TITLE_MAP[title]
+      normalizedCategory = { title, slug }
+    } else {
       const title = category.title?.trim()
-      if (!title) return null
+      if (!title) continue
       const slug = category.slug || CATEGORY_TITLE_MAP[title]
-      return { title, slug }
-    })
-    .filter((category): category is NormalizedCategory => {
-      if (!category || seen.has(category.title)) {
-        return false
-      }
-      seen.add(category.title)
-      return true
-    })
+      normalizedCategory = { title, slug }
+    }
+
+    if (!normalizedCategory || seen.has(normalizedCategory.title)) {
+      continue
+    }
+
+    seen.add(normalizedCategory.title)
+    normalized.push(normalizedCategory)
+  }
+
+  return normalized
 }
 
 function normalizeTags(tags?: string[] | null): NormalizedTag[] {
   if (!Array.isArray(tags)) return []
 
   const seen = new Set<string>()
+  const normalized: NormalizedTag[] = []
 
-  return tags
-    .map(tag => (typeof tag === 'string' ? tag.trim() : ''))
-    .filter((tag): tag is string => Boolean(tag))
-    .map(tag => {
-      const definition = getTagDefinition(tag)
-      const label = definition?.title || tag
-      const slug = definition?.slug
-      const uniqueKey = slug || label
+  for (const rawTag of tags) {
+    const trimmed = typeof rawTag === 'string' ? rawTag.trim() : ''
+    if (!trimmed) continue
 
-      if (seen.has(uniqueKey)) {
-        return null
-      }
-      seen.add(uniqueKey)
-      return { label, slug }
-    })
-    .filter((tag): tag is NormalizedTag => Boolean(tag))
+    const definition = getTagDefinition(trimmed)
+    const label = definition?.title || trimmed
+    const slug = definition?.slug
+    const uniqueKey = slug || label
+
+    if (seen.has(uniqueKey)) {
+      continue
+    }
+
+    seen.add(uniqueKey)
+    normalized.push({ label, slug })
+  }
+
+  return normalized
 }
 
 function createSanityClient(isDraftMode = false) {
