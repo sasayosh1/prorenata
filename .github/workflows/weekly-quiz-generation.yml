@@ -1,4 +1,4 @@
-name: 医療用語クイズ自動生成
+name: メディカルクイズ自動生成
 
 on:
   schedule:
@@ -33,7 +33,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: 医療用語クイズ問題を生成
+      - name: メディカルクイズ問題を生成
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
@@ -46,7 +46,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "変更がないためコミットをスキップ"
           else
-            git commit -m "医療用語クイズ問題を自動生成" \
+            git commit -m "メディカルクイズ問題を自動生成" \
               -m "" \
               -m "🤖 Generated with [Claude Code](https://claude.com/claude-code)" \
               -m "" \
@@ -63,7 +63,7 @@ jobs:
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: '医療用語クイズ自動生成に失敗しました',
-              body: `医療用語クイズの自動生成ワークフローが失敗しました。\n\n- ワークフロー実行: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n- ブランチ: ${context.ref}\n- コミット: ${context.sha}\n\nエラー内容を確認してください。`,
+              title: 'メディカルクイズ自動生成に失敗しました',
+              body: `メディカルクイズの自動生成ワークフローが失敗しました。\n\n- ワークフロー実行: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n- ブランチ: ${context.ref}\n- コミット: ${context.sha}\n\nエラー内容を確認してください。`,
               labels: ['bug', 'automated']
             });
