@@ -1532,6 +1532,21 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
     prioritizedSuggestions.forEach(trySelect)
   }
 
+  if (selectedLinks.length === 0) {
+    const fallbackKeys = determineFallbackAffiliateKeys({
+      text: combinedText,
+      slug,
+      categories: categoryNames,
+      disableRetirement: disableRetirementAffiliates
+    })
+    fallbackKeys.forEach(key => {
+      const link = MOSHIMO_LINKS[key]
+      if (link) {
+        trySelect({ key, ...link })
+      }
+    })
+  }
+
   const resultBlocks = [...blocks]
   let addedLinks = 0
   const insertionFallbackIndex = findSummaryInsertIndex(resultBlocks)
@@ -1788,9 +1803,45 @@ const AFFILIATE_LINK_KEYWORDS = {
   kaigobatake: ['転職', '求人', '介護職', '資格', '未経験'],
   miyabi: ['退職', '離職', '辞める', '退社', '退職代行'],
   sokuyame: ['退職', '即日', '今すぐ', '退職代行'],
-  amazon: ['持ち物', 'グッズ', '道具', '用品', 'アイテム', 'バッグ', 'ケア製品'],
-  rakuten: ['持ち物', 'グッズ', '道具', 'アイテム', 'ショッピング'],
-  nursery: ['ユニフォーム', '制服', 'スクラブ', 'シューズ']
+  amazon: ['持ち物', 'グッズ', '道具', '用品', 'アイテム', 'バッグ', 'ケア製品', '小物', '手袋', 'グローブ', '備品', '物品', '補充'],
+  rakuten: ['持ち物', 'グッズ', '道具', 'アイテム', 'ショッピング', '通販', '買い足す', 'ポイント', '物品'],
+  nursery: ['ユニフォーム', '制服', 'スクラブ', 'シューズ', 'ナース服', 'ウェア']
+}
+
+function determineFallbackAffiliateKeys({
+  text = '',
+  slug = '',
+  categories = '',
+  disableRetirement = false
+}) {
+  const normalizedText = text.toLowerCase()
+  const normalizedSlug = slug.toLowerCase()
+  const normalizedCategories = categories.toLowerCase()
+
+  const keys = []
+
+  const wantsRetirement =
+    !disableRetirement &&
+    (normalizedText.includes('退職') ||
+      normalizedText.includes('辞め') ||
+      normalizedCategories.includes('退職') ||
+      normalizedSlug.includes('resignation'))
+
+  const wantsCareer =
+    normalizedText.includes('転職') ||
+    normalizedText.includes('求人') ||
+    normalizedCategories.includes('転職') ||
+    normalizedSlug.includes('career')
+
+  if (wantsRetirement) {
+    keys.push('miyabi', 'sokuyame')
+  } else if (wantsCareer) {
+    keys.push('humanlifecare', 'kaigobatake')
+  }
+
+  keys.push('amazon', 'rakuten', 'nursery')
+
+  return keys
 }
 
 function normalizeTextForMatching(text = '') {
