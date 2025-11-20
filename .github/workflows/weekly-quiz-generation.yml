@@ -51,6 +51,7 @@ jobs:
               -m "🤖 Generated with [Claude Code](https://claude.com/claude-code)" \
               -m "" \
               -m "Co-Authored-By: Claude <noreply@anthropic.com>"
+            git pull --rebase origin main
             git push
             echo "✅ 新しいクイズ問題を追加しました"
           fi
