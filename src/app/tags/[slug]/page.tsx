@@ -7,7 +7,7 @@ import { getPostsByTagSlug, formatPostDate } from '@/lib/sanity'
 import { TAG_CATALOG, getTagDefinition, CATEGORY_SUMMARY } from '@/data/tagCatalog'
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const tag = getTagDefinition(params.slug)
+  const resolvedParams = await params
+  const tag = getTagDefinition(resolvedParams.slug)
   if (!tag) {
     return {
       title: 'タグが見つかりません',
@@ -33,7 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function TagDetailPage({ params }: Props) {
-  const tag = getTagDefinition(params.slug)
+  const resolvedParams = await params
+  const tag = getTagDefinition(resolvedParams.slug)
   if (!tag) {
     notFound()
   }
