@@ -168,6 +168,13 @@ vercel --previewe
 
 ## 最近の変更
 
+1. ♻️ **制度アップデート体制とナビゲーション改善** (2025-11-21)
+   - **制度アップデートフローを文書化**: `docs/policy-update-workflow.md` を追加し、厚労省/JNAなど一次情報の監視ルール・記事更新手順・出典必須チェックリストを明文化。`CLAUDE.md`/`ARTICLE_GUIDE.md` にも即時更新ルールを追記。
+   - **出典ルール強化**: `scripts/utils/postHelpers.js` に「厚労働省 看護政策情報・通知一覧」を SOURCE_RULES として追加し、制度/トレンド記事で自動的に一次情報リンクが挿入されるようにした。
+   - **読者導線改善**: 記事下部の「次のステップ」をカードUI→テキストリンクへ簡素化し、関連記事→カテゴリ/タグの順で表示を入れ替えた（`src/components/RelatedPosts.tsx`, `src/app/posts/[slug]/page.tsx`）。
+   - **ページトップボタン**: `ScrollToTopButton` を追加し、全ページ右下にスクロールで出現する「トップへ戻る」ボタンを実装（`src/components/ScrollToTopButton.tsx`, `src/app/layout.tsx`）。Next.js ビルドはクライアントコンポーネントとして読み込むことで解決済み。
+   - **クイズ進捗の端末間共有**: `/api/quiz/progress` を新設し、サーバー側で当日のプレイ済み状態を照会。`MedicalTermQuiz` で名前＋日付に紐づく進捗を取得して10問制限をPC/スマホ間で統一。Gemini利用モデルは `2.5-flash-lite-001` 固定。
+
 1. 🎮 **メディカルクイズの重複問題修正と名称変更** (2025-11-19)
    - **重複問題修正**: 10問中同じ問題が出ないように改善
      - `askedTermIds` stateで出題済み問題を追跡
