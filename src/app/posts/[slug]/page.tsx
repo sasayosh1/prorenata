@@ -365,6 +365,9 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   )}
                 </div>
 
+                {/* 関連記事セクション */}
+                {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
+
                 {hasTopicMeta && (
                   <div className="my-10 border-y-2 border-gray-200 border-double py-8">
                     <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
@@ -427,9 +430,6 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                     </div>
                   </div>
                 )}
-
-                {/* 関連記事セクション */}
-                {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
 
                 {/* 記事下部のナビゲーション */}
                 <footer className="pt-8">
