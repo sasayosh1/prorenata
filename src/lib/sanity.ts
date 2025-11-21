@@ -291,21 +291,21 @@ export function formatPostDate(
 // 関連記事を取得する関数（同カテゴリから2件自動選択）
 export async function getRelatedPosts(
   currentPostId: string,
-  categories?: string[],
+  categorySlugs?: string[],
   limit: number = 2
 ): Promise<Array<{ title: string; slug: string; categories: string[] }>> {
   try {
     // カテゴリが存在しない場合は空配列を返す
-    if (!categories || categories.length === 0) {
+    if (!categorySlugs || categorySlugs.length === 0) {
       return []
     }
 
     // 同じカテゴリを持つ記事をランダムに取得（現在の記事を除外）
     const query = `*[_type == "post"
       && _id != $currentPostId
-      && count((categories[]->title)[@ in $categories]) > 0
+      && count((categories[]->slug.current)[@ in $categorySlugs]) > 0
       && ${PUBLIC_POST_FILTER}
-    ] | order(_createdAt desc) [0...${limit * 3}] {
+    ] | order(random()) [0...$limit] {
       title,
       "slug": slug.current,
       "categories": categories[]->title
@@ -313,12 +313,11 @@ export async function getRelatedPosts(
 
     const posts = await client.fetch(query, {
       currentPostId,
-      categories,
+      categorySlugs,
+      limit,
     })
 
-    // ランダムに並び替えてlimit件まで返す
-    const shuffled = posts.sort(() => Math.random() - 0.5)
-    return shuffled.slice(0, limit)
+    return posts
   } catch (error) {
     console.error('関連記事取得エラー:', error)
     return []

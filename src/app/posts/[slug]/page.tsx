@@ -237,13 +237,16 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
   const normalizedCategories = normalizeCategories(post?.categories)
   const categoryTitles = normalizedCategories.map(category => category.title)
+  const categorySlugs = normalizedCategories
+    .map(category => category.slug)
+    .filter((slug): slug is string => Boolean(slug))
   const normalizedTags = normalizeTags(post?.tags)
 
   const hasTopicMeta = normalizedCategories.length > 0 || normalizedTags.length > 0
 
   // 関連記事の取得（lib/sanity.tsの共通関数を使用）
   const relatedPosts = post
-    ? await getRelatedPosts(post._id, categoryTitles, 2)
+    ? await getRelatedPosts(post._id, categorySlugs, 2)
     : []
 
   const hasBody = post && Array.isArray(post.body) && post.body.length > 0
@@ -351,7 +354,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   </div>
                 </div>
               </header>
-              <div className="divide-y divide-gray-200 pb-8">
+              <div className="pb-8 space-y-12">
                 {/* 記事コンテンツ */}
                 <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{ color: '#111827 !important' }}>
                   {hasBody ? (
@@ -368,7 +371,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
 
                 {hasTopicMeta && (
-                  <div className="my-10 border-y-2 border-gray-200 border-double py-8">
+                  <div className="my-10 py-8">
                     <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
                       {normalizedCategories.length > 0 && (
                         <div className="flex-1 text-center sm:text-left">

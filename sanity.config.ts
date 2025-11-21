@@ -6,7 +6,9 @@ import { PreviewAction } from './src/sanity/actions/PreviewAction'
 
 const prodUrl = 'https://prorenata.jp'
 const previewSecret = process.env.SANITY_STUDIO_PREVIEW_SECRET
-const previewBaseUrl = process.env.SANITY_STUDIO_PREVIEW_BASE_URL || prodUrl
+const previewBaseUrl =
+  process.env.SANITY_STUDIO_PREVIEW_BASE_URL ||
+  (process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : prodUrl)
 
 export default defineConfig({
   name: 'default',
