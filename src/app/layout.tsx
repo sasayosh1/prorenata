@@ -4,6 +4,9 @@ import Script from "next/script";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 import { SITE_URL } from "@/lib/constants";
+import dynamic from "next/dynamic";
+
+const ScrollToTopButton = dynamic(() => import('@/components/ScrollToTopButton'), { ssr: false });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -213,9 +216,7 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased`}>
         {/* Skip to content リンク (アクセシビリティ) */}
         <a
           href="#main-content"
@@ -265,7 +266,7 @@ export default async function RootLayout({
             strategy="afterInteractive"
           />
         )}
-
+        <ScrollToTopButton />
       </body>
     </html>
   );
