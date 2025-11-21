@@ -43,6 +43,7 @@ export default function MedicalTermQuiz() {
     bestStreak: 0,
   })
   const [askedTermIds, setAskedTermIds] = useState<string[]>([])
+  const [serverProgressCheckKey, setServerProgressCheckKey] = useState('')
 
   const DAILY_LIMIT = 10
 
@@ -155,6 +156,37 @@ export default function MedicalTermQuiz() {
       localStorage.setItem('medicalTermDailyProgress', JSON.stringify(dailyProgress))
     }
   }, [dailyProgress])
+
+  // サーバー記録と同期（別端末でも制限を共有）
+  useEffect(() => {
+    const normalizedName = playerName.trim()
+    if (!normalizedName || !dailyProgress.date) return
+    const todayKey = `${normalizedName}-${dailyProgress.date}`
+    if (serverProgressCheckKey === todayKey) return
+
+    const checkServerProgress = async () => {
+      try {
+        const response = await fetch(`/api/quiz/progress?playerName=${encodeURIComponent(normalizedName)}`)
+        if (!response.ok) return
+        const data = await response.json()
+        if (data.completed) {
+          setDailyProgress(prev => ({
+            ...prev,
+            playerName: prev.playerName || normalizedName,
+            questionsAnswered: Math.max(prev.questionsAnswered, DAILY_LIMIT),
+            correctAnswers: Math.max(prev.correctAnswers, data.correctAnswers ?? prev.correctAnswers),
+          }))
+          setHasEnteredName(true)
+        }
+      } catch (error) {
+        console.error('Failed to check quiz progress', error)
+      } finally {
+        setServerProgressCheckKey(todayKey)
+      }
+    }
+
+    checkServerProgress()
+  }, [playerName, dailyProgress.date, serverProgressCheckKey])
 
   // 名前入力の処理
   const handleNameSubmit = (e: React.FormEvent) => {
