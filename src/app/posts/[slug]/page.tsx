@@ -17,6 +17,8 @@ const dataset = 'production'
 const apiVersion = '2024-01-01'
 const token = process.env.SANITY_API_TOKEN
 
+export const revalidate = 0
+
 type RawCategory = string | { title?: string | null; slug?: string | null }
 
 interface NormalizedCategory {
@@ -108,10 +110,7 @@ function createSanityClient(isDraftMode = false) {
 }
 
 export async function generateStaticParams() {
-  const client = createSanityClient()
-  const query = `*[_type == "post" && !(_id in path("drafts.**")) && defined(slug.current) && defined(body[0])]{ "slug": slug.current }`
-  const slugs: { slug: string }[] = await client.fetch(query)
-  return slugs.map((s: { slug: string }) => ({ slug: s.slug }))
+  return []
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
