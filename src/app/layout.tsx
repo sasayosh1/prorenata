@@ -4,9 +4,9 @@ import Script from "next/script";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 import { SITE_URL } from "@/lib/constants";
-import dynamic from "next/dynamic";
+import NextDynamic from "next/dynamic";
 
-const ScrollToTopButton = dynamic(() => import('@/components/ScrollToTopButton'), { ssr: false });
+const ScrollToTopButton = NextDynamic(() => import('@/components/ScrollToTopButton'), { ssr: false });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
