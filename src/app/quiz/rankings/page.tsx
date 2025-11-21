@@ -25,6 +25,16 @@ export default function RankingsPage() {
         <h1 className="text-3xl font-bold text-gray-900 mb-8">クイズランキング</h1>
 
         <RankingsDisplay />
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-5 py-2 text-sm font-semibold text-gray-700 transition-colors duration-200 hover:border-cyan-300 hover:text-cyan-700"
+          >
+            ホームに戻る
+            <span aria-hidden="true">↩︎</span>
+          </Link>
+        </div>
       </div>
       <Footer />
     </>
