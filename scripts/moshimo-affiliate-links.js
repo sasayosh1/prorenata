@@ -42,34 +42,19 @@ const MOSHIMO_LINKS = {
     condition: '新規人材サービス登録'
   },
 
-  renewcare: {
-    name: 'リニューケア',
-    description: '関西圏に特化した介護職・看護助手の転職',
+  albatross: {
+    name: 'アルバトロス転職',
+    description: 'LINEのみで完結できる看護助手・介護職向け転職サポート',
     category: '就職・転職',
-    targetArticles: ['関西', '都市部', '転職', '求人', '相談'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>（自由テキスト）</a><img src="//i.moshimo.com/af/i/impression?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '💼 関西圏の転職相談をしたい方へ',
-    linkText: '関西特化の転職サービス「リニューケア」',
-    url: '//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880',
+    targetArticles: ['LINE', 'スマホ', '転職', '求人', '辞めたい', 'キャリア', '相談'],
+    html: '<a href="https://af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" rel="nofollow" target="_blank" referrerpolicy="no-referrer-when-downgrade" attributionsrc>LINEのみで完結可能な転職サービス【アルバトロス転職】はこちら</a><img src="https://www20.moshimo.com/af/i/impression?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" width="1" height="1" style="border:none;" loading="lazy" alt="">',
+    appealText: '📱 LINEだけで転職相談を済ませたい方へ',
+    linkText: 'LINEのみで完結可能な転職サービス【アルバトロス転職】はこちら',
+    url: 'https://af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074',
     active: true,
-    addedDate: '2025-10-14',
-    reward: '7,000円',
+    addedDate: '2025-11-22',
+    reward: '成果報酬制（もしも経由）',
     condition: '新規会員登録'
-  },
-
-  pasonalifecare: {
-    name: 'パソナライフケア',
-    description: '「ありがとう」が嬉しい介護職の転職・派遣サポート',
-    category: '就職・転職',
-    targetArticles: ['転職', '求人', '派遣', '職場', '人間関係'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>「ありがとう」が嬉しい、いつまでも必要とされ続けるお仕事</a><img src="//i.moshimo.com/af/i/impression?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816" width="1" height="1" style="border:none;" loading="lazy">',
-    appealText: '🤝 人に寄り添う働き方を探す方へ',
-    linkText: '介護職専門の求人「パソナライフケア」',
-    url: '//af.moshimo.com/af/c/click?a_id=5207867&p_id=2026&pc_id=4121&pl_id=40816',
-    active: true,
-    addedDate: '2025-11-11',
-    reward: '5,000円',
-    condition: '新規簡易応募'
   },
 
   // アイテム・商品

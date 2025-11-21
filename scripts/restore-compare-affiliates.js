@@ -80,40 +80,62 @@ async function run() {
     process.exit(1)
   }
 
-  const body = Array.isArray(post.body) ? [...post.body] : []
+  let body = Array.isArray(post.body) ? [...post.body] : []
   let changed = false
 
+  const disallowedKeys = new Set(['pasonalifecare', 'renewcare'])
+  body = body.filter(block => {
+    if (block?._type === 'affiliateEmbed' && disallowedKeys.has(block.linkKey)) {
+      changed = true
+      return false
+    }
+    if (
+      block?._type === 'block' &&
+      blockText(block) &&
+      (blockText(block).includes('パソナライフケア') || blockText(block).includes('リニューケア'))
+    ) {
+      changed = true
+      return false
+    }
+    return true
+  })
+
   // 3社目（パソナライフケア）の記述が無ければ追加
-  const hasPasonaMention = body.some(block => blockText(block).includes('パソナライフケア'))
-  if (!hasPasonaMention) {
+  const hasAlbatrossMention = body.some(block => blockText(block).includes('アルバトロス転職'))
+  if (!hasAlbatrossMention) {
     const secondHeadingIndex = body.findIndex(block => block?._type === 'block' && /２．/.test(blockText(block)))
     const insertIndex = secondHeadingIndex > 0 ? secondHeadingIndex : 3
 
-    const bullet = createTextBlock('**パソナライフケア**：派遣・紹介予定派遣に強く、「ありがとう」が嬉しい職場を探したい人向け。扶養内や短時間など柔軟な働き方を提案してくれる。', {
+    const bullet = createTextBlock('**アルバトロス転職**：LINEのみで完結する相談スタイル。夜勤前後でもスマホ一つで条件提示や日程調整ができるので、忙しい看護助手でも時間を確保しやすい。', {
       style: 'normal',
       listItem: 'bullet',
       level: 1
     })
-    const bridgeParagraph = createTextBlock('感謝を大切にしながら働き方を柔軟に調整したいなら、派遣と紹介予定派遣を併用できるパソナライフケアを合わせて検討しておくと安心です。')
-    const ctaBlock = createTextBlock('[PR] 感謝を力に変えられる職場を探すなら、パソナライフケアの派遣・紹介予定派遣サポートで働き方の希望を整理してみてください。 パソナライフケアの求人サポートを見る')
+    const bridgeParagraph = createTextBlock('夜勤や家事、子育てと両立しながら転職活動を進めたい場合は、チャットで完結するアルバトロス転職を併用しておくと安心です。')
+    const ctaBlock = createTextBlock('[PR] LINEだけで転職相談を完結させたいなら、アルバトロス転職のチャットサポートで条件整理から日程調整まで任せてみてください。 アルバトロス転職で相談する')
 
     body.splice(insertIndex, 0, bullet, bridgeParagraph, ctaBlock)
     changed = true
   } else {
-    // CTAが見つからない場合は追加
-    if (!body.some(block => blockText(block).includes('パソナライフケアの求人サポートを見る'))) {
-      const insertionPoint = body.findIndex(block => blockText(block).includes('働き方を試しながら探したい'))
-      const ctaBlock = createTextBlock('[PR] 感謝を力に変えられる職場を探すなら、パソナライフケアの派遣・紹介予定派遣サポートで働き方の希望を整理してみてください。 パソナライフケアの求人サポートを見る')
+    // existing mention but ensure context paragraph exists
+    if (!body.some(block => blockText(block).includes('チャットで完結するアルバトロス転職'))) {
+      const insertionPoint = body.findIndex(block => blockText(block).includes('働き方を試しながら'))
+      const bridgeParagraph = createTextBlock('夜勤や家事、子育てと両立しながら転職活動を進めたい場合は、チャットで完結するアルバトロス転職を併用しておくと安心です。')
+      body.splice(insertionPoint > -1 ? insertionPoint + 1 : body.length, 0, bridgeParagraph)
+      changed = true
+    }
+    if (!body.some(block => blockText(block).includes('アルバトロス転職で相談する'))) {
+      const insertionPoint = body.findIndex(block => blockText(block).includes('チャットで完結するアルバトロス転職'))
+      const ctaBlock = createTextBlock('[PR] LINEだけで転職相談を完結させたいなら、アルバトロス転職のチャットサポートで条件整理から日程調整まで任せてみてください。 アルバトロス転職で相談する')
       body.splice(insertionPoint > -1 ? insertionPoint + 1 : body.length, 0, ctaBlock)
       changed = true
     }
   }
 
   const humanChanged = ensureAffiliateBlocks(body, 'ヒューマンライフケアの求人サポートを見る', 'humanlifecare')
-  const renewChanged = ensureAffiliateBlocks(body, 'リニューケアの転職支援に相談する', 'renewcare')
-  const pasonaChanged = ensureAffiliateBlocks(body, 'パソナライフケアの求人サポートを見る', 'pasonalifecare')
+  const albatrossChanged = ensureAffiliateBlocks(body, 'アルバトロス転職で相談する', 'albatross')
 
-  if (!changed && !humanChanged && !renewChanged && !pasonaChanged) {
+  if (!changed && !humanChanged && !albatrossChanged) {
     console.log('変更はありません')
     return
   }
