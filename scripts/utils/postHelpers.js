@@ -1694,6 +1694,13 @@ const SOURCE_RULES = [
     categoryKeywords: ['仕事内容', '患者対応', '実務', '看護師']
   },
   {
+    name: '厚生労働省 看護政策情報・通知一覧',
+    url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177221.html?utm_source=chatgpt.com',
+    textKeywords: ['制度', 'トレンド', '法改正', '通知', '告示', '診療報酬', '政策', 'アップデート', '見直し', '改定', '基準'],
+    slugKeywords: ['policy', 'trend', 'update', 'law'],
+    categoryKeywords: ['仕事']
+  },
+  {
     name: '日本看護協会 看護チームにおける看護補助者活用ガイドライン',
     url: 'https://www.nurse.or.jp/nursing/kango_seido/guideline/index.html?utm_source=chatgpt.com',
     textKeywords: ['ガイドライン', '看護チーム', '連携', '役割分担', '資格', '人間関係'],
