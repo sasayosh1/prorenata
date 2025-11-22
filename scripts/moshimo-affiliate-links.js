@@ -243,12 +243,14 @@ function selectAffiliateCtaText(linkKey, link, contextHeading = '') {
   return `${intro}${link.name}のような信頼できるサービスと一緒に確認しておくと、迷わず動けます。`
 }
 
-function wrapAffiliateHtml(link) {
+function wrapAffiliateHtml(link, ctaText = '') {
   const appeal = escapeHtml(link.appealText || '')
   const note = escapeHtml(link.description || '')
+  const cta = escapeHtml(ctaText || '')
   return `
 <div class="affiliate-card">
   ${appeal ? `<p class="affiliate-card__lead">${appeal}</p>` : ''}
+  ${cta ? `<p class="affiliate-card__cta">${cta}</p>` : ''}
   <div class="affiliate-card__body">
     <span class="affiliate-card__badge">[PR]</span> ${link.html}
   </div>
@@ -307,7 +309,7 @@ function createInlineAffiliateBlock(linkKey, link, contextHeading = '') {
   return [infoBlock, linkBlock]
 }
 
-function createMoshimoLinkBlocks(linkKey, contextHeading = '') {
+function createMoshimoLinkBlocks(linkKey, contextHeading = '', options = {}) {
   const link = MOSHIMO_LINKS[linkKey]
   if (!link || !link.active) return null
 
@@ -315,7 +317,21 @@ function createMoshimoLinkBlocks(linkKey, contextHeading = '') {
     return createInlineAffiliateBlock(linkKey, link, contextHeading)
   }
 
+  const ctaTextOverride = options.ctaText
   const embedKey = `affiliate-${randomUUID()}`
+  const embedBlock = {
+    _type: 'affiliateEmbed',
+    _key: embedKey,
+    provider: link.name,
+    linkKey,
+    label: link.linkText,
+    html: wrapAffiliateHtml(link, ctaTextOverride)
+  }
+
+  if (ctaTextOverride) {
+    return [embedBlock]
+  }
+
   const ctaBlock = {
     _type: 'block',
     _key: `affiliate-cta-${randomUUID()}`,
@@ -329,15 +345,6 @@ function createMoshimoLinkBlocks(linkKey, contextHeading = '') {
         text: selectAffiliateCtaText(linkKey, link, contextHeading)
       }
     ]
-  }
-
-  const embedBlock = {
-    _type: 'affiliateEmbed',
-    _key: embedKey,
-    provider: link.name,
-    linkKey,
-    label: link.linkText,
-    html: wrapAffiliateHtml(link)
   }
 
   return [ctaBlock, embedBlock]

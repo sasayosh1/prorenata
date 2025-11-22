@@ -43,16 +43,8 @@ function heading3(value) {
   return block(value, { style: 'h3' })
 }
 
-function embedWithoutCta(key, context) {
-  const blocks = createMoshimoLinkBlocks(key, context) || []
-  if (blocks.length >= 2) {
-    return blocks.slice(1)
-  }
-  return blocks
-}
-
 function ctaWithEmbed(key, ctaText, context) {
-  return [block(ctaText), ...embedWithoutCta(key, context)]
+  return createMoshimoLinkBlocks(key, context, { ctaText }) || []
 }
 
 async function main() {
