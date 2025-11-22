@@ -250,7 +250,7 @@ function wrapAffiliateHtml(link) {
 <div class="affiliate-card">
   ${appeal ? `<p class="affiliate-card__lead">${appeal}</p>` : ''}
   <div class="affiliate-card__body">
-    ${link.html}
+    <span class="affiliate-card__badge">[PR]</span> ${link.html}
   </div>
   ${note ? `<p class="affiliate-card__note">${note}</p>` : ''}
 </div>
