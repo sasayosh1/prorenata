@@ -42,18 +42,18 @@ const MOSHIMO_LINKS = {
     condition: '新規人材サービス登録'
   },
 
-  albatross: {
-    name: 'アルバトロス転職',
-    description: 'LINEのみで完結できる看護助手・介護職向け転職サポート',
+  renewcare: {
+    name: 'リニューケア',
+    description: '関西圏に特化した介護職・看護助手の転職',
     category: '就職・転職',
-    targetArticles: ['LINE', 'スマホ', '転職', '求人', '辞めたい', 'キャリア', '相談'],
-    html: '<a href="https://af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" rel="nofollow" target="_blank" referrerpolicy="no-referrer-when-downgrade" attributionsrc>LINEのみで完結可能な転職サービス【アルバトロス転職】はこちら</a><img src="https://www20.moshimo.com/af/i/impression?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074" width="1" height="1" style="border:none;" loading="lazy" alt="">',
-    appealText: '📱 LINEだけで転職相談を済ませたい方へ',
-    linkText: 'LINEのみで完結可能な転職サービス【アルバトロス転職】はこちら',
-    url: 'https://af.moshimo.com/af/c/click?a_id=5211244&p_id=5700&pc_id=15743&pl_id=74074',
+    targetArticles: ['関西', '都市部', '転職', '求人', '相談'],
+    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>リニューケアの転職支援に相談する</a><img src="//www18.moshimo.com/af/i/impression?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880" width="1" height="1" style="border:none;" loading="lazy" alt="">',
+    appealText: '💼 関西圏の転職相談をしたい方へ',
+    linkText: 'リニューケアの転職支援に相談する',
+    url: '//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880',
     active: true,
-    addedDate: '2025-11-22',
-    reward: '成果報酬制（もしも経由）',
+    addedDate: '2025-10-14',
+    reward: '7,000円',
     condition: '新規会員登録'
   },
 

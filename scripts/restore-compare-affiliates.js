@@ -14,6 +14,30 @@ const client = createClient({
 
 const slug = 'nursing-assistant-compare-services-perspective'
 
+const SERVICE_CONFIGS = [
+  {
+    key: 'humanlifecare',
+    bulletText: '**ヒューマンライフケア**：全国展開で施設型求人が多く、教育制度や研修の情報まで併せて提案してくれる。',
+    supportText: '全国規模で求人を比較したいときは、教育体制や福利厚生まで一緒に見てくれる窓口を押さえておきましょう。',
+    ctaText: '[PR] 全国規模で施設求人を比較したいなら、ヒューマンライフケアが教育体制や福利厚生を丁寧に教えてくれます。 ヒューマンライフケアの求人サポートを見る',
+    embedMatch: 'ヒューマンライフケアの求人サポートを見る'
+  },
+  {
+    key: 'renewcare',
+    bulletText: '**リニューケア**：関西圏や都市部の非公開求人に強く、夜勤回数や給与条件の細かい交渉を任せたいときに頼りになる。',
+    supportText: '都市部や関西圏の非公開求人を探したいときは、条件交渉に強い担当者が頼りになります。',
+    ctaText: '[PR] 関西圏や都市部の非公開求人を知りたいときは、リニューケアに条件交渉も相談すると安心です。 リニューケアの転職支援に相談する',
+    embedMatch: 'リニューケアの転職支援に相談する'
+  },
+  {
+    key: 'kaigobatake',
+    bulletText: '**かいご畑**：無資格・未経験OKの求人が中心で、資格取得支援を使いながらステップアップしたい人に向いている。',
+    supportText: '無資格や未経験から看護助手をめざす場合は、資格取得支援があるサービスを選ぶと学びと実務を両立させやすくなります。',
+    ctaText: '[PR] 無資格や未経験から求人を探すなら、かいご畑の資格取得支援を活用して条件を整理してみてください。 かいご畑で介護職・看護助手の求人を探す',
+    embedMatch: 'かいご畑で介護職・看護助手の求人を探す'
+  }
+]
+
 function blockText(block) {
   if (!block || block._type !== 'block') return ''
   return (block.children || [])
@@ -73,6 +97,64 @@ function createTextBlock(text, { style = 'normal', listItem, level } = {}) {
   }
 }
 
+function removeDisallowedContent(body) {
+  const disallowedKeys = new Set(['albatross', 'pasonalifecare'])
+  const disallowedText = [/アルバトロス転職/, /パソナライフケア/]
+  let changed = false
+
+  const filtered = body.filter(block => {
+    if (block?._type === 'affiliateEmbed' && disallowedKeys.has(block.linkKey)) {
+      changed = true
+      return false
+    }
+    if (
+      block?._type === 'block' &&
+      disallowedText.some(pattern => pattern.test(blockText(block)))
+    ) {
+      changed = true
+      return false
+    }
+    return true
+  })
+
+  return { body: filtered, changed }
+}
+
+function ensureServiceIntro(body) {
+  const headingIndex = body.findIndex(
+    block => block?._type === 'block' && /１．/.test(blockText(block))
+  )
+  let insertPosition = headingIndex >= 0 ? headingIndex + 1 : 0
+  let changed = false
+
+  for (const service of SERVICE_CONFIGS) {
+    if (!body.some(block => blockText(block).includes(service.bulletText))) {
+      body.splice(insertPosition, 0, createTextBlock(service.bulletText, { style: 'normal', listItem: 'bullet', level: 1 }))
+      insertPosition += 1
+      changed = true
+    } else {
+      insertPosition = body.findIndex(block => blockText(block).includes(service.bulletText)) + 1
+    }
+
+    if (service.supportText && !body.some(block => blockText(block).includes(service.supportText))) {
+      body.splice(insertPosition, 0, createTextBlock(service.supportText))
+      insertPosition += 1
+      changed = true
+    }
+
+    if (service.ctaText && !body.some(block => blockText(block).includes(service.ctaText))) {
+      body.splice(insertPosition, 0, createTextBlock(service.ctaText))
+      insertPosition += 1
+      changed = true
+    }
+
+    const embedsAdded = ensureAffiliateBlocks(body, service.embedMatch, service.key)
+    if (embedsAdded) changed = true
+  }
+
+  return changed
+}
+
 async function run() {
   const post = await client.fetch('*[_type == "post" && slug.current == $slug][0]{ _id, body }', { slug })
   if (!post || !post._id) {
@@ -83,59 +165,15 @@ async function run() {
   let body = Array.isArray(post.body) ? [...post.body] : []
   let changed = false
 
-  const disallowedKeys = new Set(['pasonalifecare', 'renewcare'])
-  body = body.filter(block => {
-    if (block?._type === 'affiliateEmbed' && disallowedKeys.has(block.linkKey)) {
-      changed = true
-      return false
-    }
-    if (
-      block?._type === 'block' &&
-      blockText(block) &&
-      (blockText(block).includes('パソナライフケア') || blockText(block).includes('リニューケア'))
-    ) {
-      changed = true
-      return false
-    }
-    return true
-  })
+  const filteredResult = removeDisallowedContent(body)
+  body = filteredResult.body
+  if (filteredResult.changed) changed = true
 
-  // 3社目（パソナライフケア）の記述が無ければ追加
-  const hasAlbatrossMention = body.some(block => blockText(block).includes('アルバトロス転職'))
-  if (!hasAlbatrossMention) {
-    const secondHeadingIndex = body.findIndex(block => block?._type === 'block' && /２．/.test(blockText(block)))
-    const insertIndex = secondHeadingIndex > 0 ? secondHeadingIndex : 3
-
-    const bullet = createTextBlock('**アルバトロス転職**：LINEのみで完結する相談スタイル。夜勤前後でもスマホ一つで条件提示や日程調整ができるので、忙しい看護助手でも時間を確保しやすい。', {
-      style: 'normal',
-      listItem: 'bullet',
-      level: 1
-    })
-    const bridgeParagraph = createTextBlock('夜勤や家事、子育てと両立しながら転職活動を進めたい場合は、チャットで完結するアルバトロス転職を併用しておくと安心です。')
-    const ctaBlock = createTextBlock('[PR] LINEだけで転職相談を完結させたいなら、アルバトロス転職のチャットサポートで条件整理から日程調整まで任せてみてください。 アルバトロス転職で相談する')
-
-    body.splice(insertIndex, 0, bullet, bridgeParagraph, ctaBlock)
+  if (ensureServiceIntro(body)) {
     changed = true
-  } else {
-    // existing mention but ensure context paragraph exists
-    if (!body.some(block => blockText(block).includes('チャットで完結するアルバトロス転職'))) {
-      const insertionPoint = body.findIndex(block => blockText(block).includes('働き方を試しながら'))
-      const bridgeParagraph = createTextBlock('夜勤や家事、子育てと両立しながら転職活動を進めたい場合は、チャットで完結するアルバトロス転職を併用しておくと安心です。')
-      body.splice(insertionPoint > -1 ? insertionPoint + 1 : body.length, 0, bridgeParagraph)
-      changed = true
-    }
-    if (!body.some(block => blockText(block).includes('アルバトロス転職で相談する'))) {
-      const insertionPoint = body.findIndex(block => blockText(block).includes('チャットで完結するアルバトロス転職'))
-      const ctaBlock = createTextBlock('[PR] LINEだけで転職相談を完結させたいなら、アルバトロス転職のチャットサポートで条件整理から日程調整まで任せてみてください。 アルバトロス転職で相談する')
-      body.splice(insertionPoint > -1 ? insertionPoint + 1 : body.length, 0, ctaBlock)
-      changed = true
-    }
   }
 
-  const humanChanged = ensureAffiliateBlocks(body, 'ヒューマンライフケアの求人サポートを見る', 'humanlifecare')
-  const albatrossChanged = ensureAffiliateBlocks(body, 'アルバトロス転職で相談する', 'albatross')
-
-  if (!changed && !humanChanged && !albatrossChanged) {
+  if (!changed) {
     console.log('変更はありません')
     return
   }
