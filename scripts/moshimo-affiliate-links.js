@@ -243,17 +243,19 @@ function selectAffiliateCtaText(linkKey, link, contextHeading = '') {
   return `${intro}${link.name}のような信頼できるサービスと一緒に確認しておくと、迷わず動けます。`
 }
 
-function wrapAffiliateHtml(link, ctaText = '') {
+function wrapAffiliateHtml(link, ctaText = '', contextHeading = '') {
   const appeal = escapeHtml(link.appealText || '')
   const note = escapeHtml(link.description || '')
   const cta = escapeHtml(ctaText || '')
+  const context = escapeHtml(contextHeading || '')
   return `
 <div class="affiliate-card">
   ${appeal ? `<p class="affiliate-card__lead">${appeal}</p>` : ''}
+  ${context ? `<p class="affiliate-card__context">${context}</p>` : ''}
   ${cta ? `<p class="affiliate-card__cta">${cta}</p>` : ''}
-  <div class="affiliate-card__body">
+  <p class="affiliate-card__body">
     <span class="affiliate-card__badge">[PR]</span> ${link.html}
-  </div>
+  </p>
   ${note ? `<p class="affiliate-card__note">${note}</p>` : ''}
 </div>
 `.trim()
@@ -318,6 +320,7 @@ function createMoshimoLinkBlocks(linkKey, contextHeading = '', options = {}) {
   }
 
   const ctaTextOverride = options.ctaText
+  const resolvedCta = ctaTextOverride || selectAffiliateCtaText(linkKey, link, contextHeading)
   const embedKey = `affiliate-${randomUUID()}`
   const embedBlock = {
     _type: 'affiliateEmbed',
@@ -325,29 +328,10 @@ function createMoshimoLinkBlocks(linkKey, contextHeading = '', options = {}) {
     provider: link.name,
     linkKey,
     label: link.linkText,
-    html: wrapAffiliateHtml(link, ctaTextOverride)
+    html: wrapAffiliateHtml(link, resolvedCta, contextHeading)
   }
 
-  if (ctaTextOverride) {
-    return [embedBlock]
-  }
-
-  const ctaBlock = {
-    _type: 'block',
-    _key: `affiliate-cta-${randomUUID()}`,
-    style: 'normal',
-    markDefs: [],
-    children: [
-      {
-        _type: 'span',
-        _key: `affiliate-cta-span-${randomUUID()}`,
-        marks: [],
-        text: selectAffiliateCtaText(linkKey, link, contextHeading)
-      }
-    ]
-  }
-
-  return [ctaBlock, embedBlock]
+  return [embedBlock]
 }
 
 module.exports = {
