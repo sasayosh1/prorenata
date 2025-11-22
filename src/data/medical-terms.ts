@@ -335,6 +335,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'abdomen-anatomy',
+    term: '腹部',
+    reading: 'ふくぶ',
+    meaning: 'お腹の部分のこと。',
+    distractors: ['背部', '上肢'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
