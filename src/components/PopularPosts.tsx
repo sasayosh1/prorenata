@@ -8,11 +8,13 @@ const client = createClient({
   useCdn: true,
 })
 
+type PopularPostCategory = string | { title?: string | null; slug?: string | null }
+
 interface PopularPost {
   title: string
   slug: string
   views: number
-  categories: string[]
+  categories: PopularPostCategory[]
 }
 
 async function getPopularPosts(limit: number = 5): Promise<PopularPost[]> {
@@ -21,7 +23,7 @@ async function getPopularPosts(limit: number = 5): Promise<PopularPost[]> {
       title,
       "slug": slug.current,
       views,
-      "categories": categories[]->title
+      "categories": categories[]->{title,"slug":slug.current}
     }`
 
   try {
@@ -83,7 +85,9 @@ export default async function PopularPosts({
                 <div className="flex items-center gap-2 text-xs text-gray-500">
                   {post.categories && post.categories.length > 0 && (
                     <span className="bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded-full">
-                      {post.categories[0]}
+                      {typeof post.categories[0] === 'string'
+                        ? post.categories[0]
+                        : post.categories[0]?.title}
                     </span>
                   )}
                   <span className="flex items-center gap-1">

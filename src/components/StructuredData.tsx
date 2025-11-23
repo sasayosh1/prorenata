@@ -10,6 +10,8 @@ interface Author {
   slug?: { current: string }
 }
 
+type CategoryValue = string | { title?: string | null }
+
 interface Post {
   _id: string
   title: string
@@ -19,7 +21,7 @@ interface Post {
   _createdAt: string
   _updatedAt?: string
   author?: Author
-  categories?: string[]
+  categories?: CategoryValue[]
   readingTime?: number
 }
 
@@ -35,6 +37,12 @@ export function ArticleStructuredData({ post }: ArticleStructuredDataProps) {
   const publishedDate = post.publishedAt ?? post._createdAt
   const modifiedDate = post._updatedAt ?? post.publishedAt ?? post._createdAt
   const canonicalUrl = `${SITE_URL}/posts/${post.slug.current}`
+  const primaryCategory = post.categories?.[0]
+  const primaryCategoryTitle =
+    typeof primaryCategory === 'string' ? primaryCategory : primaryCategory?.title || '看護助手'
+  const resolvedKeywords = (post.categories || []).map(category =>
+    typeof category === 'string' ? category : category?.title
+  )
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -64,9 +72,9 @@ export function ArticleStructuredData({ post }: ArticleStructuredDataProps) {
       '@type': 'WebPage',
       '@id': canonicalUrl,
     },
-    articleSection: post.categories?.[0] || '看護助手',
+    articleSection: primaryCategoryTitle,
     keywords: [
-      ...(post.categories || []),
+      ...resolvedKeywords.filter(Boolean),
       '看護助手',
       'ProReNata',
     ].join(', '),

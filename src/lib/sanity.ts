@@ -38,6 +38,11 @@ export interface SanityImage {
   }
 }
 
+export interface PostCategory {
+  title: string
+  slug?: string | null
+}
+
 export interface Post {
   _id: string
   title: string
@@ -49,7 +54,7 @@ export interface Post {
   _updatedAt?: string
   excerpt?: string
   mainImage?: SanityImage
-  categories?: Category[]
+  categories?: PostCategory[]
   author?: Author
   body?: Array<Record<string, unknown>>
   // SEO関連フィールド
@@ -124,7 +129,7 @@ export async function getAllPosts(options: { limit?: number; fetchAll?: boolean;
       _updatedAt,
       excerpt,
       mainImage,
-      "categories": categories[]->title,
+      "categories": categories[]->{title,"slug":slug.current},
       "author": author->{name, slug},
       metaTitle,
       metaDescription,
@@ -172,7 +177,7 @@ export async function getPostsPaginated(page: number = 1, pageSize: number = 15)
       publishedAt,
       excerpt,
       mainImage,
-      "categories": categories[]->title,
+      "categories": categories[]->{title,"slug":slug.current},
       "author": author->{name, slug},
       internalOnly
     }`
@@ -209,7 +214,7 @@ export async function searchPosts(searchTerm: string): Promise<Post[]> {
       publishedAt,
       excerpt,
       mainImage,
-      "categories": categories[]->title,
+      "categories": categories[]->{title,"slug":slug.current},
       "author": author->{name, slug},
       internalOnly
     }`
@@ -254,7 +259,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     publishedAt,
     excerpt,
     mainImage,
-    "categories": categories[]->title,
+    "categories": categories[]->{title,"slug":slug.current},
     "author": author->{name, slug, image, bio},
     body,
     internalOnly
@@ -289,11 +294,17 @@ export function formatPostDate(
 }
 
 // 関連記事を取得する関数（同カテゴリから2件自動選択）
+interface RelatedPostSummary {
+  title: string
+  slug: string
+  categories: Array<{ title: string; slug?: string | null }>
+}
+
 export async function getRelatedPosts(
   currentPostId: string,
   categorySlugs?: string[],
   limit: number = 2
-): Promise<Array<{ title: string; slug: string; categories: string[] }>> {
+): Promise<RelatedPostSummary[]> {
   try {
     // カテゴリが存在しない場合は空配列を返す
     if (!categorySlugs || categorySlugs.length === 0) {
@@ -308,7 +319,7 @@ export async function getRelatedPosts(
     ] | order(random()) [0...$limit] {
       title,
       "slug": slug.current,
-      "categories": categories[]->title
+      "categories": categories[]->{title,"slug":slug.current}
     }`
 
     const posts = await client.fetch(query, {
@@ -362,7 +373,7 @@ export async function getPostsByTagSlug(tagSlug: string, limit: number = 40): Pr
     publishedAt,
     excerpt,
     mainImage,
-    "categories": categories[]->title,
+      "categories": categories[]->{title,"slug":slug.current},
     internalOnly
   }`
 

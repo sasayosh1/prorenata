@@ -1,9 +1,14 @@
 import Link from 'next/link'
 
+interface RelatedPostCategory {
+  title: string
+  slug?: string
+}
+
 interface RelatedPost {
   title: string
   slug: string
-  categories: string[]
+  categories: RelatedPostCategory[]
 }
 
 interface RelatedPostsProps {
@@ -29,15 +34,25 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
             </Link>
             {post.categories && post.categories.length > 0 && (
               <div className="mt-1 flex flex-wrap gap-2 text-sm text-gray-600">
-                {post.categories.slice(0, 2).map((category, idx) => (
-                  <Link
-                    key={idx}
-                    href={`/categories/${encodeURIComponent(category)}`}
-                    className="underline decoration-dotted hover:text-cyan-700"
-                  >
-                    {category}
-                  </Link>
-                ))}
+                {post.categories.slice(0, 2).map((category, idx) => {
+                  const key = category.slug || `${category.title}-${idx}`
+                  if (category.slug) {
+                    return (
+                      <Link
+                        key={key}
+                        href={`/categories/${category.slug}`}
+                        className="underline decoration-dotted hover:text-cyan-700"
+                      >
+                        {category.title}
+                      </Link>
+                    )
+                  }
+                  return (
+                    <span key={key} className="text-gray-600">
+                      {category.title}
+                    </span>
+                  )
+                })}
               </div>
             )}
           </li>

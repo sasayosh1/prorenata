@@ -84,7 +84,14 @@ export default async function TagDetailPage({ params }: Props) {
                     <div className="flex items-center justify-between text-xs text-gray-500">
                       <span>{label}</span>
                       {post.categories && post.categories.length > 0 && (
-                        <span>{post.categories.join(', ')}</span>
+                        <span>
+                          {post.categories
+                            .map(category =>
+                              typeof category === 'string' ? category : category?.title
+                            )
+                            .filter(Boolean)
+                            .join(', ')}
+                        </span>
                       )}
                     </div>
                   </Link>

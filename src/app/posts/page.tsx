@@ -99,13 +99,19 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                     {post.categories && post.categories.length > 0 && (
                       <div className="flex flex-wrap gap-1">
                         {post.categories.slice(0, 2).map((category, index) => {
-                          const label = typeof category === 'string' ? category : String(category)
+                          const categoryLabel =
+                            typeof category === 'string'
+                              ? category
+                              : category?.title
+                          if (!categoryLabel) {
+                            return null
+                          }
                           return (
                             <span
                               key={`${post._id}-category-${index}`}
                               className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
                             >
-                              {label}
+                              {categoryLabel}
                             </span>
                           )
                         })}

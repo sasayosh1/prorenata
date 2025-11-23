@@ -367,11 +367,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   )}
                 </div>
 
-                {/* 関連記事セクション */}
-                {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
-
                 {hasTopicMeta && (
-                  <div className="my-10 py-8">
+                  <div className="my-10 py-8 border-y border-dashed border-gray-200" aria-label="この記事のカテゴリとタグ">
                     <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
                       {normalizedCategories.length > 0 && (
                         <div className="flex-1 text-center sm:text-left">
@@ -432,6 +429,9 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                     </div>
                   </div>
                 )}
+
+                {/* 関連記事セクション（次のステップ） */}
+                {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
 
                 {/* 記事下部のナビゲーション */}
                 <footer className="pt-8">

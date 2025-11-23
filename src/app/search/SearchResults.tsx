@@ -74,7 +74,10 @@ export default function SearchResults() {
     // カテゴリフィルター
     if (filters.category) {
       results = results.filter(post => 
-        post.categories?.some(cat => cat.title === filters.category)
+        post.categories?.some(cat => {
+          const title = typeof cat === 'string' ? cat : cat?.title
+          return title === filters.category
+        })
       )
     }
 

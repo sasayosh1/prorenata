@@ -1,0 +1,613 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 120
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^mailto$/",
+                                    "/^tel$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "name": "href",
+                      "type": "url",
+                      "title": "URL"
+                    },
+                    {
+                      "initialValue": false,
+                      "name": "openInNewTab",
+                      "type": "boolean",
+                      "title": "Open in new tab"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object",
+                  "title": "URL"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Emphasis"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bullet"
+              },
+              {
+                "value": "number",
+                "title": "Number"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h2",
+                "title": "H2"
+              },
+              {
+                "value": "h3",
+                "title": "H3"
+              },
+              {
+                "value": "h4",
+                "title": "H4"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alternative text"
+              }
+            ],
+            "type": "image"
+          },
+          {
+            "type": "affiliateEmbed"
+          }
+        ],
+        "name": "body",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "mainImage",
+        "type": "image",
+        "title": "Main image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "to": [
+              {
+                "type": "category"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to カテゴリ"
+          }
+        ],
+        "name": "categories",
+        "type": "array"
+      },
+      {
+        "initialValue": false,
+        "description": "true にするとメンテナンススクリプトや自動処理（バイブコーディング）で本文が変更されなくなります（手動のみ編集可能）",
+        "name": "maintenanceLocked",
+        "type": "boolean",
+        "title": "自動編集ロック"
+      },
+      {
+        "initialValue": false,
+        "description": "true の場合は検索/一覧/サイトマップから除外し、robots noindex を付与します",
+        "name": "internalOnly",
+        "type": "boolean",
+        "title": "内部限定コンテンツ"
+      },
+      {
+        "description": "自動付与される著者情報（編集画面では非表示）",
+        "to": [
+          {
+            "type": "author"
+          }
+        ],
+        "readOnly": true,
+        "hidden": true,
+        "name": "author",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 15
+              }
+            ],
+            "level": "warning",
+            "message": "タグは10個程度が推奨されます"
+          }
+        ],
+        "description": "記事に関連するタグ（10個程度を推奨）",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "記事の要約（100〜150文字）",
+        "name": "excerpt",
+        "type": "text"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 120
+              },
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "検索結果に表示される説明文（120〜160文字推奨）",
+        "name": "metaDescription",
+        "type": "text",
+        "title": "Meta Description (SEO)"
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime",
+        "title": "Published at"
+      },
+      {
+        "initialValue": 0,
+        "description": "記事の閲覧数（自動カウント）",
+        "readOnly": true,
+        "name": "views",
+        "type": "number"
+      },
+      {
+        "description": "Geminiでのメンテナンス実行日時（自動更新）",
+        "readOnly": true,
+        "hidden": true,
+        "name": "geminiMaintainedAt",
+        "type": "datetime"
+      }
+    ],
+    "name": "post",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "avatar",
+        "type": "image"
+      }
+    ],
+    "name": "author",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "list": [
+            {
+              "title": "仕事",
+              "value": "仕事"
+            },
+            {
+              "title": "給与",
+              "value": "給与"
+            },
+            {
+              "title": "資格",
+              "value": "資格"
+            },
+            {
+              "title": "転職",
+              "value": "転職"
+            },
+            {
+              "title": "退職",
+              "value": "退職"
+            },
+            {
+              "title": "心身",
+              "value": "心身"
+            },
+            {
+              "title": "体験",
+              "value": "体験"
+            }
+          ],
+          "layout": "radio"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "仕事",
+                  "給与",
+                  "資格",
+                  "転職",
+                  "退職",
+                  "心身",
+                  "体験"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "ProReNata のカテゴリは「仕事 / 給与 / 資格 / 転職 / 退職 / 心身 / 体験」の7つのみです。",
+        "name": "title",
+        "type": "string",
+        "title": "カテゴリ名"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "英字スラッグはカテゴリ名に応じて固定されます。（例：仕事 → work）",
+        "name": "slug",
+        "type": "slug",
+        "title": "スラッグ"
+      },
+      {
+        "rows": 3,
+        "description": "白崎セラ視点で「このカテゴリでは何を書くか」をメモできます。（フロント非表示でもOK）",
+        "name": "description",
+        "type": "text",
+        "title": "説明（任意）"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 99
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "ナビゲーションや一覧の表示順を制御します。（例：仕事=1）",
+        "name": "order",
+        "type": "number",
+        "title": "表示順（任意）"
+      }
+    ],
+    "name": "category",
+    "type": "document",
+    "title": "カテゴリ"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "playerName",
+        "type": "string",
+        "title": "プレイヤー名"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 5
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "score",
+        "type": "number",
+        "title": "スコア"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 5
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "correctAnswers",
+        "type": "number",
+        "title": "正解数"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 5
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "totalQuestions",
+        "type": "number",
+        "title": "総問題数"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "playedAt",
+        "type": "datetime",
+        "title": "プレイ日時"
+      }
+    ],
+    "name": "quizScore",
+    "type": "document",
+    "title": "クイズスコア"
+  },
+  {
+    "fields": [
+      {
+        "readOnly": true,
+        "name": "provider",
+        "type": "string",
+        "title": "プロバイダ"
+      },
+      {
+        "readOnly": true,
+        "name": "linkKey",
+        "type": "string",
+        "title": "リンク識別子"
+      },
+      {
+        "readOnly": true,
+        "name": "label",
+        "type": "string",
+        "title": "表示ラベル"
+      },
+      {
+        "rows": 4,
+        "readOnly": true,
+        "name": "html",
+        "type": "text",
+        "title": "埋め込みHTML"
+      }
+    ],
+    "name": "affiliateEmbed",
+    "type": "object"
+  }
+]

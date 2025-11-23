@@ -194,7 +194,9 @@ export default function FavoritesPage() {
                           </span>
                           {post.categories && post.categories.length > 0 && (
                             <span className="text-xs text-slate-500">
-                              {post.categories[0]}
+                              {typeof post.categories[0] === 'string'
+                                ? post.categories[0]
+                                : post.categories[0]?.title}
                             </span>
                           )}
                         </div>
