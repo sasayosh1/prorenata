@@ -182,6 +182,11 @@ export default function FavoritesPage() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {currentPosts.map((post) => {
                 const { dateTime, label } = formatPostDate({ publishedAt: post.publishedAt })
+                const firstCategory = post.categories?.[0]
+                const categoryLabel =
+                  typeof firstCategory === 'string'
+                    ? firstCategory
+                    : firstCategory?.title
 
                 return (
                   <article key={post._id} className="bg-white rounded-lg border border-slate-200 hover:shadow-lg transition-all group">
@@ -192,11 +197,9 @@ export default function FavoritesPage() {
                           <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
                             {post.contentType || '記事'}
                           </span>
-                          {post.categories && post.categories.length > 0 && (
+                          {categoryLabel && (
                             <span className="text-xs text-slate-500">
-                              {typeof post.categories[0] === 'string'
-                                ? post.categories[0]
-                                : post.categories[0]?.title}
+                              {categoryLabel}
                             </span>
                           )}
                         </div>

@@ -1,6 +1,8 @@
 // お気に入り・ブックマーク機能
 // ローカルストレージを使用してクライアントサイドで管理
 
+type StoredCategory = string | { title?: string | null }
+
 export interface FavoritePost {
   _id: string
   title: string
@@ -9,7 +11,7 @@ export interface FavoritePost {
   publishedAt: string
   readingTime?: number
   contentType?: string
-  categories?: string[]
+  categories?: StoredCategory[]
   addedAt: string
 }
 
@@ -47,6 +49,7 @@ export const favorites = {
     readingTime?: number
     contentType?: string
     tags?: string[]
+    categories?: StoredCategory[]
   }): boolean {
     if (typeof window === 'undefined') return false
     
@@ -66,7 +69,7 @@ export const favorites = {
         publishedAt: post.publishedAt,
         readingTime: post.readingTime,
         contentType: post.contentType,
-        categories: post.tags,
+        categories: post.categories ?? post.tags,
         addedAt: new Date().toISOString()
       }
 
@@ -102,7 +105,7 @@ export const favorites = {
   },
 
   // お気に入りをトグル
-  toggle(post: { _id: string; title: string; slug: { current: string }; excerpt?: string; contentType?: string; tags?: string[]; readingTime?: number; publishedAt?: string }): boolean {
+  toggle(post: { _id: string; title: string; slug: { current: string }; excerpt?: string; contentType?: string; tags?: string[]; categories?: StoredCategory[]; readingTime?: number; publishedAt?: string }): boolean {
     return this.has(post._id) ? this.remove(post._id) : this.add({
       ...post,
       publishedAt: post.publishedAt || new Date().toISOString()
@@ -139,7 +142,7 @@ export const readingHistory = {
   },
 
   // 記事を履歴に追加
-  add(post: { _id: string; title: string; slug: { current: string }; excerpt?: string; contentType?: string; tags?: string[]; readingTime?: number; publishedAt: string }): void {
+  add(post: { _id: string; title: string; slug: { current: string }; excerpt?: string; contentType?: string; tags?: string[]; categories?: StoredCategory[]; readingTime?: number; publishedAt: string }): void {
     if (typeof window === 'undefined') return
     
     try {
@@ -157,7 +160,7 @@ export const readingHistory = {
         publishedAt: post.publishedAt,
         readingTime: post.readingTime,
         contentType: post.contentType,
-        categories: post.tags,
+        categories: post.categories ?? post.tags,
         addedAt: new Date().toISOString()
       }
       
