@@ -84,9 +84,32 @@ export default defineType({
             keywords = ['general']
           }
 
-          // nursing-assistant- で始まるスラッグを生成（タイムスタンプなし）
-          const slug = keywords.slice(0, 3).join('-')
-          return `nursing-assistant-${slug}`
+          const keywordSegment = keywords.slice(0, 3).join('-')
+
+          // タイトル全文を英数字に正規化して追加（被りにくくする）
+          const normalizedTitle = input
+            .normalize('NFKD')
+            .replace(/[^\w\s-]/g, ' ')
+            .trim()
+            .replace(/\s+/g, '-')
+            .toLowerCase()
+            .replace(/-+/g, '-')
+            .slice(0, 48)
+
+          // 一意性を担保するため短いタイムスタンプを付与
+          const uniqueSuffix = Date.now().toString(36).slice(-5)
+
+          return [
+            'nursing-assistant',
+            keywordSegment,
+            normalizedTitle,
+            uniqueSuffix,
+          ]
+            .filter(Boolean)
+            .join('-')
+            .replace(/-+/g, '-')
+            .replace(/-$/, '')
+            .slice(0, 96)
         }
       },
       validation: rule => rule.required(),

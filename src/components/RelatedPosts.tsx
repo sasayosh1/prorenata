@@ -1,18 +1,8 @@
 import Link from 'next/link'
-
-interface RelatedPostCategory {
-  title: string
-  slug?: string
-}
-
-interface RelatedPost {
-  title: string
-  slug: string
-  categories: RelatedPostCategory[]
-}
+import type { RelatedPostSummary } from '@/lib/sanity'
 
 interface RelatedPostsProps {
-  posts: RelatedPost[]
+  posts: RelatedPostSummary[]
 }
 
 export default function RelatedPosts({ posts }: RelatedPostsProps) {

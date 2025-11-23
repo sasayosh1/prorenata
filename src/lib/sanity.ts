@@ -294,7 +294,7 @@ export function formatPostDate(
 }
 
 // 関連記事を取得する関数（同カテゴリから2件自動選択）
-interface RelatedPostSummary {
+export interface RelatedPostSummary {
   title: string
   slug: string
   categories: Array<{ title: string; slug?: string | null }>
