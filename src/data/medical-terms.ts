@@ -344,6 +344,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 'syr',
+    term: 'シリンジ',
+    reading: 'しりんじ',
+    meaning: '注射器',
+    distractors: ['ガーゼ', '鑷子（ピンセット）'],
+    category: 'equipment',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
