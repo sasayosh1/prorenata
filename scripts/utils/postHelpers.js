@@ -1549,19 +1549,67 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
 
   const resultBlocks = [...blocks]
   let addedLinks = 0
-  const insertionFallbackIndex = findSummaryInsertIndex(resultBlocks)
+  const insertionIndex = findSummaryInsertIndex(resultBlocks)
 
-  selectedLinks.forEach(({ link }) => {
-    const keywordTargets = AFFILIATE_LINK_KEYWORDS[link.key] || []
-    const sectionIndex = findSectionInsertionIndex(resultBlocks, keywordTargets)
-    const targetIndex = sectionIndex >= 0 ? sectionIndex : insertionFallbackIndex
-    const contextHeading = findAffiliateContextHeading(resultBlocks, targetIndex)
-    const linkBlocks = createMoshimoLinkBlocks(link.key, contextHeading)
+  // Amazon/Rakutenを分離
+  const amazonLink = selectedLinks.find(({ link }) => link.key === 'amazon')
+  const rakutenLink = selectedLinks.find(({ link }) => link.key === 'rakuten')
+  const otherLinks = selectedLinks.filter(({ link }) => link.key !== 'amazon' && link.key !== 'rakuten')
+
+  // Amazon/Rakutenを一つのカードにまとめる
+  if (amazonLink && rakutenLink) {
+    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
+    const { extractMainItemFromArticle } = require('../moshimo-affiliate-links')
+    const mainItem = extractMainItemFromArticle(title, bodyText)
+    const itemText = mainItem?.variants?.[1] || mainItem?.item || '小物や替えのグローブなど、毎日使うアイテム'
+
+    const combinedCta = `${itemText}を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。`
+
+    const linkBlocks = createMoshimoLinkBlocks('amazon', contextHeading, {
+      articleTitle: title,
+      articleBody: bodyText,
+      ctaText: combinedCta,
+      additionalLinks: [rakutenLink.link]
+    })
+
+    if (linkBlocks && linkBlocks.length > 0) {
+      resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
+      addedLinks += 2
+    }
+  } else if (amazonLink) {
+    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
+    const linkBlocks = createMoshimoLinkBlocks(amazonLink.link.key, contextHeading, {
+      articleTitle: title,
+      articleBody: bodyText
+    })
+    if (linkBlocks && linkBlocks.length > 0) {
+      resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
+      addedLinks += 1
+    }
+  } else if (rakutenLink) {
+    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
+    const linkBlocks = createMoshimoLinkBlocks(rakutenLink.link.key, contextHeading, {
+      articleTitle: title,
+      articleBody: bodyText
+    })
+    if (linkBlocks && linkBlocks.length > 0) {
+      resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
+      addedLinks += 1
+    }
+  }
+
+  // 他のリンクを追加
+  otherLinks.forEach(({ link }) => {
+    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
+    const linkBlocks = createMoshimoLinkBlocks(link.key, contextHeading, {
+      articleTitle: title,
+      articleBody: bodyText
+    })
     if (!linkBlocks || linkBlocks.length === 0) {
       return
     }
 
-    resultBlocks.splice(targetIndex, 0, ...linkBlocks)
+    resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
     addedLinks += 1
   })
 
@@ -1572,15 +1620,43 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
 }
 
 function findSummaryInsertIndex(blocks) {
+  let summaryIndex = -1
+
+  // 「まとめ」H2見出しを見つける
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i]
     if (block?._type === 'block' && block.style === 'h2') {
       const text = blockPlainText(block)
       if (text === 'まとめ') {
+        summaryIndex = i
+        break
+      }
+    }
+  }
+
+  if (summaryIndex === -1) {
+    return blocks.length
+  }
+
+  // 「まとめ」セクションの最後を見つける（次のH2または免責事項の前）
+  for (let i = summaryIndex + 1; i < blocks.length; i++) {
+    const block = blocks[i]
+
+    // 次のH2見出しが見つかった場合、その直前
+    if (block?._type === 'block' && block.style === 'h2') {
+      return i
+    }
+
+    // 免責事項が見つかった場合、その直前
+    if (block?._type === 'block' && Array.isArray(block.children)) {
+      const firstChildText = block.children[0]?.text?.trim() || ''
+      if (firstChildText.startsWith('免責事項')) {
         return i
       }
     }
   }
+
+  // 見つからなかった場合は最後
   return blocks.length
 }
 

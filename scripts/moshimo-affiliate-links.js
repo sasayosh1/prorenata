@@ -8,7 +8,7 @@
 
 const { randomUUID } = require('crypto')
 
-const INLINE_AFFILIATE_KEYS = new Set(['amazon', 'rakuten', 'nursery'])
+const INLINE_AFFILIATE_KEYS = new Set([])
 
 const MOSHIMO_LINKS = {
   // 就職・転職サービス
@@ -207,6 +207,69 @@ function contextualPrefix(contextHeading, base) {
   return `「${contextHeading}」では${base}`
 }
 
+// 記事の内容から主要なアイテムを抽出
+function extractMainItemFromArticle(title = '', body = '') {
+  const text = (title + ' ' + body).toLowerCase()
+
+  // アイテム別キーワードマッピング（優先度順）
+  const itemPatterns = [
+    { keywords: ['シューズ', '靴', 'くつ', '履く', '歩く'], item: 'シューズ', variants: ['シューズや滑りにくい靴', 'シューズ', '現場で使う靴'] },
+    { keywords: ['ユニフォーム', '制服', 'スクラブ', 'ナース服', '白衣'], item: 'ユニフォーム', variants: ['ユニフォームやスクラブ', 'ユニフォーム', '制服'] },
+    { keywords: ['グローブ', '手袋', '使い捨て', 'ディスポ'], item: 'グローブ', variants: ['グローブや使い捨て手袋', 'グローブ', '手袋'] },
+    { keywords: ['ポケット', 'オーガナイザー', 'ポーチ', '小物入れ'], item: 'ポケットオーガナイザー', variants: ['ポケットオーガナイザーや小物入れ', 'ポケットオーガナイザー'] },
+    { keywords: ['文房具', 'ペン', 'メモ', 'ノート'], item: '文房具', variants: ['ペンやメモ帳', '文房具', '筆記用具'] },
+    { keywords: ['腕時計', '時計', 'ウォッチ'], item: '腕時計', variants: ['防水腕時計', '腕時計', '時計'] },
+    { keywords: ['備品', '消耗品', '物品', '小物'], item: '備品', variants: ['備品や消耗品', '小物', '備品'] }
+  ]
+
+  // マッチしたアイテムとスコアを計算
+  const matches = itemPatterns.map(pattern => {
+    const matchCount = pattern.keywords.filter(keyword => text.includes(keyword)).length
+    return { ...pattern, score: matchCount }
+  }).filter(match => match.score > 0)
+
+  // 最もスコアの高いアイテムを返す
+  if (matches.length > 0) {
+    matches.sort((a, b) => b.score - a.score)
+    return matches[0]
+  }
+
+  return null
+}
+
+// 記事の直近の文脈を考慮した訴求文を生成
+function generateContextualCta(linkKey, link, articleTitle = '', articleBody = '', contextHeading = '') {
+  const mainItem = extractMainItemFromArticle(articleTitle, articleBody)
+
+  // アイテムキー別の訴求文生成
+  if (linkKey === 'nursery') {
+    if (mainItem && mainItem.item) {
+      const itemVariant = mainItem.variants[0] || mainItem.item
+      return `${itemVariant}は${link.name}が便利です。現場で必要なサイズやカラーも細かく選べます。`
+    }
+    return `ユニフォームやポケットオーガナイザーは${link.name}が便利です。現場で必要なサイズやカラーも細かく選べます。`
+  }
+
+  if (linkKey === 'amazon') {
+    if (mainItem && mainItem.item) {
+      const itemVariant = mainItem.variants[1] || mainItem.item
+      return `${itemVariant}を買い足すときは、${link.name}で常備しておくと安心です。`
+    }
+    return `小物や替えのグローブなど、毎日使うアイテムは${link.name}で常備しておくと安心です。`
+  }
+
+  if (linkKey === 'rakuten') {
+    if (mainItem && mainItem.item) {
+      const itemVariant = mainItem.variants[1] || mainItem.item
+      return `${itemVariant}を探すときは、${link.name}が頼りになります。ポイント活用でコストも抑えられます。`
+    }
+    return `備品を買い足すときは、${link.name}が頼りになります。ポイント活用でコストも抑えられます。`
+  }
+
+  // デフォルト
+  return null
+}
+
 const AFFILIATE_KEY_CTA = {
   nursery: (link, contextHeading) => {
     const prefix = contextHeading
@@ -228,8 +291,18 @@ const AFFILIATE_KEY_CTA = {
   }
 }
 
-function selectAffiliateCtaText(linkKey, link, contextHeading = '') {
+function selectAffiliateCtaText(linkKey, link, contextHeading = '', articleTitle = '', articleBody = '') {
   if (!link) return ''
+
+  // アイテムカテゴリの場合、記事文脈を考慮した訴求文を優先
+  if (link.category === 'アイテム' && (articleTitle || articleBody)) {
+    const contextualCta = generateContextualCta(linkKey, link, articleTitle, articleBody, contextHeading)
+    if (contextualCta) {
+      return contextualCta
+    }
+  }
+
+  // 従来のテンプレートベース訴求文（アイテム以外）
   if (AFFILIATE_KEY_CTA[linkKey]) {
     return AFFILIATE_KEY_CTA[linkKey](link, contextHeading)
   }
@@ -243,26 +316,44 @@ function selectAffiliateCtaText(linkKey, link, contextHeading = '') {
   return `${intro}${link.name}のような信頼できるサービスと一緒に確認しておくと、迷わず動けます。`
 }
 
-function wrapAffiliateHtml(link, ctaText = '', contextHeading = '') {
-  const appeal = escapeHtml(link.appealText || '')
-  const note = escapeHtml(link.description || '')
+function wrapAffiliateHtml(link, ctaText = '', contextHeading = '', additionalLinks = []) {
   const cta = escapeHtml(ctaText || '')
-  const context = escapeHtml(contextHeading || '')
+
+  // メインリンクを生成
+  const mainLinkText = escapeHtml(link.linkText || '')
+  const mainLinkUrl = link.url || '#'
+  const mainImgMatch = link.html.match(/<img[^>]*>/i)
+  const mainTrackingPixel = mainImgMatch ? mainImgMatch[0] : ''
+
+  // 追加リンクを生成
+  let additionalLinksHtml = ''
+  additionalLinks.forEach((additionalLink, index) => {
+    const linkText = escapeHtml(additionalLink.linkText || '')
+    const linkUrl = additionalLink.url || '#'
+    const imgMatch = additionalLink.html.match(/<img[^>]*>/i)
+    const trackingPixel = imgMatch ? imgMatch[0] : ''
+    const isLast = index === additionalLinks.length - 1
+
+    additionalLinksHtml += `
+  <p style="margin: ${isLast ? '0' : '0 0 8px 0'};">
+    [PR]
+    <a href="${linkUrl}" target="_blank" rel="nofollow" style="color: #0066cc; text-decoration: underline;">${linkText}</a>${trackingPixel}
+  </p>`
+  })
+
   return `
-<div class="affiliate-card">
-  ${appeal ? `<p class="affiliate-card__lead">${appeal}</p>` : ''}
-  ${context ? `<p class="affiliate-card__context">${context}</p>` : ''}
-  ${cta ? `<p class="affiliate-card__cta">${cta}</p>` : ''}
-  <p class="affiliate-card__body">
-    <span class="affiliate-card__badge">[PR]</span> ${link.html}
-  </p>
-  ${note ? `<p class="affiliate-card__note">${note}</p>` : ''}
+<div style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;">
+  ${cta ? `<p style="margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;">${cta}</p>` : ''}
+  <p style="margin: ${additionalLinks.length > 0 ? '0 0 8px 0' : '0'};">
+    [PR]
+    <a href="${mainLinkUrl}" target="_blank" rel="nofollow" style="color: #0066cc; text-decoration: underline;">${mainLinkText}</a>${mainTrackingPixel}
+  </p>${additionalLinksHtml}
 </div>
 `.trim()
 }
 
-function createInlineAffiliateBlock(linkKey, link, contextHeading = '') {
-  const ctaText = selectAffiliateCtaText(linkKey, link, contextHeading).trim()
+function createInlineAffiliateBlock(linkKey, link, contextHeading = '', articleTitle = '', articleBody = '') {
+  const ctaText = selectAffiliateCtaText(linkKey, link, contextHeading, articleTitle, articleBody).trim()
 
   const infoBlock = {
     _type: 'block',
@@ -301,11 +392,11 @@ function createInlineAffiliateBlock(linkKey, link, contextHeading = '') {
       },
       {
         _type: 'span',
-      _key: `inline-link-text-${randomUUID()}`,
-      marks: [linkMarkKey],
-      text: link.linkText
-    }
-  ]
+        _key: `inline-link-text-${randomUUID()}`,
+        marks: [linkMarkKey],
+        text: link.linkText
+      }
+    ]
   }
 
   return [infoBlock, linkBlock]
@@ -315,12 +406,24 @@ function createMoshimoLinkBlocks(linkKey, contextHeading = '', options = {}) {
   const link = MOSHIMO_LINKS[linkKey]
   if (!link || !link.active) return null
 
+  const articleTitle = options.articleTitle || ''
+  const articleBody = options.articleBody || ''
+  const additionalLinksKeys = options.additionalLinks || []
+
+  // 追加リンクのデータを取得
+  const additionalLinksData = additionalLinksKeys.map(linkData => {
+    if (typeof linkData === 'string') {
+      return MOSHIMO_LINKS[linkData]
+    }
+    return linkData
+  }).filter(Boolean)
+
   if (INLINE_AFFILIATE_KEYS.has(linkKey)) {
-    return createInlineAffiliateBlock(linkKey, link, contextHeading)
+    return createInlineAffiliateBlock(linkKey, link, contextHeading, articleTitle, articleBody)
   }
 
   const ctaTextOverride = options.ctaText
-  const resolvedCta = ctaTextOverride || selectAffiliateCtaText(linkKey, link, contextHeading)
+  const resolvedCta = ctaTextOverride || selectAffiliateCtaText(linkKey, link, contextHeading, articleTitle, articleBody)
   const embedKey = `affiliate-${randomUUID()}`
   const embedBlock = {
     _type: 'affiliateEmbed',
@@ -328,7 +431,7 @@ function createMoshimoLinkBlocks(linkKey, contextHeading = '', options = {}) {
     provider: link.name,
     linkKey,
     label: link.linkText,
-    html: wrapAffiliateHtml(link, resolvedCta, contextHeading)
+    html: wrapAffiliateHtml(link, resolvedCta, contextHeading, additionalLinksData)
   }
 
   return [embedBlock]
@@ -341,5 +444,6 @@ module.exports = {
   getLinksByCategory,
   suggestLinksForArticle,
   createMoshimoLinkBlocks,
-  createInlineAffiliateBlock
+  createInlineAffiliateBlock,
+  extractMainItemFromArticle
 }

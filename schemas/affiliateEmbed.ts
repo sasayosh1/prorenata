@@ -9,26 +9,22 @@ export default defineType({
       name: 'provider',
       title: 'プロバイダ',
       type: 'string',
-      readOnly: true,
     }),
     defineField({
       name: 'linkKey',
       title: 'リンク識別子',
       type: 'string',
-      readOnly: true,
     }),
     defineField({
       name: 'label',
       title: '表示ラベル',
       type: 'string',
-      readOnly: true,
     }),
     defineField({
       name: 'html',
       title: '埋め込みHTML',
       type: 'text',
-      rows: 4,
-      readOnly: true,
+      rows: 10,
     }),
   ],
   preview: {
