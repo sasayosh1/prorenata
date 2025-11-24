@@ -353,6 +353,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'equipment',
     difficulty: 1
   },
+  {
+    id: 'temp',
+    term: '体温',
+    reading: 'たいおん',
+    meaning: '体の温度のこと。腋窩（わきの下）、口腔、直腸などで測定する。',
+    distractors: ['呼吸数', '血圧'],
+    category: 'vital-signs',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
