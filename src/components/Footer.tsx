@@ -72,7 +72,22 @@ export default function Footer() {
               </h3>
               <ul className="mt-4 space-y-2">
                 <li>
-                  <Link href="/categories/job-hunting" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                  <Link href="/categories/work" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    仕事
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/categories/salary" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    給与
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/categories/license" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    資格
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/categories/career-change" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
                     転職
                   </Link>
                 </li>
@@ -82,23 +97,13 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/categories/job-description" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    仕事内容
+                  <Link href="/categories/wellbeing" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    心身
                   </Link>
                 </li>
                 <li>
-                  <Link href="/categories/practice" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    実務
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/categories/salary" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    給与
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/categories/nurse-path" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    看護師
+                  <Link href="/categories/stories" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
+                    体験
                   </Link>
                 </li>
               </ul>
