@@ -39,7 +39,7 @@ export const CATEGORY_SUMMARY: Record<CategorySlug, { title: string; description
     description: '円満退職のポイントや退職手続き、有給消化の進め方など、退職前後の不安に寄り添うカテゴリです。',
   },
   wellbeing: {
-    title: '心身',
+    title: 'メンタル',
     description: 'メンタルケア、人間関係、休息の工夫など、心と身体を整えるための視点を扱っています。',
   },
   stories: {

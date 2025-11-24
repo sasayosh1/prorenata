@@ -98,7 +98,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/categories/wellbeing" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200">
-                    心身
+                    メンタル
                   </Link>
                 </li>
                 <li>

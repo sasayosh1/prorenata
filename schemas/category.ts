@@ -7,7 +7,7 @@ const CATEGORY_MASTER = [
   { title: '資格', slug: 'license' },
   { title: '転職', slug: 'career-change' },
   { title: '退職', slug: 'resignation' },
-  { title: '心身', slug: 'wellbeing' },
+  { title: 'メンタル', slug: 'wellbeing' },
   { title: '体験', slug: 'stories' },
 ] as const
 
