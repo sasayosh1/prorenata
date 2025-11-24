@@ -1001,6 +1001,16 @@ vercel --previewe
 - ユーザー指示なしでカテゴリを増やす・削除する・命名を変えることは禁止（SEO・出典ポリシーと直結するため）
 - 内部資料として公開したい記事は `internalOnly` にチェックを入れる。チェック時は一覧/検索/サイトマップから除外され、robots noindex を付与する（手動で noindex メタを追加しない）。現在該当: `comparison-of-three-resignation-agencies`, `nursing-assistant-compare-services-perspective`。
 - `internalOnly` にチェックされた記事は `scripts/maintenance.js` の sanitize / autofix / recategorize / その他の自動整形対象から除外される（メンテで触れない）
+
+**🔗 転職・退職記事のアフィリエイトリンク禁止ルール（最重要）**
+- **転職記事**: 転職サービスのアフィリエイトリンクを単体で貼ることは禁止
+  - 代わりに「看護助手の転職サービス３社を "看護助手の視点だけ" で比較」（`nursing-assistant-compare-services-perspective`）への内部リンクを設置
+- **退職記事**: 退職代行サービスのアフィリエイトリンクを単体で貼ることは禁止
+  - 代わりに「退職代行３社のメリット・デメリット徹底比較」（`comparison-of-three-resignation-agencies`）への内部リンクを設置
+- **配置場所**:
+  - 基本: 記事のまとめセクションの後、免責事項の前に1箇所
+  - 長文記事（2000文字以上）: 記事中盤にも1箇所追加可能
+- **理由**: ユーザーに複数の選択肢を比較検討させるため、単一サービスへの誘導ではなく比較記事を経由させる
 - 退職・離職テーマの記事では退職代行ASPの代わりに「退職代行３社のメリット・デメリット徹底比較」への内部リンクを自動挿入し、同セクション周辺に退職代行ASPを配置しない
 
 **🚨 Google Analytics & Search Console コード改変の完全禁止**
