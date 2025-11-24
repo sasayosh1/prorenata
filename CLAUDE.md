@@ -186,6 +186,20 @@ vercel --previewe
    - **Amazon/Rakuten/ナースリー**: インラインCTA → `[PR] Amazonリンク` → 改行 → `[PR] 楽天リンク`（必要ならナースリー）という順序に統一。埋め込みカードは `affiliate-card` クラスで薄いブルー背景・角丸なし・太字[PR]バッジを持つ構造に固定した。
    - **効果**: 収益導線をサイト全体で再整備し、過去のリンク欠落やスタイル揺れを解消。今後はスクリプト実行前に slug 指定と案件メモを残すことで、誤更新と収益損失を防止する。
 
+9. 🔧 **A8.net「かいご畑」アフィリエイトコードの完全統一** (2025-11-24)
+   - **問題発見**: 複数のスクリプトで異なるA8.netコードが使用されていた
+     - `optimize-a8-kaigobatake-links.js`: 間違ったコード（3ZAXGX+DKVSUA+5OUU+5YZ77）を使用
+     - `affiliate-products-db.js`: トラッキングピクセルドメインがwww18（正しくはwww17）
+     - `moshimo-affiliate-links.js`: トラッキングピクセルドメインがwww15（正しくはwww17）
+   - **全記事一括修正**: 98件の記事すべてのトラッキングピクセルを正しいドメイン（www17）に修正
+   - **新規スクリプト追加**:
+     - `scripts/check-kaigobatake-links.js`: かいご畑リンクの検証ツール
+     - `scripts/fix-kaigobatake-tracking.js`: かいご畑リンクの一括修正ツール
+   - **正しいアフィリエイト設定**:
+     - URL: `https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY`
+     - トラッキングピクセル: `https://www17.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY`
+   - **効果**: A8.net管理画面で正確なクリック数・成果計測が可能に。全スクリプトと全記事（98件）で統一されたコードを使用
+
 1. ♻️ **制度アップデート体制とナビゲーション改善** (2025-11-21)
    - **制度アップデートフローを文書化**: `docs/policy-update-workflow.md` を追加し、厚労省/JNAなど一次情報の監視ルール・記事更新手順・出典必須チェックリストを明文化。`CLAUDE.md`/`ARTICLE_GUIDE.md` にも即時更新ルールを追記。
    - **出典ルール強化**: `scripts/utils/postHelpers.js` に「厚労働省 看護政策情報・通知一覧」を SOURCE_RULES として追加し、制度/トレンド記事で自動的に一次情報リンクが挿入されるようにした。
