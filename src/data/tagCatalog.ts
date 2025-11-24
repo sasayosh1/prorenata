@@ -78,6 +78,13 @@ export const TAG_CATALOG: TagDefinition[] = [
     keywords: ['効率', '段取り', '準備', '物品', 'チェックリスト'],
   },
   {
+    slug: 'nursing-assistant',
+    title: '看護助手',
+    description: '看護助手という職種全体の役割や働き方、やりがいをまとめた総合タグです。',
+    categorySlug: 'work',
+    keywords: ['看護助手', 'ナースエイド', '病棟業務'],
+  },
+  {
     slug: 'career-prep',
     title: '転職準備',
     description: '転職活動の進め方、スケジュール、求人選びのチェックポイントを解説します。',
@@ -141,6 +148,13 @@ export const TAG_CATALOG: TagDefinition[] = [
     keywords: ['休息', '睡眠', '夜勤', 'シフト調整', '体調管理'],
   },
   {
+    slug: 'concerns',
+    title: '悩み',
+    description: '現場で感じるモヤモヤや不安への向き合い方、心を整えるヒントをまとめています。',
+    categorySlug: 'wellbeing',
+    keywords: ['悩み', '不安', 'モヤモヤ', '相談'],
+  },
+  {
     slug: 'study-methods',
     title: '勉強法・研修',
     description: '資格取得や研修の活用法、学び直しのコツをわかりやすく解説します。',
@@ -184,8 +198,21 @@ export const TAG_CATALOG: TagDefinition[] = [
   },
 ]
 
-export function getTagDefinition(slug: string): TagDefinition | undefined {
-  return TAG_CATALOG.find(tag => tag.slug === slug)
+function normalizeTagInput(value: string) {
+  return value.trim().replace(/^#/, '')
+}
+
+export function getTagDefinition(rawValue: string): TagDefinition | undefined {
+  if (!rawValue) return undefined
+  const normalized = normalizeTagInput(rawValue)
+  const lower = normalized.toLowerCase()
+
+  return TAG_CATALOG.find(tag => {
+    const slugMatches = tag.slug === normalized || tag.slug === lower
+    const titleMatches = tag.title === normalized
+    const keywordMatches = tag.keywords?.some(keyword => keyword === normalized)
+    return slugMatches || titleMatches || keywordMatches
+  })
 }
 
 export function getTagsGroupedByCategory(definitions: TagDefinition[] = TAG_CATALOG) {
