@@ -10,7 +10,7 @@ const client = createClient({
 })
 
 // A8.net かいご畑のリンク
-const KAIGOBATAKE_LINK = 'https://px.a8.net/svt/ejp?a8mat=3ZAXGX+DKVSUA+5OUU+5YZ77'
+const KAIGOBATAKE_LINK = 'https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY'
 
 async function optimizeKaigobatakeLinks() {
   const line = '='.repeat(60)

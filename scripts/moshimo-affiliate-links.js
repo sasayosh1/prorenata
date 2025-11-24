@@ -32,7 +32,7 @@ const MOSHIMO_LINKS = {
     description: '介護職専門の人材サービス',
     category: '就職・転職',
     targetArticles: ['転職', '求人', '介護', '未経験', '資格', '辞めたい'],
-    html: '<a href="https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" rel="nofollow">かいご畑で介護職・看護助手の求人を探す</a><img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" alt="">',
+    html: '<a href="https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" rel="nofollow">かいご畑で介護職・看護助手の求人を探す</a><img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" alt="">',
     appealText: '🌾 介護職専門の求人をお探しの方へ',
     linkText: '介護職・看護助手の求人なら「かいご畑」',
     url: 'https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY',

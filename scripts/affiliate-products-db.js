@@ -162,7 +162,7 @@ export const jobServices = [
       '完全無料で利用可能'
     ],
     affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY',
-    a8Tracking: '<img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" alt="">',
+    a8Tracking: '<img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY" alt="">',
     commission: 'A8.net経由',
     targetArticles: [
       '看護助手-辞めたい',
