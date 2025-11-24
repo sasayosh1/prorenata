@@ -16,5 +16,43 @@
 }
 
 .affiliate-card {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0f172a;
   border-radius: 0 !important;
+}
+
+.affiliate-card__lead,
+.affiliate-card__context,
+.affiliate-card__cta,
+.affiliate-card__note {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.affiliate-card__lead {
+  font-weight: 600;
+}
+
+.affiliate-card__body {
+  margin: 0;
+  font-weight: 600;
+}
+
+.affiliate-card__badge {
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.affiliate-card__body a {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+.affiliate-card__body img,
+.affiliate-card__note img {
+  display: inline;
 }

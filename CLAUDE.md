@@ -180,6 +180,12 @@ vercel --previewe
    - **退職代行 即ヤメは維持**: 正常動作を確認したため変更なし。
    - **効果**: 3サービスとも正しいアフィリエイトLPへ遷移し、トラッキングも復旧。
 
+8. 🔁 **アフィリエイト配置の全量リセットと標準化** (2025-11-24)
+   - **新規スクリプト**: `scripts/standardize-affiliate-links.js` を追加。全記事（`maintenanceLocked` = true を除外）から `affiliateEmbed` / インラインCTA / `[PR]` 段落を一括削除し、`addAffiliateLinksToArticle()` で定義済みのHTML（薄いブルー背景 + `[PR]` 表記）を再生成する。
+   - **実行方法**: デフォルトはドライラン。`node scripts/standardize-affiliate-links.js --apply --slugs=slug-a,slug-b` のように対象スラッグを明示し、必ず `PROJECT_STATUS.md` 等に「対象記事リスト／付与案件」を事前記載する。ロック記事には触れないこと（解除指示があった場合のみ `--include-locked` を使用）。
+   - **Amazon/Rakuten/ナースリー**: インラインCTA → `[PR] Amazonリンク` → 改行 → `[PR] 楽天リンク`（必要ならナースリー）という順序に統一。埋め込みカードは `affiliate-card` クラスで薄いブルー背景・角丸なし・太字[PR]バッジを持つ構造に固定した。
+   - **効果**: 収益導線をサイト全体で再整備し、過去のリンク欠落やスタイル揺れを解消。今後はスクリプト実行前に slug 指定と案件メモを残すことで、誤更新と収益損失を防止する。
+
 1. ♻️ **制度アップデート体制とナビゲーション改善** (2025-11-21)
    - **制度アップデートフローを文書化**: `docs/policy-update-workflow.md` を追加し、厚労省/JNAなど一次情報の監視ルール・記事更新手順・出典必須チェックリストを明文化。`CLAUDE.md`/`ARTICLE_GUIDE.md` にも即時更新ルールを追記。
    - **出典ルール強化**: `scripts/utils/postHelpers.js` に「厚労働省 看護政策情報・通知一覧」を SOURCE_RULES として追加し、制度/トレンド記事で自動的に一次情報リンクが挿入されるようにした。
