@@ -168,6 +168,28 @@ vercel --previewe
 
 ## 最近の変更
 
+56. 🔧 **退職関連記事の不適切アフィリエイトリンク削除と内部リンク追加** (2025-11-25)
+   - **問題発見**: 9件の退職関連記事に不適切な転職系アフィリエイトリンク（kaigobatake, humanlifecare）が残っていた
+   - **修正内容**:
+     - 全9件の退職記事から転職系アフィリエイトブロック16件を削除（各記事2件ずつ）
+     - 退職代行比較記事（`comparison-of-three-resignation-agencies`）への内部リンクを追加
+     - CLAUDE.mdルール41「退職記事は内部比較記事へ誘導＆退職代行ASPを除外」に完全準拠
+   - **新規スクリプト**:
+     - `scripts/check-retirement-affiliates.js`: 退職記事のアフィリエイト検出ツール
+     - `scripts/fix-retirement-articles.js`: 退職記事の一括修正ツール
+     - `scripts/list-recent-posts.js`: 最近の記事リストツール
+   - **対象記事**:
+     - nursing-assistant-resignation-advice-workplace
+     - nursing-assistant-resignation-advice-top
+     - nursing-assistant-quitting-relationships
+     - nursing-assistant-quit-experiences
+     - nursing-assistant-resignation-advice-insights
+     - nursing-assistant-resignation-advice-long
+     - nursing-assistant-resignation-advice
+     - nursing-assistant-before-quitting-considerations
+     - nursing-assistant-quit-retirement
+   - **効果**: 退職記事から不適切なアフィリエイトリンクを完全削除し、ユーザーを適切な比較記事へ誘導する導線を確立。CLAUDE.mdルールに完全準拠した構造に修正
+
 55. 🎨 **アイテムアフィリエイトの訴求文を記事内容に応じて動的生成** (2025-11-25)
    - **記事内容に応じた訴求文生成**: 記事のタイトル・本文から主要アイテム（シューズ、ユニフォーム、グローブ等）を自動抽出し、それに基づいて訴求文を動的に生成
      - 7つのアイテムカテゴリに対応（シューズ、ユニフォーム、グローブ、ポケットオーガナイザー、文房具、腕時計、備品）
