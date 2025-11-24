@@ -1,5 +1,6 @@
-import { getAllPosts, type Post, formatPostDate } from '@/lib/sanity'
+import { getAllPosts, type Post, formatPostDate, urlFor } from '@/lib/sanity'
 import Link from 'next/link'
+import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PopularPosts from '@/components/PopularPosts'
@@ -11,14 +12,14 @@ export const fetchCache = 'force-no-store'
 
 export default async function Home() {
   let recentPosts: Post[] = []
-  
+
   try {
-    const posts = await getAllPosts({ limit: 3 }) // 最新3記事のみ取得
+    const posts = await getAllPosts({ limit: 6 }) // 最新6記事に増やす（画像が増えて見栄えが良くなるため）
     recentPosts = posts
   } catch (error) {
     console.error('Failed to load posts:', error)
   }
-  
+
   return (
     <>
       <Header />
@@ -60,9 +61,9 @@ export default async function Home() {
               </p>
             </div>
             <div className="relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center">
-              <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md overflow-hidden transform transition-transform hover:scale-105 duration-500">
+              <div className="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-500">
                 <img
-                  className="w-full"
+                  className="w-full h-auto object-cover"
                   src="/hero-image.png"
                   alt="看護助手サポート"
                 />
@@ -72,11 +73,11 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Content */}
         <main>
           {/* Search Section */}
-          <div className="py-8">
+          <div className="py-8 max-w-3xl mx-auto">
             <HomeSearch />
           </div>
 
@@ -103,24 +104,33 @@ export default async function Home() {
                   return (
                     <Link href={`/posts/${post.slug.current}`} key={post._id} className="block h-full">
                       <article className="flex flex-col h-full bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                        {/* Image Placeholder or Actual Image if available */}
+                        {/* Image Area */}
                         <div className="h-48 bg-gray-100 relative overflow-hidden group">
-                           {/* If you have images, render them here. For now, a placeholder pattern */}
-                           <div className="absolute inset-0 bg-gradient-to-tr from-cyan-100 to-blue-50 opacity-50 group-hover:scale-105 transition-transform duration-500"></div>
-                           <div className="absolute bottom-0 left-0 p-4">
-                              {post.categories && post.categories.length > 0 && (
-                                <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-cyan-700 text-xs font-bold rounded-full shadow-sm">
-                                  {typeof post.categories[0] === 'string' ? post.categories[0] : post.categories[0]?.title}
-                                </span>
-                              )}
-                           </div>
+                          {post.mainImage ? (
+                            <Image
+                              src={urlFor(post.mainImage).width(800).height(600).url()}
+                              alt={post.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-100 to-blue-50 opacity-50 group-hover:scale-105 transition-transform duration-500"></div>
+                          )}
+                          <div className="absolute bottom-0 left-0 p-4 z-10">
+                            {post.categories && post.categories.length > 0 && (
+                              <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-cyan-700 text-xs font-bold rounded-full shadow-sm">
+                                {typeof post.categories[0] === 'string' ? post.categories[0] : post.categories[0]?.title}
+                              </span>
+                            )}
+                          </div>
                         </div>
-                        
+
                         <div className="flex-1 p-6 flex flex-col">
                           <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-cyan-600 transition-colors">
                             {post.title}
                           </h3>
-                          
+
                           {post.excerpt && (
                             <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
                               {post.excerpt}
@@ -163,7 +173,7 @@ export default async function Home() {
                 {/* Decorative circles */}
                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500"></div>
                 <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-white opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500"></div>
-                
+
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-shrink-0 bg-white/20 p-4 rounded-full backdrop-blur-sm">
                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,9 +200,7 @@ export default async function Home() {
           </div>
 
           {/* 人気記事ランキング */}
-          <div className="mb-16">
-            <PopularPosts limit={3} />
-          </div>
+          <PopularPosts limit={3} />
         </main>
       </div>
 
