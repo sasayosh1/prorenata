@@ -1050,6 +1050,11 @@ vercel --previewe
 - **インシデント履歴**:
   - 2025-11-25: スクリプトにmaintenanceLockedチェックが欠落し、ロック記事が編集される重大インシデント発生
   - 対応: 全スクリプトにチェックを追加、検証テストスクリプトを作成（`test-maintenance-lock.js`）
+  - 復元: アフィリエイトブロックを再構築し、両方の記事を完全復元（`scripts/tmp/restore-comparison-articles-v2.js`）
+    - `comparison-of-three-resignation-agencies`: 弁護士法人みやび、退職代行 即ヤメの2件を復元
+    - `nursing-assistant-compare-services-perspective`: ヒューマンライフケア、かいご畑、リニューケアの3件を復元
+    - 両記事に免責事項ブロックを追加
+  - 検証: ロック機能が正常に動作することを確認（全テスト成功）
 - 違反した場合は収益損失の重大インシデントとなる
 
 **🚫 UIデザイン変更の完全禁止**
