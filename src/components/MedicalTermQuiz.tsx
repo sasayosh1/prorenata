@@ -76,7 +76,8 @@ export default function MedicalTermQuiz() {
 
   // LocalStorageから進捗を読み込む
   useEffect(() => {
-    const today = new Date().toISOString().split('T')[0]
+    // 日本時間（JST）で日付を取得（0時にリセット）
+    const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' })
     const savedProgress = localStorage.getItem('medicalTermDailyProgress')
     const savedStats = localStorage.getItem('medicalTermQuizStats')
     const savedName = localStorage.getItem('medicalTermPlayerName')
