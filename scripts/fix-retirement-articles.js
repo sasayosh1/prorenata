@@ -6,6 +6,7 @@
  */
 
 const { createClient } = require('@sanity/client');
+const { PROTECTED_REVENUE_SLUGS } = require('./maintenance');
 
 const client = createClient({
   projectId: '72m8vhy2',
@@ -49,6 +50,12 @@ function findDisclaimerIndex(blocks) {
 
 async function fixRetirementArticle(slug) {
   console.log(`\n📝 処理中: ${slug}`);
+
+  // 🔒 収益最重要記事の保護チェック
+  if (PROTECTED_REVENUE_SLUGS.includes(slug)) {
+    console.log(`  🚫 収益最重要記事のため編集をスキップ`);
+    return null;
+  }
 
   // 記事を取得（maintenanceLockedチェック付き）
   const post = await client.fetch(`

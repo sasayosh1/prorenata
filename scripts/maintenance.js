@@ -294,8 +294,14 @@ const CTA_TEXT_PATTERNS = [
   '働き方改革に真剣に取り組んでいる職場を探している方は'
 ]
 
+// 🔒 収益最重要記事の絶対保護リスト（maintenanceLockedの状態に関わらず編集禁止）
+const PROTECTED_REVENUE_SLUGS = [
+  'nursing-assistant-compare-services-perspective',  // 看護助手の転職サービス３社比較
+  'comparison-of-three-resignation-agencies'         // 退職代行３社のメリット・デメリット徹底比較
+]
+
 const PUBLIC_POST_FILTER =
-  '(!defined(internalOnly) || internalOnly == false) && (!defined(maintenanceLocked) || maintenanceLocked == false)'
+  '(!defined(internalOnly) || internalOnly == false) && (!defined(maintenanceLocked) || maintenanceLocked == false) && !(slug.current in ["nursing-assistant-compare-services-perspective", "comparison-of-three-resignation-agencies"])'
 const NEXT_STEPS_PATTERN = /次のステップ/
 const SUMMARY_HEADING_KEYWORDS = ['まとめ', 'さいごに', '最後に', 'おわりに']
 const GENERIC_INTERNAL_LINK_TEXTS = new Set(['こちらの記事', 'この記事', 'こちら', 'この記事'])
@@ -306,6 +312,11 @@ function isInternalOnly(post) {
 
 function isMaintenanceLocked(post) {
   return Boolean(post?.maintenanceLocked)
+}
+
+function isProtectedRevenueArticle(post) {
+  if (!post?.slug?.current) return false
+  return PROTECTED_REVENUE_SLUGS.includes(post.slug.current)
 }
 
 function sanitizeLinkMarkDefs(blocks) {
@@ -6912,5 +6923,7 @@ module.exports = {
   generateReport,
   autoFixMetadata,
   recategorizeAllPosts,
-  findDuplicateContentIssues
+  findDuplicateContentIssues,
+  PROTECTED_REVENUE_SLUGS,
+  isProtectedRevenueArticle
 }

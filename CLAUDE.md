@@ -1073,6 +1073,24 @@ vercel --previewe
   - 検証: ロック機能が正常に動作することを確認（全テスト成功）
 - 違反した場合は収益損失の重大インシデントとなる
 
+**🔐 収益最重要記事の絶対保護（maintenanceLockedの状態に関わらず編集禁止）**
+- 以下の2記事は、**maintenanceLockedフラグの状態に関わらず、絶対に編集してはいけません**
+  - `nursing-assistant-compare-services-perspective`（看護助手の転職サービス３社比較）
+  - `comparison-of-three-resignation-agencies`（退職代行３社のメリット・デメリット徹底比較）
+- これらは収益最適化のための最重要記事です
+- すべてのスクリプトで `PROTECTED_REVENUE_SLUGS` をハードコードし、これらのslugを明示的にスキップすること
+- `scripts/maintenance.js` の `PUBLIC_POST_FILTER` にもこれらのslugを除外するフィルタを追加済み
+- 実装例：
+  ```javascript
+  const { PROTECTED_REVENUE_SLUGS } = require('./maintenance');
+
+  if (PROTECTED_REVENUE_SLUGS.includes(slug)) {
+    console.log('🚫 収益最重要記事のため編集をスキップ');
+    return null;
+  }
+  ```
+- 違反した場合は収益損失の最重大インシデントとなる
+
 **🚫 UIデザイン変更の完全禁止**
 - レイアウト、色、フォント、スタイルの変更は絶対禁止
 - 詳細は `UI-DESIGN-LOCK.md` を参照
