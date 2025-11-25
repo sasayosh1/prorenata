@@ -109,16 +109,22 @@ ${targetCategory} (${CATEGORIES[targetCategory]})
 【既存の用語（重複禁止）】
 ${existingTerms.slice(0, 10).join(', ')}...など${existingTerms.length}件
 
+【既存のID（絶対に重複禁止）】
+${existingIds.slice(0, 20).join(', ')}...など${existingIds.length}件
+※ これらのIDは既に使用されています。必ず異なるIDを生成してください。
+
 【指示】
 1. カテゴリ「${CATEGORIES[targetCategory]}」に関連する医療用語を1つ生成してください
 2. 看護助手が現場でよく使う・聞く用語を優先してください
 3. 既存の用語と重複しないようにしてください
-4. 難易度は1（基礎）、2（標準）、3（応用）のいずれかを設定してください
-5. 3択問題として、正解1つ + 誤答2つを含めてください
+4. **重要**: IDは既存のIDリストと絶対に重複しないようにしてください
+5. IDは用語の内容を表す分かりやすい英数字（例: heart-rate, bp-check, insulin-injection）
+6. 難易度は1（基礎）、2（標準）、3（応用）のいずれかを設定してください
+7. 3択問題として、正解1つ + 誤答2つを含めてください
 
 【出力形式（JSON）】
 {
-  "id": "英数字のID（例: hr, oxygen-mask）",
+  "id": "英数字のID（例: heart-rate, oxygen-mask-use）※既存IDと重複禁止",
   "term": "用語名（例: HR（エイチアール））",
   "reading": "ひらがな読み（例: えいちあーる）",
   "meaning": "意味の説明（例: 心拍数（Heart Rate））",
