@@ -257,10 +257,18 @@ function finalizeSummary(text) {
   result = result.trim()
 
   if (!/[。！？!?]$/.test(result)) {
-    if (result.length >= MAX_LENGTH) {
+    result = result.replace(/[、,・;；]+$/u, '')
+    if (result.length + 1 > MAX_LENGTH) {
       result = result.slice(0, MAX_LENGTH - 1)
     }
     result = `${result}。`
+  }
+
+  if (result.length > MAX_LENGTH) {
+    result = result.slice(0, MAX_LENGTH)
+    if (!/[。！？!?]$/.test(result)) {
+      result = result.replace(/.$/, '。')
+    }
   }
 
   return result
