@@ -1038,6 +1038,20 @@ vercel --previewe
 
 ## ⚠️ 重要なルール
 
+**🔒 maintenanceLocked記事の完全保護（最重要・収益直結）**
+- `maintenanceLocked: true` が設定された記事は、**いかなるスクリプトも編集してはいけません**
+- すべての編集スクリプトは必ず以下のフィルタを使用すること：
+  ```groq
+  (!defined(maintenanceLocked) || maintenanceLocked == false)
+  ```
+- 対象記事（収益に直結する重要記事）：
+  - `comparison-of-three-resignation-agencies`（退職代行３社比較）
+  - `nursing-assistant-compare-services-perspective`（転職サービス３社比較）
+- **インシデント履歴**:
+  - 2025-11-25: スクリプトにmaintenanceLockedチェックが欠落し、ロック記事が編集される重大インシデント発生
+  - 対応: 全スクリプトにチェックを追加、検証テストスクリプトを作成（`test-maintenance-lock.js`）
+- 違反した場合は収益損失の重大インシデントとなる
+
 **🚫 UIデザイン変更の完全禁止**
 - レイアウト、色、フォント、スタイルの変更は絶対禁止
 - 詳細は `UI-DESIGN-LOCK.md` を参照

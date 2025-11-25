@@ -50,12 +50,13 @@ function findDisclaimerIndex(blocks) {
 async function fixRetirementArticle(slug) {
   console.log(`\n📝 処理中: ${slug}`);
 
-  // 記事を取得
+  // 記事を取得（maintenanceLockedチェック付き）
   const post = await client.fetch(`
-    *[_type == 'post' && slug.current == $slug][0]{
+    *[_type == 'post' && slug.current == $slug && (!defined(maintenanceLocked) || maintenanceLocked == false)][0]{
       _id,
       title,
-      body
+      body,
+      maintenanceLocked
     }
   `, { slug });
 
