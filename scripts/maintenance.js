@@ -32,7 +32,8 @@ const {
   addSourceLinksToArticle,
   buildFallbackSummaryBlocks,
   findSummaryInsertIndex,
-  removePersonaName
+  removePersonaName,
+  removeReferencesAfterSummary
 } = require('./utils/postHelpers')
 const {
   ensurePortableTextKeys,
@@ -4154,6 +4155,13 @@ async function autoFixMetadata() {
       }
     }
 
+    if (post.body && Array.isArray(post.body)) {
+      const referenceCleanup = removeReferencesAfterSummary(updates.body || post.body)
+      if (referenceCleanup.removed > 0) {
+        updates.body = referenceCleanup.body
+      }
+    }
+
     shouldInsertComparisonLink = shouldAddResignationComparisonLink(post, updates.body || post.body)
 
     const hasAffiliateEmbed = Array.isArray(updates.body || post.body)
@@ -4938,6 +4946,13 @@ async function sanitizeAllBodies(options = {}) {
       const summaryEnsureResult = ensureSummarySection(body, post.title)
       if (summaryEnsureResult.added) {
         body = summaryEnsureResult.body
+        summaryAdjusted = true
+        bodyChanged = true
+      }
+
+      const referenceCleanup = removeReferencesAfterSummary(body)
+      if (referenceCleanup.removed > 0) {
+        body = referenceCleanup.body
         summaryAdjusted = true
         bodyChanged = true
       }

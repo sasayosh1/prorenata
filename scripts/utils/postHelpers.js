@@ -2062,6 +2062,47 @@ async function addSourceLinksToArticle(blocks, title, currentPost = null) {
   }
 }
 
+function removeReferencesAfterSummary(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, removed: 0 }
+  }
+
+  const summaryIndex = blocks.findIndex(block => {
+    if (!block || block._type !== 'block' || block.style !== 'h2') return false
+    const text = blockPlainText(block)
+    return text === 'まとめ'
+  })
+
+  if (summaryIndex === -1) {
+    return { body: blocks, removed: 0 }
+  }
+
+  let endIndex = blocks.length
+  for (let i = summaryIndex + 1; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (block && block._type === 'block' && block.style === 'h2') {
+      endIndex = i
+      break
+    }
+  }
+
+  const prefixes = ['参考', '出典']
+  const updated = [...blocks]
+  let removed = 0
+
+  for (let i = endIndex - 1; i > summaryIndex; i -= 1) {
+    const block = updated[i]
+    if (!block || block._type !== 'block') continue
+    const text = blockPlainText(block)
+    if (prefixes.some(prefix => text.startsWith(prefix))) {
+      updated.splice(i, 1)
+      removed += 1
+    }
+  }
+
+  return { body: removed > 0 ? updated : blocks, removed }
+}
+
 module.exports = {
   blocksToPlainText,
   generateExcerpt,
@@ -2080,5 +2121,6 @@ module.exports = {
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
   buildFallbackSummaryBlocks,
-  findSummaryInsertIndex
+  findSummaryInsertIndex,
+  removeReferencesAfterSummary
 }
