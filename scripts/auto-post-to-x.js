@@ -258,9 +258,25 @@ function finalizeSummary(text) {
 
   if (!/[。！？!?]$/.test(result)) {
     result = result.replace(/[、,・;；]+$/u, '')
-    if (result.length + 1 > MAX_LENGTH) {
-      result = result.slice(0, MAX_LENGTH - 1)
+    const candidates = ['。', '！', '？', '!', '?']
+    const lastEnding = candidates
+      .map(mark => result.lastIndexOf(mark))
+      .reduce((max, index) => Math.max(max, index), -1)
+
+    if (lastEnding !== -1) {
+      result = result.slice(0, lastEnding + 1)
     }
+
+    if (result.length + 1 > MAX_LENGTH) {
+      const slicePoint = result.lastIndexOf('、', MAX_LENGTH - 1)
+      if (slicePoint !== -1) {
+        result = result.slice(0, slicePoint)
+      } else {
+        result = result.slice(0, MAX_LENGTH - 1)
+      }
+      result = result.replace(/[、,・;；]+$|[。！？!?]+$/u, '')
+    }
+
     result = `${result}。`
   }
 
