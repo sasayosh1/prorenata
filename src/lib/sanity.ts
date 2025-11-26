@@ -1,7 +1,7 @@
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
-import { TAG_CATALOG, type TagDefinition, getTagDefinition } from '@/data/tagCatalog'
+import { TAG_CATALOG, type TagDefinition, resolveTagDefinition } from '@/data/tagCatalog'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
@@ -361,7 +361,7 @@ export async function getCuratedTagStats(): Promise<TagStat[]> {
 }
 
 export async function getPostsByTagSlug(tagSlug: string, limit: number = 40): Promise<Post[]> {
-  const definition = getTagDefinition(tagSlug)
+  const definition = resolveTagDefinition(tagSlug)
   if (!definition) return []
 
   const keywords = buildTagKeywords(definition)

@@ -8,9 +8,10 @@ import Footer from '@/components/Footer'
 import RelatedPosts from '@/components/RelatedPosts'
 import ViewCounter from '@/components/ViewCounter'
 import { ArticleStructuredData, BreadcrumbStructuredData, OrganizationStructuredData } from '@/components/StructuredData'
-import { formatPostDate, getRelatedPosts } from '@/lib/sanity'
+import { formatPostDate, getRelatedPosts, urlFor } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
-import { CATEGORY_SUMMARY, getTagDefinition, type CategorySlug } from '@/data/tagCatalog'
+import { CATEGORY_SUMMARY, resolveTagDefinition, type CategorySlug } from '@/data/tagCatalog'
+import Image from 'next/image'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -82,9 +83,9 @@ function normalizeTags(tags?: string[] | null): NormalizedTag[] {
     const trimmed = typeof rawTag === 'string' ? rawTag.trim() : ''
     if (!trimmed) continue
 
-    const definition = getTagDefinition(trimmed)
+    const definition = resolveTagDefinition(trimmed)
     const label = definition?.title || trimmed
-    const slug = definition?.slug
+    const slug = definition?.slug || trimmed
     const uniqueKey = slug || label
 
     if (seen.has(uniqueKey)) {
@@ -132,10 +133,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     "hasBody": defined(body[0]),
     internalOnly
   }`
-  
+
   try {
     const post = await client.fetch(query, { slug: resolvedParams.slug })
-    
+
     if (!post) {
       return {
         title: '記事が見つかりません | ProReNata',
@@ -150,7 +151,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const canonicalUrl = `${baseUrl}/posts/${post.slug.current}`
     const publishedTime = post.publishedAt ?? post._createdAt
     const modifiedTime = post._updatedAt || post.publishedAt || post._createdAt
-    
+
     const title = `${post.title} | ProReNata`
     const description = post.metaDescription ||
       post.excerpt ||
@@ -190,9 +191,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
       robots: noIndex
         ? {
-            index: false,
-            follow: false,
-          }
+          index: false,
+          follow: false,
+        }
         : undefined,
     }
   } catch (error) {
@@ -214,7 +215,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   const resolvedParams = await params
   const isDraftMode = (await draftMode()).isEnabled
   const client = createSanityClient(isDraftMode)
-  
+
   const query = `*[_type == "post" && slug.current == $slug][0] {
     _id,
     title,
@@ -223,6 +224,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     publishedAt,
     _updatedAt,
     excerpt,
+    mainImage,
     body,
     focusKeyword,
     relatedKeywords,
@@ -305,157 +307,172 @@ export default async function PostDetailPage({ params }: PostPageProps) {
       </div>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <main>
-            <div className="xl:divide-y xl:divide-gray-200">
-              {/* パンくずナビゲーション */}
-              <nav className="flex items-center space-x-2 text-sm text-gray-500 pt-6 pb-4">
-                <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
-                  ホーム
-                </Link>
-                <span className="text-gray-300">/</span>
-                <Link href="/blog" className="hover:text-cyan-600 transition-colors duration-200">
-                  記事一覧
-                </Link>
-                <span className="text-gray-300">/</span>
-                <span className="text-gray-900 font-medium truncate">{post.title}</span>
-              </nav>
+          <div className="xl:divide-y xl:divide-gray-200">
+            {/* パンくずナビゲーション */}
+            <nav className="flex items-center space-x-2 text-sm text-gray-500 pt-6 pb-4">
+              <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
+                ホーム
+              </Link>
+              <span className="text-gray-300">/</span>
+              <Link href="/blog" className="hover:text-cyan-600 transition-colors duration-200">
+                記事一覧
+              </Link>
+              <span className="text-gray-300">/</span>
+              <span className="text-gray-900 font-medium truncate">{post.title}</span>
+            </nav>
 
-              <header className="pt-6 xl:pb-6">
-                <div className="space-y-1 text-center">
-                  <dl className="space-y-10">
-                    <div>
-                      <dt className="sr-only">Published on</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500">
-                        {(() => {
-                          const { dateTime, label } = formatPostDate(post, {
-                            weekday: 'long',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                          })
-                          return dateTime ? (
-                            <time dateTime={dateTime}>
-                              {label}
-                            </time>
-                          ) : (
-                            <span>{label}</span>
-                          )
-                        })()}
-                      </dd>
-                    </div>
-                  </dl>
+            <header className="pt-6 xl:pb-6">
+              <div className="space-y-1 text-center">
+                <dl className="space-y-10">
                   <div>
-                    <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-                      {post.title}
-                    </h1>
+                    <dt className="sr-only">Published on</dt>
+                    <dd className="text-base font-medium leading-6 text-gray-500">
+                      {(() => {
+                        const { dateTime, label } = formatPostDate(post, {
+                          weekday: 'long',
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })
+                        return dateTime ? (
+                          <time dateTime={dateTime}>
+                            {label}
+                          </time>
+                        ) : (
+                          <span>{label}</span>
+                        )
+                      })()}
+                    </dd>
                   </div>
-                  {/* 閲覧数カウンター */}
-                  <div className="flex justify-center pt-2">
-                    <ViewCounter slug={post.slug.current} />
-                  </div>
+                </dl>
+                <div>
+                  <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+                    {post.title}
+                  </h1>
                 </div>
-              </header>
-              <div className="pb-8 space-y-12">
-                {/* 記事コンテンツ */}
-                <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{ color: '#111827 !important' }}>
-                  {hasBody ? (
-                    <ArticleWithTOC content={post.body} />
-                  ) : (
-                    <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">
-                      <p className="text-lg font-semibold mb-2">この記事は現在準備中です。</p>
-                      <p className="text-sm">公開まで今しばらくお待ちください。</p>
-                    </div>
-                  )}
+                {/* 閲覧数カウンター */}
+                <div className="flex justify-center pt-2">
+                  <ViewCounter slug={post.slug.current} />
                 </div>
+              </div>
+            </header>
 
-                {hasTopicMeta && (
-                  <div className="my-10 py-8 border-y border-dashed border-gray-200" aria-label="この記事のカテゴリとタグ">
-                    <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-                      {normalizedCategories.length > 0 && (
-                        <div className="flex-1 text-center sm:text-left">
-                          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
-                            カテゴリ
-                          </p>
-                          <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
-                            {normalizedCategories.map(category => {
-                              const key = category.slug || category.title
-                              if (category.slug) {
-                                return (
-                                  <Link
-                                    key={key}
-                                    href={`/categories/${category.slug}`}
-                                    className={categoryChipClass}
-                                  >
-                                    {category.title}
-                                  </Link>
-                                )
-                              }
-                              return (
-                                <span key={key} className={categoryChipClass}>
-                                  {category.title}
-                                </span>
-                              )
-                            })}
-                          </div>
-                        </div>
-                      )}
-                      {normalizedTags.length > 0 && (
-                        <div className="flex-1 text-center sm:text-left">
-                          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
-                            タグ
-                          </p>
-                          <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
-                            {normalizedTags.map(tag => {
-                              const key = tag.slug || tag.label
-                              if (tag.slug) {
-                                return (
-                                  <Link
-                                    key={key}
-                                    href={`/tags/${tag.slug}`}
-                                    className={tagChipClass}
-                                  >
-                                    #{tag.label}
-                                  </Link>
-                                )
-                              }
-                              return (
-                                <span key={key} className={tagChipClass}>
-                                  #{tag.label}
-                                </span>
-                              )
-                            })}
-                          </div>
-                        </div>
-                      )}
-                    </div>
+            {/* アイキャッチ画像 */}
+            {post.mainImage && (
+              <div className="relative w-full aspect-video mb-8 rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src={urlFor(post.mainImage).url()}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+            )}
+
+            <div className="pb-8 space-y-12">
+              {/* 記事コンテンツ */}
+              <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{ color: '#111827 !important' }}>
+                {hasBody ? (
+                  <ArticleWithTOC content={post.body} />
+                ) : (
+                  <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">
+                    <p className="text-lg font-semibold mb-2">この記事は現在準備中です。</p>
+                    <p className="text-sm">公開まで今しばらくお待ちください。</p>
                   </div>
                 )}
-
-                {/* 関連記事セクション（次のステップ） */}
-                {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
-
-                {/* 記事下部のナビゲーション */}
-                <footer className="pt-8">
-                  <div className="pt-6">
-                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                      <Link
-                        href="/blog"
-                        className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
-                        aria-label="記事一覧に戻る"
-                      >
-                        記事一覧に戻る
-                      </Link>
-                      <Link
-                        href="/"
-                        className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
-                        aria-label="ホームに戻る"
-                      >
-                        ホームに戻る
-                      </Link>
-                    </div>
-                  </div>
-                </footer>
               </div>
+
+              {hasTopicMeta && (
+                <div className="my-10 py-8 border-y border-dashed border-gray-200" aria-label="この記事のカテゴリとタグ">
+                  <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+                    {normalizedCategories.length > 0 && (
+                      <div className="flex-1 text-center sm:text-left">
+                        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
+                          カテゴリ
+                        </p>
+                        <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
+                          {normalizedCategories.map(category => {
+                            const key = category.slug || category.title
+                            if (category.slug) {
+                              return (
+                                <Link
+                                  key={key}
+                                  href={`/categories/${category.slug}`}
+                                  className={categoryChipClass}
+                                >
+                                  {category.title}
+                                </Link>
+                              )
+                            }
+                            return (
+                              <span key={key} className={categoryChipClass}>
+                                {category.title}
+                              </span>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )}
+                    {normalizedTags.length > 0 && (
+                      <div className="flex-1 text-center sm:text-left">
+                        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
+                          タグ
+                        </p>
+                        <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
+                          {normalizedTags.map(tag => {
+                            const key = tag.slug || tag.label
+                            if (tag.slug) {
+                              return (
+                                <Link
+                                  key={key}
+                                  href={`/tags/${tag.slug}`}
+                                  className={tagChipClass}
+                                >
+                                  #{tag.label}
+                                </Link>
+                              )
+                            }
+                            return (
+                              <span key={key} className={tagChipClass}>
+                                #{tag.label}
+                              </span>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* 関連記事セクション（次のステップ） */}
+              {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
+
+              {/* 記事下部のナビゲーション */}
+              <footer className="pt-8">
+                <div className="pt-6">
+                  <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                    <Link
+                      href="/blog"
+                      className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+                      aria-label="記事一覧に戻る"
+                    >
+                      記事一覧に戻る
+                    </Link>
+                    <Link
+                      href="/"
+                      className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+                      aria-label="ホームに戻る"
+                    >
+                      ホームに戻る
+                    </Link>
+                  </div>
+                </div>
+              </footer>
             </div>
+          </div>
         </main>
       </div>
       <Footer />

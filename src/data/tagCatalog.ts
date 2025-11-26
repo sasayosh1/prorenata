@@ -202,6 +202,17 @@ function normalizeTagInput(value: string) {
   return value.trim().replace(/^#/, '')
 }
 
+function createFallbackTagDefinition(normalizedValue: string): TagDefinition | undefined {
+  if (!normalizedValue) return undefined
+  return {
+    slug: normalizedValue,
+    title: normalizedValue,
+    description: `${normalizedValue}に関する記事をまとめたタグです。`,
+    categorySlug: 'work',
+    keywords: [normalizedValue],
+  }
+}
+
 export function getTagDefinition(rawValue: string): TagDefinition | undefined {
   if (!rawValue) return undefined
   const normalized = normalizeTagInput(rawValue)
@@ -213,6 +224,12 @@ export function getTagDefinition(rawValue: string): TagDefinition | undefined {
     const keywordMatches = tag.keywords?.some(keyword => keyword === normalized)
     return slugMatches || titleMatches || keywordMatches
   })
+}
+
+export function resolveTagDefinition(rawValue: string): TagDefinition | undefined {
+  if (!rawValue) return undefined
+  const normalized = normalizeTagInput(rawValue)
+  return getTagDefinition(normalized) || createFallbackTagDefinition(normalized)
 }
 
 export function getTagsGroupedByCategory(definitions: TagDefinition[] = TAG_CATALOG) {
