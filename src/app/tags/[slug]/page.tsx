@@ -16,7 +16,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params
-  const tag = resolveTagDefinition(resolvedParams.slug)
+  const decodedSlug = decodeURIComponent(resolvedParams.slug)
+  const tag = resolveTagDefinition(decodedSlug)
   if (!tag) {
     return {
       title: 'タグが見つかりません',
@@ -35,7 +36,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TagDetailPage({ params }: Props) {
   const resolvedParams = await params
-  const tag = resolveTagDefinition(resolvedParams.slug)
+  const decodedSlug = decodeURIComponent(resolvedParams.slug)
+  const tag = resolveTagDefinition(decodedSlug)
   if (!tag) {
     notFound()
   }
