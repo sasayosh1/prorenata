@@ -1437,6 +1437,7 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
   } = require('../moshimo-affiliate-links')
   const SERVICE_AFFILIATE_LIMIT = 2
   const disableRetirementAffiliates = Boolean(options.disableRetirementAffiliates)
+  const disableCareerAffiliates = Boolean(options.disableCareerAffiliates)
   const bodyText = blocksToPlainText(blocks)
   const suggestions = suggestLinksForArticle(title, bodyText)
 
@@ -1510,6 +1511,9 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
     if (disableRetirementAffiliates && link.category === '退職代行') {
       return
     }
+    if (disableCareerAffiliates && link.category === '就職・転職') {
+      return
+    }
     if (existingAffiliateKeys.has(link.key)) {
       return
     }
@@ -1537,7 +1541,8 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
       text: combinedText,
       slug,
       categories: categoryNames,
-      disableRetirement: disableRetirementAffiliates
+      disableRetirement: disableRetirementAffiliates,
+      disableCareer: disableCareerAffiliates
     })
     fallbackKeys.forEach(key => {
       const link = MOSHIMO_LINKS[key]
@@ -1895,7 +1900,8 @@ function determineFallbackAffiliateKeys({
   text = '',
   slug = '',
   categories = '',
-  disableRetirement = false
+  disableRetirement = false,
+  disableCareer = false
 }) {
   const normalizedText = text.toLowerCase()
   const normalizedSlug = slug.toLowerCase()
@@ -1918,7 +1924,7 @@ function determineFallbackAffiliateKeys({
 
   if (wantsRetirement) {
     keys.push('miyabi', 'sokuyame')
-  } else if (wantsCareer) {
+  } else if (wantsCareer && !disableCareer) {
     keys.push('humanlifecare', 'kaigobatake')
   }
 

@@ -956,9 +956,15 @@ function filterOutInternalPosts(posts = []) {
 }
 
 const RESIGNATION_COMPARISON_SLUG = '/posts/comparison-of-three-resignation-agencies'
+const CAREER_COMPARISON_SLUG = '/posts/nursing-assistant-compare-services-perspective'
 const RETIREMENT_AFFILIATE_KEYS = new Set(
   Object.entries(MOSHIMO_LINKS)
     .filter(([, link]) => link.category === '退職代行')
+    .map(([key]) => key)
+)
+const CAREER_AFFILIATE_KEYS = new Set(
+  Object.entries(MOSHIMO_LINKS)
+    .filter(([, link]) => link.category === '就職・転職')
     .map(([key]) => key)
 )
 const RETIREMENT_KEYWORDS = [
@@ -970,6 +976,7 @@ const RETIREMENT_KEYWORDS = [
   '有給',
   '退職代行'
 ]
+const CAREER_KEYWORD_REGEX = /転職|求人|就職|応募|志望動機|面接|履歴書|職務経歴書|エージェント|キャリア|キャリアアップ|career|job|apply|interview|内定|派遣|副業|ダブルワーク|働き方|昇格|正社員/
 
 const REFERENCE_MAPPINGS = [
   {
@@ -1614,6 +1621,84 @@ function shouldAddResignationComparisonLink(post = {}, blocks = []) {
   return RETIREMENT_KEYWORDS.some(keyword => textSources.includes(keyword))
 }
 
+function shouldAddCareerComparisonLink(post = {}, blocks = []) {
+  if (!post || isInternalOnly(post) || isMaintenanceLocked(post)) {
+    return false
+  }
+
+  const normalizedCategories = getNormalizedCategoryTitles(
+    (post.categories || []).map(category => (typeof category === 'string' ? category : category?.title || ''))
+  )
+
+  if (
+    normalizedCategories.includes('転職') ||
+    normalizedCategories.includes('キャリア形成')
+  ) {
+    return true
+  }
+
+  const slug = typeof post.slug === 'string' ? post.slug : post.slug?.current || ''
+  const textSources = [post.title || '', slug || '', blocksToPlainText(blocks || [])]
+    .join(' ')
+    .toLowerCase()
+
+  return CAREER_KEYWORD_REGEX.test(textSources)
+}
+
+function createCareerComparisonBlock() {
+  const linkKey = `link-${randomUUID()}`
+  return {
+    _type: 'block',
+    _key: `career-comparison-${randomUUID()}`,
+    style: 'normal',
+    markDefs: [
+      {
+        _key: linkKey,
+        _type: 'link',
+        href: CAREER_COMPARISON_SLUG
+      }
+    ],
+    children: [
+      {
+        _type: 'span',
+        _key: `career-lead-${randomUUID()}`,
+        text: '看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。',
+        marks: []
+      },
+      {
+        _type: 'span',
+        _key: `career-link-${randomUUID()}`,
+        text: '詳しい比較記事を読む',
+        marks: [linkKey]
+      }
+    ]
+  }
+}
+
+function ensureCareerComparisonLink(blocks, post, options = {}) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, inserted: false }
+  }
+
+  const shouldForce = Boolean(options.force)
+  if (!shouldForce) {
+    return { body: blocks, inserted: false }
+  }
+
+  const alreadyExists = blocks.some(block => blockContainsLink(block, CAREER_COMPARISON_SLUG))
+  if (alreadyExists) {
+    return { body: blocks, inserted: false }
+  }
+
+  const insertionIndex = Math.max(0, findSummaryInsertIndex(blocks))
+  const block = createCareerComparisonBlock()
+  const updated = [...blocks]
+  updated.splice(insertionIndex, 0, block)
+
+  const cleaned = removeNearbyCareerAffiliates(updated, insertionIndex, AFFILIATE_MIN_GAP_BLOCKS)
+  return { body: cleaned.body, inserted: true }
+}
+
 function blockContainsLink(block, targetHref) {
   if (!block || block._type !== 'block' || !Array.isArray(block.markDefs)) return false
   const normalizedTarget = targetHref.toLowerCase()
@@ -1694,6 +1779,31 @@ function removeNearbyRetirementAffiliates(blocks, centerIndex, radius = 2) {
   return { body: result, removed }
 }
 
+function removeNearbyCareerAffiliates(blocks, centerIndex, radius = 2) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, removed: 0 }
+  }
+
+  const result = [...blocks]
+  let removed = 0
+
+  const isCareerEmbed = block =>
+    block &&
+    block._type === 'affiliateEmbed' &&
+    typeof block.linkKey === 'string' &&
+    CAREER_AFFILIATE_KEYS.has(block.linkKey)
+
+  for (let i = result.length - 1; i >= 0; i -= 1) {
+    if (Math.abs(i - centerIndex) > radius) continue
+    if (isCareerEmbed(result[i])) {
+      result.splice(i, 1)
+      removed += 1
+    }
+  }
+
+  return { body: result, removed }
+}
+
 function ensureResignationComparisonLink(blocks, post, options = {}) {
   if (!Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, inserted: false }
@@ -1718,6 +1828,19 @@ function ensureResignationComparisonLink(blocks, post, options = {}) {
   return { body: cleaned.body, inserted: true }
 }
 
+function ensureCareerInternalLink(blocks, post) {
+  const needsCareerLink = shouldAddCareerComparisonLink(post, blocks)
+  if (!needsCareerLink) {
+    return { body: blocks, inserted: false, needed: false }
+  }
+  const result = ensureCareerComparisonLink(blocks, post, { force: true })
+  return {
+    body: result.body,
+    inserted: result.inserted,
+    needed: true
+  }
+}
+
 function ensureAffiliateContextBlocks(blocks) {
   return { body: blocks, added: 0 }
 }
@@ -1737,6 +1860,7 @@ function removeIrrelevantAffiliateBlocks(blocks, currentPost, options = {}) {
   const allowDenseAffiliate = isItemRoundupArticle(currentPost)
   let lastAffiliateIndex = Number.NEGATIVE_INFINITY
   const removeRetirementAffiliates = Boolean(options.removeRetirementAffiliates)
+  const removeCareerAffiliates = Boolean(options.removeCareerAffiliates)
 
   for (let i = 0; i < blocks.length; i += 1) {
     const block = blocks[i]
@@ -1760,7 +1884,12 @@ function removeIrrelevantAffiliateBlocks(blocks, currentPost, options = {}) {
       const key = meta?.key
       const isNonLimited = key ? NON_LIMITED_AFFILIATE_KEYS.has(key) : false
       const isRetirementAffiliate = key ? RETIREMENT_AFFILIATE_KEYS.has(key) : false
+      const isCareerAffiliate = key ? CAREER_AFFILIATE_KEYS.has(key) : false
       if (removeRetirementAffiliates && isRetirementAffiliate) {
+        removed += 1
+        continue
+      }
+      if (removeCareerAffiliates && isCareerAffiliate) {
         removed += 1
         continue
       }
@@ -4164,12 +4293,18 @@ async function autoFixMetadata() {
 
     shouldInsertComparisonLink = shouldAddResignationComparisonLink(post, updates.body || post.body)
 
+    const careerLinkResult = ensureCareerInternalLink(updates.body || post.body, post)
+    if (careerLinkResult.inserted) {
+      updates.body = careerLinkResult.body
+    }
+
     const hasAffiliateEmbed = Array.isArray(updates.body || post.body)
       ? (updates.body || post.body).some(block => block?._type === 'affiliateEmbed')
       : false
     if (forceLinkMaintenance || !hasAffiliateEmbed) {
       const affiliateResult = addAffiliateLinksToArticle(updates.body || post.body, post.title, post, {
-        disableRetirementAffiliates: shouldInsertComparisonLink
+        disableRetirementAffiliates: shouldInsertComparisonLink,
+        disableCareerAffiliates: careerLinkResult.needed
       })
       if (affiliateResult.addedLinks > 0) {
         updates.body = affiliateResult.body
@@ -4191,12 +4326,19 @@ async function autoFixMetadata() {
       }
     }
 
-    if (shouldInsertComparisonLink) {
-      const comparisonLinkResult = ensureResignationComparisonLink(updates.body || post.body, post, { force: true })
-      if (comparisonLinkResult.inserted) {
-        updates.body = comparisonLinkResult.body
+      if (shouldInsertComparisonLink) {
+        const comparisonLinkResult = ensureResignationComparisonLink(updates.body || post.body, post, { force: true })
+        if (comparisonLinkResult.inserted) {
+          updates.body = comparisonLinkResult.body
+        }
       }
-    }
+
+      if (careerLinkResult.needed) {
+        const finalCareerLinkResult = ensureCareerComparisonLink(updates.body || post.body, post, { force: true })
+        if (finalCareerLinkResult.inserted) {
+          updates.body = finalCareerLinkResult.body
+        }
+      }
 
     // アフィリエイトリンクの自動追加（収益最適化）は上部で既に実行済み
 
@@ -4279,7 +4421,8 @@ async function autoFixMetadata() {
       }
 
       const irrelevantAffiliateResult = removeIrrelevantAffiliateBlocks(updates.body || post.body, post, {
-        removeRetirementAffiliates: shouldInsertComparisonLink
+        removeRetirementAffiliates: shouldInsertComparisonLink,
+        removeCareerAffiliates: careerLinkResult.needed
       })
       if (irrelevantAffiliateResult.removed > 0) {
         updates.body = irrelevantAffiliateResult.body
@@ -4833,6 +4976,7 @@ async function sanitizeAllBodies(options = {}) {
     let sourceLinkAdded = null
     let nextStepsSectionsRemoved = 0
     let shouldInsertComparisonLink = false
+    let careerLinkResult = { body, inserted: false, needed: false }
     let genericLinkTextReplaced = 0
     let denseParagraphsSplit = 0
     let restoredAffiliateEmbeds = 0
@@ -4959,6 +5103,12 @@ async function sanitizeAllBodies(options = {}) {
 
       shouldInsertComparisonLink = shouldAddResignationComparisonLink(post, body)
 
+      careerLinkResult = ensureCareerInternalLink(body, post)
+      if (careerLinkResult.inserted) {
+        body = careerLinkResult.body
+        bodyChanged = true
+      }
+
       const referenceResult = await normalizeReferenceLinks(body, post.title)
       body = referenceResult.body
       referencesFixedForPost = referenceResult.fixed
@@ -4992,7 +5142,8 @@ async function sanitizeAllBodies(options = {}) {
       }
 
       const irrelevantAffiliateResult = removeIrrelevantAffiliateBlocks(body, post, {
-        removeRetirementAffiliates: shouldInsertComparisonLink
+        removeRetirementAffiliates: shouldInsertComparisonLink,
+        removeCareerAffiliates: careerLinkResult.needed
       })
       if (irrelevantAffiliateResult.removed > 0) {
         body = irrelevantAffiliateResult.body
@@ -5067,7 +5218,8 @@ async function sanitizeAllBodies(options = {}) {
       const hasAffiliateEmbedInBody = body.some(block => block?._type === 'affiliateEmbed')
       if (forceLinkMaintenance || !hasAffiliateEmbedInBody) {
         const affiliateResult = addAffiliateLinksToArticle(body, post.title, post, {
-          disableRetirementAffiliates: shouldInsertComparisonLink
+          disableRetirementAffiliates: shouldInsertComparisonLink,
+          disableCareerAffiliates: careerLinkResult.needed
         })
         if (affiliateResult.addedLinks > 0) {
           body = affiliateResult.body
@@ -5093,6 +5245,14 @@ async function sanitizeAllBodies(options = {}) {
         const comparisonLinkResult = ensureResignationComparisonLink(body, post, { force: true })
         if (comparisonLinkResult.inserted) {
           body = comparisonLinkResult.body
+          bodyChanged = true
+        }
+      }
+
+      if (careerLinkResult.needed) {
+        const finalCareerLinkResult = ensureCareerComparisonLink(body, post, { force: true })
+        if (finalCareerLinkResult.inserted) {
+          body = finalCareerLinkResult.body
           bodyChanged = true
         }
       }
