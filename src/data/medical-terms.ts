@@ -371,6 +371,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'kekkanshou',
+    term: '血管（けっかん）',
+    reading: 'けっかん',
+    meaning: '血液が流れる管のこと。動脈、静脈、毛細血管などがある。',
+    distractors: ['筋肉', '骨格'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
