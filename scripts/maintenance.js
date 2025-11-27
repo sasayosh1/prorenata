@@ -33,7 +33,8 @@ const {
   buildFallbackSummaryBlocks,
   findSummaryInsertIndex,
   removePersonaName,
-  removeReferencesAfterSummary
+  removeReferencesAfterSummary,
+  removeSummaryListItems
 } = require('./utils/postHelpers')
 const {
   ensurePortableTextKeys,
@@ -4291,6 +4292,13 @@ async function autoFixMetadata() {
       }
     }
 
+    if (post.body && Array.isArray(post.body)) {
+      const summaryListResult = removeSummaryListItems(updates.body || post.body)
+      if (summaryListResult.converted > 0) {
+        updates.body = summaryListResult.body
+      }
+    }
+
     shouldInsertComparisonLink = shouldAddResignationComparisonLink(post, updates.body || post.body)
 
     const careerLinkResult = ensureCareerInternalLink(updates.body || post.body, post)
@@ -5097,6 +5105,13 @@ async function sanitizeAllBodies(options = {}) {
       const referenceCleanup = removeReferencesAfterSummary(body)
       if (referenceCleanup.removed > 0) {
         body = referenceCleanup.body
+        summaryAdjusted = true
+        bodyChanged = true
+      }
+
+      const summaryListResult = removeSummaryListItems(body)
+      if (summaryListResult.converted > 0) {
+        body = summaryListResult.body
         summaryAdjusted = true
         bodyChanged = true
       }

@@ -1682,6 +1682,48 @@ function findAffiliateContextHeading(blocks, insertIndex) {
   return ''
 }
 
+function removeSummaryListItems(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, converted: 0 }
+  }
+
+  const summaryIndex = blocks.findIndex(block => {
+    if (!block || block._type !== 'block' || block.style !== 'h2') return false
+    return blockPlainText(block) === 'まとめ'
+  })
+
+  if (summaryIndex === -1) {
+    return { body: blocks, converted: 0 }
+  }
+
+  let endIndex = blocks.length
+  for (let i = summaryIndex + 1; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (block && block._type === 'block' && block.style === 'h2') {
+      endIndex = i
+      break
+    }
+  }
+
+  const updated = [...blocks]
+  let converted = 0
+
+  for (let i = summaryIndex + 1; i < endIndex; i += 1) {
+    const block = updated[i]
+    if (!block || block._type !== 'block') continue
+    if (block.listItem) {
+      const newBlock = { ...block }
+      delete newBlock.listItem
+      delete newBlock.level
+      newBlock.style = 'normal'
+      updated[i] = newBlock
+      converted += 1
+    }
+  }
+
+  return { body: converted > 0 ? updated : blocks, converted }
+}
+
 function resolvePreferredAffiliateKeys(post, combinedText) {
   const text = (combinedText || '').toLowerCase()
   const slug = (typeof post?.slug === 'string'
@@ -2128,5 +2170,6 @@ module.exports = {
   addSourceLinksToArticle,
   buildFallbackSummaryBlocks,
   findSummaryInsertIndex,
-  removeReferencesAfterSummary
+  removeReferencesAfterSummary,
+  removeSummaryListItems
 }
