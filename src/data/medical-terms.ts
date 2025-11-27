@@ -380,6 +380,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 'iv-catheter',
+    term: 'IVカテーテル',
+    reading: 'アイブイカテーテル',
+    meaning: '点滴を行う際に血管に挿入する細い管のこと。',
+    distractors: ['酸素マスク', '吸引チューブ'],
+    category: 'equipment',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
