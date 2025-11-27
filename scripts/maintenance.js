@@ -34,7 +34,8 @@ const {
   findSummaryInsertIndex,
   removePersonaName,
   removeReferencesAfterSummary,
-  removeSummaryListItems
+  removeSummaryListItems,
+  repositionServiceAffiliates
 } = require('./utils/postHelpers')
 const {
   ensurePortableTextKeys,
@@ -4322,6 +4323,13 @@ async function autoFixMetadata() {
       }
     }
 
+    if (post.body && Array.isArray(updates.body || post.body)) {
+      const servicePlacementResult = repositionServiceAffiliates(updates.body || post.body)
+      if (servicePlacementResult.moved > 0) {
+        updates.body = servicePlacementResult.body
+      }
+    }
+
     const hasReferenceBlock = Array.isArray(updates.body || post.body)
       ? (updates.body || post.body).some(block => isReferenceBlock(block))
       : false
@@ -5242,6 +5250,12 @@ async function sanitizeAllBodies(options = {}) {
           totalAffiliateLinksInserted += affiliateResult.addedLinks
           bodyChanged = true
         }
+      }
+
+      const servicePlacementResult = repositionServiceAffiliates(body)
+      if (servicePlacementResult.moved > 0) {
+        body = servicePlacementResult.body
+        bodyChanged = true
       }
 
       const hasReferenceBlockInBody = body.some(block => isReferenceBlock(block))

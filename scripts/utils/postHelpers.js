@@ -11,6 +11,7 @@ const {
   CATEGORY_KEYWORDS,
   normalizeCategoryTitle
 } = require('./categoryMappings')
+const { MOSHIMO_LINKS } = require('../moshimo-affiliate-links')
 
 const INTRO_PARAGRAPH_PATTERNS = [
   /\d{1,2}歳/,
@@ -1724,6 +1725,51 @@ function removeSummaryListItems(blocks) {
   return { body: converted > 0 ? updated : blocks, converted }
 }
 
+function isServiceAffiliateBlock(block) {
+  if (!block || block._type !== 'affiliateEmbed') {
+    return false
+  }
+  const key = block.linkKey
+  if (!key || !MOSHIMO_LINKS[key]) return false
+  const category = MOSHIMO_LINKS[key].category || ''
+  return category !== 'アイテム'
+}
+
+function repositionServiceAffiliates(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, moved: 0 }
+  }
+
+  const summaryInsertIndex = findSummaryInsertIndex(blocks)
+  if (summaryInsertIndex <= 0 || summaryInsertIndex > blocks.length) {
+    return { body: blocks, moved: 0 }
+  }
+
+  const serviceIndexes = []
+  blocks.forEach((block, index) => {
+    if (isServiceAffiliateBlock(block)) {
+      serviceIndexes.push(index)
+    }
+  })
+
+  if (serviceIndexes.length === 0) {
+    return { body: blocks, moved: 0 }
+  }
+
+  const targetIndex = serviceIndexes[serviceIndexes.length - 1]
+  const updated = [...blocks]
+  const [targetBlock] = updated.splice(targetIndex, 1)
+
+  const newInsertionIndex = findSummaryInsertIndex(updated)
+  if (newInsertionIndex <= 0 || newInsertionIndex > updated.length) {
+    updated.splice(targetIndex, 0, targetBlock)
+    return { body: blocks, moved: 0 }
+  }
+
+  updated.splice(newInsertionIndex, 0, targetBlock)
+  return { body: updated, moved: 1 }
+}
+
 function resolvePreferredAffiliateKeys(post, combinedText) {
   const text = (combinedText || '').toLowerCase()
   const slug = (typeof post?.slug === 'string'
@@ -2171,5 +2217,6 @@ module.exports = {
   buildFallbackSummaryBlocks,
   findSummaryInsertIndex,
   removeReferencesAfterSummary,
-  removeSummaryListItems
+  removeSummaryListItems,
+  repositionServiceAffiliates
 }
