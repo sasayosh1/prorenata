@@ -57,6 +57,21 @@ const MOSHIMO_LINKS = {
     condition: '新規会員登録'
   },
 
+  kaigobiyou: {
+    name: '介護美容研究所',
+    description: '介護×美容専門のスクール（週1通学＋振替制度／現場実習あり）',
+    category: '資格',
+    targetArticles: ['介護美容', 'スクール', '学び直し', '研修', 'カリキュラム'],
+    html: '<a href="https://px.a8.net/svt/ejp?a8mat=3BQLBJ+BSICCY+4LBY+5YJRM" rel="nofollow">介護美容研究所</a><img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=3BQLBJ+BSICCY+4LBY+5YJRM" alt="">',
+    appealText: '💡 介護×美容の専門スクール資料を取り寄せる',
+    linkText: '介護美容研究所で資料を取り寄せる',
+    url: 'https://px.a8.net/svt/ejp?a8mat=3BQLBJ+BSICCY+4LBY+5YJRM',
+    active: true,
+    addedDate: '2025-11-27',
+    reward: '紹介成果に準ずる',
+    condition: '資料請求・説明会申込'
+  },
+
   // アイテム・商品
   nursery: {
     name: 'ナースリー',
