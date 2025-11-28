@@ -1,4 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ここから下に、もともとの CSS がずらっと続く状態になります */
 
 /* Custom utilities for line clamping */
 .line-clamp-2 {
