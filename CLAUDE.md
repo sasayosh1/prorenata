@@ -174,6 +174,24 @@ vercel --previewe
 
 ---
 
+72. 🔧 **Tailwind/PostCSS設定エラーの修復** (2025-11-28)
+   - **問題**: `npm run dev` 起動時に `Module parse failed: Unexpected character '@'` エラーが発生し、Tailwindが動作しなかった
+   - **根本原因**: `postcss.config.mjs` に間違ったプラグイン名が設定されていた
+     - 誤: `'@tailwindcss/postcss'` (存在しないプラグイン)
+     - 正: `'tailwindcss'` (正しいプラグイン名)
+   - **修正内容**:
+     - `postcss.config.mjs` のプラグイン名を修正: `@tailwindcss/postcss` → `tailwindcss`
+     - `autoprefixer` プラグインを追加（ベンダープレフィックス自動付与）
+     - ESM形式（`export default`）に統一
+   - **副次的な問題**: `NODE_ENV=production` が設定されていたことも影響
+   - **修正ファイル**: `postcss.config.mjs`
+   - **効果**:
+     - `npm run dev` が正常に起動（`✓ Compiled / in 1487ms`）
+     - `http://localhost:3000` でprorenataのトップページが正常に表示
+     - Tailwindが正しく動作（`@tailwind base;` などのエラー解消）
+     - HTTP 200 OK レスポンス確認
+   - **作業ブランチ**: `fix/tailwind-next-dev`
+
 71. 🚨 **【重大インシデント】メディカルクイズのリセット時間改変の復旧** (2025-11-26)
    - **インシデント**: メディカルクイズ作成時は JST 0:00 リセットで設定したのに、何らかの理由で JST 9:00 リセットに改変されていた
    - **発覚経緯**: ユーザーから「日本時間、JST0:00に変更してください」との指示で発覚
