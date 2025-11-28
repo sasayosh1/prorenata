@@ -389,6 +389,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'equipment',
     difficulty: 1
   },
+  {
+    id: 'body-temperature-check',
+    term: '体温測定',
+    reading: 'たいおんそくてい',
+    meaning: '体温計を用いて、体温を測ること。',
+    distractors: ['血圧測定', '脈拍測定'],
+    category: 'vital-signs',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
