@@ -21,29 +21,29 @@ const client = createClient({
 
 const MAPPING = [
     {
-        postId: '9f6xTbJiqM1HBxBrXolcZm',
-        imagePath: '/Users/sasakiyoshimasa/.gemini/antigravity/brain/fe726e86-fae6-44cc-936a-2a92547730cf/mixed_shoes_thumbnail_v2_1764042528788.png'
+        postId: '9f6xTbJiqM1HBxBrXolcZm', // Shoes
+        imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/sera_shoes_existing_1024x576.png'
     },
-    {
-        postId: 'f3bbd9d1-a011-42d8-80b4-42a76196f147',
-        imagePath: '/Users/sasakiyoshimasa/.gemini/antigravity/brain/fe726e86-fae6-44cc-936a-2a92547730cf/mixed_guide_thumbnail_v2_1764042566740.png'
-    },
-    {
-        postId: 'SzUxrrzdcuBDmahbHkaQ1w',
-        imagePath: '/Users/sasakiyoshimasa/.gemini/antigravity/brain/fe726e86-fae6-44cc-936a-2a92547730cf/mixed_scholarship_thumbnail_v2_1764042610880.png'
-    },
-    {
-        postId: '577431d4-a38e-40be-895d-02aed4de68ea',
-        imagePath: '/Users/sasakiyoshimasa/.gemini/antigravity/brain/fe726e86-fae6-44cc-936a-2a92547730cf/mixed_communication_thumbnail_v2_1764042688658.png'
-    },
-    {
-        postId: 'xTfm06TmDEW5bLJjXjBzkL',
-        imagePath: '/Users/sasakiyoshimasa/.gemini/antigravity/brain/fe726e86-fae6-44cc-936a-2a92547730cf/mixed_roles_thumbnail_v2_1764042719378.png'
-    },
-    {
-        postId: 'fc67aa26-02eb-4655-8af7-b904d6c1c01e',
-        imagePath: '/Users/sasakiyoshimasa/.gemini/antigravity/brain/fe726e86-fae6-44cc-936a-2a92547730cf/mixed_recruitment_thumbnail_v2_1764042774283.png'
-    }
+    // {
+    //     postId: 'f3bbd9d1-a011-42d8-80b4-42a76196f147', // Guide / Types
+    //     imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/sera_guide_1200x630.png'
+    // },
+    // {
+    //     postId: 'SzUxrrzdcuBDmahbHkaQ1w', // Scholarship
+    //     imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/sera_scholarship_1200x630.png'
+    // },
+    // {
+    //     postId: '577431d4-a38e-40be-895d-02aed4de68ea', // Communication
+    //     imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/sera_communication_1200x630.png' 
+    // },
+    // {
+    //     postId: 'xTfm06TmDEW5bLJjXjBzkL', // Roles / Nurse Elderly
+    //     imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/sera_roles_1200x630.png'
+    // },
+    // {
+    //     postId: 'fc67aa26-02eb-4655-8af7-b904d6c1c01e', // Recruitment / Salary
+    //     imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/sera_recruitment_1200x630.png'
+    // }
 ];
 
 async function uploadImage(filePath) {

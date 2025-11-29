@@ -5,7 +5,22 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'bounce-gentle': {
+          '0%, 100%': { transform: 'translateY(-2%)' },
+          '50%': { transform: 'translateY(0)' },
+        }
+      },
+      animation: {
+        'fade-in-up': 'fade-in-up 0.3s ease-out',
+        'bounce-gentle': 'bounce-gentle 2s infinite',
+      }
+    },
   },
   plugins: [],
 };
