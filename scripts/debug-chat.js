@@ -1,7 +1,7 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { NextResponse } from "next/server";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+require("dotenv").config({ path: ".env.local" });
 
-const genAI = new GoogleGenerativeAI(process.env.PRORENATA_GEMINI_API_KEY || "");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 const SYSTEM_PROMPT = `
 あなたは「白崎セラ（しらさき せら）」です。
@@ -19,38 +19,51 @@ const SYSTEM_PROMPT = `
 ユーザーは看護助手を目指している人、または現役の看護助手です。
 `;
 
-export async function POST(req: Request) {
+async function debugChat() {
+    console.log("Debugging Chat API...");
+    const key = process.env.GEMINI_API_KEY || "";
+    console.log("API Key loaded:", key.substring(0, 10) + "...");
+    console.log("Model:", "gemini-2.0-flash-lite-001");
+
     try {
-        const { message, history } = await req.json();
-
-        if (!process.env.PRORENATA_GEMINI_API_KEY) {
-            return NextResponse.json(
-                { error: "Gemini API key not configured" },
-                { status: 500 }
-            );
-        }
-
         const model = genAI.getGenerativeModel({
             model: "gemini-2.0-flash-lite-001",
             systemInstruction: SYSTEM_PROMPT,
         });
 
-        const chat = model.startChat({
-            history: history || [],
+        // Simulate first turn (empty history)
+        console.log("--- Test 1: First Turn ---");
+        const chat1 = model.startChat({
+            history: [],
             generationConfig: {
                 maxOutputTokens: 150,
             },
         });
+        const result1 = await chat1.sendMessage("こんにちは");
+        console.log("Response 1:", result1.response.text());
 
-        const result = await chat.sendMessage(message);
-        const response = result.response.text();
+        // Simulate second turn (with history)
+        console.log("--- Test 2: Second Turn ---");
+        const history = [
+            { role: "user", parts: [{ text: "こんにちは" }] },
+            { role: "model", parts: [{ text: result1.response.text() }] }
+        ];
 
-        return NextResponse.json({ response });
+        const chat2 = model.startChat({
+            history: history,
+            generationConfig: {
+                maxOutputTokens: 150,
+            },
+        });
+        const result2 = await chat2.sendMessage("おすすめの靴は？");
+        console.log("Response 2:", result2.response.text());
+
     } catch (error) {
-        console.error("Chat error:", error);
-        return NextResponse.json(
-            { error: error instanceof Error ? error.message : "Unknown error" },
-            { status: 500 }
-        );
+        console.error("DEBUG ERROR:", error);
+        if (error.response) {
+            console.error("Error Response:", JSON.stringify(error.response, null, 2));
+        }
     }
 }
+
+debugChat();
