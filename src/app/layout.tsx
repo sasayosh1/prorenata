@@ -5,6 +5,7 @@ import "./globals.css";
 import Analytics from "@/components/Analytics";
 import { SITE_URL } from "@/lib/constants";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import AItuberWidget from "@/components/AItuberWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   description: "看護助手として働く方、目指す方のための専門情報サイト。転職、資格、給与、現場ノウハウなど実践的な情報を現場経験者が詳しく解説します。",
   keywords: [
     "看護助手",
-    "看護補助者", 
+    "看護補助者",
     "医療現場",
     "転職",
     "資格",
@@ -50,12 +51,12 @@ export const metadata: Metadata = {
     "介護施設",
     "医療助手"
   ],
-  
+
   // 作者・サイト情報
   authors: [{ name: "ProReNata編集部" }],
   creator: "ProReNata",
   publisher: "ProReNata",
-  
+
   // URL設定
   metadataBase: new URL(SITE_URL),
   alternates: {
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
       'ja-JP': SITE_URL,
     },
   },
-  
+
   // Open Graph (SNS共有最適化)
   openGraph: {
     type: 'website',
@@ -83,7 +84,7 @@ export const metadata: Metadata = {
       }
     ]
   },
-  
+
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
@@ -93,7 +94,7 @@ export const metadata: Metadata = {
     description: '看護助手として働く方、目指す方のための専門情報サイト',
     images: ['/twitter-image.png']
   },
-  
+
   // 検索エンジン最適化
   robots: {
     index: true,
@@ -108,21 +109,21 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  
+
   // アプリ情報
   applicationName: 'ProReNata',
   category: 'Medical Information',
   classification: 'Healthcare',
-  
+
   // その他のSEO設定
   other: {
     'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION || '',
     'msvalidate.01': process.env.BING_SITE_VERIFICATION || '',
   },
-  
+
   // マニフェスト
   manifest: '/manifest.json',
-  
+
   // アイコン設定
   icons: {
     icon: [
@@ -222,15 +223,10 @@ export default async function RootLayout({
         >
           メインコンテンツにスキップ
         </a>
-        
+
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
-        
-        {/* Analytics コンポーネント */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <Analytics />
-        )}
 
         {/* Google Analytics (本番環境用) */}
         {process.env.NEXT_PUBLIC_GA_ID && (
@@ -247,12 +243,15 @@ export default async function RootLayout({
                 gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
                   page_title: document.title,
                   page_location: window.location.href,
-                  anonymize_ip: true,
-                  allow_google_signals: false,
-                  allow_ad_personalization_signals: false
+                  anonymize_ip: false,
+                  allow_google_signals: true,
+                  allow_ad_personalization_signals: false,
+                  cookie_flags: 'SameSite=None;Secure',
+                  debug_mode: ${process.env.NODE_ENV === 'development'}
                 });
               `}
             </Script>
+            <Analytics />
           </>
         )}
 
@@ -265,6 +264,7 @@ export default async function RootLayout({
           />
         )}
         <ScrollToTopButton />
+        <AItuberWidget />
       </body>
     </html>
   );

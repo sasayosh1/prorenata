@@ -1,25 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: {
-        DEFAULT: '1rem',
-        sm: '1.5rem',
-        lg: '2rem'
-      },
-    },
     extend: {
-      colors: {
-        'link-internal': '#fff4f4',
-        'link-affiliate': '#f4ffff',
+      keyframes: {
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'bounce-gentle': {
+          '0%, 100%': { transform: 'translateY(-2%)' },
+          '50%': { transform: 'translateY(0)' },
+        }
       },
+      animation: {
+        'fade-in-up': 'fade-in-up 0.3s ease-out',
+        'bounce-gentle': 'bounce-gentle 2s infinite',
+      }
     },
   },
   plugins: [],
-}
+};
