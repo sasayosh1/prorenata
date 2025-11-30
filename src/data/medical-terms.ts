@@ -407,6 +407,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'kekkansho',
+    term: '血管床',
+    reading: 'けっかんしょう',
+    meaning: '血管が分布している組織や領域のこと。',
+    distractors: ['呼吸器系のこと。', '消化管のこと。'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
