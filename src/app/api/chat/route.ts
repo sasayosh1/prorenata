@@ -24,10 +24,9 @@ export async function POST(req: Request) {
         const { message, history } = await req.json();
 
         if (!process.env.PRORENATA_GEMINI_API_KEY) {
-            return NextResponse.json(
-                { error: "Gemini API key not configured" },
-                { status: 500 }
-            );
+            return NextResponse.json({
+                response: "ごめんなさい、いまはテキストでのご案内だけになります。お急ぎのときは記事検索やカテゴリから探してみてくださいね。"
+            });
         }
 
         const model = genAI.getGenerativeModel({
@@ -49,8 +48,9 @@ export async function POST(req: Request) {
     } catch (error) {
         console.error("Chat error:", error);
         return NextResponse.json(
-            { error: error instanceof Error ? error.message : "Unknown error" },
-            { status: 500 }
+            {
+                response: "ごめんなさい、いまはうまくお答えできませんでした。記事検索やカテゴリから探すのもおすすめです。"
+            }
         );
     }
 }

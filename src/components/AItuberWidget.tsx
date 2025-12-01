@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { PaperAirplaneIcon, XMarkIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/solid";
+import { PaperAirplaneIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 interface Message {
     role: "user" | "model";
@@ -15,7 +15,7 @@ export default function AItuberWidget() {
         { role: "model", text: "こんにちは！白崎セラです。何かお手伝いしましょうか？" },
     ]);
     const [input, setInput] = useState("");
-    const [isSpeaking, setIsSpeaking] = useState(false);
+    // const [isSpeaking, setIsSpeaking] = useState(false); // 未使用のため削除
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -25,7 +25,7 @@ export default function AItuberWidget() {
     }, [messages]);
 
     // Text-to-Speech function
-    const speak = (text: string) => {
+    const speak = () => {
         // 音声出力は現段階では無効化（テキストのみ運用）
         return;
     };
@@ -55,18 +55,137 @@ export default function AItuberWidget() {
 
             const data = await res.json();
 
-            if (data.response) {
-                setMessages((prev) => [...prev, { role: "model", text: data.response }]);
-                speak(data.response);
-            } else {
-                console.error("API Error:", data.error || "No response");
-                setMessages((prev) => [...prev, { role: "model", text: "申し訳ありません。エラーが発生しました。" }]);
-            }
+            const replyText =
+                (typeof data.response === "string" && data.response.trim().length > 0)
+                    ? data.response.trim()
+                    : "ごめんなさい、うまくお答えできませんでした。記事検索やカテゴリから探すのもおすすめです。";
+
+            setMessages((prev) => [...prev, { role: "model", text: replyText }]);
+            speak();
         } catch (error) {
             console.error("Chat error:", error);
+            setMessages((prev) => [
+                ...prev,
+                { role: "model", text: "ごめんなさい、通信エラーが起きました。少し時間をおいてお試しください。" },
+            ]);
         } finally {
             setIsLoading(false);
         }
+    };
+
+    const renderMessage = (text: string) => {
+        const elements: React.ReactNode[] = [];
+        const tokenRegex = /(\*\*[^*]+\*\*)|((https?:\/\/|www\.)[^\s<>]+)/gi;
+        let lastIndex = 0;
+
+        for (const match of text.matchAll(tokenRegex)) {
+            if (!match.index && match.index !== 0) continue;
+            const start = match.index;
+            const raw = match[0];
+
+            // 先頭〜トークン前のプレーンテキスト
+            if (start > lastIndex) {
+                elements.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex, start)}</span>);
+            }
+
+            const isBold = raw.startsWith("**") && raw.endsWith("**");
+            const isUrl = !isBold;
+
+            // 太字
+            if (isBold) {
+                const content = raw.slice(2, -2);
+                elements.push(
+                    <strong key={`bold-${start}`} className="font-semibold">
+                        {content}
+                    </strong>
+                );
+            }
+
+            // URL
+            if (isUrl) {
+                const urlText = raw;
+                let href = urlText.startsWith("http") ? urlText : `https://${urlText}`;
+
+                try {
+                    const parsed = new URL(href);
+                    const isInternal =
+                        /prorenata\.jp$/i.test(parsed.hostname) ||
+                        parsed.hostname === (typeof window !== "undefined" ? window.location.hostname : "");
+
+                    if (isInternal) {
+                        const allowedPrefixes = [
+                            "/posts/",
+                            "/categories/",
+                            "/tags/",
+                            "/about",
+                            "/contact",
+                            "/quiz",
+                            "/search",
+                            "/blog",
+                            "/"
+                        ];
+                        const isAllowed = allowedPrefixes.some(prefix =>
+                            parsed.pathname === prefix || parsed.pathname.startsWith(prefix)
+                        );
+                        if (!isAllowed) {
+                            parsed.pathname = "/";
+                            parsed.search = "";
+                            parsed.hash = "";
+                        }
+                        href = parsed.toString();
+                    }
+                } catch {
+                    // ignore parse errors
+                }
+
+                // 直前が<strong>なら同じリンクで包む（タイトルもクリック可に）
+                const last = elements[elements.length - 1];
+                const lastIsStrong = (() => {
+                    if (!last || typeof last !== "object") return false;
+                    const candidate = last as unknown as { type?: unknown };
+                    return candidate.type === "strong";
+                })();
+
+                if (lastIsStrong) {
+                    const strong = elements.pop() as React.ReactElement;
+                    elements.push(
+                        <a
+                            key={`link-bold-${start}`}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline text-blue-600 hover:text-blue-800 break-words"
+                        >
+                            {strong}
+                        </a>
+                    );
+                }
+
+                elements.push(
+                    <a
+                        key={`link-${start}`}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline text-blue-600 hover:text-blue-800 break-words"
+                    >
+                        {urlText}
+                    </a>
+                );
+            }
+
+            lastIndex = start + raw.length;
+        }
+
+        if (lastIndex < text.length) {
+            elements.push(<span key={`text-tail-${lastIndex}`}>{text.slice(lastIndex)}</span>);
+        }
+
+        if (elements.length === 0) {
+            return <span>{text}</span>;
+        }
+
+        return elements;
     };
 
     return (
@@ -103,7 +222,9 @@ export default function AItuberWidget() {
                                     : "bg-white text-gray-800 self-start rounded-bl-none shadow-sm border border-gray-100"
                                     }`}
                             >
-                                {msg.text}
+                                <div className="space-y-1 leading-relaxed break-words">
+                                    {renderMessage(msg.text)}
+                                </div>
                             </div>
                         ))}
                         {isLoading && (
@@ -141,8 +262,7 @@ export default function AItuberWidget() {
             {/* Floating Button / Avatar */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`group relative w-16 h-16 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none ${isSpeaking ? "animate-bounce-gentle ring-4 ring-pink-300" : ""
-                    }`}
+                className={`group relative w-16 h-16 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none`}
             >
                 <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white">
                     <Image
