@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     try {
         const { message, history } = await req.json();
 
-        const fallbackReply = [
+        const recommendReply = [
             "おすすめ記事をまとめました！",
             "1. 「未経験から始める看護助手」 https://prorenata.jp/search?q=未経験から始める看護助手",
             "2. 「看護助手になるには？資格・試験・スキル」 https://prorenata.jp/search?q=看護助手+資格",
@@ -31,8 +31,16 @@ export async function POST(req: Request) {
             "どれもProReNata内で検索できます。気になるものをタップしてみてくださいね！"
         ].join("\n");
 
+        const greetingReply =
+            "こんにちは！ご相談や気になるテーマがあれば教えてください。記事検索やカテゴリからも探せます。";
+
         if (!process.env.PRORENATA_GEMINI_API_KEY) {
-            return NextResponse.json({ response: fallbackReply });
+            const lower = (message || "").toLowerCase();
+            const wantsRecommend =
+                /おすすめ|記事|どれ|探|教えて|紹介/.test(lower) ||
+                /recommend|article|link/.test(lower);
+
+            return NextResponse.json({ response: wantsRecommend ? recommendReply : greetingReply });
         }
 
         const model = genAI.getGenerativeModel({
@@ -54,11 +62,10 @@ export async function POST(req: Request) {
     } catch (error) {
         console.error("Chat error:", error);
         return NextResponse.json(
-            { response: "ごめんなさい、少し調子が悪いみたいです。\n" +
-                "1. 「未経験から始める看護助手」 https://prorenata.jp/search?q=未経験から始める看護助手\n" +
-                "2. 「看護助手になるには？資格・試験・スキル」 https://prorenata.jp/search?q=看護助手+資格\n" +
-                "3. 「外来で役立つコミュニケーション術」 https://prorenata.jp/search?q=外来+コミュニケーション\n" +
-                "こちらから気になる記事をタップしてみてくださいね！"
+            {
+                response:
+                    "ごめんなさい、少し調子が悪いみたいです。記事検索やカテゴリからも探せます。\n" +
+                    "おすすめが必要でしたら「おすすめ」と送ってください。"
             }
         );
     }

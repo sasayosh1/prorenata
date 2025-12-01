@@ -10,19 +10,50 @@ interface Message {
 }
 
 export default function AItuberWidget() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState<Message[]>([
+    const STORAGE_KEY = "aituber-messages-v1";
+    const defaultMessages: Message[] = [
         { role: "model", text: "こんにちは！白崎セラです。何かお手伝いしましょうか？" },
-    ]);
+    ];
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [messages, setMessages] = useState<Message[]>(defaultMessages);
     const [input, setInput] = useState("");
-    // const [isSpeaking, setIsSpeaking] = useState(false); // 未使用のため削除
     const [isLoading, setIsLoading] = useState(false);
+    const [hydrated, setHydrated] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     // Auto-scroll to bottom
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
+
+    // Load saved messages from localStorage
+    useEffect(() => {
+        try {
+            const saved = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+            if (saved) {
+                const parsed = JSON.parse(saved) as Message[];
+                if (Array.isArray(parsed) && parsed.every(m => m.role && m.text)) {
+                    setMessages(parsed);
+                }
+            }
+        } catch (err) {
+            console.warn("Failed to load chat history", err);
+        } finally {
+            setHydrated(true);
+        }
+    }, []);
+
+    // Persist messages
+    useEffect(() => {
+        if (!hydrated) return;
+        try {
+            const toSave = messages.slice(-100); // limit size
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+        } catch (err) {
+            console.warn("Failed to save chat history", err);
+        }
+    }, [messages, hydrated]);
 
     // Text-to-Speech function
     const speak = () => {
@@ -74,134 +105,145 @@ export default function AItuberWidget() {
     };
 
     const renderMessage = (text: string) => {
-        const elements: React.ReactNode[] = [];
-        const tokenRegex = /(\*\*[^*]+\*\*)|((https?:\/\/|www\.)[^\s<>]+)|(「[^」]+」)/gi;
-        let lastIndex = 0;
+        const lines = text.split(/\n/);
+        const rendered: React.ReactNode[] = [];
 
-        for (const match of text.matchAll(tokenRegex)) {
-            if (!match.index && match.index !== 0) continue;
-            const start = match.index;
-            const raw = match[0];
+        lines.forEach((line, lineIndex) => {
+            const elements: React.ReactNode[] = [];
+            const tokenRegex = /(\*\*[^*]+\*\*)|((https?:\/\/|www\.)[^\s<>]+)|(「[^」]+」)/gi;
+            let lastIndex = 0;
 
-            // 先頭〜トークン前のプレーンテキスト
-            if (start > lastIndex) {
-                elements.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex, start)}</span>);
-            }
+            for (const match of line.matchAll(tokenRegex)) {
+                if (!match.index && match.index !== 0) continue;
+                const start = match.index;
+                const raw = match[0];
 
-            const isBold = raw.startsWith("**") && raw.endsWith("**");
-            const isUrl = !isBold && !raw.startsWith("「");
-            const isBracketTitle = raw.startsWith("「") && raw.endsWith("」");
-
-            // 太字
-            if (isBold) {
-                const content = raw.slice(2, -2);
-                elements.push(
-                    <strong key={`bold-${start}`} className="font-semibold">
-                        {content}
-                    </strong>
-                );
-            }
-
-            // URL
-            if (isUrl) {
-                const urlText = raw;
-                let href = urlText.startsWith("http") ? urlText : `https://${urlText}`;
-
-                try {
-                    const parsed = new URL(href);
-                    const isInternal =
-                        /prorenata\.jp$/i.test(parsed.hostname) ||
-                        parsed.hostname === (typeof window !== "undefined" ? window.location.hostname : "");
-
-                    if (isInternal) {
-                        const allowedPrefixes = [
-                            "/posts/",
-                            "/categories/",
-                            "/tags/",
-                            "/about",
-                            "/contact",
-                            "/quiz",
-                            "/search",
-                            "/blog",
-                            "/"
-                        ];
-                        const isAllowed = allowedPrefixes.some(prefix =>
-                            parsed.pathname === prefix || parsed.pathname.startsWith(prefix)
-                        );
-                        if (!isAllowed) {
-                            parsed.pathname = "/";
-                            parsed.search = "";
-                            parsed.hash = "";
-                        }
-                        href = parsed.toString();
-                    }
-                } catch {
-                    // ignore parse errors
+                // 先頭〜トークン前のプレーンテキスト
+                if (start > lastIndex) {
+                    elements.push(<span key={`text-${lineIndex}-${lastIndex}`}>{line.slice(lastIndex, start)}</span>);
                 }
 
-                // 直前が<strong>なら同じリンクで包む（タイトルもクリック可に）
-                const last = elements[elements.length - 1];
-                const lastIsStrong = (() => {
-                    if (!last || typeof last !== "object") return false;
-                    const candidate = last as unknown as { type?: unknown };
-                    return candidate.type === "strong";
-                })();
+                const isBold = raw.startsWith("**") && raw.endsWith("**");
+                const isUrl = !isBold && !raw.startsWith("「");
+                const isBracketTitle = raw.startsWith("「") && raw.endsWith("」");
 
-                if (lastIsStrong) {
-                    const strong = elements.pop() as React.ReactElement;
+                // 太字
+                if (isBold) {
+                    const content = raw.slice(2, -2);
+                    elements.push(
+                        <strong key={`bold-${lineIndex}-${start}`} className="font-semibold">
+                            {content}
+                        </strong>
+                    );
+                }
+
+                // URL
+                if (isUrl) {
+                    const urlText = raw;
+                    let href = urlText.startsWith("http") ? urlText : `https://${urlText}`;
+
+                    try {
+                        const parsed = new URL(href);
+                        const isInternal =
+                            /prorenata\.jp$/i.test(parsed.hostname) ||
+                            parsed.hostname === (typeof window !== "undefined" ? window.location.hostname : "");
+
+                        if (isInternal) {
+                            const allowedPrefixes = [
+                                "/posts/",
+                                "/categories/",
+                                "/tags/",
+                                "/about",
+                                "/contact",
+                                "/quiz",
+                                "/search",
+                                "/blog",
+                                "/"
+                            ];
+                            const isAllowed = allowedPrefixes.some(prefix =>
+                                parsed.pathname === prefix || parsed.pathname.startsWith(prefix)
+                            );
+                            if (!isAllowed) {
+                                parsed.pathname = "/";
+                                parsed.search = "";
+                                parsed.hash = "";
+                            }
+                            href = parsed.toString();
+                        }
+                    } catch {
+                        // ignore parse errors
+                    }
+
+                    // 直前が<strong>なら同じリンクで包む（タイトルもクリック可に）
+                    const last = elements[elements.length - 1];
+                    const lastIsStrong = (() => {
+                        if (!last || typeof last !== "object") return false;
+                        const candidate = last as unknown as { type?: unknown };
+                        return candidate.type === "strong";
+                    })();
+
+                    if (lastIsStrong) {
+                        const strong = elements.pop() as React.ReactElement;
+                        elements.push(
+                            <a
+                                key={`link-bold-${lineIndex}-${start}`}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline text-blue-600 hover:text-blue-800 break-words"
+                            >
+                                {strong}
+                            </a>
+                        );
+                    }
+
                     elements.push(
                         <a
-                            key={`link-bold-${start}`}
+                            key={`link-${lineIndex}-${start}`}
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="underline text-blue-600 hover:text-blue-800 break-words"
                         >
-                            {strong}
+                            {urlText}
                         </a>
                     );
                 }
 
-                elements.push(
-                    <a
-                        key={`link-${start}`}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline text-blue-600 hover:text-blue-800 break-words"
-                    >
-                        {urlText}
-                    </a>
-                );
+                // 括弧付きタイトル（「タイトル」）はサイト内検索にリンク
+                if (isBracketTitle) {
+                    const titleText = raw.slice(1, -1);
+                    const searchUrl = `/search?q=${encodeURIComponent(titleText)}`;
+                    elements.push(
+                        <a
+                            key={`title-${lineIndex}-${start}`}
+                            href={searchUrl}
+                            className="underline text-blue-600 hover:text-blue-800 break-words"
+                        >
+                            {raw}
+                        </a>
+                    );
+                }
+
+                lastIndex = start + raw.length;
             }
 
-            // 括弧付きタイトル（「タイトル」）はサイト内検索にリンク
-            if (isBracketTitle) {
-                const titleText = raw.slice(1, -1);
-                const searchUrl = `/search?q=${encodeURIComponent(titleText)}`;
-                elements.push(
-                    <a
-                        key={`title-${start}`}
-                        href={searchUrl}
-                        className="underline text-blue-600 hover:text-blue-800 break-words"
-                    >
-                        {raw}
-                    </a>
-                );
+            if (lastIndex < line.length) {
+                elements.push(<span key={`text-tail-${lineIndex}-${lastIndex}`}>{line.slice(lastIndex)}</span>);
             }
 
-            lastIndex = start + raw.length;
-        }
+            if (elements.length === 0) {
+                rendered.push(<span key={`line-${lineIndex}`}>{line}</span>);
+            } else {
+                rendered.push(<span key={`line-${lineIndex}`}>{elements}</span>);
+            }
 
-        if (lastIndex < text.length) {
-            elements.push(<span key={`text-tail-${lastIndex}`}>{text.slice(lastIndex)}</span>);
-        }
+            if (lineIndex < lines.length - 1) {
+                rendered.push(<br key={`br-${lineIndex}`} />);
+            }
+        });
 
-        if (elements.length === 0) {
-            return <span>{text}</span>;
-        }
-
-        return elements;
+        return rendered;
     };
 
     return (
