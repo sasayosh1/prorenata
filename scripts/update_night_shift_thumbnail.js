@@ -17,7 +17,7 @@ const client = createClient({
 });
 
 const TARGET_SLUG = 'nursing-assistant-night-shift-journey';
-const IMAGE_PATH = '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_night_shift_16x9.png';
+const IMAGE_PATH = '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_night_shift_v2_16x9.png';
 
 async function main() {
     try {
