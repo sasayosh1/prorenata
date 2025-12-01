@@ -6,6 +6,7 @@ import Pagination from '@/components/Pagination'
 import PostsSearch from '@/components/PostsSearch'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { sanitizeTitle } from '@/lib/title'
 
 export const revalidate = 60 // Revalidate every 60 seconds
 
@@ -81,15 +82,15 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
       {/* 記事一覧 */}
       {posts.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => {
-            const { label } = formatPostDate(post)
+                  {posts.map((post) => {
+                    const { label } = formatPostDate(post)
 
-            return (
-              <Link href={`/posts/${post.slug.current}`} key={post._id}>
-                <article className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer group h-full flex flex-col">
-                  <h2 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                    {post.title}
-                  </h2>
+                    return (
+                      <Link href={`/posts/${post.slug.current}`} key={post._id}>
+                        <article className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer group h-full flex flex-col">
+                          <h2 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                            {sanitizeTitle(post.title)}
+                          </h2>
 
                   <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-3">
                     <time dateTime={post.publishedAt || post._createdAt}>

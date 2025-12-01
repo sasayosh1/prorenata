@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { createClient } from 'next-sanity'
+import { sanitizeTitle } from '@/lib/title'
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -78,7 +79,7 @@ export default async function PopularPosts({
               {/* 記事情報 */}
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-semibold text-gray-900 group-hover:text-cyan-600 transition-colors duration-200 line-clamp-2 mb-1">
-                  {post.title}
+                  {sanitizeTitle(post.title)}
                 </h4>
 
                 {/* カテゴリと閲覧数 */}

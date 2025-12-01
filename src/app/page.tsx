@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PopularPosts from '@/components/PopularPosts'
 import HomeSearch from '@/components/HomeSearch'
+import { sanitizeTitle } from '@/lib/title'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -103,6 +104,7 @@ export default async function Home() {
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {recentPosts.filter(post => post.slug?.current).map((post) => {
                   const { label } = formatPostDate(post)
+                  const displayTitle = sanitizeTitle(post.title)
 
                   return (
                     <Link href={`/posts/${post.slug.current}`} key={post._id} className="block h-full">
@@ -131,7 +133,7 @@ export default async function Home() {
 
                         <div className="flex-1 p-6 flex flex-col">
                           <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-cyan-600 transition-colors">
-                            {post.title}
+                            {displayTitle}
                           </h3>
 
                           {post.excerpt && (

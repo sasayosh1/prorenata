@@ -12,6 +12,7 @@ import { formatPostDate, getRelatedPosts, urlFor } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 import { CATEGORY_SUMMARY, resolveTagDefinition, type CategorySlug } from '@/data/tagCatalog'
 import Image from 'next/image'
+import { sanitizeTitle } from '@/lib/title'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -152,10 +153,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const publishedTime = post.publishedAt ?? post._createdAt
     const modifiedTime = post._updatedAt || post.publishedAt || post._createdAt
 
-    const title = `${post.title} | ProReNata`
+    const displayTitle = sanitizeTitle(post.title)
+    const title = `${displayTitle} | ProReNata`
     const description = post.metaDescription ||
       post.excerpt ||
-      `${post.title}について、看護助手として働く皆様のお役に立つ情報をお届けします。`
+      `${displayTitle}について、看護助手として働く皆様のお役に立つ情報をお届けします。`
 
     const keywords = [
       ...categoryTitles,
@@ -279,7 +281,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     )
   }
 
-  const structuredPost = { ...post, categories: categoryTitles }
+  const displayTitle = sanitizeTitle(post.title)
+  const structuredPost = { ...post, title: displayTitle, categories: categoryTitles }
   const categoryChipClass =
     "inline-flex items-center rounded-full border border-cyan-200 px-3 py-1 text-sm font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors duration-200"
   const tagChipClass =
@@ -318,7 +321,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 記事一覧
               </Link>
               <span className="text-gray-300">/</span>
-              <span className="text-gray-900 font-medium truncate">{post.title}</span>
+                <span className="text-gray-900 font-medium truncate">{displayTitle}</span>
             </nav>
 
             <header className="pt-6 xl:pb-6">
@@ -347,7 +350,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </dl>
                 <div>
                   <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-                    {post.title}
+                    {displayTitle}
                   </h1>
                 </div>
                 {/* 閲覧数カウンター */}

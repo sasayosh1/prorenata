@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { RelatedPostSummary } from '@/lib/sanity'
+import { sanitizeTitle } from '@/lib/title'
 
 interface RelatedPostsProps {
   posts: RelatedPostSummary[]
@@ -20,7 +21,7 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
               href={`/posts/${post.slug}`}
               className="text-lg text-cyan-700 hover:text-cyan-900 font-semibold transition-colors duration-200"
             >
-              {post.title}
+              {sanitizeTitle(post.title)}
             </Link>
             {post.categories && post.categories.length > 0 && (
               <div className="mt-1 flex flex-wrap gap-2 text-sm text-gray-600">
