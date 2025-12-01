@@ -8,6 +8,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251117,/,desktop,Japan,3,1,41,1.0,1383.2402686666667
 20251117,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,11,0.6666666666666666,1.9761003333333333
 20251128,/,desktop,Japan,3,2,53,1.0,613.6898043333333
+20251130,/,desktop,Japan,3,2,18,0.6666666666666666,47.436138666666665
+20251130,/,desktop,United States,3,3,14,0.0,3.9220403333333334
+20251130,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,18,1.0,10.929512666666668
 20251113,/,desktop,Japan,2,1,10,1.0,602.434392
 20251113,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,1,14,1.0,55.664606
 20251115,/posts/nursing-assistant-training-program-revision,desktop,Japan,2,1,11,0.5,13.266507
@@ -63,3 +66,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251129,/tags,desktop,Japan,1,1,13,1.0,20.631679
 20251129,/tags/patient-care,desktop,Japan,1,1,1,1.0,0.020039
 20251129,/tags/美容レクリエーション,desktop,Japan,1,1,1,1.0,5.002371
+20251130,/posts/nursing-assistant-aptitude-test,mobile,Japan,1,1,6,1.0,89.239406
+20251130,/posts/nursing-assistant-emr-system-changes,desktop,Japan,1,1,7,1.0,37.912014
+20251130,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,6,0.0,5.898008
+20251130,/posts/nursing-assistant-workplace-fit,desktop,Japan,1,1,6,1.0,277.619433
+20251130,/quiz,desktop,Japan,1,1,1,1.0,5.000877
+20251130,/quiz/rankings,desktop,Japan,1,1,1,1.0,67.627143
