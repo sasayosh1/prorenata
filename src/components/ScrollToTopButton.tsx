@@ -26,7 +26,7 @@ export default function ScrollToTopButton() {
     <button
       type="button"
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center rounded-full bg-cyan-600 text-white shadow-lg hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-colors w-12 h-12"
+      className="fixed bottom-24 right-4 sm:right-6 z-50 inline-flex items-center justify-center rounded-full bg-cyan-600 text-white shadow-lg hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-colors w-12 h-12"
       aria-label="ページの先頭へ戻る"
     >
       <svg

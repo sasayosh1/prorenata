@@ -22,8 +22,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
+      - name: CI -> fail if NPM_CONFIG_PRODUCTION=true
+        run: |
+          if [ "${NPM_CONFIG_PRODUCTION:-false}" = "true" ]; then
+            echo "ERROR: NPM_CONFIG_PRODUCTION=true will skip devDependencies; set NPM_CONFIG_PRODUCTION=false or use npm ci --include=dev.";
+            exit 1;
+          fi
+
+      - name: Install dependencies (include dev)
+        run: npm ci --include=dev
 
       - name: Run maintenance script - All checks and auto-fix
         env:

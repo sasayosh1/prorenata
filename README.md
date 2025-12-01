@@ -95,6 +95,24 @@ Next.js + Sanity CMS + TypeScript で構築された看護助手向け情報サ�
 
 ## 🔧 設定
 
+### 開発 / CI の注意点
+
+開発環境で `NODE_ENV=production` や `NPM_CONFIG_PRODUCTION=true` が有効だと、`devDependencies` がインストールされないことがあります。Tailwind や PostCSS といった開発ツールが missing になる原因となるため、ローカル開発や CI のジョブでは `NODE_ENV=development` を設定するか、`NPM_CONFIG_PRODUCTION` を `false` にして `devDependencies` がインストールされるようにしてください。
+
+例（CI で devDependencies が必要な場合）:
+
+```bash
+# 1) CI ジョブで devDependencies をインストール
+npm ci --include=dev
+
+# 2) または環境変数でインストール挙動を制御
+export NPM_CONFIG_PRODUCTION=false
+npm ci
+```
+
+このリポジトリでは、ローカル開発用に `NODE_ENV=development` を明示して dev サーバを起動する npm スクリプトを用意しています（詳細は `DEV_AUTOMATION.md` を参照）。
+
+
 ### Sanity CMS設定
 
 `sanity.config.ts` で以下を設定:

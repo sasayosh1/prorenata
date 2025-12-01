@@ -305,18 +305,20 @@ export async function getRelatedPosts(
   categorySlugs?: string[],
   limit: number = 2
 ): Promise<RelatedPostSummary[]> {
+  // fetch余裕分を確保し、サーバー側でシャッフルしてランダム性を出す
+  const candidateLimit = Math.max(limit * 3, 12)
   try {
     // カテゴリが存在しない場合は空配列を返す
     if (!categorySlugs || categorySlugs.length === 0) {
       return []
     }
 
-    // 同じカテゴリを持つ記事をランダムに取得（現在の記事を除外）
+    // 同じカテゴリを持つ記事を取得（現在の記事を除外）
     const query = `*[_type == "post"
       && _id != $currentPostId
       && count((categories[]->slug.current)[@ in $categorySlugs]) > 0
       && ${PUBLIC_POST_FILTER}
-    ] | order(random()) [0...$limit] {
+    ] | order(coalesce(publishedAt, _createdAt) desc) [0...$candidateLimit] {
       title,
       "slug": slug.current,
       "categories": categories[]->{title,"slug":slug.current}
@@ -325,10 +327,12 @@ export async function getRelatedPosts(
     const posts = await client.fetch(query, {
       currentPostId,
       categorySlugs,
-      limit,
+      candidateLimit,
     })
 
-    return posts
+    // ランダムにシャッフルして上位 limit 件を返す
+    const shuffled = [...posts].sort(() => Math.random() - 0.5)
+    return shuffled.slice(0, limit)
   } catch (error) {
     console.error('関連記事取得エラー:', error)
     return []

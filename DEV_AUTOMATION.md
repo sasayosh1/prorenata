@@ -7,6 +7,7 @@
 package.json に以下のスクリプトを追加しました。
 
 - `npm run dev:auto`
+  - `NODE_ENV=development` を明示して非対話で起動するように更新しました。
   - CI 環境フラグとテレメトリ無効化をセットして非対話で起動します。
   - 実際のコマンド: `CI=true NEXT_TELEMETRY_DISABLED=1 PORT=3000 next dev -p 3000`
 
@@ -17,6 +18,8 @@ package.json に以下のスクリプトを追加しました。
 使い分け:
 - ログを見ながら手動で起動するなら `npm run dev:auto`。
 - デーモンのように起動したい場合は `npm run dev:background`。
+
+注意: 開発環境で `NODE_ENV=production` や `NPM_CONFIG_PRODUCTION=true` が有効だと、devDependencies がインストール・利用されないため Tailwind や PostCSS が見つからないエラーの原因になります。開発時は `NODE_ENV=development` が有効になっていることを確認してください。
 
 ## 2) macOS の「Allow incoming connections」ダイアログを自動化（注意: 管理者権限が必要）
 
@@ -46,6 +49,17 @@ sudo scripts/allow-node-firewall.sh
 
 - 多くの CLI は `--yes`, `--no-interactive`, `CI=true` のような環境変数やフラグで対話をスキップできます。
 - もし他のツール（Sanity など）で毎回許可が必要なケースがあれば、使えるフラグを調べて追加します。
+
+## 4) CI 側の保護（重要）
+
+CI ワークフローでは誤って `NPM_CONFIG_PRODUCTION=true` をセットすると `devDependencies` がインストールされず、Tailwind/PostCSS などの開発ツールが欠落してビルドやスクリプトが失敗する原因になります。
+
+対応済み（このリポジトリ）:
+- ワークフローの `npm ci` を `npm ci --include=dev` に変更し、devDependencies を確実にインストールするようにしました。
+- さらに、ワークフローの先頭に簡単なチェックを入れて、`NPM_CONFIG_PRODUCTION=true` の場合は早期にエラーで失敗するようにしています。これにより、誤った環境変数の設定が原因で後続処理が壊れることを未然に防ぎます。
+
+CI で devDependencies を意図的に省く場合（例えば本番用に軽量なステップのみ実行したい等）は、ワークフローを用途ごとに分けることをお勧めします（例: `build` ジョブは devDependencies をインストールするが、production-deploy ジョブは最小依存のみ、等）。
+
 
 ---
 更新: 自動起動用 npm スクリプトを追加済み。

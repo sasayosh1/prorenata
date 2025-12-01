@@ -19,8 +19,8 @@
     "url": "https://github.com/sasayosh1/prorenata"
   },
   "scripts": {
-    "dev": "next dev -p 3000",
-    "dev:auto": "CI=true NEXT_TELEMETRY_DISABLED=1 PORT=3000 next dev -p 3000",
+    "dev": "NODE_ENV=development next dev -p 3000",
+    "dev:auto": "NODE_ENV=development CI=true NEXT_TELEMETRY_DISABLED=1 PORT=3000 next dev -p 3000",
     "dev:background": "sh -c 'kill -9 $(lsof -ti TCP:3000) 2>/dev/null || true; nohup npm run dev:auto > .dev.log 2>&1 & echo $! > .dev.pid'",
     "dev:sanity": "npx sanity dev --port 3333",
     "build": "next build",
@@ -62,14 +62,15 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@swc/helpers": "^0.5.17",
     "@types/node": "20.19.11",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.39.1",
     "eslint-config-next": "15.4.4",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.18",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.13",
     "typescript": "5.9.2"
   }
 }

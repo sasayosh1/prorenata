@@ -20,9 +20,9 @@ def crop_image():
         left = 0
         right = width
         
-        # Center crop
-        top = (height - target_height) // 2
-        bottom = top + target_height
+        # Calculate top/bottom to keep the top portion (cut only from bottom)
+        top = 0
+        bottom = target_height
         
         cropped_img = img.crop((left, top, right, bottom))
         

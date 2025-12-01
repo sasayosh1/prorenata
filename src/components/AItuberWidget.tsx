@@ -26,28 +26,8 @@ export default function AItuberWidget() {
 
     // Text-to-Speech function
     const speak = (text: string) => {
-        if (typeof window === "undefined") return;
-
-        // Cancel current speech
-        window.speechSynthesis.cancel();
-
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = "ja-JP";
-        utterance.pitch = 1.2; // Slightly higher pitch for female voice
-        utterance.rate = 1.0;
-
-        // Try to find a Japanese female voice
-        const voices = window.speechSynthesis.getVoices();
-        const jpVoice = voices.find(
-            (v) => v.lang.includes("ja") && (v.name.includes("Female") || v.name.includes("Google"))
-        );
-        if (jpVoice) utterance.voice = jpVoice;
-
-        utterance.onstart = () => setIsSpeaking(true);
-        utterance.onend = () => setIsSpeaking(false);
-        utterance.onerror = () => setIsSpeaking(false);
-
-        window.speechSynthesis.speak(utterance);
+        // 音声出力は現段階では無効化（テキストのみ運用）
+        return;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
