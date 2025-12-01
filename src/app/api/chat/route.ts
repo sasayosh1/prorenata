@@ -23,10 +23,16 @@ export async function POST(req: Request) {
     try {
         const { message, history } = await req.json();
 
+        const fallbackReply = [
+            "おすすめ記事をまとめました！",
+            "1. 「未経験から始める看護助手」 https://prorenata.jp/search?q=未経験から始める看護助手",
+            "2. 「看護助手になるには？資格・試験・スキル」 https://prorenata.jp/search?q=看護助手+資格",
+            "3. 「外来で役立つコミュニケーション術」 https://prorenata.jp/search?q=外来+コミュニケーション",
+            "どれもProReNata内で検索できます。気になるものをタップしてみてくださいね！"
+        ].join("\n");
+
         if (!process.env.PRORENATA_GEMINI_API_KEY) {
-            return NextResponse.json({
-                response: "ごめんなさい、いまはテキストでのご案内だけになります。お急ぎのときは記事検索やカテゴリから探してみてくださいね。"
-            });
+            return NextResponse.json({ response: fallbackReply });
         }
 
         const model = genAI.getGenerativeModel({
@@ -48,8 +54,11 @@ export async function POST(req: Request) {
     } catch (error) {
         console.error("Chat error:", error);
         return NextResponse.json(
-            {
-                response: "ごめんなさい、いまはうまくお答えできませんでした。記事検索やカテゴリから探すのもおすすめです。"
+            { response: "ごめんなさい、少し調子が悪いみたいです。\n" +
+                "1. 「未経験から始める看護助手」 https://prorenata.jp/search?q=未経験から始める看護助手\n" +
+                "2. 「看護助手になるには？資格・試験・スキル」 https://prorenata.jp/search?q=看護助手+資格\n" +
+                "3. 「外来で役立つコミュニケーション術」 https://prorenata.jp/search?q=外来+コミュニケーション\n" +
+                "こちらから気になる記事をタップしてみてくださいね！"
             }
         );
     }

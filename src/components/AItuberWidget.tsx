@@ -75,7 +75,7 @@ export default function AItuberWidget() {
 
     const renderMessage = (text: string) => {
         const elements: React.ReactNode[] = [];
-        const tokenRegex = /(\*\*[^*]+\*\*)|((https?:\/\/|www\.)[^\s<>]+)/gi;
+        const tokenRegex = /(\*\*[^*]+\*\*)|((https?:\/\/|www\.)[^\s<>]+)|(「[^」]+」)/gi;
         let lastIndex = 0;
 
         for (const match of text.matchAll(tokenRegex)) {
@@ -89,7 +89,8 @@ export default function AItuberWidget() {
             }
 
             const isBold = raw.startsWith("**") && raw.endsWith("**");
-            const isUrl = !isBold;
+            const isUrl = !isBold && !raw.startsWith("「");
+            const isBracketTitle = raw.startsWith("「") && raw.endsWith("」");
 
             // 太字
             if (isBold) {
@@ -170,6 +171,21 @@ export default function AItuberWidget() {
                         className="underline text-blue-600 hover:text-blue-800 break-words"
                     >
                         {urlText}
+                    </a>
+                );
+            }
+
+            // 括弧付きタイトル（「タイトル」）はサイト内検索にリンク
+            if (isBracketTitle) {
+                const titleText = raw.slice(1, -1);
+                const searchUrl = `/search?q=${encodeURIComponent(titleText)}`;
+                elements.push(
+                    <a
+                        key={`title-${start}`}
+                        href={searchUrl}
+                        className="underline text-blue-600 hover:text-blue-800 break-words"
+                    >
+                        {raw}
                     </a>
                 );
             }
