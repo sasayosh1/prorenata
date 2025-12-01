@@ -49,9 +49,11 @@ jobs:
 
       - name: 変更をコミット＆プッシュ
         run: |
-          git add src/data/medical-terms.ts
+          # 作成されたファイルをすべてステージング（未ステージ変更によるpull失敗を防ぐ）
+          git add -A
 
-          if git diff --staged --quiet; then
+          # 差分がなければスキップ
+          if git diff --cached --quiet; then
             echo "変更がないためコミットをスキップ"
           else
             git commit -m "メディカルクイズ問題を自動生成" \
@@ -59,7 +61,8 @@ jobs:
               -m "🤖 Generated with [Claude Code](https://claude.com/claude-code)" \
               -m "" \
               -m "Co-Authored-By: Claude <noreply@anthropic.com>"
-            git pull --rebase origin main
+            # pull時に残差分で失敗しないよう autostash を有効化
+            git pull --rebase --autostash origin main
             git push
             echo "✅ 新しいクイズ問題を追加しました"
           fi
