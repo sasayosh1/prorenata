@@ -22,7 +22,7 @@ const UPDATES = [
         imagePath: '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_terminology_watercolor_16x9.png'
     },
     {
-        slug: 'nursing-assistant-career-method', // Job Change
+        slug: 'nursing-assistant-care-guide-toolbox', // Care Beauty (Using Job Change image)
         imagePath: '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_job_change_watercolor_16x9.png'
     },
     {
@@ -30,15 +30,15 @@ const UPDATES = [
         imagePath: '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_salary_watercolor_16x9.png'
     },
     {
-        slug: 'nursing-assistant-nursing-school-prep', // Scholarship/School
+        slug: 'nursing-scholarship-interest-risk', // Scholarship (Corrected slug)
         imagePath: '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_scholarship_watercolor_16x9.png'
     },
     {
-        slug: 'nursing-assistant-essentials-checklist', // Shoes/Essentials
+        slug: 'nursing-assistant-recommended-shoes', // Shoes (Corrected slug)
         imagePath: '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_shoes_watercolor_16x9.png'
     },
     {
-        slug: 'nursing-assistant-workplace-comparison', // Outpatient/Workplace
+        slug: 'nursing-assistant-job-role-patient', // Outpatient (Corrected slug)
         imagePath: '/Users/sasakiyoshimasa/prorenata/AI画像生成/sera_outpatient_watercolor_16x9.png'
     }
 ];
