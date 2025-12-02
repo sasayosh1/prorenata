@@ -16,8 +16,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install production dependencies only
-        run: npm ci --omit=dev
+      - name: Install dependencies (include dev)
+        run: npm ci --include=dev
 
       - name: Build (production only)
         run: npm run build
