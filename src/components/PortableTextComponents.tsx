@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { PortableTextComponents, PortableTextComponentProps } from '@portabletext/react'
 import { PortableTextBlock } from '@portabletext/types'
+import { sanitizeTitle } from '@/lib/title'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
@@ -200,6 +201,8 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
   const inlineAffiliateType = getInlineAffiliateType(value)
   const isAffiliatePrBlock = isAffiliatePrParagraph(value)
   const hasInternalLink = containsInternalLink(value) && !inlineAffiliateType
+  const plainText = extractPlainText(value)
+  const sanitizedText = sanitizeSummaryText(plainText)
 
   let paragraphClass = 'leading-relaxed text-gray-900 [&]:!text-gray-900'
   if (inlineAffiliateType || isAffiliatePrBlock) {
@@ -247,7 +250,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
 
   return (
     <p className={paragraphClass} style={{ color: '#111827 !important' }}>
-      {children}
+      {sanitizedText !== plainText ? sanitizedText : children}
     </p>
   )
 }
@@ -299,6 +302,33 @@ function extractReferenceInfo(value?: PortableTextBlock) {
     label: linkSpan?.text || '',
     url: markDef?.href || '',
   }
+}
+
+function extractPlainText(value?: PortableTextBlock) {
+  if (!value || !Array.isArray(value.children)) return ''
+  return value.children
+    .map((child) => (typeof (child as { text?: string }).text === 'string' ? (child as { text?: string }).text : ''))
+    .join('')
+    .trim()
+}
+
+function sanitizeSummaryText(text: string): string {
+  if (!text) return text
+
+  let result = text
+
+  // 先頭の【…】を除去
+  result = result.replace(/^【[^】]*】\s*/, '')
+
+  // タイトルをそのまま使ったテンプレはタイトル部を除去
+  result = sanitizeTitle(result)
+
+  // 「～を徹底解説でお伝えした内容を振り返ると」系の定型文を短く置き換える
+  if (/徹底解説でお伝えした内容を振り返ると/.test(result)) {
+    result = 'この記事で取り上げたポイントを、無理なく実践しやすいところから試してみましょう。'
+  }
+
+  return result.trim()
 }
 
 // カスタム見出しコンポーネント
