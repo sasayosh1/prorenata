@@ -1,6 +1,7 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 require('dotenv').config({ path: '../.env.local' });
 
 // --- Configuration ---
@@ -24,6 +25,31 @@ const DIFFICULTIES = {
 };
 
 // --- Helper Functions ---
+
+function slugify(text) {
+  return text
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, '-') // non letters/numbers -> hyphen
+    .replace(/^-+|-+$/g, '') // trim hyphens
+    .replace(/-+/g, '-'); // collapse
+}
+
+function makeUniqueId(preferredId, existingIds, fallbackText = '') {
+  let base = slugify(preferredId || fallbackText);
+  if (!base) {
+    base = `term-${crypto.randomUUID().slice(0, 8)}`;
+  }
+
+  let candidate = base;
+  let counter = 2;
+  while (existingIds.includes(candidate)) {
+    candidate = `${base}-${counter}`;
+    counter += 1;
+  }
+  return candidate;
+}
 
 /**
  * 既存の医療用語データを読み込む
@@ -147,11 +173,12 @@ ${existingIds.slice(0, 20).join(', ')}...など${existingIds.length}件
 
     const termData = JSON.parse(jsonMatch[0]);
 
-    // 重複チェック
-    if (existingIds.includes(termData.id)) {
-      console.warn(`警告: ID「${termData.id}」は既に存在します。再生成します...`);
-      return null;
+    // 重複を避けるため、AI提案IDをベースにユニークIDを付与
+    const uniqueId = makeUniqueId(termData.id, existingIds, termData.term || termData.reading || '');
+    if (uniqueId !== termData.id) {
+      console.warn(`警告: ID「${termData.id}」が重複していたため、"${uniqueId}" に変更しました。`);
     }
+    termData.id = uniqueId;
 
     if (existingTerms.some(t => t.includes(termData.term.split('（')[0]))) {
       console.warn(`警告: 用語「${termData.term}」は既に存在する可能性があります。`);
