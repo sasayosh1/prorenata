@@ -260,7 +260,8 @@ export default function AItuberWidget() {
                                     alt="Sera"
                                     width={32}
                                     height={32}
-                                    className="object-cover w-full h-full"
+                                    className="object-cover w-full h-full object-center"
+                                    style={{ objectPosition: "50% 35%" }}
                                 />
                             </div>
                             <span className="font-bold text-sm">白崎セラ (AI)</span>
@@ -329,7 +330,7 @@ export default function AItuberWidget() {
                         width={64}
                         height={64}
                         className="object-cover w-full h-full object-center"
-                        style={{ objectPosition: "50% 20%" }} // Focus on face
+                        style={{ objectPosition: "50% 35%" }}
                     />
                 </div>
                 {!isOpen && (
