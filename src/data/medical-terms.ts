@@ -425,6 +425,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'equipment',
     difficulty: 1
   },
+  {
+    id: 'body-temperature',
+    term: '体温',
+    reading: 'たいおん',
+    meaning: '体の温度。健康状態を知るための重要な指標。',
+    distractors: ['呼吸数', '血圧'],
+    category: 'vital-signs',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
