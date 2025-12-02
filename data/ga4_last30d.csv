@@ -1,4 +1,6 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
+20251201,/,desktop,Japan,19,3,165,0.8421052631578947,429.8574879473684
+20251201,/posts/nursing-assistant-night-shift-journey,desktop,Japan,8,2,55,1.0,247.44553
 20251129,/,desktop,Japan,6,2,133,0.8333333333333334,737.7147491666666
 20251117,/posts/nursing-assistant-night-shift-duties,desktop,Japan,4,1,61,0.5,1307.94538225
 20251118,/posts/nursing-assistant-night-shift-duties,desktop,Japan,4,1,43,0.75,201.33463675000002
@@ -11,6 +13,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251130,/,desktop,Japan,3,2,18,0.6666666666666666,47.436138666666665
 20251130,/,desktop,United States,3,3,14,0.0,3.9220403333333334
 20251130,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,18,1.0,10.929512666666668
+20251201,/posts/nursing-assistant-resignation-advice-workplace,desktop,Japan,3,2,31,0.6666666666666666,984.485385
 20251113,/,desktop,Japan,2,1,10,1.0,602.434392
 20251113,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,1,14,1.0,55.664606
 20251115,/posts/nursing-assistant-training-program-revision,desktop,Japan,2,1,11,0.5,13.266507
@@ -21,6 +24,11 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251129,/about,desktop,Japan,2,2,2,1.0,14.1164475
 20251129,/posts,desktop,Japan,2,2,6,1.0,14.5494385
 20251129,/posts/nursing-assistant-salary-update-career,desktop,Japan,2,2,3,1.0,3.9822835
+20251201,/,mobile,Japan,2,1,21,1.0,55.150571
+20251201,/about,desktop,Japan,2,2,35,1.0,503.6095975
+20251201,/guide/)ですね。ぜひ見てみてください！きっと役に立つと思います！,desktop,Japan,2,1,23,1.0,334.6224145
+20251201,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,2,1,5,1.0,7.553784
+20251201,/search,desktop,Japan,2,2,36,1.0,18.3866035
 20251110,/,desktop,Japan,1,1,7,1.0,11.80411
 20251113,/about,desktop,Japan,1,1,1,1.0,2.953086
 20251113,/blog,desktop,Japan,1,1,1,1.0,21.217683
@@ -72,3 +80,14 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251130,/posts/nursing-assistant-workplace-fit,desktop,Japan,1,1,6,1.0,277.619433
 20251130,/quiz,desktop,Japan,1,1,1,1.0,5.000877
 20251130,/quiz/rankings,desktop,Japan,1,1,1,1.0,67.627143
+20251201,/about,mobile,Japan,1,1,1,1.0,5.11387
+20251201,/posts/nursing-assistant-care-guide-toolbox,desktop,Japan,1,1,1,1.0,6.796264
+20251201,/posts/nursing-assistant-career-change-insights,desktop,Japan,1,1,6,1.0,20.035854
+20251201,/posts/nursing-assistant-career-vision,mobile,Japan,1,1,5,0.0,5.890022
+20251201,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,7,1.0,34.006907
+20251201,/posts/nursing-assistant-job-role-patient,desktop,Japan,1,1,10,1.0,3252.971449
+20251201,/posts/nursing-assistant-market-info,mobile,Japan,1,1,6,1.0,27.431891
+20251201,/posts/nursing-assistant-recommended-shoes,desktop,Japan,1,1,1,1.0,0.0
+20251201,/quiz,desktop,Japan,1,1,1,1.0,5.000541
+20251201,/quiz/rankings,desktop,Japan,1,1,1,1.0,52.580613
+20251201,/search,mobile,Japan,1,1,12,1.0,13.123504
