@@ -79,7 +79,14 @@ jobs:
               labels: ['analytics', 'automated']
             });
 
-      - name: Clean up credentials
+          - name: Clean up credentials
         if: always()
+        run: rm -f /tmp/sa.json
+
+      - name: Generate SEO daily report
         run: |
-          rm -f /tmp/sa.json
+          python scripts/analytics/analyze-seo-performance.py \
+            --gsc-data data/gsc_last30d.json \
+            --ga4-data data/ga4_last30d.csv \
+            --output reports/daily/seo-summary-$(date +'%Y-%m-%d').md
+
