@@ -4,6 +4,22 @@ import { searchLocalArticles } from "@/lib/localArticleSearch";
 const greet =
   "こんにちは！ご相談や気になるテーマがあれば教えてください。記事検索やカテゴリからも探せます。";
 
+const suggestionKeywords = [
+  "資格 取得方法",
+  "夜勤のコツ",
+  "給料 明細 例",
+  "退職 手続き",
+  "人間関係 ストレス",
+  "シフト調整 コツ",
+];
+
+const buildSuggestionResponse = () =>
+  [
+    "まだ記事が見つかりませんでしたが、次のキーワードがおすすめです。",
+    ...suggestionKeywords.map((k, i) => `${i + 1}. 「${k}」`),
+    "気になるキーワードを入れてみてくださいね。",
+  ].join("\n");
+
 export async function POST(req: Request) {
     try {
         const { message } = await req.json();
@@ -16,12 +32,15 @@ export async function POST(req: Request) {
         const wantsUrl =
             /url|リンク|link|教えて|知りたい/i.test(text);
 
+        // ヒントを求める質問への即応答
+        if (/おすすめ|キーワード|何を聞けば|どう聞く/i.test(text)) {
+            return NextResponse.json({ response: buildSuggestionResponse() });
+        }
+
         const hits = searchLocalArticles(text, 3);
 
         if (hits.length === 0) {
-            const fallback =
-                "該当記事が見つかりませんでした。別のキーワードをお試しください。例えば「資格」「夜勤」「給料」など。";
-            return NextResponse.json({ response: fallback });
+            return NextResponse.json({ response: buildSuggestionResponse() });
         }
 
         const lines = [
