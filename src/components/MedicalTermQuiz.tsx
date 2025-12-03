@@ -18,6 +18,44 @@ interface DailyProgress {
   playerName: string | null
 }
 
+// 名前の保存・取得ユーティリティ（localStorageとcookie両対応で残りやすくする）
+const PLAYER_NAME_KEY = 'medicalTermPlayerName'
+
+function storePlayerName(name: string) {
+  try {
+    localStorage.setItem(PLAYER_NAME_KEY, name)
+  } catch (_) {
+    // noop
+  }
+  try {
+    document.cookie = `${PLAYER_NAME_KEY}=${encodeURIComponent(name)}; max-age=31536000; path=/`
+  } catch (_) {
+    // noop
+  }
+}
+
+function loadPlayerName(): string | null {
+  try {
+    const fromLocal = localStorage.getItem(PLAYER_NAME_KEY)
+    if (fromLocal) return fromLocal
+  } catch (_) {
+    // noop
+  }
+
+  try {
+    const match = document.cookie
+      .split(';')
+      .map(c => c.trim())
+      .find(c => c.startsWith(`${PLAYER_NAME_KEY}=`))
+    if (match) {
+      return decodeURIComponent(match.split('=')[1] || '')
+    }
+  } catch (_) {
+    // noop
+  }
+  return null
+}
+
 export default function MedicalTermQuiz() {
   const [currentTerm, setCurrentTerm] = useState<MedicalTerm | null>(null)
   const [choices, setChoices] = useState<string[]>([])
@@ -80,7 +118,7 @@ export default function MedicalTermQuiz() {
     const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' })
     const savedProgress = localStorage.getItem('medicalTermDailyProgress')
     const savedStats = localStorage.getItem('medicalTermQuizStats')
-    const savedName = localStorage.getItem('medicalTermPlayerName')
+    const savedName = loadPlayerName()
 
     if (savedStats) {
       setStats(JSON.parse(savedStats))
@@ -195,7 +233,9 @@ export default function MedicalTermQuiz() {
     if (playerName.trim()) {
       setHasEnteredName(true)
       setShowNameInput(false)
-      localStorage.setItem('medicalTermPlayerName', playerName.trim())
+      const normalized = playerName.trim()
+      storePlayerName(normalized)
+      setPlayerName(normalized)
       setDailyProgress(prev => ({ ...prev, playerName: playerName.trim() }))
       // 5問完了していない場合のみ問題を読み込む
       if (dailyProgress.questionsAnswered < DAILY_LIMIT) {
