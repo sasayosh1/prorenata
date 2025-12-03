@@ -11,7 +11,7 @@ const client = createClient({
 // 削除対象のリンクパターン
 const LINKS_TO_REMOVE = [
   'a_id=5211244', // アルバトロス転職
-  'a_id=5211256', // 弁護士法人ガイア法律事務所
+  // 注: 'a_id=5211256' (弁護士法人ガイア法律事務所) は 2025-12-03 に復活したため削除対象外
 ]
 
 async function findAndRemoveLinks(dryRun = true) {

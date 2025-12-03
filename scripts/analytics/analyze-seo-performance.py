@@ -194,25 +194,42 @@ def generate_summary(gsc_df, ga4_df):
 
     return summary
 
+    return summary
+
 def main():
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='SEO Performance Analysis')
+    parser.add_argument('--gsc-data', default='data/gsc_last30d.csv', help='Path to GSC data CSV')
+    parser.add_argument('--ga4-data', default='data/ga4_last30d.csv', help='Path to GA4 data CSV')
+    parser.add_argument('--output', default=None, help='Path to output report file')
+    
+    args = parser.parse_args()
+
     print("📊 SEOパフォーマンス分析開始")
 
     # ファイル存在確認
-    gsc_file = "data/gsc_last30d.csv"
-    ga4_file = "data/ga4_last30d.csv"
+    if not os.path.exists(args.gsc_data):
+        # 拡張子が違う場合のフォールバック（ワークフローでjson指定されているが実態はcsvの場合など）
+        base, _ = os.path.splitext(args.gsc_data)
+        if os.path.exists(base + ".csv"):
+            args.gsc_data = base + ".csv"
+        else:
+            print(f"❌ エラー: {args.gsc_data} が見つかりません")
+            sys.exit(1)
 
-    if not os.path.exists(gsc_file):
-        print(f"❌ エラー: {gsc_file} が見つかりません")
-        sys.exit(1)
-
-    if not os.path.exists(ga4_file):
-        print(f"❌ エラー: {ga4_file} が見つかりません")
-        sys.exit(1)
+    if not os.path.exists(args.ga4_data):
+         print(f"❌ エラー: {args.ga4_data} が見つかりません")
+         sys.exit(1)
 
     # データ読み込み
-    print("📥 データ読み込み中...")
-    gsc_df = pd.read_csv(gsc_file)
-    ga4_df = pd.read_csv(ga4_file)
+    print(f"📥 データ読み込み中... ({args.gsc_data}, {args.ga4_data})")
+    try:
+        gsc_df = pd.read_csv(args.gsc_data)
+        ga4_df = pd.read_csv(args.ga4_data)
+    except Exception as e:
+        print(f"❌ データ読み込みエラー: {e}")
+        sys.exit(1)
 
     print(f"   GSCデータ: {len(gsc_df):,}行")
     print(f"   GA4データ: {len(ga4_df):,}行")
@@ -243,7 +260,13 @@ def main():
 """
 
     # レポート保存
-    output_file = f"data/seo_report_{report_date}.md"
+    if args.output:
+        output_file = args.output
+    else:
+        output_file = f"data/seo_report_{report_date}.md"
+        
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(report)
 
