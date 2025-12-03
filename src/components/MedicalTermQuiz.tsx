@@ -304,12 +304,6 @@ export default function MedicalTermQuiz() {
     }))
   }
 
-  const cancelSelection = () => {
-    // クリック即判定になったのでキャンセルは実質不要
-    if (isAnswerConfirmed) return
-    setSelectedAnswer(null)
-  }
-
   // 次の問題へ
   const handleNext = () => {
     if (!isAnswerConfirmed && dailyProgress.questionsAnswered < DAILY_LIMIT) {
@@ -535,23 +529,6 @@ export default function MedicalTermQuiz() {
           )
         })}
       </div>
-
-      {selectedAnswer && !isAnswerConfirmed && (
-        <div className="mb-6 flex flex-wrap gap-4">
-          <button
-            onClick={confirmAnswer}
-            className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            決定
-          </button>
-          <button
-            onClick={cancelSelection}
-            className="px-4 py-2 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            キャンセル
-          </button>
-        </div>
-      )}
 
       {selectedAnswer !== null && isAnswerConfirmed && (
         <div className="mb-6">
