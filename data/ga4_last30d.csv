@@ -1,6 +1,6 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
 20251201,/,desktop,Japan,19,3,165,0.8421052631578947,429.8574879473684
-20251202,/,desktop,Japan,14,4,124,0.7857142857142857,625.0796186428571
+20251202,/,desktop,Japan,14,4,124,0.7857142857142857,624.7182336428572
 20251201,/posts/nursing-assistant-night-shift-journey,desktop,Japan,8,2,55,1.0,247.44553
 20251202,/about,desktop,Japan,8,4,103,0.875,737.20032
 20251129,/,desktop,Japan,6,2,133,0.8333333333333334,737.7147491666666
