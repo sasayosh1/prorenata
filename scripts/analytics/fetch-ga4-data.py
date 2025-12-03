@@ -31,9 +31,10 @@ def main():
     OUTPUT_FILE = "data/ga4_last30d.csv"
 
     # 認証情報の確認
+    # 認証情報の確認
     if not os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
-        print("Error: GOOGLE_APPLICATION_CREDENTIALS 環境変数が設定されていません")
-        sys.exit(1)
+        print("Warning: GOOGLE_APPLICATION_CREDENTIALS 環境変数が設定されていません。スキップします。")
+        sys.exit(0)
 
     print(f"📊 GA4 データ取得開始")
     print(f"   プロパティID: {PROPERTY_ID}")

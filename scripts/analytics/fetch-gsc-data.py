@@ -26,9 +26,11 @@ def main():
     OUTPUT_FILE = "data/gsc_last30d.csv"
 
     # 認証情報の確認
+    # 認証情報の確認
     if not os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
-        print("Error: GOOGLE_APPLICATION_CREDENTIALS 環境変数が設定されていません")
-        sys.exit(1)
+        print("Warning: GOOGLE_APPLICATION_CREDENTIALS 環境変数が設定されていません。スキップします。")
+        # エラーではなく正常終了として扱い、後続のプロセスでデータがないことを検知させる
+        sys.exit(0)
 
     print(f"🔍 Search Console データ取得開始")
     print(f"   プロパティ: {SITE_URL}")
