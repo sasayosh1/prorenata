@@ -281,14 +281,8 @@ export default function MedicalTermQuiz() {
   // 回答を処理
   const handleAnswer = (answer: string) => {
     if (!currentTerm || isAnswerConfirmed) return
+    const correct = answer === currentTerm.meaning
     setSelectedAnswer(answer)
-    setIsCorrect(null)
-  }
-
-  const confirmAnswer = () => {
-    if (!selectedAnswer || !currentTerm || isAnswerConfirmed) return
-
-    const correct = selectedAnswer === currentTerm.meaning
     setIsCorrect(correct)
     setIsAnswerConfirmed(true)
 
@@ -311,6 +305,7 @@ export default function MedicalTermQuiz() {
   }
 
   const cancelSelection = () => {
+    // クリック即判定になったのでキャンセルは実質不要
     if (isAnswerConfirmed) return
     setSelectedAnswer(null)
   }
