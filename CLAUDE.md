@@ -174,12 +174,6 @@ vercel --previewe
 
 ---
 
-74. 💰 **弁護士法人ガイア法律事務所のアフィリエイト復活** (2025-12-03)
-   - **背景**: ユーザーから「ガイアのアフィリエイトが抜けていないか」との確認。実は消していなく、情報が不完全だった
-   - **問題**: `moshimo-affiliate-links.js`には登録されているが、報酬額や条件の情報が不完全
-   - **復活内容**:
-     - **報酬額**: 14,000円
-     - **条件**: LINEもしくはメールでの相談問い合わせ完了後
      - **ネットワーク**: もしも（a_id: 5211256）
      - **公式URL**: https://www.gaia-law-office.jp/taisyoku/
    - **修正ファイル**:
@@ -271,7 +265,30 @@ vercel --previewe
    - **スクリプト**: `scripts/tmp/add-quiz-link.js`, `scripts/tmp/fix-quiz-link.js`, `scripts/tmp/set-quiz-newtab.js`
    - **効果**: 医療用語を学んだ読者が、すぐにクイズで知識を確認できる導線を確保。内部リンク背景色により視認性も向上。新しいタブで開くことで、記事を読み終えてからクイズに戻りやすくなった
 
-69. 🔧 **退職代行比較記事のアフィリエイトコード統一** (2025-11-25)
+75. 🔍 **SEO改善とRULES.md違反の修正** (2025-12-03)
+   - **背景**: GSC/GA4データ分析に基づき、CTR改善とトラフィック増加を目的としたSEO施策を実施
+   - **SEO改善内容**:
+     - タイトル最適化（2記事）:
+       - `nursing-assistant-become-nurse-guide`: 「働きながら看護師になるには？最短ルートと奨学金活用法」
+       - `nursing-assistant-resume-writing`: 「【例文10選】看護助手の履歴書・志望動機の書き方｜そのまま使えるテンプレート」
+     - 内部リンク追加（4箇所）: 関連記事間の導線を強化
+     - コンテンツ追記: `nursing-assistant-patient-transfer-safety` にストレッチャー操作（坂道・エレベーター）の詳細を追加
+   - **RULES.md違反の発見と修正**:
+     - 問題1: SEOスクリプトが免責事項の後にコンテンツを追加（3記事、計13ブロック削除）
+     - 問題2: 自己参照リンクが7記事に存在（RULES.md 66-70行で禁止）
+     - 全違反を修正し、記事構造をRULES.mdに準拠
+   - **再発防止策**:
+     - `scripts/seo/validate-article-structure.js`: 全記事のRULES.md準拠チェック
+     - `scripts/seo/fix-article-structure-v2.js`: 免責事項後コンテンツ削除
+     - `scripts/seo/remove-self-references.js`: 自己参照リンク削除
+     - 今後のSEOスクリプト実行前に検証スクリプトを必ず実行
+   - **分析基盤の整備**:
+     - `scripts/analytics/analyze-seo-performance.py`: コマンドライン引数対応（--gsc-data, --ga4-data, --output）
+     - Python 3.12環境の構築（3.14の互換性問題を解決）
+     - GSC/GA4データ取得の自動化（GitHub Actions対応）
+   - **効果**: CTR改善、内部リンク強化、記事品質の維持、再発防止体制の確立
+
+74. 💰 **弁護士法人ガイア法律事務所のアフィリエイト復活** (2025-12-03)
    - **背景**: ユーザーから「3サービスのざっくり比較セクションの弁護士法人みやびのアフィリエイトリンクコードが間違っている」との指摘
    - **対象記事**: `comparison-of-three-resignation-agencies`（退職代行３社のメリット・デメリット徹底比較）
    - **問題箇所**: Block 18（H3見出し「弁護士法人みやび｜法的リスクを抱えたケースの頼みどころ」）
