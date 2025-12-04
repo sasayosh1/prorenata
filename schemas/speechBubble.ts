@@ -67,8 +67,8 @@ export default defineType({
             subtitle: 'speaker',
             emotion: 'emotion'
         },
-        prepare({ title, subtitle, emotion }) {
-            const emojis = {
+        prepare({ title, subtitle, emotion }: { title: string; subtitle: string; emotion: 'normal' | 'happy' | 'sad' | 'thinking' | 'angry' }) {
+            const emojis: Record<string, string> = {
                 normal: '😐',
                 happy: '😊',
                 sad: '😢',
