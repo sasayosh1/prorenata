@@ -1,23 +1,31 @@
 
-> prorenata@1.0.0 dev
-> NODE_ENV=development next dev -p 3000
+> prorenata@1.0.0 dev:auto
+> NODE_ENV=development CI=true NEXT_TELEMETRY_DISABLED=1 PORT=3000 next dev -p 3000
 
-   ▲ Next.js 15.5.6
+   ▲ Next.js 15.5.7
    - Local:        http://localhost:3000
-   - Network:      http://192.168.11.3:3000
+   - Network:      http://192.168.11.2:3000
    - Environments: .env.local
    - Experiments (use with caution):
      · optimizePackageImports
 
  ✓ Starting...
- ✓ Ready in 5.9s
+ ✓ Ready in 1173ms
  ○ Compiling /posts/[slug] ...
- ✓ Compiled /posts/[slug] in 1591ms (4374 modules)
- GET /posts/nursing-assistant-job-role-patient 200 in 3635ms
+ ✓ Compiled /posts/[slug] in 1580ms (4379 modules)
  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
- GET /posts/nursing-assistant-job-role-patient 200 in 1490ms
- ✓ Compiled /api/views/[slug] in 340ms (2626 modules)
- ✓ Compiled in 233ms (1766 modules)
- GET /favicon.ico 200 in 721ms
- POST /api/views/nursing-assistant-job-role-patient 200 in 2270ms
- GET /api/views/nursing-assistant-job-role-patient 200 in 340ms
+ GET /posts/comparison-of-three-resignation-agencies 200 in 4175ms
+ ○ Compiling /api/views/[slug] ...
+ ✓ Compiled /api/views/[slug] in 616ms (4399 modules)
+ POST /api/views/comparison-of-three-resignation-agencies 200 in 3317ms
+ GET /api/views/comparison-of-three-resignation-agencies 200 in 759ms
+ GET /posts/nursing-assistant-compare-services-perspective 200 in 1487ms
+ ✓ Compiled /favicon.ico in 126ms (2633 modules)
+ GET /favicon.ico 200 in 153ms
+ POST /api/views/nursing-assistant-compare-services-perspective 200 in 1941ms
+ GET /api/views/nursing-assistant-compare-services-perspective 200 in 485ms
+ ○ Compiling / ...
+ ✓ Compiled / in 738ms (4391 modules)
+ ✓ Compiled /_not-found in 300ms (4395 modules)
+ GET /icon-144x144.png 404 in 449ms
+ GET / 200 in 1998ms

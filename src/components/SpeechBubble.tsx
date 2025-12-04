@@ -14,8 +14,8 @@ const AVATARS = {
         normal: '/images/avatars/sera_normal.png',
         happy: '/images/avatars/sera_happy.png',
         sad: '/images/avatars/sera_sad.png',
-        thinking: '/images/avatars/sera_normal.png', // Fallback
-        angry: '/images/avatars/sera_normal.png', // Fallback
+        thinking: '/images/avatars/sera_thinking.png',
+        angry: '/images/avatars/sera_angry.png',
     },
     // Placeholders for other speakers
     patient: {

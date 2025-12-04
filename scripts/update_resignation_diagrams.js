@@ -65,18 +65,19 @@ async function main() {
             block.children && block.children.some(child => child.text && child.text.includes('３サービスのざっくり比較'))
         );
 
+        /*
         if (comparisonIndex !== -1) {
             console.log(`Inserting comparison chart after block ${comparisonIndex}`);
             newBody.splice(comparisonIndex + 1, 0, createImageBlock(comparisonAssetId, '退職代行3社比較チャート'));
         } else {
             console.warn('Could not find insertion point for comparison chart');
         }
+        */
 
-        // Insert Flow Chart after "料金と進め方のまとめ"
-        // Since we modified the array, we need to find the index again or be careful with offsets.
-        // Best to find indices first or search again.
+        // Insert Flow Chart after "料金と進め方"
+        // Re-calculate index as array length changed
         const flowIndex = newBody.findIndex(block =>
-            block.children && block.children.some(child => child.text && child.text.includes('料金と進め方のまとめ'))
+            block.children && block.children.some(child => child.text && child.text.includes('料金と進め方'))
         );
 
         if (flowIndex !== -1) {
