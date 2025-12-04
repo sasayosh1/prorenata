@@ -1,0 +1,44 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#fff3e0" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#e65100">よくある質問と回答のポイント</text>
+  
+  <!-- Q1 -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="340" height="150" rx="10" fill="white" stroke="#ff9800" stroke-width="2" />
+    <text x="20" y="35" font-family="sans-serif" font-size="16" font-weight="bold" fill="#e65100">Q. なぜ看護助手ですか？</text>
+    <line x1="20" y1="50" x2="320" y2="50" stroke="#ffe0b2" stroke-width="2" />
+    <text x="20" y="80" font-family="sans-serif" font-size="14" fill="#333">Good: 「人の役に立つ仕事がしたい」</text>
+    <text x="20" y="100" font-family="sans-serif" font-size="14" fill="#333">　　　 「医療現場を支えたい」</text>
+    <text x="20" y="130" font-family="sans-serif" font-size="14" fill="#d32f2f">NG: 「楽そうだから」「資格がいらないから」</text>
+  </g>
+
+  <!-- Q2 -->
+  <g transform="translate(410, 100)">
+    <rect x="0" y="0" width="340" height="150" rx="10" fill="white" stroke="#ff9800" stroke-width="2" />
+    <text x="20" y="35" font-family="sans-serif" font-size="16" font-weight="bold" fill="#e65100">Q. 前職の退職理由は？</text>
+    <line x1="20" y1="50" x2="320" y2="50" stroke="#ffe0b2" stroke-width="2" />
+    <text x="20" y="80" font-family="sans-serif" font-size="14" fill="#333">Good: 「ステップアップのため」</text>
+    <text x="20" y="100" font-family="sans-serif" font-size="14" fill="#333">　　　 「新しい分野への挑戦」</text>
+    <text x="20" y="130" font-family="sans-serif" font-size="14" fill="#d32f2f">NG: 「人間関係が悪かった」「給料が安い」</text>
+  </g>
+
+  <!-- Q3 -->
+  <g transform="translate(50, 270)">
+    <rect x="0" y="0" width="340" height="150" rx="10" fill="white" stroke="#ff9800" stroke-width="2" />
+    <text x="20" y="35" font-family="sans-serif" font-size="16" font-weight="bold" fill="#e65100">Q. 体力に自信はありますか？</text>
+    <line x1="20" y1="50" x2="320" y2="50" stroke="#ffe0b2" stroke-width="2" />
+    <text x="20" y="80" font-family="sans-serif" font-size="14" fill="#333">Good: 「部活で鍛えていました」</text>
+    <text x="20" y="100" font-family="sans-serif" font-size="14" fill="#333">　　　 「前職も立ち仕事でした」</text>
+    <text x="20" y="130" font-family="sans-serif" font-size="14" fill="#d32f2f">NG: 「あまりありません」「腰痛持ちです」</text>
+  </g>
+
+  <!-- Tips -->
+  <g transform="translate(410, 270)">
+    <rect x="0" y="0" width="340" height="150" rx="10" fill="#ffe0b2" />
+    <text x="170" y="40" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">ポイント</text>
+    <text x="170" y="80" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#333">ネガティブな内容も</text>
+    <text x="170" y="110" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#333">ポジティブに言い換える！</text>
+  </g>
+
+  <text x="400" y="470" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+</svg>

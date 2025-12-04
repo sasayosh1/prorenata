@@ -1,4 +1,4 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'post',
@@ -122,21 +122,21 @@ export default defineType({
         defineArrayMember({
           type: 'block',
           styles: [
-            {title: 'Normal', value: 'normal'},
-            {title: 'H2', value: 'h2'},
-            {title: 'H3', value: 'h3'},
-            {title: 'H4', value: 'h4'},
-            {title: 'Quote', value: 'blockquote'},
+            { title: 'Normal', value: 'normal' },
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+            { title: 'H4', value: 'h4' },
+            { title: 'Quote', value: 'blockquote' },
           ],
           lists: [
-            {title: 'Bullet', value: 'bullet'},
-            {title: 'Number', value: 'number'},
+            { title: 'Bullet', value: 'bullet' },
+            { title: 'Number', value: 'number' },
           ],
           marks: {
             decorators: [
-              {title: 'Strong', value: 'strong'},
-              {title: 'Emphasis', value: 'em'},
-              {title: 'Code', value: 'code'},
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+              { title: 'Code', value: 'code' },
             ],
             annotations: [
               {
@@ -166,7 +166,7 @@ export default defineType({
         }),
         defineArrayMember({
           type: 'image',
-          options: {hotspot: true},
+          options: { hotspot: true },
           fields: [
             {
               name: 'alt',
@@ -178,6 +178,9 @@ export default defineType({
         defineArrayMember({
           type: 'affiliateEmbed',
         }),
+        defineArrayMember({
+          type: 'speechBubble',
+        }),
       ],
       validation: rule => rule.required(),
     }),
@@ -185,13 +188,13 @@ export default defineType({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
     }),
     defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{ type: 'reference', to: [{type: 'category'}] }],
+      of: [{ type: 'reference', to: [{ type: 'category' }] }],
       validation: rule => rule.min(1)
     }),
     defineField({
@@ -266,11 +269,18 @@ export default defineType({
       hidden: true,
       description: 'Geminiでのメンテナンス実行日時（自動更新）',
     }),
+    defineField({
+      name: 'faq',
+      title: 'FAQ (Frequently Asked Questions)',
+      type: 'array',
+      of: [{ type: 'faqItem' }],
+      description: '記事に関連するよくある質問（構造化データとして出力されます）',
+    }),
   ],
   preview: {
     select: { title: 'title', media: 'mainImage', subtitle: 'slug.current', description: 'body' },
     prepare(selection) {
-      const {title, subtitle} = selection
+      const { title, subtitle } = selection
       return {
         title,
         subtitle: subtitle ? `/posts/${subtitle}` : 'No slug'
@@ -278,7 +288,7 @@ export default defineType({
     }
   },
   orderings: [
-    { title: 'Publish date (new→old)', name: 'pubDesc', by: [{field: 'publishedAt', direction: 'desc'}] },
-    { title: 'Title (A→Z)', name: 'titleAsc', by: [{field: 'title', direction: 'asc'}] },
+    { title: 'Publish date (new→old)', name: 'pubDesc', by: [{ field: 'publishedAt', direction: 'desc' }] },
+    { title: 'Title (A→Z)', name: 'titleAsc', by: [{ field: 'title', direction: 'asc' }] },
   ],
 })

@@ -3,18 +3,19 @@ import Link from 'next/link'
 import { PortableTextComponents, PortableTextComponentProps } from '@portabletext/react'
 import { PortableTextBlock } from '@portabletext/types'
 import { sanitizeTitle } from '@/lib/title'
+import SpeechBubble from './SpeechBubble'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
   if (!href) return false
-  
+
   // 外部URLのパターンを検出
   const externalPatterns = [
     /^https?:\/\//i,           // http:// または https://
     /^\/\/[^\/]/,              // //example.com
     /^www\./i,                 // www.example.com
   ]
-  
+
   return externalPatterns.some(pattern => pattern.test(href))
 }
 
@@ -368,7 +369,7 @@ function CustomHeading({
       <Tag
         id={headingId}
         className={headingStyles[2]}
-        style={{color: '#111827 !important'}}
+        style={{ color: '#111827 !important' }}
       >
         {children}
       </Tag>
@@ -380,7 +381,7 @@ function CustomHeading({
       <Tag
         id={headingId}
         className={headingStyles[3]}
-        style={{color: '#111827 !important'}}
+        style={{ color: '#111827 !important' }}
       >
         {children}
       </Tag>
@@ -391,7 +392,7 @@ function CustomHeading({
     <Tag
       id={headingId}
       className={headingStyles[level as keyof typeof headingStyles] || headingStyles[2]}
-      style={{color: '#111827 !important'}}
+      style={{ color: '#111827 !important' }}
     >
       {children}
     </Tag>
@@ -408,7 +409,7 @@ function CustomList(props: any) {
     : "list-disc list-inside mb-6 space-y-2 text-gray-900 [&]:!text-gray-900"
 
   return (
-    <Tag className={listClass} style={{color: '#111827 !important'}}>
+    <Tag className={listClass} style={{ color: '#111827 !important' }}>
       {props.children}
     </Tag>
   )
@@ -418,7 +419,7 @@ function CustomList(props: any) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomListItem(props: any) {
   return (
-    <li className="ml-4 text-gray-900 [&]:!text-gray-900" style={{color: '#111827 !important'}}>
+    <li className="ml-4 text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
       {props.children}
     </li>
   )
@@ -427,7 +428,7 @@ function CustomListItem(props: any) {
 // カスタム強調コンポーネント
 function CustomStrong({ children }: { children: React.ReactNode }) {
   return (
-    <strong className="font-semibold text-gray-900 [&]:!text-gray-900" style={{color: '#111827 !important'}}>
+    <strong className="font-semibold text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
       {children}
     </strong>
   )
@@ -436,7 +437,7 @@ function CustomStrong({ children }: { children: React.ReactNode }) {
 // カスタム斜体コンポーネント
 function CustomEm({ children }: { children: React.ReactNode }) {
   return (
-    <em className="italic text-gray-900 [&]:!text-gray-900" style={{color: '#111827 !important'}}>
+    <em className="italic text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
       {children}
     </em>
   )
@@ -488,7 +489,7 @@ export const portableTextComponents: PortableTextComponents = {
       </code>
     ),
   },
-  
+
   // 将来の拡張用：カスタムタイプ
   types: {
     image: ({ value }: { value: { asset: { _ref: string }; alt?: string } }) => {
@@ -527,6 +528,7 @@ export const portableTextComponents: PortableTextComponents = {
         />
       )
     },
+    speechBubble: SpeechBubble,
   },
 }
 

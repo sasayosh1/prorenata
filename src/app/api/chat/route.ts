@@ -2,29 +2,29 @@ import { NextResponse } from "next/server";
 import { searchLocalArticles } from "@/lib/localArticleSearch";
 
 const greet =
-  "こんにちは！ご相談や気になるテーマがあれば教えてください。記事検索やカテゴリからも探せます。";
+    "こんにちは！ご相談や気になるテーマがあれば教えてください。記事検索やカテゴリからも探せます。";
 
 const suggestionKeywords = [
-  "資格 取得方法",
-  "夜勤のコツ",
-  "給料 明細 例",
-  "退職 手続き",
-  "人間関係 ストレス",
-  "シフト調整 コツ",
+    "資格 取得方法",
+    "夜勤のコツ",
+    "給料 明細 例",
+    "退職 手続き",
+    "人間関係 ストレス",
+    "シフト調整 コツ",
 ];
 
 const buildSuggestionResponse = () =>
-  [
-    "まだ記事が見つかりませんでしたが、次のキーワードがおすすめです。",
-    ...suggestionKeywords.map((k, i) => `${i + 1}. 「${k}」`),
-    "気になるキーワードを入れてみてくださいね。",
-  ].join("\n");
+    [
+        "まだ記事が見つかりませんでしたが、次のキーワードがおすすめです。",
+        ...suggestionKeywords.map((k, i) => `${i + 1}. 「${k}」`),
+        "気になるキーワードを入れてみてくださいね。",
+    ].join("\n");
 
 const isGreeting = (text: string) =>
-  /^(こん|こんばん|おはよ|hello|hi|やあ|ちわ)/i.test(text);
+    /^(こん|こんばん|おはよ|hello|hi|やあ|ちわ)/i.test(text);
 
 const isThanks = (text: string) =>
-  /(ありがとう|助かった|感謝|thx|thanks)/i.test(text);
+    /(ありがとう|助かった|感謝|thx|thanks)/i.test(text);
 
 export async function POST(req: Request) {
     try {
@@ -39,11 +39,27 @@ export async function POST(req: Request) {
             /url|リンク|link|教えて|知りたい/i.test(text);
 
         // あいさつへの即応答（検索はしない）
+        // あいさつへの即応答（検索はしない）
         if (isGreeting(text)) {
+            // 現在時刻（日本時間）を取得
+            const now = new Date();
+            const jstTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
+            const hour = jstTime.getHours();
+
+            let timeGreeting = "こんにちは";
+            if (hour >= 4 && hour < 11) {
+                timeGreeting = "おはようございます";
+            } else if (hour >= 11 && hour < 18) {
+                timeGreeting = "こんにちは";
+            } else {
+                timeGreeting = "こんばんは";
+            }
+
             const personaReply = [
-                "こんばんは、白崎セラです！",
-                "夜勤のコツや資格の取り方、給料の目安など、気になることをそのまま聞いてくださいね。",
-                "例）「夜勤 明け 休み方」「資格 何から始める？」「給料 明細 例」",
+                `${timeGreeting}、白崎セラです！`,
+                "話しかけてくれてありがとうございます。",
+                "お仕事の悩みや、資格のことなど、なんでも気軽に聞いてくださいね。",
+                "（例：「夜勤がつらい」「給料アップしたい」など）",
             ].join("\n");
             return NextResponse.json({ response: personaReply });
         }

@@ -61,3 +61,5 @@ x-summary.json
 # メンテナンスログ
 maintenance-batch.log
 scripts/tmp/
+scripts/analytics/service-account-antigravity.json
+ga4env/

@@ -7,7 +7,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import RelatedPosts from '@/components/RelatedPosts'
 import ViewCounter from '@/components/ViewCounter'
-import { ArticleStructuredData, BreadcrumbStructuredData, OrganizationStructuredData } from '@/components/StructuredData'
+import { ArticleStructuredData, BreadcrumbStructuredData, OrganizationStructuredData, FAQStructuredData } from '@/components/StructuredData'
 import { formatPostDate, getRelatedPosts, urlFor } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 import { CATEGORY_SUMMARY, resolveTagDefinition, type CategorySlug } from '@/data/tagCatalog'
@@ -235,6 +235,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     tags,
     "categories": categories[]->{title,"slug":slug.current},
     "author": author->{name, slug},
+    faq,
     internalOnly
   }`
   const post = await client.fetch(query, { slug: resolvedParams.slug })
@@ -294,6 +295,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
       <ArticleStructuredData post={structuredPost} />
       <BreadcrumbStructuredData title={post.title} slug={post.slug.current} />
       <OrganizationStructuredData />
+      <FAQStructuredData faqItems={post.faq} />
 
       {/* Preview Mode Banner */}
       {isDraftMode && (
@@ -321,7 +323,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 記事一覧
               </Link>
               <span className="text-gray-300">/</span>
-                <span className="text-gray-900 font-medium truncate">{displayTitle}</span>
+              <span className="text-gray-900 font-medium truncate">{displayTitle}</span>
             </nav>
 
             <header className="pt-6 xl:pb-6">

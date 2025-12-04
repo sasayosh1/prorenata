@@ -1,0 +1,33 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#fffaf0" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#333">面接当日の流れとポイント</text>
+  
+  <!-- Step 1 -->
+  <rect x="50" y="150" width="200" height="150" rx="10" fill="white" stroke="#ff9800" stroke-width="2" />
+  <text x="150" y="180" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ff9800">到着・受付</text>
+  <text x="150" y="210" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">10分前到着</text>
+  <text x="150" y="230" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">コートは脱ぐ</text>
+  <text x="150" y="250" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">スマホはオフ</text>
+
+  <!-- Arrow 1 -->
+  <polygon points="260,225 290,225 290,215 310,235 290,255 290,245 260,245" fill="#ffcc80" />
+
+  <!-- Step 2 -->
+  <rect x="320" y="150" width="200" height="150" rx="10" fill="white" stroke="#ff9800" stroke-width="2" />
+  <text x="420" y="180" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ff9800">入室・面接</text>
+  <text x="420" y="210" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">ノックは3回</text>
+  <text x="420" y="230" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">「失礼します」</text>
+  <text x="420" y="250" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">笑顔でハキハキ</text>
+
+  <!-- Arrow 2 -->
+  <polygon points="530,225 560,225 560,215 580,235 560,255 560,245 530,245" fill="#ffcc80" />
+
+  <!-- Step 3 -->
+  <rect x="590" y="150" width="160" height="150" rx="10" fill="white" stroke="#ff9800" stroke-width="2" />
+  <text x="670" y="180" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ff9800">退室</text>
+  <text x="670" y="210" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">お礼を言う</text>
+  <text x="670" y="230" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">ドア前で一礼</text>
+  <text x="670" y="250" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">静かに閉める</text>
+
+  <text x="400" y="420" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+</svg>

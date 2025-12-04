@@ -188,6 +188,43 @@ export function WebSiteStructuredData({ searchUrl = `${SITE_URL}/search` }: WebS
     },
   }
 
+    < script
+  type = "application/ld+json"
+  dangerouslySetInnerHTML = {{ __html: JSON.stringify(structuredData) }
+}
+    />
+  )
+}
+
+interface FAQItem {
+  question: string
+  answer: string
+}
+
+interface FAQStructuredDataProps {
+  faqItems: FAQItem[]
+}
+
+/**
+ * FAQPage構造化データ
+ * よくある質問をGoogleに伝える
+ */
+export function FAQStructuredData({ faqItems }: FAQStructuredDataProps) {
+  if (!faqItems || faqItems.length === 0) return null
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
+
   return (
     <script
       type="application/ld+json"
