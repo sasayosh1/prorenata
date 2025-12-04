@@ -443,6 +443,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'mizuchi',
+    term: '四肢（しし）',
+    reading: 'しし',
+    meaning: '人間の手足のこと',
+    distractors: ['体幹', '頭頸部'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
