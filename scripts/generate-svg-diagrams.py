@@ -1,7 +1,17 @@
 import os
+import base64
 
-def create_svg_resume_checklist(filename):
-    svg_content = """<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+def get_base64_image(image_path):
+    try:
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
+    except FileNotFoundError:
+        print(f"Warning: Image not found at {image_path}")
+        return ""
+
+def create_svg_resume_checklist(filename, base64_img):
+    img_tag = f'<image href="data:image/png;base64,{base64_img}" x="650" y="300" height="150" width="150" />' if base64_img else ""
+    svg_content = f"""<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="#f0f7ff" />
   <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#333">履歴書作成の重要チェックポイント</text>
   
@@ -27,13 +37,17 @@ def create_svg_resume_checklist(filename):
   <text x="130" y="340" font-family="sans-serif" font-size="16" fill="#666">スーツ着用、髪型を整えて。第一印象が決まります</text>
 
   <text x="400" y="420" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+  
+  <!-- Chibi Character -->
+  {img_tag}
 </svg>"""
     with open(filename, "w") as f:
         f.write(svg_content)
     print(f"Created {filename}")
 
-def create_svg_interview_flow(filename):
-    svg_content = """<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+def create_svg_interview_flow(filename, base64_img):
+    img_tag = f'<image href="data:image/png;base64,{base64_img}" x="680" y="20" height="120" width="120" />' if base64_img else ""
+    svg_content = f"""<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="#fffaf0" />
   <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#333">面接当日の流れとポイント</text>
   
@@ -65,13 +79,17 @@ def create_svg_interview_flow(filename):
   <text x="670" y="250" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">静かに閉める</text>
 
   <text x="400" y="420" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+  
+  <!-- Chibi Character -->
+  {img_tag}
 </svg>"""
     with open(filename, "w") as f:
         f.write(svg_content)
     print(f"Created {filename}")
 
-def create_svg_transfer_safety(filename):
-    svg_content = """<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+def create_svg_transfer_safety(filename, base64_img):
+    img_tag = f'<image href="data:image/png;base64,{base64_img}" x="650" y="300" height="150" width="150" />' if base64_img else ""
+    svg_content = f"""<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="#e0f2f1" />
   <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#00695c">ストレッチャー移送の安全3原則</text>
   
@@ -100,6 +118,9 @@ def create_svg_transfer_safety(filename):
   <text x="400" y="355" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#004d40">安全第一！無理せず2人で対応しましょう</text>
 
   <text x="400" y="420" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+
+  <!-- Chibi Character -->
+  {img_tag}
 </svg>"""
     with open(filename, "w") as f:
         f.write(svg_content)
@@ -107,6 +128,11 @@ def create_svg_transfer_safety(filename):
 
 if __name__ == "__main__":
     os.makedirs("generated_diagrams", exist_ok=True)
-    create_svg_resume_checklist("generated_diagrams/resume_checklist.svg")
-    create_svg_interview_flow("generated_diagrams/interview_flow.svg")
-    create_svg_transfer_safety("generated_diagrams/transfer_safety.svg")
+    
+    # Path to the chibi image
+    image_path = "public/images/avatars/sera_thinking.png"
+    base64_img = get_base64_image(image_path)
+    
+    create_svg_resume_checklist("generated_diagrams/resume_checklist.svg", base64_img)
+    create_svg_interview_flow("generated_diagrams/interview_flow.svg", base64_img)
+    create_svg_transfer_safety("generated_diagrams/transfer_safety.svg", base64_img)

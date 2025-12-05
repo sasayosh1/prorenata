@@ -1,0 +1,39 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#e3f2fd" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1565c0">現場でよく使う医療用語・略語</text>
+  
+  <!-- Group 1 -->
+  <g transform="translate(50, 90)">
+    <rect x="0" y="0" width="220" height="140" rx="8" fill="white" stroke="#2196f3" stroke-width="2" />
+    <text x="110" y="30" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1565c0">バイタルサイン</text>
+    <text x="20" y="60" font-family="sans-serif" font-size="15" fill="#333">BP: 血圧</text>
+    <text x="20" y="85" font-family="sans-serif" font-size="15" fill="#333">KT: 体温</text>
+    <text x="20" y="110" font-family="sans-serif" font-size="15" fill="#333">P / HR: 脈拍</text>
+  </g>
+
+  <!-- Group 2 -->
+  <g transform="translate(290, 90)">
+    <rect x="0" y="0" width="220" height="140" rx="8" fill="white" stroke="#2196f3" stroke-width="2" />
+    <text x="110" y="30" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1565c0">食事・排泄</text>
+    <text x="20" y="60" font-family="sans-serif" font-size="15" fill="#333">エッセン: 食事</text>
+    <text x="20" y="85" font-family="sans-serif" font-size="15" fill="#333">ウロ: 尿</text>
+    <text x="20" y="110" font-family="sans-serif" font-size="15" fill="#333">ベン: 便</text>
+  </g>
+
+  <!-- Group 3 -->
+  <g transform="translate(530, 90)">
+    <rect x="0" y="0" width="220" height="140" rx="8" fill="white" stroke="#2196f3" stroke-width="2" />
+    <text x="110" y="30" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1565c0">処置・検査</text>
+    <text x="20" y="60" font-family="sans-serif" font-size="15" fill="#333">オペ: 手術</text>
+    <text x="20" y="85" font-family="sans-serif" font-size="15" fill="#333">ムンテラ: 説明</text>
+    <text x="20" y="110" font-family="sans-serif" font-size="15" fill="#333">アナムネ: 問診</text>
+  </g>
+
+  <!-- Tips Box -->
+  <rect x="100" y="260" width="600" height="100" rx="10" fill="#bbdefb" />
+  <text x="400" y="300" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#0d47a1">覚え方のコツ</text>
+  <text x="400" y="330" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#333">まずは「よく耳にする言葉」からメモして覚えましょう。</text>
+  <text x="400" y="350" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#333">分からない言葉はすぐに先輩に確認！</text>
+
+  <text x="400" y="420" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+</svg>

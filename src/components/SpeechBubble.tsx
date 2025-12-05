@@ -19,18 +19,18 @@ const AVATARS = {
     },
     // Placeholders for other speakers
     patient: {
-        normal: '/images/avatars/sera_normal.png', // Fallback
-        happy: '/images/avatars/sera_happy.png',
-        sad: '/images/avatars/sera_sad.png',
-        thinking: '/images/avatars/sera_normal.png',
-        angry: '/images/avatars/sera_normal.png',
+        normal: '/images/avatars/patient_normal.png',
+        happy: '/images/avatars/patient_normal.png', // Fallback
+        sad: '/images/avatars/patient_normal.png', // Fallback
+        thinking: '/images/avatars/patient_normal.png', // Fallback
+        angry: '/images/avatars/patient_normal.png', // Fallback
     },
     nurse: {
-        normal: '/images/avatars/sera_normal.png', // Fallback
-        happy: '/images/avatars/sera_happy.png',
-        sad: '/images/avatars/sera_sad.png',
-        thinking: '/images/avatars/sera_normal.png',
-        angry: '/images/avatars/sera_normal.png',
+        normal: '/images/avatars/nurse_normal.png',
+        happy: '/images/avatars/nurse_normal.png', // Fallback
+        sad: '/images/avatars/nurse_normal.png', // Fallback
+        thinking: '/images/avatars/nurse_normal.png', // Fallback
+        angry: '/images/avatars/nurse_normal.png', // Fallback
     }
 };
 

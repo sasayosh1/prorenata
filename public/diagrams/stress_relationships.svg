@@ -1,0 +1,43 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#fff5f5" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#c62828">人間関係ストレス対処の3ステップ</text>
+  
+  <!-- Step 1 -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="220" height="250" rx="10" fill="white" stroke="#e57373" stroke-width="2" />
+    <circle cx="110" cy="40" r="25" fill="#e57373" />
+    <text x="110" y="50" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">1</text>
+    <text x="110" y="85" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#c62828">状況を整理</text>
+    <text x="110" y="120" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">・何が辛いのか</text>
+    <text x="110" y="145" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">・誰との関係か</text>
+    <text x="110" y="170" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">・いつ起こるか</text>
+    <text x="110" y="210" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#888">紙に書き出すと</text>
+    <text x="110" y="230" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#888">頭が整理されます</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(290, 100)">
+    <rect x="0" y="0" width="220" height="250" rx="10" fill="white" stroke="#e57373" stroke-width="2" />
+    <circle cx="110" cy="40" r="25" fill="#e57373" />
+    <text x="110" y="50" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">2</text>
+    <text x="110" y="85" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#c62828">距離を取る</text>
+    <text x="110" y="120" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">・必要最低限の</text>
+    <text x="110" y="145" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">　会話にする</text>
+    <text x="110" y="170" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">・休憩時間は</text>
+    <text x="110" y="195" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">　別の場所で</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(530, 100)">
+    <rect x="0" y="0" width="220" height="250" rx="10" fill="white" stroke="#e57373" stroke-width="2" />
+    <circle cx="110" cy="40" r="25" fill="#e57373" />
+    <text x="110" y="50" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">3</text>
+    <text x="110" y="85" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#c62828">相談・記録</text>
+    <text x="110" y="120" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">・信頼できる</text>
+    <text x="110" y="145" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">　先輩に相談</text>
+    <text x="110" y="170" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">・日時と内容を</text>
+    <text x="110" y="195" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">　メモに残す</text>
+  </g>
+
+  <text x="400" y="420" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+</svg>
