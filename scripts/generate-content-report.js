@@ -1,45 +1,109 @@
-const fs = require('fs');
-const path = require('path');
-const glob = require('glob'); // You might need to install glob if not present, or use fs.readdir
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env.local') })
+const { createClient } = require('@sanity/client')
+const fs = require('fs')
+const path = require('path')
 
-// Configuration
-const POSTS_DIR = '_posts'; // Adjust if posts are elsewhere
-const REPORT_FILE = 'reports/content_health.md';
+const client = createClient({
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+    apiVersion: '2024-01-01',
+    token: process.env.SANITY_API_TOKEN,
+    useCdn: false
+})
+
+const REPORT_FILE = path.resolve(__dirname, '../reports/content_health.md');
+const REPORTS_DIR = path.dirname(REPORT_FILE);
 
 // Ensure reports dir exists
-if (!fs.existsSync('reports')) {
-    fs.mkdirSync('reports');
+if (!fs.existsSync(REPORTS_DIR)) {
+    fs.mkdirSync(REPORTS_DIR, { recursive: true });
+}
+
+/**
+ * Extract text from Portable Text body
+ */
+function extractTextFromBody(body) {
+    if (!body || !Array.isArray(body)) return ''
+
+    return body
+        .filter(block => block._type === 'block')
+        .map(block => {
+            if (!block.children) return ''
+            return block.children
+                .filter(child => child._type === 'span')
+                .map(child => child.text || '')
+                .join('')
+        })
+        .join('\n')
 }
 
 async function generateReport() {
     console.log('Generating Content Health Report...');
 
-    // This is a placeholder for the actual logic.
-    // Since we don't know the exact structure of the posts (Sanity vs Markdown files),
-    // I'll assume for now we might be dealing with Sanity data fetched via script 
-    // OR local markdown files if that's how it's set up.
-    // The previous file list showed `_posts` directory, so let's assume Markdown/MDX.
+    try {
+        const posts = await client.fetch(`*[_type == "post"] {
+            title,
+            "slug": slug.current,
+            description,
+            body,
+            _updatedAt
+        }`);
 
-    // However, the project seems to use Sanity. 
-    // If it uses Sanity, we should fetch from Sanity.
-    // But `scripts/analyze-articles.js` exists. Let's try to reuse or mimic it.
+        console.log(`Fetched ${posts.length} posts.`);
 
-    // For now, let's create a simple script that lists what it WOULD do, 
-    // and maybe tries to read `scripts/analyze-articles.js` output if we can run it.
+        let reportContent = `# Content Health Report\nGenerated on: ${new Date().toLocaleString()}\n\n`;
 
-    let reportContent = `# Content Health Report\nGenerated on: ${new Date().toLocaleString()}\n\n`;
+        let totalChars = 0;
+        let missingDescCount = 0;
+        let shortArticles = [];
+        let missingDescArticles = [];
 
-    reportContent += `## Summary\n`;
-    reportContent += `- Total Articles: (To be implemented)\n`;
-    reportContent += `- Avg Word Count: (To be implemented)\n`;
+        posts.forEach(post => {
+            const text = extractTextFromBody(post.body);
+            const charCount = text.length;
+            totalChars += charCount;
 
-    reportContent += `\n## Issues\n`;
-    reportContent += `- Missing Meta Descriptions: (To be implemented)\n`;
-    reportContent += `- Short Articles (< 1000 chars): (To be implemented)\n`;
+            if (!post.description) {
+                missingDescCount++;
+                missingDescArticles.push(`- [${post.title}](/posts/${post.slug})`);
+            }
 
-    fs.writeFileSync(REPORT_FILE, reportContent);
-    console.log(`Report generated at ${REPORT_FILE}`);
-    console.log("Note: This is a skeleton. Logic needs to be connected to actual data source (Sanity or Files).");
+            if (charCount < 1000) {
+                shortArticles.push(`- [${post.title}](/posts/${post.slug}) (${charCount} chars)`);
+            }
+        });
+
+        const avgChars = posts.length > 0 ? Math.round(totalChars / posts.length) : 0;
+
+        reportContent += `## Summary\n`;
+        reportContent += `- **Total Articles**: ${posts.length}\n`;
+        reportContent += `- **Average Character Count**: ${avgChars}\n`;
+        reportContent += `- **Missing Meta Descriptions**: ${missingDescCount}\n`;
+        reportContent += `- **Short Articles (< 1000 chars)**: ${shortArticles.length}\n`;
+
+        reportContent += `\n## Issues\n`;
+
+        if (missingDescArticles.length > 0) {
+            reportContent += `### Missing Meta Descriptions\n`;
+            reportContent += missingDescArticles.join('\n') + '\n';
+        } else {
+            reportContent += `### Missing Meta Descriptions\nNone! 🎉\n`;
+        }
+
+        if (shortArticles.length > 0) {
+            reportContent += `\n### Short Articles (< 1000 chars)\n`;
+            reportContent += shortArticles.join('\n') + '\n';
+        } else {
+            reportContent += `\n### Short Articles\nNone! 🎉\n`;
+        }
+
+        fs.writeFileSync(REPORT_FILE, reportContent);
+        console.log(`✅ Report generated at ${REPORT_FILE}`);
+
+    } catch (error) {
+        console.error('Error generating report:', error);
+        process.exit(1);
+    }
 }
 
 generateReport();
