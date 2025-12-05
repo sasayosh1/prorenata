@@ -1,0 +1,31 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#e0f2f1" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#00695c">看護助手のキャリアステップ</text>
+  
+  <!-- Step 1 -->
+  <rect x="50" y="250" width="200" height="100" rx="5" fill="white" stroke="#26a69a" stroke-width="2" />
+  <text x="150" y="290" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#00695c">未経験・新人</text>
+  <text x="150" y="320" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">業務を覚える</text>
+  <text x="150" y="340" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">環境に慣れる</text>
+
+  <!-- Arrow 1 -->
+  <polygon points="260,300 290,300 290,200 320,200 275,170 230,200 260,200" fill="#4db6ac" />
+
+  <!-- Step 2 -->
+  <rect x="300" y="150" width="200" height="100" rx="5" fill="white" stroke="#26a69a" stroke-width="2" />
+  <text x="400" y="190" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#00695c">中堅・リーダー</text>
+  <text x="400" y="220" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">新人指導</text>
+  <text x="400" y="240" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">業務改善</text>
+
+  <!-- Arrow 2 -->
+  <polygon points="510,200 540,200 540,100 570,100 525,70 480,100 510,100" fill="#4db6ac" />
+
+  <!-- Step 3 -->
+  <rect x="550" y="50" width="200" height="100" rx="5" fill="white" stroke="#26a69a" stroke-width="2" />
+  <text x="650" y="90" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#00695c">スペシャリスト</text>
+  <text x="650" y="120" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">介護福祉士取得</text>
+  <text x="650" y="140" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">看護師へ挑戦</text>
+
+  <rect x="100" y="380" width="600" height="50" rx="5" fill="#b2dfdb" />
+  <text x="400" y="410" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#004d40">目標を持つことで、日々の業務にやりがいが生まれます！</text>
+</svg>

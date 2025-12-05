@@ -1,0 +1,42 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f3e5f5" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#7b1fa2">看護助手適性チェックフローチャート</text>
+  
+  <!-- Q1 -->
+  <rect x="300" y="80" width="200" height="60" rx="10" fill="white" stroke="#ab47bc" stroke-width="2" />
+  <text x="400" y="115" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">人と話すのが好き？</text>
+  
+  <!-- Lines -->
+  <line x1="300" y1="110" x2="200" y2="160" stroke="#ab47bc" stroke-width="2" />
+  <line x1="500" y1="110" x2="600" y2="160" stroke="#ab47bc" stroke-width="2" />
+  
+  <!-- Yes/No -->
+  <text x="240" y="130" font-family="sans-serif" font-size="14" fill="#ab47bc">YES</text>
+  <text x="540" y="130" font-family="sans-serif" font-size="14" fill="#ab47bc">NO</text>
+
+  <!-- Q2 Left -->
+  <rect x="100" y="160" width="200" height="60" rx="10" fill="white" stroke="#ab47bc" stroke-width="2" />
+  <text x="200" y="195" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">体力に自信がある？</text>
+
+  <!-- Q2 Right -->
+  <rect x="500" y="160" width="200" height="60" rx="10" fill="white" stroke="#ab47bc" stroke-width="2" />
+  <text x="600" y="195" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">細かい作業が得意？</text>
+
+  <!-- Results -->
+  <rect x="50" y="300" width="180" height="120" rx="10" fill="#e1bee7" />
+  <text x="140" y="330" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#4a148c">病棟勤務向き</text>
+  <text x="140" y="360" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">患者さんと接する</text>
+  <text x="140" y="380" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">機会が多い現場へ</text>
+
+  <rect x="310" y="300" width="180" height="120" rx="10" fill="#e1bee7" />
+  <text x="400" y="330" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#4a148c">外来・クリニック向き</text>
+  <text x="400" y="360" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">テキパキとした</text>
+  <text x="400" y="380" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">対応が求められます</text>
+
+  <rect x="570" y="300" width="180" height="120" rx="10" fill="#e1bee7" />
+  <text x="660" y="330" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#4a148c">洗浄・滅菌向き</text>
+  <text x="660" y="360" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">裏方として医療を</text>
+  <text x="660" y="380" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">支えるスペシャリスト</text>
+
+  <text x="400" y="470" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+</svg>
