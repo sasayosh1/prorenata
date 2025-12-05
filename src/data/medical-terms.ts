@@ -452,6 +452,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 'oxygen-mask',
+    term: '酸素マスク',
+    reading: 'さんそますく',
+    meaning: '患者に酸素を投与するための医療器具。',
+    distractors: ['点滴スタンド', '聴診器'],
+    category: 'equipment',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
