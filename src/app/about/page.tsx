@@ -25,7 +25,7 @@ export default function AboutPage() {
                 About ProReNata
               </h1>
               <p className="text-lg leading-7 text-gray-500">
-                看護助手として働く「白崎セラ」が運営する情報サイトについて
+                看護助手として働く「白崎セラ」が運営する、寄りかかれる情報サイトです。
               </p>
             </div>
             
@@ -93,7 +93,7 @@ export default function AboutPage() {
                       <em> Pro Re Nata</em>（必要なときに）をサイト名に選びました。現場で感じたことも、調べて確かめたことも、落ち着いて伝えられる場所にしたい──それがこのサイトの出発点です。
                     </p>
                     <p>
-                      ここには、今すでに現場で働いている看護助手の方も、これから挑戦したい方も、迷ったときに立ち寄れる情報と視点をまとめています。
+                      「わたしだけかな」という不安を少しでも軽くできるように、現場のリアルと確かな情報をそっと並べています。今働いている方も、これから挑戦したい方も、安心して立ち寄ってください。
                     </p>
                   </div>
                 </section>
@@ -104,14 +104,10 @@ export default function AboutPage() {
                   </h2>
                   <div className="space-y-4 text-lg leading-7 text-gray-700">
                     <p>
-                      現場にいると、看護助手は患者さんにいちばん近くで寄り添う、とても大切な存在だと毎日感じます。けれど、仕事やキャリアについて頼れる情報は驚くほど少なく、
-                      疑問や不安を抱えたまま働く人がたくさんいます。
+                      看護助手は患者さんにいちばん近くで寄り添う、とても大切な役割です。でも、仕事やキャリア、お金のことを安心して相談できる場所は多くありません。わたし自身も同じように迷い、調べ方すら分からない時期がありました。
                     </p>
                     <p>
-                      「調べたいのに、調べる場所が見つからない」。そんな声に触れるたび、わたし自身も同じように迷ってきた時間を思い出しました。
-                    </p>
-                    <p>
-                      だからこそ、このブログを“寄りかかれる場所”にしたいと思いました。必要なときに、必要な分だけ持ち帰れる情報をそっと置いておく。そのために、現場で感じたことも、確かめたデータも、落ち着いて届けていきます。
+                      だからこそ、このブログを“寄りかかれる場所”にしたいと思いました。必要なときに、必要な分だけ持ち帰れる情報をそっと置いておく。現場の手触りと公的データを組み合わせて、落ち着いて選べるように整えていきます。
                     </p>
                   </div>
                 </section>
@@ -122,11 +118,7 @@ export default function AboutPage() {
                   </h2>
                   <div className="space-y-4 text-lg leading-7 text-gray-700">
                     <p>
-                      看護助手として働く中で、「分からないまま何となく進む」状況がどれほど不安かを身をもって知りました。
-                    </p>
-                    <p>
-                      <span className="font-semibold text-cyan-600">ProReNata</span> では、わたしの経験と信頼できるデータ、専門家の意見を組み合わせてお届けします。
-                      優しい言葉だけに寄りかからず、必要なときには現実的な視点もきちんと伝える──それが、わたしなりの「寄り添う」形です。
+                      「分からないまま何となく進む」不安を、わたしも何度も味わいました。だから、ここでは必ず「体験＋根拠」をセットでお届けします。優しい言葉だけに寄りかからず、必要なときには現実的な視点もきちんと伝える──それが、わたしなりの「寄り添う」形です。
                     </p>
                   </div>
                 </section>
@@ -137,7 +129,7 @@ export default function AboutPage() {
                   </h2>
                   <div className="space-y-4 text-lg leading-7 text-gray-700">
                     <p>
-                      このブログを、“看護助手で終わる”という前提のない場所に育てたいと思っています。
+                      このブログを、“看護助手で終わる”という前提のない場所に育てたいと思っています。わたしたちには、続けることも、進むことも、選び直すことも、どの道も選ぶ自由があります。
                     </p>
                     <ul className="list-disc pl-6 space-y-2">
                       <li>看護助手として働き続ける</li>
@@ -146,7 +138,7 @@ export default function AboutPage() {
                       <li>まったく新しい道を選ぶ</li>
                     </ul>
                     <p>
-                      どの選択肢も、あなたが自分の人生に置いていいものです。いつか、この場所が読者さんの「人生の分岐点」に寄り添える存在になれたら嬉しいです。
+                      どの選択肢も、あなたが自分の人生に置いていいものです。迷ったときに、ここに戻ってきて「大丈夫、選んでいいんだ」と思える場所にしていきます。
                     </p>
                   </div>
                 </section>
@@ -159,25 +151,25 @@ export default function AboutPage() {
                     <div className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">基礎知識・スキル</h3>
                       <p className="text-sm text-gray-600">
-                        初めての方にも分かりやすく、現場で使える知識や工夫を丁寧にまとめます。
+                        初めての方にも分かりやすく、現場で使える知識や工夫を丁寧にまとめます。手順だけでなく、声かけや気持ちの整え方も大切に。
                       </p>
                     </div>
                     <div className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">キャリア支援</h3>
                       <p className="text-sm text-gray-600">
-                        転職・資格・学び直しなどの選択肢を、費用やスケジュールも含めて現実的に整理します。
+                        転職・資格・学び直しなどの選択肢を、費用やスケジュールも含めて現実的に整理します。無理のない計画を一緒に考えます。
                       </p>
                     </div>
                     <div className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">現場ノウハウ</h3>
                       <p className="text-sm text-gray-600">
-                        患者さんとの関わり、チーム連携、夜勤の乗り越え方など、現場でラクになるヒントを共有します。
+                        患者さんとの関わり、チーム連携、夜勤の乗り越え方など、現場でラクになるヒントを共有します。小さなごほうびの見つけ方も少しずつ。
                       </p>
                     </div>
                     <div className="border border-gray-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">業界情報</h3>
                       <p className="text-sm text-gray-600">
-                        制度や動向など、知っておきたいトピックを噛み砕いて解説し、必要なタイミングで更新します。
+                        制度や動向など、知っておきたいトピックを噛み砕いて解説し、必要なタイミングで更新します。出典と一次情報をセットで提示します。
                       </p>
                     </div>
                   </div>
@@ -203,7 +195,7 @@ export default function AboutPage() {
                       </li>
                       <li className="flex items-start">
                         <span className="text-cyan-600 mr-2">✓</span>
-                        <span>制度やトレンドは、必要なタイミングで更新します。</span>
+                        <span>制度やトレンドは、必要なタイミングで更新します。一次情報と出典を必ず確認します。</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-cyan-600 mr-2">✓</span>
@@ -219,7 +211,7 @@ export default function AboutPage() {
                       今日の業務、お疲れさまでした
                     </h3>
                     <p className="text-gray-600 mb-6">
-                      ご質問や記事へのリクエストがあれば、いつでもお寄せくださいね。小さなごほうびも忘れずに……そして明日も、いっしょに前へ進んでいきましょう。
+                      ご質問や記事へのリクエストがあれば、いつでもお寄せくださいね。小さなごほうびも忘れずに……どうか無理をせず、あなたのペースで進んでください。わたしはここで待っています。
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                       <Link
