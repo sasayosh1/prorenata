@@ -67,19 +67,20 @@ export default defineType({
             subtitle: 'speaker',
             emotion: 'emotion'
         },
-        prepare(selection: any) {
+        prepare(selection: { title?: string; subtitle?: string; emotion?: string }) {
             const { title, subtitle, emotion } = selection
-            const emojis: Record<string, string> = {
+            const emojis: Record<'normal' | 'happy' | 'sad' | 'thinking' | 'angry', string> = {
                 normal: '😐',
                 happy: '😊',
                 sad: '😢',
                 thinking: '🤔',
                 angry: '😠'
             }
+            const safeEmotion = (emotion as keyof typeof emojis) || 'normal'
             return {
                 title: title,
-                subtitle: `${subtitle} (${emotion})`,
-                media: () => emojis[emotion] || '💬'
+                subtitle: `${subtitle ?? ''} (${emotion ?? 'normal'})`,
+                media: () => emojis[safeEmotion] || '💬'
             }
         }
     }
