@@ -340,12 +340,11 @@ export async function getRelatedPosts(
 }
 
 const buildTagKeywords = (tag: TagDefinition) => {
+  // タグの「タイトル」と「スラッグ」のみに限定してカウントする
+  // （汎用キーワードでの過剰マッチを防ぐ）
   const base = new Set<string>()
-  tag.keywords.forEach(keyword => {
-    if (keyword) base.add(keyword)
-  })
-  base.add(tag.slug)
-  base.add(tag.title)
+  if (tag.title) base.add(tag.title)
+  if (tag.slug) base.add(tag.slug)
   return Array.from(base)
 }
 
