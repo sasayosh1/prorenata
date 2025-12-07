@@ -84,7 +84,7 @@ export function ArticleStructuredData({ post }: ArticleStructuredDataProps) {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    />
+    ></script>
   )
 }
 
@@ -127,7 +127,7 @@ export function BreadcrumbStructuredData({ title, slug }: BreadcrumbStructuredDa
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    />
+    ></script>
   )
 }
 
@@ -159,7 +159,7 @@ export function OrganizationStructuredData() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    />
+    ></script>
   )
 }
 
@@ -192,7 +192,7 @@ export function WebSiteStructuredData({ searchUrl = `${SITE_URL}/search` }: WebS
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    />
+    ></script>
   )
 }
 
