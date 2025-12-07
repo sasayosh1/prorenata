@@ -389,7 +389,9 @@ export async function getPostsByTagSlug(tagSlug: string, limit: number = 40): Pr
     internalOnly
   }`
 
-  const posts: Post[] & { _categoryMatch?: boolean }[] = await client.fetch(query, { keywords, limit })
+  const posts: ({ _categoryMatch?: boolean } & Post)[] = await client.fetch(query, { keywords, limit })
   // タグのカテゴリと一致しない記事は除外
-  return posts.filter(p => p._categoryMatch).map(({ _categoryMatch, ...rest }) => rest as Post)
+  return posts
+    .filter(p => p._categoryMatch)
+    .map(({ _categoryMatch, ...rest }) => rest as Post)
 }
