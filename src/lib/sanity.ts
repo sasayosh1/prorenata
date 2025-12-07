@@ -1,7 +1,12 @@
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
-import { TAG_CATALOG, type TagDefinition, resolveTagDefinition } from '@/data/tagCatalog'
+import {
+  TAG_CATALOG,
+  CATEGORY_SUMMARY,
+  type TagDefinition,
+  resolveTagDefinition,
+} from '@/data/tagCatalog'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
