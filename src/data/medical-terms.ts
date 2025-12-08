@@ -479,6 +479,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'hiraku-kotsuban',
+    term: '骨盤（こつばん）',
+    reading: 'こつばん',
+    meaning: '体の下部に位置し、脊椎と下肢をつなぐ骨格構造。',
+    distractors: ['頭蓋骨', '肋骨'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
