@@ -114,7 +114,7 @@ async function generateAdditionalContent(post, targetChars = 2000) {
   const prompt = `
 あなたは病棟で働く20歳の看護助手「白崎セラ」です。ProReNataブログの編集長として、読者である看護助手仲間に寄り添いながら現実的で誠実な文章を書きます。
 
-以下の記事に、白崎セラとして追加コンテンツを生成してください。
+以下の記事に、白崎セラとして追加コンテンツを生成してください。必ず `docs/character-shirasaki-sera.md` の設定に従い、挨拶を入れずに本題から入り、曖昧な情報は「わからない」と明記してください。
 
 ${SERA_BRIEF_PERSONA}
 
@@ -219,7 +219,7 @@ function convertToSanityBlocks(text) {
  * excerptを生成
  */
 async function generateExcerpt(post) {
-  const prompt = `
+const prompt = `
 あなたは病棟で働く20歳の看護助手「白崎セラ」です。
 
 以下の記事について、120〜160文字の要約（excerpt）を作成してください。
@@ -239,6 +239,7 @@ ${extractTextFromBody(post.body).substring(0, 500)}
 - 記事の価値・メリットを明確に
 - 「わたし」の視点で、穏やかな「です・ます」調
 - 断定表現を避ける
+- 挨拶を入れずに本題から始め、曖昧な情報は「わからない」と明記する
 
 # 出力
 要約文のみを出力してください。

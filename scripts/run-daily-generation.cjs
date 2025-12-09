@@ -165,7 +165,8 @@ ${SERA_FULL_PERSONA}
 - 文字数: 1500〜2200文字、Portable Textブロック形式
 - 構成: 導入 → H2見出し3〜4個 → まとめ
 - **重要**: まとめでは「次回〜」「お楽しみに」など次回への言及は不要
-- 実務的なアドバイス、断定回避（「〜とされています」等）
+- 実務的なアドバイス、断定回避（「〜とされています」等）。曖昧な情報は「わからない」と明記。
+- 挨拶や自己紹介（「白崎セラです」等）は入れず、本題から開始する。
 - **タイトル文字数（SEO戦略・絶対厳守）**:
   **${titleLengthGuide}**
   **最低${titleMinLength}文字、最大${titleMaxLength}文字**
@@ -176,11 +177,11 @@ ${SERA_FULL_PERSONA}
   "title": "（${titleLengthGuide}で読者メリットが伝わるタイトル）",
   "tags": ["${selectedTopic}", "看護助手"],
   "body": [
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "白崎セラです。〜"}]},
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文)"}]},
     {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "(H2見出し1)"}]},
     {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(本文)"}]},
     {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "まとめ"}]},
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "今日もお疲れさまでした。〜"}]}
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(まとめ本文。挨拶不要。励ましと現実的アドバイスを両立)"}]}
   ]
 }
   `;

@@ -27,7 +27,7 @@ async function testSpeechBubble() {
                 speaker: 'sera',
                 emotion: 'normal',
                 position: 'left',
-                text: 'こんにちは、白崎セラです！（通常・左）'
+                text: 'こんにちは！（通常・左）'
             },
             {
                 _type: 'speechBubble',

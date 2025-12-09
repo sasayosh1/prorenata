@@ -170,7 +170,7 @@ async function expandMedicalTermsArticle() {
   body.push({
     "_type": "block",
     "style": "normal",
-    "children": [{"_type": "span", "text": "白崎セラです。看護助手として働く中で、医療用語を理解することはとても大切ですよね。"}]
+    "children": [{"_type": "span", "text": "看護助手として働く中で、医療用語を理解することはとても大切ですよね。"}]
   });
   body.push({
     "_type": "block",

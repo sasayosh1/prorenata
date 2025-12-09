@@ -95,7 +95,7 @@ ${SERA_BRIEF_PERSONA}
 # 出力形式（Portable Text、JSONのみ）
 {
   "body": [
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "白崎セラです。〜（導入文）"}]},
+    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文。挨拶なし、本題から。曖昧なら「わからない」と明記)"}]},
     {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "【完全版】看護助手が知っておくべき医療用語100選"}]},
     {"_type": "block", "style": "h3", "children": [{"_type": "span", "text": "バイタルサインに関する用語"}]},
     {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "現場で最も頻繁に使用される用語です。"}]},

@@ -12,7 +12,10 @@ interface Message {
 export default function AItuberWidget() {
     const STORAGE_KEY = "aituber-messages-v1";
     const defaultMessages: Message[] = [
-        { role: "model", text: "こんにちは！白崎セラです。何かお手伝いしましょうか？" },
+        {
+            role: "model",
+            text: "気になるテーマを入力してください。できる範囲で具体的にお答えします。"
+        },
     ];
 
     const [isOpen, setIsOpen] = useState(false);
@@ -264,7 +267,7 @@ export default function AItuberWidget() {
                                     style={{ objectPosition: "50% 35%" }}
                                 />
                             </div>
-                            <span className="font-bold text-sm">白崎セラ (AI)</span>
+                            <span className="font-bold text-sm">白崎セラ (ChatBot)</span>
                         </div>
                         <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1 rounded">
                             <XMarkIcon className="w-5 h-5" />
