@@ -9,15 +9,22 @@ const client = createClient({
   useCdn: false
 })
 
+const args = process.argv.slice(2)
+const DRY_RUN = args.includes('--dry-run') || args.includes('-d')
+
+if (DRY_RUN) {
+  console.log('🔍 DRY RUN MODE - No changes will be made\n')
+}
+
 async function fixAffiliateLinkText() {
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log('🔧 アフィリエイトリンクテキスト修正')
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log()
 
   const targetUrl = 'https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY'
 
-  const posts = await client.fetch(`*[_type == "post"] {
+  const posts = await client.fetch(`*[_type == "post" && !(_id in path("drafts.**"))] {
     _id,
     title,
     body
@@ -81,9 +88,11 @@ async function fixAffiliateLinkText() {
     })
 
     if (modified) {
-      await client.patch(post._id).set({ body: newBody }).commit()
+      if (!DRY_RUN) {
+        await client.patch(post._id).set({ body: newBody }).commit()
+      }
       fixedCount++
-      console.log(`✅ ${post.title}`)
+      console.log(`${DRY_RUN ? '🔍' : '✅'} ${post.title}`)
     }
   }
 
@@ -95,9 +104,9 @@ async function main() {
   try {
     await fixAffiliateLinkText()
 
-    console.log('=' .repeat(60))
+    console.log('='.repeat(60))
     console.log('✨ アフィリエイトリンク修正完了')
-    console.log('=' .repeat(60))
+    console.log('='.repeat(60))
 
   } catch (error) {
     console.error('❌ エラーが発生しました:', error)

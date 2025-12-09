@@ -1,0 +1,892 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T12:08:22.684Z",
+    "operation": "final-article-fixes",
+    "articleId": "VcGv9zZ6obDRZ14YHcUXk6",
+    "articleTitle": "看護師と看護助手の関係がうまくいかないときの対処法",
+    "articleSlug": "nursing-assistant-deal-with-nurses"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:39:47Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUXk6",
+    "_rev": "j9gFvjMkmqPMCjk1F9IUvK",
+    "_system": {
+      "base": {
+        "id": "VcGv9zZ6obDRZ14YHcUXk6",
+        "rev": "IJbunx89jt74fTbO0l2sgu"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-06T11:48:58Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "1a851afc-c49d-43a0-8cdd-1b5538457fbe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "14695004-6842-4448-96aa-8122b66922ee",
+            "_type": "span",
+            "marks": [],
+            "text": "なぜ関係がうまくいかなくなるのか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "f928f1d2-2fda-49ac-85f1-acd125c5b175",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c862e8da-2768-435b-84c8-ce3ed455fb70",
+            "_type": "span",
+            "marks": [],
+            "text": "対処法を考える前に、なぜ関係が悪化するのか、その背景を理解することが重要です。多くの場合、看護師側も「多忙によるストレス」「人手不足による焦り」「患者の安全を守る責任感」といったプレッシャーを抱えています。そのイライラが、立場の弱い看護助手に向かってしまうケースが少なくありません。決して、あなた個人への攻撃ではないかもしれない、という視点を持つことも大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d4c44cf4-7fca-4b84-b50c-93a7600c8cff",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6b53f8dd-5487-4222-87ce-f71744130ab9",
+            "_type": "span",
+            "marks": [],
+            "text": "まずは自分自身の行動を振り返る"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "a5297d40-f0fe-4f3c-bffb-4ee47f678e1a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0185b571-67d0-4b65-954f-ae3b6b3894f6",
+            "_type": "span",
+            "marks": [],
+            "text": "相手を変えることは難しいですが、自分の行動を見直すことで、関係性が改善されるきっかけになることがあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3dd37698-f827-4d5d-9dd0-03938f07fa30",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "647053a2-be40-4849-a79a-2d557d01cfd6-72197685-92c6-466c-ab4c-be611aa56a42",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "報告・連絡・相談（報連相）は徹底できているか"
+          },
+          {
+            "_key": "647053a2-be40-4849-a79a-2d557d01cfd6-3625239d-d342-4436-95d8-ffd103f5428c",
+            "_type": "span",
+            "marks": [],
+            "text": ": 看護師は、患者さんの状態を常に把握しておく必要があります。些細なことでも、「〇〇さんが痛みを訴えています」「〇〇さんの食事量がいつもより少ないです」など、気づいたことはすぐに報告・相談する癖をつけましょう。的確な報連相は、看護師の負担を減らし、信頼に繋がります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4f55e5bb-e3a2-441c-adf7-6e2920963af0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fbbaec00-77ad-44d0-a2bb-4a17d6f54e50-7d096c6c-6cd1-4269-b195-4aad26e68dc9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "指示を正確に理解し、復唱しているか"
+          },
+          {
+            "_key": "fbbaec00-77ad-44d0-a2bb-4a17d6f54e50-57df804f-392d-4ef8-aa52-dbfd6d2b37e5",
+            "_type": "span",
+            "marks": [],
+            "text": ": 忙しい中での指示は、聞き間違いや勘違いが起こりやすいものです。指示を受けたら、「〇〇ですね。承知いたしました」と復唱して確認することで、ミスを防ぎ、真摯な姿勢を示すことができます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c697935f-6b07-4328-ab81-780b0c0a4b9f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a6f59422-b75f-4604-a715-186658fae647-114c5d56-ce32-46b2-b7e7-8bb6281cc690",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "感謝の気持ちを伝えているか"
+          },
+          {
+            "_key": "a6f59422-b75f-4604-a715-186658fae647-a34354b9-bdb4-41a6-9dbe-a4fd0948b1b0",
+            "_type": "span",
+            "marks": [],
+            "text": ": 教えてもらったり、手伝ってもらったりした際には、「ありがとうございます」「勉強になります」といった感謝の言葉を意識して伝えましょう。ポジティブなコミュニケーションが、関係性を円滑にします。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-bcaae469-8714-4cb3-8abb-f42cdc437fe9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-d293e819-1261-4a4b-9636-b6b4c6ce1bda",
+            "_type": "span",
+            "marks": [],
+            "text": "まずは自分自身の行動を振り返るでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "32c0245c-d088-48cb-a6f5-3c3dd90807c0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2839a29c-3b86-4dfc-8188-4a82c722ab8a",
+            "_type": "span",
+            "marks": [],
+            "text": "関係改善に向けた具体的なアクション"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "b320a2f2-7a64-4c3f-af72-b9125c6a6b93",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "793e14bb-d330-4554-891e-f1b112f2a0a2",
+            "_type": "span",
+            "marks": [],
+            "text": "自分の行動を見直しても状況が改善しない場合は、より具体的なアクションを試してみましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bd4d9cf3-b107-4680-992f-2b6712910fda",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b648a48d-645f-48f9-8ee7-645d2732fc19",
+            "_type": "span",
+            "marks": [],
+            "text": "特定の看護師との関係に悩んでいる場合"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f1894e1c-a18e-4531-af88-986848b60fd9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6312a75e-1146-4cad-8451-630e72d13a4b-4dfd8c7f-d3a6-42b0-bda3-e8307f03529f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "相手を観察し、関わり方を探る"
+          },
+          {
+            "_key": "6312a75e-1146-4cad-8451-630e72d13a4b-6a08389a-4656-4bd5-b5fe-254308f29508",
+            "_type": "span",
+            "marks": [],
+            "text": ": その看護師がどんな時に忙しそうか、どんな時に機嫌が悪いかを観察し、話しかけるタイミングを見計らうのも一つの手です。また、その人がどんなことを大切にしているか（例：時間厳守、丁寧な言葉遣いなど）を理解し、それに合わせる努力も有効です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "de0d6618-0357-4064-b9ee-33458b6e9403",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c005bfb-6839-4e64-ac6d-ef7837a9ff0d-1576d5d0-70d6-4441-8ac8-fda1efec720b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "他のスタッフに相談する"
+          },
+          {
+            "_key": "2c005bfb-6839-4e64-ac6d-ef7837a9ff0d-66a3011b-4ef6-46b1-95b1-9e0758c08d44",
+            "_type": "span",
+            "marks": [],
+            "text": ": あなたと同じように、その看護師との関係に悩んでいる同僚がいるかもしれません。一人で抱え込まず、信頼できる同僚に相談してみましょう。共感してもらうだけでも、気持ちは楽になります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-6a8ab708-e7dd-4fef-9bc7-27d53dab949a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-700b5dc2-7e36-496f-92ee-f7384e33270e",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを参考に、自分に合った方法を見つけてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b30f89a8-aa36-4e63-9eb7-a7b193f77454",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "305dbd8b-e024-4b6c-af75-d28c20cdf22e",
+            "_type": "span",
+            "marks": [],
+            "text": "職場全体の雰囲気や構造に問題がある場合"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "646a81eb-8ec4-43cd-9997-3da68053365f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b6055d19-887e-43c7-8d14-313d020c338d-d5e213b0-3d04-4390-b9d4-690d5045a24f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "信頼できる上司に相談する"
+          },
+          {
+            "_key": "b6055d19-887e-43c7-8d14-313d020c338d-79451c6f-7ef6-4b7a-a11d-6bbe114282d3",
+            "_type": "span",
+            "marks": [],
+            "text": ": 看護師長や看護助手のリーダーなど、公平な立場で話を聞いてくれる上司に相談しましょう。その際は、感情的に不満をぶつけるのではなく、「〇〇という状況で困っており、どうすれば業務を円滑に進められるかご相談したいです」という視点で話すのがポイントです。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "035865b1-fcfa-4e38-9827-2e80dc14d55b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e11c2e7d-1f20-425c-bf0e-7fec8785f775-000c30ac-4d3c-4f7f-99fb-2f60c38cdfcb",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "異動を申し出る"
+          },
+          {
+            "_key": "e11c2e7d-1f20-425c-bf0e-7fec8785f775-47d3326a-15b1-4ab6-81d6-28088f3958eb",
+            "_type": "span",
+            "marks": [],
+            "text": ": どうしても状況が改善しない場合は、別の病棟への異動を申し出るのも一つの有効な手段です。環境を変えることで、心機一転、新たな気持ちで仕事に取り組むことができます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-70945775-9144-4863-b601-717b1a51b474",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-f9a5645a-bfe6-45a3-bb85-c08e3f3abc89",
+            "_type": "span",
+            "marks": [],
+            "text": "関係改善に向けた具体的なアクションでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783880-jymuqadpk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783880-c25rwc35m",
+            "_type": "span",
+            "marks": [],
+            "text": "なぜ関係がうまくいかなくなるのか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818783880-s8uus5lms",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783880-3dvgg7n9q",
+            "_type": "span",
+            "marks": [],
+            "text": "対処法を考える前に、なぜ関係が悪化するのか、その背景を理解することが重要です。多くの場合、看護師側も「多忙によるストレス」「人手不足による焦り」「患者の安全を守る責任感」といったプレッシャーを抱えています。そのイライラが、立場の弱い看護助手に向かってしまうケースが少なくありません。決して、あなた個人への攻撃ではないかもしれない、という視点を持つことも大切です。看護師は常に複数の患者さんの状況を把握し、医師の指示に基づいて迅速な対応を求められるため、状況によっては言葉がきつくなってしまうこともあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783880-uxbxfpd62",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783880-gmy8n239a",
+            "_type": "span",
+            "marks": [],
+            "text": "まずは自分自身の行動を振り返る"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818783880-88jxoicif",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783880-f1wzx7f4b-3e8d3b10-ba78-4136-99c2-684a5d767ec1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "報告・連絡・相談（報連相）は徹底できているか"
+          },
+          {
+            "_key": "span-1760818783880-f1wzx7f4b-8a9c609c-19ab-493b-b3dc-ee74ab946f6a",
+            "_type": "span",
+            "marks": [],
+            "text": ": 看護師は、患者さんの状態を常に把握しておく必要があります。些細なことでも、「〇〇さんが痛みを訴えています」「〇〇さんの食事量がいつもより少ないです」など、気づいたことはすぐに報告・相談する癖をつけましょう。特に、いつもと違う様子が見られた場合は、速やかに報告することが重要です。的確な報連相は、看護師の負担を減らし、信頼に繋がります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783880-iq5vlya3g",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783880-sh28l9tcl-9c207aa2-5be6-4a2a-ad0c-8befe0c04856",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "指示を正確に理解し、復唱しているか"
+          },
+          {
+            "_key": "span-1760818783880-sh28l9tcl-01f3a064-a401-4bc5-8fcb-48a4f0dd72ad",
+            "_type": "span",
+            "marks": [],
+            "text": ": 忙しい中での指示は、聞き間違いや勘違いが起こりやすいものです。指示を受けたら、「〇〇ですね。承知いたしました」と復唱して確認することで、ミスを防ぎ、真摯な姿勢を示すことができます。もし指示内容に不明な点があれば、遠慮せずに質問するようにしましょう。曖昧な理解のまま業務を進めてしまうと、かえって看護師の負担を増やしてしまう可能性があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783880-u4o17ivq7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783880-41i4343ye-a2376dba-f29d-491b-8061-f1d26b350851",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "感謝の気持ちを伝えているか"
+          },
+          {
+            "_key": "span-1760818783880-41i4343ye-99b60b53-3dfa-4cfa-9b06-70b277351353",
+            "_type": "span",
+            "marks": [],
+            "text": ": 教えてもらったり、手伝ってもらったりした際には、「ありがとうございます」「勉強になります」といった感謝の言葉を意識して伝えましょう。日々の業務の中で、ちょっとしたことでも感謝の言葉を伝えることで、お互いの気持ちが温かくなり、良好なコミュニケーションを築きやすくなります。ポジティブなコミュニケーションが、関係性を円滑にします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783880-1wk0ysm1z",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783881-t11gxuqcc",
+            "_type": "span",
+            "marks": [],
+            "text": "関係改善に向けた具体的なアクション"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818783881-7shpy1y99",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783881-gr1cwbg0h",
+            "_type": "span",
+            "marks": [],
+            "text": "特定の看護師との関係に悩んでいる場合"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818783881-fp8h9aobh",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783881-umojz0r6f-0192223f-b9db-4f70-9669-56fdcb3598cd",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "相手を観察し、関わり方を探る"
+          },
+          {
+            "_key": "span-1760818783881-umojz0r6f-3a07656d-c3c1-4b02-9dc8-6afa0a251b77",
+            "_type": "span",
+            "marks": [],
+            "text": ": その看護師がどんな時に忙しそうか、どんな時に機嫌が悪いかを観察し、話しかけるタイミングを見計らうのも一つの手です。例えば、朝の申し送り後や、比較的落ち着いている時間帯などを見計らって、コミュニケーションを取るように心がけましょう。また、その人がどんなことを大切にしているか（例：時間厳守、丁寧な言葉遣いなど）を理解し、それに合わせる努力も有効です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783881-jx9lamx6b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783881-k5rbflscw-f29b0ffa-0740-438d-9457-a341d9e3677a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "他のスタッフに相談する"
+          },
+          {
+            "_key": "span-1760818783881-k5rbflscw-1fc4f437-e31f-4079-b075-e3f8e2ba67c4",
+            "_type": "span",
+            "marks": [],
+            "text": ": あなたと同じように、その看護師との関係に悩んでいる同僚がいるかもしれません。一人で抱え込まず、信頼できる同僚に相談してみましょう。相談することで、客観的な意見を聞けたり、解決策が見つかることもあります。共感してもらうだけでも、気持ちは楽になります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783881-q7ngutvpl",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783881-t0eva79ja",
+            "_type": "span",
+            "marks": [],
+            "text": "職場全体の雰囲気や構造に問題がある場合"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818783881-nrvh88dmk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783881-yghwl1j3u-1dc02a4f-ebc8-4204-bf23-56fbd124152d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "信頼できる上司に相談する"
+          },
+          {
+            "_key": "span-1760818783881-yghwl1j3u-6d3cc9fb-a085-4aed-8cfc-05c444f9a785",
+            "_type": "span",
+            "marks": [],
+            "text": ": 看護師長や看護助手のリーダーなど、公平な立場で話を聞いてくれる上司に相談しましょう。その際は、感情的に不満をぶつけるのではなく、「〇〇という状況で困っており、〇〇することで業務を円滑に進められるのではないかと考えています。ご意見を伺えますでしょうか」というように、具体的な改善案を提示する姿勢で話すのがポイントです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818783881-pjer3ygl4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818783881-iby0s2rom-34cd48a9-eef1-4f9c-9510-6756f2f9e606",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "異動を申し出る"
+          },
+          {
+            "_key": "span-1760818783881-iby0s2rom-6518ee21-b0f8-4291-861d-861063fc3b59",
+            "_type": "span",
+            "marks": [],
+            "text": ": どうしても状況が改善しない場合は、別の病棟への異動を申し出るのも一つの有効な手段です。異動することで、新しい環境で人間関係を再構築することができます。環境を変えることで、心機一転、新たな気持ちで仕事に取り組むことができます。ただし、異動を申し出る際には、上司とよく相談し、慎重に検討するようにしましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-ae3b1485-0b1b-4211-ade4-fc215adae3d0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-46b81655-0ac5-4979-83d6-628f6a01cb05",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-5eee6d41-3ad8-4007-bb10-c8a73b0e5449",
+            "_type": "span",
+            "marks": [
+              "link-8e2c53f6-9887-48cd-9bb7-247053edbfa6"
+            ],
+            "text": "「看護助手の労働基準法改正対応｜2024年新労働時間規制の詳細」"
+          },
+          {
+            "_key": "internal-link-span-outro-2a1c383a-c946-4d9c-909e-e0a01700f738",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-8e2c53f6-9887-48cd-9bb7-247053edbfa6",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-care-guide-pathway"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-1acbb4b5-ada2-48a6-955e-8a98910f622f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-f5c676b5-c77a-4194-9217-fa0ef1a76d2d",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-47409d6e-0345-4b41-8cc1-75cfb354774f",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-3113b46a-dc2f-4e78-8bd5-d392b04ad648",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-feab03b3-b013-4bdb-aee6-e994b70ef60e",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-45241e1e-be96-4e62-bbdf-8346a39f6f7f",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-4eded2c1-acf0-4566-8a4d-6ba275439a51",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-1ca6031e-b0f9-473c-b059-ce32443adca4",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-123d9a23-415c-43ec-8dc1-db965c40ea8a",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-9838c477-9335-4b22-a82d-56295eb05916",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-f5d546ea-84f7-40d4-bd7d-28c28f1ac2a8",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師と看護助手の関係がうまくいかないときの対処法でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-c644b291-8216-4784-9478-274d2d2100c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-6d5cdc65-a51c-49ec-b253-73630faa3105",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-087c7f4a-bf62-4600-9cf7-8bee5629a3bc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-98d7b958-5f82-44fd-9b22-8af4cf7999af",
+            "_type": "span",
+            "marks": [],
+            "text": "報告・連絡・相談（報連相）は徹底できているか: 看護師は、患者さんの状態を常に把握しておく必要があります。些細なことで…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-ed121d53-d4a8-4b91-851e-7a016c2f18fc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-8ca93904-ac23-4734-84da-ba65980712f7",
+            "_type": "span",
+            "marks": [],
+            "text": "指示を正確に理解し、復唱しているか: 忙しい中での指示は、聞き間違いや勘違いが起こりやすいものです。指示を受けたら、「…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-588e6645-5bf8-4aeb-80b1-59917e726ac6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-6bf8a435-6b3f-4edc-96e1-1a068b17c3a6",
+            "_type": "span",
+            "marks": [],
+            "text": "感謝の気持ちを伝えているか: 教えてもらったり、手伝ってもらったりした際には、「ありがとうございます」「勉強になります…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-3b367205-4554-478f-9c94-3a66b8d2a356",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-5741eda7-7b95-43e0-926c-6be98df0c30a",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-3648a36a-10e7-45dd-8691-94c3d7aebf04",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやスクラブはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-39295ca5-52c3-40f1-8af6-0f073805594f",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "source-21bd6f4e-9de1-4bb0-b57f-5a2b3ea4c2af",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-22c4196b-50a5-47cf-a709-102b36037967",
+            "_type": "span",
+            "marks": [],
+            "text": "参考資料："
+          },
+          {
+            "_key": "span-10f91b0f-62eb-49af-a59d-0486d8ff7bdd",
+            "_type": "span",
+            "marks": [
+              "link-0e53d2af-2653-47a2-943a-0a5176c5485e"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-0e53d2af-2653-47a2-943a-0a5176c5485e",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "9ea81c31af274e19842c13c99972871c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7405e52c92644a2c89bcd704e56687d5",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "231336ef77e44402a000d84ea21ad6be",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "709f84ed401148e5b9c7afdd36acdf19",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-1695968d-2adb-47a9-a65c-dcb7ef58ae27",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-9c6e5218-d956-4406-aab5-e61d3276cdf4",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "5fe52506-4ecd-478c-b6b3-f4c2abcb542d",
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護師との関係に悩む看護助手の方へ。関係が悪化する原因を分析し、信頼関係を築くための具体的なコミュニケーション術や、どうしても改善しない場合の最終手段を解説します。",
+    "geminiMaintainedAt": "2025-11-08T23:04:55.128Z",
+    "metaDescription": "看護師への道の看護師と看護助手の関係がうまくいかないときの対処法について解説。看護師との関係に悩む看護助手の方へ。関係が悪化する原因を分析し、信頼関係を築くための具体的なコミュニケーション術や、どうしても改善しない場合の最終手段を解説します。",
+    "publishedAt": "2025-07-25T14:48:13.030Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-deal-with-nurses"
+    },
+    "tags": [
+      "場合",
+      "患者",
+      "業務",
+      "状況",
+      "相談",
+      "看護",
+      "看護助手",
+      "看護師",
+      "看護師への道",
+      "関係"
+    ],
+    "title": "看護師と看護助手の関係がうまくいかないときの対処法"
+  }
+}

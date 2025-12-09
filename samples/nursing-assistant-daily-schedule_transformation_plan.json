@@ -1,0 +1,388 @@
+{
+  "slug": "nursing-assistant-daily-schedule",
+  "title": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開",
+  "totalBlocks": 75,
+  "textBlocksToTransform": 64,
+  "guidelines": "\nTransform the article text to reflect Sera Shirasaki's voice with these rules:\n\n1. First-person: Use \"わたし\" (hiragana) when sharing personal experiences\n2. Perspective: Current nursing assistant (NOT former) - use present tense\n3. Tone: Calm, composed, professional warmth (NO exclamation points!)\n4. Readability: Aim for 3:7 kanji-to-hiragana ratio (excluding technical terms)\n5. Add real workplace examples and colleague stories where appropriate\n6. Balance realism with positivity - acknowledge challenges but provide solutions\n7. Avoid overly casual language (\"ですよね\" → \"です\")\n8. Avoid dramatic expressions\n9. Keep technical terms in kanji (医療法人, 福利厚生, etc.)\n10. Maintain factual accuracy\n\nExamples:\n- Before: \"看護助手の仕事は大変ですが、やりがいもあります。\"\n- After: \"看護助手の仕事は大変です。わたしも現場で働いていて、正直「きつい」と感じる日は何度もあります。でも、患者さんから「ありがとう」と言われた瞬間や、チームで協力して乗り越えた経験は、今でも大切な財産です。\"\n",
+  "blocks": [
+    {
+      "index": 0,
+      "key": "p4jkxkuxr",
+      "style": "h2",
+      "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開"
+    },
+    {
+      "index": 3,
+      "key": "dqnc138bk",
+      "style": "normal",
+      "text": "看護助手の仕事に興味はあるけれど、「実際にどんな一日を過ごすのだろう？」と具体的なイメージが湧かない方も多いのではないでしょうか。この記事では、看護助手の一日の仕事の流れを、勤務先や勤務形態ごとに詳し..."
+    },
+    {
+      "index": 4,
+      "key": "reference-71df907e-3307-4974-a1c3-fa03fca17083",
+      "style": "normal",
+      "text": "参考: 厚生労働省 医療施設調査"
+    },
+    {
+      "index": 5,
+      "key": "el5jlm5fw",
+      "style": "h3",
+      "text": "【病棟勤務】日勤看護助手の一日の流れ"
+    },
+    {
+      "index": 6,
+      "key": "zykx4qavu",
+      "style": "normal",
+      "text": "入院患者さんがいる病棟での勤務は、看護助手の仕事として最も一般的です。ここでは、多くの人が働く日勤のスケジュール例をご紹介します。"
+    },
+    {
+      "index": 7,
+      "key": "ges966b5d",
+      "style": "normal",
+      "text": "- 8:30 出勤・申し送り"
+    },
+    {
+      "index": 8,
+      "key": "ax0lkto93",
+      "style": "normal",
+      "text": "- 9:00 環境整備・バイタルサイン測定補助"
+    },
+    {
+      "index": 9,
+      "key": "medical-notice-359773e2-ad95-4656-9272-c768859ee6b1",
+      "style": "normal",
+      "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+    },
+    {
+      "index": 10,
+      "key": "xfzfzgymd",
+      "style": "normal",
+      "text": "病室を巡回し、ベッド周りの清掃やシーツ交換を行います。患者さんが快適に過ごせる療養環境を整えます。その後、看護師の指示のもと、体温や血圧などのバイタルサイン測定の補助をすることもあります。"
+    },
+    {
+      "index": 11,
+      "key": "alok4kfo6",
+      "style": "normal",
+      "text": "- 10:00 入浴介助・清潔ケア"
+    },
+    {
+      "index": 12,
+      "key": "3ulsix585",
+      "style": "normal",
+      "text": "患者さんの入浴をサポートします。一人で入浴できない方の体を拭く「清拭」や、洗髪、口腔ケアなども行い、患者さんの体を清潔に保ちます。"
+    },
+    {
+      "index": 13,
+      "key": "xffqjpcak",
+      "style": "normal",
+      "text": "- 12:00 昼食の準備・食事介助"
+    },
+    {
+      "index": 14,
+      "key": "sgx09c99p",
+      "style": "normal",
+      "text": "昼食の配膳や、自力で食事を摂ることが難しい患者さんの食事介助を行います。誤嚥（ごえん）に注意しながら、患者さんのペースに合わせてサポートします。"
+    },
+    {
+      "index": 16,
+      "key": "z5q5vlvah",
+      "style": "normal",
+      "text": "スタッフ同士で交代しながら休憩を取ります。"
+    },
+    {
+      "index": 17,
+      "key": "8kr8dnkih",
+      "style": "normal",
+      "text": "- 14:00 午後のケア・検査の付き添い"
+    },
+    {
+      "index": 18,
+      "key": "3jfafz4oj",
+      "style": "normal",
+      "text": "おむつ交換や体位変換（床ずれ予防）など、午後のケアを行います。また、レントゲンやCTなどの検査室へ患者さんを案内し、付き添うこともあります。"
+    },
+    {
+      "index": 19,
+      "key": "1xhy970ic",
+      "style": "normal",
+      "text": "- 16:30 記録・申し送り"
+    },
+    {
+      "index": 20,
+      "key": "ed71rg48w",
+      "style": "normal",
+      "text": "担当した患者さんの様子や行ったケアの内容を記録します。遅番のスタッフに、その日の患者さんの状態や注意点を正確に伝えます。"
+    },
+    {
+      "index": 22,
+      "key": "grrymze52",
+      "style": "normal",
+      "text": "業務が終了すれば退勤です。"
+    },
+    {
+      "index": 23,
+      "key": "block-uy31js9v4-intro-9a9621a7-ac5c-4d77-93b4-d330e35888c3",
+      "style": "normal",
+      "text": "👟 快適なワークシューズをお探しの方へ： "
+    },
+    {
+      "index": 24,
+      "key": "yw70ku1jh",
+      "style": "h3",
+      "text": "【外来勤務】看護助手の一日の流れ"
+    },
+    {
+      "index": 25,
+      "key": "4ae3tzrse",
+      "style": "normal",
+      "text": "外来での勤務は、入院患者さんではなく、診察を受けに来る患者さんの対応が中心です。夜勤がないため、規則的な生活を送りやすいのが特徴です。"
+    },
+    {
+      "index": 26,
+      "key": "0w0a7ilkl",
+      "style": "normal",
+      "text": "- 8:30 出勤・準備"
+    },
+    {
+      "index": 27,
+      "key": "65ick7q0b",
+      "style": "normal",
+      "text": "診察室の清掃や、その日の診察で使う医療器具の準備、カルテの整理などを行います。"
+    },
+    {
+      "index": 28,
+      "key": "tck44oa9r",
+      "style": "normal",
+      "text": "- 9:00 診療補助"
+    },
+    {
+      "index": 29,
+      "key": "i5279wr4e",
+      "style": "normal",
+      "text": "患者さんを診察室へ案内したり、名前を呼んだりします。医師や看護師の指示のもと、診察がスムーズに進むように、器具の受け渡しなどのサポートを行います。"
+    },
+    {
+      "index": 31,
+      "key": "1uctnzn1j",
+      "style": "normal",
+      "text": "午前の診療が一段落したら、お昼休憩に入ります。"
+    },
+    {
+      "index": 32,
+      "key": "tug12o8hn",
+      "style": "normal",
+      "text": "- 14:00 午後の診療補助"
+    },
+    {
+      "index": 33,
+      "key": "1o541xqia",
+      "style": "normal",
+      "text": "引き続き、午後の診療のサポート業務を行います。"
+    },
+    {
+      "index": 34,
+      "key": "him6t5gen",
+      "style": "normal",
+      "text": "- 17:00 片付け・清掃"
+    },
+    {
+      "index": 35,
+      "key": "hr264763h",
+      "style": "normal",
+      "text": "その日の診療で使った器具の洗浄・滅菌や、診察室の清掃、翌日の準備などを行います。"
+    },
+    {
+      "index": 37,
+      "key": "block-8w3fknaz6-intro-acd12aaf-920b-4e9a-a7cd-ff23ee5dbd6d",
+      "style": "normal",
+      "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+    },
+    {
+      "index": 38,
+      "key": "fovlm7lfp",
+      "style": "h3",
+      "text": "勤務先によって役割は様々"
+    },
+    {
+      "index": 39,
+      "key": "sfueo719v",
+      "style": "normal",
+      "text": "この他にも、手術室専門の看護助手や、クリニック、介護施設など、働く場所によって看護助手の役割や一日のスケジュールは大きく異なります。"
+    },
+    {
+      "index": 40,
+      "key": "x10klwe4n",
+      "style": "normal",
+      "text": "- 手術室: 手術で使われる器械の準備や洗浄・滅菌が主な業務です。"
+    },
+    {
+      "index": 41,
+      "key": "yxgszegtg",
+      "style": "normal",
+      "text": "- クリニック: 外来業務に加え、受付や会計などの事務作業を兼務することもあります。"
+    },
+    {
+      "index": 42,
+      "key": "ck1tmxjtl",
+      "style": "normal",
+      "text": "- 介護施設: 医療的なケアよりも、食事や排泄、入浴といった日常生活の支援が中心となります。"
+    },
+    {
+      "index": 44,
+      "key": "94697854s",
+      "style": "normal",
+      "text": "看護助手の一日の流れは、働く場所や勤務形態によって大きく異なります。病棟勤務では患者さんの日常生活に深く関わり、外来やクリニックでは多くの患者さんと接しながら診療をサポートします。ご自身のライフスタイ..."
+    },
+    {
+      "index": 45,
+      "key": "12832c7a-cd1c-4797-8c1e-de2c9a12c7e2",
+      "text": "看護助手とは？病院での具体的な役割を徹底解説"
+    },
+    {
+      "index": 46,
+      "key": "reference-44032801-0400-4b97-b3cd-649573e29796",
+      "style": "normal",
+      "text": "参考: 日本看護協会 看護サービス提供体制のあり方"
+    },
+    {
+      "index": 47,
+      "key": "6d99b1ea-6049-40d3-8dbc-770501087637",
+      "text": "看護助手とは？病院での具体的な役割を徹底解説"
+    },
+    {
+      "index": 48,
+      "key": "4c99355a-743e-42d3-a8f6-2bac86943ed2",
+      "text": "看護助手の仕事内容を新人でもわかりやすく解説"
+    },
+    {
+      "index": 49,
+      "key": "related_article_1",
+      "text": "看護助手の仕事を辞めたくなる瞬間とは？"
+    },
+    {
+      "index": 50,
+      "key": "related_article_2",
+      "text": "看護助手を辞める前に考えるべきこと"
+    },
+    {
+      "index": 51,
+      "key": "58b36e7b-4189-4b4e-8223-f6e87c039f7f",
+      "style": "normal",
+      "text": "看護助手の仕事についてさらに深く知りたい方は、以下の記事も参考にしてください。"
+    },
+    {
+      "index": 52,
+      "key": "next_step_intro",
+      "style": "normal",
+      "text": "看護助手の退職についてさらに深く知りたい方は、以下の記事も参考にしてください。"
+    },
+    {
+      "index": 53,
+      "key": "reference-46cbcd6d-70cc-40cb-986e-83cbf8fdb023",
+      "style": "normal",
+      "text": "参考: 総務省 労働力調査"
+    },
+    {
+      "index": 54,
+      "key": "block-13874uu2r-intro-444b545e-7c63-4ddd-a369-2a559747f62e",
+      "style": "normal",
+      "text": "👟 快適なワークシューズをお探しの方へ： "
+    },
+    {
+      "index": 55,
+      "key": "internal-link-ca65414f-6dea-42c0-845c-4c97d9856042",
+      "style": "normal",
+      "text": "詳しくは「看護助手の1日スケジュールを徹底紹介」でも現場のポイントを詳しく解説しています。"
+    },
+    {
+      "index": 56,
+      "key": "block-vsncgeh7r-cta-text",
+      "style": "normal",
+      "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+    },
+    {
+      "index": 57,
+      "key": "block-0yqwpbiex-cta-text",
+      "style": "normal",
+      "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+    },
+    {
+      "index": 58,
+      "key": "block-y87lxovck-cta-text",
+      "style": "normal",
+      "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+    },
+    {
+      "index": 59,
+      "key": "inline-link-86a26ca3-10ff-49e3-8666-3d235fd3f291",
+      "style": "normal",
+      "text": "[PR] 看護・介護ユニフォーム専門店「ナースリー」"
+    },
+    {
+      "index": 60,
+      "key": "inline-link-7d464b99-823a-4333-9076-2cad63771be0",
+      "style": "normal",
+      "text": "[PR] 楽天市場で看護助手グッズを探す"
+    },
+    {
+      "index": 61,
+      "key": "inline-link-028e5911-a5fe-43e9-a245-aa23f317aa03",
+      "style": "normal",
+      "text": "[PR] Amazonで看護助手グッズを探す"
+    },
+    {
+      "index": 63,
+      "key": "06f11a86f9a845aba4113dfa4ff34dff",
+      "style": "normal",
+      "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+    },
+    {
+      "index": 65,
+      "key": "summary-59b4565d-5353-4d88-8f84-309a6e353947",
+      "style": "normal",
+      "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+    },
+    {
+      "index": 66,
+      "key": "summary-e6869bd6-8ca2-4b11-a696-b8be6aac40cf",
+      "style": "normal",
+      "text": "すぐに試しやすい行動のヒントは次の通りです。"
+    },
+    {
+      "index": 67,
+      "key": "summary-bullet-bb1f9267-f849-482b-bf2f-037dad8fa76d",
+      "style": "normal",
+      "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開の視点で【病棟勤務】日勤看護助手の一日の流れに目を向ける"
+    },
+    {
+      "index": 68,
+      "key": "summary-bullet-5347aab1-7e60-423c-83a2-2edf23119bf1",
+      "style": "normal",
+      "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開の視点で【外来勤務】看護助手の一日の流れに目を向ける"
+    },
+    {
+      "index": 69,
+      "key": "summary-bullet-bad1b82d-afc8-42ad-a6c4-b8151ae4478b",
+      "style": "normal",
+      "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開の視点で勤務先によって役割は様々に目を向ける"
+    },
+    {
+      "index": 70,
+      "key": "summary-c29e824c-2d40-454c-93ac-82d1cb089e56",
+      "style": "normal",
+      "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+    },
+    {
+      "index": 73,
+      "key": "resignation-comparison-ed461bf4-58ef-474c-a41c-da80fcd3828c",
+      "style": "normal",
+      "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 退職代行３社のメリット・デメリット徹底比較を読む"
+    },
+    {
+      "index": 74,
+      "key": "disclaimer-300f00e1-c24c-4a29-a403-71a003187861",
+      "style": "normal",
+      "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+    }
+  ]
+}

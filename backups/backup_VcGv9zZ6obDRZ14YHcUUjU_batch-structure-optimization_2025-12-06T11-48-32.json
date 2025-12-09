@@ -1,0 +1,1136 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T11:48:32.824Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "VcGv9zZ6obDRZ14YHcUUjU",
+    "articleTitle": "看護助手のボーナス事情｜もらえる病院・もらえない病院",
+    "articleSlug": "nursing-assistant-bonus-situation"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:38:59Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUUjU",
+    "_rev": "actExlJ9USbzmoGsOSsnX6",
+    "_type": "post",
+    "_updatedAt": "2025-12-05T18:46:27Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "497e89ec-dd34-4481-a602-d9cba0085e05",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0084be88-d46b-4246-9849-41322737d271",
+            "_type": "span",
+            "text": "看護助手の年収を大きく左右するボーナス（賞与）。求人票を見る際に、「賞与あり」の文字は非常に魅力的ですが、その実態は勤務先によって大きく異なります。この記事では、看護助手のボーナス事情について、支給される病院とされない病院の違いや、平均的な支給額、求人票でチェックすべきポイントを解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-20298a08-de30-46af-ace3-9f8a785a6638",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-5d933bdb-63a3-449d-8e50-9a54b85a74ed",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-3c8f80ad-e909-4b7b-a93e-1325a0c720ac",
+            "_type": "span",
+            "marks": [
+              "link-a02c2e5a-7294-43b8-b8e7-713516b2aeee"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-a02c2e5a-7294-43b8-b8e7-713516b2aeee",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "2074c9de-da25-4704-af4a-a18c88e95420",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7d388427-69bd-4dfc-b89b-81d770c0f4a0",
+            "_type": "span",
+            "text": "看護助手のボーナス平均支給額"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "1515d97f-0b57-4926-8059-1a519309331c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c1ce622-dde2-45af-ab77-12574e005bd9",
+            "_type": "span",
+            "text": "ボーナスが「もらえる病院」と「もらえない病院」の違い"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "reference-143daa50-eee0-4b2a-bab2-df00f18169fa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-17ec18bc-e40d-471b-8e9b-6d4e06e24b54",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-280327be-4a89-4ed0-9415-7b38629f1cc8",
+            "_type": "span",
+            "marks": [
+              "link-ab1a279c-0743-4c7a-a5d6-2406f0f2bc33"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-ab1a279c-0743-4c7a-a5d6-2406f0f2bc33",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "832c7f6c-6755-4406-9cb7-e72c3776703f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "16bd4865-2ed9-4c26-bf4e-75ab1788b4e9",
+            "_type": "span",
+            "text": "ボーナスが支給されやすい職場"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "73a47cb1-9483-4a06-881a-e4fc125f2aa8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "51cc7ed9-50c2-4f20-a9a8-cd00cc750bb9-cb6fc49a-bff4-430e-a09e-14850f6eefe7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "規模の大きい病院"
+          },
+          {
+            "_key": "51cc7ed9-50c2-4f20-a9a8-cd00cc750bb9-39223445-7df0-4c78-bced-eb32b2e2a184",
+            "_type": "span",
+            "marks": [],
+            "text": ": 大学病院や地域の基幹病院など、経営基盤が安定している大規模な医療法人は、福利厚生が手厚く、ボーナスも安定して支給される傾向にあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "cf9b28fb-9da7-4fa4-89e2-b4cc7339a6fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb7dd697-d5a6-4cef-a058-6bad304502bd-8fb2969f-eeda-41b1-82f0-1f66904b144e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "正社員（常勤）での雇用"
+          },
+          {
+            "_key": "fb7dd697-d5a6-4cef-a058-6bad304502bd-8846ef72-0601-49a6-b39a-87e0be9f412c",
+            "_type": "span",
+            "marks": [],
+            "text": ": ボーナスは正社員を対象とすることがほとんどです。求人票で「正職員」「常勤」と記載されているかを確認しましょう。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "followup-3b70e755-008a-4290-9f94-f15e3213f98b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-39e0705e-acbc-464c-a675-9e9cf1695b64",
+            "_type": "span",
+            "marks": [],
+            "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-e27c5516-f78d-4afc-88d8-71c75ee173be",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-ec4693d8-2400-41d1-885c-f5eb3328924f",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-9cdd3640-de74-47a7-828c-9ef8c940ae6f",
+            "_type": "span",
+            "marks": [
+              "link-a53272d1-7648-4148-9f06-00a70bd77282"
+            ],
+            "text": "総務省 労働力調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-a53272d1-7648-4148-9f06-00a70bd77282",
+            "_type": "link",
+            "href": "https://www.stat.go.jp/data/roudou/"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "0c2fd350-9d83-4cf5-9443-68130025be22",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "339a7142-c70b-4b85-8ac9-471c97668ca5",
+            "_type": "span",
+            "text": "ボーナスが支給されにくい、または無い職場"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f25a463b-7d37-493c-89e2-3475e53699d9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9a88a085-2b5d-4661-9242-d88ee8b37ccf-89810110-049f-4f52-bfa8-b179f448bb88",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "クリニック（診療所）"
+          },
+          {
+            "_key": "9a88a085-2b5d-4661-9242-d88ee8b37ccf-7c8f5952-4379-4f7a-aed9-a5f1efd04c7f",
+            "_type": "span",
+            "marks": [],
+            "text": ": 個人経営のクリニックでは、年俸制であったり、そもそもボーナス制度がなかったりする場合があります。その分、月々の給料が高めに設定されていることもあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "reference-c88b08eb-64e9-4f1b-97e8-e6f5c9598d32",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-cfe80a20-1b5a-4cf2-83d3-335f6a825a1a",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-814ef7e7-60a7-47d6-a3c9-221f0bcb4691",
+            "_type": "span",
+            "marks": [
+              "link-36f7eac8-925f-423b-a8b8-d0b8643c1c19"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-36f7eac8-925f-423b-a8b8-d0b8643c1c19",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-b953fe8e-beaa-4645-97e1-6e04b9020004",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-fdb1d1e0-02e8-45c0-b9fa-d00ecaaa95f3",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ed0ff9df-bbdd-4bf5-a127-ba7bdf8b166e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e8be3f45-54b7-4242-a91c-af47446437ac-98d6431a-8a8f-491e-b5f3-8185005bec79",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "パート・アルバイトでの雇用"
+          },
+          {
+            "_key": "e8be3f45-54b7-4242-a91c-af47446437ac-1c057bcf-3e20-439d-ae1a-57306a6ae128",
+            "_type": "span",
+            "marks": [],
+            "text": ": 非正規雇用の場合は、ボーナスが支給されないか、寸志（数万円程度）の支給に留まることが一般的です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "reference-77b6f353-74c5-4037-99ab-58f25db566a9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-0ac95c87-5b8f-40f6-b3c9-c82e2cd434f9",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-4258c98f-5c90-499b-9910-6202edb3cdac",
+            "_type": "span",
+            "marks": [
+              "link-48f3b8a7-5dd3-40c6-b879-5faa845887f9"
+            ],
+            "text": "厚生労働省 介護人材対策まとめ"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-48f3b8a7-5dd3-40c6-b879-5faa845887f9",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/stf/newpage_08272.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "5e471bce-0ee6-4f20-bf31-a6b72f51482f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd256862-f89e-4983-86a1-7986f452335f-c2b23b8d-c1d5-498f-b168-7b95d28787a7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "経営状況が不安定な病院"
+          },
+          {
+            "_key": "fd256862-f89e-4983-86a1-7986f452335f-e5725ca7-4d3b-4a78-9313-89bc0e1325df",
+            "_type": "span",
+            "marks": [],
+            "text": ": 病院全体の経営状態が悪化している場合、ボーナスの額が減らされたり、支給が見送られたりすることもあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "reference-f69364f5-9171-4efd-a001-902872af7403",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-79c226a5-cd0a-4048-b3ae-db18f62db430",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-827e80eb-6b2a-4409-91dd-f58d03b23499",
+            "_type": "span",
+            "marks": [
+              "link-6098712f-4de0-41cb-b616-ea5659cb0fbe"
+            ],
+            "text": "日本看護協会 看護サービス提供体制のあり方"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-6098712f-4de0-41cb-b616-ea5659cb0fbe",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-9605255f-a74d-4e07-af21-5c7f1209aa33",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-7ab0416e-b9a3-4c0e-8b8b-f6bd1cb7bcc8",
+            "_type": "span",
+            "marks": [],
+            "text": "ボーナスが「もらえる病院」と「もらえない病院」の違いでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "676384ba-ef2e-443b-9187-1701d214469f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "df7dac71-377f-4214-a2e6-3cf13d6c3c19",
+            "_type": "span",
+            "text": "求人票でチェックすべきポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "e8422bb2-2b78-4c3f-9e02-c4aa9401b57e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bccc50bb-da7f-45a9-b199-177b543cccd5",
+            "_type": "span",
+            "text": "求人票でボーナスに関する情報を確認する際は、以下の点に注意しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b11dc30a-f7f3-46c0-b9d4-ec8a012465d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "79be0d84-573c-42fe-a276-56e827d6c9b6-de27a005-6466-427e-b66d-2ae883019fba",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "「賞与あり」の記載"
+          },
+          {
+            "_key": "79be0d84-573c-42fe-a276-56e827d6c9b6-11a03c5e-f492-4984-98cc-beb931411778",
+            "_type": "span",
+            "marks": [],
+            "text": ": まずはこの記載があることが大前提です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "20387a20-6446-47fe-885c-051b5669d334",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7e8015a2-7151-4a75-9bf6-b7ed7009bd28-a2735bc0-d1ab-412e-931c-3689492d4dd9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "「実績」の記載"
+          },
+          {
+            "_key": "7e8015a2-7151-4a75-9bf6-b7ed7009bd28-953e2a06-563b-4f59-afc3-8097386479e3",
+            "_type": "span",
+            "marks": [],
+            "text": ": 「賞与：年2回（実績3.0ヶ月分）」のように、前年度の支給実績が具体的に書かれている求人は信頼性が高いです。単に「あり」としか書かれていない場合は、面接などで確認が必要です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "fb23d0de-7069-4364-b120-6c46da4905cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "53fa5330-9057-438e-827c-4c5fe93b415b-71bc7283-2198-4f69-9458-b70fe004cc8d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "基本給の確認"
+          },
+          {
+            "_key": "53fa5330-9057-438e-827c-4c5fe93b415b-5259e3b8-e258-4371-bd80-177f3a61317b",
+            "_type": "span",
+            "marks": [],
+            "text": ": ボーナスは「基本給の〇ヶ月分」として計算されることがほとんどです。月給が高く見えても、基本給が低く設定されていると、ボーナス額も低くなるため注意が必要です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "section-closing-b96011cc-2d9f-4b97-af7a-e99cfde52258",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-2d8d2ae9-49cc-485f-911e-2604bb285632",
+            "_type": "span",
+            "marks": [],
+            "text": "求人票でチェックすべきポイントでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-209d8f02-278e-4ebc-8999-1f8afb875859",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-6f3acc7d-d0c5-4147-8d94-9c5ef8a83288",
+            "_type": "span",
+            "marks": [],
+            "text": "「求人票でチェックすべきポイント」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-d7a06b15-8a9d-4e96-84cf-e455f416b434",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-24632fdd-f259-4f2f-bb87-2eecf08b436c",
+            "_type": "span",
+            "marks": [],
+            "text": "「求人票でチェックすべきポイント」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-rtd2wk0an",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-j8p024zug",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手のボーナス平均支給額"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818250742-dki93lo29",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-deomwanfy",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手のボーナス支給額は、勤務先の規模や経営状況、雇用形態、そして個人の能力や経験年数によって大きく変動します。一概に平均額を算出するのは難しいですが、一般的な傾向として、正社員（常勤）の場合、年間のボーナス支給額は基本給の2～4ヶ月分程度となることが多いようです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-b7cbe2b5-5b48-4c3e-a9d3-458bfbbbe819",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-699da26f-4d37-4f08-a275-515f5c14fc6f",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-04065fb3-30ee-4b77-975e-ba11a19e3c8c",
+            "_type": "span",
+            "marks": [
+              "link-c3ee948d-9cc2-4df7-8c8e-4b0cb72a8c5f"
+            ],
+            "text": "NsPace Career 看護助手の転職・年収コラム"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-c3ee948d-9cc2-4df7-8c8e-4b0cb72a8c5f",
+            "_type": "link",
+            "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-5x2uvpfrh",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-hw8jia2sz",
+            "_type": "span",
+            "marks": [],
+            "text": "ボーナスの支給時期は、多くの病院や施設で夏と冬の年2回です。ただし、支給額や回数は、業績や評価によって変動する可能性があります。また、パートやアルバイトの場合は、ボーナスが支給されない、または寸志程度となることが一般的です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-98irgzskm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-3pd364awj",
+            "_type": "span",
+            "marks": [],
+            "text": "ボーナスが「もらえる病院」と「もらえない病院」の違い"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818250742-q8qjbpfox",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-2xo87ev1n",
+            "_type": "span",
+            "marks": [],
+            "text": "ボーナスが支給されるかどうかは、勤務先の経営状況や雇用形態によって大きく異なります。以下に、ボーナスが支給されやすい職場とそうでない職場の特徴をまとめました。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-c9d85jr5e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-oldxlldn5",
+            "_type": "span",
+            "marks": [],
+            "text": "ボーナスが支給されやすい職場"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818250742-nwtakmm1h",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-w6i9sqyes-1a9193c5-fbcd-4904-b3b8-c29552d3ccc2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "規模の大きい病院"
+          },
+          {
+            "_key": "span-1760818250742-w6i9sqyes-610ddc8f-111b-41cc-afd7-a334dcc0f077",
+            "_type": "span",
+            "marks": [],
+            "text": ": 大学病院や地域の基幹病院など、経営基盤が安定している大規模な医療法人は、福利厚生が手厚く、ボーナスも安定して支給される傾向にあります。これらの病院では、看護助手に対する評価制度も整っていることが多く、個人の頑張りがボーナスに反映されやすいと考えられます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-m4qn6l9dm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-lco2652rb-42788c53-e163-434c-9f0e-6e6a09577de1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "正社員（常勤）での雇用"
+          },
+          {
+            "_key": "span-1760818250742-lco2652rb-90c8621a-dcb0-425f-a800-18a22d386d14",
+            "_type": "span",
+            "marks": [],
+            "text": ": ボーナスは正社員を対象とすることがほとんどです。求人票で「正職員」「常勤」と記載されているかを確認しましょう。正社員として雇用されることで、ボーナスだけでなく、昇給や退職金制度など、様々な福利厚生の恩恵を受けることができます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-bp3q7iwh8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-t87zvdo1e-2362c3b2-5ebc-437d-af06-7ce17482aa94",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "業績が良い病院"
+          },
+          {
+            "_key": "span-1760818250742-t87zvdo1e-37f66146-6dac-48c2-8265-6d50a381e9d5",
+            "_type": "span",
+            "marks": [],
+            "text": ": 患者数が多い、または診療報酬が高い診療科を持つ病院は、経営状況が安定しており、ボーナスを支給できる可能性が高くなります。病院のウェブサイトやニュース記事などで、経営状況を確認してみるのも良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-mzbkywb0c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-eaho940pw",
+            "_type": "span",
+            "marks": [],
+            "text": "ボーナスが支給されにくい、または無い職場"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818250742-maf4sfbzp",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-ex60pf0f1-7336c577-cc71-482b-9a5c-424260e880d0",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "クリニック（診療所）"
+          },
+          {
+            "_key": "span-1760818250742-ex60pf0f1-e271f9ea-b983-4d56-aca4-f041e8fb0a44",
+            "_type": "span",
+            "marks": [],
+            "text": ": 個人経営のクリニックでは、年俸制であったり、そもそもボーナス制度がなかったりする場合があります。その分、月々の給料が高めに設定されていることもあります。ボーナスの代わりに、業績に応じてインセンティブが支給される場合もあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-unel43z62",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-831xy7cn6-22e603f8-7a86-4574-8737-ad13b8dcf438",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "パート・アルバイトでの雇用"
+          },
+          {
+            "_key": "span-1760818250742-831xy7cn6-e69a7e76-2b20-4963-90bd-d08f47e6f3e8",
+            "_type": "span",
+            "marks": [],
+            "text": ": 非正規雇用の場合は、ボーナスが支給されないか、寸志（数万円程度）の支給に留まることが一般的です。ただし、パートやアルバイトでも、勤務時間や貢献度によってはボーナスが支給されるケースもあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-17y17tzo8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-tn8iscsey",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: 厚生労働省 令和5年度介護従事者処遇状況等調査"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-74ut19okv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-b7ur28xfo-f5b4b7d1-d8bb-408a-a18c-7b11540c1218",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "経営状況が不安定な病院"
+          },
+          {
+            "_key": "span-1760818250742-b7ur28xfo-cda7ba47-e0b3-430c-8cb9-a2a936b77aac",
+            "_type": "span",
+            "marks": [],
+            "text": ": 病院全体の経営状態が悪化している場合、ボーナスの額が減らされたり、支給が見送られたりすることもあります。求人に応募する前に、病院の評判や経営状況について調べておくことが大切です。近年では、医療機関の経営状況を公開しているウェブサイトもありますので、参考にしてみると良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-q3q5c5rus",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-ccrahvgy6",
+            "_type": "span",
+            "marks": [],
+            "text": "求人票でチェックすべきポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818250742-e3k0tezu3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-gikwkjuw5",
+            "_type": "span",
+            "marks": [],
+            "text": "求人票でボーナスに関する情報を確認する際は、以下の点に注意しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-jk6x9au3c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-tpygf6x5u-62863d09-bf25-4771-ab00-8bbc2993e4ad",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "「賞与あり」の記載"
+          },
+          {
+            "_key": "span-1760818250742-tpygf6x5u-51a0cb8e-9fc9-4195-b0f9-edfabc8813c5",
+            "_type": "span",
+            "marks": [],
+            "text": ": まずはこの記載があることが大前提です。しかし、「賞与あり」とだけ記載されている場合は、具体的な支給額や支給条件を確認する必要があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-4h8i50sdl",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-d8kk4r555-8e8f3381-e88b-4d78-be2e-2de8f2bfb118",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "「実績」の記載"
+          },
+          {
+            "_key": "span-1760818250742-d8kk4r555-c2e5bf93-d110-484a-8226-d96b3e87ab49",
+            "_type": "span",
+            "marks": [],
+            "text": ": 「賞与：年2回（実績3.0ヶ月分）」のように、前年度の支給実績が具体的に書かれている求人は信頼性が高いです。単に「あり」としか書かれていない場合は、面接などで確認が必要です。支給実績が複数年分記載されている場合は、より安定したボーナス支給が期待できるでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818250742-wytv5mwwb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818250742-83joh0tn4-4b666c62-5da6-41a6-8474-dd7540d71a8e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "基本給の確認"
+          },
+          {
+            "_key": "span-1760818250742-83joh0tn4-6efe30e5-29ec-4f9b-b6bb-3203ea152df4",
+            "_type": "span",
+            "marks": [],
+            "text": ": ボーナスは「基本給の〇ヶ月分」として計算されることがほとんどです。月給が高く見えても、基本給が低く設定されていると、ボーナス額も低くなるため注意が必要です。求人票には、基本給だけでなく、諸手当の内訳も記載されていることが多いため、しっかりと確認しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3132df5f51bc4479a11ad862d0b28b24",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "22f3c549163944c09fada98481fb247e",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "a7fcd7a60ade46f6b1cbe438d920ac0f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "db3da553bbf74c9199d8be28eb615853",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-119fd4d0-d690-4b1d-8433-8df1cfd55945",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-7c6916ef-e824-44f0-b6e3-720699d7d7a8",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手のボーナス事情｜もらえる病院・もらえない病院でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-97df619d-4c9a-46fe-8769-bb52a794cb07",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-c0202fbe-b281-4312-8944-9d2ea4170bce",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-3ef488d1-5d1e-42c0-a121-73095a1980ea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-82a16459-6263-462c-91a1-c1e16f3ae42a",
+            "_type": "span",
+            "marks": [],
+            "text": "ボーナスが「もらえる病院」と「もらえない病院」の違いの視点でボーナスが支給されやすい職場に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-32ed6f05-6b98-4119-be7f-591980b1387a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-ecf9ca29-3906-42c4-8cbd-611cafb98bde",
+            "_type": "span",
+            "marks": [],
+            "text": "規模の大きい病院: 大学病院や地域の基幹病院など、経営基盤が安定している大規模な医療法人は、福利厚生が手厚く、ボーナス…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-14d2649c-13ca-41ce-8c16-2855bf172e9c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-f87a4b33-c165-4be5-9ba5-1ba8ff74e06b",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員（常勤）での雇用: ボーナスは正社員を対象とすることがほとんどです。求人票で「正職員」「常勤」と記載されているか…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-2378c7ec-f874-42e0-bd7a-6d94ec7d31ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-7e02a6df-c858-4e10-ba85-01971aebd38f",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "resignation-comparison-03a51f74-89eb-47cc-bc46-19a146b4c09c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "resignation-comparison-lead-f0d80c3e-9d65-4303-9093-57671292add1",
+            "_type": "span",
+            "marks": [],
+            "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+          },
+          {
+            "_key": "resignation-comparison-link-c9763a2c-f288-45c8-a665-44ef1126df8f",
+            "_type": "span",
+            "marks": [
+              "link-7a08b80c-1572-4791-9d0a-477cef5d0f57"
+            ],
+            "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-7a08b80c-1572-4791-9d0a-477cef5d0f57",
+            "_type": "link",
+            "href": "/posts/comparison-of-three-resignation-agencies"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "career-comparison-eda6dc5c-4c2b-4484-b675-2e5ade3c34d4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-4781533f-04b7-4878-b0cb-87165b97e8d1",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-2dd3e3cf-620e-406c-b0a6-bb8045b4381e",
+            "_type": "span",
+            "marks": [
+              "link-5bc66c4b-6816-4049-9045-3927d9f1a8d4"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-5bc66c4b-6816-4049-9045-3927d9f1a8d4",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-1876800f-b617-4514-9cd8-4362bab1b45a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-17498dec-c119-45b5-b47e-f6cd18c65f09",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手の年収を大きく左右するボーナス（賞与）。求人票を見る際に、「賞与あり」の文字は非常に魅力的ですが、その実態は勤務先によって大きく異なります。この記事では、看護助手のボーナス事情について、支給される病院とされない病院の違いや、",
+    "geminiMaintainedAt": "2025-11-08T23:04:09.213Z",
+    "metaDescription": "給与・待遇の看護助手のボーナス事情｜もらえる病院・もらえない病院について解説。看護助手の年収を大きく左右するボーナス（賞与）。求人票を見る際に、「賞与あり」の文字は非常に魅力的ですが、その実態は勤務先によって大きく異なります。この記事では、看護助手のボーナス事情について、支給される病院とされない病院の違いや、",
+    "publishedAt": "2024-06-06T02:53:06.685Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-bonus-situation"
+    },
+    "tags": [
+      "ボーナス",
+      "支給",
+      "求人",
+      "病院",
+      "看護",
+      "看護助手",
+      "給与",
+      "給与・待遇",
+      "給料",
+      "賞与"
+    ],
+    "title": "看護助手のボーナス事情｜もらえる病院・もらえない病院"
+  }
+}

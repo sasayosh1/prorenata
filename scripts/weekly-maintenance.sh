@@ -39,6 +39,22 @@ export SANITY_API_TOKEN="sk0JHLbzLymgI7SU6goYNL4xy0y8TjZqpgR8PrcBVuDmgY1Lh828ppX
     exit 1
   fi
 
+  # ステップ0.5: Pre-flight safety checks
+  echo "📍 ステップ0.5: Pre-flight Safety Checks"
+  echo "----------------------------------------"
+  cd "$PROJECT_DIR"
+  "$SCRIPT_DIR/pre-flight-check.sh" 2>&1
+  PREFLIGHT_EXIT_CODE=$?
+  echo ""
+
+  if [ $PREFLIGHT_EXIT_CODE -ne 0 ]; then
+    echo "❌ Pre-flight checks failed. Aborting maintenance."
+    echo "========================================"
+    echo "週次メンテナンス中止: $(date)"
+    echo "========================================"
+    exit 1
+  fi
+
   # ステップ1: プレースホルダーリンク変換
   echo "📍 ステップ1: プレースホルダーリンク変換"
   echo "----------------------------------------"

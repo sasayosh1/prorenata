@@ -1,0 +1,1027 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T11:49:05.333Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "VcGv9zZ6obDRZ14YHcUsN8",
+    "articleTitle": "看護助手の夜勤でよくあるトラブルと対処法",
+    "articleSlug": "nursing-assistant-night-shift-troubles"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:41:51Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUsN8",
+    "_rev": "mYBnIMFQ449l0WiRG3A5yW",
+    "_system": {
+      "base": {
+        "id": "VcGv9zZ6obDRZ14YHcUsN8",
+        "rev": "4mTb9EmSUWyozhQSTL0FvG"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-05T18:48:05Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "4140416c-a11c-45bf-a04a-9dfe98d84fb8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b4ee3b1c-c750-4928-916d-7fe5f263d677",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の夜勤は、日勤に比べてスタッフの人数が少ないため、一人ひとりの責任が重く、予期せぬトラブルに遭遇する可能性も高まります。しかし、事前にどんなトラブルが起こりうるかを知り、対処法を把握しておくことで、冷静に対応し、患者さんの安全を守ることができます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6b27b963c4b6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b4ee3b1c-c750-4928-916d-7fe5f263d677",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、看護助手の夜勤でよくあるトラブルとその対処法について解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b11c8917-f9ee-40b0-a10e-d2aedda808e8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "32097e17-6902-42f5-ad19-dfeffe4458b8",
+            "_type": "span",
+            "marks": [],
+            "text": "トラブル1：患者さんの急変"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "5e81b8db-823e-4d70-97dd-23812fcc12af",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5a87a6c2-e114-47df-8202-9e11859063ba",
+            "_type": "span",
+            "marks": [],
+            "text": "夜間は患者さんの容体が急変するリスクがあり、最も緊張する瞬間です。看護師の人数が少ないため、迅速かつ的確な対応が求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6b404067-cdc1-4dac-967f-1f68daaf24ea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3ef0904e-d168-40ca-b48e-e6c8785f87ba-56b18adc-5e5f-42bc-96b6-a181ba81663e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "異変に気づいたらすぐに看護師に報告"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "b5d0190494d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3ef0904e-d168-40ca-b48e-e6c8785f87ba-a1304fc6-a9af-4f7e-9c9d-d68c877e45ce",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの顔色、呼吸、意識レベル、バイタルサインなどに少しでも異変を感じたら、迷わずすぐに看護師を呼び、状況を具体的に報告しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-5a9e516d-0893-4d94-8cb1-c06b6c76f2e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-5d568c1c-65d1-4f82-be96-fdbf22e1b621",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bfcd4604-939c-44a2-ba81-a0d92e9955b4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bdee8b5b-66c6-45d6-912d-0cea202fb78d-a74789a1-bf37-42ac-87d4-c837b53ddc8f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "指示を待つ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "dc55697c1bc4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bdee8b5b-66c6-45d6-912d-0cea202fb78d-5a4a44f3-ab8c-411a-bdc7-827f17428d6e",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師が到着するまで、自己判断で行動せず、指示を待ちます。指示があれば、それに従って行動します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4835cd93-f188-4b1e-a831-7f29fc512fdb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "737540e0-e1ce-4660-8c51-1405d90be9e1-87ac656d-d7e8-4625-baa3-ab9c2d6db06e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "冷静さを保つ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a1e5ee08c264",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "737540e0-e1ce-4660-8c51-1405d90be9e1-1bc68cf0-a307-4d09-8918-91a686263106",
+            "_type": "span",
+            "marks": [],
+            "text": "焦らず、冷静に対応することが重要です。あなたの冷静な行動が、患者さんの命を救うことに繋がります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "642536b580ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-ngm4am0ll-007f924d-b1ad-42eb-99e1-000a94f69ae5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "急変時の記録"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "41643dc6afea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-ngm4am0ll-66952924-6999-4f61-822c-f13474ee2001",
+            "_type": "span",
+            "marks": [],
+            "text": "状況が落ち着いたら、急変時の状況、患者さんの状態、行った対応などを記録しておきましょう。記録は、後の検証や改善に役立ちます。具体的には、時間経過、患者さんのバイタルサインの変化、看護師への報告内容などを詳細に記録しておくと良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa421160f273",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-cm3qma4sz-0737b674-f57a-4499-b77b-2252e5f0000d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "振り返り"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f7e2bdd81ec7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-cm3qma4sz-e200528d-8d78-432f-a752-3a9c29e08842",
+            "_type": "span",
+            "marks": [],
+            "text": "急変対応後、看護師や他のスタッフと振り返りを行い、改善点を見つけるように心がけましょう。成功した点、改善すべき点を共有することで、チーム全体のスキルアップに繋がります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5e93de46-435f-4066-b6ed-cd1ecfe0a7c8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e9bce6a1-ee0e-4dd5-97c5-dc3324477b4f",
+            "_type": "span",
+            "marks": [],
+            "text": "トラブル2：ナースコールが鳴り止まない"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "88b07886-eff1-4765-9848-467bf676e3d9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "500c9049-e721-4c53-b6e1-fe94fb0d2ef7",
+            "_type": "span",
+            "marks": [],
+            "text": "夜間は患者さんの不安が増したり、排泄介助の頻度が増えたりするため、ナースコールが頻繁に鳴ることがあります。一人で対応しきれないと感じることもあるでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "09deebf1-2bd9-4a10-a4a5-552d1a4473fc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d3acbcd-e32e-4ab2-9691-ddfb73e06679-7a463577-67a1-415e-95c9-035440a6f6db",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "優先順位をつける"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "acb7a009eb4a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d3acbcd-e32e-4ab2-9691-ddfb73e06679-80eba802-cb22-4f6b-b2c5-06901356c36d",
+            "_type": "span",
+            "marks": [],
+            "text": "ナースコールの内容を把握し、緊急性の高いものから優先して対応します。例えば、呼吸が苦しい、痛みが強いといった訴えは最優先です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "12c017f2-4609-444a-8c5a-515985bc938c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1bfb6961-8b53-4cd3-892c-90e4f5bde2eb-20f065b2-fdb6-467b-958a-2668632def81",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "看護師に相談する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f65006b1f4ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1bfb6961-8b53-4cd3-892c-90e4f5bde2eb-faa394e3-43f0-4be8-8fb2-4ecf27dace76",
+            "_type": "span",
+            "marks": [],
+            "text": "一人で抱え込まず、対応が難しいと感じたらすぐに看護師に相談しましょう。特に、患者さんの訴えが曖昧な場合や、精神的なケアが必要な場合は、看護師の判断を仰ぐべきです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "83525efc-d65e-416b-8640-8175817f13c8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "55f9a465-85cb-4fcb-9e30-76f6ae4f2ba5-b02baf68-af8f-41f1-9f88-6adad2faf6b5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "患者さんに状況を伝える"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "5d832db44c86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "55f9a465-85cb-4fcb-9e30-76f6ae4f2ba5-7321b51c-fc3e-4d28-895b-4635086c4a74",
+            "_type": "span",
+            "marks": [],
+            "text": "「今、別の患者さんの対応中です。〇分ほどで伺います」など、状況を伝えることで、患者さんの不安を軽減できます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760819520874-gbd6bvz2s",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-4cdasi39o-4bd68c37-a06f-46a9-af48-0ec16379849b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "定時巡回"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "ab6b578a0b83",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-4cdasi39o-2597dda0-54aa-4d1e-aa4d-ef5d6a2cf2ba",
+            "_type": "span",
+            "marks": [],
+            "text": "ナースコールが頻繁に鳴る患者さんに対しては、定時巡回を強化することを検討しましょう。定期的に様子を見に行くことで、ナースコールが鳴る前に対応できる場合があります。ただし、巡回の頻度やタイミングは、患者さんの状態や状況に合わせて調整することが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760819520874-xu3zo1m9h",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-1xo7gtec3-a80e80b6-5eb2-473c-ac0b-f7ecefac7ab4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "記録と分析"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "57bed974344d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-1xo7gtec3-96b3d7cd-2daa-400c-b3da-a73d7a5585ab",
+            "_type": "span",
+            "marks": [],
+            "text": "ナースコールの内容や時間帯を記録し、傾向を分析することも有効です。例えば、特定の時間帯に排泄介助の依頼が多い場合は、その時間帯に人員を増やすなどの対策を検討できます。記録は、業務改善のための貴重なデータとなります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bac91414f896",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-9a8d6dd4-d414-482e-9a35-be5721e72336",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-eeacf057-634b-4a57-a753-7ac07ae23324",
+            "_type": "span",
+            "marks": [
+              "link-dee0f7d2-59a9-4f7f-9cbd-819149ddc359"
+            ],
+            "text": "総務省 統計局 労働力調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-dee0f7d2-59a9-4f7f-9cbd-819149ddc359",
+            "_type": "link",
+            "href": "https://www.stat.go.jp/data/roudou/"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "ab8d560a-106a-460e-9c78-05b407807507",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18d0af00-5e0d-4282-816a-e54cefe61542",
+            "_type": "span",
+            "marks": [],
+            "text": "トラブル3：転倒・転落事故"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "c1d81c2a-25d8-423d-a715-c6be6f538980",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d49a42b4-0d90-45e4-b14d-a2746d6ea797",
+            "_type": "span",
+            "marks": [],
+            "text": "夜間は患者さんの意識レベルが低下したり、暗闇で足元が見えにくくなったりするため、転倒・転落事故のリスクが高まります。特に、トイレへの移動中やベッドからの起き上がり時に発生しやすいです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "52f68dd3-0121-42e5-b9f5-66e7a3c0cc3c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5620a19-0dd3-493a-a9ef-b9233177367c-82c4dc00-21ab-4f79-9872-0c72ea1a4ff7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "危険予測と予防"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f3496240a6d4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5620a19-0dd3-493a-a9ef-b9233177367c-ede55a3e-2d56-4888-95a3-1c2fa28ff178",
+            "_type": "span",
+            "marks": [],
+            "text": "巡視の際に、ベッド柵が上がっているか、床に障害物がないかなどを確認し、転倒リスクの高い患者さんには特に注意を払いましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "29fea2f1-dda9-470a-961f-616d6a192e82",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e199b5ed-9c1f-4938-8b59-8230c2211286-d5bbc2cf-54bf-4561-9830-7f42dff47001",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "介助の徹底"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "98cd8668141b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e199b5ed-9c1f-4938-8b59-8230c2211286-a322bed4-224b-402c-a0b1-09f2b8a9277a",
+            "_type": "span",
+            "marks": [],
+            "text": "トイレへの誘導や移乗介助の際は、多くの場合付き添い、安全に配慮した介助を行います。患者さんの状態に合わせて、介助方法を変えることも重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c0d3846d-0aca-43b7-a73d-c5603b3b68fe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2143f8f4-17f8-47cd-8da4-cd557fac4ec3-b44dd113-dec8-43eb-bde1-80a4e6f77e65",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "事故発生時の報告"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f5e292d12435",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2143f8f4-17f8-47cd-8da4-cd557fac4ec3-93e6df55-2e2d-460c-b45c-ef8051dacfc7",
+            "_type": "span",
+            "marks": [],
+            "text": "万が一、事故が発生してしまった場合は、患者さんの安全を確保し、すぐに看護師に報告します。自己判断で隠蔽しようとせず、正直に報告することが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760819520874-ebccw7lef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-5712umg7s-883d86f6-bd76-42ce-9de5-d010752594f7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "環境整備"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "fdb964ddc089",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-5712umg7s-8cc9508e-5c78-4296-8252-8d048f442ab2",
+            "_type": "span",
+            "marks": [],
+            "text": "夜間の環境整備は非常に重要です。足元灯を設置したり、通路の整理整頓を徹底したりすることで、転倒・転落のリスクを軽減できます。特に、高齢の患者さんは、わずかな段差や障害物でも転倒する可能性があるため、細心の注意が必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5cd264f3f24b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-mqmif5lfq-d466ce55-3ab1-4fa0-a87e-04989a9828f2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "情報共有"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6ee030f706e5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-mqmif5lfq-e9a59166-7068-4055-86fb-0ec327173923",
+            "_type": "span",
+            "marks": [],
+            "text": "転倒リスクの高い患者さんの情報を、スタッフ間で共有することも重要です。申し送りやミーティングなどを通じて、患者さんの状態や注意点などを共有し、チーム全体で事故防止に努めましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0da38ad6-3bc0-4406-8802-c759c680161e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7d2b4b7c-add9-4e80-b8fe-7d0498025040",
+            "_type": "span",
+            "marks": [],
+            "text": "トラブル4：医療機器の異常"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "8e8ebdff-a927-4815-96db-684163df0c43",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9eaf18bc-0e5e-452b-a1fc-08465bdc6f96",
+            "_type": "span",
+            "marks": [],
+            "text": "点滴ポンプのアラームや、モニターの異常音など、医療機器のトラブルに遭遇することもあります。看護助手は医療機器を操作できませんが、異常を早期に発見し、報告する役割があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "aef4010d-b1a9-4e11-bb10-f5e9de664776",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4795ce37-75fe-422c-b74e-e72460b7d123-95229a11-a466-44b1-bbe6-941e43ffc532",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "音や表示の確認"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6dbabe99fb35",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4795ce37-75fe-422c-b74e-e72460b7d123-790bebdf-cab2-47d3-ac65-28adebe0e1dd",
+            "_type": "span",
+            "marks": [],
+            "text": "どんな音が鳴っているのか、どんな表示が出ているのかを冷静に確認します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "73d70de5-d212-4a84-a0c6-6a39f3fd7b4b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8c7fa3d1-e3b8-4d38-8889-ae47a38ae097-bded29ff-69b8-49f5-bfeb-07fd17269010",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "すぐに看護師に報告"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6b26be4920a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8c7fa3d1-e3b8-4d38-8889-ae47a38ae097-b95f567b-5b9f-4166-a821-e21af377305b",
+            "_type": "span",
+            "marks": [],
+            "text": "自分で解決しようとせず、すぐに看護師に報告しましょう。機器の操作は看護師の専門分野です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "756c5927-664e-43fc-9427-0993b6ef951e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "52ad9a61-288f-4bbc-bd0d-b0a32de4b88c-dbe5bc4e-7b80-48d5-a7f5-77583dbd2867",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "患者さんの安全確保"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "c08a1b2c467e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "52ad9a61-288f-4bbc-bd0d-b0a32de4b88c-e9d35b55-9582-4562-ab7a-538fe28623b8",
+            "_type": "span",
+            "marks": [],
+            "text": "機器の異常が患者さんの状態に影響を与えそうな場合は、患者さんの安全を最優先に行動します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760819520874-wzy8unk2r",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-nw02om2fy-1a7ca056-b375-44aa-83d9-da2b46d0de6a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "機器の知識"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "8b2cf8785beb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-nw02om2fy-d38ace50-85ce-4209-9e58-c14b79924b8a",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は医療機器を操作できませんが、基本的な知識を身につけておくことは重要です。例えば、点滴ポンプのアラームの種類や意味、モニターの表示内容などを理解しておけば、異常を早期に発見しやすくなります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760819520874-t2h1dcche",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-4a9cdoscw-a01950be-f277-4f32-9716-7ea1a2e4fddf",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "報告の徹底"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "45a4c581067c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760819520874-4a9cdoscw-ddad885d-2bd7-42e0-a329-acf7103ea04b",
+            "_type": "span",
+            "marks": [],
+            "text": "報告する際には、正確な情報を伝えることが重要です。具体的にどんな音が鳴っているのか、どんな表示が出ているのかを、看護師に詳しく伝えましょう。写真や動画を撮影して、状況を記録することも有効です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0b532ce6ddbf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-85262630-eac8-4e4e-b266-08f0ce420c78",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-dc390e72-58f7-404c-b649-a808b0e1f07c",
+            "_type": "span",
+            "marks": [
+              "link-4b01dc34-9508-4b79-add1-90757ec20521"
+            ],
+            "text": "「【シフトの悩み】看護助手の夜勤・交代制勤務を乗り切る5つのコツ」"
+          },
+          {
+            "_key": "internal-link-span-outro-03c3c02d-b522-4a4e-b4b1-3062b17e7284",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-4b01dc34-9508-4b79-add1-90757ec20521",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-night-shift-practical"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "04063af76e4d49c78e94a60f446f0546",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c7845fc467224ccd89769346cdc8787f",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "28c56af5e7844e09adc17e6485eb4441",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a43b907c02db42e1b8f539f7ee0d9300",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-2659ebe1-eafc-40f1-918d-a5ac4c71568b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-d60b9e5c-7dac-4f61-a507-99e2a31ba3d6",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の夜勤でよくあるトラブルと対処法でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-07a1edca-f8aa-4387-a8b1-c9e187c2cd85",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-24b60bb1-94ca-4ece-b2de-74ca91ed05d6",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-ce16ce2a-12ea-4172-a2e7-b6679ee969bb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-9a2d0a35-1722-4108-979d-c85c77d58df3",
+            "_type": "span",
+            "marks": [],
+            "text": "トラブル1：患者さんの急変の視点で異変に気づいたらすぐに看護師に報告に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-c9ea6c27-46fe-491e-910e-aad09103249f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-adc9bd38-9329-44fb-be8f-287377fc228d",
+            "_type": "span",
+            "marks": [],
+            "text": "トラブル1：患者さんの急変の視点で指示を待つに目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5cb6df3d-00be-4786-91e7-c73c409482ae",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-278bb163-db8e-4515-86be-9a6ce4d82b73",
+            "_type": "span",
+            "marks": [],
+            "text": "トラブル1：患者さんの急変の視点で冷静さを保つに目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-dc29d5a8-405d-4eb3-9440-03d62ad72f91",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-353daf7b-807e-4f05-afb6-471e58f2e588",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-1db238c9-2de7-4f43-ba19-6ef4fd14d862",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやポケットオーガナイザーはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-b2e8c7e6-27cb-4279-a18e-822c84c120d8",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "disclaimer-51bd5c07-f5ad-459c-9272-f62a3aa0cdf4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-1fd85c34-bcad-4516-a310-2c028e9d7aaf",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "f8acb0f2-baaf-4992-b0a5-6986b817e9d6",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手の夜勤は、日勤とは異なるトラブルが発生しやすいものです。患者さんの急変、緊急入院、少人数での対応など、よくあるトラブルとその具体的な対処法、未然に防ぐためのポイントを解説します。",
+    "geminiMaintainedAt": "2025-11-08T23:05:10.041Z",
+    "metaDescription": "実務・ノウハウの看護助手の夜勤でよくあるトラブルと対処法について解説。看護助手の夜勤は、日勤とは異なるトラブルが発生しやすいものです。患者さんの急変、緊急入院、少人数での対応など、よくあるトラブルとその具体的な対処法、未然に防ぐためのポイントを解説します。",
+    "publishedAt": "2025-01-09T15:51:02.741Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-night-shift-troubles"
+    },
+    "tags": [
+      "トラブル",
+      "医療",
+      "報告",
+      "夜勤",
+      "実務・ノウハウ",
+      "対処法",
+      "対応",
+      "患者",
+      "看護",
+      "看護師"
+    ],
+    "title": "看護助手の夜勤でよくあるトラブルと対処法",
+    "views": 1
+  }
+}

@@ -10,6 +10,18 @@ echo "Starting diagram regeneration and asset sync..."
 # This script now outputs to "画像/diagram"
 echo "Running generate-svg-diagrams.py..."
 python3 scripts/generate-svg-diagrams.py
+echo "Running generate-svg-diagrams-batch2.py..."
+python3 scripts/generate-svg-diagrams-batch2.py
+echo "Running generate-svg-diagrams-batch3.py..."
+python3 scripts/generate-svg-diagrams-batch3.py
+echo "Running generate-svg-diagrams-batch4.py..."
+python3 scripts/generate-svg-diagrams-batch4.py
+echo "Running generate-svg-diagrams-batch5.py..."
+python3 scripts/generate-svg-diagrams-batch5.py
+echo "Running generate-svg-diagrams-second.py..."
+python3 scripts/generate-svg-diagrams-second.py
+echo "Running generate-svg-diagrams-second-batch2.py..."
+python3 scripts/generate-svg-diagrams-second-batch2.py
 
 # 2. Sync Diagrams to Public
 echo "Syncing diagrams to public/diagrams/..."

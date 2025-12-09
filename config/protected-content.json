@@ -1,0 +1,39 @@
+{
+    "protectedSlugs": [
+        "nursing-assistant-compare-services-perspective",
+        "nursing-assistant-daily-schedule",
+        "nursing-assistant-mental-care-stress"
+    ],
+    "protectedLinkPatterns": [
+        "track.affiliate-b.com",
+        "af.moshimo.com",
+        "ck.jp.ap.valuecommerce.com",
+        "px.a8.net",
+        "mhlw.go.jp",
+        "shigoto.mhlw.go.jp"
+    ],
+    "minPvThreshold": 1000,
+    "recentArticleDays": 30,
+    "protectionRules": {
+        "affiliateLinks": {
+            "allowDeletion": false,
+            "allowModification": true,
+            "requireConfirmation": true
+        },
+        "internalLinks": {
+            "allowDeletion": true,
+            "allowModification": true,
+            "requireConfirmation": false
+        },
+        "externalLinks": {
+            "allowDeletion": true,
+            "allowModification": true,
+            "requireConfirmation": false
+        }
+    },
+    "anomalyThresholds": {
+        "maxLinksDeletedPerArticle": 10,
+        "maxContentReductionPercent": 50,
+        "maxBlocksDeletedPerArticle": 20
+    }
+}

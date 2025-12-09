@@ -151,7 +151,8 @@ def create_svg_transfer_safety(filename, base64_img):
 
 if __name__ == "__main__":
     # Load base64 image
-    sera_img = get_base64_image("sera_thinking.png")
+    # sera_img = get_base64_image("sera_thinking.png")
+    sera_img = "" # Temporarily disabled
     
     create_svg_resume_checklist("resume_checklist.svg", sera_img)
     create_svg_interview_flow("interview_flow.svg", sera_img)

@@ -9,6 +9,13 @@ const client = createClient({
   useCdn: false
 })
 
+const args = process.argv.slice(2)
+const DRY_RUN = args.includes('--dry-run') || args.includes('-d')
+
+if (DRY_RUN) {
+  console.log('🔍 DRY RUN MODE - No changes will be made\n')
+}
+
 // 存在しない記事へのリンクスラッグ
 const brokenSlugs = [
   'nursing-assistant-scope-of-work-1756352898821',
@@ -21,12 +28,12 @@ const brokenSlugs = [
 ]
 
 async function removeBrokenLinks() {
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log('🔧 壊れた内部リンクの削除')
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log()
 
-  const posts = await client.fetch(`*[_type == "post"] {
+  const posts = await client.fetch(`*[_type == "post" && !(_id in path("drafts.**"))] {
     _id,
     title,
     body
@@ -90,9 +97,11 @@ async function removeBrokenLinks() {
     })
 
     if (modified) {
-      await client.patch(post._id).set({ body: newBody }).commit()
+      if (!DRY_RUN) {
+        await client.patch(post._id).set({ body: newBody }).commit()
+      }
       fixedCount++
-      console.log(`✅ ${post.title}`)
+      console.log(`${DRY_RUN ? '🔍' : '✅'} ${post.title}`)
     }
   }
 
@@ -105,9 +114,9 @@ async function main() {
   try {
     await removeBrokenLinks()
 
-    console.log('=' .repeat(60))
+    console.log('='.repeat(60))
     console.log('✨ 壊れたリンク削除完了')
-    console.log('=' .repeat(60))
+    console.log('='.repeat(60))
 
   } catch (error) {
     console.error('❌ エラーが発生しました:', error)

@@ -1,0 +1,1311 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T12:07:58.412Z",
+    "operation": "final-article-fixes",
+    "articleId": "VcGv9zZ6obDRZ14YHcUUq8k",
+    "articleTitle": "外来と病棟で異なる看護助手の仕事内容",
+    "articleSlug": "nursing-assistant-outpatient-inpatient-differences"
+  },
+  "document": {
+    "_createdAt": "2025-09-24T03:29:40Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUUq8k",
+    "_rev": "mYBnIMFQ449l0WiRG95QqK",
+    "_system": {
+      "base": {
+        "id": "VcGv9zZ6obDRZ14YHcUUq8k",
+        "rev": "G2a6cUUUdw3UorXmq3L9UF"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-06T11:48:35Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "0fea195e-3f0c-4353-996c-9003c62cc1b6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "37408876-aad3-4c52-8c12-b44bd6a9eac7",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の仕事内容は、働く場所によって大きく異なります。特に、病院の「外来」と「病棟」では、患者さんの状態や業務の性質が異なるため、看護助手に求められる役割も変わってきます。この記事では、外来と病棟それぞれの看護助手の仕事内容を詳しく比較し、それぞれの職場の特徴や、どんな人に向いているかを解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-a03e8625-49e6-4e96-ad52-81e58926483a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-72685476-13b0-4b83-a6fc-dfe9f5d43093",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-be9f78c3-6aa7-4bc2-989b-f4c8784f13ff",
+            "_type": "span",
+            "marks": [
+              "link-7f24c24a-d068-4d01-88af-2ce2d3b03388"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-7f24c24a-d068-4d01-88af-2ce2d3b03388",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "5875e59c-92d0-437c-8a7c-91223e8eae9d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e8f90aa6-10e3-423c-83b7-c8a4af633f61",
+            "_type": "span",
+            "marks": [],
+            "text": "外来の看護助手：スピードと臨機応変な対応が求められる"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "873ead64-9c05-4c1f-87cc-8e48471b5612",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0d956533-0e76-42d1-9ffe-3c2f7e9391c3",
+            "_type": "span",
+            "marks": [],
+            "text": "外来は、様々な症状の患者さんが日々訪れる場所です。看護助手の主な業務は、診察や検査がスムーズに進むようにサポートすることです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "88b101d3-b60c-4ea0-8dbf-3f69670834d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1f30682a-12a4-4bde-a55e-a181f84b13eb",
+            "_type": "span",
+            "marks": [],
+            "text": "外来の主な仕事内容"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "33eff42e-58b7-485c-b768-177d0664f31e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c5aad832-3b3c-47ea-bb64-144503b73cda-5600a0bf-8867-4617-a59b-3a04ce795e3b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "患者さんの誘導"
+          },
+          {
+            "_key": "c5aad832-3b3c-47ea-bb64-144503b73cda-57a2b9be-f319-47f2-997d-c64bf70b25d3",
+            "_type": "span",
+            "marks": [],
+            "text": ": 診察室や検査室への案内、車椅子での移動介助など。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7dc58c0e-499e-4d56-b582-e2e3d0e3dfdc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "71b97a0f-6c7f-49d1-836b-6f2bc2a407ad-38a9920a-82ce-4ba4-9088-54b002ef73f1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "診察の補助"
+          },
+          {
+            "_key": "71b97a0f-6c7f-49d1-836b-6f2bc2a407ad-9592259b-316a-4533-84d1-8c7c12acc9b4",
+            "_type": "span",
+            "marks": [],
+            "text": ": 医師の診察がスムーズに進むよう、器具の準備や片付け、患者さんの体位調整などを行います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "89ce56bc-e6cf-4dd0-a514-c79b6fdeda1b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "58455d56-09c3-4825-8f84-fe82a556826b-ba883c1c-1fb0-40e1-8c90-cf40b3448abf",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "検査の補助"
+          },
+          {
+            "_key": "58455d56-09c3-4825-8f84-fe82a556826b-f8dc3678-7773-448b-b04e-75d46ac5a067",
+            "_type": "span",
+            "marks": [],
+            "text": ": 採血やレントゲンなどの検査準備、患者さんの誘導、検査後の片付けなど。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-c35c81e4-bf35-45db-850e-d6bdb08606cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-1a7cce86-a8ee-4336-a5a4-ebc920dbf428",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a929d9f8-3689-41ed-8c2d-e2a3d88c9352",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "db7daf54-6eee-4039-8091-6286cbbf4a54-41b91bda-9917-4970-8c66-099ab288c97a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "環境整備"
+          },
+          {
+            "_key": "db7daf54-6eee-4039-8091-6286cbbf4a54-14b7a41f-b786-4586-ae20-2a3f34216910",
+            "_type": "span",
+            "marks": [],
+            "text": ": 診察室や待合室の清掃、消毒、備品の補充など。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "28f218fc-532f-4ba9-937b-de3e6f3fcfd0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9129fd39-0418-4511-b727-b99aaf62863d-4f727fb9-9fa3-4fa3-a7b7-566679e488c2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "その他"
+          },
+          {
+            "_key": "9129fd39-0418-4511-b727-b99aaf62863d-de990b1d-037c-46d5-be32-5dd4c508f4eb",
+            "_type": "span",
+            "marks": [],
+            "text": ": カルテの準備、書類の整理、電話応対など、事務的な業務を兼務することもあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-zqrf3st1e-intro-90a5c492-d6c7-4965-b514-a330db7eeba5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-ewl3culf6",
+            "_type": "span",
+            "marks": [],
+            "text": "👟 快適なワークシューズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0f7859b8-7444-4520-83fa-c5f62d26620a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b60fb1c1-270d-40f9-8bbe-6f89c5d92b8b",
+            "_type": "span",
+            "marks": [],
+            "text": "外来で働く看護助手に向いている人"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "546faca8-32d6-4bd6-8f4a-e1f77f25d80b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "34727bd0-9d80-407a-b50e-2739f05f5cc7-d6acddcf-db4b-41ab-bd82-0608cde36a8f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "テキパキと動ける人"
+          },
+          {
+            "_key": "34727bd0-9d80-407a-b50e-2739f05f5cc7-3eede692-1441-4f88-8758-c31d9cb0be7e",
+            "_type": "span",
+            "marks": [],
+            "text": ": 一日に多くの患者さんが訪れるため、効率よく業務をこなすスピード感が求められます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dd2f95a0-9219-49f5-9af4-9ece7e921160",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dd4a82ad-2091-47b7-95ef-24de02156795-2f2dd1ae-4bbd-4e20-816a-16e37a08b352",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "臨機応変な対応ができる人"
+          },
+          {
+            "_key": "dd4a82ad-2091-47b7-95ef-24de02156795-0e017480-349e-4536-af32-542bd9f190e2",
+            "_type": "span",
+            "marks": [],
+            "text": ": 予期せぬ患者さんの来院や、急な検査の追加など、状況の変化に柔軟に対応できる人が向いています。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bf665c30-f61d-47c8-9d87-565a43bb56de",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bd0cf157-b00d-472b-9284-2c4128c93571-860a9554-fb02-44e6-97ce-175dbc20a4ac",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "コミュニケーション能力が高い人"
+          },
+          {
+            "_key": "bd0cf157-b00d-472b-9284-2c4128c93571-fec6eaf7-15e5-41d7-97e0-4f5f5507f305",
+            "_type": "span",
+            "marks": [],
+            "text": ": 患者さんやご家族との短い時間でのコミュニケーションが多いため、明るく丁寧な対応ができる人が重宝されます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-aiaez9trd-intro-291b6ca7-4fff-499c-9102-a90450087e85",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1ae9k3tql",
+            "_type": "span",
+            "marks": [],
+            "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "22b32cfc-b0dc-4a6f-8581-82981dd22dd0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e1a50e73-e30e-4f3b-adc5-78bbf6501e22",
+            "_type": "span",
+            "marks": [],
+            "text": "病棟の看護助手：きめ細やかなケアと体力が必要"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "b064758d-a6fd-488b-a65a-b8d488e22849",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b22cf6f4-b61f-47e9-9a70-df462fd64359",
+            "_type": "span",
+            "marks": [],
+            "text": "病棟は、入院している患者さんの生活の場です。看護助手の主な業務は、患者さんの日常生活のサポートと、療養環境の整備です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8838015b-9e59-46ad-bdf3-b9ae568d6f67",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0d5ce010-d12f-4159-aa5a-c32a039a978f",
+            "_type": "span",
+            "marks": [],
+            "text": "病棟の主な仕事内容"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "ada02147-61c3-4147-b0e8-7b987a37b709",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f7236f1-3fc0-4cc5-bc0e-d435f052614b-e5d8de79-65ca-4fdf-ab95-3cb817f1b2be",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "身体介助"
+          },
+          {
+            "_key": "8f7236f1-3fc0-4cc5-bc0e-d435f052614b-c85c9311-604d-4627-be99-6fb81f6c5b8a",
+            "_type": "span",
+            "marks": [],
+            "text": ": 食事、入浴、排泄の介助、体位変換、移乗・移動の介助など、患者さんの身体に直接触れるケアが中心です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e7b4e9cb-0b82-4820-adb8-b71f7b5f634b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "319cb170-414e-4cb0-ae0f-24c38b383294-3ac11ac5-41e5-4b58-983b-ee656c9fb0e7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "環境整備"
+          },
+          {
+            "_key": "319cb170-414e-4cb0-ae0f-24c38b383294-ddfba4b7-663a-4310-a0bb-883ec068638c",
+            "_type": "span",
+            "marks": [],
+            "text": ": ベッドメイキング、病室の清掃・整理整頓、リネン交換、備品の補充など。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "955e26c2-b1f0-4d7c-ac85-6d4d96a36827",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f81dd71d-61e6-4c04-bf0f-47c2a6b81345-5efe6b8e-22ae-43a0-bbc1-21c0226b84e8",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "看護師の補助"
+          },
+          {
+            "_key": "f81dd71d-61e6-4c04-bf0f-47c2a6b81345-4b3ac9c8-5536-49ff-b56f-fed349325e60",
+            "_type": "span",
+            "marks": [],
+            "text": ": バイタルサイン測定の補助、検体の搬送、物品の補充、メッセンジャー業務など。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8aca15d8-f02c-4780-97f2-76a7dc29bfa7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "32a8794f-946d-47c6-a684-11b7e44dc2c4-2cec9e26-493d-474a-8fa1-335bffee8cbc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "夜勤"
+          },
+          {
+            "_key": "32a8794f-946d-47c6-a684-11b7e44dc2c4-339e664d-1d64-4dab-9b03-fae9619d88b1",
+            "_type": "span",
+            "marks": [],
+            "text": ": 2交代制や3交代制のシフト勤務で夜勤に入ることも多く、夜間は日中よりも少ない人数で業務を行います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-4cb33501-792c-4c8f-bddf-19f4b5708ac8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-18302973-f65f-4ea9-8823-a4f3e942e400",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを参考に、自分に合った方法を見つけてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9dae9280-c5fd-49ce-82d6-e82208c5730d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f7856e9d-4443-448a-924f-67db8fd66925",
+            "_type": "span",
+            "marks": [],
+            "text": "病棟で働く看護助手に向いている人"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "d388eec7-f638-40c4-ab80-db5307417d3c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bba1b29f-48cb-4e69-b2b4-c0f1c6a4433b-dc86cee1-cd6f-4998-ba10-87c0f0c954b2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体力に自信がある人"
+          },
+          {
+            "_key": "bba1b29f-48cb-4e69-b2b4-c0f1c6a4433b-a0410cec-a015-4b93-93cd-867848a5dae2",
+            "_type": "span",
+            "marks": [],
+            "text": ": 身体介助が多く、夜勤もあるため、体力が必要です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0ff6e63c-8ab3-42ae-a032-266de3a0df0e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ffe23e22-525f-407f-a537-c137a3112d87-887adfa6-483d-4c1f-aa41-317c48ef525e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "患者さんとじっくり関わりたい人"
+          },
+          {
+            "_key": "ffe23e22-525f-407f-a537-c137a3112d87-296c7eea-4889-41ed-aefc-085c8552ff05",
+            "_type": "span",
+            "marks": [],
+            "text": ": 入院患者さんと長期的に関わるため、一人ひとりの患者さんと深く向き合いたい人に向いています。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "25907773-2473-4f78-9dba-7029e425f922",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cf571497-57ff-460d-883f-00db72f7dd3b-ccf1f122-fb27-44a7-ae31-32ee9073a70f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "チームワークを重視する人"
+          },
+          {
+            "_key": "cf571497-57ff-460d-883f-00db72f7dd3b-25cb1b43-7f1c-47c5-999c-485989c96117",
+            "_type": "span",
+            "marks": [],
+            "text": ": 看護師や他の看護助手、多職種と密に連携を取りながら業務を進めるため、協調性がある人が求められます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-4e0ff698-d63a-42ca-a7fa-67454fe784bd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-aec5b4ae-833b-4bb6-a95f-d2545318dbac",
+            "_type": "span",
+            "marks": [],
+            "text": "病棟の看護助手：きめ細やかなケアと体力が必要では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-title-wt3ifva8u",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5256e0366e60",
+            "_type": "span",
+            "marks": [],
+            "text": "現場で本当に役立つ基本アイテム"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "section-intro-j0rh7alun",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7a49e3d1190d",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として働く上で、これらのアイテムがあると仕事がスムーズになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-dsbvl7rbi-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-rfabria2o",
+            "_type": "span",
+            "marks": [],
+            "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-l4r39znpe-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-i8nzodm87",
+            "_type": "span",
+            "marks": [],
+            "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-7cd5b1c4-fbb0-432d-9d9e-fa9a89137207",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-0eb15b0a-4c48-460a-9e37-52b673657be1",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-8fc64abc-dd3c-4b92-a180-c76a5b0601f8",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-8c1673ec-5dd8-432e-a724-84c77e21096a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-00f59e42-f9a8-400c-8c49-383b313fc15b",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-716635a8-478d-4394-8b74-c65be89c9f98",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-oa6ek9akg",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bbb137ebcbb3",
+            "_type": "span",
+            "marks": [],
+            "text": "アシックス ナースウォーカー"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-s1bfqeakk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d0aaf08f4f5",
+            "_type": "span",
+            "marks": [],
+            "text": "長時間の立ち仕事でも足が疲れにくい医療現場専用設計"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-epov2e3z5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "39e5eee3fd10",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-7hl76pum1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9d9b07c5ffb0",
+            "_type": "span",
+            "marks": [],
+            "text": "滑りにくいソール"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-jdegdl1in",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "82592dd5ba6a",
+            "_type": "span",
+            "marks": [],
+            "text": "疲労軽減クッション"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-o5kh3alep",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0467a253cc84",
+            "_type": "span",
+            "marks": [],
+            "text": "通気性の良い素材"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-links-jp9oalecm-intro-6b4745ce-f453-404d-912b-0b96867c5d8b-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7299fe636d4d",
+            "_type": "span",
+            "marks": [],
+            "text": " [PR] | "
+          },
+          {
+            "_key": "89fc6fcf2846",
+            "_type": "span",
+            "marks": [],
+            "text": " [PR]"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-buudtufjr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f249577563db",
+            "_type": "span",
+            "marks": [],
+            "text": "ナース専用メモ帳"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-3bm1iw3u5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d1f93af908c5",
+            "_type": "span",
+            "marks": [],
+            "text": "ポケットに入るサイズで患者情報を素早くメモ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-8q06w00a0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c579e43cc86b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-1oi8o5u7a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7584b6c0aa60",
+            "_type": "span",
+            "marks": [],
+            "text": "コンパクトサイズ"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-3ra1dlqcy",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "717145ea9c78",
+            "_type": "span",
+            "marks": [],
+            "text": "防水加工"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-h8l4tax6l",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f39e9101dcf",
+            "_type": "span",
+            "marks": [],
+            "text": "チェックリスト付き"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-c45cdd54-006a-47bf-99d4-6907ebf91c8d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-7804376a-ccab-47ac-b385-a99b61be2a77",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを意識することで、スムーズに業務を進められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-q7js0h1m5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "74cb26b02dc4",
+            "_type": "span",
+            "marks": [],
+            "text": "ステンレス医療用ハサミ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-szuxwt4v1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "516f255fd77c",
+            "_type": "span",
+            "marks": [],
+            "text": "包帯やテープのカットに最適、錆びにくく衛生的"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-ur5baaa14",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5a2978f4cc7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-xly07g46v",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "06b021fe132f",
+            "_type": "span",
+            "marks": [],
+            "text": "ステンレス製"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-e7qka93c2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "467a37794a5b",
+            "_type": "span",
+            "marks": [],
+            "text": "先端丸型で安全"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-48c3ee68-a1f7-42a6-a2c6-caa1154e9e57",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-3caf39d5-883b-448c-a4e9-cd8e54d6a006",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-9dfa7b60-9093-4bf6-bfed-4b56835b0da9",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-hhrjqkrsa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9c2197e4b0da",
+            "_type": "span",
+            "marks": [],
+            "text": "消毒可能"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-5b744v2j3-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-uxo7pibic",
+            "_type": "span",
+            "marks": [],
+            "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-3fb747eb-16ee-45ae-a2f4-9c67683ef78f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-8f4352e4-a300-46b6-b1e6-f82560e7abd8",
+            "_type": "span",
+            "marks": [],
+            "text": "現場で本当に役立つ基本アイテムでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-3b06eaff-177d-40bc-9cad-35f0168991c9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-0d66a7b1-ae38-424e-aaee-8561ae09e296",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-6b6cb5b5-8bf4-4a63-b4ee-fd51ba638db5",
+            "_type": "span",
+            "marks": [
+              "link-b4c9463d-9822-4f45-ae93-9906ef86ac08"
+            ],
+            "text": "「看護助手が看護師に昇格することは可能？」"
+          },
+          {
+            "_key": "internal-link-span-outro-1d654204-d183-492a-864c-f9f3ce36b8f9",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-b4c9463d-9822-4f45-ae93-9906ef86ac08",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-care-guide-support"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "1722d0e9-99f0-495c-8647-c2c3eab80c40",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c3bc1725-ed9e-44c3-8ff9-81bc0f2cd043",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-aff2ef72-0c5c-4015-86a3-c79465b841c1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-05a52f48-e5ad-4149-8393-c978c4c00ac6",
+            "_type": "span",
+            "marks": [],
+            "text": "外来と病棟で異なる看護助手の仕事内容でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-b6313603-e40a-4b24-ab28-a9bd9bddc54a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-dbd465c3-707e-44c4-8683-3791a4c1bd24",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-f4717dc5-997a-46c4-bb5c-0bc8973d589b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-5ef3ee7d-5cba-4687-9881-cd2dd91192b0",
+            "_type": "span",
+            "marks": [],
+            "text": "外来の看護助手：スピードと臨機応変な対応が求められるの視点で外来の主な仕事内容に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5ffe4388-8ae7-4c56-b3f8-5a4009db4cd0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-e9e12b98-5c5e-412e-bf27-770f4bc25ee4",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの誘導: 診察室や検査室への案内、車椅子での移動介助など。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-4190615a-d665-4a15-9ac8-fde296204b12",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-7fdba113-a60e-4382-967c-375e40369670",
+            "_type": "span",
+            "marks": [],
+            "text": "診察の補助: 医師の診察がスムーズに進むよう、器具の準備や片付け、患者さんの体位調整などを行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-4665b506-c3b9-4d5b-90af-2f18242cb34f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-ecbf372a-f3dc-4b0a-b321-196f6d9e5327",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-a7b0438b-9c81-4f69-a76f-b2b23fa3647c",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">備品や消耗品はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-0766ff78-4827-499f-84d7-d382e9669620",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-9a3574de-4c9e-4ba7-aba4-8cec7ce36bd8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-5d1dffde-731c-4ce3-8223-5ab2632d6eda",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-70409295-4205-48dd-9300-d8856a1aa8dc",
+            "_type": "span",
+            "marks": [
+              "link-8290b5e7-11a5-4ccb-ab32-98f944d22a1c"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-8290b5e7-11a5-4ccb-ab32-98f944d22a1c",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "f1b1955082fa4c118a0946bed24a0da9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cd80d8e216e34707b5a146689c1d457f",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "03b346271e1e4b5fbd855a3c722b3837",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9c36cc2d972844cab67d93cff1979440",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-fc3b3572-04b5-49db-b117-0c23e9ce1546",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-6e2a2293-37db-4135-bdaf-e7d3ffe9c7f7",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "0607469c-c0c0-4fcd-9aad-8da1caa20942",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "# 外来と病棟で異なる看護助手の仕事内容 看護助手の仕事内容は、働く場所によって大きく異なります。特に、病院の「外来」と「病棟」では、患者さんの状態や業務の性質が異なるため、看護助手に求められる役割も変わってきます。",
+    "geminiMaintainedAt": "2025-11-08T23:04:12.677Z",
+    "metaDescription": "仕事内容・役割の外来と病棟で異なる看護助手の仕事内容について解説。# 外来と病棟で異なる看護助手の仕事内容 看護助手の仕事内容は、働く場所によって大きく異なります。特に、病院の「外来」と「病棟」では、患者さんの状態や業務の性質が異なるため、看護助手に求められる役割も変わってきます。",
+    "publishedAt": "2025-09-22T00:46:39Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-outpatient-inpatient-differences"
+    },
+    "tags": [
+      "ケア",
+      "仕事内容",
+      "仕事内容・役割",
+      "外来",
+      "夜勤",
+      "患者",
+      "病棟",
+      "看護",
+      "看護助手",
+      "補助"
+    ],
+    "title": "外来と病棟で異なる看護助手の仕事内容",
+    "views": 1
+  }
+}

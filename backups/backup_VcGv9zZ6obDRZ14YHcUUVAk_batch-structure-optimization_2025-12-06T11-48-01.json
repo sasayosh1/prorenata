@@ -1,0 +1,966 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T11:48:01.367Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "VcGv9zZ6obDRZ14YHcUUVAk",
+    "articleTitle": "家庭と両立を志望動機にするのはアリ？",
+    "articleSlug": "nursing-assistant-motivation-points-work"
+  },
+  "document": {
+    "_createdAt": "2025-09-24T03:30:17Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUUVAk",
+    "_rev": "j9gFvjMkmqPMCjk1F1XI7Q",
+    "_system": {
+      "base": {
+        "id": "VcGv9zZ6obDRZ14YHcUUVAk",
+        "rev": "yOFQUyprRx0Jhe9xOogHEi"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-05T18:43:04Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "bd6192aa-caed-40d6-8575-d086ee1f6bc9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "90ec2147-24eb-465c-9280-767e6113594b",
+            "_type": "span",
+            "marks": [],
+            "text": "# 家庭と両立を志望動機にするのはアリ？"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f9f6c39c-50ab-40d5-816d-4bd0381f0ba6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d65f73e-c9a3-4005-9e34-3a7820e46bd1",
+            "_type": "span",
+            "marks": [],
+            "text": "子育てや介護など、家庭の事情と仕事を両立させたいと考える方にとって、看護助手の仕事は魅力的な選択肢です。しかし、面接の場で「家庭と両立したい」という理由を正直に伝えて良いものか、悩む方も多いのではないでしょうか。この記事では、家庭との両立を志望動機として伝える際のポイントと、面接官に好印象を与える伝え方を解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8cf3a589-0aef-4187-bf9f-5f2200f4a534",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b8d5539c-16bc-43dc-8c03-d045c4a26ffb",
+            "_type": "span",
+            "marks": [],
+            "text": "結論：「家庭との両立」は立派な志望動機"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "75e17c64-45d6-4f33-b2ba-5a79bb1ac3a9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8c9d9f77-acc3-4e25-9a07-38258daee9a9",
+            "_type": "span",
+            "marks": [],
+            "text": "結論から言うと、「家庭と両立したい」という志望動機は全く問題ありません。むしろ、長く安定して働きたいという意思の表れとして、ポジティブに評価されるケースも多いです。特に、看護助手の職場は主婦（主夫）層が多く活躍しており、採用側も家庭の事情には理解がある場合がほとんどです。大切なのは、その伝え方です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cbb56625-43af-413f-8aaa-1ff79e3d4e07",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0b9857b-66f4-4f9c-b9f7-5fd6d0361ad6",
+            "_type": "span",
+            "marks": [],
+            "text": "なぜ伝え方が重要なのか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "0ed68220-fcc5-4732-bd1f-5ffa7a5d0f5a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d7b937f-0b50-4ebb-b1f3-ad05f553ba70",
+            "_type": "span",
+            "marks": [],
+            "text": "採用担当者が懸念するのは、「権利ばかりを主張して、仕事への意欲が低いのではないか」「急な休みが多くて、シフトに穴を開けるのではないか」という点です。そのため、「両立したい」という希望だけを伝えるのではなく、仕事への貢献意欲と、両立させるための具体的な工夫をセットで伝えることが重要になります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1b8f39c3-b9c3-4d80-b122-76e7d15ccc15",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8635eae2-6f81-4c2c-b885-867653dbba52",
+            "_type": "span",
+            "marks": [],
+            "text": "面接で好印象を与える伝え方のポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "91e05e6f-3392-4fdc-ac4d-7abedbbca2dd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dd60c8ea-1648-47c9-9314-b2f16a5c0a7c",
+            "_type": "span",
+            "marks": [],
+            "text": "1. まずは仕事への意欲を示す"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f0b06e14-7b5b-4efa-bb8b-c6c47b06ef70",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2955f4b8-3be8-4999-b92a-b16952188834",
+            "_type": "span",
+            "marks": [],
+            "text": "志望動機の冒頭では、まず「なぜこの病院（施設）で看護助手として働きたいのか」という仕事そのものへの熱意を伝えます。「貴院の〇〇という理念に共感しました」「地域医療に貢献したいと考えています」など、その職場で働きたい理由を具体的に述べましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-f9ccf15a-d0d2-47bb-bf0b-abafed4955b3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-3ab9a9d7-e1bc-43d9-8f44-4acdc27aa117",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-8584a173-1ff8-4f1c-8c3a-df9904b8501e",
+            "_type": "span",
+            "marks": [
+              "link-8ce6913d-a5a0-488b-a377-2b9a4d598152"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-8ce6913d-a5a0-488b-a377-2b9a4d598152",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "77b1d995-cc58-4234-b21f-2e3d2287249f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ab6c3610-ae5b-45f4-9aa2-b7bf0a882451",
+            "_type": "span",
+            "marks": [],
+            "text": "2. 両立への工夫と協力姿勢を伝える"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "4ba3e2b2-c7cc-4b22-9337-901f117ddf27",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0aa77b3b-b367-43a8-8dbc-41d80000ea02",
+            "_type": "span",
+            "marks": [],
+            "text": "仕事への意欲を示した上で、「家庭と両立させながら、長く貴院に貢献したい」という形で希望を伝えます。その際、両立させるための具体的な努力や工夫を付け加えるのがポイントです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2d1b8fb1-4727-4276-b5ef-02da48105a9b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0e2aebe1-3937-479e-b1be-69a139d287d0-39833ce0-a5e5-4ffc-a0a5-8c45b0de9c42",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "例文"
+          },
+          {
+            "_key": "0e2aebe1-3937-479e-b1be-69a139d287d0-3df51643-246d-4bae-ab81-8135bca3e2e8",
+            "_type": "span",
+            "marks": [],
+            "text": ": 「子育てとの両立のため、勤務時間には配慮をいただけますと幸いです。その分、勤務時間内は集中して効率的に業務に取り組み、チームの一員として貢献したいと考えております。また、子どもの急な発熱などに備え、近隣の家族や病児保育のサポート体制も整えております。」"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-9151631f-5631-4493-b6c2-2df30c1b9323",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-c29128bb-9301-49ac-8d1a-b332d321ed4a",
+            "_type": "span",
+            "marks": [],
+            "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4f7174f5-5400-440b-8761-c62fa678ddb0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7474b9ac-957f-4b82-8bdc-f44e3741b3a8",
+            "_type": "span",
+            "marks": [],
+            "text": "3. ポジティブな言葉を選ぶ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "91bc5f79-668f-4173-8b9c-3f17fe38a341",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "627fcacf-e872-4bbd-91c0-3958a201c8af",
+            "_type": "span",
+            "marks": [],
+            "text": "「〇〇はできません」という否定的な表現は避け、「〇〇という条件であれば、より貢献できます」というようなポジティブな言い方を心がけましょう。柔軟な姿勢を見せることで、採用担当者も勤務条件の調整を検討しやすくなります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-rn875qksm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-7406zfyx2",
+            "_type": "span",
+            "marks": [],
+            "text": "結論：「家庭との両立」は立派な志望動機"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818545950-6uetfn06r",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-edywqaaxs",
+            "_type": "span",
+            "marks": [],
+            "text": "なぜ伝え方が重要なのか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818545950-jm4vo7jvh",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-yvhi5uy7o",
+            "_type": "span",
+            "marks": [],
+            "text": "採用担当者の本音を理解する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818545950-0k8co8kuv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-yowlyochs",
+            "_type": "span",
+            "marks": [],
+            "text": "採用担当者は、応募者のスキルや経験だけでなく、職場のチームワークに貢献できる人物かどうか、長期的に働いてくれるかどうかを見ています。家庭との両立を希望する応募者に対しては、特に以下の点を気にしている傾向があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-cmnwxhwv2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-y4q34uxfa-ca92d654-6ff6-4d1b-9908-b426fa0ee1fa",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-y4q34uxfa-160e7ffa-5670-44bb-8f2f-f8f6cfa61bda",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "責任感と仕事へのコミットメント"
+          },
+          {
+            "_key": "span-1760818545950-y4q34uxfa-d30aa4cf-2a45-4d9e-b98b-a1ff136ee199",
+            "_type": "span",
+            "marks": [],
+            "text": ": 家庭の事情を優先しすぎて、仕事がおろそかにならないか。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-4b3sv46ng",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-twv0q1oym-7374a1d2-b5fd-4270-a1e2-ff8421134072",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-twv0q1oym-2a1e99f2-4e85-4cea-9727-038c61831cb1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "柔軟性と対応力"
+          },
+          {
+            "_key": "span-1760818545950-twv0q1oym-59e0467d-8320-4742-88d0-2d981f7279bd",
+            "_type": "span",
+            "marks": [],
+            "text": ": 急なシフト変更や残業に対応できるか。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-259r3ptnz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-dbmk6rqur-3d45fde2-b05f-46f6-921d-7dbfea0fa0fe",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-dbmk6rqur-40515239-4b63-4860-8e40-f97cdb876a73",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "コミュニケーション能力"
+          },
+          {
+            "_key": "span-1760818545950-dbmk6rqur-e067345d-8309-4baa-9b69-6e28fdbdf0a6",
+            "_type": "span",
+            "marks": [],
+            "text": ": 困った時に、周囲と協力して解決できるか。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-cw8izv6da",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-ae4lxm0n5",
+            "_type": "span",
+            "marks": [],
+            "text": "これらの懸念を払拭するためには、面接での伝え方を工夫し、仕事に対する熱意と責任感をしっかりとアピールする必要があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-5qbetpfej",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-t9q475jgm",
+            "_type": "span",
+            "marks": [],
+            "text": "面接で好印象を与える伝え方のポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818545950-ydje5l9as",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-sfncokmfj",
+            "_type": "span",
+            "marks": [],
+            "text": "1. まずは仕事への意欲を示す"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818545950-qj4gq4l5m",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-jdeqztoqt-369847b1-615e-4389-a682-0964223d8d19",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-jdeqztoqt-b2bc3dd9-c326-4d5e-834e-7a915ce21e9c",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "病院・施設を選んだ理由を明確にする"
+          },
+          {
+            "_key": "span-1760818545950-jdeqztoqt-58d96b57-e050-45b9-b4be-fed884114afa",
+            "_type": "span",
+            "marks": [],
+            "text": ": なぜ他の病院ではなく、この病院で働きたいのかを具体的に説明しましょう。病院の理念や特徴、地域貢献への取り組みなどに触れると、熱意が伝わりやすくなります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-f85c7951-96da-491b-8bab-aeda7d011f96",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-88b6625d-e81d-4a91-82a4-2b96b41b22f8",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-3ac6dce6-f3b9-4cd6-b1ef-7350a99ea46c",
+            "_type": "span",
+            "marks": [
+              "link-1c121bc8-3919-410c-aff3-a54a773e7c9d"
+            ],
+            "text": "日本看護協会 看護サービス提供体制のあり方"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-1c121bc8-3919-410c-aff3-a54a773e7c9d",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-herv8ghok",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-3wmb4p2ld-7e801a1b-d7bc-465d-a415-4ecca2c633b2",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-3wmb4p2ld-d1fbe0bd-0329-4c28-a8e3-d40ba27a30ce",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "看護助手という仕事への理解を示す"
+          },
+          {
+            "_key": "span-1760818545950-3wmb4p2ld-7801d67f-e150-44b9-9b3b-ac5172f0ced1",
+            "_type": "span",
+            "marks": [],
+            "text": ": 看護助手の仕事内容や役割を理解していることをアピールしましょう。患者さんのサポートや医療チームの一員としての責任など、具体的な業務内容に触れると効果的です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-xa0qhnk17",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-m22s7jjr8",
+            "_type": "span",
+            "marks": [],
+            "text": "2. 両立への工夫と協力姿勢を伝える"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818545950-2zrrj5rrz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-17hsn8cgx-05b5f07c-d281-4dfd-a74e-de55367dd07e",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-17hsn8cgx-41cc72ba-bdd0-4075-a289-b06d48c82d85",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "具体的なサポート体制を説明する"
+          },
+          {
+            "_key": "span-1760818545950-17hsn8cgx-db907bc5-3e1f-437d-80d7-51c5b24f16e9",
+            "_type": "span",
+            "marks": [],
+            "text": ": 家族や親族、地域のサポート体制など、具体的なバックアップ体制を説明することで、安心して働ける環境が整っていることをアピールできます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-9h81dr31n",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-0yqb86qeo-f1b112e5-844a-4cd9-bc21-59a534257dbe",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-0yqb86qeo-ed7a0e40-006a-4308-8c20-fdeb11e36f0f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "緊急時の対応策を明確にする"
+          },
+          {
+            "_key": "span-1760818545950-0yqb86qeo-3da695db-e216-49f2-b5ec-3dcb44f05d65",
+            "_type": "span",
+            "marks": [],
+            "text": ": 子どもの急な発熱や介護など、緊急時の対応策を具体的に説明することで、採用担当者の不安を軽減できます。例えば、「近隣に住む親にすぐに駆けつけてもらえる」「病児保育を利用できる」などを具体的に伝えましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-3ofe1ptyk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-us34vkr7e-15314a59-c490-4ae1-aa3e-8a0343d5d5bb",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818545950-us34vkr7e-ed48dedf-d62f-4aed-8e00-6e693ff6f53b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "シフトに関する希望を伝える"
+          },
+          {
+            "_key": "span-1760818545950-us34vkr7e-50e56166-d7c0-4571-b571-9985df683fe3",
+            "_type": "span",
+            "marks": [],
+            "text": ": 希望する勤務時間や曜日があれば、具体的に伝えましょう。ただし、病院側の都合も考慮し、柔軟に対応できる姿勢を示すことが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-z9il4svbf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-agkrqi726",
+            "_type": "span",
+            "marks": [],
+            "text": "3. ポジティブな言葉を選ぶ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "body-156ec5ff-0bd8-416b-86a7-51603aa29fbe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-47080e28-bffa-4a52-b872-f96dd6939555",
+            "_type": "span",
+            "marks": [],
+            "text": "「面接で好印象を与える伝え方のポイント」の場面で「3. ポジティブな言葉を選ぶ」に向き合うときは、患者さんの様子をこまめにメモしながら看護師へ共有する流れを作っておきましょう。焦らず一つずつ確認し、無理のない範囲で工夫を積み重ねることが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-zqixgjm8k",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-6d11hn0ht",
+            "_type": "span",
+            "marks": [],
+            "text": "具体例：面接での回答例"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818545950-qydvboqic",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-tzel1wtof",
+            "_type": "span",
+            "marks": [],
+            "text": "面接官：「お子さんがいらっしゃるんですね。急な休みは大丈夫ですか？」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818545950-puskjga7m",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818545950-s4gu2xvgq",
+            "_type": "span",
+            "marks": [],
+            "text": "回答例：「はい、現在〇歳の子どもがおります。子どもの急な発熱などに備え、近隣に住むわたしの両親がサポートしてくれる体制を整えております。また、万が一、両親が対応できない場合は、事前に登録している病児保育を利用することも可能です。勤務時間内は、与えられた業務に集中し、効率的に作業することで、チームに貢献できるよう努めます。」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-a33141e8-ae68-43ea-92b4-b073bd05ecb5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-cdbf677d-9043-4460-a141-69740f62b173",
+            "_type": "span",
+            "marks": [],
+            "text": "「具体例：面接での回答例」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-0f4fd650-db14-4f88-a096-19f6d538986a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-2f392f20-c260-446e-a525-6ee69d43b510",
+            "_type": "span",
+            "marks": [],
+            "text": "「具体例：面接での回答例」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-59d4bc50-33d5-4f7f-a6d5-2ab61183b0c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-a4754ed3-e7af-4a2b-a3c7-b9aaae11a74d",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-0915c4ca-9322-48dd-992d-5da80c0b76dd",
+            "_type": "span",
+            "marks": [
+              "link-d44fba23-e6b0-4e96-8d21-b6c1492ad3d6"
+            ],
+            "text": "「看護助手志望動機の書き方テンプレート」"
+          },
+          {
+            "_key": "internal-link-span-outro-29b34d8b-fa8f-493f-b8ce-294529b99e15",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-d44fba23-e6b0-4e96-8d21-b6c1492ad3d6",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-motivation-letter-template"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "81f747ad75994db987b9360aa786c7d4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ba7fda0d661e4146b5368cd484266292",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "bda18bc32e964ea891d6f9b5ceb6f3e7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "036ccaec4abb43cebfb29af0c90a9888",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-7ddf119a-a96a-480f-b975-52174f8c2c54",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-0b41a035-c0b5-485d-8c6d-34c7a184b369",
+            "_type": "span",
+            "marks": [],
+            "text": "家庭と両立を志望動機にするのはアリ？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-682e1b3f-b0b6-4edb-9e70-314044275a86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-d9bef313-1994-42ee-a945-f8a42c1f1ba5",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-47f8f4a4-e203-49a4-99b7-9c17d8d74b06",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-1299980f-b813-40fc-b9a2-b7271596dca2",
+            "_type": "span",
+            "marks": [],
+            "text": "面接で好印象を与える伝え方のポイントの視点で1. まずは仕事への意欲を示すに目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-ac1f8d57-9325-4b17-ab6b-8a12e90deaa7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-e7c97881-7503-4f37-b625-f9289a717b3f",
+            "_type": "span",
+            "marks": [],
+            "text": "面接で好印象を与える伝え方のポイントの視点で2. 両立への工夫と協力姿勢を伝えるに目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-086edb9f-ce1e-4c87-a892-6d77bda4401c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-a36d96aa-a019-4f70-9b82-289d2e12689d",
+            "_type": "span",
+            "marks": [],
+            "text": "例文: 「子育てとの両立のため、勤務時間には配慮をいただけますと幸いです。その分、勤務時間内は集中して効率的に業務に取…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-aa79e60f-5cc6-4ea4-9946-bad124d0a7df",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-44be2834-6296-4db0-b6ca-72d82a360bc3",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "career-comparison-f7afff88-d340-461c-bebc-256b784dcbcc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-5adc039b-9131-4ff4-909f-736b716f6215",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-5bcd6d8c-a6f9-4ac6-aa08-fcc09b30cc8f",
+            "_type": "span",
+            "marks": [
+              "link-dfb10fe9-5a70-461c-9006-a02642f9f55d"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-dfb10fe9-5a70-461c-9006-a02642f9f55d",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-306875d8-9241-4188-b30a-7933ed2b0a3e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-5fdf9a4f-8697-4349-bf88-92d035fb0e4b",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "9b024b40-0ead-4573-8ef5-d501f81bd6ed",
+        "_ref": "category-career-change",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "# 家庭と両立を志望動機にするのはアリ？ 子育てや介護など、家庭の事情と仕事を両立させたいと考える方にとって、看護助手の仕事は魅力的な選択肢です。しかし、面接の場で「家庭と両立したい」という理由を正直に伝えて良いものか、悩む方も多いのではないでしょうか。",
+    "geminiMaintainedAt": "2025-11-08T23:03:02.401Z",
+    "metaDescription": "# 家庭と両立を志望動機にするのはアリ？ 子育てや介護など、家庭の事情と仕事を両立させたいと考える方にとって、看護助手の仕事は魅力的な選択肢です。しかし、面接の場で「家庭と両立したい」という理由を正直に伝えて良いものか、悩む方も多いのではないでしょうか。",
+    "publishedAt": "2025-09-20T06:16:48Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-motivation-points-work"
+    },
+    "tags": [
+      "両立",
+      "仕事",
+      "勤務",
+      "家庭",
+      "就職・転職活動",
+      "志望動機",
+      "採用",
+      "看護",
+      "看護助手",
+      "面接"
+    ],
+    "title": "家庭と両立を志望動機にするのはアリ？"
+  }
+}

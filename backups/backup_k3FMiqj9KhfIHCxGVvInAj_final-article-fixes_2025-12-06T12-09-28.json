@@ -1,0 +1,855 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T12:09:28.219Z",
+    "operation": "final-article-fixes",
+    "articleId": "k3FMiqj9KhfIHCxGVvInAj",
+    "articleTitle": "最新感染対策ガイドライン2024｜看護助手が知るべき変更点",
+    "articleSlug": "nursing-assistant-care-guide-navigator"
+  },
+  "document": {
+    "_createdAt": "2025-09-09T04:58:32Z",
+    "_id": "k3FMiqj9KhfIHCxGVvInAj",
+    "_rev": "actExlJ9USbzmoGsOag8yH",
+    "_system": {
+      "base": {
+        "id": "k3FMiqj9KhfIHCxGVvInAj",
+        "rev": "kWkIvI7T6XFbABGiW2DDQv"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-06T11:49:48Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "3c5967d0-6073-42d9-a7ed-387c6ee7d70f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "62357eeb-fa60-4b5a-8e39-4c9aa923ae98",
+            "_type": "span",
+            "text": "感染対策は常にアップデートが必要｜2025年最新ガイドラインの重要ポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "5ca19a9a-321e-41ff-855d-065d7fa967f7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "259a3c43-4006-4be4-8e3a-7bd2c81072ee",
+            "_type": "span",
+            "text": "感染対策は、患者さんと医療従事者自身の安全を守るための最も重要な基本行動です。特に、患者さんの身体に直接触れる機会の多い看護助手にとって、感染対策の正しい知識と実践は不可欠です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7d5e89d8-d64a-4d67-ab19-9c761a3a589c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dfb0c540-8bc9-44d2-8f08-ca25a821780e",
+            "_type": "span",
+            "text": "新型コロナウイルス感染症の流行を経て、わたしたちの感染対策への意識は大きく変わりました。そして、その経験や新たな科学的知見に基づき、医療現場の感染対策ガイドラインは常に更新されています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-c93e8be3-15c4-4934-a770-75fa2be2f20f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-1370203d-726c-4ecd-9721-bea07a203ca1",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-4bf90082-8a1c-42c0-8df6-1a6b42d5ffc0",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4bc11fa7-7c78-475e-b339-8b2cffc0a26d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c54ab5f0-ad85-4a14-9a6a-7acbd03d0d58",
+            "_type": "span",
+            "text": "なぜガイドラインは定期的に更新されるのか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "05300190-73f1-4a1d-b38c-692afe0fb9b5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9df43fda-0782-41db-87de-3e493912f2a0",
+            "_type": "span",
+            "text": "「一度覚えれば終わりじゃないの？」と思うかもしれませんが、ガイドラインが更新され続けるのには、以下のような重要な理由があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8b1f70de-0a46-4f3d-abd4-03701a0837f0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6e26d94c-29ab-4463-a539-ae958c848a45-492d9e09-4dba-4dc5-90c4-de8449425ceb",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "新たな感染症の出現"
+          },
+          {
+            "_key": "6e26d94c-29ab-4463-a539-ae958c848a45-594536c1-eacf-45ca-823c-aeb9a7ae0e6e",
+            "_type": "span",
+            "marks": [],
+            "text": ": COVID-19のように、これまで知られていなかった感染症が出現し、新たな対策が必要になるため。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "6ac18a3e-230f-4dc7-8c5c-957071744a36",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cf5706d0-064e-4850-8de5-db23566d18c6-9097fe94-b44e-4a2d-a818-5308aa4f6558",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "最新の研究成果の反映"
+          },
+          {
+            "_key": "cf5706d0-064e-4850-8de5-db23566d18c6-2185238b-a1b5-484f-8e75-4981fd9b54f6",
+            "_type": "span",
+            "marks": [],
+            "text": ": 世界中の研究によって、より効果的な消毒方法や感染経路が明らかになるため。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "ab469ffb-967c-4e07-8ec0-87187e5f5d6e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "25490932-ae26-4a58-bee0-3093be07b4f6-a8c0005f-4885-4f08-8226-3aa96fcec769",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "薬剤耐性菌（AMR）への対応"
+          },
+          {
+            "_key": "25490932-ae26-4a58-bee0-3093be07b4f6-d7104294-fa96-4ee0-b692-dd46bf4f7269",
+            "_type": "span",
+            "marks": [],
+            "text": ": 薬が効きにくい細菌の出現に対応し、その拡大を防ぐための対策が強化されるため。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "section-closing-85157994-3546-4feb-addd-63408a91e07d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-caefc5c8-9024-4f22-a1f8-2c5a5a5375cd",
+            "_type": "span",
+            "marks": [],
+            "text": "なぜガイドラインは定期的に更新されるのか？では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4db3e41a-7f6b-4d24-841c-57036f9e80c9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2b87e340-ae0a-4e1d-a441-7b0b5a4cbcbc",
+            "_type": "span",
+            "text": "2025年版｜看護助手が押さえるべき感染対策の3つのポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "47f5bf20-9929-43d4-946d-8acd66f66fca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0665640d-48ae-4a48-ae5f-ccdb63552954",
+            "_type": "span",
+            "text": "最新のガイドラインでは、これまでの対策の再徹底に加え、いくつかの点が強調されています。看護助手の業務に直結する3つのポイントを見ていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "adcbe1b6-0ce2-4ff7-b232-42618079b0fe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a0a55c0-8284-406b-985a-eff4206798af",
+            "_type": "span",
+            "text": "ポイント1：「標準予防策（スタンダードプリコーション）」のさらなる徹底"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "680956a0-a65b-49d6-84c9-a15f5785e342",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac5e7948-d7c2-4bf6-b272-2bdc26d4a52f",
+            "_type": "span",
+            "text": "標準予防策とは、「すべての人の血液、体液、分泌物、排泄物などは感染性のあるものとして扱う」という考え方です。特定の感染症の患者さんだけでなく、すべての患者さんに対して実施する基本の予防策です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9a2dc45e-388a-4cdb-9be2-2bee0cdfad9b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "198cb240-39e5-4204-93ef-fc6f0de93335-4bca76f3-d59b-44b6-ab65-d6cdd3315c29",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "再確認すべきこと"
+          },
+          {
+            "_key": "198cb240-39e5-4204-93ef-fc6f0de93335-0d809046-6efd-4830-80fd-376e3d40848c",
+            "_type": "span",
+            "marks": [],
+            "text": ": 適切なタイミングでの手指衛生、個人防護具（PPE）の着用、呼吸器衛生/咳エチケットの3つが基本です。特に手指衛生は、あらゆる感染対策の土台となります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "followup-34ea1291-37a3-4149-8991-fb36df7bf948",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-a6ef29c3-2eb4-4b10-8cc6-ef08008daa0f",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを意識することで、スムーズに業務を進められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ec6e291c-398c-4fe5-a258-56d825752330",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "19c4a3ce-2008-451e-a254-a7c48a5b9797",
+            "_type": "span",
+            "text": "ポイント2：個人防護具（PPE）の「適切な選択」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "4bde2564-c8b9-4607-a3eb-680977a97fc7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "60d5331e-10d1-401a-b0f1-aa4d7131abf4",
+            "_type": "span",
+            "text": "これまでは「とりあえずフル装備」のような場面も見られましたが、最新のガイドラインでは、ケアの内容に応じてPPEを「適切に選択」し、無駄なく使用することが重視されています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1d04d263-1e6a-4136-968d-922e56dfef79",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fef3cfc4-c2b1-445a-8a5a-110310b63892-5bdc9126-5c1a-4203-8954-2f459cc1ff81",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "例"
+          },
+          {
+            "_key": "fef3cfc4-c2b1-445a-8a5a-110310b63892-3019b9c3-874b-4812-abcc-72664a012bc9",
+            "_type": "span",
+            "marks": [],
+            "text": ": おむつ交換など体液が飛散する可能性のあるケアでは手袋とエプロン（またはガウン）を着用するが、食事の配膳だけなら原則としてPPEは不要、といった判断が求められます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "8e53956f-5191-4012-98d5-bf92a2864e33",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9c6ff6b5-727f-4cc0-ad8f-41d66b086eb5-11bb255b-8af2-4c69-a824-a6ba2a1a8653",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "着脱の徹底"
+          },
+          {
+            "_key": "9c6ff6b5-727f-4cc0-ad8f-41d66b086eb5-cf1c77b1-4c79-48c3-bcc5-eef589e26460",
+            "_type": "span",
+            "marks": [],
+            "text": ": PPEを正しく着用することと同じくらい、脱ぐ際に自分自身や周囲を汚染させないための正しい手順が重要視されています。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "followup-7366695f-4c56-48b4-bbd3-4dc32e58b3d7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-94863682-001f-49f4-99e5-59ee4eb6ce54",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを参考に、自分に合った方法を見つけてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f206764d-3351-450e-b3ba-161d07f5b4c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "685b197d-84cf-4e33-a852-de9785fe714b",
+            "_type": "span",
+            "text": "ポイント3：環境表面の清掃・消毒の重要性"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "19358180-fef8-4e42-9b2d-85356692f492",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f18a3ad4-5b3f-4208-b658-685391781c79",
+            "_type": "span",
+            "text": "患者さんが頻繁に触れる高頻度接触環境（ベッド柵、ドアノブ、ライトのスイッチなど）が、感染の温床となることが改めて指摘されています。これらの場所を適切な消毒薬（アルコール、次亜塩素酸ナトリウムなど）で定期的に清掃・消毒することが、接触感染を防ぐ上で極めて重要です。誰が、いつ、どこを清掃したかを記録することも求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f78a6984-81eb-47a2-af48-c29b8d25cb00",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c6b9d41b-7a21-4c99-82be-452f53d2c4c6",
+            "_type": "span",
+            "text": "【再確認】日常業務に潜む感染リスクと対策"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "1ab9a6f2-6c3e-4055-84ba-d3f347365bed",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "51fab5ef-e5d5-4c4b-9370-7994ceb12a6f",
+            "_type": "span",
+            "text": "最新ガイドラインを踏まえ、日々の業務で特に注意すべき行動を再確認しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bd381b57-b527-4d14-b3e4-4ab993de098c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b8ff93c9-71f2-451b-86f8-beae01a8e777",
+            "_type": "span",
+            "text": "手指衛生の「5つのタイミング」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "46986934-92d8-42a3-99f8-161fd699396d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "62497d03-1ba0-4086-a3ce-2865a40f9e55",
+            "_type": "span",
+            "text": "WHO（世界保健機関）が推奨する、手指衛生が必須となる5つのタイミングです。常に意識して実践しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2f000bd5-3bc0-4026-8d96-8588b05a7842",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "94a64e21-e8b3-4770-80cc-1023fe2b1bc0",
+            "_type": "span",
+            "text": "1.  患者に触れる前"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4ec4039d-d285-418d-be65-756648a149b6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4053b16d-ad65-4656-b05f-c5a3a1d5b0ed",
+            "_type": "span",
+            "text": "2.  清潔/無菌操作の前（看護助手の業務では少ない）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "73587729-247d-4886-9344-6bf512d2acce",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "67586202-b3bd-4119-8ca4-7b641a3059a9",
+            "_type": "span",
+            "text": "3.  体液に曝露された可能性のある後"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "adbd7ddd-39a6-43d9-b460-4d8d0a104bcb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "840e7894-6a4a-4b9b-aac8-aa60a2898558",
+            "_type": "span",
+            "text": "4.  患者に触れた後"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4eea00c2-f048-4b02-a40d-dd90a0cd50f9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d2463f1-bc80-45aa-8725-f71d9fd8802b",
+            "_type": "span",
+            "text": "5.  患者周辺の物品に触れた後"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c357a370-2e2d-487c-8e28-165cd4b37e57",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7a67588f-4f17-49ab-9494-13ae4ba4a981",
+            "_type": "span",
+            "text": "排泄物・嘔吐物の適切な処理"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "af394249-ad1d-4200-9b0c-b2b394c39b28",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e5cd252b-79cf-4eb7-82b4-8b9d436acb6a",
+            "_type": "span",
+            "text": "ノロウイルスなどを想定し、排泄物や嘔吐物を処理する際は、使い捨ての手袋、エプロン、マスク、ゴーグルを多くの場合着用します。処理後は、次亜塩素酸ナトリウムを用いて広範囲を消毒します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "350d5b00-135b-4781-835b-0bbb769ca8c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1bc1ea54-cb76-46f0-ad8a-c20c923c53d7",
+            "_type": "span",
+            "text": "リネン類の取り扱い"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "2745cfce-a1b8-4a53-ba80-b31f171284aa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f65c34ab-656a-4d59-8fe8-b5d5fa56d2f4",
+            "_type": "span",
+            "text": "使用済みのシーツや寝衣は、床に置いたり、振りさばいたりしてはいけません。ホコリや病原体を飛散させないよう、静かに丸めて専用の袋に入れます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-19215434-f27a-4cc5-ab87-60f8c3e2bc51",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-40ef1f1a-b9c2-41db-bf3e-02985c3f052c",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-823983df-d48e-40a1-b335-7a0c9eb510f4",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-fd6d892a-694f-4420-9c8c-2c2d41f39ac4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-951f2856-685f-49b0-9946-15f057bd7e9e",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-4b0be163-de0a-4867-9721-f297c4d8f14a",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-f1edcd80-e88d-4999-9ab4-0731ea914bc5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-982e7a56-1bde-40c5-82b7-661d149378f2",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-0a633d58-5c32-4f45-bd5c-1e2d3b79d7b7",
+            "_type": "span",
+            "marks": [
+              "link-08545101-0652-40a4-a378-349790406fba"
+            ],
+            "text": "「看護助手に向いている人・向いていない人の特徴」"
+          },
+          {
+            "_key": "internal-link-span-outro-f49ce835-22ea-423b-8bd2-4e192247f047",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-08545101-0652-40a4-a378-349790406fba",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-care-guide-insights"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "e112a50a-532d-4164-956a-a535f54da4ce",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f4ca1704-4be1-429e-88a4-4fda932c1dd2",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-0654a151-5a56-4329-a618-5b7b2067d172",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-c221cdb5-03e3-4294-99f7-3479d8dc282f",
+            "_type": "span",
+            "marks": [],
+            "text": "最新感染対策ガイドライン2024｜看護助手が知るべき変更点でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bd9ad8f6-2fa5-461d-bfbf-d055764a822e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-0214f159-7ee5-42e4-9958-0f55a2f58a03",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-d1e69a1e-eceb-42cc-9a9b-54b9d27261f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-1cd4db38-81c6-4144-b792-a3b2b47d2745",
+            "_type": "span",
+            "marks": [],
+            "text": "新たな感染症の出現: COVID-19のように、これまで知られていなかった感染症が出現し、新たな対策が必要になるため。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5577af77-cf96-4cec-a5ac-4c84a491ea3f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-fa863332-3613-4647-a9da-947e816a576e",
+            "_type": "span",
+            "marks": [],
+            "text": "最新の研究成果の反映: 世界中の研究によって、より効果的な消毒方法や感染経路が明らかになるため。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-0d3ef0e5-2592-4b82-879b-4576de557476",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-951f99f0-3c5d-4e45-b6ef-2401c87f6fe9",
+            "_type": "span",
+            "marks": [],
+            "text": "薬剤耐性菌（AMR）への対応: 薬が効きにくい細菌の出現に対応し、その拡大を防ぐための対策が強化されるため。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-29225dec-607c-45e6-b8e2-a92a7ce3f29b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-f5efe5da-682a-4520-9107-955b499f6646",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-e127684b-f612-4ccc-8f14-740d45d504e0",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">グローブや使い捨て手袋はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-65998ded-4887-46b3-ab57-f8a83f5500c8",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">グローブを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "source-29cc3046-9b45-40b5-b1fc-c46a4e2bf50d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-f46de964-9f30-4f72-bad6-1a7e4484c9ce",
+            "_type": "span",
+            "marks": [],
+            "text": "参考資料："
+          },
+          {
+            "_key": "span-ee4d79cd-1646-4bf8-863a-59d40dbe3e16",
+            "_type": "span",
+            "marks": [
+              "link-b37d673b-df25-43e8-a8d5-3ca85b5d6aa2"
+            ],
+            "text": "厚生労働省 看護政策情報・通知一覧"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-b37d673b-df25-43e8-a8d5-3ca85b5d6aa2",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177221.html?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "7592410aa800412bac03deedbb2ec322",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4a89c090e99d43099584e72e1adeb4a7",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "5aa64f13fc904e12b1df181c04b89160",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a0553b4d9c7541cdaacfed24708c3ad9",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-c12b3d94-333f-4fab-8c95-25e21ebb7c75",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-47da2d1a-6b3a-400d-80e5-6743bb07b8d9",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "73999b44-6a47-437b-a5a9-d4d46fd7de83",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "contentType": "news",
+    "difficulty": "intermediate",
+    "excerpt": "safety-guidelineに関する最新情報。看護助手への影響と必要な対応について詳しく解説します。",
+    "featured": true,
+    "geminiMaintainedAt": "2025-11-08T23:06:34.550Z",
+    "metaDescription": "2024年最新の感染対策ガイドライン改訂について、看護助手が知っておくべき重要な変更点を詳しく解説します。新たな感染予防策、PPEの使用基準変更、清掃・消毒手順の更新まで、現場で必要な最新の安全ガイドライン情報をお届けします。safety-guidelineに関する最新情報。看護助手への影響と必要な対応について詳しく解",
+    "publishedAt": "2024-07-09T08:16:35.916Z",
+    "readingTime": 8,
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-care-guide-navigator"
+    },
+    "tags": [
+      "ケア",
+      "ポイント",
+      "医療",
+      "実務・ノウハウ",
+      "患者",
+      "感染対策",
+      "看護",
+      "看護助手",
+      "適切",
+      "重要"
+    ],
+    "targetAudience": "experienced",
+    "title": "最新感染対策ガイドライン2024｜看護助手が知るべき変更点"
+  }
+}

@@ -1,0 +1,1470 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T11:47:48.198Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "OPoS2nHFE7kiEoiY47iG3S",
+    "articleTitle": "手術室での看護助手業務｜特殊な環境での役割と注意点",
+    "articleSlug": "nursing-assistant-operating-room-duties"
+  },
+  "document": {
+    "_createdAt": "2025-09-09T04:56:35Z",
+    "_id": "OPoS2nHFE7kiEoiY47iG3S",
+    "_rev": "j9gFvjMkmqPMCjk1F1X7Z2",
+    "_system": {
+      "base": {
+        "id": "OPoS2nHFE7kiEoiY47iG3S",
+        "rev": "4Iu3Y5gQeqWF6lm0wJzDIh"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-05T18:42:25Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "d8a9e0b1c2d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8c834768-4f98-42d2-9a48-23047755771e",
+            "_type": "span",
+            "text": "手術室は、病院の中でも特に専門性が高く、厳格なルールが求められる場所です。看護助手は、手術が安全かつスムーズに進行するよう、看護師の指示のもと様々なサポートを行います。この記事では、手術室での看護助手の具体的な業務内容と、特殊な環境で働く上での注意点を解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-fa15e030-0251-4b4a-ae73-989fed24ff60",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-de78474c-6cc3-4809-b318-2848a36fafd6",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-1febd359-9aad-46ce-9983-1e390a6bf25b",
+            "_type": "span",
+            "marks": [
+              "link-127de781-65f8-43b2-a95a-98e2dc33e2c6"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-127de781-65f8-43b2-a95a-98e2dc33e2c6",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "b2c3d4e5f6a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e2746f29-5698-43aa-8c76-a241445ddad4",
+            "_type": "span",
+            "text": "手術室における看護助手の役割"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "diagram-2nd-1764768805199",
+        "_type": "image",
+        "alt": "手術室の「清潔・不潔」エリアマップ",
+        "asset": {
+          "_key": "6c5614e397e54e79a7fc367f8e207a65",
+          "_ref": "image-f181a758da480670135439bb41af48d24546d26c-800x450-svg",
+          "_type": "reference"
+        },
+        "caption": "手術室の「清潔・不潔」エリアマップ"
+      },
+      {
+        "_key": "c3d4e5f6a1b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "096ba827-c166-4d74-9e99-6a80bb9a81b6",
+            "_type": "span",
+            "text": "手術室での看護助手は、手術の成功と患者さんの安全のために、以下のような重要な役割を担います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "g1h2i3j4k5l6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "80b3d30b-570d-41fc-bd87-22fcbefe6037",
+            "_type": "span",
+            "text": "手術の準備と片付け：清潔な環境を維持し、手術がスムーズに開始・終了できるようサポートします。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "h2i3j4k5l6g1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "db64c1cc-af0b-48d6-b6b8-f1338c30a4c5",
+            "_type": "span",
+            "text": "医療器具の管理：使用する医療器具の滅菌状態の確認や、使用後の洗浄・補充を行います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "i3j4k5l6g1h2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bc34b6fd-592a-42b8-beef-f7278252f66e",
+            "_type": "span",
+            "text": "患者さんの移送と体位変換：手術室への患者さんの安全な移送や、手術台での体位変換を補助します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "j4k5l6g1h2i3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac57fe0f-c264-4763-9f18-7ccafdadf763",
+            "_type": "span",
+            "text": "看護師の補助：手術中に看護師が必要とする物品の補充や、その他の指示された業務を行います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "section-closing-0212ac3f-2774-47c3-a805-25860d2a1b0b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-eb8cbb30-2164-4977-bf02-172771e0a29d",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室における看護助手の役割では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2b3c4d5e6f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c18a5a4e-d8b8-437f-8462-990f2c70b4fe",
+            "_type": "span",
+            "text": "手術室での具体的な業務内容"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "diagram-1764767150583",
+        "_type": "image",
+        "alt": "手術室看護助手の主な業務フロー",
+        "asset": {
+          "_key": "566d6da3bc034888a735c14d446769c6",
+          "_ref": "image-5ac648bf00ff53524db5991b48f5a7d255a54be3-800x450-svg",
+          "_type": "reference"
+        },
+        "caption": "手術室看護助手の主な業務フロー"
+      },
+      {
+        "_key": "k5l6g1h2i3j4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "67e1e2c4-a666-42e3-b3fe-b330057e6454",
+            "_type": "span",
+            "text": "1. 手術前の準備"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "pby0ozo3by5c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "g9jmanlxy8vs",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室での看護助手の業務は、手術が安全かつスムーズに行われるための準備から始まります。ここでは、手術前の具体的な準備業務を見ていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "l6g1h2i3j4k5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c9572a22-a172-4fd0-8e6d-bf230fd077ae",
+            "_type": "span",
+            "text": "手術室の清掃と消毒、手術台や周辺機器の準備。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "m1n2o3p4q5r6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7dd515e6-7411-47b6-b9ee-ab8c8cb92fca",
+            "_type": "span",
+            "text": "必要な医療器具や消耗品の確認と補充。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "n2o3p4q5r6m1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7d2bdf63-9fdf-49e0-9edf-2007ffac1aa7",
+            "_type": "span",
+            "text": "患者さんの移送と術衣への着替え補助。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "block-ogvjhmnet-intro-a4c5743b-7eea-46de-a3fd-71108d18a401",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-c30sblmve",
+            "_type": "span",
+            "marks": [],
+            "text": "👟 快適なワークシューズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "o1p2q3r4s5t6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7919b5b9-5b39-4d2a-a281-3065d99a7a4e",
+            "_type": "span",
+            "text": "2. 手術中の補助"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "00049ot17w86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "kw1hhuh754l1",
+            "_type": "span",
+            "marks": [],
+            "text": "手術中は、清潔な環境を維持し、看護師や医師が手術に集中できるよう、様々な補助業務を行います。迅速かつ正確な対応が求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "p2q3r4s5t6o1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "035c316a-9dce-4224-ad04-a2a747d246bd",
+            "_type": "span",
+            "text": "看護師の指示のもと、手術中に必要な物品（ガーゼ、手袋など）の補充や、その他の補助業務を行います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "q3r4s5t6o1p2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "af6edc59-f95e-4e96-8568-7a2465a5af43",
+            "_type": "span",
+            "text": "患者さんの体位変換補助など、手術がスムーズに進むようサポートします。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "followup-7b70e727-7f2d-4e3e-a5ce-988c4cb11042",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-aedc81f0-31f0-459d-8524-d8ad0a481efb",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを参考に、自分に合った方法を見つけてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "r4s5t6o1p2q3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4654eb4e-352c-40b1-9669-13449a126bfa",
+            "_type": "span",
+            "text": "3. 手術後の片付け"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "n18kw86wq6g0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f0g3l58zn8go",
+            "_type": "span",
+            "marks": [],
+            "text": "手術が無事に終了した後も、看護助手の業務は続きます。使用した器具の片付けや清掃、次の手術への準備など、多岐にわたります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "s5t6o1p2q3r4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2538dd1b-3bdf-4fe9-ba44-29ef28a8574f",
+            "_type": "span",
+            "text": "使用済み医療器具の洗浄・消毒、手術室の清掃。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "t6o1p2q3r4s5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e5503f00-4bc2-47c9-b1a3-a29bd6e5cbea",
+            "_type": "span",
+            "text": "患者さんの病室への安全な移送。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "section-closing-d9de8760-f8ed-425c-9042-7920c93f4e99",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-59762185-ab4e-4fc8-bd15-79214d1dfce8",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室での具体的な業務内容では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "u1v2w3x4y5z6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "af1878ab-1ec2-4b8e-b48a-4cc97176d476",
+            "_type": "span",
+            "text": "手術室で働く上での注意点"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "jgy621260l1p",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c4iru1sx374c",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室は、他の病棟とは異なる特殊な環境です。患者さんの安全と自身の身を守るためにも、特に注意すべき点を理解しておきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "v2w3x4y5z6u1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "600b2cf8-5088-4037-b53e-55283de2fdb0",
+            "_type": "span",
+            "text": "厳格な感染管理：手術室は特に清潔が求められるため、清潔・不潔の区別を徹底し、感染予防に細心の注意を払う必要があります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "w3x4y5z6u1v2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a9082ed2-af7d-440a-9b3e-3ca9ae1ee57f",
+            "_type": "span",
+            "text": "医療器具の取り扱い：鋭利なものや精密な器具が多いため、取り扱いには十分な注意が必要です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "x4y5z6u1v2w3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "634dd1c7-7bbd-4dc9-904f-e5276a3708d9",
+            "_type": "span",
+            "text": "チームワークとコミュニケーション：手術はチームで行うため、看護師や医師との迅速かつ正確な連携が不可欠です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "y5z6u1v2w3x4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ead8d7a1-4f7e-4910-96d1-2d6c8b343d63",
+            "_type": "span",
+            "text": "精神的な強さ：緊張感のある環境ですが、冷静に対応し、患者さんの安全を守るという強い意識が求められます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "section-closing-92e71598-1b21-44e0-bca1-8f27a2c3329b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-c5515164-ce60-4174-b59a-34ce834a4e05",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室で働く上での注意点では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-efymr45h1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-3ku3qttay",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室における看護助手の役割"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818904960-mbmwlf06x",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-z4xfnn74u-4f5f5c7d-afec-4376-8e6b-a337c1a0007b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "役割を果たす上で求められるスキル:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-vo62is8bo",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-jspjpby1l",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室における看護助手は、患者様の安全と手術の円滑な進行を支えるために、多岐にわたるスキルが求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-oq7al3m3r",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-ojvnpa1c2-1e885c16-3b53-4bee-9b5b-1cce5cfc35a1",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-ojvnpa1c2-c139c53f-96c3-48c5-9734-e7570b556aec",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "コミュニケーション能力:"
+          },
+          {
+            "_key": "span-1760818904960-ojvnpa1c2-beec1f67-f9ef-47e0-9f44-d19e2e9bbcda",
+            "_type": "span",
+            "marks": [],
+            "text": " 医師や看護師、他の医療スタッフとの連携は不可欠です。正確な情報伝達や、状況に応じた適切な報告を行う能力が求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-yiwldq6qz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-dzkfbmdde-7a2e8e19-aca4-4d29-8918-5729b513abf9",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-dzkfbmdde-dc1c75b1-38d0-496c-a83f-774698c7dc88",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "観察力:"
+          },
+          {
+            "_key": "span-1760818904960-dzkfbmdde-cae0f7ea-610e-4e64-a1b7-b77f97ab3f1a",
+            "_type": "span",
+            "marks": [],
+            "text": " 患者様の状態の変化や、手術の進行状況を注意深く観察し、異常があれば迅速に報告する能力が必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-jkmu7gujs",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-cejrgykgc-5c54053d-2bf9-4e06-ae1b-ada31405134a",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-cejrgykgc-984fc452-59ef-46b3-aa0c-4b0354c738bb",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体力:"
+          },
+          {
+            "_key": "span-1760818904960-cejrgykgc-85697822-6479-4b77-8427-14f88f74291d",
+            "_type": "span",
+            "marks": [],
+            "text": " 手術室内の移動や、医療機器の運搬、患者様の移送など、体力を使う業務も多いです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-y9qc7f39y",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-cfkymu1xs",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室での具体的な業務内容"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818904960-cbjwy90s3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-hiicbnr6n",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 手術前の準備"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818904960-pg0j59qz7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-rzuv18j5f",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室の清掃と消毒、手術台や周辺機器の準備。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-5ee27o45b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-rgdodb8n6",
+            "_type": "span",
+            "marks": [],
+            "text": "必要な医療器具や消耗品の確認と補充。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-4029diftr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-nsd9gxsc5",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの移送と術衣への着替え補助。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-l4hnghi08",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-oy4xxzk1n",
+            "_type": "span",
+            "marks": [],
+            "text": "👟 快適なワークシューズをお探しの方へ："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-vgkoidvyq",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-3ef3u4z1a",
+            "_type": "span",
+            "marks": [],
+            "text": "介護職・看護助手向けケアシューズ【クラースショップ】"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-ay5tgqyyb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-ccptnob6k-b806cd48-f78e-4087-a82c-d42cb5f466a7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "準備におけるポイント:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-6k5w1qgnb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-ck6tsxh1k",
+            "_type": "span",
+            "marks": [],
+            "text": "手術前の準備は、手術の効率と安全性を左右する重要な段階です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-r2aghoybk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-krqowyzs5-72427d3d-2052-4401-859c-ad3e147c8f0f",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-krqowyzs5-fb028642-023e-4313-afca-f0c499cdb8b2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "清潔区域の確保:"
+          },
+          {
+            "_key": "span-1760818904960-krqowyzs5-4eb7726f-4311-4cb0-8736-d05c4a6194d0",
+            "_type": "span",
+            "marks": [],
+            "text": " 手術室内の清潔区域と不潔区域を明確に区別し、感染リスクを最小限に抑えることが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-yroqgccvu",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-vfofcp4xa-3a31a27e-8804-40af-887c-11a940c91452",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-vfofcp4xa-c444e176-9068-4660-aae0-148b299f0760",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "医療機器の動作確認:"
+          },
+          {
+            "_key": "span-1760818904960-vfofcp4xa-d1ae8474-9b46-447f-bba3-9a0056451205",
+            "_type": "span",
+            "marks": [],
+            "text": " 手術で使用する医療機器が正常に動作するか確認し、不具合があれば速やかに報告します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-uqmns40e0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-wil7uz4xg",
+            "_type": "span",
+            "marks": [],
+            "text": "2. 手術中の補助"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818904960-ltpy2z7n6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-kkskevwry",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの体位変換補助など、手術がスムーズに進むようサポートします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-kqqsuwryp",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-ohk8casz1-9ff813a6-3480-41fa-80f5-314186e301fd",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "手術中の連携:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-ybnbc74il",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-9davgob1g",
+            "_type": "span",
+            "marks": [],
+            "text": "手術中は、チーム医療が最も重要となる時間帯です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-8sdykvjih",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-r17k46ltx-b430c168-14c3-411c-a9c5-9ed633abae82",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-r17k46ltx-be24eeda-0b56-4f0a-baef-a3473682447f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "タイムリーな物品補充:"
+          },
+          {
+            "_key": "span-1760818904960-r17k46ltx-a00d507d-922e-4106-aecf-9511a3342385",
+            "_type": "span",
+            "marks": [],
+            "text": " 手術の進行状況を把握し、医師や看護師が求める物品を迅速かつ正確に補充します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-ha1jymh0e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-ae7v71mod-72c70c51-dc84-4786-b457-f4fbb5a49dca",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-ae7v71mod-eb248393-7219-41f3-ba7b-a1766fb0923a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "患者様の安全確保:"
+          },
+          {
+            "_key": "span-1760818904960-ae7v71mod-cdfbf566-03db-4f8e-8ab4-bd71e30a3669",
+            "_type": "span",
+            "marks": [],
+            "text": " 体位変換時など、患者様の安全に配慮し、転倒や体圧分散に注意します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-6r6qh4wxd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-ylb1t5rf1",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 手術後の片付け"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818904960-57osypbdu",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-7u4pvvps8",
+            "_type": "span",
+            "marks": [],
+            "text": "使用済み医療器具の洗浄・消毒、手術室の清掃。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-ed5s1ewrz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-c8ult3ka8",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの病室への安全な移送。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-8dnkcfmoe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-c58g5x05o-081f8c39-da14-4298-8ddf-48429ef6dfee",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "片付けの重要性:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-ichsnf7cc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-i5qd8ufng",
+            "_type": "span",
+            "marks": [],
+            "text": "手術後の片付けは、感染予防と手術室の効率的な運営に不可欠です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-jx7rvx2zd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-g0lex8996-5fc17371-1764-4935-b755-e6285e2a3ca9",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-g0lex8996-6c63d165-6027-448b-b6f2-cbee7d406cd7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "感染源の除去:"
+          },
+          {
+            "_key": "span-1760818904960-g0lex8996-584081dc-72f2-4245-a575-b4dbef6a0d29",
+            "_type": "span",
+            "marks": [],
+            "text": " 使用済みの医療器具やリネン類を適切に処理し、感染源となるものを速やかに除去します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-j1hfacue7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-0xvsprnzt-32eabf2a-86ff-4762-9d1b-4e5cbd9e08e5",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-0xvsprnzt-7c40985e-35dc-4632-a9c9-5949aae5b954",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "次回の準備:"
+          },
+          {
+            "_key": "span-1760818904960-0xvsprnzt-ac5920eb-a566-4345-9b97-b1f8c893e8f9",
+            "_type": "span",
+            "marks": [],
+            "text": " 次の手術に向けて、手術室を清掃し、必要な物品を補充します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-9l0jo8de9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-kgn7xu1em",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室で働く上での注意点"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818904960-57scyg57b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-dae4nhl7e-0c2f4959-50dd-494a-8e97-6d8228524474",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "自己管理の重要性:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-naju3vs94",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-nnk8f1pjd",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室は、精神的にも肉体的にも負担が大きい環境です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-z7zrnlzec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-f3wohn7wt-56798091-9285-4d31-b9fd-518e05db3435",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-f3wohn7wt-b13e929b-fd25-4b24-bacf-825b8b790f4d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "ストレス管理:"
+          },
+          {
+            "_key": "span-1760818904960-f3wohn7wt-f140c9c4-40e5-4a7a-ad41-0feabe69f8d5",
+            "_type": "span",
+            "marks": [],
+            "text": " 適切な休息を取り、ストレスを溜め込まないようにしましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818904960-zuzn5v15a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818904960-ob9s1xi04-39843c2f-b63f-4cec-9f1c-cc9d87c6b455",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818904960-ob9s1xi04-3eb76d87-7e87-425e-9c02-4ee81525fd30",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体調管理:"
+          },
+          {
+            "_key": "span-1760818904960-ob9s1xi04-71947776-8e44-4e6a-bb84-a38474682813",
+            "_type": "span",
+            "marks": [],
+            "text": " 感染症予防のため、手洗いやうがいを徹底し、体調管理に気を配りましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-2b264a83-69e0-45c8-bb74-bdc8a08da2d0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-0793b0f6-e64e-4567-a675-9d77c815fb40",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-60f5f862-79cb-44f0-9a88-b941d217d835",
+            "_type": "span",
+            "marks": [
+              "link-3423c3cf-b542-424e-b81b-59d725c2315a"
+            ],
+            "text": "「看護助手ができる仕事・できない仕事の境界線」"
+          },
+          {
+            "_key": "internal-link-span-outro-d85fb211-1c24-458a-84a9-287b39eace69",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-3423c3cf-b542-424e-b81b-59d725c2315a",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-duties-scope"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-9cc852a6-e523-438a-a781-3feac5167de1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-1360fc9a-6b43-4e1e-a559-b477b479c4b6",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-a7ade456-c8ec-4285-a05c-39a425edbc4c",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-8039b2cf-4711-4664-a768-09052be82cbb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-d451e5ed-17b0-4d6f-9399-01d9285419fd",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-c5281e88-776b-4532-b6b3-0d5855a1c88e",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-4f383cb4-cc8b-43a4-8451-5bd4fdac2986",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-09a1b284-cce8-4333-b6d0-fbd9a3688c13",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-feb92e4e-65ec-47b6-91ab-1b0b72c2108b",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3c6c03aa900a4a438e6e3a8d37e87f1c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ae1fb3472c5744d081d87488eb230bf8",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "93b14a23529c490da7d3d66e8a98322f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8fe381becd24402a9294a05ac8300b8f",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-b084c966-9724-4baf-b802-ace8f3196190",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-b9c14fe9-faf5-4f0b-a6c2-bdbc7ea0c352",
+            "_type": "span",
+            "marks": [],
+            "text": "手術室での看護助手業務｜特殊な環境での役割と注意点でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-29ca1892-0aea-447f-9125-5e0e7ca0fb23",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-fbd797c4-ebb4-4775-920e-18e972c78d20",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-c3230994-eb1d-42d6-b4de-f96780f1493d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-bb20751f-ddbc-4ad4-9ef2-effc77b90793",
+            "_type": "span",
+            "marks": [],
+            "text": "手術の準備と片付け：清潔な環境を維持し、手術がスムーズに開始・終了できるようサポートします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-fa37511f-1864-4ab2-b802-30aec30e5ac7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-fef395a8-8729-47e5-959b-01027bf6a7a5",
+            "_type": "span",
+            "marks": [],
+            "text": "医療器具の管理：使用する医療器具の滅菌状態の確認や、使用後の洗浄・補充を行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-1f3cb679-43b3-4bbc-8382-65e191215180",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-5fdb3a66-0e35-45db-8f7b-5ac479806eb1",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの移送と体位変換：手術室への患者さんの安全な移送や、手術台での体位変換を補助します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-e1d821a7-7f00-44f3-91d2-c09ae60531a3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-a6270300-1683-4711-9042-f1b9c6e67f9b",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-8f2ba95c-f8e9-46c0-91ee-b646e57e8a7f",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">備品や消耗品はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-066ba28d-5dbf-4aec-8dae-45351e8b0cb9",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "disclaimer-6e02c82f-7ac2-4048-b38f-c12df9349c14",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-fe26fd52-9b6c-4dc1-8137-7420c58d84ee",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "17ddefa6-bc99-4fef-84b0-f758193ac5d0",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "description": "手術室（オペ室）看護助手の仕事内容とは？器械出しや外回り業務の流れ、清潔・不潔の区別など、特殊な環境での役割を解説。",
+    "excerpt": "手術室での看護助手の具体的な業務内容と注意点を解説。手術の準備から片付け、医療器具の管理、患者さんの移送まで、特殊な環境で働く看護助手の役割と求められるスキルをご紹介します。",
+    "geminiMaintainedAt": "2025-11-08T23:02:40.784Z",
+    "mainImage": {
+      "_type": "image",
+      "alt": "手術室で働く看護助手",
+      "asset": {
+        "_ref": "image-91e1769ea9ae203f043d3ac23e25ab2b0bd6d44b-1024x1024-jpg",
+        "_type": "reference"
+      }
+    },
+    "metaDescription": "手術室での看護助手業務について、特殊な環境での役割と注意点を詳しく解説します。清潔操作の基本、手術器械の取り扱い、患者様への配慮、チーム医療での連携方法まで、手術室特有の業務内容と求められるスキルを体系的に学習できます。手術室での看護助手の具体的な業務内容と注意点を解説。手術の準備から片付け、医療器具の管理、患者さんの",
+    "publishedAt": "2023-11-03T15:34:02.045Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-operating-room-duties"
+    },
+    "tags": [
+      "教育コンテンツ",
+      "看護助手",
+      "専門分野理解講座",
+      "advanced",
+      "手術室業務",
+      "無菌操作",
+      "OR看護"
+    ],
+    "title": "手術室での看護助手業務｜特殊な環境での役割と注意点",
+    "views": 3
+  }
+}

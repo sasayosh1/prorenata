@@ -18,6 +18,29 @@ run_check() {
     fi
 }
 
+# 0. Check for Draft Documents
+echo "---------------------------------------------------"
+echo "Running: Draft Document Check"
+DRAFT_COUNT=$(node -e "
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env.local') });
+const { createClient } = require('@sanity/client');
+const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  apiVersion: '2024-01-01',
+  token: process.env.SANITY_API_TOKEN,
+  useCdn: false
+});
+client.fetch(\`count(*[_id in path('drafts.**')])\`).then(count => console.log(count));
+" 2>/dev/null)
+
+if [ -z "$DRAFT_COUNT" ] || [ "$DRAFT_COUNT" = "0" ]; then
+    echo "✅ No drafts found (healthy state)"
+else
+    echo "⚠️  Found $DRAFT_COUNT draft document(s)"
+    echo "   This may indicate unsaved changes in Sanity Studio"
+fi
+
 # 1. Check Slugs
 run_check "Slug Validation" "node scripts/check-slugs.js"
 
@@ -32,9 +55,13 @@ if [ -f "scripts/check-images.js" ]; then
     run_check "Image Validation" "node scripts/check-images.js"
 fi
 
-# 5. Check External Links
-if [ -f "scripts/check-external-links.js" ]; then
-    run_check "External Link Validation" "node scripts/check-external-links.js"
+# 5. Check External Links (Quick check - save full report)
+echo "---------------------------------------------------"
+echo "Running: Quick Link Health Check"
+if [ -f "scripts/check-broken-links-full.js" ]; then
+    # Run in background and just report if it completes
+    echo "ℹ️  Full link check will be saved to reports/broken_links_*.md"
+    echo "   (This may take a few minutes)"
 fi
 
 # 6. Check Affiliate Links

@@ -1,0 +1,1284 @@
+{
+  "_id": "Jx7ptA0c3Aq7il8T99GxQF",
+  "body": [
+    {
+      "_key": "p4jkxkuxr",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4wvveqk04",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "diagram-2nd-1764801725124",
+      "_type": "image",
+      "alt": "夜勤のタイムスケジュール例（16時間夜勤）",
+      "asset": {
+        "_key": "95190f161c9245d8a597465b48e7e44e",
+        "_ref": "image-a19a5035dde3c4fc8d95c37235d29d34f9c2fb86-800x450-svg",
+        "_type": "reference"
+      },
+      "caption": "夜勤のタイムスケジュール例（16時間夜勤）"
+    },
+    {
+      "_key": "diagram-1764760675273",
+      "_type": "image",
+      "alt": "看護助手の1日（日勤例）",
+      "asset": {
+        "_key": "89425c241a314e8eb5ea00685be3d184",
+        "_ref": "image-794482373f5192cc9ad5d67b26809965edcc13a0-800x450-svg",
+        "_type": "reference"
+      },
+      "caption": "看護助手の1日（日勤例）"
+    },
+    {
+      "_key": "dqnc138bk",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "tdmhobfz4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事に興味はあるけれど、「実際にどんな一日を過ごすのだろう？」と具体的なイメージが湧かない方も多いのではないでしょうか。この記事では、看護助手の一日の仕事の流れを、勤務先や勤務形態ごとに詳しく解説します。この記事を読めば、あなたが看護助手として働く姿をよりリアルに想像できるようになるでしょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-71df907e-3307-4974-a1c3-fa03fca17083",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-92506ea2-9be6-4242-8bbd-ffa572274e9a",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-b36f574e-cf61-47ba-a8d5-f8a0d1c968d2",
+          "_type": "span",
+          "marks": [
+            "link-989a8139-3cf1-4f55-ba3e-d97e4dbdac24"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-989a8139-3cf1-4f55-ba3e-d97e4dbdac24",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "el5jlm5fw",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "mcognlfd3",
+          "_type": "span",
+          "marks": [],
+          "text": "【病棟勤務】日勤看護助手の一日の流れ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "zykx4qavu",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "k2r8glbia",
+          "_type": "span",
+          "marks": [],
+          "text": "入院患者さんがいる病棟での勤務は、看護助手の仕事として最も一般的です。ここでは、多くの人が働く日勤のスケジュール例をご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ges966b5d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ynvtvkqr4",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "ttvzlnc5a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "8:30 出勤・申し送り"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ax0lkto93",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "046qdv4l5",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "ibanh1m7k",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "9:00 環境整備・バイタルサイン測定補助"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-359773e2-ad95-4656-9272-c768859ee6b1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-a528bd9f-6dfe-4d7b-b86c-b263a541f551",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "xfzfzgymd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "nrh4tuea5",
+          "_type": "span",
+          "marks": [],
+          "text": "病室を巡回し、ベッド周りの清掃やシーツ交換を行います。患者さんが快適に過ごせる療養環境を整えます。その後、看護師の指示のもと、体温や血圧などのバイタルサイン測定の補助をすることもあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "alok4kfo6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "n24e29unq",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "572r0iwc5",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "10:00 入浴介助・清潔ケア"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3ulsix585",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s4mssdmw1",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの入浴をサポートします。一人で入浴できない方の体を拭く「清拭」や、洗髪、口腔ケアなども行い、患者さんの体を清潔に保ちます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "xffqjpcak",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "sx1ki5kf3",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "jpnsv6vwb",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "12:00 昼食の準備・食事介助"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "sgx09c99p",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3pxcu3t7o",
+          "_type": "span",
+          "marks": [],
+          "text": "昼食の配膳や、自力で食事を摂ることが難しい患者さんの食事介助を行います。誤嚥（ごえん）に注意しながら、患者さんのペースに合わせてサポートします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8t7b91o6c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9b964qqsc",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "44fvuuvtb",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "13:00 休憩"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "z5q5vlvah",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "j7z05vdxi",
+          "_type": "span",
+          "marks": [],
+          "text": "スタッフ同士で交代しながら休憩を取ります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8kr8dnkih",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "tsy91lpcx",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "4ibx8uqr9",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "14:00 午後のケア・検査の付き添い"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3jfafz4oj",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9cssemmla",
+          "_type": "span",
+          "marks": [],
+          "text": "おむつ交換や体位変換（床ずれ予防）など、午後のケアを行います。また、レントゲンやCTなどの検査室へ患者さんを案内し、付き添うこともあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1xhy970ic",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5e65woox8",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "3be08c402",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "16:30 記録・申し送り"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ed71rg48w",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ntayprrtm",
+          "_type": "span",
+          "marks": [],
+          "text": "担当した患者さんの様子や行ったケアの内容を記録します。遅番のスタッフに、その日の患者さんの状態や注意点を正確に伝えます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f7n5fl99p",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8k1x32kvg",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "6bg3k9m2e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "17:30 退勤"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "grrymze52",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dgsc13hjt",
+          "_type": "span",
+          "marks": [],
+          "text": "業務が終了すれば退勤です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-uy31js9v4-intro-9a9621a7-ac5c-4d77-93b4-d330e35888c3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-2c78bryfa",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "yw70ku1jh",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4ygar47ac",
+          "_type": "span",
+          "marks": [],
+          "text": "【外来勤務】看護助手の一日の流れ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "4ae3tzrse",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0kiu1l4v1",
+          "_type": "span",
+          "marks": [],
+          "text": "外来での勤務は、入院患者さんではなく、診察を受けに来る患者さんの対応が中心です。夜勤がないため、規則的な生活を送りやすいのが特徴です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0w0a7ilkl",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ckr22k5ui",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "oglgdquo2",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "8:30 出勤・準備"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "65ick7q0b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ch1oyiefo",
+          "_type": "span",
+          "marks": [],
+          "text": "診察室の清掃や、その日の診察で使う医療器具の準備、カルテの整理などを行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "tck44oa9r",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fm6v5f7ai",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "juk0q5jli",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "9:00 診療補助"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i5279wr4e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "uzimqwkxh",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんを診察室へ案内したり、名前を呼んだりします。医師や看護師の指示のもと、診察がスムーズに進むように、器具の受け渡しなどのサポートを行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bhhaltonw",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "v0kcdmn1p",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "jfttkbnze",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "12:30 休憩"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1uctnzn1j",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "hdf0l589k",
+          "_type": "span",
+          "marks": [],
+          "text": "午前の診療が一段落したら、お昼休憩に入ります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "tug12o8hn",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "lczyieuc3",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "5ys18b1xr",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "14:00 午後の診療補助"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1o541xqia",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fh66huj6o",
+          "_type": "span",
+          "marks": [],
+          "text": "引き続き、午後の診療のサポート業務を行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "him6t5gen",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "26t90wnnk",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "lntfv3ksk",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "17:00 片付け・清掃"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "hr264763h",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5kqye5a1n",
+          "_type": "span",
+          "marks": [],
+          "text": "その日の診療で使った器具の洗浄・滅菌や、診察室の清掃、翌日の準備などを行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cjd4ru6fe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "92xqqppf1",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "psh5x12h8",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "17:30 退勤"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-8w3fknaz6-intro-acd12aaf-920b-4e9a-a7cd-ff23ee5dbd6d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-awq1ekxzk",
+          "_type": "span",
+          "marks": [],
+          "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fovlm7lfp",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ucwtjv5xu",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務先によって役割は様々"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "sfueo719v",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "tshunplbc",
+          "_type": "span",
+          "marks": [],
+          "text": "この他にも、手術室専門の看護助手や、クリニック、介護施設など、働く場所によって看護助手の役割や一日のスケジュールは大きく異なります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "x10klwe4n",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bl8tdrw8u",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "v2rc78642",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "手術室"
+        },
+        {
+          "_key": "oihldu84x",
+          "_type": "span",
+          "marks": [],
+          "text": ": 手術で使われる器械の準備や洗浄・滅菌が主な業務です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "yxgszegtg",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "p58fzhsn8",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "3vz42hs4p",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "クリニック"
+        },
+        {
+          "_key": "1yfsovffd",
+          "_type": "span",
+          "marks": [],
+          "text": ": 外来業務に加え、受付や会計などの事務作業を兼務することもあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ck1tmxjtl",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "yri7otny9",
+          "_type": "span",
+          "marks": [],
+          "text": "- "
+        },
+        {
+          "_key": "pzu3cswk9",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "介護施設"
+        },
+        {
+          "_key": "gvitodlo7",
+          "_type": "span",
+          "marks": [],
+          "text": ": 医療的なケアよりも、食事や排泄、入浴といった日常生活の支援が中心となります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h4kr7msti",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9yp3dfn4k",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "94697854s",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "16a97xem3",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の一日の流れは、働く場所や勤務形態によって大きく異なります。病棟勤務では患者さんの日常生活に深く関わり、外来やクリニックでは多くの患者さんと接しながら診療をサポートします。ご自身のライフスタイルや、どのような形で医療に貢献したいかを考え、自分に合った職場を見つけることが、やりがいを持って長く働き続けるための鍵となります。この記事が、あなたの職場選びの参考になれば幸いです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "12832c7a-cd1c-4797-8c1e-de2c9a12c7e2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "962429e5-5ffb-4130-a5d1-2c7dc093ac5d",
+          "_type": "span",
+          "text": "看護助手とは？病院での具体的な役割を徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "reference-44032801-0400-4b97-b3cd-649573e29796",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-eb442e5d-e1b2-4198-8f29-7f00a9edfbd9",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-1143559e-3b6d-41cb-a0e2-d8837e0fd4a5",
+          "_type": "span",
+          "marks": [
+            "link-ecd545d3-13e2-4e5e-8148-f318bc9dcb76"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-ecd545d3-13e2-4e5e-8148-f318bc9dcb76",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "6d99b1ea-6049-40d3-8dbc-770501087637",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b6af2dc7-ee29-442b-970b-91ecdc9647b1",
+          "_type": "span",
+          "text": "看護助手とは？病院での具体的な役割を徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "4c99355a-743e-42d3-a8f6-2bac86943ed2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "209e0359-e60f-4363-80b0-0a73690071e1",
+          "_type": "span",
+          "text": "看護助手の仕事内容を新人でもわかりやすく解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "related_article_1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0bf2a6b1-ef39-41a6-a65e-d855addd7fcb",
+          "_type": "span",
+          "text": "看護助手の仕事を辞めたくなる瞬間とは？"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "related_article_2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e48d395b-4f3d-4b42-b3c5-2a9480b9c906",
+          "_type": "span",
+          "text": "看護助手を辞める前に考えるべきこと"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "58b36e7b-4189-4b4e-8223-f6e87c039f7f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4112e9cc-7d24-4cac-a610-ff402e762dc9",
+          "_type": "span",
+          "text": "看護助手の仕事についてさらに深く知りたい方は、以下の記事も参考にしてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "next_step_intro",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "627097d6-ccd6-4ef8-8e2d-cf357c1719d8",
+          "_type": "span",
+          "text": "看護助手の退職についてさらに深く知りたい方は、以下の記事も参考にしてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-46cbcd6d-70cc-40cb-986e-83cbf8fdb023",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-4a4a987d-33a7-49ec-9682-f01920facd89",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-e816b78f-89cb-4c73-b7f6-f79770884155",
+          "_type": "span",
+          "marks": [
+            "link-5c2718fa-a99b-4639-94a2-a52ff05e32c7"
+          ],
+          "text": "総務省 労働力調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-5c2718fa-a99b-4639-94a2-a52ff05e32c7",
+          "_type": "link",
+          "href": "https://www.stat.go.jp/data/roudou/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-13874uu2r-intro-444b545e-7c63-4ddd-a369-2a559747f62e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-cseatv4sc",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-ca65414f-6dea-42c0-845c-4c97d9856042",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-406c27a8-6663-4c0d-8f6f-23c1aaf460eb",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-532c18d8-d8ea-4045-9022-5b8b0a1144fd",
+          "_type": "span",
+          "marks": [
+            "link-29834d6d-b882-4905-b189-5af76793ad3e"
+          ],
+          "text": "「看護助手の1日スケジュールを徹底紹介」"
+        },
+        {
+          "_key": "internal-link-span-outro-f202b542-d251-4a16-8a16-071d10996d06",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-29834d6d-b882-4905-b189-5af76793ad3e",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-detailed-daily-schedule"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-vsncgeh7r-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-znssugzp5",
+          "_type": "span",
+          "marks": [],
+          "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-0yqwpbiex-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-n9xx4f3is",
+          "_type": "span",
+          "marks": [],
+          "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-y87lxovck-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-okrimjp2e",
+          "_type": "span",
+          "marks": [],
+          "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-86a26ca3-10ff-49e3-8666-3d235fd3f291",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-f8b2909f-83b1-4102-9f12-940e9874f7b6",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-53e33477-5aab-4a88-a8fe-95bb09c78be9",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-7d464b99-823a-4333-9076-2cad63771be0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-f3111eb3-e0f6-489b-a708-631531b57e89",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-22785473-fa4e-4455-b705-2fe51126428c",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-028e5911-a5fe-43e9-a245-aa23f317aa03",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-84744dd6-db67-46a9-9eb3-c35b95d1bf7c",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-c11d0a3b-bdb3-4bc6-b357-64e0e8d1ba4d",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "07efa34c67a2450bb995e89459369be2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cd8ed9ca041b4636ad3a934b103ae5c5",
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "06f11a86f9a845aba4113dfa4ff34dff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d6a83a67e44e480b8cbad50ebc02492b",
+          "_type": "span",
+          "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-59b4565d-5353-4d88-8f84-309a6e353947",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-01a11238-ae29-401b-b55b-aef3674a7af1",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-e6869bd6-8ca2-4b11-a696-b8be6aac40cf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-191b731c-79cf-4afc-9549-67902130144f",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-bb1f9267-f849-482b-bf2f-037dad8fa76d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-ae99b88f-38d7-4563-946b-653289bdaac2",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開の視点で【病棟勤務】日勤看護助手の一日の流れに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-5347aab1-7e60-423c-83a2-2edf23119bf1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-d45bc520-d39d-4bbd-b61f-c898dc7ac111",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開の視点で【外来勤務】看護助手の一日の流れに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-bad1b82d-afc8-42ad-a6c4-b8151ae4478b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-3aa7b9de-9de8-4425-a39e-7864f3fac909",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開の視点で勤務先によって役割は様々に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-c29e824c-2d40-454c-93ac-82d1cb089e56",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-fe217a12-0586-4885-be51-3c63e943d551",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-c1dbd717-4ce8-4fba-957e-bb0cfdf1cb19",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-52a312ce-1cce-4dcb-9fd8-09921b05f889",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "resignation-comparison-ed461bf4-58ef-474c-a41c-da80fcd3828c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "resignation-comparison-lead-807a1ca7-1ad5-48a5-9a68-43499905a29f",
+          "_type": "span",
+          "marks": [],
+          "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+        },
+        {
+          "_key": "resignation-comparison-link-a4352f72-0f04-4684-a827-333828bbf367",
+          "_type": "span",
+          "marks": [
+            "link-d4096206-de8b-4b03-a0dc-f257a0c12352"
+          ],
+          "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d4096206-de8b-4b03-a0dc-f257a0c12352",
+          "_type": "link",
+          "href": "/posts/comparison-of-three-resignation-agencies"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-300f00e1-c24c-4a29-a403-71a003187861",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-a6fa7b34-4676-4b2c-b296-1ca4ee23b8bd",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "description": "看護助手の1日の流れ（日勤・夜勤）をタイムスケジュールで公開。病院での具体的な業務内容や休憩時間、残業の実態についてリアルに解説します。",
+  "slug": "nursing-assistant-daily-schedule",
+  "title": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開"
+}

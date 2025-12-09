@@ -1,5 +1,7 @@
 require('dotenv').config({ path: require('path').resolve(__dirname, '../.env.local') })
 const { createClient } = require('@sanity/client')
+const { createBackup, createBulkBackup } = require('./backup-utility')
+const { validateChange, isLinkProtected } = require('./protection-utility')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -8,6 +10,24 @@ const client = createClient({
   token: process.env.SANITY_API_TOKEN,
   useCdn: false
 })
+
+// Parse command-line arguments
+const args = process.argv.slice(2)
+const DRY_RUN = args.includes('--dry-run') || args.includes('-d')
+const FORCE = args.includes('--force') || args.includes('-f')
+const SKIP_BACKUP = args.includes('--skip-backup')
+
+if (DRY_RUN) {
+  console.log('🔍 DRY RUN MODE - No changes will be made\n')
+}
+
+if (FORCE) {
+  console.log('⚠️  FORCE MODE - Protection checks will be bypassed\n')
+}
+
+if (SKIP_BACKUP) {
+  console.log('⚠️  SKIP BACKUP MODE - No backups will be created\n')
+}
 
 // タイトルからSEO最適化スラッグを生成（nursing-assistant-○○-○○-○○形式）
 function generateSlug(title) {
@@ -93,12 +113,12 @@ const slugMapping = {
 }
 
 async function fixMissingSlug() {
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log('🔧 スラッグ未設定記事の修正')
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log()
 
-  const posts = await client.fetch(`*[_type == "post" && !defined(slug.current)] {
+  const posts = await client.fetch(`*[_type == "post" && !defined(slug.current) && !(_id in path("drafts.**"))] {
     _id,
     title
   }`)
@@ -108,17 +128,19 @@ async function fixMissingSlug() {
   for (const post of posts) {
     const newSlug = generateSlug(post.title)
 
-    await client
-      .patch(post._id)
-      .set({
-        slug: {
-          _type: 'slug',
-          current: newSlug
-        }
-      })
-      .commit()
+    if (!DRY_RUN) {
+      await client
+        .patch(post._id)
+        .set({
+          slug: {
+            _type: 'slug',
+            current: newSlug
+          }
+        })
+        .commit()
+    }
 
-    console.log(`✅ ${post.title}`)
+    console.log(`${DRY_RUN ? '🔍' : '✅'} ${post.title}`)
     console.log(`   スラッグ: ${newSlug}\n`)
   }
 
@@ -126,12 +148,12 @@ async function fixMissingSlug() {
 }
 
 async function fixBrokenInternalLinks() {
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log('🔧 壊れた内部リンクの修正')
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log()
 
-  const posts = await client.fetch(`*[_type == "post"] {
+  const posts = await client.fetch(`*[_type == "post" && !(_id in path("drafts.**"))] {
     _id,
     title,
     body
@@ -176,7 +198,9 @@ async function fixBrokenInternalLinks() {
     })
 
     if (modified) {
-      await client.patch(post._id).set({ body: newBody }).commit()
+      if (!DRY_RUN) {
+        await client.patch(post._id).set({ body: newBody }).commit()
+      }
       fixedCount++
       console.log(`✅ ${post.title}`)
     }
@@ -187,12 +211,12 @@ async function fixBrokenInternalLinks() {
 }
 
 async function validateAffiliateLinks() {
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log('🔍 アフィリエイトリンク検証')
-  console.log('=' .repeat(60))
+  console.log('='.repeat(60))
   console.log()
 
-  const posts = await client.fetch(`*[_type == "post"] {
+  const posts = await client.fetch(`*[_type == "post" && !(_id in path("drafts.**"))] {
     _id,
     title,
     body
@@ -264,9 +288,9 @@ async function main() {
     // 3. アフィリエイトリンク検証
     await validateAffiliateLinks()
 
-    console.log('=' .repeat(60))
+    console.log('='.repeat(60))
     console.log('✨ すべての修正完了')
-    console.log('=' .repeat(60))
+    console.log('='.repeat(60))
 
   } catch (error) {
     console.error('❌ エラーが発生しました:', error)

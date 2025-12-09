@@ -1,0 +1,1205 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T12:09:03.155Z",
+    "operation": "final-article-fixes",
+    "articleId": "k3FMiqj9KhfIHCxGVvImAf",
+    "articleTitle": "バイタルサイン測定の補助｜正確な測定をサポートする技術",
+    "articleSlug": "nursing-assistant-vital-signs-support"
+  },
+  "document": {
+    "_createdAt": "2025-09-09T04:56:27Z",
+    "_id": "k3FMiqj9KhfIHCxGVvImAf",
+    "_rev": "actExlJ9USbzmoGsOag7eI",
+    "_system": {
+      "base": {
+        "id": "k3FMiqj9KhfIHCxGVvImAf",
+        "rev": "IJbunx89jt74fTbO0l2sgu"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-06T11:49:32Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "h2_basic",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e3f9ee67a917",
+            "_type": "span",
+            "marks": [],
+            "text": "バイタルサイン測定の基本"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "medical-notice-7c533997-7ec5-477b-9881-5ad40228fa4f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-e68e77e8-7d11-4fc0-8d03-d1b4be906e32",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h3_types",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8e2efd9b55ba",
+            "_type": "span",
+            "marks": [],
+            "text": "測定するバイタルサインの種類"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "types_text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b389b98009db",
+            "_type": "span",
+            "marks": [],
+            "text": "バイタルサインとは、生命兆候とも呼ばれ、体温、脈拍、呼吸、血圧、SpO2（経皮的動脈血酸素飽和度）の5つが基本です。これらの数値は、患者さんの全身状態を把握するための重要な指標となります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h3_role",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "03cdabac72bd",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の役割"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "role_text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "91343037f380",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は、看護師の指示のもと、測定機器の準備、患者さんの体位調整、測定値の記録、異常値の報告など、測定の一連のプロセスをサポートします。正確な測定と迅速な報告が求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h2_techniques",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4cd9be3e4008",
+            "_type": "span",
+            "marks": [],
+            "text": "正確な測定をサポートする技術"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "h3_preparation",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8968ae0b229b",
+            "_type": "span",
+            "marks": [],
+            "text": "測定前の準備"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "preparation_text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "215ef7e7251d",
+            "_type": "span",
+            "marks": [],
+            "text": "測定前には、使用する機器が正しく動作するか確認し、患者さんには測定の目的と手順を丁寧に説明し、安心して測定を受けてもらえるよう配慮します。適切な体位を整えることも重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h3_during_measurement",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "01752d7e47a6",
+            "_type": "span",
+            "marks": [],
+            "text": "測定中の注意点"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "during_measurement_text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7751a07ec314",
+            "_type": "span",
+            "marks": [],
+            "text": "測定中は、室温や騒音などの環境因子が測定値に影響を与えないよう注意し、患者さんの表情や言動にも気を配ります。血圧計のマンシェットの巻き方や、体温計の挿入位置など、各測定器の正しい使用方法を遵守し、正確な数値を読み取ることが不可欠です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h3_reporting",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "989287b2c2f3",
+            "_type": "span",
+            "marks": [],
+            "text": "異常値の早期発見と報告"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "reporting_text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "08c9c7e15402",
+            "_type": "span",
+            "marks": [],
+            "text": "測定値が基準値から大きく外れている場合や、患者さんの状態に異変が見られる場合は、速やかに看護師に報告します。異常値の早期発見は、患者さんの命を守る上で極めて重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059329-cpzwsfdlh",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-amnr5t9wk",
+            "_type": "span",
+            "marks": [],
+            "text": "バイタルサイン測定の基本"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818059330-3bwe2d99v",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-bizm7ndav",
+            "_type": "span",
+            "marks": [],
+            "text": "測定するバイタルサインの種類"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818059330-ghy00wujb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-awwyf1jvh",
+            "_type": "span",
+            "marks": [],
+            "text": "バイタルサインとは、生命兆候とも呼ばれ、体温、脈拍、呼吸、血圧、SpO2（経皮的動脈血酸素飽和度）の5つが基本です。これらの数値は、患者さんの全身状態を把握するための重要な指標となります。バイタルサインの変化は、病状の悪化や治療の効果を示すサインとなるため、継続的な観察が重要です。例えば、発熱は感染症の兆候である可能性があり、脈拍の異常は心疾患に関連していることがあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-0vst4rb8e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-fu4t0yjtu",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の役割"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818059330-uq47z7d6o",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-aa5n8vxn2",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は、看護師の指示のもと、測定機器の準備、患者さんの体位調整、測定値の記録、異常値の報告など、測定の一連のプロセスをサポートします。正確な測定と迅速な報告が求められます。看護助手は、患者さんの状態を直接観察する機会が多いため、小さな変化にも気づき、看護師に報告することが期待されます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-m8bqr4q9o",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-o32qv69k1",
+            "_type": "span",
+            "marks": [],
+            "text": "正確な測定をサポートする技術"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818059330-efsn9kgqf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-kvze9jiuw",
+            "_type": "span",
+            "marks": [],
+            "text": "測定前の準備"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818059330-p68ezv53a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-b7a7ewjex",
+            "_type": "span",
+            "marks": [],
+            "text": "具体的な準備として、以下の点に注意すると良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-6sn9rlpwr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-a06jxkusd-4e761b72-b22e-4e88-87e9-860fc9c267a6",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-a06jxkusd-9aa810c7-0dcb-4ad3-a999-ef3cd3d7c7a3",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "機器の点検:"
+          },
+          {
+            "_key": "span-1760818059330-a06jxkusd-b63cfe13-553b-444a-aa6e-58a6924dee5c",
+            "_type": "span",
+            "marks": [],
+            "text": " 体温計の電池残量、血圧計のホースの接続、パルスオキシメーターのセンサーの状態などを確認します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-66oj671z3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-j40a9isbk-689b6649-ece7-40ff-92d2-921fb0694efd",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-j40a9isbk-214dcdce-70ce-4f71-8878-ab719bd5223c",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "環境整備:"
+          },
+          {
+            "_key": "span-1760818059330-j40a9isbk-c7ddd5ab-d7e0-4ce5-9917-41291d07d57d",
+            "_type": "span",
+            "marks": [],
+            "text": " 室温が極端に高かったり低かったりしないか、騒音がないかなどを確認します。必要に応じて、室温の調整や騒音の軽減を行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-hx5xmcpui",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-obgryjk0w-5712a813-7142-4170-ab63-3f9a98ff0821",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-obgryjk0w-9cc18cdb-d678-418f-8993-991bba2c50ce",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "患者さんへの説明:"
+          },
+          {
+            "_key": "span-1760818059330-obgryjk0w-4a34f95d-2f0f-4b73-bcea-3fc2297608b7",
+            "_type": "span",
+            "marks": [],
+            "text": " 測定の目的、方法、所要時間を分かりやすく説明し、不安を取り除きます。特に、初めて測定を受ける患者さんや、高齢の患者さんには、丁寧な説明が重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-fs4b5xawz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-f1izpi7ba-f336eab7-7361-4129-9d34-58f2a90232fe",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-f1izpi7ba-04989b5b-4950-446b-a822-7d501e5f540d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体位の調整:"
+          },
+          {
+            "_key": "span-1760818059330-f1izpi7ba-35296cde-3416-4b04-b984-2fe83e02fbe1",
+            "_type": "span",
+            "marks": [],
+            "text": " 測定するバイタルサインに応じて、適切な体位を整えます。例えば、血圧測定では、椅子に座って安静にするか、ベッドに横になり、腕を心臓と同じ高さに保つことが推奨されます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-aeul6w7vh",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-lgoczjs4s",
+            "_type": "span",
+            "marks": [],
+            "text": "測定中の注意点"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818059330-gujc2swp1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-j44ed61xl",
+            "_type": "span",
+            "marks": [],
+            "text": "より正確な測定を行うためには、以下の点に注意すると良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-frznjpv9j",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-snuqc4d0y-aabc954e-e216-4597-9082-f8733d917a9b",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-snuqc4d0y-3547bd4e-687e-47c7-a733-b5d510933b40",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体温:"
+          },
+          {
+            "_key": "span-1760818059330-snuqc4d0y-de00ad2f-4eee-48e3-af61-f333e92af80c",
+            "_type": "span",
+            "marks": [],
+            "text": " 測定部位（腋窩、口腔、直腸など）によって、適切な体温計を選択し、正しい方法で測定します。腋窩で測定する場合は、脇の下をしっかり閉じ、体温計が皮膚に密着するようにします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-rwtf2g1po",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-wnbzlhnt1-0cba31f4-bd01-4853-bcb3-3ef0d07bc3e6",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-wnbzlhnt1-a5193af0-8667-4b55-8272-1c667ee30d4d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "脈拍:"
+          },
+          {
+            "_key": "span-1760818059330-wnbzlhnt1-b56a7413-8818-46fc-9047-2a23571eb5f5",
+            "_type": "span",
+            "marks": [],
+            "text": " 橈骨動脈などで脈拍を測定する際は、指先で軽く押さえ、1分間の脈拍数を計測します。不整脈がある場合は、1分間の脈拍数を正確に計測することが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-ebzdvwd0z",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-uzpi4jx2g-21d1c42e-c4fb-4926-9b16-adf93e47d51d",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-uzpi4jx2g-d887ad44-8c6a-445a-ac7a-99364c34bc2b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "呼吸:"
+          },
+          {
+            "_key": "span-1760818059330-uzpi4jx2g-7e3e7a09-f0bf-479f-8a89-0a5fc8b4732b",
+            "_type": "span",
+            "marks": [],
+            "text": " 呼吸数を測定する際は、患者さんに気づかれないように、胸郭または腹部の動きを観察し、1分間の呼吸数を計測します。呼吸の深さやリズムも観察し、異常があれば看護師に報告します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-3tj1r9h05",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-tvat7mqqo-ec2642f5-2a9c-45aa-97d6-adcf284516be",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-tvat7mqqo-6884742e-1e93-4236-b941-f6373f61360e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "血圧:"
+          },
+          {
+            "_key": "span-1760818059330-tvat7mqqo-db89d5a2-7a7e-4fa7-9826-38f5e6a8437b",
+            "_type": "span",
+            "marks": [],
+            "text": " 血圧計のマンシェットは、腕の太さに合った適切なサイズを選択し、上腕に巻き付けます。マンシェットの下縁が肘窩（ひじの内側のくぼみ）から2～3cm上になるように調整し、マンシェットと腕の間に指が1～2本入る程度の締め付け具合にします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-ownxdn07s",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-2ioc8gftk-c7af6c96-d850-48df-9a0c-779460f8c23c",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-2ioc8gftk-4abfc964-8dfb-42ef-8b5d-8298f56d9355",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "SpO2:"
+          },
+          {
+            "_key": "span-1760818059330-2ioc8gftk-5d0c8b96-3666-49af-a59d-e8ea2093cc30",
+            "_type": "span",
+            "marks": [],
+            "text": " パルスオキシメーターのセンサーを指先に装着し、測定します。爪にマニキュアを塗っている場合は、測定値が不正確になることがあるため、マニキュアを落としてから測定します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-9sz5xo83w",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-qkswrnbc2",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの状態によっては、測定中に気分が悪くなることがあります。そのような場合は、直ちに測定を中止し、看護師に報告します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-ojrdopqtr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-qjfqixx5v",
+            "_type": "span",
+            "marks": [],
+            "text": "異常値の早期発見と報告"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818059330-td2r2rnm2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-6ylr7lw8g",
+            "_type": "span",
+            "marks": [],
+            "text": "異常値を報告する際は、以下の点を明確に伝えるように心がけましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-cnd1rdpgu",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-iv8489ac1-e5d8f33a-55f5-4a83-8507-3e72fecb5b67",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-iv8489ac1-713c07ab-9b2d-443e-91d9-d48c27ba230d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "具体的な数値:"
+          },
+          {
+            "_key": "span-1760818059330-iv8489ac1-d7f6f15e-f2bb-4917-be11-a16c8cad109d",
+            "_type": "span",
+            "marks": [],
+            "text": " 測定した数値を正確に伝えます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-cxw6pouby",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-xa9gdku4r-8fbadbef-8ec8-4483-8bea-62ad5245a716",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-xa9gdku4r-29f71737-2a30-49ea-ac92-41e4a6b11c3f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "患者さんの状態:"
+          },
+          {
+            "_key": "span-1760818059330-xa9gdku4r-8a3f9cd3-ffa2-49d5-8e01-d3fe12281523",
+            "_type": "span",
+            "marks": [],
+            "text": " 測定時の患者さんの様子（顔色、呼吸状態、意識レベルなど）を詳しく伝えます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-ir7ht9s1u",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-qwloln8m3-8e64d1c6-1ba0-49d2-a946-16831409d3b6",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-qwloln8m3-18e8c22c-f1f3-4d38-a407-7f95cf07ed2c",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "既往歴:"
+          },
+          {
+            "_key": "span-1760818059330-qwloln8m3-411e3ecc-1c53-4945-876a-bb63ff6dc78f",
+            "_type": "span",
+            "marks": [],
+            "text": " 患者さんの既往歴や服薬状況など、関連する情報を伝えます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-5ot6sip8e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-mekfzmrrh",
+            "_type": "span",
+            "marks": [],
+            "text": "以下は、一般的なバイタルサインの基準値ですが、患者さんの年齢や基礎疾患によって異なる場合があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-57l54651i",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-rcjffsjfm-91a43343-a40c-4245-ab90-9b49d0e30e50",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-rcjffsjfm-871de838-c435-4649-a5ba-fec9ace0d16a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体温:"
+          },
+          {
+            "_key": "span-1760818059330-rcjffsjfm-b2d5cfa7-77ab-4b4e-af34-a31164500da5",
+            "_type": "span",
+            "marks": [],
+            "text": " 36.0～37.0℃"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-4nukpqxok",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-mfqh6qvkv-956cc70e-1c66-4163-a23a-71b7e45d4c0a",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-mfqh6qvkv-5d586eb3-cbd3-415e-b918-1579a7f7ebfa",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "脈拍:"
+          },
+          {
+            "_key": "span-1760818059330-mfqh6qvkv-871996e4-f0d7-4a70-8e54-59b65e65f1a2",
+            "_type": "span",
+            "marks": [],
+            "text": " 60～100回/分"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-18qqjlcfd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-8n49pc6nc-560e9769-3099-4700-b9ad-513e52d24b93",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-8n49pc6nc-a97721dd-6280-476a-ba78-7890244c4582",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "呼吸:"
+          },
+          {
+            "_key": "span-1760818059330-8n49pc6nc-3eab082d-754e-4411-8ba8-d41a41009839",
+            "_type": "span",
+            "marks": [],
+            "text": " 12～20回/分"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-cxbsvab00",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-xpipccq7k-af742564-5adc-44b0-b4da-99d93e78475f",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-xpipccq7k-ff13058d-10a4-4b1a-b239-96dce6f7be95",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "血圧:"
+          },
+          {
+            "_key": "span-1760818059330-xpipccq7k-2f62bbc3-963e-4573-8e94-5338ff3405eb",
+            "_type": "span",
+            "marks": [],
+            "text": " 収縮期血圧 90～140mmHg、拡張期血圧 60～90mmHg"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-spk82wmjl",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-dt6ut41uv-a08a414a-3f96-428c-84e2-7d97390c8fa0",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818059330-dt6ut41uv-d404a6f6-4202-4bb0-9cbe-1d6ca7541208",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "SpO2:"
+          },
+          {
+            "_key": "span-1760818059330-dt6ut41uv-72e64828-c9cf-4d8f-87db-c3099ec8d447",
+            "_type": "span",
+            "marks": [],
+            "text": " 95%以上"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-4b922de2-096c-4243-828b-fcc2a9f79efd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-3b31091d-9306-4387-a0c3-a0bf87c9cb55",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-534f0cfb-8fff-49ca-9e3d-8f857dee20ae",
+            "_type": "span",
+            "marks": [
+              "link-275b4024-0a6c-4139-9ee0-32f1e7f4c35d"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-275b4024-0a6c-4139-9ee0-32f1e7f4c35d",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818059330-dt1har254",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818059330-9egfzfb24",
+            "_type": "span",
+            "marks": [],
+            "text": "測定値が基準値から大きく外れている場合は、できるだけ看護師に報告し、指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-328a1f23-dc20-4018-a459-34d780f3cda1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-e10e368b-3cba-44e8-a51e-d2e31f8ae40e",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-b59e4b44-c9e4-416a-91a6-b805b3fa5563",
+            "_type": "span",
+            "marks": [
+              "link-5a255f69-570b-4d28-814e-bebc5ae3267d"
+            ],
+            "text": "「看護助手に必要な医療用語100選｜現場でよく使われる略語も解説」"
+          },
+          {
+            "_key": "internal-link-span-outro-2c50f57f-e13e-42ab-a882-8cc98c31555d",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-5a255f69-570b-4d28-814e-bebc5ae3267d",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-medical-terms"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-aac1c1e6-a207-4dc8-8d82-02574c5a4d45",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-74ef4c10-dd11-4cb6-9f08-c9d025f125fe",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-5cd9567d-c922-4882-83a5-51e2c234c8c5",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-77b8770e-638d-4cc2-9599-036a01dda05a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-0681a915-0d54-457f-ae76-3a5df1a5ba60",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-9481be9a-9147-4116-87a2-a66e379bc380",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-709a94e4-825c-4abd-a709-aa83a029a359",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-c8740912-0aa3-46ac-9209-70b8fb3cb10e",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-51ede893-7927-443d-af2b-515b7dcf4bce",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-351d3a81-4b63-4530-9c6f-72a60ec6c8b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-9f4d8503-b82b-4fda-a4e5-b028ea3b0942",
+            "_type": "span",
+            "marks": [],
+            "text": "バイタルサイン測定の補助｜正確な測定をサポートする技術でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-0ae04af8-7440-4350-99b3-e121931bb3f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-78a84d26-b363-4550-b69a-60e0f5993016",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-b37d56a2-d478-48b5-9072-ceb2d7a2003b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-f6b6160e-8b24-4735-8824-633c0a7c838c",
+            "_type": "span",
+            "marks": [],
+            "text": "バイタルサイン測定の基本の視点で測定するバイタルサインの種類に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-2d72d9a9-27d2-4809-bed8-deeed36411af",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-ffc7e239-dca7-4ca3-9882-d48bacc13e5a",
+            "_type": "span",
+            "marks": [],
+            "text": "バイタルサイン測定の基本の視点で看護助手の役割に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-96ca0d15-4e2e-444d-b81e-a32a02e3120a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-9cea51f8-3b6e-47ac-8d0f-26429cbfcf74",
+            "_type": "span",
+            "marks": [],
+            "text": "正確な測定をサポートする技術の視点で測定前の準備に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-2b9ed949-eca4-4f7f-b837-6fd7d268cde3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-8f24ffc2-5325-4584-bc26-e9edfc8cc3d3",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-b4d348fc-0f9d-4cd8-87c8-de5f4a7c5e86",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやスクラブはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-41cef882-ba51-4875-a6f2-4718ccef8029",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "710140ba31444bc28529239b048536c1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cab79af37ed542a39957735090b12799",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "e69a34d4abca4a74a21eb976172128e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "de8ba08297324cb2b030af640fd129ce",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-7f077f76-c65f-48b8-8b9c-a9fe11ab973b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-c5b8a4c6-67eb-4d51-b7e7-43997284501e",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "7086070d-156c-40aa-b54d-d2c29cf3a435",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "contentType": "howto",
+    "difficulty": "intermediate",
+    "excerpt": "実践スキル向上講座の一環として、バイタルサイン 看護助手について体系的に学習します。実践的な知識とスキルを身につけましょう。",
+    "featured": false,
+    "geminiMaintainedAt": "2025-11-08T23:06:05.201Z",
+    "metaDescription": "バイタルサイン測定の補助技術について、看護助手として正確な測定をサポートする方法を詳しく解説します。体温、血圧、脈拍、呼吸数の測定補助、機器の準備と片付け、患者様への配慮まで、実践スキル向上講座として体系的に学習できます。実践スキル向上講座の一環として、バイタルサイン 看護助手について体系的に学習します。実践的な知識と",
+    "publishedAt": "2025-06-14T15:56:59.294Z",
+    "readingTime": 45,
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-vital-signs-support"
+    },
+    "tags": [
+      "サポート",
+      "医療",
+      "実務・ノウハウ",
+      "患者",
+      "技術",
+      "正確",
+      "測定",
+      "看護",
+      "看護助手",
+      "補助"
+    ],
+    "targetAudience": "experienced",
+    "title": "バイタルサイン測定の補助｜正確な測定をサポートする技術"
+  }
+}

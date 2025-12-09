@@ -1,0 +1,1157 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T12:03:55.341Z",
+    "operation": "final-article-fixes",
+    "articleId": "G2Y6JXdwXQRnotb29XN0XF",
+    "articleTitle": "正社員・パートで違う看護助手の給料事情",
+    "articleSlug": "nursing-assistant-salary-differences"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:38:54Z",
+    "_id": "G2Y6JXdwXQRnotb29XN0XF",
+    "_rev": "actExlJ9USbzmoGsOafMtv",
+    "_system": {
+      "base": {
+        "id": "G2Y6JXdwXQRnotb29XN0XF",
+        "rev": "M3XKmJBkg3H5zbZIxJhjYf"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-06T11:45:22Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "d8a9e0b1c2d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e34f352fb37a",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として働くことを考えたとき、多くの人が悩むのが「正社員」と「パートタイマー」どちらの働き方を選ぶかという点です。特に給料や待遇面での違いは、生活設計にも大きく関わります。この記事では、それぞれの働き方の給与事情とメリットを比較し、あなたに合った選択をサポートします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-7ddbf860-cafa-4a6e-80aa-902b76d633be",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-1d770046-d46d-4022-a77e-f191a29d9bc2",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-f9d404be-e7fd-4000-b1f6-5be2472bbbd6",
+            "_type": "span",
+            "marks": [
+              "link-64270353-6cb0-4c3d-b05e-11edba428607"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-64270353-6cb0-4c3d-b05e-11edba428607",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "b2c3d4e5f6a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9349ca4db36f",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員の給料と待遇の特徴"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "reference-81a394b3-4408-40f9-ac30-aafe4098cf20",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-adf8627d-7bc6-494c-976a-def55ebb2bdb",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-ff495555-4f19-4aa8-a431-5b71eac12d39",
+            "_type": "span",
+            "marks": [
+              "link-db0f183f-afe5-4459-beaf-08239878f20d"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-db0f183f-afe5-4459-beaf-08239878f20d",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "c3d4e5f6a1b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2e272d2d0e8e",
+            "_type": "span",
+            "marks": [],
+            "text": "安定した月給とボーナス"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "d4e5f6a1b2c3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "13c4bb6895ad",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員の最大の魅力は、収入の安定性です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "g1h2i3j4k5l6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d136dbd651d",
+            "_type": "span",
+            "marks": [],
+            "text": "月給制：毎月決まった額の給与が支払われるため、長期的な生活設計が立てやすくなります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h2i3j4k5l6g1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3a115710492e",
+            "_type": "span",
+            "marks": [],
+            "text": "賞与（ボーナス）：多くの病院で夏と冬の年2回、賞与が支給されます。これは収入の大きな柱の一つです。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "i3j4k5l6g1h2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5f9addba4d8",
+            "_type": "span",
+            "marks": [],
+            "text": "昇給の機会：勤続年数や実績に応じて、定期的に給与がアップする機会があります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-0022b0a7-8885-4813-a914-94b938c60692",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-ccc01e36-91c2-42f7-a82b-b76c70070419",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを意識することで、スムーズに業務を進められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "j4k5l6g1h2i3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4eaf16b219f4",
+            "_type": "span",
+            "marks": [],
+            "text": "充実した福利厚生"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "k5l6g1h2i3j4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c46f6b3c3378",
+            "_type": "span",
+            "marks": [],
+            "text": "給与以外の面でも、正社員は手厚いサポートを受けられることがほとんどです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "l6g1h2i3j4k5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d41d6d6059f",
+            "_type": "span",
+            "marks": [],
+            "text": "社会保険完備：健康保険、厚生年金、雇用保険、労災保険に加入でき、万が一の時も安心です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-e2584461-45c9-435e-9bc6-7a8d58a9d5bc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-385de2e9-ced7-4216-b5ea-7a6869e99402",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-eae55c25-9914-4adf-8168-dbd58c783d21",
+            "_type": "span",
+            "marks": [
+              "link-54a18fa6-aada-4bd9-8ae2-ba879f8dcccc"
+            ],
+            "text": "総務省 労働力調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-54a18fa6-aada-4bd9-8ae2-ba879f8dcccc",
+            "_type": "link",
+            "href": "https://www.stat.go.jp/data/roudou/"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "m1n2o3p4q5r6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "61607edb5fe5",
+            "_type": "span",
+            "marks": [],
+            "text": "各種手当：住宅手当や家族手当、通勤手当などが支給される場合があります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "n2o3p4q5r6m1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d6f47e6405e",
+            "_type": "span",
+            "marks": [],
+            "text": "退職金制度：長年勤務することで、退職時にまとまった金額を受け取れる制度がある職場も多いです。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-979e14f7-163f-40b5-ab06-25ad576d22aa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-3580860a-2461-458d-9df3-310b154b98f2",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-fb91819f-4817-49e9-a35a-38895d7ff39e",
+            "_type": "span",
+            "marks": [
+              "link-e5f3dbf7-b74a-4075-9365-b2df09a91d0a"
+            ],
+            "text": "厚生労働省 介護人材対策まとめ"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-e5f3dbf7-b74a-4075-9365-b2df09a91d0a",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/stf/newpage_08272.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-f8b2304a-97ad-426f-ba09-4ab926a9cbe2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-46f98eb7-a1ca-4ac5-abee-9f32385958bd",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員の給料と待遇の特徴では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2b3c4d5e6f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b372959b0a9f",
+            "_type": "span",
+            "marks": [],
+            "text": "パートタイマーの給料と待遇の特徴"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "b3c4d5e6f1a2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bd9f6b1c9869",
+            "_type": "span",
+            "marks": [],
+            "text": "柔軟な働き方と時給制"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "o1p2q3r4s5t6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c4f44496dcdf",
+            "_type": "span",
+            "marks": [],
+            "text": "パートタイマーは、ライフスタイルに合わせた働き方がしやすいのが大きなメリットです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "p2q3r4s5t6o1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b159a4290e39",
+            "_type": "span",
+            "marks": [],
+            "text": "シフトの自由度：週3日や1日4時間など、勤務時間や曜日を相談しやすく、家庭やプライベートとの両立が可能です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "q3r4s5t6o1p2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a3bd7dbdaeb5",
+            "_type": "span",
+            "marks": [],
+            "text": "時給制：給与は働いた時間に応じて計算されます。働いた分だけ収入になる、分かりやすい仕組みです。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-e497c987-de3f-4425-9fc4-bd74eb2caa9c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-210811f9-8fbd-44eb-bd7a-bdbe037e633e",
+            "_type": "span",
+            "marks": [],
+            "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "r4s5t6o1p2q3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "198dbc442451",
+            "_type": "span",
+            "marks": [],
+            "text": "扶養内での勤務も可能"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "s5t6o1p2q3r4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ebcdc884d488",
+            "_type": "span",
+            "marks": [],
+            "text": "配偶者の扶養に入っている場合、年収を一定額（例：103万円や130万円）に抑えて働くことで、税金や社会保険料の負担を調整することができます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "t6o1p2q3r4s5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a6596619a52",
+            "_type": "span",
+            "marks": [],
+            "text": "あなたに合うのはどっち？働き方の選び方"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "u1v2w3x4y5z6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "460831d8ae81",
+            "_type": "span",
+            "marks": [],
+            "text": "安定した収入を得て、将来的にキャリアを築いていきたい方は「正社員」が向いています。一方で、子育てや介護、趣味など、仕事以外の時間を大切にしたい方は「パートタイマー」という選択が良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-50myxanu9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-rpwk5qu4k",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員の給料と待遇の特徴"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818313959-bpehpufpe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-wiymbe80x",
+            "_type": "span",
+            "marks": [],
+            "text": "安定した月給とボーナス"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818313959-hyyefkj23",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-wmr49akmn",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員の最大の魅力は、収入の安定性です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-772e0hiek",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-b1ypfkc95-92caaa75-85ee-4be7-83ef-7d36bd1eeb48",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-b1ypfkc95-6cf1bd8d-5a62-437f-afab-65f0abd8b3ac",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "月給制："
+          },
+          {
+            "_key": "span-1760818313959-b1ypfkc95-f6c3bb66-7c29-4509-9866-02af7207bc31",
+            "_type": "span",
+            "marks": [],
+            "text": " 毎月決まった額の給与が支払われるため、長期的な生活設計が立てやすくなります。一般的に、経験年数や資格、勤務地によって給与は異なりますが、新卒の場合、月給18万円～25万円程度が相場と言えるでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-4qb4f0xjm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-ut2jcrigc-5e25b285-042e-45fa-adfa-6b2c4250b9b3",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-ut2jcrigc-36a2717c-ca4e-42b2-9f1f-c6ee48629082",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "賞与（ボーナス）："
+          },
+          {
+            "_key": "span-1760818313959-ut2jcrigc-ef01ae2c-ccae-4044-a474-77f80fad8047",
+            "_type": "span",
+            "marks": [],
+            "text": " 多くの病院で夏と冬の年2回、賞与が支給されます。これは収入の大きな柱の一つです。賞与は基本給の1ヶ月～3ヶ月分程度が一般的ですが、病院の業績や個人の評価によって変動します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-tuef0ylpe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-wtjb2cd7j-7dc4ac48-b21c-4bc7-a22f-4cdd1b146a58",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-wtjb2cd7j-af3ca129-295a-4e4d-a884-aae47546103c",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "昇給の機会："
+          },
+          {
+            "_key": "span-1760818313959-wtjb2cd7j-e4f05063-af8d-4601-9d9f-57e491dbe40b",
+            "_type": "span",
+            "marks": [],
+            "text": " 勤続年数や実績に応じて、定期的に給与がアップする機会があります。多くの病院では年1回の昇給制度があり、数千円～数万円程度の昇給が見込めます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-1kod373ni",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-xbybm9le6",
+            "_type": "span",
+            "marks": [],
+            "text": "充実した福利厚生"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818313959-jnk3cdgyp",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-fas9wmv1n",
+            "_type": "span",
+            "marks": [],
+            "text": "給与以外の面でも、正社員は手厚いサポートを受けられることがほとんどです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-5ljwd6f16",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-6dfoga9dm-65e78e09-bf20-4384-a995-f308518bc745",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-6dfoga9dm-733596bf-abf1-4d1e-8b8d-f6aedd0c2dd8",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "社会保険完備："
+          },
+          {
+            "_key": "span-1760818313959-6dfoga9dm-6ddd4de2-25e2-44a0-944e-d9ef75b2b77b",
+            "_type": "span",
+            "marks": [],
+            "text": " 健康保険、厚生年金、雇用保険、労災保険に加入でき、万が一の時も安心です。これらの保険料は給与から天引きされますが、自己負担額は一部で、会社が大部分を負担してくれます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-sy4y2sjf8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-b4cdbwrb4-ad2a352a-1c1c-4e03-9e9c-c0bf57d65de8",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-b4cdbwrb4-74dfe14d-0886-44c4-b353-029fc5476661",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "各種手当："
+          },
+          {
+            "_key": "span-1760818313959-b4cdbwrb4-64574250-04d2-4719-b8a2-1f4ad93bd0fc",
+            "_type": "span",
+            "marks": [],
+            "text": " 住宅手当や家族手当、通勤手当などが支給される場合があります。住宅手当は、賃貸住宅に住んでいる場合に月額数千円～数万円程度支給されることが多いです。家族手当は、扶養家族がいる場合に支給され、配偶者や子供の人数に応じて金額が異なります。通勤手当は、公共交通機関の利用料金やガソリン代が支給されます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-lp1bvsfmv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-l8ek7d63y-bb7226d6-16db-4ff4-8d9a-f28281e078e2",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-l8ek7d63y-093ca54f-0f3e-418e-ba92-1d96c22c7f2d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "退職金制度："
+          },
+          {
+            "_key": "span-1760818313959-l8ek7d63y-5d251d04-d4ff-45b0-8d46-61c0d9188ca0",
+            "_type": "span",
+            "marks": [],
+            "text": " 長年勤務することで、退職時にまとまった金額を受け取れる制度がある職場も多いです。退職金の支給額は、勤続年数や退職時の給与によって異なります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-fk1rq4nj0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-b99mf09a6",
+            "_type": "span",
+            "marks": [],
+            "text": "パートタイマーの給料と待遇の特徴"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818313959-1eud5s0dr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-dse48fn7f",
+            "_type": "span",
+            "marks": [],
+            "text": "柔軟な働き方と時給制"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818313959-kgtkteezp",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-dt1f415fc-a8d33b24-6209-4b4d-94dc-0caaa79b60eb",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-dt1f415fc-2315dc5e-d52c-45e4-bda1-ced4e60fe7a2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "シフトの自由度："
+          },
+          {
+            "_key": "span-1760818313959-dt1f415fc-e1804d80-9770-468f-90fc-98e675f873a7",
+            "_type": "span",
+            "marks": [],
+            "text": " 週3日や1日4時間など、勤務時間や曜日を相談しやすく、家庭やプライベートとの両立が可能です。病院によっては、夜勤のみや週末のみの勤務も可能な場合があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-0886bdff-953c-40ef-854f-fca2a9c2409c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-dd9edcd1-f364-46b4-8901-960584a98b41",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-ff31a260-f746-418f-b97d-6e3a71949ba6",
+            "_type": "span",
+            "marks": [
+              "link-c7fa0077-61eb-430a-8215-2326adca29be"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-c7fa0077-61eb-430a-8215-2326adca29be",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-kw4lvy6d1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-u42o8wwnm-56d8eef0-4213-44ce-968b-6f9e1b0f1bae",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818313959-u42o8wwnm-07b24a09-3af9-4f1f-8fca-deeac138eed6",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "時給制："
+          },
+          {
+            "_key": "span-1760818313959-u42o8wwnm-e868b237-e734-4a4d-aee9-201c25aeaac3",
+            "_type": "span",
+            "marks": [],
+            "text": " 給与は働いた時間に応じて計算されます。働いた分だけ収入になる、分かりやすい仕組みです。地域や経験によって異なりますが、看護助手のパートタイマーの時給は、一般的に900円～1,300円程度が相場と言えるでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-izua4nj1i",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-0pgetsv3f",
+            "_type": "span",
+            "marks": [],
+            "text": "扶養内での勤務も可能"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818313959-p08l57hek",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-hynyeoyhp",
+            "_type": "span",
+            "marks": [],
+            "text": "配偶者の扶養に入っている場合、年収を一定額（例：103万円や130万円）に抑えて働くことで、税金や社会保険料の負担を調整することができます。ただし、扶養内で働く場合は、勤務時間や日数に制限がある場合がありますので、事前に確認が必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818313959-4gqopedx9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-bydyet0gf",
+            "_type": "span",
+            "marks": [],
+            "text": "あなたに合うのはどっち？働き方の選び方"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818313959-0h73smvf4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818313959-bm00lupqi",
+            "_type": "span",
+            "marks": [],
+            "text": "安定した収入を得て、将来的にキャリアを築いていきたい方は「正社員」が向いています。正社員として経験を積むことで、スキルアップやキャリアアップの機会も広がります。例えば、看護助手として経験を積んだ後、看護師を目指すことも可能です。一方で、子育てや介護、趣味など、仕事以外の時間を大切にしたい方は「パートタイマー」という選択が良いでしょう。パートタイマーとして働くことで、自分のペースで仕事とプライベートを両立させることができます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-a1cb5a36-5951-49bc-91fc-dcf002e0e498",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-0b9683b4-6361-4d06-ab0c-4f40c08f9d1d",
+            "_type": "span",
+            "marks": [],
+            "text": "「あなたに合うのはどっち？働き方の選び方」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-35bf690e-6bdf-4ab1-9174-e1de9a9ff9f8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-fb0f0d30-d7a1-47d7-9675-76eaa56dffb3",
+            "_type": "span",
+            "marks": [],
+            "text": "「あなたに合うのはどっち？働き方の選び方」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-77fdf849-83ee-4b86-9a5a-c56c2422bac0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-69531e25-ecf2-4126-8ba3-24688a30e219",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員・パートで違う看護助手の給料事情でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-8007be6b-6110-49dd-9888-d2ea24be713f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-fffed7c0-0b9a-4308-aedc-57fb5a1e03ea",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-d65e0753-fde0-4713-9b9c-f73cbbe638fe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-22e8564e-4781-442a-b1a3-308c0aa472e8",
+            "_type": "span",
+            "marks": [],
+            "text": "正社員の給料と待遇の特徴の視点で安定した月給とボーナスに目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-3146a99b-a9f8-4291-bfde-55fb3710ca11",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-6d34c17b-65ab-4db5-b670-0874c5381e23",
+            "_type": "span",
+            "marks": [],
+            "text": "月給制：毎月決まった額の給与が支払われるため、長期的な生活設計が立てやすくなります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-42043701-b087-4f83-aaeb-3ecf6ce0b3c5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-896cb91a-839e-4f1d-b0d1-f517d4ece7fc",
+            "_type": "span",
+            "marks": [],
+            "text": "賞与（ボーナス）：多くの病院で夏と冬の年2回、賞与が支給されます。これは収入の大きな柱の一つです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-05e2f050-2ab7-4a46-ab7f-087d2bf6360f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-1a8a85ca-4120-4c0d-8c0d-22f38757eacd",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-d3aa6d67-02f1-47f6-86a8-3da653d41ffe",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "resignation-comparison-b7822019-03b6-4c69-901f-b04e2f607841",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "resignation-comparison-lead-632ad126-0c82-4db6-b2eb-8d592d0a521c",
+            "_type": "span",
+            "marks": [],
+            "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+          },
+          {
+            "_key": "resignation-comparison-link-bfa7db60-2f92-4d3c-b52f-535f17aad35f",
+            "_type": "span",
+            "marks": [
+              "link-aeba6a51-d928-4d2d-b937-5f184610422d"
+            ],
+            "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-aeba6a51-d928-4d2d-b937-5f184610422d",
+            "_type": "link",
+            "href": "/posts/comparison-of-three-resignation-agencies"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "career-comparison-cf6ab29b-487b-4345-b41a-d02c0a44a989",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-3ff5ca12-cc1c-45b3-a7b3-3ac3005256a0",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-fc1e1b05-9ad0-4d13-b816-a2c11ae200ad",
+            "_type": "span",
+            "marks": [
+              "link-347cc40e-4d61-43fc-a067-50de7f7cbd06"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-347cc40e-4d61-43fc-a067-50de7f7cbd06",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "12e31126162740638fb1f5b820f24beb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "09a82bfaa4494ef7b17ceb1cb60c6388",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "5641a6552d9e4217bc1390882fdbd972",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "40db02957ad74f5b878aacf0038c326e",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-6f5c3159-dd3e-4cdf-bc89-59f598eef9eb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-9a2634c1-ed92-429a-acf1-279084ae75e1",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "yOFQUyprRx0Jhe9xOpWpSe",
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手として働くなら正社員？それともパート？それぞれの給料や待遇、メリット・デメリットを徹底比較。あなたのライフスタイルに合った働き方を見つけましょう。",
+    "geminiMaintainedAt": "2025-11-08T22:57:46.923Z",
+    "metaDescription": "給与・待遇の正社員・パートで違う看護助手の給料事情について解説。看護助手として働くなら正社員？それともパート？それぞれの給料や待遇、メリット・デメリットを徹底比較。あなたのライフスタイルに合った働き方を見つけましょう。看護助手として働くなら正社員？それともパート？それぞれの給料や待遇、メリット・デメリットを徹底比較。あ",
+    "publishedAt": "2025-08-14T01:39:28.694Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-salary-differences"
+    },
+    "tags": [
+      "サポート",
+      "ボーナス",
+      "勤務",
+      "待遇",
+      "正社員",
+      "看護",
+      "給与",
+      "給与・待遇",
+      "給料",
+      "賞与"
+    ],
+    "title": "正社員・パートで違う看護助手の給料事情",
+    "views": 3
+  }
+}

@@ -9,6 +9,13 @@ const client = createClient({
   useCdn: false
 })
 
+const args = process.argv.slice(2)
+const DRY_RUN = args.includes('--dry-run') || args.includes('-d')
+
+if (DRY_RUN) {
+  console.log('🔍 DRY RUN MODE - No changes will be made\n')
+}
+
 // アフィリエイトリンクマッピング
 const affiliateLinks = {
   '転職': 'https://track.affiliate-b.com/visit.php?guid=ON&a=r18606-u375359&p=27043908',
@@ -37,7 +44,7 @@ async function convertPlaceholderLinks() {
   console.log('='.repeat(60))
   console.log()
 
-  const posts = await client.fetch(`*[_type == "post"] {
+  const posts = await client.fetch(`*[_type == "post" && !(_id in path("drafts.**"))] {
     _id,
     title,
     body
@@ -155,8 +162,8 @@ async function convertPlaceholderLinks() {
 
             // リンク付きテキスト（表示テキストを設定）
             const displayText = keyword === '転職' ? 'かいご畑 [PR]' :
-                               keyword === '退職代行' ? '退職代行ガーディアン [PR]' :
-                               `${keyword} [PR]`
+              keyword === '退職代行' ? '退職代行ガーディアン [PR]' :
+                `${keyword} [PR]`
 
             segments.push({
               text: displayText,
@@ -209,9 +216,11 @@ async function convertPlaceholderLinks() {
     })
 
     if (modified) {
-      await client.patch(post._id).set({ body: newBody }).commit()
+      if (!DRY_RUN) {
+        await client.patch(post._id).set({ body: newBody }).commit()
+      }
       fixedCount++
-      console.log(`\n📝 記事更新: ${post.title}\n`)
+      console.log(`${DRY_RUN ? '🔍' : '\n📝'} 記事更新: ${post.title}\n`)
     }
   }
 

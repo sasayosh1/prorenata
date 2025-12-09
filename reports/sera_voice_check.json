@@ -1,0 +1,7321 @@
+{
+  "summary": {
+    "total": 170,
+    "excellent": 23,
+    "good": 124,
+    "needsWork": 22,
+    "poor": 1
+  },
+  "results": [
+    {
+      "articleId": "UZhm4BlgpnW3kQdzLi0bZ6",
+      "title": "Speech Bubble Feature Test",
+      "slug": "speech-bubble-test-1764822894333",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": false,
+          "count": 1,
+          "details": "現在形表現: 1回"
+        },
+        "personalElements": {
+          "pass": false,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 0,
+            "values": 0
+          },
+          "total": 0
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.20",
+          "details": "漢字: 6, ひらがな: 5"
+        }
+      },
+      "score": 20,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "セラの個性要素（家族、趣味、テクノロジー、キャリア、価値観）を追加してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0Iv",
+      "title": "看護助手のやりがいと達成感が得られる瞬間",
+      "slug": "nursing-assistant-job-fulfillment",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 49,
+          "details": "現在形表現: 49回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.76",
+          "details": "漢字: 1217, ひらがな: 1598"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0Tf",
+      "title": "看護助手の初任給はどのくらい？地域別比較",
+      "slug": "nursing-assistant-starting-salary-comparison",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 2,
+          "details": "感嘆符: 2個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 49,
+          "details": "現在形表現: 49回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.91",
+          "details": "漢字: 1156, ひらがな: 1266"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0p9",
+      "title": "看護助手は資格なしでどんな仕事ができる？",
+      "slug": "nursing-assistant-qualification-study-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 5,
+          "details": "感嘆符: 5個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 45,
+          "details": "現在形表現: 45回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.96",
+          "details": "漢字: 1085, ひらがな: 1136"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN1dH",
+      "title": "資格があると有利？看護助手に必要なスキルとは",
+      "slug": "nursing-assistant-qualifications-skills",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 7,
+          "details": "感嘆符: 7個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 39,
+          "details": "現在形表現: 39回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.03",
+          "details": "漢字: 984, ひらがな: 957"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5lt",
+      "title": "看護助手の将来性を不安に思う人へのアドバイス",
+      "slug": "nursing-assistant-anxious-future-advice",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 3,
+          "details": "感嘆符: 3個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 67,
+          "details": "現在形表現: 67回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.03",
+          "details": "漢字: 1313, ひらがな: 1278"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5xp",
+      "title": "看護助手のキャリアプランを立てる方法",
+      "slug": "nursing-assistant-career-plan-method",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 46,
+          "details": "現在形表現: 46回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.83",
+          "details": "漢字: 1359, ひらがな: 1640"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN7Sv",
+      "title": "看護助手の朝の仕事ルーティンとは",
+      "slug": "nursing-assistant-morning-routine",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 76,
+          "details": "現在形表現: 76回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.88",
+          "details": "漢字: 1207, ひらがな: 1366"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNAVV",
+      "title": "看護助手の給料明細を公開！リアルな収入例",
+      "slug": "nursing-assistant-real-salary-example",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 6,
+          "details": "感嘆符: 6個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 52,
+          "details": "現在形表現: 52回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.29",
+          "details": "漢字: 1254, ひらがな: 974"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNAbT",
+      "title": "看護助手に役立つ資格5選",
+      "slug": "nursing-assistant-qualification-study-recommended",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 4,
+          "details": "感嘆符: 4個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 70,
+          "details": "現在形表現: 70回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 1
+          },
+          "total": 6
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.08",
+          "details": "漢字: 1558, ひらがな: 1443"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNAy9",
+      "title": "看護助手を辞めてよかった人の体験談",
+      "slug": "nursing-assistant-quit-experiences",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 38,
+          "details": "現在形表現: 38回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.84",
+          "details": "漢字: 1020, ひらがな: 1220"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBHF",
+      "title": "看護助手を長く続けるための心の持ち方",
+      "slug": "nursing-assistant-long-term-mindset",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.75",
+          "details": "漢字: 1282, ひらがな: 1715"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBUN",
+      "title": "看護助手を経て看護学校に進学する人の理由",
+      "slug": "nursing-assistant-reasons-nursing-school",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 59,
+          "details": "現在形表現: 59回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 1
+          },
+          "total": 6
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.90",
+          "details": "漢字: 1664, ひらがな: 1840"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBbX",
+      "title": "看護助手の1日スケジュールを徹底紹介",
+      "slug": "nursing-assistant-detailed-daily-schedule",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 83,
+          "details": "現在形表現: 83回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.00",
+          "details": "漢字: 1698, ひらがな: 1701"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iBZ1",
+      "title": "働きながら看護師になるには？最短ルートと奨学金活用法",
+      "slug": "nursing-assistant-become-nurse-guide",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 58,
+          "details": "現在形表現: 58回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 1
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.93",
+          "details": "漢字: 1404, ひらがな: 1503"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUWBe",
+      "title": "看護助手の転職エージェント活用方法",
+      "slug": "nursing-assistant-recruitment-agent-utilization",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 47,
+          "details": "現在形表現: 47回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.83",
+          "details": "漢字: 1075, ひらがな: 1297"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUWra",
+      "title": "夜勤で得られる手当と実際の収入アップ例",
+      "slug": "nursing-assistant-night-shift-salary",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 43,
+          "details": "現在形表現: 43回"
+        },
+        "personalElements": {
+          "pass": false,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 0,
+            "values": 0
+          },
+          "total": 0
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.13",
+          "details": "漢字: 1138, ひらがな: 1004"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "セラの個性要素（家族、趣味、テクノロジー、キャリア、価値観）を追加してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "f3bbd9d1-a011-42d8-80b4-42a76196f147",
+      "title": "未経験から始める看護助手求人完全ガイド｜給料・仕事内容・面接対策",
+      "slug": "nursing-assistant-salary-update-career",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 2,
+          "details": "感嘆符: 2個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.76",
+          "details": "漢字: 970, ひらがな: 1272"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "gxyxv316c0oeG6AdOIZRvr",
+      "title": "看護助手の転職｜働きながら理想の職場を見つける方法",
+      "slug": "nursing-assistant-career-method",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 65,
+          "details": "現在形表現: 65回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 2,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 1
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.69",
+          "details": "漢字: 1330, ひらがな: 1934"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImEq",
+      "title": "看護助手のキャリアパス設計｜将来への道筋を描く",
+      "slug": "nursing-assistant-career-path-design",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 56,
+          "details": "現在形表現: 56回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 1
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.96",
+          "details": "漢字: 1077, ひらがな: 1118"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImdu",
+      "title": "看護学校入学準備完全マニュアル｜働きながら学ぶ方法",
+      "slug": "nursing-assistant-nursing-school-prep",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 37,
+          "details": "現在形表現: 37回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 1
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.10",
+          "details": "漢字: 1155, ひらがな: 1049"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImjH",
+      "title": "看護助手のネットワーキング術｜キャリアに活かす人脈作り",
+      "slug": "nursing-assistant-networking-skills",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 2,
+          "details": "感嘆符: 2個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 34,
+          "details": "現在形表現: 34回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.80",
+          "details": "漢字: 799, ひらがな: 996"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImzz",
+      "title": "全国看護助手給与実態調査2024｜地域別・職場別の最新データ",
+      "slug": "nursing-assistant-workplace-fit-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 37,
+          "details": "現在形表現: 37回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.15",
+          "details": "漢字: 995, ひらがな: 868"
+        }
+      },
+      "score": 40,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "0c56cebc-04e4-409a-8075-8c5c05d08c2f",
+      "title": "働きながら独学で医療知識を深める学習法とキャリアアップのヒント",
+      "slug": "nursing-assistant-career-change-compass",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 22,
+          "details": "「わたし」: 22回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 3,
+          "details": "感嘆符: 3個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 112,
+          "details": "現在形表現: 112回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 1,
+            "technology": 1,
+            "career": 4,
+            "values": 0
+          },
+          "total": 7
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.58",
+          "details": "漢字: 1530, ひらがな: 2621"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "3ab6bd28-5476-4551-bd76-bf8fe78ac262",
+      "title": "看護助手の小さな行動が病棟全体に与える影響力と連携の秘訣",
+      "slug": "nursing-assistant-mental-care-patient",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 23,
+          "details": "「わたし」: 23回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 90,
+          "details": "現在形表現: 90回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 1,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.54",
+          "details": "漢字: 1200, ひらがな: 2231"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "555caca5-5077-4dff-9b21-6f0ba1520ab6",
+      "title": "心が軽くなる！看護助手が精神的に穏やかに働くためのの秘訣",
+      "slug": "nursing-assistant-mental-care",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 14,
+          "details": "「わたし」: 14回, 「われ」: 3回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 3,
+          "details": "感嘆符: 3個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 88,
+          "details": "現在形表現: 88回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 1,
+            "technology": 0,
+            "career": 0,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.50",
+          "details": "漢字: 1135, ひらがな: 2250"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "564dbbc5-46a3-4b5d-8261-9c1fc88d1948",
+      "title": "退職代行３社のメリット・デメリット徹底比較",
+      "slug": "comparison-of-three-resignation-agencies",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 34,
+          "details": "現在形表現: 34回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 0,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.87",
+          "details": "漢字: 916, ひらがな: 1049"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "729b5fb8-4dd0-4490-aedb-4f39ec6caf7d",
+      "title": "看護助手が精神的にきつい理由とストレスと向き合う秘策",
+      "slug": "nursing-assistant-mental-care-stress",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 14,
+          "details": "「わたし」: 14回, 「われ」: 3回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 65,
+          "details": "現在形表現: 65回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 1,
+            "technology": 1,
+            "career": 1,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.54",
+          "details": "漢字: 881, ひらがな: 1646"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "7c82b05b-a968-43bb-bedc-2f4da5146e3f",
+      "title": "「場合」に戸惑うあなたへ：看護助手が自信を持って対応できる心構えと実践",
+      "slug": "nursing-assistant-mental-care-journey",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 13,
+          "details": "「わたし」: 13回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 2,
+          "details": "感嘆符: 2個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 69,
+          "details": "現在形表現: 69回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.50",
+          "details": "漢字: 996, ひらがな: 1977"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "9057cac0-ffc3-477b-90df-8bf1c94953bb",
+      "title": "看護助手の質問苦手を克服｜職場で自信を持って聞ける実践ガイド",
+      "slug": "nursing-assistant-workplace-fit",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 10,
+          "details": "「わたし」: 10回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 3,
+          "details": "感嘆符: 3個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 80,
+          "details": "現在形表現: 80回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 1,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.50",
+          "details": "漢字: 1103, ひらがな: 2189"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "9f6xTbJiqM1HBxBrXssRMR",
+      "title": "介護美容で笑顔を増やす学び方とスクール活用術",
+      "slug": "nursing-assistant-care-guide-toolbox",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 27,
+          "details": "現在形表現: 27回"
+        },
+        "personalElements": {
+          "pass": false,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 0,
+            "values": 0
+          },
+          "total": 0
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.56",
+          "details": "漢字: 492, ひらがな: 881"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "セラの個性要素（家族、趣味、テクノロジー、キャリア、価値観）を追加してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN05n",
+      "title": "看護助手とは？病院での具体的な役割を徹底解説",
+      "slug": "nursing-assistant-hospital-roles-explained",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 37,
+          "details": "現在形表現: 37回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.00",
+          "details": "漢字: 894, ひらがな: 896"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0FL",
+      "title": "看護助手の仕事でよくある質問10選",
+      "slug": "nursing-assistant-recommended-options",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 82,
+          "details": "現在形表現: 82回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.77",
+          "details": "漢字: 1093, ひらがな: 1415"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0MV",
+      "title": "看護助手の仕事内容を新人でもわかりやすく解説",
+      "slug": "nursing-assistant-job-description-beginners",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 98,
+          "details": "現在形表現: 98回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.02",
+          "details": "漢字: 1902, ひらがな: 1872"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0Q5",
+      "title": "看護助手に向いている人・向いていない人の特徴",
+      "slug": "nursing-assistant-care-guide-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.74",
+          "details": "漢字: 1103, ひらがな: 1481"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0XF",
+      "title": "正社員・パートで違う看護助手の給料事情",
+      "slug": "nursing-assistant-salary-differences",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 3回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 66,
+          "details": "現在形表現: 66回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.03",
+          "details": "漢字: 1260, ひらがな: 1225"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0ap",
+      "title": "看護助手の夜勤手当はいくらもらえる？",
+      "slug": "nursing-assistant-night-shift-allowance",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 41,
+          "details": "現在形表現: 41回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.93",
+          "details": "漢字: 896, ひらがな: 962"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0hz",
+      "title": "看護助手の給料と生活費、実際やっていける？",
+      "slug": "nursing-assistant-salary-living-expenses",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 42,
+          "details": "現在形表現: 42回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.93",
+          "details": "漢字: 938, ひらがな: 1004"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0lZ",
+      "title": "未経験から看護助手になるためのステップ",
+      "slug": "nursing-assistant-no-experience-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 35,
+          "details": "現在形表現: 35回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.96",
+          "details": "漢字: 986, ひらがな: 1027"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3Nt",
+      "title": "看護助手として働きながら資格を取る方法",
+      "slug": "nursing-assistant-qualification-study",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 61,
+          "details": "現在形表現: 61回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 1,
+            "career": 3,
+            "values": 1
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.94",
+          "details": "漢字: 1353, ひらがな: 1447"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3Yd",
+      "title": "看護助手の面接で避けたいNG回答集",
+      "slug": "nursing-assistant-interview-tips-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 47,
+          "details": "現在形表現: 47回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.87",
+          "details": "漢字: 1387, ひらがな: 1590"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3cD",
+      "title": "志望動機を「やりがい」でまとめるコツ",
+      "slug": "nursing-assistant-motivation-fulfillment",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 41,
+          "details": "現在形表現: 41回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.76",
+          "details": "漢字: 1228, ひらがな: 1613"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3gz",
+      "title": "看護助手の志望動機を短く簡単にまとめる方法",
+      "slug": "nursing-assistant-short-motivation-letter",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 36,
+          "details": "現在形表現: 36回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.70",
+          "details": "漢字: 773, ひらがな: 1098"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3ll",
+      "title": "看護助手を辞めたい理由ランキングTOP5",
+      "slug": "nursing-assistant-resignation-advice-top",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 27,
+          "details": "現在形表現: 27回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.84",
+          "details": "漢字: 888, ひらがな: 1051"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3sv",
+      "title": "夜勤がつらいときの乗り越え方",
+      "slug": "nursing-assistant-tough-night-shifts",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 1,
+            "technology": 1,
+            "career": 1,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.79",
+          "details": "漢字: 1209, ひらがな: 1536"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN42T",
+      "title": "看護助手の人間関係で辞める人は多い？",
+      "slug": "nursing-assistant-quitting-relationships",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.86",
+          "details": "漢字: 1165, ひらがな: 1349"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN567",
+      "title": "看護助手と看護師の給料差はいくら？",
+      "slug": "nursing-assistant-salary-difference-nurses",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 46,
+          "details": "現在形表現: 46回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 1
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.18",
+          "details": "漢字: 1206, ひらがな: 1025"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5KR",
+      "title": "看護助手から看護師になるための方法",
+      "slug": "nursing-assistant-become-nurse-method",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 1
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.02",
+          "details": "漢字: 1347, ひらがな: 1322"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5O1",
+      "title": "看護助手と准看護師の違いとは？",
+      "slug": "nursing-assistant-care-guide-journey",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 75,
+          "details": "現在形表現: 75回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.15",
+          "details": "漢字: 1410, ひらがな: 1226"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5Rb",
+      "title": "看護助手が看護師に昇格することは可能？",
+      "slug": "nursing-assistant-care-guide-support",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 46,
+          "details": "現在形表現: 46回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 1
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.09",
+          "details": "漢字: 1353, ひらがな: 1236"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5VB",
+      "title": "看護助手から看護師を目指すメリット",
+      "slug": "nursing-assistant-benefits-becoming-nurse",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 62,
+          "details": "現在形表現: 62回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 1
+          },
+          "total": 6
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.97",
+          "details": "漢字: 1707, ひらがな: 1753"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5Yl",
+      "title": "看護助手と看護師の役割の境界線",
+      "slug": "nursing-assistant-role-boundaries",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 33,
+          "details": "現在形表現: 33回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.09",
+          "details": "漢字: 941, ひらがな: 863"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5cL",
+      "title": "看護助手に将来性はある？キャリア展望を解説",
+      "slug": "nursing-assistant-future-prospects",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 94,
+          "details": "現在形表現: 94回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.01",
+          "details": "漢字: 1516, ひらがな: 1503"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5h7",
+      "title": "看護助手の経験は将来どんな仕事に役立つ？",
+      "slug": "nursing-assistant-future-job-experience",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 7回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 71,
+          "details": "現在形表現: 71回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.96",
+          "details": "漢字: 1527, ひらがな: 1584"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN5rr",
+      "title": "看護助手を長期的に続けるメリット・デメリット",
+      "slug": "nursing-assistant-long-term",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.84",
+          "details": "漢字: 1168, ひらがな: 1387"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN63n",
+      "title": "精神科病棟で働く看護助手の一日とは",
+      "slug": "nursing-assistant-day-psychiatric-ward",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 94,
+          "details": "現在形表現: 94回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.98",
+          "details": "漢字: 1685, ひらがな: 1715"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN77R",
+      "title": "外科病棟の看護助手の1日の流れ",
+      "slug": "nursing-assistant-day-surgical-ward",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 98,
+          "details": "現在形表現: 98回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.11",
+          "details": "漢字: 1617, ひらがな: 1452"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNACP",
+      "title": "看護助手は介護職とどう違う？仕事内容を比較",
+      "slug": "nursing-assistant-job-role-market",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 56,
+          "details": "現在形表現: 56回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.18",
+          "details": "漢字: 1574, ひらがな: 1337"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNAHB",
+      "title": "精神科病棟で働く看護助手の業務内容とは",
+      "slug": "nursing-assistant-psychiatric-ward-duties",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 92,
+          "details": "現在形表現: 92回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.91",
+          "details": "漢字: 1466, ひらがな: 1610"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNAid",
+      "title": "未経験OKの看護助手求人を選ぶコツ",
+      "slug": "nursing-assistant-career-change-no",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.01",
+          "details": "漢字: 1398, ひらがな: 1381"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNApn",
+      "title": "面接官が求める看護助手の人物像とは",
+      "slug": "nursing-assistant-interview-tips",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 57,
+          "details": "現在形表現: 57回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.81",
+          "details": "漢字: 1303, ひらがな: 1607"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNB1j",
+      "title": "夜勤中に看護助手が担当する仕事内容",
+      "slug": "nursing-assistant-night-shift-duties",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 62,
+          "details": "現在形表現: 62回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.03",
+          "details": "漢字: 1218, ひらがな: 1178"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBCT",
+      "title": "人間関係に疲れた看護助手の体験談",
+      "slug": "nursing-assistant-tired-relationships-experiences",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 3回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 59,
+          "details": "現在形表現: 59回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.80",
+          "details": "漢字: 1372, ひらがな: 1718"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBM1",
+      "title": "看護助手と介護士、看護師の違いをまとめて解説",
+      "slug": "nursing-assistant-care-guide-compass",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 42,
+          "details": "現在形表現: 42回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.22",
+          "details": "漢字: 1141, ひらがな: 935"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBQn",
+      "title": "看護助手が看護師をサポートする場面とは",
+      "slug": "nursing-assistant-team-support",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 71,
+          "details": "現在形表現: 71回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.02",
+          "details": "漢字: 1403, ひらがな: 1380"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBXx",
+      "title": "看護助手の経験を転職市場でどう活かす？",
+      "slug": "nursing-assistant-career-change",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 4回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 40,
+          "details": "現在形表現: 40回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.08",
+          "details": "漢字: 1281, ひらがな: 1187"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBf7",
+      "title": "内科病棟の看護助手の仕事内容と一日",
+      "slug": "nursing-assistant-job-role-daily",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 64,
+          "details": "現在形表現: 64回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.98",
+          "details": "漢字: 1127, ひらがな: 1145"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNBih",
+      "title": "看護助手のある日の体験談",
+      "slug": "nursing-assistant-experience-story",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 69,
+          "details": "現在形表現: 69回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.81",
+          "details": "漢字: 1276, ひらがな: 1580"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99GtdA",
+      "title": "看護助手とは？仕事内容から必要なスキルまで徹底解説",
+      "slug": "nursing-assistant-job-role",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 46,
+          "details": "現在形表現: 46回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.75",
+          "details": "漢字: 839, ひらがな: 1125"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99GuH5",
+      "title": "看護助手の転職成功マニュアル｜求人の選び方から面接対策まで",
+      "slug": "nursing-assistant-job-change-manual",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 34,
+          "details": "現在形表現: 34回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.98",
+          "details": "漢字: 1123, ひらがな: 1148"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99GwCq",
+      "title": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイント",
+      "slug": "nursing-assistant-infection-control-manual",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 30,
+          "details": "現在形表現: 30回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.12",
+          "details": "漢字: 929, ひらがな: 827"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99GwdS",
+      "title": "看護助手の人間関係が辛い時の対処法｜職場のストレス解決策5選",
+      "slug": "nursing-assistant-stressful-relationships-solutions",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 3回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 70,
+          "details": "現在形表現: 70回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.86",
+          "details": "漢字: 1591, ひらがな: 1853"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99GxQF",
+      "title": "看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開",
+      "slug": "nursing-assistant-daily-schedule",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.02",
+          "details": "漢字: 1014, ひらがな: 997"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99Gz4G",
+      "title": "医療現場のコミュニケーション｜患者様・スタッフとの関わり方",
+      "slug": "nursing-assistant-medical-communication-skills",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.83",
+          "details": "漢字: 1146, ひらがな: 1382"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H08n",
+      "title": "看護助手の制服・ユニフォーム選び｜おすすめブランドと着こなしのコツ",
+      "slug": "nursing-assistant-uniform-selection",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 57,
+          "details": "現在形表現: 57回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 0,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.68",
+          "details": "漢字: 928, ひらがな: 1367"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H0r9",
+      "title": "看護助手適性診断｜あなたに向いている医療現場は？",
+      "slug": "nursing-assistant-aptitude-test",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 43,
+          "details": "現在形表現: 43回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.81",
+          "details": "漢字: 944, ひらがな: 1169"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H18t",
+      "title": "看護助手のキャリアビジョン設計ワークショップ｜5年後の自分を描く",
+      "slug": "nursing-assistant-career-vision",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 43,
+          "details": "現在形表現: 43回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.80",
+          "details": "漢字: 976, ひらがな: 1227"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H1mo",
+      "title": "看護助手スキルアップロードマップ｜段階別成長プラン",
+      "slug": "nursing-assistant-skillup-roadmap",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 34,
+          "details": "現在形表現: 34回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.16",
+          "details": "漢字: 1220, ひらがな: 1054"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H2DQ",
+      "title": "看護助手転職成功の5ステップ｜失敗しない転職戦略",
+      "slug": "nursing-assistant-job-change-steps",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.03",
+          "details": "漢字: 1569, ひらがな: 1517"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H2e2",
+      "title": "【例文10選】看護助手の履歴書・志望動機の書き方｜そのまま使えるテンプレート",
+      "slug": "nursing-assistant-resume-writing",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.92",
+          "details": "漢字: 1461, ひらがな: 1593"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H49B",
+      "title": "看護助手から看護師への最短ルート｜准看護師vs正看護師",
+      "slug": "nursing-assistant-care-guide-focus",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 60,
+          "details": "現在形表現: 60回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 1
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.10",
+          "details": "漢字: 1445, ひらがな: 1319"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H4vy",
+      "title": "理想の職場選び診断｜看護助手にとって働きやすい環境とは",
+      "slug": "nursing-assistant-ideal-workplace",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 29,
+          "details": "現在形表現: 29回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.95",
+          "details": "漢字: 973, ひらがな: 1025"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H7Mm",
+      "title": "看護助手の労働基準法改正対応｜2024年新労働時間規制の詳細",
+      "slug": "nursing-assistant-care-guide-pathway",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 61,
+          "details": "現在形表現: 61回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 1
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.21",
+          "details": "漢字: 1534, ひらがな: 1269"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H7wG",
+      "title": "看護助手求人市場分析｜2025年上半期の動向と今後の予測",
+      "slug": "nursing-assistant-job-market-analysis",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 89,
+          "details": "現在形表現: 89回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.16",
+          "details": "漢字: 1858, ひらがな: 1602"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H8Vk",
+      "title": "看護助手標準研修プログラム改訂｜新カリキュラムの詳細解説",
+      "slug": "nursing-assistant-training-program-revision",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 63,
+          "details": "現在形表現: 63回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.01",
+          "details": "漢字: 1229, ひらがな: 1222"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "Jx7ptA0c3Aq7il8T99H9na",
+      "title": "看護助手に必要な医療用語100選｜現場でよく使われる略語も解説",
+      "slug": "nursing-assistant-medical-terms",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 6回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 77,
+          "details": "現在形表現: 77回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.83",
+          "details": "漢字: 1125, ひらがな: 1351"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iBrH",
+      "title": "2025年最新｜看護助手の給料相場を職場別・地域別に徹底比較",
+      "slug": "nursing-assistant-latest-salary-comparison",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.09",
+          "details": "漢字: 961, ひらがな: 884"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iEDL",
+      "title": "看護助手の役割と責任｜医療チームにおける位置づけ",
+      "slug": "nursing-assistant-role-responsibility-team",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 42,
+          "details": "現在形表現: 42回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.06",
+          "details": "漢字: 974, ひらがな: 919"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iF1Y",
+      "title": "感染対策の基本｜標準予防策と手洗いの重要性",
+      "slug": "nursing-assistant-infection-control-handwashing",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 74,
+          "details": "現在形表現: 74回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.01",
+          "details": "漢字: 1484, ひらがな: 1475"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iG3S",
+      "title": "手術室での看護助手業務｜特殊な環境での役割と注意点",
+      "slug": "nursing-assistant-operating-room-duties",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 61,
+          "details": "現在形表現: 61回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.28",
+          "details": "漢字: 1364, ひらがな: 1064"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iGiX",
+      "title": "ICU・救急病棟での看護助手業務｜重症患者ケアの補助",
+      "slug": "nursing-assistant-icu-emergency-duties",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 61,
+          "details": "現在形表現: 61回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.02",
+          "details": "漢字: 1264, ひらがな: 1237"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iIU5",
+      "title": "看護助手に有利な資格取得完全ガイド｜優先順位と取得戦略",
+      "slug": "nursing-assistant-qualification-guide",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 49,
+          "details": "現在形表現: 49回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.15",
+          "details": "漢字: 1381, ひらがな: 1202"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iImL",
+      "title": "看護助手面接対策マスター講座｜よくある質問と回答例",
+      "slug": "nursing-assistant-interview-prep",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.75",
+          "details": "漢字: 905, ひらがな: 1203"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "OPoS2nHFE7kiEoiY47iMX8",
+      "title": "2024年診療報酬改定｜看護助手の業務範囲拡大が与える影響",
+      "slug": "nursing-assistant-fee-revision-impact",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 36,
+          "details": "現在形表現: 36回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 1
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.16",
+          "details": "漢字: 1026, ひらがな: 886"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUIE",
+      "title": "看護助手の仕事内容を一日スケジュールで紹介",
+      "slug": "nursing-assistant-daily-schedule-introduction",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 43,
+          "details": "現在形表現: 43回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.04",
+          "details": "漢字: 984, ひらがな: 947"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUW5M",
+      "title": "看護助手を辞めたいとき上手な退職理由の伝え方",
+      "slug": "nursing-assistant-resignation-advice-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 38,
+          "details": "現在形表現: 38回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.90",
+          "details": "漢字: 1027, ひらがな: 1144"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUWM8",
+      "title": "看護助手を辞めずに続けるための工夫",
+      "slug": "nursing-assistant-resignation-advice-long",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 57,
+          "details": "現在形表現: 57回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.63",
+          "details": "漢字: 1110, ひらがな: 1754"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUWSQ",
+      "title": "看護助手の夜勤はきつい？一晩の流れを紹介",
+      "slug": "nursing-assistant-night-shift-hard",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.98",
+          "details": "漢字: 917, ひらがな: 932"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUWYi",
+      "title": "夜勤専従看護助手のメリットとデメリット",
+      "slug": "nursing-assistant-night-shift",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 52,
+          "details": "現在形表現: 52回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.87",
+          "details": "漢字: 1368, ひらがな: 1568"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUWjC",
+      "title": "看護助手のシフト勤務はどのくらい大変？",
+      "slug": "nursing-assistant-shift-work-difficultys",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 38,
+          "details": "現在形表現: 38回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.94",
+          "details": "漢字: 947, ひらがな: 1009"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUZ0",
+      "title": "看護助手の平均給料はいくら？最新データまとめ",
+      "slug": "nursing-assistant-average-salary-data",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 52,
+          "details": "現在形表現: 52回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.05",
+          "details": "漢字: 1173, ひらがな: 1115"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUcEy",
+      "title": "看護助手のストレス解消法ベスト5",
+      "slug": "nursing-assistant-stress-relief",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 1,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.70",
+          "details": "漢字: 1016, ひらがな: 1443"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUce8",
+      "title": "看護助手と看護師の仕事の違いを徹底比較",
+      "slug": "nursing-assistant-market-info",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.09",
+          "details": "漢字: 1039, ひらがな: 954"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUckQ",
+      "title": "看護助手はどこまでできる？看護師との役割分担",
+      "slug": "nursing-assistant-job-role-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 80,
+          "details": "現在形表現: 80回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.08",
+          "details": "漢字: 1561, ひらがな: 1446"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUd5O",
+      "title": "看護助手からキャリアアップする方法",
+      "slug": "nursing-assistant-career-change-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 2
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.10",
+          "details": "漢字: 1084, ひらがな: 982"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUdMA",
+      "title": "看護助手のキャリアアップにおすすめ資格5選",
+      "slug": "nursing-assistant-recommended-qualifications",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 3回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 35,
+          "details": "現在形表現: 35回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 1
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.21",
+          "details": "漢字: 1146, ひらがな: 948"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUg1o",
+      "title": "夜勤看護助手の24時間スケジュール",
+      "slug": "nursing-assistant-night-shift-daily",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.10",
+          "details": "漢字: 966, ひらがな: 875"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUgbS",
+      "title": "看護助手の夜勤明けの過ごし方",
+      "slug": "nursing-assistant-night-shift-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 54,
+          "details": "現在形表現: 54回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.75",
+          "details": "漢字: 1051, ひらがな: 1406"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUjU",
+      "title": "看護助手のボーナス事情｜もらえる病院・もらえない病院",
+      "slug": "nursing-assistant-bonus-situation",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 1
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.90",
+          "details": "漢字: 1339, ひらがな: 1484"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUq8k",
+      "title": "外来と病棟で異なる看護助手の仕事内容",
+      "slug": "nursing-assistant-outpatient-inpatient-differences",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 40,
+          "details": "現在形表現: 40回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.10",
+          "details": "漢字: 959, ひらがな: 868"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUw4",
+      "title": "看護助手に資格は必要？未経験でも働ける？",
+      "slug": "nursing-assistant-qualifications-needed",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 41,
+          "details": "現在形表現: 41回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.82",
+          "details": "漢字: 845, ひらがな: 1028"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUxTk",
+      "title": "パート勤務の看護助手、一日の流れを紹介",
+      "slug": "nursing-assistant-part-time-day",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 39,
+          "details": "現在形表現: 39回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.82",
+          "details": "漢字: 786, ひらがな: 958"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUVJ8",
+      "title": "看護助手の面接で服装やマナーはどうすればいい？",
+      "slug": "nursing-assistant-interview-attire-manners",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.67",
+          "details": "漢字: 685, ひらがな: 1025"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUVc0",
+      "title": "看護助手の仕事を辞めたくなる瞬間とは？",
+      "slug": "nursing-assistant-resignation-advice",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 46,
+          "details": "現在形表現: 46回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.88",
+          "details": "漢字: 1031, ひらがな: 1165"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUViI",
+      "title": "看護助手を辞める前に考えるべきこと",
+      "slug": "nursing-assistant-before-quitting-considerations",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 1,
+            "career": 2,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.80",
+          "details": "漢字: 1431, ひらがな: 1786"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUVqg",
+      "title": "看護助手から介護職へ転職する人が多い理由",
+      "slug": "nursing-assistant-career-change-journey",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 3回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 66,
+          "details": "現在形表現: 66回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.09",
+          "details": "漢字: 1541, ひらがな: 1411"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUXGk",
+      "title": "夜勤に向いている人・向いていない人の特徴",
+      "slug": "nursing-assistant-night-shift-suitability",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 0,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.78",
+          "details": "漢字: 1269, ひらがな: 1636"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUXP8",
+      "title": "看護助手の夜勤後の疲労回復法5選",
+      "slug": "nursing-assistant-night-shift-recovery",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 64,
+          "details": "現在形表現: 64回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 1,
+            "career": 1,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.73",
+          "details": "漢字: 983, ひらがな: 1341"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUXVQ",
+      "title": "夜勤看護助手のリアル体験談",
+      "slug": "nursing-assistant-night-shift-experiences",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 59,
+          "details": "現在形表現: 59回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.65",
+          "details": "漢字: 852, ひらがな: 1305"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUXdo",
+      "title": "看護助手が抱える人間関係の悩みとは",
+      "slug": "nursing-assistant-relationship-problems",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.73",
+          "details": "漢字: 1057, ひらがな: 1439"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUXk6",
+      "title": "看護師と看護助手の関係がうまくいかないときの対処法",
+      "slug": "nursing-assistant-deal-with-nurses",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 79,
+          "details": "現在形表現: 79回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.64",
+          "details": "漢字: 1184, ひらがな: 1849"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUZfc",
+      "title": "看護助手同士の人間関係で気をつけたいこと",
+      "slug": "nursing-assistant-colleague-relationships",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 3,
+          "details": "「わたし」: 3回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 61,
+          "details": "現在形表現: 61回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.61",
+          "details": "漢字: 1068, ひらがな: 1759"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUrFw",
+      "title": "看護助手の資格勉強は独学でも大丈夫？",
+      "slug": "nursing-assistant-self-study-qualifications",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 45,
+          "details": "現在形表現: 45回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.96",
+          "details": "漢字: 1041, ひらがな: 1080"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUsAY",
+      "title": "看護助手から一般企業に転職できる？",
+      "slug": "nursing-assistant-career-change-support",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 33,
+          "details": "現在形表現: 33回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.78",
+          "details": "漢字: 792, ひらがな: 1009"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUsN8",
+      "title": "看護助手の夜勤でよくあるトラブルと対処法",
+      "slug": "nursing-assistant-night-shift-troubles",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 55,
+          "details": "現在形表現: 55回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.85",
+          "details": "漢字: 1057, ひらがな: 1244"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUsg0",
+      "title": "職場の人間関係が悪化したときの対処法",
+      "slug": "nursing-assistant-worsening-relationships",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 69,
+          "details": "現在形表現: 69回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.79",
+          "details": "漢字: 1668, ひらがな: 2123"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "b609d999-2c61-4ff4-8e80-d04e8cc01632",
+      "title": "点滴ルートの基礎知識と患者安全を守る観察ポイント",
+      "slug": "nursing-assistant-patient-safety-key",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 12,
+          "details": "「わたし」: 12回, 「われ」: 5回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 4,
+          "details": "感嘆符: 4個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 95,
+          "details": "現在形表現: 95回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.55",
+          "details": "漢字: 1248, ひらがな: 2251"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "ba770e9c-61e1-4923-8f07-5a709fdf0ba0",
+      "title": "看護助手の経験とは？未経験からベテランまで着実に成長する実践ガイド",
+      "slug": "nursing-assistant-no-experience",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 9,
+          "details": "「わたし」: 9回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 2,
+          "details": "感嘆符: 2個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 69,
+          "details": "現在形表現: 69回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.52",
+          "details": "漢字: 959, ひらがな: 1862"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "d4635e08-d05d-4276-8ad9-7925304e27db",
+      "title": "看護助手の未来は暗くない｜経験を強みに変えるキャリア選択",
+      "slug": "nursing-assistant-career-change-recommended",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 10,
+          "details": "「わたし」: 10回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 6,
+          "details": "感嘆符: 6個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 71,
+          "details": "現在形表現: 71回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.73",
+          "details": "漢字: 1237, ひらがな: 1696"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "d622fa70-3f55-4e0f-a34f-07f31cdaea0f",
+      "title": "「指示が怖い…」をなくす！看護助手のあなたへ、スムーズな指示受けのコツ",
+      "slug": "nursing-assistant-practical-tips-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 13,
+          "details": "「わたし」: 13回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 2,
+          "details": "感嘆符: 2個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 70,
+          "details": "現在形表現: 70回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.53",
+          "details": "漢字: 961, ひらがな: 1802"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "e790ec3e-88d6-429f-8f21-f6640995e5d7",
+      "title": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説",
+      "slug": "nursing-assistant-night-shift-journey",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 6,
+          "details": "「わたし」: 6回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 3,
+          "details": "感嘆符: 3個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 81,
+          "details": "現在形表現: 81回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.60",
+          "details": "漢字: 1042, ひらがな: 1740"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "fc67aa26-02eb-4655-8af7-b904d6c1c01e",
+      "title": "看護助手の転職サービス３社を “看護助手の視点だけ” で比較",
+      "slug": "nursing-assistant-compare-services-perspective",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 61,
+          "details": "現在形表現: 61回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.90",
+          "details": "漢字: 1565, ひらがな: 1737"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "hY1KZnhsaIM4Q2Zu70m37s",
+      "title": "看護助手の夜勤・交代制勤務を乗り切る5つのコツ",
+      "slug": "nursing-assistant-night-shift-practical",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 54,
+          "details": "現在形表現: 54回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.81",
+          "details": "漢字: 1026, ひらがな: 1261"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvIlrZ",
+      "title": "看護助手に向いている人の特徴5選｜性格や適性を徹底分析",
+      "slug": "nursing-assistant-suitable-person-characteristics",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 56,
+          "details": "現在形表現: 56回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.86",
+          "details": "漢字: 1354, ひらがな: 1583"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvIm8s",
+      "title": "患者移送の安全技術｜ストレッチャー・車椅子の正しい使い方",
+      "slug": "nursing-assistant-patient-transfer-safety",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 75,
+          "details": "現在形表現: 75回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.84",
+          "details": "漢字: 1050, ひらがな: 1255"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImAf",
+      "title": "バイタルサイン測定の補助｜正確な測定をサポートする技術",
+      "slug": "nursing-assistant-vital-signs-support",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.09",
+          "details": "漢字: 1129, ひらがな: 1036"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImgt",
+      "title": "病院・クリニック・介護施設比較ガイド｜あなたに合う職場は？",
+      "slug": "nursing-assistant-workplace-comparison",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 24,
+          "details": "現在形表現: 24回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.08",
+          "details": "漢字: 973, ひらがな: 898"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImrd",
+      "title": "AI技術導入が看護助手業務に与える変化｜最新医療技術トレンド",
+      "slug": "nursing-assistant-job-role-journey",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 3,
+          "details": "「わたし」: 3回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 3,
+          "details": "感嘆符: 3個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 49,
+          "details": "現在形表現: 49回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 1,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.81",
+          "details": "漢字: 839, ひらがな: 1032"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvImvD",
+      "title": "電子カルテシステム統一化｜看護助手の記録業務変更点",
+      "slug": "nursing-assistant-emr-system-changes",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 2,
+            "career": 1,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.89",
+          "details": "漢字: 1004, ひらがな: 1131"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvInMf",
+      "title": "医療現場における働き方改革推進｜看護助手の勤務環境改善事例",
+      "slug": "nursing-assistant-work-reform-examples",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 3,
+          "details": "感嘆符: 3個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.97",
+          "details": "漢字: 1066, ひらがな: 1104"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "kWkIvI7T6XFbABGiW9XvFR",
+      "title": "看護助手の年収を上げるための方法3選",
+      "slug": "nursing-assistant-increase-annual-income",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 43,
+          "details": "現在形表現: 43回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.04",
+          "details": "漢字: 1282, ひらがな: 1232"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "kWkIvI7T6XFbABGiW9Xvc6",
+      "title": "看護助手の給料が低い理由を徹底解説",
+      "slug": "nursing-assistant-low-salary-reasons",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 1
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.07",
+          "details": "漢字: 1264, ひらがな: 1177"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "kWkIvI7T6XFbABGiW9Xwi5",
+      "title": "看護助手と介護職員初任者研修の違い",
+      "slug": "nursing-assistant-care-guide-plan",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 38,
+          "details": "現在形表現: 38回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.17",
+          "details": "漢字: 1055, ひらがな: 898"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "kWkIvI7T6XFbABGiW9XxMs",
+      "title": "面接で「体力に自信あります」をアピールする言い方",
+      "slug": "nursing-assistant-appeal-physical-strength",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 68,
+          "details": "現在形表現: 68回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.77",
+          "details": "漢字: 1202, ひらがな: 1552"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "kWkIvI7T6XFbABGiW9Xxsb",
+      "title": "看護助手から看護学校へ進学するキャリアパス",
+      "slug": "nursing-assistant-career-change-school",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 33,
+          "details": "現在形表現: 33回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.81",
+          "details": "漢字: 892, ひらがな: 1107"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "t7xQcdMSFrV4JI779kPSQq",
+      "title": "精神科で働く看護助手のリアル｜外科勤務の友人が聞いた5つの工夫",
+      "slug": "nursing-assistant-mental-care-support",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 2,
+          "details": "「わたし」: 2回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": false,
+          "count": 1,
+          "details": "感嘆符: 1個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 48,
+          "details": "現在形表現: 48回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.72",
+          "details": "漢字: 1045, ひらがな: 1455"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "感嘆符（！）を削除してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "xTfm06TmDEW5bLJjXjBzkL",
+      "title": "看護助手・看護補助者・介護助手・ナースエイドの違いを整理",
+      "slug": "nursing-assistant-terminology-guide",
+      "checks": {
+        "firstPerson": {
+          "pass": false,
+          "count": 0,
+          "details": "「わたし」: 0回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 36,
+          "details": "現在形表現: 36回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.27",
+          "details": "漢字: 1028, ひらがな: 810"
+        }
+      },
+      "score": 60,
+      "suggestions": [
+        "一人称「わたし」を使用してください",
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "0674c4f8-605b-42bb-9b33-b7652ececbce",
+      "title": "看護助手の円満退職完全ガイド｜同僚への伝え方から有給消化まで",
+      "slug": "nursing-assistant-resignation-advice-workplace",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 6,
+          "details": "「わたし」: 6回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 64,
+          "details": "現在形表現: 64回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.57",
+          "details": "漢字: 1030, ひらがな: 1808"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "577431d4-a38e-40be-895d-02aed4de68ea",
+      "title": "外来で役立つコミュニケーション術とスムーズな業務進行のコツ",
+      "slug": "nursing-assistant-job-role-patient",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 57,
+          "details": "現在形表現: 57回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.72",
+          "details": "漢字: 1018, ひらがな: 1418"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "73924fd4-b938-4911-aadf-9549d306ef08",
+      "title": "心に寄り添う看護助手のあなたへ：精神的な負担を軽くするヒント",
+      "slug": "nursing-assistant-mental-care-insights",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 9,
+          "details": "「わたし」: 9回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.57",
+          "details": "漢字: 661, ひらがな: 1163"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "7bca3dbb-39b4-48fc-99d9-b23619f9524d",
+      "title": "看護助手として精神的に安定してやりがいを感じ続ける方法",
+      "slug": "nursing-assistant-mental-care-compass",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 3,
+          "details": "「わたし」: 3回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 37,
+          "details": "現在形表現: 37回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.71",
+          "details": "漢字: 797, ひらがな: 1128"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "9d8dddf8-d2b7-480c-92b6-4c1725837885",
+      "title": "日々のケアが自信に変わる｜看護助手としてブランドを築く方法",
+      "slug": "nursing-assistant-care-guide",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 13,
+          "details": "「わたし」: 13回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 61,
+          "details": "現在形表現: 61回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 1,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.55",
+          "details": "漢字: 960, ひらがな: 1745"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "9f6xTbJiqM1HBxBrXolcZm",
+      "title": "看護助手におすすめのシューズ7選｜現場で本当に使える靴の選び方",
+      "slug": "nursing-assistant-recommended-shoes",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 68,
+          "details": "現在形表現: 68回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.65",
+          "details": "漢字: 656, ひらがな: 1005"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0Bl",
+      "title": "看護助手ができる仕事・できない仕事の境界線",
+      "slug": "nursing-assistant-duties-scope",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 2回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 73,
+          "details": "現在形表現: 73回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.06",
+          "details": "漢字: 1576, ひらがな: 1486"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN0sj",
+      "title": "未経験から病院に採用されやすい看護助手志望動機例",
+      "slug": "nursing-assistant-motivation-letter-examples",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 50,
+          "details": "現在形表現: 50回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.81",
+          "details": "漢字: 1261, ひらがな: 1558"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3RT",
+      "title": "看護助手の面接でよく聞かれる質問と回答例",
+      "slug": "nursing-assistant-interview-questions-answers",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 110,
+          "details": "現在形表現: 110回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.75",
+          "details": "漢字: 1791, ひらがな: 2377"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XN3V3",
+      "title": "未経験でも通る看護助手の志望動機例文",
+      "slug": "nursing-assistant-motivation-letter-samples",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.83",
+          "details": "漢字: 1370, ひらがな: 1648"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNARv",
+      "title": "看護助手から看護師へ転職したら年収はどれくらい増える？",
+      "slug": "nursing-assistant-salary-increase-nurse",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 3,
+          "details": "「わたし」: 3回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 35,
+          "details": "現在形表現: 35回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 2,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 3,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.31",
+          "details": "漢字: 1137, ひらがな: 870"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "G2Y6JXdwXQRnotb29XNB5J",
+      "title": "看護助手のストレス原因ランキング",
+      "slug": "nursing-assistant-stress-ranking",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 43,
+          "details": "現在形表現: 43回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.66",
+          "details": "漢字: 787, ひらがな: 1185"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "SzUxrrzdcuBDmahbHkaQ1w",
+      "title": "奨学金の金利が上がる時代に看護学校へ進むなら",
+      "slug": "nursing-scholarship-interest-risk",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 2,
+          "details": "「わたし」: 2回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 30,
+          "details": "現在形表現: 30回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 5
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.95",
+          "details": "漢字: 735, ひらがな: 772"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUVAk",
+      "title": "家庭と両立を志望動機にするのはアリ？",
+      "slug": "nursing-assistant-motivation-points-work",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 49,
+          "details": "現在形表現: 49回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 2,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.80",
+          "details": "漢字: 1091, ひらがな: 1359"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUbpo",
+      "title": "上司・看護師との関係を良くするコツ",
+      "slug": "nursing-assistant-practical-tips",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 51,
+          "details": "現在形表現: 51回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.73",
+          "details": "漢字: 904, ひらがな: 1239"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUdBg",
+      "title": "看護助手から医療事務へキャリアチェンジ",
+      "slug": "nursing-assistant-career-change-medical",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 30,
+          "details": "現在形表現: 30回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.04",
+          "details": "漢字: 940, ひらがな: 902"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUUglw",
+      "title": "看護助手の1日を新人目線で語るブログ記事",
+      "slug": "nursing-assistant-care-guide-practice",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 35,
+          "details": "現在形表現: 35回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.92",
+          "details": "漢字: 865, ひらがな: 941"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "VcGv9zZ6obDRZ14YHcUVPQ",
+      "title": "看護助手志望動機の書き方テンプレート",
+      "slug": "nursing-assistant-motivation-letter-template",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 3,
+          "details": "「わたし」: 3回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 39,
+          "details": "現在形表現: 39回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 2
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.91",
+          "details": "漢字: 898, ひらがな: 987"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "ZE7QmCeFX71vdTcaMiixsx",
+      "title": "「看護助手 底辺」と見かけたときの胸のざわつきについて",
+      "slug": "nursing-assistant-bottom-myth",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 4回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 33,
+          "details": "現在形表現: 33回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.84",
+          "details": "漢字: 840, ひらがな: 1002"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "a6a2d243-1cb5-4271-898c-658064bc540e",
+      "title": "看護助手が辞めたいと思ったら？退職の選択肢とサービス比較",
+      "slug": "nursing-assistant-quit-retirement",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 34,
+          "details": "現在形表現: 34回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 2,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 2,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "1.13",
+          "details": "漢字: 1321, ひらがな: 1167"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "a8040eda-f1c6-46cc-ac5a-0d798849ed93",
+      "title": "看護助手が抱えがちな悩みと相談事例｜人間関係・技術・キャリアアップ",
+      "slug": "nursing-assistant-career-change-experience",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 5,
+          "details": "「わたし」: 5回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 60,
+          "details": "現在形表現: 60回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 4,
+            "values": 0
+          },
+          "total": 4
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.74",
+          "details": "漢字: 1043, ひらがな: 1413"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "eoyatUTbLd8F0LmbB7IPUx",
+      "title": "看護助手の持ち物チェックリスト｜初出勤・日勤・夜勤で必要な道具",
+      "slug": "nursing-assistant-essentials-checklist",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 2,
+          "details": "「わたし」: 2回, 「われ」: 1回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 53,
+          "details": "現在形表現: 53回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 1,
+            "hobbies": 1,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 3
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.71",
+          "details": "漢字: 1005, ひらがな: 1407"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    },
+    {
+      "articleId": "k3FMiqj9KhfIHCxGVvInAj",
+      "title": "最新感染対策ガイドライン2024｜看護助手が知るべき変更点",
+      "slug": "nursing-assistant-care-guide-navigator",
+      "checks": {
+        "firstPerson": {
+          "pass": true,
+          "count": 1,
+          "details": "「わたし」: 1回, 「われ」: 0回, 「ぼく」: 0回"
+        },
+        "noExclamation": {
+          "pass": true,
+          "count": 0,
+          "details": "感嘆符: 0個"
+        },
+        "currentTense": {
+          "pass": true,
+          "count": 42,
+          "details": "現在形表現: 42回"
+        },
+        "personalElements": {
+          "pass": true,
+          "details": {
+            "family": 0,
+            "hobbies": 0,
+            "technology": 0,
+            "career": 1,
+            "values": 0
+          },
+          "total": 1
+        },
+        "kanjiHiraganaRatio": {
+          "pass": false,
+          "ratio": "0.89",
+          "details": "漢字: 855, ひらがな: 957"
+        }
+      },
+      "score": 80,
+      "suggestions": [
+        "漢字が多すぎます。ひらがなを増やしてください（目標: 3:7）"
+      ]
+    }
+  ]
+}

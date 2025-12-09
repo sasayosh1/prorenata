@@ -1,0 +1,877 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-06T11:47:57.318Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "SzUxrrzdcuBDmahbHkaQ1w",
+    "articleTitle": "奨学金の金利が上がる時代に看護学校へ進むなら",
+    "articleSlug": "nursing-scholarship-interest-risk"
+  },
+  "document": {
+    "_createdAt": "2025-11-23T01:36:56Z",
+    "_id": "SzUxrrzdcuBDmahbHkaQ1w",
+    "_rev": "mYBnIMFQ449l0WiRFwUPQC",
+    "_system": {
+      "base": {
+        "id": "SzUxrrzdcuBDmahbHkaQ1w",
+        "rev": "SzUxrrzdcuBDmahbHqK7iK"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-05T01:54:53Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "65e16de7-a0ff-4893-8c23-2f98f275fe20",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "36dacf8b-6b65-4929-b84b-cf551412cab2",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師を目指したい。でも奨学金の金利が上がり始めた今、将来の自分にどんな負担が残るのか不安に感じている…そんな声をたくさん耳にします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e36076ea3ae7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "36dacf8b-6b65-4929-b84b-cf551412cab2",
+            "_type": "span",
+            "marks": [],
+            "text": "わたしも同じ悩みを抱えたことがあるので、一緒に整理していきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "164c0b44-5226-4c46-8886-00f9d54d547b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "29a6d009-6611-41c6-920b-121ced915354",
+            "_type": "span",
+            "marks": [],
+            "text": "金利が読めない時代に奨学金を借りる不安"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "c734f0dc-46b8-40d6-a198-a4e69799eae8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f12dcd6b-aab2-4b13-8de9-4d4b2b732443",
+            "_type": "span",
+            "marks": [],
+            "text": "ゼロ金利が続いた令和元年と、足元の令和７年では奨学金を取り巻く環境が大きく変わりました。日本学生支援機構（JASSO）の第二種奨学金は在学中に利率が確定せず、卒業時点の市場金利で決まります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fca9034a348b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f12dcd6b-aab2-4b13-8de9-4d4b2b732443",
+            "_type": "span",
+            "marks": [],
+            "text": "つまり、いま借りている段階では返済額がどのくらい膨らむのか誰にも分かりません。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2d99f0627187",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4cc974604b5c",
+            "_type": "span",
+            "marks": [],
+            "text": "金利の動き"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7fefe36f45c9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f94f9a7880a4",
+            "_type": "span",
+            "marks": [],
+            "text": "以下の表は、令和元年度〜令和７年度までの７年間の金利の変化を表にしたものです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bbf5af240dd9",
+        "_type": "image",
+        "alt": "令和元年度：独立行政法人日本学生支援機構「第二種奨学金（貸与型）利率一覧」",
+        "asset": {
+          "_key": "500b227e83ac4a93a9f5d9cc6f38084d",
+          "_ref": "image-ab2c23d088f032eeb80c17d00ea0a27524d00ad2-1810x668-png",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "e8384a091fcd",
+        "_type": "image",
+        "alt": "令和７年度：独立行政法人日本学生支援機構「第二種奨学金（貸与型）利率一覧」",
+        "asset": {
+          "_key": "2b0ff4eee7be40ad9bec95c4a52a1db2",
+          "_ref": "image-418f67e944a52726ee31e883bfbb2472e54d4564-1806x664-png",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "b4630bd9-be51-4356-8cfa-599c263c7154",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5c8b6e29-0029-4836-9635-7a22c316f384",
+            "_type": "span",
+            "marks": [],
+            "text": "令和元年4月時点の固定方式は0.153%、変動方式は0.002%。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa8c0e6e-1d31-48a3-841e-98956a838dc2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0667fbea-d5b3-4045-9b93-e8f5e6dc70d0",
+            "_type": "span",
+            "marks": [],
+            "text": "令和7年10月時点では固定2.012%、変動1.300%"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "64b9d0eda774",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0667fbea-d5b3-4045-9b93-e8f5e6dc70d0",
+            "_type": "span",
+            "marks": [],
+            "text": "という風に大幅に上昇しています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e2c132b9314c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6a4ab898bf33",
+            "_type": "span",
+            "marks": [],
+            "text": "固定金利で借りていた場合、0.153%→2.012%に上昇。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8f23d748898c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6a4ab898bf33",
+            "_type": "span",
+            "marks": [],
+            "text": "変動金利で借りていた場合、0.002%→1.300%に上昇。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ac0aa2b8-fdc7-46ec-8583-9e0a493abfd8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4e173557-ac82-4691-b60f-0f3885b0aa72",
+            "_type": "span",
+            "marks": [],
+            "text": "数字だけ見ると怖く感じますが、固定金利を選ぶ、ボーナス月に繰上げ返済をするなど、リスクを抑える方法は必ずあります。まずは「金利が動く」という事実を知っておくことが、後から慌てない第一歩です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a3c20cc8-1e04-4db4-a730-5faa90caae30",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5981b90-4836-45c9-aee3-b4ba85031d8a",
+            "_type": "span",
+            "marks": [],
+            "text": "参考資料："
+          },
+          {
+            "_key": "36112c5efef7",
+            "_type": "span",
+            "marks": [
+              "5b6e0436ba15"
+            ],
+            "text": "独立行政法人日本学生支援機構「第二種奨学金（貸与型）利率一覧」"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "5b6e0436ba15",
+            "_type": "link",
+            "href": "https://www.jasso.go.jp/shogakukin/about/taiyo/taiyo_2shu/riritsu/2007ikou.html",
+            "openInNewTab": true
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "790b85ee712f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "34c64228e643",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d89b8b37-9d62-48f0-bbbe-e5fc4103a371",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a20060ce-355b-4878-b09e-d8c7fb9422f0",
+            "_type": "span",
+            "marks": [],
+            "text": "奨学金利用の実態と看護学生が直面する現実"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "9d30de2d-c2d9-44b2-ab2f-9a31ec1eef36",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f780f80f-9e6b-44f3-a990-9941fe9e45d6",
+            "_type": "span",
+            "marks": [],
+            "text": "看護学校へ進む学生の過半数は、何らかの奨学金に頼っています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6bff06614b38",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f780f80f-9e6b-44f3-a990-9941fe9e45d6",
+            "_type": "span",
+            "marks": [],
+            "text": "JASSOの令和4年度調査では大学生の55%が奨学金を受給し、平均借入総額は313万円。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "565d269c96e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f780f80f-9e6b-44f3-a990-9941fe9e45d6",
+            "_type": "span",
+            "marks": [],
+            "text": "給付型27%、貸与型73%と、多くの人が返済義務のあるローンを抱えて社会に出ているのが現実です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "469dda09-3616-4905-b9ec-41e853910119",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "67b45a16-b879-4ce2-bea4-8c0a9c746742",
+            "_type": "span",
+            "marks": [],
+            "text": "返済平均年数は15年。22歳で就職しても完済は37歳前後。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "135eadec-c9b2-49d7-8bfb-675177d019df",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bc63bfd8-dc78-4021-b517-4c58043f4a94",
+            "_type": "span",
+            "marks": [],
+            "text": "延滞者は2.7%で13万人以上。医療・介護の初任給では「返済が重い」と感じやすい。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5c4eb4f2-e0b6-4bb4-98fd-548b9fb9b3d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "756ad678-29fc-450f-969d-c3a64424691b",
+            "_type": "span",
+            "marks": [],
+            "text": "それでも看護師という国家資格を得れば、夜勤手当の高い病棟へ転職したり訪問看護で経験を積んだり、年収を上げるチャンスはいくらでもあります。借りたあとのキャリア設計まで意識しておけると心の余裕が生まれます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ad56ded5fdef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a7c8bc0d4953",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7b6aefae-4eac-4d5e-b176-b5c0ea4eca6a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6d914562-8298-44db-90fa-4e8e5342c93d",
+            "_type": "span",
+            "marks": [],
+            "text": "奨学金の借り方・返し方をどう設計するか"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "d36a1df3-a266-4cdd-b212-9ccbfbe17198",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5cf318d5-5fa4-4516-b0b3-959ce822df61",
+            "_type": "span",
+            "marks": [],
+            "text": "「借りる→卒業→返す」の流れを早い段階でイメージできると、卒業後の生活がぐっと楽になります。よく相談でお伝えしている４つのステップをまとめました。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1dfb9ba5-354c-49b5-a2e9-a0493640c09c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b537a84d-08d4-4904-992c-ba70cb3a2495",
+            "_type": "span",
+            "marks": [],
+            "text": "給付型・無利子枠を徹底的に探す。自治体や病院の奨学金は、指定施設に就職すれば返済免除になるケースも。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8dc85be9-f698-43d2-8488-c58d1af0f4f8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e38329be-ad9a-4494-a491-7042d0b33b1d",
+            "_type": "span",
+            "marks": [],
+            "text": "貸与型を選ぶなら固定金利＋繰上げ返済を前提にし、卒業後の初任給で無理なく返せる額をシミュレーション。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "defc02ae-252c-435d-a1d4-89688cd09180",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f99602c6-0df9-4884-afeb-3fd72f9f5916",
+            "_type": "span",
+            "marks": [],
+            "text": "在学中から家計管理を習慣化し、短期の夜勤専従などで「返済資金」を意識する。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "416670ce-517e-46af-b1a7-87617e47fe69",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5ed0531-3979-4e23-a9dc-82309515ce85",
+            "_type": "span",
+            "marks": [],
+            "text": "JASSOの返還シミュレーターや相談窓口で、金利の決まり方や返済猶予の条件を正しく把握する。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4c1084fc-a49e-41b7-bced-6ba96ff1a2c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7deb2d7d-1189-4e8a-befa-d9af58dd43bc",
+            "_type": "span",
+            "marks": [],
+            "text": "この４ステップをノートに書き出しておくだけでも、不安が「やることリスト」に変わります。卒業後に慌てないよう、今のうちに準備しておきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5dadb2e2ddaf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6ff6d0410d61",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2ff69bff-3336-4930-9ac3-9f94d3b9c2b4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "05afa129-4450-422a-a572-a4098f9a88aa",
+            "_type": "span",
+            "marks": [],
+            "text": "奨学金を重荷で終わらせないキャリア設計"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "3bdc2db2-9c1a-46f9-8f5b-5e4f14858fa1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "46601bfc-e5b7-4880-9b7b-0148c8140f12",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師免許を取得した後こそ、本当のスタートだと思います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f70dcbe0c7fa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "46601bfc-e5b7-4880-9b7b-0148c8140f12",
+            "_type": "span",
+            "marks": [],
+            "text": "夜勤手当の高い病棟へ転職する"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "97b5375e010d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "46601bfc-e5b7-4880-9b7b-0148c8140f12",
+            "_type": "span",
+            "marks": [],
+            "text": "訪問看護や企業看護師としてスキルを磨く"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "03de7181f755",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "46601bfc-e5b7-4880-9b7b-0148c8140f12",
+            "_type": "span",
+            "marks": [],
+            "text": "専門看護師や認定看護師を目指す"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ca6c9da4c608",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "46601bfc-e5b7-4880-9b7b-0148c8140f12",
+            "_type": "span",
+            "marks": [],
+            "text": "こうしたキャリアアップは奨学金返済を大幅に前倒しする力になるでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "51159043-8e22-4113-a4bc-ea90599670c2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f57691b6-a328-4902-a0c7-6f077030671a",
+            "_type": "span",
+            "marks": [],
+            "text": "返済が終わる頃にはキャリアの選択肢もきっと広がっています。「借りたから終わり」ではなく、「返しながら成長する」視点を持ち続けたいです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "861fee6a2cd7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d79b75266a8",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d85e8d9a-4e47-4c20-a163-f9c77a987c67",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a2d349a2-dc28-4b97-926d-db79873af1d2",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "21805459-6dd4-4ea8-a033-7f09200950ce",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac31e925-fab9-488f-b6eb-fdc7d9694bd9",
+            "_type": "span",
+            "marks": [],
+            "text": "金利が上がる時代でも、計画を立てれば看護師の夢は叶えられると思います。今週中に次の３つに取り組んでみませんか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cfa17179-2f0d-4725-8887-ba07c448e836",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "532818a6-3230-4b70-8511-38cef7e878ed",
+            "_type": "span",
+            "marks": [],
+            "text": "使えそうな奨学金・給付金の条件を一覧化する。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa74850f-6cca-4cc2-aabd-9b4b71b639b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "87060b3c-7357-4eeb-ac66-e911b167e1d4",
+            "_type": "span",
+            "marks": [],
+            "text": "JASSOの返還シミュレーターで「卒業後５年の残高」を試算する。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b4d24f26-cd1e-4cb8-8932-776044bcab73",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7406a115-83ee-494e-ae59-7f75d7219891",
+            "_type": "span",
+            "marks": [],
+            "text": "卒業後のキャリアプラン（働きたい領域や夜勤回数）を家族と共有する。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7a9f8993-43fe-48cf-ad2e-c2453c26a318",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe046aa6-952b-4617-b48c-3d01a3182149",
+            "_type": "span",
+            "marks": [],
+            "text": "現実を直視しながらも、前向きに準備すれば奨学金は未来への投資になります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9fd3decd9708",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe046aa6-952b-4617-b48c-3d01a3182149",
+            "_type": "span",
+            "marks": [],
+            "text": "わたしも看護助手として現場に立ちながら返済の重さを感じ、今はまだ一歩踏み出せないでいます。しかし将来の計画をシミュレーションしたことで、落ち着いて今に集中できているのも事実です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "12c48fb2062a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe046aa6-952b-4617-b48c-3d01a3182149",
+            "_type": "span",
+            "marks": [],
+            "text": "あのときしっかり考えておいてよかったと心から言えるように、あせらず計画を立てて進みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b8fa01b8c3204d17a6c43c40de335fc8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "af9f5e0202cb4f3b8f97f23260e5f2a7",
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "75312eaa97bb4976a7975ba111288870",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3e5d7d35c0e24693b5070ce012e87093",
+            "_type": "span",
+            "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "07c354582a604fe29239dbc780660859",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fbd5da19f681471daf339be0f3831a06",
+            "_type": "span",
+            "marks": [
+              "link-related-0"
+            ],
+            "text": "看護助手から看護師への最短ルート｜准看護師vs正看護師"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [
+          {
+            "_key": "link-related-0",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-care-guide-focus"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "3c4ab6c45a8a4bf0905e4802500423db",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c2769cb14724474fa840232734344778",
+            "_type": "span",
+            "marks": [
+              "link-related-1"
+            ],
+            "text": "看護助手の給料と生活費、実際やっていける？"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [
+          {
+            "_key": "link-related-1",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-salary-living-expenses"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "6ec7bd56cdae4233b349d7df4626a1a7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0beeba61ce8146e6b50d6098817a6e2c",
+            "_type": "span",
+            "marks": [
+              "link-related-2"
+            ],
+            "text": "看護助手の将来性を不安に思う人へのアドバイス"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [
+          {
+            "_key": "link-related-2",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-anxious-future-advice"
+          }
+        ],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "1a6660a57a70",
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "金利が上がる時代でも、計画を立てれば看護師の夢は叶います。奨学金の仕組み、借り方と返し方、キャリア設計を看護助手の視点で整理しました。",
+    "mainImage": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-189c1dfce1daad99f2b9893e6641d406e2dddf73-1024x576-png",
+        "_type": "reference"
+      }
+    },
+    "maintenanceLocked": true,
+    "metaDescription": "奨学金の金利が上がる今、それでも看護師を目指したい人へ。JASSO第二種の仕組みや固定・変動金利の違い、借入額と返済シミュレーション、奨学金を重荷にしないキャリア設計まで、看護学校進学前に知っておきたいポイントを解説します。不安を整理し一歩踏み出せます。",
+    "publishedAt": "2025-11-23T01:47:29.646Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-scholarship-interest-risk"
+    },
+    "tags": [
+      "奨学金",
+      "看護学校",
+      "金利",
+      "キャリア"
+    ],
+    "title": "奨学金の金利が上がる時代に看護学校へ進むなら",
+    "views": 3
+  }
+}
