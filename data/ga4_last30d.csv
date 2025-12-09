@@ -80,6 +80,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251206,/,mobile,Japan,2,1,30,0.5,94.52448700000001
 20251206,/search,desktop,Japan,2,2,2,1.0,6.1298145
 20251207,/,mobile,Japan,2,1,20,1.0,11.8319005
+20251208,/posts/nursing-assistant-detailed-daily-schedule,mobile,Japan,2,2,8,0.5,7.984593
 20251110,/,desktop,Japan,1,1,7,1.0,11.80411
 20251113,/about,desktop,Japan,1,1,1,1.0,2.953086
 20251113,/blog,desktop,Japan,1,1,1,1.0,21.217683
@@ -237,3 +238,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251207,/quiz,desktop,Japan,1,1,1,1.0,5.012232
 20251207,/quiz/rankings,desktop,Japan,1,1,1,1.0,40.532358
 20251207,/search,desktop,Japan,1,1,1,1.0,0.001554
+20251208,/,desktop,Japan,1,1,5,0.0,6.527258
+20251208,/posts,desktop,Japan,1,1,4,0.0,5.499761
+20251208,/posts/nursing-assistant-infection-control-handwashing,mobile,Japan,1,1,6,0.0,9.971724
+20251209,/posts/nursing-assistant-duties-scope,mobile,Japan,1,1,1,1.0,4.965629
+20251209,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,11,1.0,295.252176
