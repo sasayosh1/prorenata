@@ -41,6 +41,28 @@ async function optimizeAllArticles() {
             const articleChanges = []
             const textOf = block => (block.children || []).map(c => c.text || '').join('')
 
+            // リードで「この記事では」を改行して2段落に分ける
+            const firstNormalIndex = workingBody.findIndex(b => b.style === 'normal')
+            if (firstNormalIndex !== -1 && firstNormalIndex < (workingBody.findIndex(b => b.style === 'h2') || Infinity)) {
+                const block = workingBody[firstNormalIndex]
+                const original = textOf(block)
+                const replaced = original.replace(/(。?)(この記事では)/, '$1\n$2')
+                if (replaced !== original) {
+                    const parts = replaced.split('\n')
+                    const newChildren = []
+                    for (let i = 0; i < parts.length; i++) {
+                        if (i > 0) newChildren.push({ _type: 'span', text: '\n', marks: [] })
+                        newChildren.push({ _type: 'span', text: parts[i], marks: [] })
+                    }
+                    workingBody[firstNormalIndex] = {
+                        ...block,
+                        children: newChildren,
+                    }
+                    modified = true
+                    articleChanges.push('リードで「この記事では」を改行')
+                }
+            }
+
             // 0. 参考リンクをセクション末尾へ移動（リードやH2直下に置かない）
             let workingBody = [...article.body]
             const isRef = b => b.style === 'normal' && /参考[:：]/.test(textOf(b))
