@@ -284,7 +284,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   }
 
   const displayTitle = sanitizeTitle(post.title)
-  const structuredPost = { ...post, title: displayTitle, categories: categoryTitles }
+  const sanitizedExcerpt = post?.excerpt ? sanitizePersonaText(post.excerpt) : undefined
+  const structuredPost = { ...post, title: displayTitle, categories: categoryTitles, excerpt: sanitizedExcerpt }
   const categoryChipClass =
     "inline-flex items-center rounded-full border border-cyan-200 px-3 py-1 text-sm font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors duration-200"
   const tagChipClass =

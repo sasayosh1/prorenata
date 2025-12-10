@@ -13,6 +13,9 @@ export function sanitizeTitle(title: string): string {
     /^20代未経験でも安心[：:、\s-]*/i,
     /^20[歳才]の?現役?看護助手(が教える)?[：:、\s-]*/i,
     /^20[歳才]看護助手(が教える)?[：:、\s-]*/i,
+    /^看護助手セラが教える[：:、\s-]*/i,
+    /^セラが教える[：:、\s-]*/i,
+    /^わたしが教える[：:、\s-]*/i,
   ];
 
   for (const p of patterns) {
@@ -30,6 +33,10 @@ export function sanitizePersonaText(text: string): string {
     /20[歳才]の?現役?看護助手(が教える)?/gi,
     /20[歳才]看護助手(が教える)?/gi,
     /20代看護助手(が教える)?/gi,
+    /看護助手セラが教える/gi,
+    /セラが教える/gi,
+    /わたしが教える/gi,
+    /私が教える/gi,
   ];
 
   let result = text;
