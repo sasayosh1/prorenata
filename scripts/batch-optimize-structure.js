@@ -33,25 +33,52 @@ async function optimizeAllArticles() {
 
     let optimizedCount = 0
     let errorCount = 0
-    const changes = []
+            const changes = []
 
     for (const article of articles) {
         try {
             let modified = false
             const articleChanges = []
+            const textOf = block => (block.children || []).map(c => c.text || '').join('')
+
+            // 0. リード/H2直下の参考リンクを末尾（まとめ後）に移動
+            const refBlocks = []
+            let workingBody = [...article.body]
+
+            const firstH2Index = workingBody.findIndex(b => b.style === 'h2')
+            const isRef = b => b.style === 'normal' && /参考[:：]/.test(textOf(b))
+
+            const cleaned = []
+            workingBody.forEach((block, idx) => {
+                const prevIsHeading = idx > 0 && ['h1', 'h2', 'h3', 'h4'].includes(workingBody[idx - 1].style)
+                const beforeFirstH2 = firstH2Index === -1 ? true : idx < firstH2Index
+                if (isRef(block) && (beforeFirstH2 || prevIsHeading)) {
+                    refBlocks.push({
+                        _type: 'block',
+                        style: 'normal',
+                        children: block.children || [],
+                        markDefs: block.markDefs || [],
+                    })
+                    modified = true
+                    articleChanges.push('参考リンクを末尾へ移動')
+                } else {
+                    cleaned.push(block)
+                }
+            })
+            workingBody = cleaned
 
             // 1. 「あわせて読みたい」をH3に変更し、まとめの後に移動
-            const relatedIndex = article.body.findIndex(b =>
+            const relatedIndex = workingBody.findIndex(b =>
                 (b.style === 'h2' || b.style === 'h3') &&
                 b.children?.[0]?.text?.includes('あわせて読みたい')
             )
 
-            const summaryIndex = article.body.findIndex(b =>
+            const summaryIndex = workingBody.findIndex(b =>
                 b.style === 'h2' &&
                 b.children?.[0]?.text === 'まとめ'
             )
 
-            let newBody = [...article.body]
+            let newBody = [...workingBody]
 
             if (relatedIndex !== -1) {
                 const relatedBlock = newBody[relatedIndex]
@@ -94,6 +121,29 @@ async function optimizeAllArticles() {
                     // まとめの後に挿入
                     newBody.splice(summaryEnd, 0, ...relatedSection)
                 }
+            }
+
+            // 参考リンクをまとめ後に集約
+            if (refBlocks.length > 0) {
+                const summaryIdxNew = newBody.findIndex(b =>
+                    (b.style === 'h1' || b.style === 'h2' || b.style === 'h3') &&
+                    b.children?.[0]?.text === 'まとめ'
+                )
+
+                let insertPos = newBody.length
+                if (summaryIdxNew !== -1) {
+                    insertPos = summaryIdxNew + 1
+                    while (
+                        insertPos < newBody.length &&
+                        !['h1', 'h2', 'h3', 'h4'].includes(newBody[insertPos].style)
+                    ) {
+                        insertPos++
+                    }
+                }
+
+                newBody.splice(insertPos, 0, ...refBlocks)
+                modified = true
+                articleChanges.push(`参考リンク集約 (${refBlocks.length}件)`)
             }
 
             // 2. 長すぎる内部リンクを検出
