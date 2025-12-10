@@ -41,31 +41,71 @@ async function optimizeAllArticles() {
             const articleChanges = []
             const textOf = block => (block.children || []).map(c => c.text || '').join('')
 
-            // 0. リード/H2直下の参考リンクを末尾（まとめ後）に移動
-            const refBlocks = []
+            // 0. 参考リンクをセクション末尾へ移動（リードやH2直下に置かない）
             let workingBody = [...article.body]
-
-            const firstH2Index = workingBody.findIndex(b => b.style === 'h2')
             const isRef = b => b.style === 'normal' && /参考[:：]/.test(textOf(b))
 
-            const cleaned = []
-            workingBody.forEach((block, idx) => {
-                const prevIsHeading = idx > 0 && ['h1', 'h2', 'h3', 'h4'].includes(workingBody[idx - 1].style)
-                const beforeFirstH2 = firstH2Index === -1 ? true : idx < firstH2Index
-                if (isRef(block) && (beforeFirstH2 || prevIsHeading)) {
-                    refBlocks.push({
-                        _type: 'block',
-                        style: 'normal',
-                        children: block.children || [],
-                        markDefs: block.markDefs || [],
-                    })
-                    modified = true
-                    articleChanges.push('参考リンクを末尾へ移動')
-                } else {
-                    cleaned.push(block)
+            const headingIdx = workingBody
+                .map((b, i) => ({ b, i }))
+                .filter(x => ['h1', 'h2', 'h3', 'h4'].includes(x.b.style))
+                .map(x => x.i)
+            headingIdx.push(workingBody.length) // sentinel for last section
+
+            // リード直後の参考リンクをリード末尾に移動
+            const firstH2Index = workingBody.findIndex(b => b.style === 'h2')
+            if (firstH2Index !== -1) {
+                const refsToMove = []
+                const cleaned = []
+                workingBody.forEach((block, idx) => {
+                    const prevIsHeading = idx > 0 && ['h1', 'h2', 'h3', 'h4'].includes(workingBody[idx - 1].style)
+                    const beforeFirstH2 = idx < firstH2Index
+                    if (isRef(block) && (beforeFirstH2 || prevIsHeading)) {
+                        refsToMove.push({
+                            _type: 'block',
+                            style: 'normal',
+                            children: block.children || [],
+                            markDefs: block.markDefs || [],
+                        })
+                        modified = true
+                        articleChanges.push('リード直後の参考リンクを移動')
+                    } else {
+                        cleaned.push(block)
+                    }
+                })
+                workingBody = cleaned
+                if (refsToMove.length > 0) {
+                    workingBody.splice(firstH2Index, 0, ...refsToMove)
                 }
-            })
-            workingBody = cleaned
+            }
+
+            // セクション内にある参考リンクの位置を、そのセクションの末尾に再配置
+            const sectionRefsMoved = []
+            const headingsForSections = workingBody
+                .map((b, i) => ({ b, i }))
+                .filter(x => ['h1', 'h2', 'h3', 'h4'].includes(x.b.style))
+                .map(x => x.i)
+            if (headingsForSections.length === 0) {
+                // 見出しがない場合は全体を1セクションとして扱う
+                headingsForSections.push(0)
+            }
+            headingsForSections.push(workingBody.length)
+
+            for (let h = 0; h < headingsForSections.length - 1; h++) {
+                const start = headingsForSections[h]
+                const end = headingsForSections[h + 1]
+                const section = workingBody.slice(start, end)
+                const refs = section.filter(isRef)
+                if (refs.length === 0) continue
+
+                const sectionWithoutRefs = section.filter(b => !isRef(b))
+                const newSection = [...sectionWithoutRefs, ...refs]
+                workingBody.splice(start, end - start, ...newSection)
+                sectionRefsMoved.push(refs.length)
+            }
+            if (sectionRefsMoved.length > 0) {
+                modified = true
+                articleChanges.push(`参考リンクをセクション末尾に再配置 (${sectionRefsMoved.reduce((a, b) => a + b, 0)}件)`)
+            }
 
             // 1. 「あわせて読みたい」をH3に変更し、まとめの後に移動
             const relatedIndex = workingBody.findIndex(b =>
