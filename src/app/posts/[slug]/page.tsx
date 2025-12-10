@@ -12,7 +12,7 @@ import { formatPostDate, getRelatedPosts, urlFor } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 import { CATEGORY_SUMMARY, resolveTagDefinition, type CategorySlug } from '@/data/tagCatalog'
 import Image from 'next/image'
-import { sanitizeTitle } from '@/lib/title'
+import { sanitizeTitle, sanitizePersonaText } from '@/lib/title'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -155,9 +155,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     const displayTitle = sanitizeTitle(post.title)
     const title = `${displayTitle} | ProReNata`
-    const description = post.metaDescription ||
+    const rawDescription = post.metaDescription ||
       post.excerpt ||
       `${displayTitle}について、看護助手として働く皆様のお役に立つ情報をお届けします。`
+    const description = sanitizePersonaText(rawDescription)
 
     const keywords = [
       ...categoryTitles,
