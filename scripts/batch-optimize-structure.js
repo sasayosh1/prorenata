@@ -119,14 +119,16 @@ async function optimizeAllArticles() {
                 const refs = section.filter(isRef)
                 if (refs.length === 0) continue
 
+                // 参考リンクは1つに集約（ルール優先度 参考→内部→アフィリエイト）
+                const keptRef = refs[0]
                 const sectionWithoutRefs = section.filter(b => !isRef(b))
-                const newSection = [...sectionWithoutRefs, ...refs]
+                const newSection = [...sectionWithoutRefs, keptRef]
                 workingBody.splice(start, end - start, ...newSection)
                 sectionRefsMoved.push(refs.length)
             }
             if (sectionRefsMoved.length > 0) {
                 modified = true
-                articleChanges.push(`参考リンクをセクション末尾に再配置 (${sectionRefsMoved.reduce((a, b) => a + b, 0)}件)`)
+                articleChanges.push(`参考リンクをセクション末尾に再配置（各セクション1件に集約）`)
             }
 
             // 1. 「あわせて読みたい」をH3に変更し、まとめの後に移動
