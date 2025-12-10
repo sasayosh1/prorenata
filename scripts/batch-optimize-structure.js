@@ -41,6 +41,9 @@ async function optimizeAllArticles() {
             const articleChanges = []
             const textOf = block => (block.children || []).map(c => c.text || '').join('')
 
+            // 作業用ボディ
+            let workingBody = [...article.body]
+
             // リードで「この記事では」を改行して2段落に分ける
             const firstNormalIndex = workingBody.findIndex(b => b.style === 'normal')
             if (firstNormalIndex !== -1 && firstNormalIndex < (workingBody.findIndex(b => b.style === 'h2') || Infinity)) {
@@ -64,7 +67,6 @@ async function optimizeAllArticles() {
             }
 
             // 0. 参考リンクをセクション末尾へ移動（リードやH2直下に置かない）
-            let workingBody = [...article.body]
             const isRef = b => b.style === 'normal' && /参考[:：]/.test(textOf(b))
 
             const headingIdx = workingBody
@@ -129,6 +131,20 @@ async function optimizeAllArticles() {
             if (sectionRefsMoved.length > 0) {
                 modified = true
                 articleChanges.push(`参考リンクをセクション末尾に再配置（各セクション1件に集約）`)
+            }
+
+            // 参考リンクを「まとめ」以降から削除
+            const summaryIndexForRef = workingBody.findIndex(b =>
+                (b.style === 'h1' || b.style === 'h2' || b.style === 'h3') &&
+                b.children?.[0]?.text === 'まとめ'
+            )
+            if (summaryIndexForRef !== -1) {
+                const before = workingBody.length
+                workingBody = workingBody.filter((b, idx) => !(idx > summaryIndexForRef && isRef(b)))
+                if (workingBody.length !== before) {
+                    modified = true
+                    articleChanges.push('まとめ以降の参考リンクを削除')
+                }
             }
 
             // 1. 「あわせて読みたい」をH3に変更し、まとめの後に移動
