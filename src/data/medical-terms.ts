@@ -506,6 +506,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'vital-signs',
     difficulty: 1
   },
+  {
+    id: 'med-injection-4',
+    term: '注射（ちゅうしゃ）',
+    reading: 'ちゅうしゃ',
+    meaning: '薬剤を体内に注入すること。',
+    distractors: ['点滴', '罨法'],
+    category: 'medication',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
