@@ -1,0 +1,1427 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:36:33.082Z",
+    "operation": "add-related-section",
+    "articleId": "G2Y6JXdwXQRnotb29XNAVV",
+    "articleTitle": "看護助手の給料明細を公開！リアルな収入例",
+    "articleSlug": "nursing-assistant-real-salary-example"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:41:13Z",
+    "_id": "G2Y6JXdwXQRnotb29XNAVV",
+    "_rev": "OWH8my0cDcn0uzzv5RrB5b",
+    "_system": {
+      "base": {
+        "id": "G2Y6JXdwXQRnotb29XNAVV",
+        "rev": "yOFQUyprRx0Jhe9xOogHEi"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-11T18:37:39Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "d8a9e0b1c2d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7c2d5079-23e8-40ce-988f-6013e985ffa5",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の仕事に興味があるけれど、実際のお給料がどれくらいなのか、手取りはいくらになるのか、気になりますよね。"
+          },
+          {
+            "_key": "0006ea95-3937-411b-bbdf-cc6be63ad8ac",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "40366bb9-a56d-4075-a16d-3b9d8f601547",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          },
+          {
+            "_key": "d8a70c26-48e5-4bcf-b2a5-1fc504e90906",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "c04338c7-ecfe-4cdc-baaa-f0b5bbbf0958",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          },
+          {
+            "_key": "abea7a79-8d8f-4881-8e7a-2cda05d70ffa",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "d0f4c0c2-81de-4eab-aa0d-32577bb3b735",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、看護助手の給料明細を具体的に公開し、リアルな収入例を解説します。あなたの生活設計の参考にしてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-42168a0d-3987-4022-b317-2d33bc73bdc0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-0a9663b1-cd66-452a-bcc7-0850e8fe89ae",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-51ac2949-15dc-48ff-aace-ac6812a06302",
+            "_type": "span",
+            "marks": [
+              "link-2aa74081-91ee-41a2-9b15-19c5f533f470"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-2aa74081-91ee-41a2-9b15-19c5f533f470",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "b2c3d4e5f6a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c52d40a9-4ba2-4fd8-a3f6-9a0ffcb8e686",
+            "_type": "span",
+            "text": "看護助手の給料明細、ここをチェック！"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "c3d4e5f6a1b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ee583d4f-a219-4dde-9a0c-8890214f9a18",
+            "_type": "span",
+            "text": "額面給与と手取り給与"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "d4e5f6a1b2c3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7f941145-4982-4236-ad6e-7f77c40a9113",
+            "_type": "span",
+            "text": "給料明細には、会社から支払われる総支給額（額面給与）と、実際に手元に残る金額（手取り給与）が記載されています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "g1h2i3j4k5l6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3480e3b3-d9ce-4aa2-b7dc-efe3c93f52ef-069bfe6d-f379-414e-b89b-256e700244f9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "額面給与の内訳："
+          },
+          {
+            "_key": "3480e3b3-d9ce-4aa2-b7dc-efe3c93f52ef-8d03f1c9-18d3-44d0-9ee6-a39be70228fc",
+            "_type": "span",
+            "marks": [],
+            "text": " 基本給、夜勤手当、資格手当、通勤手当、皆勤手当など、様々な手当が含まれます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "h2i3j4k5l6g1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "07250d76-ca7f-4456-9fbd-520a2da407a2-08bde4ec-dce4-4f19-af6f-08416e449cf9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "控除されるもの："
+          },
+          {
+            "_key": "07250d76-ca7f-4456-9fbd-520a2da407a2-7d04347d-fe75-42c8-99f1-ad4fa78faf10",
+            "_type": "span",
+            "marks": [],
+            "text": " 社会保険料（健康保険、厚生年金、雇用保険）、所得税、住民税などが給与から差し引かれます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "section-closing-308197be-f354-4e0f-9702-046ea21c0f30",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-818816f6-e8a2-4018-a909-0417c1418615",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の給料明細、ここをチェック！では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "305cb4da-1126-4d6a-9ec8-0f27d573ee60",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-39bef125-3cd1-41eb-95fa-eb523b8235de",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-28f2bd63-b3bf-4e72-a63f-f5c4153442ce",
+            "_type": "span",
+            "marks": [
+              "link-618e9dfa-2aa7-41a4-9fc1-014711b0d17c"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-618e9dfa-2aa7-41a4-9fc1-014711b0d17c",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "a2b3c4d5e6f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3c283d0c-ff4a-42a3-a5b6-375bc4088f09",
+            "_type": "span",
+            "text": "【リアルな収入例】正社員看護助手の給料明細"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "i3j4k5l6g1h2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "52ab8a46-9d5a-4abc-9e07-11962c3cafa6",
+            "_type": "span",
+            "text": "ここでは、一般的な正社員看護助手の月収例をご紹介します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "j4k5l6g1h2i3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6bb907be-7ca8-4a37-979e-aa5f7b11bfce",
+            "_type": "span",
+            "text": "基本給：160,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "k5l6g1h2i3j4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "36224daf-4c3b-4fe6-a632-d7750d1d109c",
+            "_type": "span",
+            "text": "夜勤手当（4回）：28,000円（1回7,000円の場合）"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "l6g1h2i3j4k5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0fbfdcf0-612a-48ec-968c-25daeb6e4e27",
+            "_type": "span",
+            "text": "通勤手当：5,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "m1n2o3p4q5r6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "793c8d4c-316f-48b1-9b58-8e00063612d8",
+            "_type": "span",
+            "text": "皆勤手当：3,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "n2o3p4q5r6m1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "363691d4-6622-49bd-b469-10f62ff4e875-3b8044cc-cbf2-4d70-86d7-d541e35087e3",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "総支給額（額面）：196,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "o1p2q3r4s5t6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a5780a7e-4be4-4967-8e87-a9bcc6fd931a-37727103-4870-4391-8575-7400d07842cc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "控除額の内訳"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "p2q3r4s5t6o1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0b188160-4b09-4e40-9c7b-283ecfb680ae",
+            "_type": "span",
+            "text": "健康保険料：約10,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "q3r4s5t6o1p2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1605f50c-4cd5-4819-9816-a2cdc04e2a91",
+            "_type": "span",
+            "text": "厚生年金保険料：約18,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "r4s5t6o1p2q3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "48b2d4f2-ecea-4fba-a4be-0cbd6adec6e9",
+            "_type": "span",
+            "text": "雇用保険料：約1,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "reference-0fe9fa08-b215-4f63-8ff4-8bcf4ab0e805",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-1d349d49-a010-44a3-8b5c-bdb9d6ea8f50",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-b832ef2e-f26a-4290-8b36-ba3ce940c625",
+            "_type": "span",
+            "marks": [
+              "link-d376022a-55bf-4098-bd46-4629ad4b9e85"
+            ],
+            "text": "NsPace Career 看護助手の転職・年収コラム"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-d376022a-55bf-4098-bd46-4629ad4b9e85",
+            "_type": "link",
+            "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "s5t6o1p2q3r4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "999863e7-daf2-4d62-b4a5-436e1b564214",
+            "_type": "span",
+            "text": "所得税：約3,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "t6o1p2q3r4s5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3b9755d5-e10e-4edc-8112-621ee2a29548",
+            "_type": "span",
+            "text": "住民税：約5,000円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "u1v2w3x4y5z6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "399efc8d-b1ed-4708-8b8c-a3ea5755b03e-5136192f-e2cf-4ccb-bd7e-21561d608e2d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "控除合計：約37,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "v2w3x4y5z6u1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0c16e3eb-7431-45f5-b388-255ef5fb93b3-f9ab92ef-a2b6-4b5f-bb6e-09edeb1a15c5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "手取り額：約159,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "w3x4y5z6u1v2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ec066c4d-e713-4516-bd21-bee7a32b9afb",
+            "_type": "span",
+            "text": "【リアルな収入例】パート看護助手の給料明細"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "x4y5z6u1v2w3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "84a118f8-6acb-4a5b-b37e-71d623c464a9",
+            "_type": "span",
+            "text": "時給1,200円で、週5日、1日6時間勤務の場合の月収例です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "y5z6u1v2w3x4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "983543e3-d2ff-48c0-bedc-7cb7e0049677",
+            "_type": "span",
+            "text": "時給：1,200円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "z6u1v2w3x4y5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cda58255-900d-4bf6-a483-10489b3582c3",
+            "_type": "span",
+            "text": "勤務時間：1日6時間 × 週5日 × 4週 ＝ 120時間"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "a3b4c5d6e7f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b81ea6d5-d4f9-4398-baf4-db7bf2bbf9c5-551fbc2e-becf-4fda-b1a3-091c986a0810",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "月収：1,200円 × 120時間 ＝ 144,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b4c5d6e7f1a3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "72356184-b16f-4ab5-bb81-e1727df771fb",
+            "_type": "span",
+            "text": "扶養内で働く場合は、年収103万円や130万円の壁を意識して勤務時間を調整することが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c5d6e7f1a3b4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "545f1c58-3c21-4920-8aae-f126758e0870",
+            "_type": "span",
+            "text": "給料を増やすためのヒント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "5oka1duoc01z",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "kqa5e6wolr67",
+            "_type": "span",
+            "marks": [],
+            "text": "現在の給与から、さらに収入をアップさせるための具体的な方法もいくつか存在します。すぐに実践できるものから、長期的なキャリアプランに関わるものまで、いくつかのヒントをご紹介します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d6e7f1a3b4c5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "065b1981-71a5-41b4-8e71-30e8d0061125",
+            "_type": "span",
+            "text": "夜勤回数を増やす：夜勤手当は収入アップに直結します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "e7f1a3b4c5d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "88662a33-5193-407c-a873-7cbf9058bbc2",
+            "_type": "span",
+            "text": "資格を取得する：介護職員初任者研修など、資格手当が支給される場合があります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "f1a3b4c5d6e7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d6bb0ff4-3284-4293-8a6e-ade6dea2883f",
+            "_type": "span",
+            "text": "経験を積んで昇給を目指す：長く勤務することで、基本給が上がる可能性があります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "a4b5c6d7e8f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f779941-bd58-487e-8385-f092acaf2630",
+            "_type": "span",
+            "text": "転職を検討する：より給与水準の高い病院や施設を探すことも有効です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "section-closing-b7dfc755-c47e-4367-a0d3-5961034782c2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-1fc5631e-24b1-4b56-a533-ad70ec3b1873",
+            "_type": "span",
+            "marks": [],
+            "text": "給料を増やすためのヒントでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-mbhna9ubz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-incuplvh8",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の給料明細を公開！リアルな収入例"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818493112-t6moc5xvc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-9pvsla1kk",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の給料明細、ここをチェック！"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818493112-k6re4ptmn",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-b54emwte9",
+            "_type": "span",
+            "marks": [],
+            "text": "額面給与と手取り給与"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818493112-vjme3s54t",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-6yfh41k75",
+            "_type": "span",
+            "marks": [],
+            "text": "給料明細をしっかりと確認することで、何にどれだけ引かれているのかを把握できます。特に、社会保険料は将来の年金受給額にも影響するため、詳細を確認しておきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-5vleshfwe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-n4qm84chk",
+            "_type": "span",
+            "marks": [],
+            "text": "【リアルな収入例】正社員看護助手の給料明細"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818493112-7dd71ekd4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-ifgg29do0",
+            "_type": "span",
+            "marks": [],
+            "text": "ここでは、一般的な正社員看護助手の月収例をご紹介します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-8mxyca8il",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-6qagodckc",
+            "_type": "span",
+            "marks": [],
+            "text": "基本給：160,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-gjn6jt3kr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-3kch9dim9",
+            "_type": "span",
+            "marks": [],
+            "text": "夜勤手当（4回）：28,000円（1回7,000円の場合）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-9p2xhriz6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-atjk0pv2a",
+            "_type": "span",
+            "marks": [],
+            "text": "通勤手当：5,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-e1uppcptw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-3vd1ju18c",
+            "_type": "span",
+            "marks": [],
+            "text": "皆勤手当：3,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-22kchj0nw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-7voaagjpl-56c34390-8364-4538-a5c0-4b0befc78654",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "総支給額（額面）：196,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-k1vp4xoj9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-jt25qu8vv-60e51ae6-800e-4367-9d7c-5c4d8664e3be",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "控除額の内訳"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-f1f1org18",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-zbkqirsw4",
+            "_type": "span",
+            "marks": [],
+            "text": "健康保険料：約10,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-lbybqsu5j",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-whyshcv26",
+            "_type": "span",
+            "marks": [],
+            "text": "厚生年金保険料：約18,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-g1j6ebyhv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-l0uh3rfjf",
+            "_type": "span",
+            "marks": [],
+            "text": "雇用保険料：約1,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-9j4q3clzf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-xxi7c8ogd",
+            "_type": "span",
+            "marks": [],
+            "text": "所得税：約3,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-rect9st7u",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-y9cx6p0nc",
+            "_type": "span",
+            "marks": [],
+            "text": "住民税：約5,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-rfyb3wcgl",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-vqcwzc7tq-1ddf26e2-f5a1-42b9-9aae-919a12950f0a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "控除合計：約37,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-au1nff0ar",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-rxpcjrn8g-937394ac-745a-440d-9864-5622b8c4fed5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "手取り額：約159,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-m8xyz8puv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-c2xfcvtdb",
+            "_type": "span",
+            "marks": [],
+            "text": "上記の例はあくまで一例であり、実際の手取り額は、勤務先の規定や個人の状況によって異なります。例えば、扶養家族の有無によって所得税や住民税の金額が変わる場合があります。また、経験年数や資格によって基本給が異なることもあります。賞与（ボーナス）が支給される場合は、年収がさらに上がります。一般的に、賞与は年2回支給されることが多いですが、支給額は勤務先の業績や個人の評価によって変動します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-j2403c4ue",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-l5t8mn3tq",
+            "_type": "span",
+            "marks": [],
+            "text": "【リアルな収入例】パート看護助手の給料明細"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818493112-jkflm03xb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-ng2ncpmip",
+            "_type": "span",
+            "marks": [],
+            "text": "時給1,200円で、週5日、1日6時間勤務の場合の月収例です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-w6j7m9y60",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-fr6caor9q",
+            "_type": "span",
+            "marks": [],
+            "text": "時給：1,200円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-roq6t2izq",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-3d2aw1eut",
+            "_type": "span",
+            "marks": [],
+            "text": "勤務時間：1日6時間 × 週5日 × 4週 ＝ 120時間"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-exhxtka9q",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-e00zz41z6-be1cddca-6559-4d51-ba5c-df8de987d4d9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "月収：1,200円 × 120時間 ＝ 144,000円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-0q9xhe87g",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-i7hos2cvx",
+            "_type": "span",
+            "marks": [],
+            "text": "パートの場合、社会保険への加入条件を満たすと、社会保険料が引かれるようになります。勤務時間や日数によっては、雇用保険も適用される場合があります。ご自身の働き方に合わせて、事前に確認しておくことが重要です。また、パートでも昇給制度がある職場もありますので、面接時に確認してみましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-xph01o0nb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-aix9e8tn9",
+            "_type": "span",
+            "marks": [],
+            "text": "給料を増やすためのヒント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818493112-is32nnhdb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-mamzs02q2",
+            "_type": "span",
+            "marks": [],
+            "text": "給料アップのためには、日々の業務をこなしながら、スキルアップを目指すことも重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-3ufk5f60d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-qyp8y3skz-308fe42b-2f7c-42f7-9ac1-5680cb8d1b09",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818493112-qyp8y3skz-25ff7b01-3cd1-4627-98f0-76c54e859e55",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "夜勤回数を増やす："
+          },
+          {
+            "_key": "span-1760818493112-qyp8y3skz-80d3e3fa-c088-448c-b426-4620afade76e",
+            "_type": "span",
+            "marks": [],
+            "text": " 夜勤手当は収入アップに直結します。ただし、体力的な負担も考慮する必要があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-hr6r37wm1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-mflys3khg-8fb8f71d-0174-481f-9ead-70a5beb44b9c",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818493112-mflys3khg-e08d6ca7-de20-4c5c-949d-3eeffe8d5bb5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "資格を取得する："
+          },
+          {
+            "_key": "span-1760818493112-mflys3khg-5e627756-930d-4013-9f15-8702c1910191",
+            "_type": "span",
+            "marks": [],
+            "text": " 介護職員初任者研修など、資格手当が支給される場合があります。資格取得支援制度がある職場もあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-yt464rl9k",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-pll12unuj-6fc6b859-52cb-419c-a738-6f59a02123e0",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818493112-pll12unuj-c78942d4-cf47-4e85-bdbb-55f5b891e4a5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "経験を積んで昇給を目指す："
+          },
+          {
+            "_key": "span-1760818493112-pll12unuj-4ec92d77-4000-43e1-87f2-b161f0b89ba9",
+            "_type": "span",
+            "marks": [],
+            "text": " 長く勤務することで、基本給が上がる可能性があります。人事評価制度を確認しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818493112-r52sx82v6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818493112-835v9gbuh-450811f1-27e3-46ec-96c4-f50bb6b46c1a",
+            "_type": "span",
+            "marks": [],
+            "text": "*   "
+          },
+          {
+            "_key": "span-1760818493112-835v9gbuh-989aefb5-f7bc-460c-a5ff-02fdad7a8f7b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "転職を検討する："
+          },
+          {
+            "_key": "span-1760818493112-835v9gbuh-f24089a4-5798-4f38-ad6c-de9fa77c870d",
+            "_type": "span",
+            "marks": [],
+            "text": " より給与水準の高い病院や施設を探すことも有効です。転職エージェントを活用するのもおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-f4476600-1612-4127-bd7f-2021a1f6d8e8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-f0a81832-5341-4fe7-96c6-9c2093de2d90",
+            "_type": "span",
+            "marks": [],
+            "text": "「給料を増やすためのヒント」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-c5b56a23-0fae-4484-9149-1577973cb72a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-162fffe4-953a-494c-91d7-038381720766",
+            "_type": "span",
+            "marks": [],
+            "text": "「給料を増やすためのヒント」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-feb7d93f-ab4e-4117-b11a-64b821c20338",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-f701fd82-7646-45db-9d4b-90042f411ab4",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-474e6170-d73c-4e34-b581-0578cd4928cc",
+            "_type": "span",
+            "marks": [
+              "link-942bc4dd-30d0-40bf-a2f0-7ca9b499c184"
+            ],
+            "text": "「看護助手の給料が低い理由を徹底解説」"
+          },
+          {
+            "_key": "internal-link-span-outro-9e2324f1-596e-46c0-a100-202d15f4ce26",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-942bc4dd-30d0-40bf-a2f0-7ca9b499c184",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-low-salary-reasons"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-7cf097c0-91d7-4ea3-9443-19a1a78bb046",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-6a731006-f327-439f-9a51-fb36509308ca",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の給料明細を公開！リアルな収入例でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bd2e0add-3d2d-4917-aac1-b5ea2601ae6a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-58f584bf-b943-4d7d-8c4b-950e8f6d6d55",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5a8cfec9-1cf5-4afa-ba68-97fac595661d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-f2785db0-b1d5-466a-9b62-2cf4a0b5ad4e",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の給料明細、ここをチェック！の視点で額面給与と手取り給与に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-2175df46-29c8-4f93-85c2-ca14655fe55d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-eb9176da-a52b-4db5-9c2d-27e67bb0dee6",
+            "_type": "span",
+            "marks": [],
+            "text": "額面給与の内訳： 基本給、夜勤手当、資格手当、通勤手当、皆勤手当など、様々な手当が含まれます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-41086637-9a89-4126-adb2-aa6b4f8118f4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-cbf3c448-2dd6-48e5-b3ab-619d2e8322ff",
+            "_type": "span",
+            "marks": [],
+            "text": "控除されるもの： 社会保険料（健康保険、厚生年金、雇用保険）、所得税、住民税などが給与から差し引かれます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-a270c895-e6dd-4315-8333-960351234fca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-e6ff0472-fc30-4948-baa9-882bcd7c7a89",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-dd6fd200-ce3f-4930-ab1c-5964d6622d29",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-f4415420-e0e1-4c13-91b9-ec8fdae854ee",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-e2f02dd0-11ed-4333-8029-abd85701144a",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-99429175-4d00-4c4f-904b-22fad366039d",
+            "_type": "span",
+            "marks": [
+              "link-5c4815ab-305d-4c2a-8391-2d9abfc019f1"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-5c4815ab-305d-4c2a-8391-2d9abfc019f1",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-a863bcb5-900f-45bb-9d18-a945d2904305",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-d54eebe2-eb49-45c0-a511-2acde4809348",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "cpUQPwQcg0pPPyoXCH4o3Z",
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手の給料明細を具体的に公開！基本給、手当、控除の内訳から、正社員・パートのリアルな収入例を解説。あなたの生活設計の参考にしてください。",
+    "geminiMaintainedAt": "2025-11-08T23:00:18.868Z",
+    "metaDescription": "給与・待遇の看護助手の給料明細を公開！リアルな収入例について解説。看護助手の給料明細を具体的に公開！基本給、手当、控除の内訳から、正社員・パートのリアルな収入例を解説。あなたの生活設計の参考にしてください。看護助手の給料明細を具体的に公開！基本給、手当、控除の内訳から、正社員・パートのリアルな収入例を解説。あなたの生活",
+    "publishedAt": "2025-02-11T08:41:18.648Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-real-salary-example"
+    },
+    "tags": [
+      "勤務",
+      "夜勤",
+      "手取り",
+      "月収",
+      "看護",
+      "看護助手",
+      "給与",
+      "給与・待遇",
+      "給料",
+      "資格"
+    ],
+    "title": "看護助手の給料明細を公開！リアルな収入例",
+    "views": 1
+  }
+}

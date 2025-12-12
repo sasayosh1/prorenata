@@ -203,29 +203,6 @@ async function optimizeAllArticles() {
                 }
             }
 
-            // 参考リンクをまとめ後に集約
-            if (refBlocks.length > 0) {
-                const summaryIdxNew = newBody.findIndex(b =>
-                    (b.style === 'h1' || b.style === 'h2' || b.style === 'h3') &&
-                    b.children?.[0]?.text === 'まとめ'
-                )
-
-                let insertPos = newBody.length
-                if (summaryIdxNew !== -1) {
-                    insertPos = summaryIdxNew + 1
-                    while (
-                        insertPos < newBody.length &&
-                        !['h1', 'h2', 'h3', 'h4'].includes(newBody[insertPos].style)
-                    ) {
-                        insertPos++
-                    }
-                }
-
-                newBody.splice(insertPos, 0, ...refBlocks)
-                modified = true
-                articleChanges.push(`参考リンク集約 (${refBlocks.length}件)`)
-            }
-
             // 2. 長すぎる内部リンクを検出
             newBody.forEach(block => {
                 if (block.children && block.markDefs) {

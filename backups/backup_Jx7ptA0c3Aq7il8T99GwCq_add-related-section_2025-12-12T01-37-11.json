@@ -1,0 +1,1242 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:37:11.914Z",
+    "operation": "add-related-section",
+    "articleId": "Jx7ptA0c3Aq7il8T99GwCq",
+    "articleTitle": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイント",
+    "articleSlug": "nursing-assistant-infection-control-manual"
+  },
+  "document": {
+    "_createdAt": "2025-09-09T04:55:42Z",
+    "_id": "Jx7ptA0c3Aq7il8T99GwCq",
+    "_rev": "5nU3tVPQxjypaRNzMGiNYY",
+    "_type": "post",
+    "_updatedAt": "2025-12-11T18:38:49Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "qf62vi5qj",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "827lrawoj",
+            "_type": "span",
+            "text": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "tfli3xddz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2fc8be44-40f5-4083-ab53-683d2dc8bf2c",
+            "_type": "span",
+            "marks": [],
+            "text": "医療現場で働く看護助手にとって、感染対策は自分自身と患者さんを守るための最も重要な知識と技術の一つです。"
+          },
+          {
+            "_key": "38766575-3709-4259-a06c-2ef7b34cc132",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "66ae58fc-adda-4d72-90aa-602b63efef57",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          },
+          {
+            "_key": "49f2bf87-bc19-4260-ba29-7915a1e5f731",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "3489b982-2be2-4e5f-9089-f959678b9a92",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          },
+          {
+            "_key": "bf26b184-0d22-44c6-862a-6f71c3b7a5f0",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "85c416f2-569c-4733-a1e0-8ffafbf94ecc",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、感染対策の基本となる5つの重要なポイントを、初心者にも分かりやすく解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-35675b15-7178-43b9-abaf-36a1b98eafb6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-ab7cba92-27c9-4a77-adad-1b0dd5202124",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-e6f39872-bdd9-4cc5-b3b2-16d6fb034099",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "z3w8gf5cc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "xhkdry593",
+            "_type": "span",
+            "text": "ポイント1：標準予防策（スタンダードプリコーション）の徹底"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "cljd0d4ie",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "jb1ktbmln",
+            "_type": "span",
+            "text": "標準予防策とは、「すべての人の血液、体液、分泌物、排泄物、傷のある皮膚、粘膜は感染性のあるものとして扱う」という考え方に基づいた感染対策の基本です。特定の感染症の有無にかかわらず、すべての人に実施します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fru1jn3o4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "pwcri06bs",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "khnrbtvuk",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "具体的な実践例"
+          },
+          {
+            "_key": "l8opwvd4y",
+            "_type": "span",
+            "text": ":"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bbxljzall",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "glx4qhl56",
+            "_type": "span",
+            "text": "- 患者さんのケアを行う前後に、多くの場合手指衛生を行う。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9mxczlz8k",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "gf0rrmssg",
+            "_type": "span",
+            "text": "- 体液などに触れる可能性がある場合は、多くの場合手袋を着用する。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "db9hftg2z",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ysbxxwii6",
+            "_type": "span",
+            "text": "- 必要に応じて、ガウンやマスク、ゴーグルを着用する。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "tslw5nrng",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ikbd7z376",
+            "_type": "span",
+            "text": "ポイント2：正しい手指衛生の実践"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "xowm3bx9i",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "stxysmn65",
+            "_type": "span",
+            "text": "手指衛生は、感染対策の基本中の基本です。目に見える汚れがある場合は「石けんと流水による手洗い」、汚れがない場合は「アルコールベースの手指消毒剤」を使い分けます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "tlb56j85e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1prwwwibb",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "ysxj2sh24",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "手洗いのタイミング"
+          },
+          {
+            "_key": "ark01lrad",
+            "_type": "span",
+            "text": ":"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "vgmgo0e6k",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "31qib5mnp",
+            "_type": "span",
+            "text": "- 患者さんに触れる前"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "gzbzcbkwe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c5rxyf22s",
+            "_type": "span",
+            "text": "- 清潔な処置（口腔ケアなど）の前"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-4ca32b4a-a858-4e83-a4e3-09364292423e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-489e9452-3123-4e59-b148-92b559c278bd",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "06kq1rvhk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "zkhhgfp3g",
+            "_type": "span",
+            "text": "- 体液に触れた可能性のある後"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8z9uafkt6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "wpxen7okt",
+            "_type": "span",
+            "text": "- 患者さんに触れた後"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "lgyzc4uwi",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "zf2opzsv2",
+            "_type": "span",
+            "text": "- 患者さん周辺の物品に触れた後"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "l4z84vh00",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "xvpielta1",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "18z917j0i",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "正しい手順"
+          },
+          {
+            "_key": "elbc6xnd6",
+            "_type": "span",
+            "text": ": 指先、指の間、親指、手首まで、洗い残しのないように丁寧に洗いましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "i10ta4veq",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ule2s78di",
+            "_type": "span",
+            "text": "ポイント3：個人防護具（PPE）の適切な使用"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "d5qka223w",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "vz73m9lzu",
+            "_type": "span",
+            "text": "個人防護具（Personal Protective Equipment）は、感染源から身を守るための重要なアイテムです。状況に応じて適切なPPEを選択し、正しく着脱することが求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6qnw7zis9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "q32er3ucs",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "jb1d6jcb8",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "PPEの種類と用途"
+          },
+          {
+            "_key": "x158s1hsa",
+            "_type": "span",
+            "text": ":"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "uim27wcaa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "kv6bcfjfo",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "pbt6m4bw6",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "手袋"
+          },
+          {
+            "_key": "o9eylu1j8",
+            "_type": "span",
+            "text": ": 血液や体液に触れる際に使用。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7oawwzdal",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1rsikbdto",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "2tm4khgua",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "マスク"
+          },
+          {
+            "_key": "3iews7hjg",
+            "_type": "span",
+            "text": ": 咳やくしゃみなどの飛沫から口や鼻を守る。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e42zczr4s",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "evc9xtrjh",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "4369cajmf",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "ガウン・エプロン"
+          },
+          {
+            "_key": "8ynt3o1zt",
+            "_type": "span",
+            "text": ": 体や衣服が汚染されるのを防ぐ。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "nf923w6kg",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9oyc8ys95",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "d0558v6ek",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "ゴーグル・フェイスシールド"
+          },
+          {
+            "_key": "4koqrsfxm",
+            "_type": "span",
+            "text": ": 血液や体液の飛散から目を守る。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "xn9ov14mp",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "hmndtoy28",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "x17iztswt",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "着脱の手順"
+          },
+          {
+            "_key": "3yarb7ils",
+            "_type": "span",
+            "text": ": PPEは汚染されている可能性があるため、外す際には特に注意が必要です。汚染された表面に触れないように、決められた手順で外しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "86ldry5v6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "lz7oa8kgu",
+            "_type": "span",
+            "text": "ポイント4：療養環境の清潔保持"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "n7i1a0jvo",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ne3e1c9fe",
+            "_type": "span",
+            "text": "患者さんが過ごす環境を清潔に保つことも、重要な感染対策の一つです。特に、多くの人が触れる場所は定期的に清掃・消毒を行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "wnrf10abl",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3rtw7oj57",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "zp93pa8tl",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "清掃・消毒のポイント"
+          },
+          {
+            "_key": "5fczwz7zv",
+            "_type": "span",
+            "text": ":"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "jfn4jtned",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "30vq3kw7z",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "01whi7bkf",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "高頻度接触環境"
+          },
+          {
+            "_key": "brns4qm83",
+            "_type": "span",
+            "text": ": ベッド柵、ドアノブ、ナースコール、テーブルなどは、1日に1回以上、決まった時間に清掃・消毒します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "zdfwr9zlm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "94eif1x7p",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "owf8qhb8a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "汚染時の対応"
+          },
+          {
+            "_key": "47yipk32q",
+            "_type": "span",
+            "text": ": 血液や体液で汚染された場合は、速やかに適切な方法で除去し、消毒します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "qb1jz05af",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "gyu4is39i",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "chz0giy2h",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "リネン類の取り扱い"
+          },
+          {
+            "_key": "3lkhu92fb",
+            "_type": "span",
+            "text": ": 使用済みのリネン類は、感染性のあるものとして慎重に取り扱います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7iv8trfnk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "kqbvoj07s",
+            "_type": "span",
+            "text": "ポイント5：職業感染の予防"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "dry4p37n3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1cqn8oitu",
+            "_type": "span",
+            "text": "看護助手自身が感染しないための対策も重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "28ab8kaij",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5p8g8ffp3",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "gypiyrmpf",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "針刺し・切創の予防"
+          },
+          {
+            "_key": "mvorzxi1e",
+            "_type": "span",
+            "text": ": 注射針などの鋭利な器材を扱う際は、リキャップ（使用後の針に再びキャップをすること）をしないなど、決められたルールを遵守します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "gtd7f10aw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "p9s5c133q",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "kt6dk8isv",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "ワクチン接種"
+          },
+          {
+            "_key": "p8qc8fozj",
+            "_type": "span",
+            "text": ": B型肝炎ワクチンなど、推奨されるワクチンは適切に接種し、感染リスクを低減させましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "wob8ekzhh",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dcgl3uwtc",
+            "_type": "span",
+            "text": "- "
+          },
+          {
+            "_key": "dfikcmpf5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体調管理"
+          },
+          {
+            "_key": "ta203u4rr",
+            "_type": "span",
+            "text": ": 日頃から自身の健康状態を把握し、体調が悪い場合は無理せず上司に報告することが、感染拡大を防ぐ上で重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cgao97lex",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "lzusw6s7b",
+            "_type": "span",
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "bd076ac4-0d4f-4ce0-8965-15fc14d5964c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "01949cd7-859a-45e3-ab21-0e2cdb3c7073",
+            "_type": "span",
+            "text": "最新感染対策ガイドライン2025｜看護助手が知るべき変更点"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "7f158d1e-e09a-4f4c-a5db-e637dce60892",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "813ed2af-6f6b-4f0b-9f47-5639d4c04692",
+            "_type": "span",
+            "text": "AI技術導入が看護助手業務に与える変化｜最新医療技術トレンド"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "74dff572-66af-4d59-bbcd-3f8a68934881",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6afbdf37-397a-4d00-acf5-24def3fbc400",
+            "_type": "span",
+            "text": "最新感染対策ガイドライン2025｜看護助手が知るべき変更点"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "d2dce5c7-24a4-4a9e-986e-6e1bc8800fde",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "859c0e79-ee27-4c16-bae7-83d1dfbbb209",
+            "_type": "span",
+            "text": "AI技術導入が看護助手業務に与える変化｜最新医療技術トレンド"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "related_article_1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e6921e5d-b172-4ea5-b9b3-91d92ecacf65",
+            "_type": "span",
+            "text": "看護助手の仕事を辞めたくなる瞬間とは？"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "related_article_2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "936e131d-8ea9-479f-a7ea-afde88641ce1",
+            "_type": "span",
+            "text": "看護助手を辞める前に考えるべきこと"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "30dd1e29-58e8-453d-92f4-6d9a9293a735",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9a25e1b1-bce1-4166-aa54-bcb6623b0ce5",
+            "_type": "span",
+            "text": "感染対策についてさらに深く知りたい方は、以下の記事も参考にしてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "next_step_intro",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1b03c2df-b8f9-4882-a672-1b695c7c65ba",
+            "_type": "span",
+            "text": "看護助手の退職についてさらに深く知りたい方は、以下の記事も参考にしてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-f1bd9a1b-8527-48e2-9687-9111e63d9ace",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-de0feef0-7ab2-4292-81a4-0f3515468326",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-61b72a97-2f45-413d-9ed8-a5c8aca045f4",
+            "_type": "span",
+            "marks": [
+              "link-32525324-8665-441a-a984-6737548effbc"
+            ],
+            "text": "NsPace Career 看護助手の転職・年収コラム"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-32525324-8665-441a-a984-6737548effbc",
+            "_type": "link",
+            "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-7b9948a7-6ae5-4560-9d8e-f9e94647d7e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-977a9fd2-0277-4a71-982f-a1f342518dd9",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-5866c7aa-325f-4d02-896a-4f84bdf20e58",
+            "_type": "span",
+            "marks": [
+              "link-cca0d308-7282-4b4a-9a80-301499334421"
+            ],
+            "text": "「感染対策の基本｜標準予防策と手洗いの重要性」"
+          },
+          {
+            "_key": "internal-link-span-outro-5a4ffbdf-93f8-4624-bbc0-60492024e0a9",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-cca0d308-7282-4b4a-9a80-301499334421",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-infection-control-handwashing"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block-ze939lk1q-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-r32gez648",
+            "_type": "span",
+            "marks": [],
+            "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-bnt2kw7ob-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-juwi8jz8u",
+            "_type": "span",
+            "marks": [],
+            "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-939877b3-8ca6-421f-858e-a054d400e454",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-429322e7-a0f7-458a-b4d0-a4cbd7736573",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-dcc82ae8-2168-4d31-9998-0e52441f9087",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-k1ynfpjx5-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-p50sir58q",
+            "_type": "span",
+            "marks": [],
+            "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-cae4810b-522c-4a9f-a831-da3e0754c49f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-a126f8ea-6d8c-4692-86e2-72f02a1103cb",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-6565b953-1c9e-4071-976f-335bf057f91a",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-bd3c57bd-3347-4600-86ef-584d4e896a7b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-7344682e-19ed-4113-be8a-6b355b728a08",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイントでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-83d53a88-aae1-49b3-aafc-720b42b72b7c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-a6e6a51e-b7fd-4644-9aae-b33d20b1f459",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-87e3b909-bff6-4548-a3eb-e9d03ecd47eb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-0207b6c4-a0dd-4557-bcc7-9958274b05ce",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイントの視点でポイント1：標準予防策（スタンダードプリコーシ…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-a50421e4-1fe0-429a-b5b8-8b7af84ee241",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-ae38c760-e26c-473e-9ac8-570e5abdbf75",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイントの視点でポイント2：正しい手指衛生の実践に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-d9a3b802-24a4-418f-a36c-41d8fedd28bf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-3464c85b-8533-4eaf-a861-608ab3184e18",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイントの視点でポイント3：個人防護具（PPE）の適切な使用に…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-b9953d2b-c363-403a-b709-382ffe3778f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-4407d46f-6ce6-4024-8b0f-fea0c4c50616",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-12d92b08-4885-46c2-9c6e-90fa842b7288",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやスクラブはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-4f7a180b-e6c0-42ec-93a9-42662ff7b12f",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">「まとめ」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">介護職・看護助手の求人なら「かいご畑」</a><img border=\"0\" width=\"1\" height=\"1\" src=\"https://www17.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY\" alt=\"\">\n  </p>\n</div>",
+        "label": "介護職・看護助手の求人なら「かいご畑」",
+        "linkKey": "kaigobatake",
+        "provider": "かいご畑"
+      },
+      {
+        "_key": "affiliate-beac84e2-2452-4abb-873b-e491290da010",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "affiliate-ae200134-81ac-4957-a7cb-fb39767f5280",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">「まとめ」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">介護職・看護助手の求人なら「ヒューマンライフケア」</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "介護職・看護助手の求人なら「ヒューマンライフケア」",
+        "linkKey": "humanlifecare",
+        "provider": "ヒューマンライフケア"
+      },
+      {
+        "_key": "resignation-comparison-a2e80583-2ae8-4201-8866-c162948bae22",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "resignation-comparison-lead-cf833110-5309-45bc-97f9-82e06ada6ed8",
+            "_type": "span",
+            "marks": [],
+            "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+          },
+          {
+            "_key": "resignation-comparison-link-88ac60cc-7d82-4364-ba92-7bf4f8b5adc6",
+            "_type": "span",
+            "marks": [
+              "link-2637144b-2d63-4282-b7c6-e0163102523d"
+            ],
+            "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-2637144b-2d63-4282-b7c6-e0163102523d",
+            "_type": "link",
+            "href": "/posts/comparison-of-three-resignation-agencies"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-dae4b9d1-0165-4eb2-ab58-e33e9a57a5be",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-fbf25af7-dc76-4b76-a415-96e9964b3e16",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "c72f8ff3-9c22-4631-a426-e33d46c06542",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "contentType": "howto",
+    "difficulty": "intermediate",
+    "excerpt": "看護助手が知っておくべき感染対策の基本を分かりやすく解説。手洗いからPPEの使用まで実践的な内容をお届けします。",
+    "featured": false,
+    "geminiMaintainedAt": "2025-11-08T23:01:27.023Z",
+    "metaDescription": "看護助手が知っておくべき感染対策の基本を分かりやすく解説します。標準予防策、手洗いの正しい方法、PPEの適切な使用方法など、現場で実践すべき5つの重要ポイントを詳しくご紹介。患者様と自分を守る感染対策の実践方法をお伝えします。看護助手が知っておくべき感染対策の基本を分かりやすく解説。手洗いからPPEの使用まで実践的な内",
+    "publishedAt": "2024-08-29T18:00:01.124Z",
+    "readingTime": 7,
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-infection-control-manual"
+    },
+    "tags": [
+      "ポイント",
+      "体液",
+      "医療",
+      "実務・ノウハウ",
+      "患者",
+      "感染対策",
+      "技術",
+      "看護",
+      "看護助手",
+      "重要"
+    ],
+    "targetAudience": "beginner",
+    "title": "看護助手の感染対策基本マニュアル｜現場で実践すべき5つのポイント",
+    "views": 8
+  }
+}

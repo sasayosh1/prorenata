@@ -1,0 +1,1057 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XN0ap",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "700f94f2-c2d7-493c-96d7-2c8148d09770",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の給与を考える上で、大きなポイントとなるのが「夜勤手当」です。夜勤は体力的にも大変なイメージがありますが、その分、収入アップに直結します。"
+        },
+        {
+          "_key": "83cd6f2a-6231-4d83-b0ed-ae79f319db3b",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "91e9bc28-8b31-431c-b01f-8072fbec0ab9",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "dbed2e35-94c3-4b64-85f5-0a9720776126",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "9492a1f1-deb0-4f9f-a81c-68740b63aa38",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "e36c5d21-42d8-4556-b538-c27d03ecb18d",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "12b54c70-a6f2-4e6d-9576-305794f7300d",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、夜勤手当の相場や計算方法、そして夜勤が月収にどれくらい影響するのかを具体的に解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-e24586e7-7ffe-44d7-ac2a-cd82ab19d1fa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-9c418ba5-d648-4a36-980a-3991fc24737f",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-7778539a-ab3e-4462-9f65-4c1304caccc5",
+          "_type": "span",
+          "marks": [
+            "link-21997ec8-c151-47f6-8bc6-b28cdb4f0246"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-21997ec8-c151-47f6-8bc6-b28cdb4f0246",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b3d93b61-5ee4-4550-8707-a4f01ff51720",
+          "_type": "span",
+          "text": "夜勤手当の相場は1回あたりいくら？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6cdccf12-5875-46e1-b053-e1554cd4e5ad",
+          "_type": "span",
+          "text": "平均は5,000円～8,000円"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "d4e5f6a1b2c3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4dc7adff-7566-4f39-abee-261b7ed89915",
+          "_type": "span",
+          "text": "看護助手の夜勤手当は、病院の規模や地域、経営母体によって異なりますが、一般的に1回あたり5,000円から8,000円程度が相場とされています。大学病院などの大規模な施設では、1万円を超えることもあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2ec8f9ff-be5e-45b4-906b-9a8aa7182788",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-d712ffe1-9868-4ae1-ab98-053e059e765b",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-eff94756-0074-4d95-b5eb-5ae503021309",
+          "_type": "span",
+          "marks": [
+            "link-f1023703-2868-440e-b87f-36f83e57997d"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-f1023703-2868-440e-b87f-36f83e57997d",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "e5f6a1b2c3d4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1ae03f59-5510-4733-a6b1-99d288903f2b",
+          "_type": "span",
+          "text": "月収に与える影響"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f6a1b2c3d4e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1bcaa9f1-8a0c-433b-911a-94d621fe1c15",
+          "_type": "span",
+          "text": "例えば、1回7,000円の手当で月に4回夜勤に入ると、夜勤手当だけで28,000円の収入アップになります。これは年収に換算すると30万円以上の差になるため、収入を重視する方にとっては大きな魅力です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "44f774e3-e45c-489f-95fa-a9e971ba6635",
+          "_type": "span",
+          "text": "知っておきたい夜勤手当の仕組み"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "b3c4d5e6f1a2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1f597570-7a19-43c7-aabc-9f638cd1a467",
+          "_type": "span",
+          "text": "深夜割増賃金との関係"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d3a9e900-593c-4020-bdd0-29866e0aeb32",
+          "_type": "span",
+          "text": "労働基準法では、午後10時から午前5時までの深夜労働に対して、通常の賃金の25%以上を割り増して支払うことが義務付けられています。病院が支給する「夜勤手当」は、この法律で定められた深夜割増賃金を含んだ金額として設定されていることがほとんどです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "39d2a453-75ad-4832-8303-bbe634158429",
+          "_type": "span",
+          "text": "夜勤のメリット・デメリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a51651f5-fc04-4a63-9935-5f516108962c",
+          "_type": "span",
+          "text": "メリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "741cfeey4jsv",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "72inedop8yli",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤には、日勤にはないいくつかのメリットがあります。給与面だけでなく、働き方にも影響するポイントを見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "97aad757-9a41-4710-88cf-f9f56eb16f00",
+          "_type": "span",
+          "text": "収入が大幅にアップする"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bbafcdce-aeb2-4b21-872b-3879410774c7",
+          "_type": "span",
+          "text": "平日の昼間に自由な時間ができる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "07d3f76c-80db-4a08-b242-4152c4c0e041",
+          "_type": "span",
+          "text": "通勤ラッシュを避けられる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "block-na2lhz93a-intro-d365a5fb-9f57-4283-8459-f152877dcdc9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-re7gx72kt",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e6ad9368-323e-4ee3-9f8a-a7a39a5063b2",
+          "_type": "span",
+          "text": "デメリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "umhegnb8ntvb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2ld2mis9jpwd",
+          "_type": "span",
+          "marks": [],
+          "text": "もちろん、夜勤には大変な側面もあります。体力的、精神的な負担や、生活リズムの乱れなど、事前に理解しておくべきデメリットを確認しましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "43e89d9b-954f-4820-8d68-d3259f79458e",
+          "_type": "span",
+          "text": "生活リズムが不規則になりやすい"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1712e27c-81a1-42ea-9a8d-a8a5aee29921",
+          "_type": "span",
+          "text": "体力的・精神的な負担が大きい"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cd2409be-d8c0-42d7-83c1-2fabd6a8829f",
+          "_type": "span",
+          "text": "家族や友人との時間が合わせにくい"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-3d7e5bcb-383e-4e12-a0fe-cd170203d985",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-d5bcb9b3-69b7-408e-972e-cfdcd9f66c69",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤のメリット・デメリットでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-nfn8wihmd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-6bsryf78m",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当の相場は1回あたりいくら？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818284647-l4oa4ddyr",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-dh9miard9",
+          "_type": "span",
+          "marks": [],
+          "text": "平均は5,000円～8,000円"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818284647-matk2z8gq",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-4xp8gyosi",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当の金額は、上記以外にも、夜勤の時間帯や業務内容、経験年数などによって変動する場合があります。また、夜勤手当に加えて、深夜割増賃金が別途支給されるケースもあります。詳細については、就業規則や雇用契約書を確認するようにしましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-kl6bu2cl3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-ya08mulpf",
+          "_type": "span",
+          "marks": [],
+          "text": "月収に与える影響"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818284647-1t872z3a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-luoorw8ax",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当が月収に与える影響は、夜勤の回数だけでなく、基本給によっても異なります。基本給が高いほど、深夜割増賃金も高くなるため、夜勤手当と合わせてより高い収入を得られる可能性があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-ggz2y0d51",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-azuzkdx5p",
+          "_type": "span",
+          "marks": [],
+          "text": "知っておきたい夜勤手当の仕組み"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818284647-jp8guoj4d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-bw6kejs6t",
+          "_type": "span",
+          "marks": [],
+          "text": "深夜割増賃金との関係"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818284647-0v3fn4ltu",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-u0rcm2pqr",
+          "_type": "span",
+          "marks": [],
+          "text": "深夜割増賃金は、基本給を基に計算されます。そのため、基本給が低い場合は、夜勤手当全体も低くなる傾向があります。夜勤手当の内訳について詳しく知りたい場合は、 работодателяに確認することをおすすめします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-5qk5qbjed",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-z8k8hyhom",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤のメリット・デメリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818284647-yh5h236vg",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-4ktrd9tse",
+          "_type": "span",
+          "marks": [],
+          "text": "メリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818284647-jpj0zbygz",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-pp3p78two",
+          "_type": "span",
+          "marks": [],
+          "text": "* 収入が大幅にアップする"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-kmishvy08",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-zozrhc1bw",
+          "_type": "span",
+          "marks": [],
+          "text": "* 平日の昼間に自由な時間ができる"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-7v8sw8v88",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-6mq3bvc6m",
+          "_type": "span",
+          "marks": [],
+          "text": "* 通勤ラッシュを避けられる"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-8ggeuzi89",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-nukycy0hy",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ："
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-2gtycnq4n",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-naj0gifgn",
+          "_type": "span",
+          "marks": [],
+          "text": "介護職・看護助手向けケアシューズ【クラースショップ】"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-708ycns60",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-sm5ninvt8",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに、病院によっては、夜勤明けの日に「明け休み」が付与される場合があります。明け休みを利用することで、しっかりと休息を取り、生活リズムを整えることができるでしょう。また、日勤帯に比べて患者さんの数が少ないため、比較的落ち着いて業務に取り組めるというメリットもあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-c136e8aa-f0f4-4dd9-a398-5276a047e5a9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-91ad985f-d2b7-4100-88cf-1d00eb950127",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-e7629cf8-7eab-429c-9517-f28235aff375",
+          "_type": "span",
+          "marks": [
+            "link-e9206796-05aa-4824-a313-7e74f31eefaa"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-e9206796-05aa-4824-a313-7e74f31eefaa",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-rgq8hxlxx",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-v8ebbxbkd",
+          "_type": "span",
+          "marks": [],
+          "text": "デメリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818284647-9vgk8ogfb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-kp3h8qm7p",
+          "_type": "span",
+          "marks": [],
+          "text": "* 生活リズムが不規則になりやすい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-ejx0d3al0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-k19tlm5o2",
+          "_type": "span",
+          "marks": [],
+          "text": "* 体力的・精神的な負担が大きい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-64e3pdibl",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-wr37ro346",
+          "_type": "span",
+          "marks": [],
+          "text": "* 家族や友人との時間が合わせにくい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818284647-9swnr7tx1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818284647-apers5r68",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤は、睡眠不足や疲労の蓄積につながりやすく、体調を崩しやすくなる可能性があります。また、家族や友人との生活時間帯が異なるため、コミュニケーション不足になることも考えられます。夜勤を行う場合は、十分な睡眠時間を確保し、体調管理に気を配ることが大切です。また、家族や友人とのコミュニケーションを意識的に行うように心がけましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-39a7eecc-20a9-4e9b-af68-3249a2003fd0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-203f7926-fbd2-4568-b12b-1f900d44947e",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-92b4e871-10ff-4037-a126-61eb1597bebc",
+          "_type": "span",
+          "marks": [
+            "link-7185c01a-869e-43d6-958d-140d580e5b72"
+          ],
+          "text": "「看護助手の夜勤明けの過ごし方」"
+        },
+        {
+          "_key": "internal-link-span-outro-23bd48b6-450e-49fb-a6e6-8d34839c3492",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-7185c01a-869e-43d6-958d-140d580e5b72",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-insights"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-f2b1e784-e176-42f2-906b-c1b81a341246",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-3d10a657-8010-4dc3-92d0-5f227c5a2dcf",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-6dcbbdc8-aaaa-41b2-bb5a-161e4d4c4fd9",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-e098ccec-122b-457f-b19a-ab52a379efad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-847881fc-c3f4-41cb-9a29-f5047c98ecde",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-67ed27eb-1755-4240-8c7d-d16bc2011f29",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-9b5ac6ed-f988-4e07-bb81-b73e6168bde0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-2815a882-69a9-46a6-996d-30cc78d3b845",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-10f7621a-0d1e-47c1-ad30-2e5783334159",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-993a79f3-a1b5-4a8d-9300-5e29e1b10211",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ce3d9ed1-1dc7-408f-aa43-d2e4c6dd68a2",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の夜勤手当はいくらもらえる？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-a25fe655-4db3-486e-8352-c9b4b22e90bf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-3633e89f-38e4-48c9-84a0-bad1fac383bf",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a3c1c5f5-5b95-4625-ae9a-263b9f60e86f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-5bcc1293-e9ac-4692-afef-6924df965f36",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当の相場は1回あたりいくら？の視点で平均は5,000円～8,000円に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-df2c346c-74a9-4104-89c3-2e5f383fd9a0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-80b3e3c9-7a51-4916-b90e-16103a0f4ee8",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当の相場は1回あたりいくら？の視点で月収に与える影響に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a83b6e0c-cac1-4b73-b13f-a0fac03aca97",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-bff3eb85-ea3d-4a60-9308-78c9fd9a1783",
+          "_type": "span",
+          "marks": [],
+          "text": "知っておきたい夜勤手当の仕組みの視点で深夜割増賃金との関係に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-8737a3ac-88e5-4285-94de-2fa706b769a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-c5082036-65f6-43f0-8226-48d4ff7c6c61",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-93f56e7f-fd31-4f19-a091-60239254d14a",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-f582c52e-125c-4145-95a4-b9883aeeee48",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-2db3b1b1-351d-4b7a-9dde-af4e2d249658",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-16e6a247-b16c-4b78-ab6c-044ab69a5a5b",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-117a3221-34f2-4062-a391-53552411eb11",
+          "_type": "span",
+          "marks": [
+            "link-5b04728b-f446-4c4f-b4bb-cd90faafda12"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-5b04728b-f446-4c4f-b4bb-cd90faafda12",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503325183",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503325183-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503325183-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503325183-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503325183-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503325183-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503325183-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503325183-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503325183-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503325183-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-f5c8a584-519b-440a-a72e-db01547d7e53",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-744c4724-3d90-4924-9427-87adebe9cd44",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-night-shift-allowance"
+  },
+  "title": "看護助手の夜勤手当はいくらもらえる？"
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:38:04.973Z",
+    "operation": "add-related-section",
+    "articleId": "UZhm4BlgpnW3kQdzLi0bZ6",
+    "articleTitle": "Speech Bubble Feature Test",
+    "articleSlug": "speech-bubble-test-1764822894333"
+  },
+  "document": {
+    "_createdAt": "2025-12-04T04:34:54Z",
+    "_id": "UZhm4BlgpnW3kQdzLi0bZ6",
+    "_rev": "actExlJ9USbzmoGsOK17g5",
+    "_type": "post",
+    "_updatedAt": "2025-12-05T01:48:28Z",
+    "body": [
+      {
+        "_key": "0921028815c94e7bb835505507b13abb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0268eb4430424f02bd2de055f35ab9bc",
+            "_type": "span",
+            "text": "吹き出し機能の表示テストです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "208f7b4932e74f56be9aee1cac249c68",
+        "_type": "speechBubble",
+        "emotion": "normal",
+        "position": "left",
+        "speaker": "sera",
+        "text": "こんにちは、白崎セラです！（通常・左）"
+      },
+      {
+        "_key": "02af76bdbb9a4f2fb924fdc97e829207",
+        "_type": "speechBubble",
+        "emotion": "happy",
+        "position": "left",
+        "speaker": "sera",
+        "text": "笑顔のアイコンです！（笑顔・左）"
+      },
+      {
+        "_key": "8e530e821ed94495beb8670578665d8e",
+        "_type": "speechBubble",
+        "emotion": "sad",
+        "position": "left",
+        "speaker": "sera",
+        "text": "悲しみのアイコンです...（悲しみ・左）"
+      },
+      {
+        "_key": "8783197f9d0249c7b58b0a496df8b5f3",
+        "_type": "speechBubble",
+        "emotion": "normal",
+        "position": "right",
+        "speaker": "patient",
+        "text": "患者さんのアイコンです。（通常・右）"
+      },
+      {
+        "_key": "4942dae2c2a74ba3b3c82339a5a1f56c",
+        "_type": "speechBubble",
+        "emotion": "angry",
+        "position": "right",
+        "speaker": "nurse",
+        "text": "先輩ナースのアイコンです。（怒り・右）"
+      }
+    ],
+    "internalOnly": true,
+    "slug": {
+      "current": "speech-bubble-test-1764822894333"
+    },
+    "title": "Speech Bubble Feature Test",
+    "views": 3
+  }
+}

@@ -1,0 +1,2196 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T06:52:59.392Z",
+    "operation": "replace-pronoun",
+    "articleId": "G2Y6JXdwXQRnotb29XN0MV",
+    "articleTitle": "看護助手の仕事内容を新人でもわかりやすく解説",
+    "articleSlug": "nursing-assistant-job-description-beginners"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:38:48Z",
+    "_id": "G2Y6JXdwXQRnotb29XN0MV",
+    "_rev": "Cqfzcjgd515dn5LAWgbAUU",
+    "_system": {
+      "base": {
+        "id": "G2Y6JXdwXQRnotb29XN0MV",
+        "rev": "yOFQUyprRx0Jhe9xOogHEi"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-12T02:19:35Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "d8a9e0b1c2d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "76209f8f9ec9",
+            "_type": "span",
+            "marks": [],
+            "text": "「看護助手って、具体的にどんな仕事をするの？」そんな疑問を持つあなたのために、看護助手の多岐にわたる仕事内容を3つの主要なカテゴリーに分け、新人の方にも分かりやすく解説します。医療現場の縁の下の力持ち、その魅力的な仕事の世界を覗いてみましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b2c3d4e5f6a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0aa8f3746669",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 患者さんの日常に寄り添う「生活援助」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "c3d4e5f6a1b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "358414ab670c",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの最も身近な存在として、療養中の日常生活をサポートする、やりがいの大きな仕事です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "g1h2i3j4k5l6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "66133af62d7b",
+            "_type": "span",
+            "marks": [],
+            "text": "食事のサポート：食事の配膳・下膳や、自力で食事をとることが難しい患者さんの介助を行います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h2i3j4k5l6g1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ec1b3e3c981b",
+            "_type": "span",
+            "marks": [],
+            "text": "清潔ケア：入浴の介助、体を拭く清拭、洗髪などを通じて、患者さんの体を清潔に保ちます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "i3j4k5l6g1h2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2455bcb84f6b",
+            "_type": "span",
+            "marks": [],
+            "text": "排泄のケア：トイレへの誘導、おむつ交換、ポータブルトイレの準備など、プライバシーに配慮しながら行います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "j4k5l6g1h2i3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "01692d279e26",
+            "_type": "span",
+            "marks": [],
+            "text": "移動・移乗の介助：ベッドから車椅子への移乗や、検査室への移動の付き添いなど、患者さんの安全な移動を助けます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-9d4d7d02-c9ad-4940-8e4c-2b117e12437d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-e479a6d0-c847-43f0-b94a-ca940005ee4b",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 患者さんの日常に寄り添う「生活援助」では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2b3c4d5e6f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c55eeba781f7",
+            "_type": "span",
+            "marks": [],
+            "text": "2. チーム医療を支える「看護補助業務」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "b3c4d5e6f1a2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "61baa84853e4",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師が専門的な知識や技術を要する業務に集中できるよう、様々なサポートを行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "k5l6g1h2i3j4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd135bb96acf",
+            "_type": "span",
+            "marks": [],
+            "text": "診療の準備と片付け：診察や処置に使われる器具を準備したり、使用後に洗浄・消毒したりします。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-cf2c7ac0-b196-42ed-8ee7-fbe167d89bad",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-87e7d836-727a-4091-a1de-056e1fbb0e9d",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-s2jbv6lq2-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-8kwgga3vt",
+            "_type": "span",
+            "marks": [],
+            "text": "👟 快適なワークシューズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "l6g1h2i3j4k5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ace6ec019431",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの誘導：検査室やリハビリテーション室など、院内の指定された場所へ患者さんを案内・誘導します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "m1n2o3p4q5r6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6f18603a218d",
+            "_type": "span",
+            "marks": [],
+            "text": "書類の整理：カルテの準備や整理、伝票の管理といった事務的な作業を補助することもあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-b18db3ab-d0e0-46e8-969c-a2c9cba69673",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-5500af97-5c1c-43a3-81e5-4fe950480386",
+            "_type": "span",
+            "marks": [],
+            "text": "2. チーム医療を支える「看護補助業務」では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "n2o3p4q5r6m1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd872d1feb11",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 安全で快適な「環境整備」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "o1p2q3r4s5t6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5222fb8a6e9f",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんが安心して療養できる環境を維持することも、看護助手の重要な役割の一つです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "p2q3r4s5t6o1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9ed61f9182bf",
+            "_type": "span",
+            "marks": [],
+            "text": "病室の清掃：ベッド周りをはじめ、患者さんが使用するスペースを清潔に保ちます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "q3r4s5t6o1p2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "24034d2ff32b",
+            "_type": "span",
+            "marks": [],
+            "text": "ベッドメイキング：シーツや枕カバーを交換し、常に快適なベッド環境を整えます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "r4s5t6o1p2q3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f4fb4b6db782",
+            "_type": "span",
+            "marks": [],
+            "text": "備品の管理と補充：包帯やガーゼ、消毒液といった医療消耗品の在庫を確認し、不足分を補充します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-5455356f-618b-47a0-9bfb-da69e6daaece",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-86a789eb-75fe-4270-acc6-efc720f0dd6f",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 安全で快適な「環境整備」では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-title-p1ctsw5s5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d47f3100-8f5b-4423-bc39-84ee62a1ac8b",
+            "_type": "span",
+            "marks": [],
+            "text": "現場で本当に役立つ基本アイテム"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "section-intro-zjllxc712",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "37ba747c-698a-4242-959e-b7af418e967e",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として働く上で、これらのアイテムがあると仕事がスムーズになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-2tlc1fngd-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-ou5iz2mdk",
+            "_type": "span",
+            "marks": [],
+            "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-75oooaiv8-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-nbq2cyzkn",
+            "_type": "span",
+            "marks": [],
+            "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-7ffc74b0-89aa-46de-8f2a-c8e2366f4ed2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-75154a1b-1a9a-482a-ac85-d87207d6d84a",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-7a32a355-876c-4cd4-9470-5660d381c85f",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-1890b2c1-cdb6-46b7-9364-f7655e79e77f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-62cdac19-ba10-4061-abd2-3739b7c07e15",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-a657d4c7-756d-45d7-931c-286102ecc928",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-1z3sscpro",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e1c1192a-4fef-453b-9ab0-c3ba842cc1ea",
+            "_type": "span",
+            "marks": [],
+            "text": "アシックス ナースウォーカー"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-mdfzmjsqv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3cec2efb-11ce-497d-8246-2ced04492bbf",
+            "_type": "span",
+            "marks": [],
+            "text": "長時間の立ち仕事でも足が疲れにくい医療現場専用設計"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-qivuf12k6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "486c55c8-59df-4366-90d9-aa6c517b186f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-j49arwnud",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "da230406-1f9d-4f87-a8ed-88dc32f9a48d",
+            "_type": "span",
+            "marks": [],
+            "text": "滑りにくいソール"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-uyqr15yfw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b25c3065-2564-48c0-b3b9-737669daa80b",
+            "_type": "span",
+            "marks": [],
+            "text": "疲労軽減クッション"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-1zpiop2ch",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "06b66d42-4686-4057-bf77-fb4f152d7749",
+            "_type": "span",
+            "marks": [],
+            "text": "通気性の良い素材"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-18d3cafd-9780-44f3-9619-88af570c5798",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-88887dd9-9f7b-42c6-80bd-360b9cf30462",
+            "_type": "span",
+            "marks": [],
+            "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-pdzqxu2h0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "44fbfb21-bd90-4dab-a9dc-150b476a8b70",
+            "_type": "span",
+            "marks": [],
+            "text": "ナース専用メモ帳"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-4bz6yekqv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c83fe380-242c-425d-ae24-5e28d7f0de45",
+            "_type": "span",
+            "marks": [],
+            "text": "ポケットに入るサイズで患者情報を素早くメモ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-42d02zkgk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1ba63dfc-1361-4065-896e-04d84aab402b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-7h7td5ewt",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ff38e9a0-c1eb-4d1c-95ef-bc0c1809d50d",
+            "_type": "span",
+            "marks": [],
+            "text": "コンパクトサイズ"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-7yxkmpx2d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5ec6ea2d-3a41-467f-b8d3-a230bd251740",
+            "_type": "span",
+            "marks": [],
+            "text": "防水加工"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-gnd2swtt7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f206aa8-fec7-483d-924e-39fcb7dccd33",
+            "_type": "span",
+            "marks": [],
+            "text": "チェックリスト付き"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-glu4pz3j3-intro-6bc76102-f2fc-4f0d-a1ed-f4f384edf69e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-r8nzjeauk",
+            "_type": "span",
+            "marks": [],
+            "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-434ycnyff",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6b04f84d-fb25-4293-8b33-01868995e9a3",
+            "_type": "span",
+            "marks": [],
+            "text": "ステンレス医療用ハサミ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-e9zc4fnqx",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f4fb89f5-352e-47a6-941a-2246790ab097",
+            "_type": "span",
+            "marks": [],
+            "text": "包帯やテープのカットに最適、錆びにくく衛生的"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-ijjkri7h7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "95361906-5ea7-4ec6-94a7-225be439e509",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-zv50j0azi",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ef233165-b4d6-4887-b0e9-f6bf556e0b8b",
+            "_type": "span",
+            "marks": [],
+            "text": "ステンレス製"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-bdgv7jr3h",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a31a0d45-a643-419f-abdb-6dc3252f917e",
+            "_type": "span",
+            "marks": [],
+            "text": "先端丸型で安全"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-e9m3x7s3g",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fdedbfc1-6b70-449e-a2bf-cf6a2861d133",
+            "_type": "span",
+            "marks": [],
+            "text": "消毒可能"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-96f4e9d2-ff91-4564-9b60-d87ea69bdf6f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-296d4a92-50d6-4df3-a3b4-9da2c6ed72ca",
+            "_type": "span",
+            "marks": [],
+            "text": "現場で本当に役立つ基本アイテムでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-xnwb931h4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-zj1ui2xbk",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 患者さんの日常に寄り添う「生活援助」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818271171-olvgusbck",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-t0n9plo4e",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの生活援助は、単なる作業ではなく、患者さんの尊厳を守り、安心感を提供する重要な役割を担っています。患者さんの状況や個性に合わせた細やかな配慮が求められる仕事です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-7nmajqmde",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-zilpz30k3",
+            "_type": "span",
+            "marks": [],
+            "text": "食事のサポート："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-fucz22iv0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-t7yq50ykj",
+            "_type": "span",
+            "marks": [],
+            "text": "食事の時間は、患者さんにとって楽しみの一つであると同時に、栄養を摂取し、体力を回復するための大切な時間です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-asxep3yev",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-eqrif0vl2",
+            "_type": "span",
+            "marks": [],
+            "text": "*   誤嚥のリスクがある患者さんには、食事の形態を工夫したり、ゆっくりと時間をかけて介助したりする場合があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-e304jushg",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-8qsv704ms",
+            "_type": "span",
+            "marks": [],
+            "text": "*   食欲がない患者さんには、好みの食べ物や飲み物を尋ね、少しでも口にしてもらえるように促すこともあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-gnqy3r0x2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-6ddmrnqfz",
+            "_type": "span",
+            "marks": [],
+            "text": "*   食事中の様子を観察し、体調の変化や異常があれば、速やかに看護師に報告することが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-1rfq720et",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-hpt4z52pd",
+            "_type": "span",
+            "marks": [],
+            "text": "清潔ケア："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-p0efw4kp8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-95k1ms8sj",
+            "_type": "span",
+            "marks": [],
+            "text": "清潔を保つことは、感染症予防だけでなく、患者さんの精神的な安定にもつながります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-ows7pem49",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-q6gpfd6y4",
+            "_type": "span",
+            "marks": [],
+            "text": "*   患者さんの状態に合わせて、清拭、部分浴、全身浴などの方法を選択し、快適に過ごせるようにサポートします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-vwh4ozvuy",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-ai8sayfmo",
+            "_type": "span",
+            "marks": [],
+            "text": "*   皮膚の状態を観察し、乾燥や発赤、褥瘡の兆候などがあれば、適切な処置を行うとともに、看護師に報告します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-fdcternzz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-21dm3afg0",
+            "_type": "span",
+            "marks": [],
+            "text": "*   入浴や清拭の際には、患者さんのプライバシーを尊重し、安心してケアを受けてもらえるように配慮します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-76w6p168m",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-x9dcsmgra",
+            "_type": "span",
+            "marks": [],
+            "text": "排泄のケア："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-uul66jqob",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-lzjdqxt70",
+            "_type": "span",
+            "marks": [],
+            "text": "排泄は、人間が生きていく上で欠かせない生理現象であり、患者さんの尊厳に関わるデリケートなケアです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-pcfjx1ahj",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-nnl83cft0",
+            "_type": "span",
+            "marks": [],
+            "text": "*   排泄のタイミングや量、状態などを観察し、記録することで、患者さんの健康状態の変化を把握する手がかりとします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-wjampmoge",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-y41g7jv6s",
+            "_type": "span",
+            "marks": [],
+            "text": "*   おむつ交換の際には、皮膚トラブルを予防するために、清潔な状態を保ち、保湿剤などを使用することがあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-r01wuepah",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-y60oi50v2",
+            "_type": "span",
+            "marks": [],
+            "text": "*   羞恥心や抵抗感を持つ患者さんもいるため、声かけや説明を丁寧に行い、安心して排泄できるようサポートします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-c9543xttv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-5whrimbxx",
+            "_type": "span",
+            "marks": [],
+            "text": "移動・移乗の介助："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-oe09knjlo",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-471pid30d",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの安全を確保し、転倒や怪我を防止するために、適切な介助方法を習得することが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-01lphbu50",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-ldp2lakjt",
+            "_type": "span",
+            "marks": [],
+            "text": "*   患者さんの身体状況やADL（日常生活動作）能力を把握し、必要な介助量を判断します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-bh7nrg6y0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-ykpw36p11",
+            "_type": "span",
+            "marks": [],
+            "text": "*   車椅子への移乗や歩行介助の際には、患者さんの状態に合わせて、声かけや指示を明確に行い、安全に移動できるようにサポートします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-24b6ogh2b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-41p6ybfvm",
+            "_type": "span",
+            "marks": [],
+            "text": "*   必要に応じて、歩行器や杖などの福祉用具を使用し、患者さんの自立を支援します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-dqets9rjx",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-nljydzkhp",
+            "_type": "span",
+            "marks": [],
+            "text": "2. チーム医療を支える「看護補助業務」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818271171-fv12166bf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-u1galb6up",
+            "_type": "span",
+            "marks": [],
+            "text": "看護補助業務は、看護師の業務負担を軽減し、患者さんへのケアの質を向上させるために、重要な役割を担っています。正確性や効率性が求められる業務が多い傾向があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-801tz43z4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-heb90liri",
+            "_type": "span",
+            "marks": [],
+            "text": "診療の準備と片付け："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-95jyx5zfa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-445bs75ne",
+            "_type": "span",
+            "marks": [],
+            "text": "診療がスムーズに進むように、必要な物品を準備し、使用後の器具を清潔に保つことは、感染症予防の観点からも非常に重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-45o487qa8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-iamvujv89",
+            "_type": "span",
+            "marks": [],
+            "text": "*   診療内容に合わせて、必要な医療器材や薬品を準備し、不足がないか確認します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-g5vfixmmm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-ukz3yj9fc",
+            "_type": "span",
+            "marks": [],
+            "text": "*   使用済みの医療器具は、適切な方法で洗浄・消毒・滅菌を行い、感染のリスクを低減します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-a50rjfgnz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-uxbh87hy0",
+            "_type": "span",
+            "marks": [],
+            "text": "*   清潔な環境を維持するために、診療台や周辺の清掃・整理整頓を行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-djns0mr0v",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-50fbnh632",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの誘導："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-nnup5tan2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-0d3fukzvd",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんが安心して検査や治療を受けられるように、丁寧な言葉遣いと分かりやすい説明を心がけることが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-wdk2l6wia",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-v0t3wxhga",
+            "_type": "span",
+            "marks": [],
+            "text": "*   検査や診察の内容、場所、時間などを丁寧に説明し、患者さんの不安を軽減します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-t1ukql1r1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-he7df9frs",
+            "_type": "span",
+            "marks": [],
+            "text": "*   移動の際には、患者さんの歩行状態に注意し、必要に応じて車椅子や歩行器などを活用します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-fjahwjauf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-nvkzmggwd",
+            "_type": "span",
+            "marks": [],
+            "text": "*   検査室や診察室の場所が分かりにくい場合は、道順を丁寧に説明したり、付き添ったりするなどの配慮が必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-cajklaznn",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-jl2mx1bm0",
+            "_type": "span",
+            "marks": [],
+            "text": "書類の整理："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-4tzrqac86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-6z8tyzf3a",
+            "_type": "span",
+            "marks": [],
+            "text": "書類の整理は、医療情報を正確に管理し、スムーズな情報共有を可能にするために、重要な業務です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-7w5xltgca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-tpmzowz6g",
+            "_type": "span",
+            "marks": [],
+            "text": "*   カルテや検査結果などの書類を、指定された場所に整理・保管し、必要な時にすぐに取り出せるようにします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-67t1i0hvf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-zdv8nhnq9",
+            "_type": "span",
+            "marks": [],
+            "text": "*   書類の紛失や誤廃棄を防ぐために、ダブルチェックなどの対策を徹底します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-lutvlayjz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-t3unt6nx3",
+            "_type": "span",
+            "marks": [],
+            "text": "*   個人情報保護の観点から、書類の取り扱いには十分注意し、情報漏洩のリスクを回避します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-bwvrwsfe5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-ft7k7okfw",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 安全で快適な「環境整備」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818271171-f8o8gujkc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-tsqietliw",
+            "_type": "span",
+            "marks": [],
+            "text": "環境整備は、患者さんが安心して療養できる環境を維持するだけでなく、医療スタッフが働きやすい環境を作る上でも重要です。清潔さだけでなく、安全面にも配慮が必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-gz3m0nqe4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-wcdb9kg6w",
+            "_type": "span",
+            "marks": [],
+            "text": "病室の清掃："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-j43fhyd09",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-h7mdjcmgf",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんが快適に過ごせるように、常に清潔な状態を保つことが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-aa1zv0oy8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-8q2lwda8c",
+            "_type": "span",
+            "marks": [],
+            "text": "*   床やベッド周りの清掃、ゴミの回収、換気などを定期的に行い、清潔な環境を維持します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-knw258lpd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-3v14dagqs",
+            "_type": "span",
+            "marks": [],
+            "text": "*   感染症対策として、消毒液を使用した清掃や、適切な換気を徹底します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-92wt0gbcq",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-uybdqezqj",
+            "_type": "span",
+            "marks": [],
+            "text": "*   患者さんの私物や持ち込み品は、整理整頓し、紛失や誤使用を防ぎます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-obvkqe5w8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-kwg2nguir",
+            "_type": "span",
+            "marks": [],
+            "text": "ベッドメイキング："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-f4b8p8c7g",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-7riixi8w5",
+            "_type": "span",
+            "marks": [],
+            "text": "清潔で快適なベッドは、患者さんの睡眠の質を高め、心身のリラックスを促します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-s7gw20eoq",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-tvl48znuq",
+            "_type": "span",
+            "marks": [],
+            "text": "*   シーツや枕カバーは、定期的に交換し、常に清潔な状態を保ちます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-z2janwldn",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-z8nt7g1oj",
+            "_type": "span",
+            "marks": [],
+            "text": "*   シーツにシワやたるみがないように、丁寧にベッドメイキングを行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-muvl5dnxi",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-gyh064juy",
+            "_type": "span",
+            "marks": [],
+            "text": "*   患者さんの状態に合わせて、ベッドの高さを調整したり、体位変換用のクッションを使用したりするなどの配慮が必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-ezb2uxu37",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-6pubk0k80",
+            "_type": "span",
+            "marks": [],
+            "text": "備品の管理と補充："
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-9rjp9lrea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-7x4kucw2o",
+            "_type": "span",
+            "marks": [],
+            "text": "必要な時に必要なものがすぐに使えるように、在庫管理を徹底することが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-px5zsg5s7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-1ba6me4sz",
+            "_type": "span",
+            "marks": [],
+            "text": "*   包帯やガーゼ、消毒液、マスクなどの医療消耗品の在庫状況を定期的に確認し、不足分を補充します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-xuxal6lmn",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-65f50r2ly",
+            "_type": "span",
+            "marks": [],
+            "text": "*   医療機器や備品は、定期的に点検し、故障や不具合がないか確認します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-xn577drz6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-hkmi2ivgg",
+            "_type": "span",
+            "marks": [],
+            "text": "*   在庫管理表を作成し、適切な在庫量を維持するように努めます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-znzrxpm0y",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-j2rp9xmlj",
+            "_type": "span",
+            "marks": [],
+            "text": "現場で本当に役立つ基本アイテム"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818271171-gevoimuvi",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-2fkhdn04v",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として働く上で、これらのアイテムがあると仕事がスムーズになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-ytxdexv8u",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-8n48529l1",
+            "_type": "span",
+            "marks": [],
+            "text": "アシックス ナースウォーカー"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-7cvv6t1q2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-292wc55s5",
+            "_type": "span",
+            "marks": [],
+            "text": "長時間の立ち仕事でも足が疲れにくい医療現場専用設計"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-ibqea3k3y",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-75k4en7au",
+            "_type": "span",
+            "marks": [],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-1tjy63l4m",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-68rydk4wa",
+            "_type": "span",
+            "marks": [],
+            "text": "滑りにくいソール"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-ozo9sje87",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-jnpqi5hah",
+            "_type": "span",
+            "marks": [],
+            "text": "疲労軽減クッション"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-3eagzdtx6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-gs63b5rhf",
+            "_type": "span",
+            "marks": [],
+            "text": "通気性の良い素材"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-dycy4fe4f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-bn53bqpma",
+            "_type": "span",
+            "marks": [],
+            "text": "ナース専用メモ帳"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-6gqfez3gb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-k2gi0yg9j",
+            "_type": "span",
+            "marks": [],
+            "text": "ポケットに入るサイズで患者情報を素早くメモ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-8sudnv9p8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-rzm9yhp78",
+            "_type": "span",
+            "marks": [],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-3ai80dnxl",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-b92ot53i0",
+            "_type": "span",
+            "marks": [],
+            "text": "コンパクトサイズ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-e0h1mr0wv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-5f9v95kev",
+            "_type": "span",
+            "marks": [],
+            "text": "防水加工"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-bmv8w0wyq",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-x1nnh9fol",
+            "_type": "span",
+            "marks": [],
+            "text": "チェックリスト付き"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-nx0nsex0h",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-02otzcrek",
+            "_type": "span",
+            "marks": [],
+            "text": "ステンレス医療用ハサミ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818271171-bag3wtmpv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-47ddivkrp",
+            "_type": "span",
+            "marks": [],
+            "text": "包帯やテープのカットに最適、錆びにくく衛生的"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-2s7rd0pzt",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-b3b4xkgqv",
+            "_type": "span",
+            "marks": [],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-yezhe5b8v",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-uae3dqvlg",
+            "_type": "span",
+            "marks": [],
+            "text": "ステンレス製"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-36hwzw0so",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-2pt7jdknt",
+            "_type": "span",
+            "marks": [],
+            "text": "先端丸型で安全"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-sk0qg4x1a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-lhy1cjrou",
+            "_type": "span",
+            "marks": [],
+            "text": "消毒可能"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-oslpx68c6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-0msfjow6o-6009be42-49ef-4a04-b1be-d38933e26567",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "その他お役立ちアイテム"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-b7uei9ahx",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-0lvjn02sq",
+            "_type": "span",
+            "marks": [],
+            "text": "* 体温計：患者さんの体温を測定する際に使用します。非接触型の体温計は、感染リスクを減らすことができるため、おすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-14168c20-935f-4cea-94ec-987e2670376e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-0100fc34-1727-47f7-be7c-5bb3e3c11641",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-025cd2ce-8200-462b-ae78-e8bf9d3b08c6",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-saixid9p2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-nrqrcc7zf",
+            "_type": "span",
+            "marks": [],
+            "text": "* 血圧計：患者さんの血圧を測定する際に使用します。自動血圧計は、操作が簡単で、正確な測定が可能です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-8wi8mci8q-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-4i5e092iy",
+            "_type": "span",
+            "marks": [],
+            "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818271171-jog0c5zdk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818271171-6f0b30jcn",
+            "_type": "span",
+            "marks": [],
+            "text": "* 聴診器：患者さんの呼吸音や心音を聴取する際に使用します。軽量で持ち運びやすいものがおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-5c27aadc-55ee-43cb-ac2b-4c59f62ad317",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-51edef3d-be5e-45c7-88a6-a570732e4a58",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-346169d6-5520-4494-a4b3-3f63214c105f",
+            "_type": "span",
+            "marks": [
+              "link-b1d53764-5e74-4efe-877f-0d2e6911fc7f"
+            ],
+            "text": "「AI技術導入が看護助手業務に与える変化｜最新医療技術トレンド」"
+          },
+          {
+            "_key": "internal-link-span-outro-95669847-d895-4689-93cd-c0fc6a4e93e2",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-b1d53764-5e74-4efe-877f-0d2e6911fc7f",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-job-role-journey"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-1be45745-8c37-4fcc-9c7f-3890edec5da9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-8cd0fc60-2299-4a01-8231-285ac2ac2d49",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の仕事内容を新人でもわかりやすく解説でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-635cf506-5715-4c17-96a8-ded724b15c66",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-74adea59-5791-456a-a6b8-7aa27a189af6",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-141d4d9b-d8f5-4b5d-8a42-edde7ed86f99",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-6dbaef76-9c43-40ed-912c-d313094ebf35",
+            "_type": "span",
+            "marks": [],
+            "text": "食事のサポート：食事の配膳・下膳や、自力で食事をとることが難しい患者さんの介助を行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-f64148c6-72b9-415d-ae07-1bfcd6e50536",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-09527e71-b159-483f-b720-8609d46e12f8",
+            "_type": "span",
+            "marks": [],
+            "text": "清潔ケア：入浴の介助、体を拭く清拭、洗髪などを通じて、患者さんの体を清潔に保ちます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-60db697e-ac63-4d2e-bfd3-90d12335be43",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-6e7afd6e-a923-411f-a2e6-cab538f28516",
+            "_type": "span",
+            "marks": [],
+            "text": "排泄のケア：トイレへの誘導、おむつ交換、ポータブルトイレの準備など、プライバシーに配慮しながら行います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-aa4588b8-1774-413d-9c32-d93314a98bd1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-6b8f8ec2-df51-42a2-a664-48a07de2849a",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-5e0478aa-949e-47ec-9561-eb57668bca47",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">備品や消耗品はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-dc6e137a-a784-45fe-b487-3c2b4c4acd75",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "related-head-1765503317102",
+        "_type": "block",
+        "children": [
+          {
+            "_type": "span",
+            "text": "あわせて読みたい"
+          }
+        ],
+        "style": "h3"
+      },
+      {
+        "_key": "related-link-1765503317102-0",
+        "_type": "block",
+        "children": [
+          {
+            "_type": "span",
+            "marks": [
+              "rel-link-1765503317102-0"
+            ],
+            "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [
+          {
+            "_key": "rel-link-1765503317102-0",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-patient-safety"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "related-link-1765503317102-1",
+        "_type": "block",
+        "children": [
+          {
+            "_type": "span",
+            "marks": [
+              "rel-link-1765503317102-1"
+            ],
+            "text": "Speech Bubble Feature Test"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [
+          {
+            "_key": "rel-link-1765503317102-1",
+            "_type": "link",
+            "href": "/posts/speech-bubble-test-1764822894333"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "related-link-1765503317102-2",
+        "_type": "block",
+        "children": [
+          {
+            "_type": "span",
+            "marks": [
+              "rel-link-1765503317102-2"
+            ],
+            "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [
+          {
+            "_key": "rel-link-1765503317102-2",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-night-shift-journey"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-435a6af1-8f3c-42d6-a0a2-320ec78d0ce2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-4e7329f7-620a-4044-9fcf-74b915d153b7",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "5b37523d-66e2-4864-9c1c-b7d87b229041",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手の仕事を3つのカテゴリーに分けて新人向けに分かりやすく解説。生活援助から看護補助、環境整備まで、具体的な業務内容がこの記事一本で分かります。",
+    "geminiMaintainedAt": "2025-11-08T22:57:30.133Z",
+    "metaDescription": "仕事内容・役割の看護助手の仕事内容を新人でもわかりやすく解説について解説。看護助手の仕事を3つのカテゴリーに分けて新人向けに分かりやすく解説。生活援助から看護補助、環境整備まで、具体的な業務内容がこの記事一本で分かります。看護助手の仕事を3つのカテゴリーに分けて新人向けに分かりやすく解説。生活援助から看護補助、環境整備",
+    "publishedAt": "2025-05-09T19:21:02.823Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-job-description-beginners"
+    },
+    "tags": [
+      "ケア",
+      "サポート",
+      "仕事",
+      "仕事内容",
+      "仕事内容・役割",
+      "医療",
+      "患者",
+      "看護",
+      "看護助手",
+      "補助"
+    ],
+    "title": "看護助手の仕事内容を新人でもわかりやすく解説"
+  }
+}

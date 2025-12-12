@@ -454,8 +454,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </div>
               )}
 
-              {/* 関連記事セクション（次のステップ） */}
-              {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />}
+              {/* 関連記事セクション（次のステップ） - 削除済み */}
+              {/* {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />} */}
 
               {/* 記事下部のナビゲーション */}
               <footer className="pt-8">

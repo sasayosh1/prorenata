@@ -1,0 +1,774 @@
+{
+  "_id": "kWkIvI7T6XFbABGiW9Xxsb",
+  "body": [
+    {
+      "_key": "1c283fec-40d8-44a2-a1c1-04a2127abda0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3091f77c-8784-4766-9aea-c725da661c6d",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として経験を積むうちに「もっと医学を学びたい」「看護師として患者さんを支えたい」と感じる瞬間が増えてきました。とはいえ、仕事と学びを両立できるのか、学費や時間のやりくりはどうすればいいのか、不安になることもあります。そこで、看護助手から看護学校へ進学するときの考え方や段取りを整理しました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "74ebce33-4906-42cb-8d4c-e3f398987552",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0a54c47f-dac8-47e6-aa79-e87604aaf07f",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手から進学するメリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "51fab74c-5b60-4c96-acf3-52106a88b86d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "183b9dcd-f74d-4558-a4a2-7169127e088e",
+          "_type": "span",
+          "marks": [],
+          "text": "現場経験を持つ人材は、学校でも実習でも頼りにされます。看護助手として積み重ねた観察力と患者さんへの寄り添いは、看護過程の理解に直結します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e67ec081-fc94-4c93-a618-c05978619a98",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1d23bb6f-acfc-4b60-a891-2db2e8dd67b6",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんとのコミュニケーションやケア手順を体感しているので、授業内容が自分ごととして理解しやすい"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bf31984d-d197-48b6-989b-c62e10c811f3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0e347379-2e6f-4cc9-9aa2-954d695563dd",
+          "_type": "span",
+          "marks": [],
+          "text": "面接や志望動機で「現場で感じた課題」と「学びたい内容」を筋道立てて語れる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1e6026eb-28a0-4ccb-848d-011319bf6fd0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "30410075-a4cc-4bba-81a7-7726b9caa26a",
+          "_type": "span",
+          "marks": [],
+          "text": "すでに医療チームで働いた経験があり、連携面での強みとして評価される"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-d486c8c1-8b9c-40f4-8bd4-bbdc4c31e869",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-1b5404f1-b138-4c11-82bd-493ceda233b8",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手から進学するメリットでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8baf9f5c-f44f-4a5b-8e8d-f3fd00e2a6f0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-be76cd84-33db-4c40-9e50-67a69a91f2f8",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-1e3e0d78-1e83-444d-91b7-ce3ac7a59270",
+          "_type": "span",
+          "marks": [
+            "link-9171f8fb-e6cd-473f-b823-47dd4c066b04"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-9171f8fb-e6cd-473f-b823-47dd4c066b04",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "8b067a9f-e8bc-4875-a3b3-95a76f55ab0c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fbba6ca0-5247-4a81-85b7-f36a6805c58e",
+          "_type": "span",
+          "marks": [],
+          "text": "主な進学ルートと選び方"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fe064201-28d9-46fb-8e79-4b8008f274a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "27313096-5738-4c98-b6e8-29a8076c8053",
+          "_type": "span",
+          "marks": [],
+          "text": "働きながら資格を積み重ねるなら、准看護師課程→働きながら正看護師課程へ進む方法があります。一方で、3年制の看護専門学校や大学へ直接進学するケースも。夜間課程や通信課程の情報を照らし合わせ、自分の生活リズムに合う形を選びましょう。詳しいスケジュール感を押さえたい方は「看護助手、看護補助者、介護助手、介護補助者、ナースアシスタント、ナースエイドなど、どんな違いがあるのか？」の記事も参考になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f2b2e50d-ae76-45e0-938b-23b83c3e372c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d45b102d-1f87-49be-ae08-d8b642bedf06",
+          "_type": "span",
+          "marks": [],
+          "text": "ルート別のポイント"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "aece46db-95ec-4e8d-86f9-0e3c4f09a139",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a311d268-51f3-4b07-8f60-49fb3e4bbd6e",
+          "_type": "span",
+          "marks": [],
+          "text": "准看護師からのステップアップ：学費を抑えつつ現場に残れるが、計画的な学習時間の確保が必須"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4f1f04b4-f353-4b8b-9a37-1d9df2cec1c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db19c1a0-6855-4236-9834-a4ea0fcade81",
+          "_type": "span",
+          "marks": [],
+          "text": "看護専門学校：実習量が多いため、家族や職場との調整を早めに行う"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "36bdf80d-a623-4354-94ef-96b5aadafb5c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1591ec21-f395-49cf-965a-c6b8eae95ad4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護大学：4年間で幅広い分野を学べるが、費用と生活費の見通しを立てておく"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-6f22baad-4ab6-4d43-86b6-4b1596291aba",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-9e1dfaf3-467c-43fb-a396-6d33961cd73a",
+          "_type": "span",
+          "marks": [],
+          "text": "主な進学ルートと選び方では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "630a13bc-7cbe-40d1-9671-691fc5898394",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8b4cf720-f404-4a02-8e3c-da8bf2f89c73",
+          "_type": "span",
+          "marks": [],
+          "text": "準備しておきたいこと"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "2890cd2f-89b9-45f4-9adc-3e5033d84b30",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "98d93311-c747-468e-a262-0963cb881450",
+          "_type": "span",
+          "marks": [],
+          "text": "進学を決めたら、直近1年ほどの勤務記録や業務で気づいた課題をメモしておくと出願書類に活かせます。奨学金制度や自治体の貸与型支援もチェックし、返済時期や条件を書き出しておくと安心です。職場へ相談するときは、就学中の働き方や休職制度の有無を早めに確認しておきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "632966d9-13e1-4b48-ab89-196aa4a5c101",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c75baab0-00e7-460e-866e-4c4c9780c5ed",
+          "_type": "span",
+          "marks": [],
+          "text": "働きながら進学するコツ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "eed17764-7dba-41d5-a100-405c7dd73c03",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "05f4624e-821e-4530-b2e2-44fb2373b8f2",
+          "_type": "span",
+          "marks": [],
+          "text": "一日の終わりに10分でも学習ログを残し、翌日の小さな目標を書いておく"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "39c811c2-66dd-4d6a-afa6-cd73af6df4a8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "991d7bc0-daae-4c5d-ad4b-33eab13e8175",
+          "_type": "span",
+          "marks": [],
+          "text": "生活リズムが乱れやすい時期は、睡眠と食事の優先順位をあらかじめ決めておく"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9ea24192-6401-4c6c-8096-02e4be563265",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e20a9324-d825-4551-9882-171385b13253",
+          "_type": "span",
+          "marks": [],
+          "text": "勉強会や模試を受けるときは、同僚や家族に早めに共有し、フォロー体制を整える"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-0a28c336-c374-4cdd-a92a-e9ce74133afc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-baa5639c-34ab-4080-82ca-dc2eea62ceaf",
+          "_type": "span",
+          "marks": [],
+          "text": "「働きながら進学するコツ」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-04fec972-1aec-4fa5-92d6-8760ded752f6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-29859317-81cb-4cc9-8e13-7c25da5495c3",
+          "_type": "span",
+          "marks": [],
+          "text": "「働きながら進学するコツ」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-1add5a7f-0bb6-43d2-8755-dd0a3257f37c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-bc7c3850-fcdc-4a11-b6f1-768d176ad674",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-13127fc5-40ae-4571-8ab1-dba6583073be",
+          "_type": "span",
+          "marks": [
+            "link-2f950277-2ebd-49fe-9e25-e971a0e92ff5"
+          ],
+          "text": "「看護助手の経験を転職市場でどう活かす？」"
+        },
+        {
+          "_key": "internal-link-span-outro-36b6f1a5-9aa1-4414-a211-e23d8d0f18dc",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-2f950277-2ebd-49fe-9e25-e971a0e92ff5",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-career-change"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874406836-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874406836-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "069a1258-7168-4dac-afec-ee67d6155a72",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "12ecb2e7-e0a8-493d-b329-191540dc6f28",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-a6eda073-a1f4-4699-afd2-c600bb1dd508",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-813f2036-36ab-4651-88c7-87d1e98c2ff9",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手から看護学校へ進学するキャリアパスでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-49bb46d6-2653-4d5e-af1d-69a6b38915cc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-863c2483-c2df-452b-85c3-b5208457840c",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-ce504bf1-0077-461e-9060-a5da24834dd5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-3478440a-1110-42b4-987a-b421660b342a",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんとのコミュニケーションやケア手順を体感しているので、授業内容が自分ごととして理解しやすい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-6bd03a14-8949-4423-b966-6143b76cb884",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-6bed254e-de48-453e-823c-1e8626dcfa3a",
+          "_type": "span",
+          "marks": [],
+          "text": "面接や志望動機で「現場で感じた課題」と「学びたい内容」を筋道立てて語れる"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-9bb86e45-6ba4-4e8c-86c9-c7db59ededfc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-9556be45-4f73-4c14-aeb1-ec1206f63ed4",
+          "_type": "span",
+          "marks": [],
+          "text": "すでに医療チームで働いた経験があり、連携面での強みとして評価される"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-95ceb26f-edc6-426a-b4de-e225cf5b00a3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-d4c0049f-6e7a-46c8-b7b8-f282edda7fbe",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-2f27c52f-bc66-45e0-8045-5623c9a62a26",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">文房具を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-a9edd9aa-56a0-4a96-befa-a8cab40c0359",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-352baa4d-4553-41e2-aa21-76ab00fde1b7",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-1c838cb7-e5db-4623-b1d0-83f2dedaca4c",
+          "_type": "span",
+          "marks": [
+            "link-d662b874-202c-42e3-9f38-163f7cef3a1c"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d662b874-202c-42e3-9f38-163f7cef3a1c",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503626130",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503626130-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503626130-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503626130-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503626130-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503626130-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503626130-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503626130-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503626130-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503626130-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-8a4a227a-23a1-469e-b3dc-9a98e6b3624e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-4e62ca47-b7b0-43cb-963c-646dfce1c4f1",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-career-change-school"
+  },
+  "title": "看護助手から看護学校へ進学するキャリアパス"
+}

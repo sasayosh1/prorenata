@@ -1,0 +1,532 @@
+{
+  "_id": "e790ec3e-88d6-429f-8f21-f6640995e5d7",
+  "body": [
+    {
+      "_key": "3a7cd16b-c05e-4154-b3cd-7725c6cc594e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "842c0f9a-df3e-4f75-9266-73f893a80665",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事って、やりがいも大きい分、大変なこともありますよね。特に、シフトのことは悩みの種になりがちだと思います。わたしも、最初はシフトのことで色々戸惑いました。今回は、そんなシフトに関する悩み、そして、少しでも楽に、そしてより良い働き方を見つけられるようなヒントをお話していきたいと思います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "454bf71f-12f8-4d69-a6b3-4daf007fc447",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9b9016d0-3e98-442e-88e5-5917b389a8c7",
+          "_type": "span",
+          "marks": [],
+          "text": "シフトの種類と、それぞれの特徴を知ろう！"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "ff1857fa-1957-4960-a4f4-bdb30fddd0e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2e9a28d8-579e-4bfa-91a1-2d20ca397509",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手のシフトは、勤務先の病院や施設によって様々なパターンがあります。代表的なものをいくつか見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bd9e5d9c-eafd-4b64-8b85-0fb9fc575798",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0001e71a-89c9-4645-8628-b815a2c4f6ce",
+          "_type": "span",
+          "marks": [],
+          "text": "まず、日勤です。これは、日中の時間帯に働くシフトで、多くの施設で採用されています。一般的には、8時30分～17時30分など、日中の活動時間帯をカバーするような時間帯が多いです。日勤だけの働き方ですと、生活リズムを整えやすく、体力的な負担も比較的少ないというメリットがあります。ただ、人員配置の関係で、業務量が多くなりやすい時間帯でもありますね。わたしは、日勤のときは、患者さんの食事や入浴の介助、記録業務など、本当にバタバタと時間が過ぎていく印象です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f5131ac0-21ac-459e-8cc6-b217ec0e3e70",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0cc4e4cc-a24d-4b22-ab5d-bb4ca0f33f66",
+          "_type": "span",
+          "marks": [],
+          "text": "次に、夜勤です。夜勤は、夕方から翌朝にかけて働くシフトで、病院では欠かせない存在です。夜間の患者さんのケアや、急変時の対応などが主な業務です。夜勤は、日中の時間に比べて患者さんの数が少なくなる傾向があるので、比較的落ち着いて仕事ができるという側面もあります。ただ、生活リズムが乱れやすく、体力的な負担が大きいというデメリットもあります。わたしも夜勤の日は、仮眠をとっても、どうしても疲れが残ることがあります。夜勤明けの日は、しっかりと休息をとるように心がけています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "efc8b5a0-ad5e-4781-9156-0d7d877c57cd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8e797dac-54d1-4dfe-9978-192d353d9e29",
+          "_type": "span",
+          "marks": [],
+          "text": "そして、2交代制や3交代制といった勤務形態があります。2交代制は、日勤と夜勤を組み合わせたシフトで、夜勤の時間が長くなる傾向があります。3交代制は、日勤、準夜勤、夜勤の3つの時間帯に分かれていて、夜勤の負担が比較的分散されるというメリットがあります。施設によって、これらのシフトを組み合わせていたり、時間帯が細かく区切られていたりすることもあります。自分のライフスタイルや体力に合わせて、どのシフトが合っているのかを考えることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-d728051e-290c-4ad0-98b4-de771b41375a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-8bbcc499-c96b-49ee-b967-a69f1b089339",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-675e62c6-eda7-4d5b-8027-bc34382a98b9",
+          "_type": "span",
+          "marks": [
+            "link-2f117c8f-d363-48b8-a93e-a711e5d7d54a"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-2f117c8f-d363-48b8-a93e-a711e5d7d54a",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "19b3b1c9-d3a6-47eb-abc5-5175f21cf934",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "694baa5a-6a5f-4875-a1b5-5615c83fcf55",
+          "_type": "span",
+          "marks": [],
+          "text": "希望休と有給休暇、賢く活用して心身ともに健康に！"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "cd8c1d9b-9684-45fe-8b77-4020cfbc8279",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8525d24a-3dee-4a1e-8b94-878a2f05686d",
+          "_type": "span",
+          "marks": [],
+          "text": "シフトを組む上で、希望休や有給休暇をどのように取得するかも、とても重要です。希望休は、事前に希望する休みを申請できる制度です。事前に予定が分かっている場合は、積極的に希望を出すようにしましょう。ただし、希望休は、できるだけしも希望通りに通るとは限りません。他のスタッフとの調整や、人手不足の状況によっては、希望が通らないこともあります。そのため、複数の希望日を提示したり、他のスタッフと協力してシフトを調整したりするなどの工夫が必要になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e81418d6-102d-437f-93f5-568c80e77c86",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3e3ab270-8593-4dbf-b5cd-0924f0c436b1",
+          "_type": "span",
+          "marks": [],
+          "text": "有給休暇は、労働者に与えられた権利です。有給休暇を取得することで、心身ともにリフレッシュすることができます。有給休暇の取得は、法律で定められた権利なので、積極的に活用するようにしましょう。しかし、有給休暇を取得する際には、周囲の状況を考慮することも大切です。例えば、人手不足の時期や、重要なイベントがある時期などは、取得を控えるなど、周囲との協調性も意識するようにしましょう。わたしは、体調がすぐれないときや、どうしても休みたい予定があるときには、遠慮なく有給休暇を取得するようにしています。有給休暇は、自分の心と体を守るためにも、とても大切な制度です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "769e0877-b407-4421-b8a5-ee5dc42f76b7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "459bb731-2655-49bd-b62d-5ac75c8f4a1f",
+          "_type": "span",
+          "marks": [],
+          "text": "有給休暇の取得をためらう方もいるかもしれません。しかし、きちんと休養を取ることは、仕事のパフォーマンスを維持するためにも不可欠です。「休むのも仕事のうち」という言葉があるように、しっかり休んで、また元気にお仕事に取り組むことが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9e394a36-8aad-4311-98f9-6c346317139c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d58e50b9-a375-4f76-8f5c-0898236329b7",
+          "_type": "span",
+          "marks": [],
+          "text": "シフトでの人間関係を円滑にするためにできること"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "9b27de3e-0c8d-4590-b940-fc29d4bafbab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6ba33c69-803b-4ca4-8c58-c4cad1936b0b",
+          "_type": "span",
+          "marks": [],
+          "text": "シフトを円滑に回すためには、人間関係もとても大切です。職場の人間関係が良好であれば、シフトの調整もスムーズに進みやすくなります。わたしも、職場の仲間たちにはいつも助けられています。人間関係を良好にするために、まず、積極的にコミュニケーションをとることが大切です。挨拶はもちろんのこと、困ったことがあれば相談したり、感謝の気持ちを伝えたりすることで、良好な関係を築くことができます。また、他のスタッフの状況を理解することも重要です。例えば、体調が悪いスタッフがいれば、積極的に声をかけたり、手伝ったりすることで、お互いを支え合うことができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "68bdcd48-f770-4b01-b07c-c4a78535b686",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4364cc5e-a40f-4d93-9466-03ce8c856681",
+          "_type": "span",
+          "marks": [],
+          "text": "シフトの調整で困ったことがあれば、一人で抱え込まずに、上司や同僚に相談することも大切です。相談することで、解決策が見つかることもありますし、周りの人があなたのことを理解してくれるきっかけにもなります。職場の仲間と協力し合い、お互いを尊重し合うことで、より働きやすい環境を作ることができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "576200c3-4eff-4a0f-9c98-388d5b58b555",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3d469e58-ba17-47b9-ba04-5722f152609d",
+          "_type": "span",
+          "marks": [],
+          "text": "もし、人間関係で悩んでいる場合は、誰かに相談することも大切です。信頼できる同僚や、上司、あるいは家族や友人に話を聞いてもらうだけでも、心が軽くなることがあります。また、職場の相談窓口や、外部の専門機関に相談することもできます。一人で悩まずに、積極的に相談するようにしましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "58bafbee-ba46-459b-b8b0-c0942d3761f3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "eb806679-7e0c-46be-b98a-b45f83637eb8",
+          "_type": "span",
+          "marks": [],
+          "text": "もし今のシフトが辛いと感じたら…できること"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "5543dfb5-59bd-42ac-9e64-d5c3beb44c27",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "caa3b1bf-845f-442f-a93b-0a05a31d1dfc",
+          "_type": "span",
+          "marks": [],
+          "text": "今のシフトが辛い、と感じることもあるかもしれません。そんなときは、まず、なぜそう感じるのか、原因を具体的に考えてみましょう。夜勤が多すぎる、希望休が取れない、人間関係がうまくいかないなど、原因は人それぞれです。原因が分かれば、それに対する対策を立てることができます。例えば、夜勤が多いと感じる場合は、上司に相談して、夜勤の回数を減らしてもらう交渉をすることもできます。希望休が取れない場合は、他のスタッフとシフトを交代するなど、工夫をすることができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "16b81958-4bd3-4fec-8ddf-e88fe38cb735",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8d479217-54f9-4142-9321-cf6266fe0da7",
+          "_type": "span",
+          "marks": [],
+          "text": "どうしても今の状況を改善できない場合は、転職を考えることも選択肢の一つです。転職することで、新しい環境で、より自分に合った働き方を見つけることができるかもしれません。転職を考える際には、自分の希望する条件を明確にし、情報収集をしっかりと行うようにしましょう。転職サイトや転職エージェントを利用するのも良いでしょう。さまざまな求人情報を見て、自分に合った職場を探すことができます。焦らず、じっくりと検討して、自分にとって最善の選択をすることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f03cb7d6-f748-4c9a-9b89-c87ecfe7653c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "680d146e-a84f-4bcb-af3b-80a68335b582",
+          "_type": "span",
+          "marks": [],
+          "text": "また、看護助手のスキルアップも、キャリアアップにつながります。資格を取得することで、仕事の幅を広げたり、給与をアップさせたりすることも可能です。スキルアップを目指すことも、今の状況を打破する一つの方法です。研修に参加したり、先輩スタッフにアドバイスを求めたりしながら、積極的にスキルアップに励みましょう。わたしも、日々、新しい知識や技術を学ぶことで、看護助手としてのやりがいを感じています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ec397f7e-1063-402a-85cd-bc005ced3818",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "be2b9b35-6840-45c1-a585-264a76f493b8",
+          "_type": "span",
+          "marks": [],
+          "text": "悩んでいるときは、一人で抱え込まず、色々な人に相談してくださいね。応援しています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-fabb81e9-8f50-4acb-90f3-5fc32084673f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-b185f251-d3ad-4e1d-9354-437c42d28c01",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-cddd789a-c211-4420-aac3-25e81b2efae5",
+          "_type": "span",
+          "marks": [
+            "link-00bac644-22d8-4c0b-9047-1a38fc60424f"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-00bac644-22d8-4c0b-9047-1a38fc60424f",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "ff3d4964-4e59-4062-8421-1588fdcf085c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8948f6b6-a4b2-4f1a-b15f-8e16ec450972",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-d2d9d24f-6083-4f9e-ac23-4f99714fe4ad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-c7d226e6-782c-475c-9676-5c3a2e94cbbf",
+          "_type": "span",
+          "marks": [],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-22c58300-4bd0-45e9-9c5a-d6208746571a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-7081ba28-f5b3-4deb-a8b8-4da55f914e25",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-0b2d84fc-b42d-48ea-a54c-f90643729d70",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "resignation-comparison-457070a1-53bb-4dca-9610-7c488a8057df",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "resignation-comparison-lead-3ad1d762-b1a9-484e-ab69-576a822b9e45",
+          "_type": "span",
+          "marks": [],
+          "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+        },
+        {
+          "_key": "resignation-comparison-link-860cc3e4-4096-4e6f-a351-1325d5aebb08",
+          "_type": "span",
+          "marks": [
+            "link-da4cf2dd-2351-4416-bf58-d90ab4a0be41"
+          ],
+          "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-da4cf2dd-2351-4416-bf58-d90ab4a0be41",
+          "_type": "link",
+          "href": "/posts/comparison-of-three-resignation-agencies"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "career-comparison-c74e625b-cca6-4aed-90e5-5ad01852a22c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-5709f375-0f79-438b-9761-c2f51b7b4471",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-f3c011c1-2189-40f2-8fb3-a9dc5e779a63",
+          "_type": "span",
+          "marks": [
+            "link-d4222047-a966-4d94-8d20-3738bf16bef2"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d4222047-a966-4d94-8d20-3738bf16bef2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503581951",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503581951-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503581951-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503581951-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503581951-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503581951-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503581951-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503581951-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503581951-2"
+          ],
+          "text": "介護美容で笑顔を増やす学び方とスクール活用術"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503581951-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-care-guide-toolbox"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-c5a631b0-9883-4141-aae4-af5abd9e9aa2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-af579881-6d54-40f9-954c-c284a4ef9f6c",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-night-shift-journey"
+  },
+  "title": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+}

@@ -1,0 +1,850 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:38:37.447Z",
+    "operation": "add-related-section",
+    "articleId": "VcGv9zZ6obDRZ14YHcUUdBg",
+    "articleTitle": "看護助手から医療事務へキャリアチェンジ",
+    "articleSlug": "nursing-assistant-career-change-medical"
+  },
+  "document": {
+    "_createdAt": "2025-09-24T07:53:23Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUUdBg",
+    "_rev": "5nU3tVPQxjypaRNzMGitW0",
+    "_system": {
+      "base": {
+        "id": "VcGv9zZ6obDRZ14YHcUUdBg",
+        "rev": "d1n9NUdu5CwUlXOr5LsM45"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-11T18:42:35Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "1b12e313-1c1c-4d22-8c65-ca3d32dd3309",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5a711250-8a2d-4a20-a3d7-dc3828ecaa20",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として医療現場を支えていると、「この経験を活かしながら身体的な負担を減らしたい」「夜勤のない働き方に切り替えたい」と感じる瞬間があります。わたし自身、夜勤明けにレセプト作成で忙しそうな医療事務の同僚に憧れ、働き方の幅を意識するようになりました。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dc894b24-daa7-4f7a-9832-4edf15c7430b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a699b1d9-068e-459c-a6bb-603151f2288a",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、看護助手から医療事務へキャリアチェンジする際に押さえておきたい視点を整理します。現場経験をどう活かせるのか、どんな準備をすれば迷わず動けるのかを具体的にまとめたので、次の一歩を考えるヒントにしてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "85902d86dcc9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8eefac3abc3b",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a10d379b-5ee6-4077-b491-6ee42523a53c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "58869f72-5a69-4cc2-b915-6abdb697a782",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の経験が医療事務で生かせる理由"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "980b8f79-0aa0-4627-9316-2f2f147ef9b3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5d5d17a-4e6e-407f-a041-f40d401f1ed6",
+            "_type": "span",
+            "marks": [],
+            "text": "現場を知っている安心感"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a29ca8a5-817d-4694-bcbd-53183f620733",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "85a44c06-fb80-495f-b237-b54e00bd5da5",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さん対応の流れや医師・看護師との連携方法を理解しているため、受付での声かけやカルテの扱いに自信を持てます。特に初診患者さんの不安を察し、落ち着いた案内ができる点は現場経験があるからこその強みです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1d985b74-5210-4be3-a8b4-ba2805c77753",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "41c0b1d2-92e5-4dc4-8674-466c28f4d149",
+            "_type": "span",
+            "marks": [],
+            "text": "医療用語とコミュニケーション力"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "deeb0cdb-d425-49de-84f7-b4eafe4b9fae",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c1c6a7b3-6fb9-4de6-acd2-e550cac89292",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として日常的に使ってきた医療用語はレセプト作成や問診票の確認で大きなアドバンテージになります。報連相のクセが身についているので、診療科とのやり取りやトラブル対応でも落ち着いて行動できます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-61f65a9e-3175-4510-a99b-93d7b81b2870",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-2ae9373e-4b5d-45de-8386-6e48d25e523d",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "262e2c23-ef81-4f1e-9bed-034f2b0dd2f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5d356ef-d3c7-4e00-9483-2436577b907e",
+            "_type": "span",
+            "marks": [],
+            "text": "チームで動く段取り力"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "c6f7ec76-5094-4b26-8e3b-225073dfa30d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "01afce5c-2e3c-4dde-8f56-4337364d828f",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手時代に培った段取り力・優先順位の付け方は、受付業務と請求業務を並行する医療事務でも役立ちます。繁忙時間帯の患者フローを想定し、スタッフ間でタスク配分を調整する力は即戦力として評価されやすいです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cdab192ce2da",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f661097ea6e",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1319d58a-e17b-4167-814c-42931e2c28e2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5e596728-3bdd-461d-828f-a1256d4738fc",
+            "_type": "span",
+            "marks": [],
+            "text": "医療事務へ移るための準備ステップ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "d8a02d0c-e93d-4219-89db-4e469e73ed96",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb826cc1-3cb5-415d-a56d-0ca4ee168c33",
+            "_type": "span",
+            "marks": [],
+            "text": "STEP1: 働き方の条件を整理する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "b1cdcb97-0202-4731-a81d-90058a9ec558",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "97cb2c54-2f54-4e4d-9447-7e4e079eb74a",
+            "_type": "span",
+            "marks": [],
+            "text": "「夜勤をなくしたい」「土日休みを増やしたい」など、譲れない条件を先に書き出しましょう。条件が明確だと、クリニック・総合病院・健診センターなど応募先の絞り込みがスムーズになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-7a2d6f99-ba38-4950-965a-49ccde4dbb5e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-d291f23b-49d3-4c2a-9f84-1901e793f8dd",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-dc1e818a-0560-4d9c-b749-c0417ceb61ca",
+            "_type": "span",
+            "marks": [
+              "link-7adf9d6a-c907-480a-b706-360c6572332c"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-7adf9d6a-c907-480a-b706-360c6572332c",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "b22b803a-d34f-43ee-bf73-2b1186c5702c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0e0ce070-ae98-4fc7-aaba-2bcc7fc117b9",
+            "_type": "span",
+            "marks": [],
+            "text": "STEP2: レセプトとPCスキルを補強する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "9f68aaa2-1527-413d-86d0-9a3c35252942",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a2eb4ca-cf43-4f5d-8f54-029cb5ce18df",
+            "_type": "span",
+            "marks": [],
+            "text": "独学でもレセプトチェックの基礎を学べますが、時間が限られている場合は通学・通信講座を活用すると効率的です。Word・Excelでの帳票作成やタイピング速度も評価につながるため、短時間でも毎日触れる習慣を付けましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "74ad6b9f-7826-42b8-946f-856f45900bf4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2133386d-0894-4074-a636-7416ee886c8e",
+            "_type": "span",
+            "marks": [],
+            "text": "STEP3: 履歴書で現場経験を言語化する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "91918ec1-a732-44a0-9b10-2233fa3c8b52",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5dfada37-eb16-4e5a-b39b-020bfcad49e0",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さん対応エピソードや混雑時の段取り改善など、看護助手として成果を出した事例を数字や具体的なフローで整理します。面接では「医療チームの橋渡し役」として貢献したい思いを、自分の言葉で丁寧に伝えると好印象です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e5d3be601397",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5afbd11a57e9",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b181fe3f-6596-45e8-8a48-5068a459a804",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "767f5800-fcb4-435e-a76f-e89fde402efd",
+            "_type": "span",
+            "marks": [],
+            "text": "収入と働き方の違いを先に把握する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "3b640883-3741-4f26-bf77-cef8971a5efa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "872cfc4a-6f5c-48bf-aefb-1954b695dd5e",
+            "_type": "span",
+            "marks": [],
+            "text": "厚生労働省「賃金構造基本統計調査（令和5年）」では、看護補助者の平均月収は約22万円、年間賞与を含めた年収は約280万円でした。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-900365fc-3c8d-4d03-a473-0667adf89eb1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-6f1f322a-3128-4be3-9e6b-120361174dad",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-6888c5e3-253b-4f33-9855-8e63977e228f",
+            "_type": "span",
+            "marks": [
+              "link-d224dd16-a175-4d9f-a584-c6f2e5aefc54"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-d224dd16-a175-4d9f-a584-c6f2e5aefc54",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "28697c00-63fe-4b63-9d3f-f0c8be678b1f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d38a9eaa-10d2-45e8-acb2-ce1205806623",
+            "_type": "span",
+            "marks": [],
+            "text": "東京都産業労働局がまとめた「令和5年度 医療事務職員の賃金実態調査」によると、医療事務（常勤）の平均月収は約23万円、年間賞与は約55万円でした。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "641ddf18-b821-49ef-a8a6-4cf5d8931857",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2e2e0a3b-3145-48ce-a740-beb00fcadac3",
+            "_type": "span",
+            "marks": [],
+            "text": "夜勤手当がない分の収入差はありますが、日勤中心で生活リズムが整うメリットや資格手当を上乗せできる求人もあるため、転職前に家計シミュレーションをしておくと安心です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "79455187750b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7706f24d4284",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-bc9a5750-6cd7-4f3e-be89-a48c3f166fe0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-d7cf89f6-b69d-4e9f-80ac-e9da1ccf6bb1",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-d90765b0-b781-4c7a-a521-c0628848c69c",
+            "_type": "span",
+            "marks": [
+              "link-03e17c89-e0bd-4b67-966f-2f8233b6f8bb"
+            ],
+            "text": "厚生労働省 賃金構造基本統計調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-03e17c89-e0bd-4b67-966f-2f8233b6f8bb",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/chinginkouzou.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "1bb68177-becc-445f-876b-711939bca1e9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "adad874a-fc6b-46c7-b4d1-ca4d7fdbd16c",
+            "_type": "span",
+            "marks": [],
+            "text": "転職活動を成功させるコツ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "f84dd559-c5fc-4445-ab57-00419e5f38f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d802a01d-7ebe-43b3-9645-6bfafb9d1e1b-b4ebfa92-6277-4335-bfe4-0152e22e316a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "現場とのつながりを活かす:"
+          },
+          {
+            "_key": "d802a01d-7ebe-43b3-9645-6bfafb9d1e1b-b6953732-c299-4183-9979-d1dce98b0c2c",
+            "_type": "span",
+            "marks": [],
+            "text": " 在籍中の病院で医事課の業務を見学させてもらうと、実務のイメージが掴めます。"
+          },
+          {
+            "_key": "d802a01d-7ebe-43b3-9645-6bfafb9d1e1b-6df6d8d0-dea8-43d1-a051-48159f2c9c39",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "応募書類に現場視点を盛り込む:"
+          },
+          {
+            "_key": "d802a01d-7ebe-43b3-9645-6bfafb9d1e1b-f98c8c79-df6a-45e2-a4be-82a8221a131e",
+            "_type": "span",
+            "marks": [],
+            "text": " 「救急搬送時の受付のスムーズさに貢献したい」など、看護助手ならではの視点を志望動機に加えます。"
+          },
+          {
+            "_key": "d802a01d-7ebe-43b3-9645-6bfafb9d1e1b-ce4f882e-04c2-4bc3-9c4c-c0848cd15703",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "派遣や紹介予定派遣も検討:"
+          },
+          {
+            "_key": "d802a01d-7ebe-43b3-9645-6bfafb9d1e1b-c1b889e1-4e4b-43bf-b16a-08a0d288a3eb",
+            "_type": "span",
+            "marks": [],
+            "text": " 医療事務専門の派遣会社は研修とセットで働き方を提案してくれるため、未経験でも挑戦しやすいです。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-bcb6952f-b996-4f08-afdd-17a202005759",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-cc3aa61b-809a-4853-984f-bf86a91a3c86",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-8f7cbad7-91c1-4787-923c-923b93d464e6",
+            "_type": "span",
+            "marks": [
+              "link-fad160db-5542-4ed3-bcba-0334f936ce23"
+            ],
+            "text": "日本看護協会 看護サービス提供体制のあり方"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-fad160db-5542-4ed3-bcba-0334f936ce23",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-725e9bb5-4481-4c5c-bed8-65f35ae00945",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-bc3c27c6-3db4-4716-a57d-034125675a99",
+            "_type": "span",
+            "marks": [],
+            "text": "転職活動を成功させるコツでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ea9919e15b6c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4a2edad2b0f6",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1d77f6362f46",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8a676b9f0b89",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7b91e57dfaf4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "19a6f8c787f4",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-6589d925-e83c-48e6-8cb5-a4852135613a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-8851e7d2-c8ed-4b43-a652-7430ba30c4d9",
+            "_type": "span",
+            "marks": [],
+            "text": "「転職活動を成功させるコツ」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-dce3f957-6495-4666-adb5-a1637d4cc279",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-57f72e2b-55df-4fac-940b-208ebb943206",
+            "_type": "span",
+            "marks": [],
+            "text": "「転職活動を成功させるコツ」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-f769d26b-efb4-4bc2-a4b3-889651414000",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-081fba58-311e-44a5-975d-6b0dfcd1d631",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-7847012a-f6a2-47ca-83dc-ba980c972905",
+            "_type": "span",
+            "marks": [
+              "link-08e9343e-41f6-4e0c-96ec-33d38870ce2a"
+            ],
+            "text": "「看護助手から一般企業に転職できる？」"
+          },
+          {
+            "_key": "internal-link-span-outro-0386609e-3b29-404e-9d80-5b85565a4e2d",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-08e9343e-41f6-4e0c-96ec-33d38870ce2a",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-career-change-support"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "39f75e95-9a62-4abf-a38c-4282e07769e2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "525c6848-d376-4e9e-948f-7eb81df3c737",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-2c3475c4-d4cd-465e-8c92-0385ebb649dd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-97cee506-38d4-4520-934d-6d36b78a8299",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手から医療事務へキャリアチェンジでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-377314c0-4bad-48c1-a074-29f7f4ea49fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-b1230e7c-a247-4feb-b08a-effd1778a905",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-f627d8a6-2129-4c49-87bb-e2c7ae8d4d29",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-23c42bb5-856d-4731-927e-caa3170c9b38",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の経験が医療事務で生かせる理由の視点で現場を知っている安心感に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-da54feaa-032f-4d44-a7a7-5624f5467ea0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-168642f3-d127-4c9a-894b-bea927feea98",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の経験が医療事務で生かせる理由の視点で医療用語とコミュニケーション力に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5141c4ed-d03b-43b9-af80-db35cae4a4ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-dd978bc6-ace8-4406-a443-d39337cd1fa9",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の経験が医療事務で生かせる理由の視点でチームで動く段取り力に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-688b8a9d-c22f-4df4-9d6b-5a0dcf619924",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-a47c4432-22a1-4860-a995-6446052e0344",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-3f777029-c883-417c-b3d9-19fd302847eb",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-f4ddc802-beb4-4ac9-beef-91c0b2349837",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-b2117303-7d43-47bd-b594-028e109e2c67",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-3b2c19d5-8a3f-401a-a976-7ec4d352fcc8",
+            "_type": "span",
+            "marks": [
+              "link-62054efe-8ae9-43d3-a891-2905c9cbbe4b"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-62054efe-8ae9-43d3-a891-2905c9cbbe4b",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-a119851e-3b76-4417-80cd-5aae46c5c0a6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-e1c98d0f-ee7f-40ba-8112-0a6f1067be72",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "8bdb105b-9dc6-4048-97b5-7e5e106c38d9",
+        "_ref": "category-career-change",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "# 看護助手から医療事務へキャリアチェンジ 看護助手として医療現場で働く中で、「患者さんと直接関わるのは好きだけど、夜勤や身体介助は体力的にきつい」「もっと安定した働き方をしたい」と感じる方もいるかもしれません。",
+    "geminiMaintainedAt": "2025-11-08T23:03:52.690Z",
+    "metaDescription": "キャリア・資格の看護助手から医療事務へキャリアチェンジについて解説。# 看護助手から医療事務へキャリアチェンジ 看護助手として医療現場で働く中で、「患者さんと直接関わるのは好きだけど、夜勤や身体介助は体力的にきつい」「もっと安定した働き方をしたい」と感じる方もいるかもしれません。",
+    "publishedAt": "2025-09-20T05:42:23Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-career-change-medical"
+    },
+    "tags": [
+      "キャリア",
+      "キャリア・資格",
+      "医療",
+      "医療事務",
+      "患者",
+      "看護",
+      "看護助手",
+      "経験",
+      "資格",
+      "転職"
+    ],
+    "title": "看護助手から医療事務へキャリアチェンジ"
+  }
+}

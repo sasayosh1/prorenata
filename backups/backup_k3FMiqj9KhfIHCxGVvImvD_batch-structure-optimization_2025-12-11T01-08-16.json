@@ -1,0 +1,966 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-11T01:08:16.785Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "k3FMiqj9KhfIHCxGVvImvD",
+    "articleTitle": "電子カルテシステム統一化｜看護助手の記録業務変更点",
+    "articleSlug": "nursing-assistant-emr-system-changes"
+  },
+  "document": {
+    "_createdAt": "2025-09-09T04:58:16Z",
+    "_id": "k3FMiqj9KhfIHCxGVvImvD",
+    "_rev": "uFihGMc3SNE01ZaqQALmZC",
+    "_system": {
+      "base": {
+        "id": "k3FMiqj9KhfIHCxGVvImvD",
+        "rev": "VcGv9zZ6obDRZ14YHYtBG8"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-11T00:36:53Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "2d66c586-8d93-48c0-bc7c-2afd9ab3cac1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "70731a12-e6f1-4e14-808e-789730a47484",
+            "_type": "span",
+            "text": "電子カルテ統一化で仕事はどう変わる？看護助手が知るべき記録業務の変更点"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "bba2609e-1f24-424b-9969-1ae81a7e8878",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "240d3218-05ed-46f1-b86c-4b075daf26a3",
+            "_type": "span",
+            "text": "「うちの病院も、もうすぐ新しい電子カルテになるらしい」「パソコン操作は苦手だから不安…」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d6b95165-6221-46f6-9ffb-b14ce1786bfd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e568f12a-6da7-4656-a921-62f8f1342acf",
+            "_type": "span",
+            "text": "現在、国の方針として、全国の医療機関で電子カルテの情報を共有・連携しやすくするための「標準化」が進められています。これに伴い、多くの病院で電子カルテシステムの更新や新規導入が予定されており、看護助手の業務、特に「記録」のやり方が大きく変わろうとしています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "55c28258-b785-43c5-aee2-22541690609b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a2344597-2c93-4ea4-9b86-4340993dc05e",
+            "_type": "span",
+            "text": "しかし、これは決して難しい話ではありません。変化のポイントを正しく理解し、事前に準備すれば、むしろ業務の効率化や負担軽減に繋がる大きなチャンスです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9afcda79-81d4-457b-ba88-e62adb610b62",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1b2f3e0b-1bd2-48a7-b7de-94c990be2de8",
+            "_type": "span",
+            "text": "この記事では、電子カルテの統一化によって看護助手の記録業務がどう変わるのか、そしてその変化にスムーズに対応するための具体的なポイントを解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-38313207-dc3f-4e08-84ab-4abecfe5b453",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-2b1ba071-444b-45e4-bd6b-094618958a47",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-f7593150-2d9c-4098-b3a1-09eb15a26024",
+            "_type": "span",
+            "marks": [
+              "link-b66cfff8-6858-4c31-9ccf-1b480bf81126"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-b66cfff8-6858-4c31-9ccf-1b480bf81126",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "cafc43c4-1eed-4065-8ec3-05f31a8a6fe0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "786e9e50-89cd-4dc6-b348-1bcad61bb8c4",
+            "_type": "span",
+            "text": "なぜ今、電子カルテの「統一化（標準化）」が進んでいるのか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "32b74b46-c9d2-48f0-9ba0-b05f30dd15fb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "81eab294-ce30-4fd8-9f7c-794fba0a04d1",
+            "_type": "span",
+            "text": "これまで、電子カルテの形式はメーカーや病院ごとにバラバラで、他の病院との情報交換が難しいという課題がありました。この課題を解決し、より質の高い医療を提供するために、国は電子カルテの情報を統一された形式で管理・交換できるようにする「標準化」を推進しています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3bb22eb4-b17f-4510-a1c3-0d5c20dccbb1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0ef13fbf-4501-48aa-9fcd-7f7ba5ce5126-28beb260-f33c-4b3b-b41b-e63eda795126",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "医療機関同士の情報連携"
+          },
+          {
+            "_key": "0ef13fbf-4501-48aa-9fcd-7f7ba5ce5126-198a4f79-7e63-44b1-9737-79158ef58166",
+            "_type": "span",
+            "marks": [],
+            "text": ": 患者さんが転院や救急搬送された際に、既往歴やアレルギー情報などを迅速かつ正確に共有できるようになります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "e87e802c-5fac-43ef-bf29-2e959d7336b9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "56d95e32-1b51-492d-abe3-dc925e758f22-5b7232e4-fed9-4688-8d6b-60eacf5479b3",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "災害時の備え"
+          },
+          {
+            "_key": "56d95e32-1b51-492d-abe3-dc925e758f22-fae7a56a-558c-4f07-b04c-1734b6594caa",
+            "_type": "span",
+            "marks": [],
+            "text": ": 災害時でも、どの医療機関でも患者さんの情報を確認できるようになります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "9a9c9352-04ae-47e1-8ff1-3a260ef257a9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "61ab372f-525b-40d3-bd7f-115a76046be7-1c9236a8-5a63-45e6-915b-864ee79534be",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "医療の質の向上"
+          },
+          {
+            "_key": "61ab372f-525b-40d3-bd7f-115a76046be7-744bdda2-d4a5-47b8-bc89-471b73a4ae6d",
+            "_type": "span",
+            "marks": [],
+            "text": ": 全国規模で集まった医療データを分析し、新たな治療法の開発などに役立てることが期待されています。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "followup-21fc2445-cc6f-46b0-8ed0-bf004b988269",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-85f1d690-0c7a-47c5-8449-56f037f2d9f6",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを参考に、自分に合った方法を見つけてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e8faa379-cb43-404d-b438-040e9f4e7b1d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "29d2a415-3bed-48b4-a44b-de15767a4ba3",
+            "_type": "span",
+            "text": "看護助手の記録業務はどう変わる？3つの主な変更点"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "reference-445965e7-d227-44d5-822f-87f08f05cf3b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-1c718650-c0dd-4a82-b0d3-f1a86b15bbb8",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-22c23c90-8145-48a3-a629-ed6ff9e0c6cc",
+            "_type": "span",
+            "marks": [
+              "link-f6c1482c-e462-4f7c-98c8-38e8b1806d3e"
+            ],
+            "text": "総務省 統計局 労働力調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-f6c1482c-e462-4f7c-98c8-38e8b1806d3e",
+            "_type": "link",
+            "href": "https://www.stat.go.jp/data/roudou/"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "4b469795-40a2-45e2-938b-095e16ee6f94",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8ab8b0a6-6573-4222-a256-ceb926711f36",
+            "_type": "span",
+            "text": "電子カルテの導入・更新によって、看護助手が担当する記録業務には、主に以下の3つの変化が起こります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a62781c0-9f3e-4ba6-8218-1f87999a001a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7f5dc257-6093-4b19-9f66-3bee388ce970",
+            "_type": "span",
+            "text": "変更点1：手書きから「PC・タブレット入力」へ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "daf42f92-355e-4169-984a-cb571bc021a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ecdad3bd-8d4d-470d-bb99-e1b1011dbd0e",
+            "_type": "span",
+            "text": "これまで手書きだったケアの記録やバイタルサインなどを、パソコンやタブレット端末を使って入力するようになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-9b1e9efe-077b-4f2e-ac8a-1b3ce60993e2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-2877d98f-9c31-4d01-bbdc-0c03262f102b",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b2ac4f77-790b-4b4c-aa99-4ddfd9f33e4d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "788b5b8a-81e8-41c2-a2db-53bbcbd0ba9f-8335c0e6-03ea-4a51-b5ee-6d9ffb463ea2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "メリット"
+          },
+          {
+            "_key": "788b5b8a-81e8-41c2-a2db-53bbcbd0ba9f-6fecc360-6cc7-487b-9a83-10c6d1ba496e",
+            "_type": "span",
+            "marks": [],
+            "text": ": 誰が書いても同じ文字で読みやすい。記録の修正が容易。過去の記録の検索が簡単になる。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "4e8163a4-7e4b-45c6-8334-9aea3d580aa0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "edaab296-e64e-42c8-99d2-2a1fb943fc7b-9e2a357c-4fa0-4c05-b8ee-a71480561ec2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "デメリット"
+          },
+          {
+            "_key": "edaab296-e64e-42c8-99d2-2a1fb943fc7b-21cb2c15-8f47-47f9-89f8-9d0d0ad1be86",
+            "_type": "span",
+            "marks": [],
+            "text": ": パソコンやタブレットの操作に慣れが必要。タイピングが苦手だと時間がかかる。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "followup-13785539-f7a1-46dd-898d-262c678c9de5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-324da08a-78d4-4621-8317-be8c6cb7fe4f",
+            "_type": "span",
+            "marks": [],
+            "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5afdf324-618f-4c1c-b406-3579567fe7c7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5a28df5f-3d7b-4659-b488-09a26f5de80f",
+            "_type": "span",
+            "text": "変更点2：記録内容の「標準化」と選択式入力の増加"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "5693c230-5826-4e3f-9bf5-8ee365adec9c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "95b32c11-b254-4ec7-a129-182e18b2b1fc",
+            "_type": "span",
+            "text": "自由記述欄が減り、「食事量：全量摂取、半分摂取、1/3摂取」のように、決められた選択肢から選んで記録する項目が増えます。これは、データを標準化し、後から分析しやすくするためです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6e812271-797e-494b-9958-4cb1b576d2e9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "473f38f4-455f-47b2-bc4e-002118dd9cb3-42ecd997-90c2-464a-a8f2-14085c7a3568",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "メリット"
+          },
+          {
+            "_key": "473f38f4-455f-47b2-bc4e-002118dd9cb3-2f990008-4820-481f-ad16-9f8c3c417d3f",
+            "_type": "span",
+            "marks": [],
+            "text": ": 記録にかかる時間が短縮される。記録内容の抜け漏れが減る。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "d83405f3-8776-4fa4-bc06-5b5799436611",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "89821864-da62-4b68-9259-70f23f12713b-b36fc1cf-8687-4545-a71c-6f6253faad55",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "デメリット"
+          },
+          {
+            "_key": "89821864-da62-4b68-9259-70f23f12713b-c57450ae-80a8-4c23-9ad0-42a5289c7471",
+            "_type": "span",
+            "marks": [],
+            "text": ": 細かいニュアンスや特記事項が伝えにくくなる場合がある。（→そのための自由記述欄も用意されています）"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "followup-42f7bf26-64d1-43ec-8c6e-bf60e0a7e3d2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-280ad87f-0284-4ae8-b9b4-d53e6f68781f",
+            "_type": "span",
+            "marks": [],
+            "text": "これらを参考に、自分に合った方法を見つけてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0991477d-73a9-4a8b-b233-a5c46895de6d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5e1fa2e7-4fa8-4b8f-9c10-a7e481a1869a",
+            "_type": "span",
+            "text": "変更点3：リアルタイムでの「情報共有」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "reference-be5086ca-2622-4a1f-a89e-48ed73e9591f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-e243883a-6bef-4f1a-b875-cfa2c6b4fdee",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-707c9bc2-43c1-4eb9-94cc-098292215595",
+            "_type": "span",
+            "marks": [
+              "link-48f02ebc-e3cd-4d03-83e6-d592a4a509d1"
+            ],
+            "text": "コメディカルドットコム 看護助手の給料解説"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-48f02ebc-e3cd-4d03-83e6-d592a4a509d1",
+            "_type": "link",
+            "href": "https://www.co-medical.com/knowledge/article112/?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "a9779928-c979-454e-9e2c-c4000ca30eae",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "57566571-1925-46fb-8d6c-a8b3fceb9886",
+            "_type": "span",
+            "text": "看護助手が入力した情報（例：排泄の記録）が、即座に医師や看護師の端末にも共有されます。これにより、チーム全体で患者さんの最新の状態を常に把握できるようになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6df07a0a-10c3-4a76-a3b6-31f894d8e4a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "158607d7-765e-4c1a-bb00-54dc44caf454-554c65d4-5e3a-40a4-96b8-d8682702c47a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "メリット"
+          },
+          {
+            "_key": "158607d7-765e-4c1a-bb00-54dc44caf454-c421938c-37c3-4e4b-ab96-a0ca56346678",
+            "_type": "span",
+            "marks": [],
+            "text": ": 報告・連絡・相談がスムーズになる。看護師への報告漏れを防ぐことができる。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "4fdc60c3-3b4a-447b-9cc1-6d958fbce85b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1300b610-5083-43a6-aafd-c6e6a4686a94-c2ef9877-2ba8-4f3d-aab0-577f74fc36f7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "デメリット"
+          },
+          {
+            "_key": "1300b610-5083-43a6-aafd-c6e6a4686a94-a699024c-bc9e-4c0b-b777-afe4e1b17bb3",
+            "_type": "span",
+            "marks": [],
+            "text": ": 入力した情報には責任が伴うため、正確な入力がより一層求められる。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "section-closing-fdc870e1-89f5-416e-b25e-114d8ec48c18",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-da792d79-8d1e-4c61-9f6d-88d960b02b11",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の記録業務はどう変わる？3つの主な変更点では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "358a51ab-5b97-48c5-81b9-1894e6f34fca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe5eae08-d970-4584-8382-9e202bf6363e",
+            "_type": "span",
+            "text": "新しいシステムにスムーズに対応するための3つのコツ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "11abf4bc-97f9-49f6-a5d7-185f1ac9d1bf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7d8fd273-7142-439d-8998-fbb13886de3a",
+            "_type": "span",
+            "text": "「パソコンが苦手…」という方も、心配はいりません。以下の3つのポイントを意識すれば、多くの人がスムーズに新しいシステムに適応できます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "20e46694-aa4e-4433-95b8-22765af44bed",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bc73cb64-3fef-45d7-9732-2cd755963ef3",
+            "_type": "span",
+            "text": "1. 基本的なPC・タイピングスキルを身につける"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "e257b1ff-156a-4592-98de-9728209f5b6a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "71db44e5-1df8-418e-8665-f4a2620ae54c",
+            "_type": "span",
+            "text": "いきなり難しいスキルは必要ありません。まずは、電源の入れ方、マウスの操作、キーボードでの文字入力（両手でなくてもOK）といった基本操作に慣れておきましょう。スマートフォンのフリック入力に慣れている方は、タブレットでの入力はすぐに習得できるはずです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c3257832-91ae-4203-adae-629da9ad3950",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "22b0d7b2-fa57-4550-8838-009c7d042216",
+            "_type": "span",
+            "text": "2. 院内研修やマニュアルを積極的に活用する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "0f3e6908-ae14-424e-a2f8-31e6b75c05eb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "be8846cd-7bd3-4d34-827e-22d98252e69f",
+            "_type": "span",
+            "text": "新しいシステムの導入前には、多くの場合院内で研修会が開かれます。積極的に参加し、わからないことはその場で質問しましょう。配布されるマニュアルは、いつでも見返せるように保管しておくことが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "link-spacer-0b908a5d-e9e5-46de-81bc-480fa5af7d5f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "link-spacer-span-ef9c04c8-3411-4d4e-91dc-e6bbfebecdef",
+            "_type": "span",
+            "marks": [],
+            "text": "補足リンクも参考にしてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e9dc2f4f-249f-4467-94b0-b69d5ce3d3d4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b4ef5773-1d50-47f7-bc46-efedb4397072",
+            "_type": "span",
+            "text": "3. 「習うより慣れろ」の精神で、とにかく触ってみる"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "reference-4621f00c-4b3b-4a4a-a07f-1400467e1fca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-dcbd71ee-4a14-4038-935e-1535fadc0d3f",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-d8d4d320-1bd1-46d8-9fa1-1d518144e421",
+            "_type": "span",
+            "marks": [
+              "link-c2f9e430-79e1-44af-8a7a-54ce143ef2d7"
+            ],
+            "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-c2f9e430-79e1-44af-8a7a-54ce143ef2d7",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "4beb9cd8-4b78-48e8-a4d9-3f68056a1170",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6c725cfa-a5af-48e3-b241-f7d600c4bec5",
+            "_type": "span",
+            "text": "最も大切なのは、恐れずに実際にシステムを触ってみることです。最初は時間がかかっても、毎日使ううちに多くの場合慣れていきます。同僚と操作方法について教え合うのも良い方法です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-f4b99214-31aa-4ecc-809b-c1450e624dbb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-961e2d42-34cd-4163-b711-4dc1fa433034",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-f95715bf-8170-4f5c-9533-eadbbaa51323",
+            "_type": "span",
+            "marks": [
+              "link-39369762-e7e2-4619-8462-db9660ac12d5"
+            ],
+            "text": "「看護助手に必要な医療用語100選｜現場でよく使われる略語も解説」"
+          },
+          {
+            "_key": "internal-link-span-outro-5f0e96b7-42a5-4e09-9185-4128917c5774",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-39369762-e7e2-4619-8462-db9660ac12d5",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-medical-terms"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-62f91cea-2529-4658-a6a9-12943d700994",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-4359bd5f-2044-4edb-96ea-e700afa9451b",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-ff8962a0-8882-4611-8331-ee22dc1b71e2",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-07efedf0-cf30-41ef-aa0d-45f67e786ab8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-35248651-d3cd-4a94-8e32-98f7378f1ff8",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-5f555a93-ad1f-42c9-9c1f-c3ac141ecb73",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3047188a-0bc2-4f99-994b-9006839e7ad9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e1e38b8f-eb03-48b0-93e5-3dce2998426a",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-c5cbcce1-a3ab-4e5d-996e-9c5ad1734e25",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-ecbd7c68-5041-4456-977d-b4a2cc5e6838",
+            "_type": "span",
+            "marks": [],
+            "text": "電子カルテシステム統一化｜看護助手の記録業務変更点でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-71120f7b-b87d-4a43-9ddf-a2b35d484ec5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-27b6f713-24d2-484f-83b7-8ae9295db965",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5b50e755-5efe-4f78-9703-79c8127de413",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-3553fd98-bbd6-418c-8f71-494583337f5c",
+            "_type": "span",
+            "marks": [],
+            "text": "医療機関同士の情報連携: 患者さんが転院や救急搬送された際に、既往歴やアレルギー情報などを迅速かつ正確に共有できるよう…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-8fe14cbc-8001-49b9-95d0-19f9cbedced6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-46317967-a7bd-45a0-9985-1b47a27bad87",
+            "_type": "span",
+            "marks": [],
+            "text": "災害時の備え: 災害時でも、どの医療機関でも患者さんの情報を確認できるようになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-b35e805a-43ef-4ef2-9e80-c7ef13e9ded9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-b2755aeb-eae6-4824-9ee1-bd04ef441aa6",
+            "_type": "span",
+            "marks": [],
+            "text": "医療の質の向上: 全国規模で集まった医療データを分析し、新たな治療法の開発などに役立てることが期待されています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-d76eb721-2365-470c-a0d8-ffc718948349",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-508c1856-8c73-40ac-90c2-3a6e70741f29",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-2476189e-c333-4125-bde4-495b34b82d8d",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやポケットオーガナイザーはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-3bc740f6-8763-4df1-81b1-f0c01101fda4",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "disclaimer-347f684c-88e4-4e19-bfb2-f1c70a9dd520",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-99060872-1185-4b1a-8397-6b59665abddf",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "3de708bf-00b3-415b-a8c5-c257aba2d99f",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "contentType": "news",
+    "difficulty": "intermediate",
+    "excerpt": "電子カルテ統一化で仕事はどう変わる？看護助手が知るべき記録業務の変更点 「うちの病院も、もうすぐ新しい電子カルテになるらしい」「パソコン操作は苦手だから不安…」 現在、国の方針として、全国の医療機関で電子カルテの情報を共有・連携しやすくするための「標準化」が進められています。",
+    "featured": false,
+    "geminiMaintainedAt": "2025-11-08T23:06:27.377Z",
+    "metaDescription": "電子カルテシステム統一化による看護助手の記録業務変更点について詳しく解説します。新システムの操作方法、記録の標準化、業務効率の向上、研修の必要性まで、システム変更が現場に与える影響と必要な対応について具体的な情報をお届けします。system-changeに関する最新情報。看護助手への影響と必要な対応について詳しく解説し",
+    "publishedAt": "2024-06-18T22:28:34.002Z",
+    "readingTime": 8,
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-emr-system-changes"
+    },
+    "tags": [
+      "スキル",
+      "医療",
+      "医療機関",
+      "実務・ノウハウ",
+      "患者",
+      "病院",
+      "看護",
+      "看護助手",
+      "記録",
+      "電子カルテ"
+    ],
+    "targetAudience": "experienced",
+    "title": "電子カルテシステム統一化｜看護助手の記録業務変更点",
+    "views": 1
+  }
+}

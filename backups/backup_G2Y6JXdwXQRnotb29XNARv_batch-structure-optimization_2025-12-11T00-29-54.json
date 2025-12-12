@@ -1,0 +1,926 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-11T00:29:54.276Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "G2Y6JXdwXQRnotb29XNARv",
+    "articleTitle": "看護助手から看護師へ転職したら年収はどれくらい増える？",
+    "articleSlug": "nursing-assistant-salary-increase-nurse"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:41:09Z",
+    "_id": "G2Y6JXdwXQRnotb29XNARv",
+    "_rev": "vGyZgfn5GqkZeupMk7nfep",
+    "_system": {
+      "base": {
+        "id": "G2Y6JXdwXQRnotb29XNARv",
+        "rev": "1Va8npsUh2uKP9qWPFJDB0"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-10T18:39:07Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "fe620b2d-2f30-496b-9c53-c5b723e0c8f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f935e852-86eb-43cb-b1f3-9e44503b5706",
+            "_type": "span",
+            "text": "看護助手として働いていると、「この先も同じ年収で大丈夫かな」「看護師になれたら生活がどう変わるんだろう」と考える瞬間が何度もありますよね。わたしも夜勤明けの休憩で先輩とお給料の話になり、リアルな数字を知って背筋が伸びた経験があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-1927d41b-6354-4196-bfd9-aec9646f5186",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-7b36a75c-b1ef-478a-b084-d6b0a918ba1a",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-acad3bd1-feff-4f7e-9b54-139def20e784",
+            "_type": "span",
+            "marks": [
+              "link-1760107e-07c1-4557-9d60-ccdd495c5e1d"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-1760107e-07c1-4557-9d60-ccdd495c5e1d",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "14c00220-1129-4c4b-994b-20a4dca5a358",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e5ee3cd6-4f64-4b61-9f00-8366c4138382",
+            "_type": "span",
+            "text": "この記事では、看護助手から看護師にキャリアアップした場合の年収差や準備ステップ、学費のやりくり、働き方の変化を整理しました。現場で感じる不安を一つずつ言葉にしながら、無理なく次のステップを踏めるようお手伝いします。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-5d230925-d293-453d-8255-9c7199a4bc97",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-008638f4-892c-47d2-bdb6-f40ecb758130",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-a339a5e3-8553-4fc0-800c-1fee97a96b22",
+            "_type": "span",
+            "marks": [
+              "link-1a05ec1d-6c53-4f49-b39a-e460869c17ce"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-1a05ec1d-6c53-4f49-b39a-e460869c17ce",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "53c4a5d9-55d6-4912-b09e-be41e1284f4c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5164b8dc-dcf0-42e0-a658-918e87df53ac",
+            "_type": "span",
+            "text": "看護助手と看護師の年収差を整理"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "6dcf144b-824d-4902-9fac-eab5bb985073",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "eb95c4a6-b05a-4513-9bbd-a49a03622d42",
+            "_type": "span",
+            "text": "看護助手の現在の収入目安"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "64502798-9bc1-4f50-a42e-2369b76da8ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e74d5b8f-a634-4793-9060-08125af067dc",
+            "_type": "span",
+            "text": "厚生労働省「令和5年賃金構造基本統計調査」では、看護補助者（看護助手）の平均月収はおよそ22万円、賞与を含めた年間収入は約280万円でした。地域差や勤務形態で上下しますが、夜勤手当を含めても300万円前後が目安です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-e0adfe71-c467-424b-9ae6-3907af3dc3b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-96ee000e-e7c3-4bb5-9a67-8379ceaf6b27",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-7c666057-421d-472b-86e3-db5ebc4bb45f",
+            "_type": "span",
+            "marks": [
+              "link-35162d7d-4f38-46a1-aa67-08eeea4f14da"
+            ],
+            "text": "厚生労働省 賃金構造基本統計調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-35162d7d-4f38-46a1-aa67-08eeea4f14da",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/chinginkouzou.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "d7751383-cbf8-47b6-b3e5-a797e6583b60",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "665ed99f-21d6-4335-b84e-b6dcd3d7fdf6",
+            "_type": "span",
+            "text": "看護師の平均年収"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "8ec76ca2-9916-40f8-8375-2dbb88c342b3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ff68ff6a-7549-4a9c-8a67-cf6112ae610c",
+            "_type": "span",
+            "text": "同じ調査で正看護師は平均月収31万円、年間収入は約470万円でした。准看護師でも400万円台前半が目安で、資格の有無が基本給・手当・昇給幅に直結します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5fa19a6d-2510-479b-856c-3a003a2eaa9f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "39448789-bc50-400c-bbf8-1da8cda36f6f",
+            "_type": "span",
+            "text": "5年間の収入シミュレーション"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "e7d2444c-30c0-410d-9bf3-b863f8083bd1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a09d1d8a-fff4-4f59-901a-5fc4e4e7866f",
+            "_type": "span",
+            "text": "わたしの病棟でよく話題になるのが「学び直し期間を含めた差額」です。実務を続けながら2年制の看護学校に通ったケースを想定すると次のようになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-062193fe-2208-442b-9213-d42847724689",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-2b529c71-a561-4e40-92e4-0cebfd35b0f4",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-e5de44eb-765e-467b-bc36-369fdaf3d48c",
+            "_type": "span",
+            "marks": [
+              "link-9e6a4d68-9720-4241-9f2c-9e7bd5ceed3c"
+            ],
+            "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-9e6a4d68-9720-4241-9f2c-9e7bd5ceed3c",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "54e79fee-1b24-4c31-8758-647483d2ad0f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6aeea33f-8bb6-49e1-9b0a-e23355c9237a",
+            "_type": "span",
+            "text": "看護助手を続けた場合（年収280万円×5年）: 約1,400万円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "faffbaf1-b911-4969-a71e-a563f99b2a1f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3a66b894-13be-4573-9e17-c1ca38de3039",
+            "_type": "span",
+            "text": "看護学校2年＋看護師3年目まで（年収0円＋奨学金、卒業後470万円×3年）: 約1,410万円＋奨学金"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "eb3695b3-8b2b-40d5-ab96-3e13190ef8e7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "661dd3cd-761c-4e80-9641-ba4ccbbb1b7f",
+            "_type": "span",
+            "text": "看護師5年目まで働いた場合（平均500万円弱）: 約2,400万円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f6fa7b7e-4fd9-446e-bac4-7c73a70798df",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c4992043-7294-4ee0-b8c1-0b7fe2e20e70",
+            "_type": "span",
+            "text": "学び直しの2年間は奨学金や給与付きの奨学金制度を利用することで収入の空白を埋められます。差額だけを見ると大きいので、早めに試算しておくと安心です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2c14b849-62a1-44bb-87db-0959cb294058",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "60b5b541-a160-4b66-9129-778b038a274d",
+            "_type": "span",
+            "text": "年収アップを実現する準備ステップ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "7f9658fb-10eb-482b-bc98-d845d66ca569",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6e671f2d-e8e0-4979-a076-7a0fe5baef79",
+            "_type": "span",
+            "text": "STEP1: 看護学校と働き方の組み合わせを決める"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a82b4bcf-c415-415d-909d-878c71aa8ebc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "54801559-e7ad-41e4-8ab9-f94a77931769",
+            "_type": "span",
+            "text": "働きながら学べる通信制・夜間定時制・奨学金付きの専門学校など、選択肢を比較します。職場によっては「進学支援制度」で学費を一部負担してくれるので、まず上司に相談するのがおすすめです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-7a578619-b3b3-404d-9ed4-fa8c493d6360",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-273df964-f1c4-4d15-b3e2-55f5b4f02dbb",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-d5850408-6e61-4e32-85ec-8a9bfe0e2758",
+            "_type": "span",
+            "marks": [
+              "link-f3cd668d-898e-40a3-ae30-63b479747b2f"
+            ],
+            "text": "厚生労働省 看護職員需給分科会"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-f3cd668d-898e-40a3-ae30-63b479747b2f",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "link-spacer-276a85c0-0d0b-4c42-8cd9-25a871746418",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "link-spacer-span-b5de49c3-0433-45d7-a0e4-c8000233f00f",
+            "_type": "span",
+            "marks": [],
+            "text": "補足リンクも参考にしてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-24e71573-5ec1-488d-b5e7-4eb398bba25c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-bfec041c-886b-4fb8-b6ff-d380b29e0643",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-1ba6b991-059e-4082-b6ce-45e7c0850cb1",
+            "_type": "span",
+            "marks": [
+              "link-a6bf3fcb-c4ed-4afa-be3b-a7e9aaff8591"
+            ],
+            "text": "日本看護協会 看護補助者の離職状況レポート"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-a6bf3fcb-c4ed-4afa-be3b-a7e9aaff8591",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "5d4b3afa-4ab7-472c-9883-c425a96c37de",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0fe1b66-5280-4bc6-935d-6a950d97ad4f",
+            "_type": "span",
+            "text": "STEP2: 勉強時間と生活リズムを可視化する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "887a207c-082a-493d-95f9-d9e49b6215c1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ef1c6a9f-549d-405f-a9e6-78c70499183d",
+            "_type": "span",
+            "text": "看護助手のシフトを基準に、週20〜25時間の学習時間をどう確保するかを紙に書き出します。わたしは夜勤前の仮眠を30分短くしてワークブックを解く時間にあて、土日の午前中にまとめ学習をするスタイルに落ち着きました。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dca856b8-8a01-4114-b698-d5fc47274179",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "99aff20e-d375-43c2-afdd-3923921ba994",
+            "_type": "span",
+            "text": "STEP3: 実習・国家試験前のサポート体制を整える"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6c75e46f-9241-4283-82b5-b56f8f5ed5bd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8a586ef5-e37d-4ad5-ac7f-08437095630b",
+            "_type": "span",
+            "text": "家族や同僚に「いつが正念場か」を共有しておくと、シフト調整や家事サポートをお願いしやすくなります。学校の進路指導担当、病院の教育担当、看護協会の模試など外部の応援団もフル活用しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-04cf5721-4888-413d-8d36-576c48aac4ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-163e37b5-e7d5-4986-87af-4f010dc8db29",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-669a2492-0d51-4843-a7df-8f013c825ba9",
+            "_type": "span",
+            "marks": [
+              "link-1e19c963-99c1-46e9-a935-80bd99dfb4d7"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-1e19c963-99c1-46e9-a935-80bd99dfb4d7",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "70222698-c637-40a9-80a9-20c868ea2172",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "588ce0c2-f1a8-4b36-8390-b6db55b2364a",
+            "_type": "span",
+            "text": "学費・生活費のやりくり術"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "07065501-82f0-4346-b1f1-6765276562fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb609317-dc64-47c2-b098-5a3af2e88d81",
+            "_type": "span",
+            "text": "学費を抑える制度を知る"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "28b3958d-cc7c-4d7a-b1c0-cb3c9767ed72",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18a16a91-e2af-4494-a2c1-b0203e3eaf3f",
+            "_type": "span",
+            "text": "自治体の看護師等修学資金、病院独自の奨学金、社会人向け教育訓練給付金などを組み合わせると自己負担を大きく減らせます。返済免除条件（一定期間の勤務など）を確認し、将来の働き方と合わせて計画しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-ba2cd19d-3f5a-4d27-81ac-e1fe798070bb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-d084072b-9d26-4c00-8626-33a5486b4c13",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-1a984047-6d9a-489e-83f6-b9193c67f249",
+            "_type": "span",
+            "marks": [
+              "link-ab10b2db-cae0-4c20-a875-a3b6a31e4929"
+            ],
+            "text": "日本看護協会 看護サービス提供体制のあり方"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-ab10b2db-cae0-4c20-a875-a3b6a31e4929",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "647b4efd-949d-4106-bbda-753e7d6af305",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "be51c9bc-525b-4677-98fb-3bbbd294347a",
+            "_type": "span",
+            "text": "生活費のクッションをつくる"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "5e857430-495c-4d56-8502-ad12a97726f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "604a5409-d940-431e-a975-937eed42d00e",
+            "_type": "span",
+            "text": "貯蓄が難しいときは、共済の積立型保険や財形貯蓄を少額でも利用しておくと緊急時のクッションになります。実習が始まるタイミングで時短勤務や派遣シフトに切り替えるケースも多いので、勤務先の人事と早めに相談しておくとスムーズです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "66952619-d508-48d4-96de-bfd7eac6771c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1f68d4d8-f58c-426d-8a44-e157c0b57938",
+            "_type": "span",
+            "text": "看護師へ転職後に得られるキャリアメリット"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "4ca587ed-6897-4e7b-8521-8dd33bbaa05b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5808d81-5ef3-4cc2-8e26-1618ffff1262",
+            "_type": "span",
+            "text": "業務裁量と専門性の広がり"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "07592c57-8d4c-4876-84d5-9f45d64758ab",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d32318c3-8434-42e1-8dc8-0c266895391a",
+            "_type": "span",
+            "text": "看護師になると、患者さんの状態判断やケアプラン作成に直接関われます。チームカンファレンスでの発言機会も増え、後輩指導や教育委員などの役割に挑戦できます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "09ceb75d-e0dd-4227-9378-48be3ebd465f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bba44d71-f87a-451f-a85a-d5baa2ad492a",
+            "_type": "span",
+            "text": "働き方の選択肢"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "1682ef61-d79f-4059-a7c1-d350ae3e0617",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8edf6bf5-2d27-469e-8270-90e87a2caed2",
+            "_type": "span",
+            "text": "訪問看護、クリニック、企業の健康管理室など、勤務先の幅が一気に広がります。短時間正社員やフレックス制度を導入する医療機関も増えており、ライフイベントに合わせた働き方を選びやすくなりました。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e0cfe2ee-7d4e-4b71-ae7b-fca5dc56df3d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "54aea222-3a8c-479e-bc18-5ca4d371b1cf",
+            "_type": "span",
+            "text": "長期的な収入アップ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6ab0f3ff-5edb-4dfe-b963-36fef19e83ae",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "76f85954-d79f-48e1-81af-2e81ae5a50eb",
+            "_type": "span",
+            "text": "主任・認定看護師・専門看護師とキャリアを積むにつれて役職手当や資格手当が加算されます。日本看護協会の調査でも、専門資格を持つ看護師の平均年収は500万円台後半という結果が報告されています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-d705c2eb-e8b9-4291-b568-9e95447cd677",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-0ab1f27e-5c4e-475c-ae4e-3031ea9a2a84",
+            "_type": "span",
+            "marks": [],
+            "text": "「長期的な収入アップ」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-3b528959-e40c-442e-9675-8456b8b89e50",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-06130ef8-90ba-4267-afbd-574173705fb0",
+            "_type": "span",
+            "marks": [],
+            "text": "「長期的な収入アップ」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-7cd5e1a2-bc7c-4dff-b953-853f39d21ac0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-71a28334-5dcd-4c2b-b436-07789798a723",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-dbd08d88-5795-4566-bf86-8f406dc6d8fd",
+            "_type": "span",
+            "marks": [
+              "link-99337b61-de78-4995-a907-6b2f11766201"
+            ],
+            "text": "「看護助手の給料が低い理由を徹底解説」"
+          },
+          {
+            "_key": "internal-link-span-outro-d4360bbf-2fc7-45dc-88ed-cac26866768e",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-99337b61-de78-4995-a907-6b2f11766201",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-low-salary-reasons"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "df33b088-a194-4719-965b-8cf8a2a9752d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b594940b-00b5-44fb-848a-1dd96d1f60cb",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-e1369da0-75ac-44ba-8c67-c7759aed62ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-3d2092b5-8d53-41b2-b6e5-72e627f2cb97",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手から看護師へ転職したら年収はどれくらい増える？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-ae6d69ec-e270-449d-9c06-d8d2d8257441",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-e26f3327-b713-48d9-bda0-cc761f778e09",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-2a2f8acb-a2c9-47ea-bc62-7f8042d9667e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-43f3855e-45b5-470f-91ec-8c1bafeacd0f",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手と看護師の年収差を整理の視点で看護助手の現在の収入目安に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-8c8ca83a-bd84-4496-b19e-9f6dd47c7d46",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-aa080431-a2d5-428b-8024-602a1a343638",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手と看護師の年収差を整理の視点で看護師の平均年収に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-69f1fc8a-ceb1-4e7c-84c1-1b74e0176a8c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-aae59969-6e78-4ba9-84d9-5ba2c322b064",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手と看護師の年収差を整理の視点で5年間の収入シミュレーションに目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-a042d175-ee7a-4728-a142-7a8ef5d4081a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-8f276889-2558-4ac3-a14d-9932d98822f3",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-79d81283-62e0-4d82-a69c-4cb1fb5af7b5",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-4276ef2f-c311-484d-90b2-e73feb561ee8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-d1489bf0-71c8-431b-97b4-b2333ac12824",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-b7d2ba30-145a-4fa5-94ed-bc067fefa2a3",
+            "_type": "span",
+            "marks": [
+              "link-0f5bfaef-0c84-43a7-8af7-7a4d3d74b8c6"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-0f5bfaef-0c84-43a7-8af7-7a4d3d74b8c6",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-44295c37-e13c-43d7-8a10-c82160b1944f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-51f9ef6a-4260-4b2a-bd1d-c6935113e492",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手から看護師へ転職すると年収はどれくらい増える？具体的なシミュレーションと、収入アップ以外のメリットも解説。あなたのキャリアアップの参考に。",
+    "geminiMaintainedAt": "2025-11-08T23:00:14.569Z",
+    "metaDescription": "給与・待遇の看護助手から看護師へ転職したら年収はどれくらい増える？について解説。看護助手から看護師へ転職すると年収はどれくらい増える？具体的なシミュレーションと、収入アップ以外のメリットも解説。あなたのキャリアアップの参考に。看護助手から看護師へ転職すると年収はどれくらい増える？具体的なシミュレーションと、収入アップ以",
+    "publishedAt": "2024-04-28T09:16:39.116Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-salary-increase-nurse"
+    },
+    "tags": [
+      "キャリア",
+      "医療",
+      "年収",
+      "看護",
+      "看護助手",
+      "看護師",
+      "給与",
+      "給与・待遇",
+      "資格",
+      "転職"
+    ],
+    "title": "看護助手から看護師へ転職したら年収はどれくらい増える？",
+    "views": 3
+  }
+}

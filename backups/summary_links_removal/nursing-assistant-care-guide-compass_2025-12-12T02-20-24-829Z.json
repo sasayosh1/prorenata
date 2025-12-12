@@ -1,0 +1,1172 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XNBM1",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bc9d5354-7d4a-41b8-96cc-2bee7341afa4",
+          "_type": "span",
+          "marks": [],
+          "text": "医療・介護の現場で働くことを考える際、看護助手、介護士、看護師という似たような職種があり、それぞれの違いが分かりにくいと感じるかもしれません。"
+        },
+        {
+          "_key": "b1a2df5c-eff2-4150-a8da-cfb75279b48c",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "d6b683f6-c9a8-4f99-b690-27078aa89fcf",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "867048c7-b2b0-483c-973e-ecd4168f5b0f",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "68c3a40a-196a-4342-9a38-2d1240f2ed5f",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "2fea6a28-3d93-45b4-9163-852c78cc0882",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "59579840-a9c0-44d3-989b-e31f25be13c5",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、これら3つの職種の役割、仕事内容、資格、給与などを比較し、それぞれの特徴を分かりやすく解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-8c97affd-a90d-43ec-9762-4a5084a6a7b5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-22fbfa83-f758-41a3-b2b8-ff01afe64c55",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-6868a20e-129a-4357-9a68-5826caf66e59",
+          "_type": "span",
+          "marks": [
+            "link-2ab1bdd5-0012-45fd-a5e7-11434650410c"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-2ab1bdd5-0012-45fd-a5e7-11434650410c",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f43fcdfa-d8e9-4ce7-8839-7e63a1665c3a",
+          "_type": "span",
+          "text": "3つの職種の基本的な役割と働く場所"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ea936314-3197-497b-9d99-5bb980f9e016",
+          "_type": "span",
+          "text": "看護助手"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "yxipm5blcd4p",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8u2hcnfhs4p2",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は、看護師の指示のもと、患者さんの身の回りのお世話や環境整備など、医療行為以外の業務を通じて看護師をサポートします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-72ee4e21-2d77-47be-bd20-b74f11c47916",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-7c03540d-124a-459f-b970-bc8885e366d1",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ebe7ecee-5266-4554-91d8-5302cbe6ae6e",
+          "_type": "span",
+          "text": "役割：看護師の指示のもと、医療行為以外の患者さんのケアや環境整備を通じて、看護師の業務を補助します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2a17690f-0cee-40a5-b32b-6502fd9044f8",
+          "_type": "span",
+          "text": "働く場所：主に病院やクリニックなどの医療機関です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "followup-985c8e7e-5c18-4c5f-bc46-771f6546537c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-8779a7c1-520f-4278-ae57-123c76464295",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "96b82e45-c3eb-4c43-82c9-b58f1813f79a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-b817aa26-1a44-4757-9fb8-c98c6c78dc92",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-3caaae6a-1827-4b2d-ab12-80e68780b827",
+          "_type": "span",
+          "marks": [
+            "link-38224a10-cf55-4a5a-927f-bacefab47610"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-38224a10-cf55-4a5a-927f-bacefab47610",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "17cabee6-519c-4af9-8ed4-f6b5fd17f4f0",
+          "_type": "span",
+          "text": "介護士（介護職員）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "7czyzb7gx1bo",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "kesi4i7zhvet",
+          "_type": "span",
+          "marks": [],
+          "text": "介護士は、利用者さんの日常生活全般の支援を行い、自立した生活を送れるようにサポートすることが主な役割です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-66d0894a-ff86-4a9f-b9ae-1154f54b13ec",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-014fcf2d-90b5-4fa1-9eea-0e4a8f7f2a40",
+          "_type": "span",
+          "marks": [],
+          "text": "「介護士（介護職員）」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1d3f6a51-abca-405d-9c61-655b7d33ef5e",
+          "_type": "span",
+          "text": "役割：利用者の日常生活全般の支援を行い、自立した生活を送れるようサポートします。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9a1e1e05-1460-43e3-87d5-508257395a77",
+          "_type": "span",
+          "text": "働く場所：特別養護老人ホーム、介護老人保健施設、デイサービスなどの介護施設や、利用者の自宅（訪問介護）です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "followup-ed1a8be8-f85c-44f1-9cb2-c9fef3a2ed23",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-21825189-910a-49b1-a19a-8d6b31f52a46",
+          "_type": "span",
+          "marks": [],
+          "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fe216e98-7a29-4dd8-8203-3c170ba79513",
+          "_type": "span",
+          "text": "看護師"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "5raguk12dkp6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "wlmkrfgw9bac",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師は国家資格を持ち、医師の指示のもと医療行為を行うほか、患者さんの健康管理やケアプランの立案など、専門的な判断を伴う業務を行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dba03d56-895e-4fa5-b62b-6545e453e866",
+          "_type": "span",
+          "text": "役割：国家資格を持ち、医師の指示のもと医療行為を行うほか、患者さんの健康管理やケアプランの立案など、専門的な判断を伴う業務を行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c5dd82fa-6ac4-47de-a13a-754d3a981c56",
+          "_type": "span",
+          "text": "働く場所：病院、クリニック、介護施設、訪問看護ステーションなど、多岐にわたります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "reference-722fd57b-6da9-4c19-97c8-35cf13773a17",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-2721f732-3549-4651-86c4-886793d33d31",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-c192ec5f-f223-4ce2-95b4-548696a02f57",
+          "_type": "span",
+          "marks": [
+            "link-fe6ae469-d094-4e8b-949a-ef238d56fedb"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-fe6ae469-d094-4e8b-949a-ef238d56fedb",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-zzqucu01b-intro-50a0dade-481d-434e-94ad-353b4e941ddf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-gv6e4t7uk",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b250ff4a-b500-4f8c-bf19-d17154c5fde8",
+          "_type": "span",
+          "text": "仕事内容の具体的な比較"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "df6ad71d-6712-4dff-a067-792661f7fc35",
+          "_type": "span",
+          "text": "身体介護"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0e010623-d994-4914-9fbb-efc1fc685062",
+          "_type": "span",
+          "text": "食事、入浴、排泄、移動介助など、患者さんや利用者さんの身体に触れるケアは、3つの職種に共通する業務です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7d0167dc-a9fd-448b-9498-adf9baf5a27b",
+          "_type": "span",
+          "text": "医療行為"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "l596510b1n22",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6i26xs4bz1op",
+          "_type": "span",
+          "marks": [],
+          "text": "医療行為は、患者さんの身体に直接影響を与える行為であり、法律によって資格を持つ医療従事者のみに許可されています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a12e591e-e41a-47d1-bdf4-42c918b06c74",
+          "_type": "span",
+          "text": "看護師：可能（国家資格）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7d36429e-7ce5-4f7b-960a-507a6c69db99",
+          "_type": "span",
+          "text": "准看護師：医師や看護師の指示のもと可能（都道府県知事免許）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "80064e1c-b9ab-4af3-ad27-078d6bb335ed",
+          "_type": "span",
+          "text": "看護助手・介護士：不可"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "followup-891dc67b-d427-457b-b44e-5cf7cfb12f8a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-c592c136-73d5-4940-9c43-7e088ce184d8",
+          "_type": "span",
+          "marks": [],
+          "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c6898b58-165a-49fd-92c3-83a2de5adf2c",
+          "_type": "span",
+          "text": "その他の業務"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "a6vnx29htlz4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "qmv47jhfqq3v",
+          "_type": "span",
+          "marks": [],
+          "text": "身体介護や医療行為以外にも、それぞれの職種には特有の業務があります。ここでは、その一部をご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-560c4a45-5d00-4bd2-af7c-325ea8ac88b8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-05a5d4ac-c99c-4f7e-890b-4c389cac76b1",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-708c6201-d521-418d-9cee-4de236a78e0a",
+          "_type": "span",
+          "marks": [
+            "link-71012451-7088-49d3-8810-2bae1a8b54ae"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-71012451-7088-49d3-8810-2bae1a8b54ae",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6e651741-a852-4701-96e9-db7885817390",
+          "_type": "span",
+          "text": "看護助手：環境整備、医療器具の準備・片付け、書類整理など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "w3x4y5z6u1v2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8c67f4cb-1041-457b-9f8a-1eee1a468380",
+          "_type": "span",
+          "text": "介護士：レクリエーションの企画・実施、相談援助、生活相談など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "x4y5z6u1v2w3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d327dc18-4ad5-4800-b01e-533b923f8f4c",
+          "_type": "span",
+          "text": "看護師：患者さんの状態観察、アセスメント、ケアプラン立案、多職種連携など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-59408475-d9da-4bc1-a21f-471217d7108f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-d05dc452-9d07-4665-a2e6-0895169aeca6",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事内容の具体的な比較では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "y5z6u1v2w3x4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "959acd8b-cfb1-4c04-a7ff-968374d3970e",
+          "_type": "span",
+          "text": "資格と給与の違い"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "z6u1v2w3x4y5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "aaef8f6e-1a15-4d1b-a28d-df601618e5c0",
+          "_type": "span",
+          "text": "資格"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "okzoxktf4wix",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "rcxm3dcsqw6w",
+          "_type": "span",
+          "marks": [],
+          "text": "それぞれの職種に就くために必要な資格は異なります。資格の有無は、業務内容やキャリアパスに大きく影響します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a3b4c5d6e7f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af6d5214-8e05-48d8-8882-290e9ac12b9c",
+          "_type": "span",
+          "text": "看護助手：必須資格なし。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "b4c5d6e7f1a3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e4cf4b92-7144-4611-83db-6da63819dd48",
+          "_type": "span",
+          "text": "介護士：介護職員初任者研修などの資格が推奨されます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "c5d6e7f1a3b4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ed675410-975c-458c-9d43-b1843983212b",
+          "_type": "span",
+          "text": "看護師：国家資格必須。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "followup-d44eafe6-aeea-4d45-9830-f1b36245d94e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-0e860873-a1f2-4ac6-a94c-08169198f155",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d6e7f1a3b4c5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f8871385-99e8-4fdc-b06b-a267edf56391",
+          "_type": "span",
+          "text": "給与水準"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "e7f1a3b4c5d6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7b404a90-3b28-449f-a0fc-a4c2b55c8569",
+          "_type": "span",
+          "text": "一般的に、看護師が最も高く、次いで介護士、看護助手の順に給与水準が高くなります。ただし、夜勤の有無や施設規模、地域によって変動します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f1a3b4c5d6e7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5cb624e8-5e5a-40ba-ba44-8a246ac5f85f",
+          "_type": "span",
+          "text": "あなたに合うのはどの職種？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "dn70g0ph4v9t",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0mir86auwueh",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手、介護士、看護師、どの職種も人の役に立つ素晴らしい仕事です。あなたの興味や将来の目標に合わせて、最適な職種を選びましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a4b5c6d7e8f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bf4ae129-f97c-4873-90a1-6d67faa87f4c",
+          "_type": "span",
+          "text": "医療現場で看護師をサポートし、患者さんの療養生活を支えたいなら「看護助手」。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "b5c6d7e8f1a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c442639a-1a61-4c3a-96e1-da80e277985d",
+          "_type": "span",
+          "text": "利用者さんの生活全般を支え、自立支援に深く関わりたいなら「介護士」。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "c6d7e8f1a4b5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e29f4292-0d43-4c42-ae55-6fbb11516894",
+          "_type": "span",
+          "text": "医療行為を行い、専門性を追求し、患者さんの健康管理に責任を持ちたいなら「看護師」。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-a5702d6c-d096-456f-a88e-4f858bc74826",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-3aec6788-97a8-4cfa-8958-90c5bcc32db6",
+          "_type": "span",
+          "marks": [],
+          "text": "あなたに合うのはどの職種？では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-923f7977-10a5-459d-b416-cccba9904637",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-c9fdb785-2fac-4676-8c7f-b9a6cf7fe53a",
+          "_type": "span",
+          "marks": [],
+          "text": "「あなたに合うのはどの職種？」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-ee88c812-91d8-4248-8df3-9ed4420dea88",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-1b3d6775-e13a-42a2-bdfc-68cc86a0b5d3",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-4867c607-fcd4-470a-9cc9-b3b423cc41f1",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-bd3a6300-40cc-4c6b-a5bd-270af23dc93d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-aeaa0e82-a5aa-4b81-ab20-e8c7b7a448c0",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-0693945d-83c5-4c42-8d6f-035e536b91ab",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-11741550-4c6c-427c-a1f4-0f78ef86af9d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-89e6067a-1fa7-4bd4-bacb-3c5424a70df6",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-82b566c4-9479-4a19-b2dd-739795988bef",
+          "_type": "span",
+          "marks": [
+            "link-04ff22b5-f3e6-4096-a437-17f09e448742"
+          ],
+          "text": "「看護助手に向いている人・向いていない人の特徴」"
+        },
+        {
+          "_key": "internal-link-span-outro-f6f602e6-8cba-4cea-8acf-376fa2272bac",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-04ff22b5-f3e6-4096-a437-17f09e448742",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-care-guide-insights"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-b1ef35b7-34a6-4355-ab78-ea4b730bd653",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-83c41821-0f6b-46c4-b8d1-6bbe681fe119",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と介護士、看護師の違いをまとめて解説でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-edf81b2d-6590-4d12-b29e-7e138fa99586",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-652d90a5-dc99-40d3-af24-9c24a1d0a31d",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-0961e8b0-eb71-4589-9a1b-595219fffa63",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-a148b9b8-74bf-40a6-a0c2-b96c3279e02d",
+          "_type": "span",
+          "marks": [],
+          "text": "3つの職種の基本的な役割と働く場所の視点で看護助手に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-50a3a8f5-faf3-4cc9-96c0-f5a1e2ae8b59",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-2dd2cccb-f97b-424e-b14d-af051ad1d63d",
+          "_type": "span",
+          "marks": [],
+          "text": "役割：看護師の指示のもと、医療行為以外の患者さんのケアや環境整備を通じて、看護師の業務を補助します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-15842526-1234-4b87-9340-993c1f69d5a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-c596b193-d1ac-4543-bbdd-e9c7b89f6f67",
+          "_type": "span",
+          "marks": [],
+          "text": "働く場所：主に病院やクリニックなどの医療機関です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-9b28a0de-5fc4-4f6b-af86-cc16fd65c9f8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-bb822b3b-bb04-4442-9ddb-3fbdaf59cd46",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-8978d264-d4b4-413e-bd5f-7e65698d44df",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-6e8a12dd-804c-44f5-aa6b-b13bed26f77e",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-a66d216c-4cd4-4a48-a966-7c768e78b6a2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-c075c14e-336c-42ba-98b7-ebb11c5d8ca7",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-a39b8b0a-9fc0-4a27-a005-9574526f7a62",
+          "_type": "span",
+          "marks": [
+            "link-cc575b0f-d42d-41d3-a143-bf49ad364d8c"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-cc575b0f-d42d-41d3-a143-bf49ad364d8c",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503412322",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503412322-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503412322-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503412322-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503412322-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503412322-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503412322-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503412322-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503412322-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503412322-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-39c078a6-1991-4884-be59-55b427c94d2f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-2d09c6cc-a506-4074-a2db-0419ef968bab",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-care-guide-compass"
+  },
+  "title": "看護助手と介護士、看護師の違いをまとめて解説"
+}

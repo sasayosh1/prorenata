@@ -1,0 +1,106 @@
+[
+  {
+    "_key": "summary-h2",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-h2-span",
+        "_type": "span",
+        "marks": [],
+        "text": "まとめ：小さな“きれい”が心をあたためる"
+      }
+    ],
+    "markDefs": [],
+    "style": "h2"
+  },
+  {
+    "_key": "summary-p1",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-p1-span",
+        "_type": "span",
+        "marks": [],
+        "text": "この記事では、看護助手の日常業務に少し加えるだけで、患者さんの心に寄り添うことができる介護美容の基本的な考え方と実践方法について解説しました。特別な技術や資格がなくても、髪を整えたり、手を保湿したりといった小さなケアが、患者さんの尊厳と安心感を支えます。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "summary-points",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-points-span",
+        "_type": "span",
+        "marks": [],
+        "text": "介護美容の重要ポイント："
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "summary-li1",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-li1-span",
+        "_type": "span",
+        "marks": [],
+        "text": "身だしなみを整えることは、心のケアにつながり、患者さんのQOL（生活の質）を向上させます。"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "summary-li2",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-li2-span",
+        "_type": "span",
+        "marks": [],
+        "text": "特別なスキルがなくても、髪をとかす、保湿するなど日常の延長で実践できます。"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "summary-li3",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-li3-span",
+        "_type": "span",
+        "marks": [],
+        "text": "より専門的に学びたい場合、介護美容に特化したスクールや研修も選択肢になります。"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "summary-cta",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-cta-span",
+        "_type": "span",
+        "marks": [],
+        "text": "今日のケアが、誰かの心をそっと支える時間になりますように。まずは身近なケアから始めてみましょう。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  }
+]

@@ -1,0 +1,1100 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:38:21.172Z",
+    "operation": "add-related-section",
+    "articleId": "VcGv9zZ6obDRZ14YHcUUWjC",
+    "articleTitle": "看護助手のシフト勤務はどのくらい大変？",
+    "articleSlug": "nursing-assistant-shift-work-difficultys"
+  },
+  "document": {
+    "_createdAt": "2025-09-24T03:56:17Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUUWjC",
+    "_rev": "OWH8my0cDcn0uzzv5RsvPv",
+    "_system": {
+      "base": {
+        "id": "VcGv9zZ6obDRZ14YHcUUWjC",
+        "rev": "yOFQUyprRx0Jhe9xOogHEi"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-11T18:41:50Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "6a999bb2-0c8e-4837-93d1-ecc4c2a12058",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "14f1623a-4df1-473a-8662-2655dea571f1",
+            "_type": "span",
+            "marks": [],
+            "text": "# 看護助手のシフト勤務はどのくらい大変？"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c6ccf125-8f4a-4a36-ad66-922e92621a32",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d8687dc1-f2fb-4d3b-9bf8-eccb0955575c",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の求人を見ると、ほとんどが「シフト制」での勤務となります。24時間365日、患者さんのケアが途切れることのない医療現場では、シフト制は不可欠な働き方です。しかし、これから看護助手を目指す方にとっては、「休みはちゃんと取れるの？」「生活リズムが乱れそう」といった不安も大きいでしょう。この記事では、看護助手のシフト勤務の実態と、その大変さ、そして上手に乗り切るためのコツを解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ref-merged-block-4c22d8a7-0760-4db9-af08-60c2b1c5690a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ref-label-96d95b4d-f234-46c6-81ba-e502572e540d",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "ref-merged-span-e957baf5-da2a-4326-8503-6f2fdd3e0e6d",
+            "_type": "span",
+            "marks": [
+              "ref-merged-a5ab7d31-c346-4b24-b14e-c75edf006145"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          },
+          {
+            "_key": "ref-sep-8cca1823-7cd1-4c6a-a040-3e9b3ac0f421",
+            "_type": "span",
+            "marks": [],
+            "text": " / "
+          },
+          {
+            "_key": "ref-merged-span-ee5fe8b8-4d27-46df-8aaf-cd675bf99a08",
+            "_type": "span",
+            "marks": [
+              "ref-merged-8838489f-ec4c-45e2-855f-f131e4df2ab0"
+            ],
+            "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "ref-merged-a5ab7d31-c346-4b24-b14e-c75edf006145",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          },
+          {
+            "_key": "ref-merged-8838489f-ec4c-45e2-855f-f131e4df2ab0",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "24800670-1ace-42ac-b640-3db1bcf46888",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "447bab8d-a85c-4d67-af0e-bb6b0100f704",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の主なシフト勤務形態"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "8e94f193-a5b5-4ab1-b1f4-9eb3583f428f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "af146d0c-002c-44d8-8c6d-b5048ef70b7f",
+            "_type": "span",
+            "marks": [],
+            "text": "病院のシフトは、主に「2交代制」と「3交代制」の2種類があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0108299e-c15b-4152-8f2f-654044fc245e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-705c91bc-3528-47f7-bf96-515a5fd43006",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-3fa90a85-8652-47c5-a6ff-0be5877c3e0b",
+            "_type": "span",
+            "marks": [
+              "link-948bd4cd-bb4f-4598-894c-e3cb51a32ec8"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-948bd4cd-bb4f-4598-894c-e3cb51a32ec8",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "7d6520bf-cf9f-456c-ae74-59e8d4fbe9e1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d9719b4-936e-411a-a86e-1e15d9bd81e5",
+            "_type": "span",
+            "marks": [],
+            "text": "2交代制"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a19a4611-5966-43bf-8710-89a402e439ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a7fa0bf8-6120-4e68-bc41-c07c7e3299f7-cc50a7f8-5e96-474c-b6ed-c0227cd51ab9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "特徴"
+          },
+          {
+            "_key": "a7fa0bf8-6120-4e68-bc41-c07c7e3299f7-ed13f094-39cb-4e22-b998-066d3bdc5bb8",
+            "_type": "span",
+            "marks": [],
+            "text": ": 1回の夜勤が長い分、月の勤務日数は少なくなります。一般的な常勤の場合、月の勤務日数は10回前後となり、日勤と夜勤を組み合わせるシフトよりも休日が多くなります。しかし、16時間という長時間の勤務は、体力的に大きな負担となります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-2c096bef-5192-40c5-8f79-4f3c2b2f6134",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-6118eb6d-e29a-4f59-be79-9061ed31b21d",
+            "_type": "span",
+            "marks": [],
+            "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e06465a4-e69d-4063-89b5-2c3db9f839ad",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0495115-4ab4-41e4-bdc2-cf24c08065f9",
+            "_type": "span",
+            "marks": [],
+            "text": "3交代制"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "179b26b3-5824-440b-b737-8c5cd059a31e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d700ad9d-42bc-4972-8fc7-0de89c3d98b8-179a9d7f-df98-4099-a8f1-7760cf108054",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "勤務時間"
+          },
+          {
+            "_key": "d700ad9d-42bc-4972-8fc7-0de89c3d98b8-dc14759c-53e5-4cbe-8a4c-248b1b3717f2",
+            "_type": "span",
+            "marks": [],
+            "text": ": 24時間を「日勤」「準夜勤」「深夜勤」の3つのシフト（各約8時間）でカバーします。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "efe5e8e6-66e8-438d-8bfe-0d228501dcb0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "177af600-9e46-44a6-9fe7-c69dfc3e8d92-88062018-ee3d-4869-9a1a-8ff90860666a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "特徴"
+          },
+          {
+            "_key": "177af600-9e46-44a6-9fe7-c69dfc3e8d92-7ad73fd8-444a-414c-bfe5-07f71b5187ed",
+            "_type": "span",
+            "marks": [],
+            "text": ": 1回あたりの勤務時間が短いため、身体的な負担は2交代制より軽いと言われます。しかし、勤務時間が細かく分かれているため、生活リズムが不規則になりがちです。「準夜勤」が終わって帰宅し、翌日の「深夜勤」まで十分に休めない、といったケースもあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-9c1038a9-3ac2-4ecd-9c03-aa409c1c8152",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-924fcc43-1028-419c-acad-0377c5aaf4f2",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の主なシフト勤務形態では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4c528f9c-3706-4b33-9dfd-b7f7d74d69cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "16585da5-ac6f-4d15-8a69-c462ae4875d5",
+            "_type": "span",
+            "marks": [],
+            "text": "シフト勤務の「大変」なポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "7c92c18e-22ca-4c73-9bc8-bc13bb387065",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cde3476d-a3d0-456c-81e6-2bcaaef4879c",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 生活リズムの乱れと体調管理"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7f7760b4-56cd-47d7-8887-97c5a9be6105",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bce0d829-45f5-4cc7-936a-82ba27afb0aa",
+            "_type": "span",
+            "marks": [],
+            "text": "シフト勤務の最も大変な点は、不規則な勤務時間による生活リズムの乱れです。特に夜勤を含むシフトでは、睡眠サイクルの調整が難しく、慣れるまでは慢性的な寝不足や疲労感に悩まされることがあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "81208a8e-4b4d-4739-a3e8-91347062e3d2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9f868e71-7179-440e-9cef-467be60ae9dd",
+            "_type": "span",
+            "marks": [],
+            "text": "2. プライベートの予定が立てにくい"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "62904b75-2656-46be-a645-357c49d26bc1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d606d8d6-a533-4dcd-af03-31b8ebe92964",
+            "_type": "span",
+            "marks": [],
+            "text": "シフトは1ヶ月ごとに決まることが多く、土日祝日が多くの場合しも休みになるとは限りません。そのため、友人や家族と予定を合わせにくかったり、定期的な習い事などが難しくなったりする場合があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dab57aab-a351-4c43-8e4e-74b4eb4b4628",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac6238e5-50fe-4a26-a88c-787d34bbcfa8",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 休みでも完全に休めない感覚"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "cd04e765-a170-4d15-834c-f48090d63a29",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "96cac79d-67cb-4f20-843a-8d5a589cb7f7",
+            "_type": "span",
+            "marks": [],
+            "text": "例えば、夜勤明けの日は休みですが、午前中は睡眠時間にあてることが多く、一日を有効に使えないと感じる人もいます。また、次の勤務が早朝からの日勤の場合、前日は早く寝なければならず、夜更かしができないといった制約もあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3a708e5c-2a74-4f0f-986c-30e325bf2a2f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9a3dc193-2ab4-4a74-ba4e-4455cace58da",
+            "_type": "span",
+            "marks": [],
+            "text": "シフト勤務を上手に乗り切るためのコツ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "e3116e1d-66d7-460d-a335-449e94587682",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7f39164f-0173-4e9f-bf9d-54697edb4aac",
+            "_type": "span",
+            "marks": [],
+            "text": "自分の睡眠パターンを確立する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "c67e3e51-dd66-4800-b5f1-701989704c2c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4db6129c-55a1-4359-8683-beeb30fc2192",
+            "_type": "span",
+            "marks": [],
+            "text": "夜勤前はしっかり仮眠をとる、夜勤明けは午前中に寝て午後は活動するなど、自分なりの睡眠サイクルを確立することが重要です。遮光カーテンやアイマスクなどを活用し、睡眠の質を高める工夫も有効です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3cdd87ad-3f02-4823-bf14-3f5f98cba906",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8de8e915-698c-4f55-9c15-8cbb52fbb1ca",
+            "_type": "span",
+            "marks": [],
+            "text": "休日の過ごし方を工夫する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "168e024b-970c-43be-b7c3-4acc72cc2d89",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ed0c3c33-30ca-4395-a66c-3eceaf89c39f",
+            "_type": "span",
+            "marks": [],
+            "text": "シフト制のメリットは、平日の空いている時間帯に買い物や役所の手続きなどを済ませられることです。「明け休み＋公休」の連休をうまく活用して、小旅行に出かけるなど、自分なりのリフレッシュ方法を見つけましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5278e728-9041-451d-bccd-4be991bd050e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "96324c91-52cb-4dbf-a8d1-27d7eefca5dd",
+            "_type": "span",
+            "marks": [],
+            "text": "職場の同僚と協力する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "c7aee9d6-6115-43c0-90d6-24e1ff601bba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "19ed13b1-5ec0-42f9-b0e5-521a8d6171e4",
+            "_type": "span",
+            "marks": [],
+            "text": "子どもの学校行事など、どうしても休みたい日がある場合は、早めに上司に相談し、同僚とシフトを交換してもらうなどの協力体制を築くことが大切です。普段から良好な人間関係を築いておくことが、いざという時に助けになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-add4aaba-d911-4088-94f7-ac65afa44302",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-5ae39d7d-7c18-4b32-bc3e-b22dc8a0e5a1",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-bedc1c64-1fb0-4126-8c66-60fcbf3c4064",
+            "_type": "span",
+            "marks": [
+              "link-ae35c565-b536-44e9-83b7-89b42f200aee"
+            ],
+            "text": "日本看護協会 看護補助者の離職状況レポート"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-ae35c565-b536-44e9-83b7-89b42f200aee",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "section-title-wos48ti22",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac293523-2e91-49b5-b839-91034f53925d",
+            "_type": "span",
+            "marks": [],
+            "text": "身体的負担を軽減するアイテム"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "section-intro-lpbulwhyb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9ccdf617-c99c-409d-ab0f-1322b4f97ef2",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の仕事は体力的にも大変です。これらのアイテムで少しでも負担を軽減しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-uolq297iz-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-m4vjjg966",
+            "_type": "span",
+            "marks": [],
+            "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-ogp05ujh8-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-x24lnchxb",
+            "_type": "span",
+            "marks": [],
+            "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-a17ba72a-cca7-41eb-93c3-f9aae7eb8d90",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-78f56fa3-4d87-4184-8068-ffe60cd42f1b",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-3a390846-c20a-49df-aa8f-cd718989967d",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-fj57c84w1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7ac67deb-adcf-4645-ac49-e84ec7fbd0e2",
+            "_type": "span",
+            "marks": [],
+            "text": "アシックス ナースウォーカー"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-oo4dv3zkv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "17a8c6c3-d6c9-4834-baf5-4da7d9657b6c",
+            "_type": "span",
+            "marks": [],
+            "text": "長時間の立ち仕事でも足が疲れにくい医療現場専用設計"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-nf98w5uh4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "13d348d6-0163-4adf-92f2-ce20892b107a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-oa7nsgwvt",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "939c9d48-1402-4f86-b1b9-60b4b2c6afaf",
+            "_type": "span",
+            "marks": [],
+            "text": "滑りにくいソール"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-dc4fh4ogx",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "36aacfd7-c3cd-4267-8898-06a98a4a9d3b",
+            "_type": "span",
+            "marks": [],
+            "text": "疲労軽減クッション"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-drnetkn11",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8c4cf4c3-e59a-49b8-885d-835603db2561",
+            "_type": "span",
+            "marks": [],
+            "text": "通気性の良い素材"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-kus1qpg1p-intro-d54ce7e0-3b0b-43da-ad46-31ff15b43e93",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-7gx7sj5ow",
+            "_type": "span",
+            "marks": [],
+            "text": "👟 快適なワークシューズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-title-wk5ddv3yb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a49727b7-6a54-4fdd-8751-2672a82bdc50",
+            "_type": "span",
+            "marks": [],
+            "text": "ナース専用メモ帳"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "product-benefit-08nbimczk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5d0f3a5-c8a0-4a68-9dde-5c27e6a87d5c",
+            "_type": "span",
+            "marks": [],
+            "text": "ポケットに入るサイズで患者情報を素早くメモ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-label-o3bdn2s67",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9c81011e-ebe2-426d-8c28-3a37aef3e561",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "主な特徴："
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-0-a4wacv8kr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7c048ed0-7c16-4bfe-ba76-282cf9b3a03d",
+            "_type": "span",
+            "marks": [],
+            "text": "コンパクトサイズ"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-1-l5lncg9qx",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7db93b72-fee4-4632-a3af-705aab0ea503",
+            "_type": "span",
+            "marks": [],
+            "text": "防水加工"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "product-feature-2-vjp94vvvv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "668df861-93b0-40f6-a6d4-1a0205dd23d5",
+            "_type": "span",
+            "marks": [],
+            "text": "チェックリスト付き"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-fa5c1943-151d-420c-9ac9-05ea58b59470",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-14b0cb7e-2799-4c3e-8234-a283a39f4102",
+            "_type": "span",
+            "marks": [],
+            "text": "身体的負担を軽減するアイテムでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-b3aa06e6-046e-4ab1-ae89-fe70a1d89778",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-e875f503-c1c2-486e-8c23-31f9652dd383",
+            "_type": "span",
+            "marks": [],
+            "text": "「ナース専用メモ帳」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-3f4552a5-347b-45f5-abfe-0cf481fb85cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-66d4af80-77cf-48e3-9477-22fb2b400ca2",
+            "_type": "span",
+            "marks": [],
+            "text": "「ナース専用メモ帳」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-t09itfqk0-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-ks07ktetr",
+            "_type": "span",
+            "marks": [],
+            "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-f2ab00a5-cc90-4b2d-85d0-f48cd216df35",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-18177e1d-4fa8-41a6-9625-7e519db6ecf1",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-61cde497-dc6e-49b7-a94c-f2245ece276f",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-afcfff52-3e10-48ee-8d08-8cc1041f3d92",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-435aca1d-ea1f-4ed1-a7db-d05df124c02d",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-e627e61f-6e8e-464f-87a8-d3480c97fcb2",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-f07b9287-2de2-439b-9aef-8f90fd971515",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-72eebb22-ccc6-4e87-b02f-4d37c02a0f3b",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-f1db7474-6543-4324-a6d7-613f5e443f9e",
+            "_type": "span",
+            "marks": [
+              "link-d7cac2f4-ace8-45d4-b0c8-c0136279a1e3"
+            ],
+            "text": "「家庭と両立を志望動機にするのはアリ？」"
+          },
+          {
+            "_key": "internal-link-span-outro-5a9b45d3-bee9-4ab6-b6d3-efcaa18106c6",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-d7cac2f4-ace8-45d4-b0c8-c0136279a1e3",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-motivation-points-work"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-6495095a-b32c-49ec-b4a5-a196e42e2ea2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-6aa8a420-f23b-4264-9c4f-7d77b698fcd2",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手のシフト勤務はどのくらい大変？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-d9154839-f651-406d-bcde-1616fdd5c266",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-73c3d579-4614-42d3-935c-cb87c3c9a387",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-84bdfeb4-ae83-4d11-a0a7-5be1452aac27",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-84b98b69-d5b3-403b-9d61-2a76e5d09292",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の主なシフト勤務形態の視点で2交代制に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-e87f8ca2-fc16-4b31-9a42-991f83075dc8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-f9479406-cbdf-4196-ae11-db7f28b791ca",
+            "_type": "span",
+            "marks": [],
+            "text": "特徴: 1回の夜勤が長い分、月の勤務日数は少なくなります。一般的な常勤の場合、月の勤務日数は10回前後となり、日勤と夜…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-9d298131-0b9e-4a6c-bcbf-5d6f3e39e4f9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-89f7dc82-50b2-4db6-8ef5-61e0de31909d",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の主なシフト勤務形態の視点で3交代制に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-1d10f43b-593e-4cac-ae2c-a503634a80a3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-4de163fa-ef22-47bc-8ea7-3e6edb983494",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-0b8778a9-a583-43ae-9b6c-4a0de398d3be",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-03ff986b-fe2b-4b4c-a8e3-a8d50f77446c",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-e4baa6d2-d2dd-4ea9-90b3-f1b6d3cde599",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-3995926f-445c-4e3f-9d6a-7f3066247a2b",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-ab4195b0-5b32-434f-aa68-1cd21e2a7c18",
+            "_type": "span",
+            "marks": [
+              "link-25e1627b-8437-4bfe-850d-df980c141951"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-25e1627b-8437-4bfe-850d-df980c141951",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-f04f0e27-8626-4eb1-8bab-070577558420",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-70a7162f-ce02-4dad-81bd-0a10b836d1f0",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "f45a49bb-6e6f-40c5-9a99-6544e86c93a6",
+        "_ref": "category-career-change",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "# 看護助手のシフト勤務はどのくらい大変？ 看護助手の求人を見ると、ほとんどが「シフト制」での勤務となります。24時間365日、患者さんのケアが途切れることのない医療現場では、シフト制は不可欠な働き方です。",
+    "geminiMaintainedAt": "2025-11-08T23:03:24.199Z",
+    "metaDescription": "実務・ノウハウの看護助手のシフト勤務はどのくらい大変？について解説。# 看護助手のシフト勤務はどのくらい大変？ 看護助手の求人を見ると、ほとんどが「シフト制」での勤務となります。24時間365日、患者さんのケアが途切れることのない医療現場では、シフト制は不可欠な働き方です。",
+    "publishedAt": "2025-09-21T12:01:00Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-shift-work-difficultys"
+    },
+    "tags": [
+      "シフト",
+      "シフト勤務",
+      "休日",
+      "勤務",
+      "夜勤",
+      "実務・ノウハウ",
+      "日勤",
+      "時間",
+      "看護",
+      "看護助手"
+    ],
+    "title": "看護助手のシフト勤務はどのくらい大変？",
+    "views": 2
+  }
+}

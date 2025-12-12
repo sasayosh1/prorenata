@@ -104,13 +104,23 @@ async function validateArticle(slug) {
 async function main() {
     console.log('=== Article Structure Validation ===\n');
 
-    // Get all posts
-    const allPosts = await client.fetch(`*[_type == "post"] { "slug": slug.current }`);
-    console.log(`Total articles: ${allPosts.length}\n`);
+    const slug = process.argv[2];
+    let articlesToValidate = [];
+
+    if (slug) {
+        const article = await client.fetch(`*[_type == "post" && slug.current == "${slug}"] { "slug": slug.current }`);
+        if (article) {
+            articlesToValidate = article;
+        }
+    } else {
+        articlesToValidate = await client.fetch(`*[_type == "post"] { "slug": slug.current }`);
+    }
+    
+    console.log(`Total articles to validate: ${articlesToValidate.length}\n`);
 
     const violations = [];
 
-    for (const post of allPosts) {
+    for (const post of articlesToValidate) {
         const result = await validateArticle(post.slug);
         if (result && result.issues.length > 0) {
             violations.push(result);

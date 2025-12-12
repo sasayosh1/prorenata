@@ -1,0 +1,30 @@
+[
+  {
+    "_key": "summary-h2",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-h2-span",
+        "_type": "span",
+        "marks": [],
+        "text": "まとめ"
+      }
+    ],
+    "markDefs": [],
+    "style": "h2"
+  },
+  {
+    "_key": "summary-p1",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "summary-p1-span",
+        "_type": "span",
+        "marks": [],
+        "text": "この記事のポイントをまとめました。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  }
+]

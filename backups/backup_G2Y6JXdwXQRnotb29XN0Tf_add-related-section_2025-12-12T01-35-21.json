@@ -1,0 +1,920 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:35:21.491Z",
+    "operation": "add-related-section",
+    "articleId": "G2Y6JXdwXQRnotb29XN0Tf",
+    "articleTitle": "看護助手の初任給はどのくらい？地域別比較",
+    "articleSlug": "nursing-assistant-starting-salary-comparison"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:38:52Z",
+    "_id": "G2Y6JXdwXQRnotb29XN0Tf",
+    "_rev": "Cqfzcjgd515dn5LAWfna3r",
+    "_system": {
+      "base": {
+        "id": "G2Y6JXdwXQRnotb29XN0Tf",
+        "rev": "IJbunx89jt74fTbO0mVHLw"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-11T18:34:47Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "d8a9e0b1c2d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2b1802fb-3fd1-43cb-b956-2df06988bd3a",
+            "_type": "span",
+            "marks": [],
+            "text": "これから看護助手として新しいキャリアをスタートさせようと考えるとき、やはり気になるのは最初のお給料、つまり「初任給」ではないでしょうか。"
+          },
+          {
+            "_key": "afbc11e5-c46e-41e0-b08a-f518fb1578fe",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "1ca4562c-4215-484d-9c6a-245553e0b446",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          },
+          {
+            "_key": "9536f299-2b2c-4bf8-8d2c-725bb13f7a86",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "c17d2856-c4c1-432d-bc7c-640ff2d3f187",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          },
+          {
+            "_key": "b940f1b8-30a0-472d-9846-bc3bd09a8b74",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "55fca85c-dd1f-48ac-9994-de9da477bde0",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、看護助手の初任給の相場を、地域や病院の規模といった様々な角度から分かりやすく解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-ae2823c2-bfd7-4c00-be0f-f2e2a3d649ba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-c1c43565-e310-40ef-bd35-0132ee63d6be",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-7cca56da-e50a-4a32-aed7-bd1a9f8b7ee2",
+            "_type": "span",
+            "marks": [
+              "link-b691ca2a-34d8-4a52-9bf9-224cc22dafba"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-b691ca2a-34d8-4a52-9bf9-224cc22dafba",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "b2c3d4e5f6a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dac28117-f1f9-4a4b-a706-10b4e3067de1",
+            "_type": "span",
+            "text": "まずは知っておきたい！看護助手の初任給の全国平均"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "c3d4e5f6a1b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3cc49f18-1865-4d75-a41b-e6c211c6884c",
+            "_type": "span",
+            "text": "未経験から正社員として働く場合、看護助手の初任給の全国平均は、月収でおおよそ18万円から22万円程度が目安とされています。ただし、これはあくまで平均であり、ここから各種手当や社会保険料などが変動します。パートやアルバイトの場合は、時給1,100円から1,500円あたりが相場です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "02e6e43a-85eb-4172-8279-6a653dd3f84e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-hnm3xz4tf",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: 厚生労働省 令和5年度介護従事者処遇状況等調査"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2b3c4d5e6f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "196bfe0f-a952-4587-a977-4de661f16053",
+            "_type": "span",
+            "text": "【地域別】初任給の比較と傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "d4e5f6a1b2c3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0cc4dc8e-5175-4ea8-bb04-cb9320705c4b",
+            "_type": "span",
+            "text": "都市部（関東・関西など）の傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "e5f6a1b2c3d4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f16990bc-2648-4023-9163-0a92a6e4ab5a",
+            "_type": "span",
+            "text": "東京や大阪などの都市部では、地方に比べて初任給が高めに設定されている傾向があります。これは、物価や家賃が高いことを反映したもので、平均よりも1万円から3万円ほど高い水準になることも珍しくありません。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f6a1b2c3d4e5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ce5cda50-2a58-4d16-aa1f-00052d18e2d6",
+            "_type": "span",
+            "text": "地方の傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "g1h2i3j4k5l6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b260cbdd-5246-439c-846a-0de10f96c70c",
+            "_type": "span",
+            "text": "都市部に比べると給与水準はやや落ち着く傾向にありますが、その分、生活費を抑えられるというメリットもあります。給与の額面だけでなく、その地域での生活コストとのバランスを考えることが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h2i3j4k5l6g1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fff5762d-fdfc-43a3-b4b0-bd63d042b6a3",
+            "_type": "span",
+            "text": "【病院の規模別】初任給の比較と傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "i3j4k5l6g1h2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6c6abb1a-ce8a-49fe-bca0-0d5f81740661",
+            "_type": "span",
+            "text": "大学病院・大規模な総合病院"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "j4k5l6g1h2i3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "732b2e8f-adbd-487e-a314-a44151173b7d",
+            "_type": "span",
+            "text": "規模の大きな病院は、給与テーブルがしっかりしており、福利厚生も手厚い傾向にあります。夜勤手当や住宅手当などが充実している場合が多く、初任給も比較的高めに設定されやすいです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "k5l6g1h2i3j4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c09c53a0-7ea1-41c1-ae27-05f4934c05fa",
+            "_type": "span",
+            "text": "中小規模の病院・クリニック"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "l6g1h2i3j4k5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b069bf20-1ca0-4046-9b5b-f264fa0b73df",
+            "_type": "span",
+            "text": "クリニックや地域密着型の病院では、給与はそれぞれの経営状況によって差が大きくなります。一方で、アットホームな雰囲気で働けたり、残業が少なかったりといった魅力もあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "m1n2o3p4q5r6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "95dbfc2b-655f-4fef-8af2-a6901d6b33ce",
+            "_type": "span",
+            "text": "初任給を少しでもアップさせるためのポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "2wxub94zq801",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1qk670he1my0",
+            "_type": "span",
+            "marks": [],
+            "text": "同じ未経験からのスタートでも、少しの工夫や知識で給与条件が良くなることがあります。ここでは、初任給を少しでもアップさせるために、就職活動中や働き始めてから意識したいポイントをいくつかご紹介します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-ac50e2b4-f8dd-4b0f-8877-d75d4676607a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-fc028027-3734-45d1-8246-965aa83843b3",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-c0cd982a-d6b4-4b0b-bbd4-d9adfbf268c9",
+            "_type": "span",
+            "marks": [
+              "link-d65bb638-2997-4f19-88a2-fdd6b720342a"
+            ],
+            "text": "日本看護協会 看護サービス提供体制のあり方"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-d65bb638-2997-4f19-88a2-fdd6b720342a",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "n2o3p4q5r6m1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d0b1518-8613-43ba-bad7-3f77c8e19d4c",
+            "_type": "span",
+            "text": "資格を取得する：必須ではありませんが、「介護職員初任者研修」などの資格を持っていると、資格手当が支給されることがあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "o1p2q3r4s5t6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3aad5b91-9d97-4816-9953-6d324a7eea6b",
+            "_type": "span",
+            "text": "夜勤のあるシフトを選ぶ：夜勤は深夜手当がつくため、日勤のみの場合よりも月収が高くなります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "p2q3r4s5t6o1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d8923b71-af97-43d6-b4e2-8ca6bc3effe1",
+            "_type": "span",
+            "text": "求人情報をしっかり比較検討する：同じ地域でも、病院によって給与や手当の条件は異なります。複数の求人を比較し、納得のいく条件の職場を見つけることが重要です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "bullet"
+      },
+      {
+        "_key": "section-closing-a397ca36-19f3-4e2f-a8fa-53f249549568",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-3dc49ec4-df2e-4226-a22d-0a7a7a993364",
+            "_type": "span",
+            "marks": [],
+            "text": "初任給を少しでもアップさせるためのポイントでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-bm6ujq0vy",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-8pr1cgxld",
+            "_type": "span",
+            "marks": [],
+            "text": "まずは知っておきたい！看護助手の初任給の全国平均"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818889436-w9tvav9lv",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-itjklv9db-561f411e-0651-4de1-b166-5229775af6a9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "初任給の内訳について"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-wo9mbhlhn",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-3p3h8t5c1",
+            "_type": "span",
+            "marks": [],
+            "text": "一般的に、初任給には基本給に加えて、職務手当や調整手当などが含まれることがあります。夜勤がある場合は、夜勤手当が加算されます。また、通勤手当は全額または一部が支給されるのが一般的です。これらの手当を含めて、総支給額が提示されることが多いので、求人情報を確認する際は、基本給だけでなく、手当の内訳まで確認するようにしましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-okxmelpng",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-vbvyy6090",
+            "_type": "span",
+            "marks": [],
+            "text": "【地域別】初任給の比較と傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818889436-xhe1ocuqo",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-kk763i7ef",
+            "_type": "span",
+            "marks": [],
+            "text": "都市部（関東・関西など）の傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818889436-m4w09rwb9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-jrer5aps8-83fe7e53-0813-4e1b-a57f-aeaddb8407b7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "都市部で働くメリット・デメリット"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-7lrv0im84",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-k6u8hf4pz",
+            "_type": "span",
+            "marks": [],
+            "text": "都市部での勤務は、給与水準が高い反面、生活費も高くなる傾向にあります。また、通勤ラッシュや職場環境の競争率が高いといったデメリットも考えられます。しかし、研修制度が充実していたり、キャリアアップの機会が多かったりするメリットもあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-wk36qy3xd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-ipc60t499",
+            "_type": "span",
+            "marks": [],
+            "text": "地方の傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818889436-lgs8s8h2n",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-h06butwzd-7f8d28f9-8128-4b08-8f09-1234dc68a1fb",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "地方で働くメリット・デメリット"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-6nsx37ggl",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-sg7zggudt",
+            "_type": "span",
+            "marks": [],
+            "text": "地方での勤務は、都市部に比べて生活費が抑えられるため、給与に対する満足度が高い傾向があります。また、自然に囲まれた環境で働けたり、地域住民との交流が深まったりするメリットもあります。一方で、都市部に比べて求人数が少なかったり、研修制度が充実していなかったりするデメリットも考えられます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-lwcygtcib",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-ueyjn2tbh",
+            "_type": "span",
+            "marks": [],
+            "text": "【病院の規模別】初任給の比較と傾向"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818889436-u1xn0f4lq",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-8aa31pndw",
+            "_type": "span",
+            "marks": [],
+            "text": "大学病院・大規模な総合病院"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818889436-y8pfsurba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-2gn0w2nac-cccc78f9-8774-42ec-8b04-13f45659cfb7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "大規模病院で働くメリット・デメリット"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-n0ube5eoj",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-h6lldq2de",
+            "_type": "span",
+            "marks": [],
+            "text": "大規模病院は、給与や福利厚生が充実している反面、業務量が多く、残業が発生しやすい傾向にあります。また、チームワークを重視する職場環境であることが多く、コミュニケーション能力が求められます。しかし、最新の医療技術に触れる機会が多かったり、専門的な知識やスキルを習得できたりするメリットもあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-xnow7fwwc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-0aufrrpre",
+            "_type": "span",
+            "marks": [],
+            "text": "中小規模の病院・クリニック"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818889436-spk0ok232",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-bkpm3wvnt-80029243-e852-4804-afae-a7d96a3f7f99",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "中小規模病院・クリニックで働くメリット・デメリット"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-rzzzhoyul",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-u8q2vd29u",
+            "_type": "span",
+            "marks": [],
+            "text": "中小規模の病院やクリニックは、アットホームな雰囲気で働ける反面、給与や福利厚生が充実していない場合があります。また、一人ひとりの業務範囲が広く、多岐にわたる業務をこなす必要があります。しかし、患者さんとの距離が近く、感謝の言葉を直接聞ける機会が多いというメリットもあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-hdms6td0y",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-dwus9x1af",
+            "_type": "span",
+            "marks": [],
+            "text": "初任給を少しでもアップさせるためのポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818889436-4rjsf8fu7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-04xkhj394-f92c38d6-8db5-48b9-9ae6-588c7a31eab7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "面接での給与交渉について"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818889436-i9hqeg5x0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818889436-5bj5pmrf6",
+            "_type": "span",
+            "marks": [],
+            "text": "給与交渉は、採用が決まる前に行うのが一般的です。ただし、最初から給与の話ばかりするのは避けましょう。まずは、自分のスキルや経験をアピールし、病院に貢献できることを伝えることが大切です。その上で、自分の希望する給与額を具体的に伝え、その根拠を示すようにしましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-4ad5787f-9d5b-471d-bc48-4d2b310796c0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-826309e1-18f0-4cdf-a20f-5e4cb0db752f",
+            "_type": "span",
+            "marks": [],
+            "text": "「初任給を少しでもアップさせるためのポイント」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-15c0f740-b19f-418f-8108-92fe2024d03b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-bd58ede8-3d9d-4ad5-8e3b-e66f41165fb9",
+            "_type": "span",
+            "marks": [],
+            "text": "「初任給を少しでもアップさせるためのポイント」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-5b2238fb-7fc8-4d69-8e14-185be8f336c0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-b326661c-440b-4263-9172-62028c6dc922",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-83bec419-9425-49ee-9d18-37bf2c355004",
+            "_type": "span",
+            "marks": [
+              "link-8c86ae11-b5c8-49dd-955e-286bdff446c2"
+            ],
+            "text": "「【2025年最新】看護助手の給料相場｜職場別・地域別に徹底比較」"
+          },
+          {
+            "_key": "internal-link-span-outro-1c9f6fd6-a995-4679-bc0b-dadb232cfb4a",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-8c86ae11-b5c8-49dd-955e-286bdff446c2",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-latest-salary-comparison"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-b3ddc652-64b7-4a7f-ba9f-feb05326ac1b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-72ee82fc-17c5-4cdd-8481-227fbe18eda9",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の初任給はどのくらい？地域別比較でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-fb1f5de8-179d-4bfe-8b34-724b5d3e8c17",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-dee185e8-28e6-427c-af75-3633eb3e5712",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-c04d0df5-22bf-4e2f-b674-56a83245b1d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-a9316063-dcb2-4535-a9c0-6a38ca736514",
+            "_type": "span",
+            "marks": [],
+            "text": "【地域別】初任給の比較と傾向の視点で都市部（関東・関西など）の傾向に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-4950bff9-84e3-4cda-8ca2-696470ac11a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-06a514db-4f31-4404-b253-4ecc5250b179",
+            "_type": "span",
+            "marks": [],
+            "text": "【地域別】初任給の比較と傾向の視点で地方の傾向に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-95807701-ecaf-47da-a3f6-301165575a8e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-34115570-3593-49e5-ba94-37e88aaace54",
+            "_type": "span",
+            "marks": [],
+            "text": "【病院の規模別】初任給の比較と傾向の視点で大学病院・大規模な総合病院に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-a76cc219-f1f8-4899-bafc-131b234717cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-223eed35-679e-45d6-9b9d-4ee0bb26abfd",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-ba337291-9b09-46db-98ef-ce7f008d0ef3",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-4fef19b0-5962-402e-98e1-1b864f4777d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-1a9cfcc7-5845-4794-9e5f-cdb9281989e1",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-8e58ed99-cf88-4236-b76c-f22c94505352",
+            "_type": "span",
+            "marks": [
+              "link-fce0a980-e391-42c0-964e-637bc7616c22"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-fce0a980-e391-42c0-964e-637bc7616c22",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-de4b7559-3699-47ae-afd3-e98d2c735c98",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-8d181abe-8e30-4470-aab6-5a2f7e7b7c23",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手の初任給はいくら？全国平均から、都市部と地方、病院の規模による給料の違いまで、分かりやすく比較・解説します。あなたの職場選びの参考にしてください。",
+    "geminiMaintainedAt": "2025-11-08T22:57:39.542Z",
+    "metaDescription": "給与・待遇の看護助手の初任給はどのくらい？地域別比較について解説。看護助手の初任給はいくら？全国平均から、都市部と地方、病院の規模による給料の違いまで、分かりやすく比較・解説します。あなたの職場選びの参考にしてください。看護助手の初任給はいくら？全国平均から、都市部と地方、病院の規模による給料の違いまで、分かりやすく比",
+    "publishedAt": "2025-06-27T05:27:44.791Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-starting-salary-comparison"
+    },
+    "tags": [
+      "傾向",
+      "初任給",
+      "夜勤",
+      "病院",
+      "看護",
+      "看護助手",
+      "給与",
+      "給与・待遇",
+      "給料",
+      "資格"
+    ],
+    "title": "看護助手の初任給はどのくらい？地域別比較",
+    "views": 1
+  }
+}

@@ -1,0 +1,947 @@
+{
+  "_id": "Jx7ptA0c3Aq7il8T99H4vy",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b8d284e4-49b3-4fb7-bcdc-01aa70e5a714",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事を探す際、「どんな職場が自分に合っているのだろう？」と悩むことはありませんか。給料や勤務時間だけでなく、職場の雰囲気やサポート体制も、長く働き続ける上で非常に重要です。"
+        },
+        {
+          "_key": "9442ed5a-48d0-414a-a1c1-b9cd22ce59f0",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "e9528108-6f85-49fa-9efd-2195d00853e0",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "f6d96cb4-9b73-4eaa-897b-a7db1369263e",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "f5387a99-5164-4709-acdb-f46505ac6bb1",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、あなたにとって働きやすい理想の職場を見つけるための診断ポイントと、具体的な選び方を解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-3f8bf2a5-51aa-477c-b34f-c57b9525b575",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-316333dc-0caf-450e-b8be-461bb7dbba11",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ref-merged-block-31ad9294-8a13-416e-b56f-59a715c662bb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ref-label-43e4c089-f4c0-446c-8e81-18b2739f0551",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "ref-merged-span-71b72ad8-5fb7-4ee2-b44c-bd9b49e1d6eb",
+          "_type": "span",
+          "marks": [
+            "ref-merged-b066a61e-b744-493d-8a11-5c88bb77ea59"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        },
+        {
+          "_key": "ref-sep-f9187d5b-0a11-4314-9711-e536d45c78da",
+          "_type": "span",
+          "marks": [],
+          "text": " / "
+        },
+        {
+          "_key": "ref-merged-span-cdb0e141-69ba-4c5d-8c91-58db8984688f",
+          "_type": "span",
+          "marks": [
+            "ref-merged-d824114e-aa07-4b9d-aac3-f7eec9e5f2a3"
+          ],
+          "text": "厚生労働省 看護職員需給分科会"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ref-merged-b066a61e-b744-493d-8a11-5c88bb77ea59",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        },
+        {
+          "_key": "ref-merged-d824114e-aa07-4b9d-aac3-f7eec9e5f2a3",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a75abf03-5465-49d4-8eda-f1f0f410f94e",
+          "_type": "span",
+          "text": "あなたにとっての「働きやすさ」を診断する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "439cedfb-4046-4f0d-85d3-820ea0acb9c4",
+          "_type": "span",
+          "text": "1. どんな働き方をしたい？（ワークライフバランス重視 vs キャリアアップ重視）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "rv8dimydfns3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "n042byqetj7n",
+          "_type": "span",
+          "marks": [],
+          "text": "あなたのライフスタイルや将来の目標に合わせて、どのような働き方が理想的か考えてみましょう。ワークライフバランスを重視するのか、それともキャリアアップを優先するのかで、選ぶべき職場は大きく変わります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e3fad925-97df-4830-b5d4-80c3290a4cc2",
+          "_type": "span",
+          "text": "日勤のみ、夜勤あり、残業の有無、休日など、勤務時間や形態の希望を明確にしましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bff41dbf-6ced-43be-8eb1-26d922a98a7b",
+          "_type": "span",
+          "text": "資格取得支援や研修制度の有無など、キャリアアップへのサポート体制も確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "affiliate-cta-de75e144-5c18-4661-ab43-9a643df7f544",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-1034644f-3302-442c-bd70-fcf65fd4211e",
+          "_type": "span",
+          "marks": [],
+          "text": "「1. どんな働き方をしたい？（ワークライフバランス重視 vs キャリアアップ重視）」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-baf80dd2-3b2d-42ff-a79d-01ad3b321328",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-5e370845-fd63-43e5-9c86-ff2900764dab",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-617e6c69-655c-4dd8-90ea-17cf6d208862",
+          "_type": "span",
+          "marks": [
+            "link-31dee787-547f-44c8-909b-16e6604c4294"
+          ],
+          "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-31dee787-547f-44c8-909b-16e6604c4294",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8044017b-8e54-46e0-bbc3-33204b1a5982",
+          "_type": "span",
+          "text": "2. どんな人間関係を求める？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "vck2hhw4cvwn",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c0x2084q3j0x",
+          "_type": "span",
+          "marks": [],
+          "text": "職場の人間関係は、仕事の満足度に大きく影響します。どのような人間関係を理想とするのか、具体的にイメージしてみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "399edbbf-52f6-492d-9131-3e208d2562d9",
+          "_type": "span",
+          "text": "アットホームな雰囲気を好むのか、それともプロフェッショナルな関係性を重視するのか、自分のタイプを考えましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "followup-e4e073fc-949f-4594-926a-cbef01d86038",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-425dc641-6b90-4edf-8002-87bc9f01d601",
+          "_type": "span",
+          "marks": [],
+          "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f42911d0-7f4d-4a0c-a9ea-86810384d62a",
+          "_type": "span",
+          "text": "3. どんな職場で働きたい？（規模、専門性）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "5c8umd04jelh",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "m4wbb4ir2vll",
+          "_type": "span",
+          "marks": [],
+          "text": "病院の規模や専門性も、働きやすさに影響します。大規模病院と中小規模のクリニックでは、それぞれ異なる特徴があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-5e59ecb1-740c-4c0b-b469-1ab8eb8fa6ab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-7679db0b-3716-423e-9621-be5a628ea922",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-d16dea95-dff3-45ed-ab6d-9d6c4ff4358e",
+          "_type": "span",
+          "marks": [
+            "link-92d344d7-f5b8-431b-85d1-530ad3464245"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-92d344d7-f5b8-431b-85d1-530ad3464245",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b2de9650-506c-491e-bbea-f8e982f0062d",
+          "_type": "span",
+          "text": "大学病院、総合病院、クリニック、介護施設など、施設の規模や種類によって働き方は大きく異なります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dd056594-375d-4594-a10b-6dd88e8b6484",
+          "_type": "span",
+          "text": "特定の診療科（例：小児科、精神科）に興味があるかどうかも、職場選びの重要な要素です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-84f748d1-8bfa-4bd2-bfd3-ada1928a41b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-9d60b6c7-6795-4453-a57f-531f266f93e7",
+          "_type": "span",
+          "marks": [],
+          "text": "あなたにとっての「働きやすさ」を診断するでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-263601c9-6022-4e6f-b889-11d83a922f5d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-7b263720-5a75-41df-afad-a86dfca5fbc7",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-dc00277f-45ff-40a9-8d0e-14dc5577f5dc",
+          "_type": "span",
+          "marks": [
+            "link-ede230cd-9640-4c27-b523-2a164025ebec"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-ede230cd-9640-4c27-b523-2a164025ebec",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "94bb45bd-5ee7-4078-85b1-cf4d1a0f0155",
+          "_type": "span",
+          "text": "働きやすい職場の具体的な特徴"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "aksrawpokhhd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7nqllmq0wm9b",
+          "_type": "span",
+          "marks": [],
+          "text": "これらの自己分析と情報収集を踏まえ、具体的にどのような職場が「働きやすい」と言えるのか、その特徴を見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9c4dfcd7-fb6e-4d33-9c13-fe85735d0aa3",
+          "_type": "span",
+          "text": "教育・研修制度が充実している：未経験者でも安心して学べる環境が整っています。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "reference-33b69332-c72c-4d9e-94f0-fc8d52389462",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-c60dbecb-1c64-48d1-ab26-7a313af2b192",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-bcd1d7df-e65c-4267-aaf9-7cafa513f949",
+          "_type": "span",
+          "marks": [
+            "link-bf65b9b9-add1-41e8-820c-92ad063a0ed7"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-bf65b9b9-add1-41e8-820c-92ad063a0ed7",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "949bfce1-bcd5-4e3a-abd7-fbb6003dbc35",
+          "_type": "span",
+          "text": "質問しやすい雰囲気、相談しやすい先輩がいる：困った時にすぐに助けを求められる環境は、ストレス軽減に繋がります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "844ee245-a712-43ac-8e3e-44abfaa68515",
+          "_type": "span",
+          "text": "チームワークが良好で、助け合う文化がある：医療現場はチームプレーです。お互いを尊重し、協力し合う職場は働きやすいでしょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b15157fb-fbb6-4fb5-a4b2-b2f67f734a88",
+          "_type": "span",
+          "text": "福利厚生が充実している：住宅手当、育児支援、健康診断など、給与以外のサポートも重要です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "reference-22de2098-0b38-45e9-9171-f2bf4b4a336c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-a019c7c6-dddd-434c-9083-a928e805d01b",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-02860a67-4cdb-47de-9425-ce524417b147",
+          "_type": "span",
+          "marks": [
+            "link-fe26830a-4670-4060-8de5-720adad8bf92"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-fe26830a-4670-4060-8de5-720adad8bf92",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "06333a08-7bcf-47b3-9187-7e6ddbde3539",
+          "_type": "span",
+          "text": "ワークライフバランスが保てる：残業が少ない、有給休暇が取りやすいなど、プライベートも充実できる環境か確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-5e6b3b49-2fec-4d2f-bb47-0d00ff601339",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-0e5f1db5-fc28-4ad2-b43a-29433d0c1523",
+          "_type": "span",
+          "marks": [],
+          "text": "働きやすい職場の具体的な特徴では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "90f8876e-b133-4438-9316-2992d5b67750",
+          "_type": "span",
+          "text": "理想の職場を見つけるための情報収集術"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "ue8p7xbo85wi",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b98eap7maesy",
+          "_type": "span",
+          "marks": [],
+          "text": "理想の職場を見つけるためには、効率的かつ多角的な情報収集が不可欠です。ここでは、具体的な情報収集の方法をご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4346e352-f409-44c9-8f91-17be4d3d8c12",
+          "_type": "span",
+          "text": "求人情報を細かくチェックする：給与、勤務時間だけでなく、研修制度や福利厚生の記載も確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9d6e2271-e9c4-465b-aa30-e15040b60c0e",
+          "_type": "span",
+          "text": "病院見学やインターンシップに参加する：実際の職場の雰囲気やスタッフの様子を自分の目で確認する絶好の機会です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c17a63ba-a676-4a3a-9703-4bbccfaca9a2",
+          "_type": "span",
+          "text": "転職エージェントを活用する：非公開求人や、職場の内部情報に詳しいエージェントからアドバイスをもらいましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "w3x4y5z6u1v2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e445e023-4a32-4ce0-a2ff-050d9fa110a1",
+          "_type": "span",
+          "text": "口コミサイトやSNSで情報収集する：実際に働いている人の生の声は、貴重な情報源となります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-d89fda1e-a8c4-49ba-ad0f-ca4894aebd87",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-fb0fd6f5-fd77-46da-a016-ce92a393eb00",
+          "_type": "span",
+          "marks": [],
+          "text": "理想の職場を見つけるための情報収集術では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-47dab53f-5974-4059-92c2-90bbd54f5f4b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-3d1a1720-50ae-44a4-81c2-eb0eaa9f9512",
+          "_type": "span",
+          "marks": [],
+          "text": "「理想の職場を見つけるための情報収集術」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-7b5cface-3442-4aa6-88fa-6da5fdc1ac53",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-f9a64ef1-5b45-4eca-ac6e-03eeeb21e0a6",
+          "_type": "span",
+          "marks": [],
+          "text": "理想の職場選び診断｜看護助手にとって働きやすい環境とはでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-ef0d583c-446d-481e-9741-e9893e119f51",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-92e1d842-ad42-422b-98d6-d507eb88084e",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-8b7ff2b7-7694-43e8-a21f-772967c16d21",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-29105230-5de1-4f4e-ad81-78952474d2b0",
+          "_type": "span",
+          "marks": [],
+          "text": "あなたにとっての「働きやすさ」を診断するの視点で1. どんな働き方をしたい？（ワークライフバランス重視 vs キャリア…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a00d9111-9092-4bc2-a34e-683c5b58381a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-ff36c9cf-6fb2-42dd-9c01-b18c9216f4ba",
+          "_type": "span",
+          "marks": [],
+          "text": "日勤のみ、夜勤あり、残業の有無、休日など、勤務時間や形態の希望を明確にしましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-087d947e-2ff9-4e51-baa7-50df56391601",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-7f315cbc-b725-4490-b525-1336e05d5a22",
+          "_type": "span",
+          "marks": [],
+          "text": "資格取得支援や研修制度の有無など、キャリアアップへのサポート体制も確認しましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-cc2dff06-8d97-4ce7-9e38-443923c94f09",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ccb1ea83-72c9-4b90-8a6b-6b7a622171a4",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-0e97d89e-270c-4808-8e33-6ee38e90c3c6",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "resignation-comparison-7b8ee040-5ec4-4cc2-b6a2-b77ce90c1830",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "resignation-comparison-lead-9ca48584-7780-4d7e-9070-fd3305fc671e",
+          "_type": "span",
+          "marks": [],
+          "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+        },
+        {
+          "_key": "resignation-comparison-link-dbfd0ac9-f42f-4807-a6f1-778ed2bf1668",
+          "_type": "span",
+          "marks": [
+            "link-ebc7d422-d8d7-4261-8ac8-7c9057830025"
+          ],
+          "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-ebc7d422-d8d7-4261-8ac8-7c9057830025",
+          "_type": "link",
+          "href": "/posts/comparison-of-three-resignation-agencies"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "career-comparison-d94db34b-5f38-489f-a1ca-7793dcb9a310",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-8b9c5fc1-f014-41ae-bb13-c9b899ca3f89",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-765e929f-c700-4a80-a661-a9a64f7dd1b1",
+          "_type": "span",
+          "marks": [
+            "link-3e9ba3ab-d418-402a-b10b-c151faccb252"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-3e9ba3ab-d418-402a-b10b-c151faccb252",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503454450",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503454450-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503454450-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503454450-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503454450-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503454450-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503454450-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503454450-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503454450-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503454450-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-0a1ea127-fd3d-4cce-9fd0-fba2fd80eccc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-4f844a41-b769-4130-9bdb-e4bc25d095b6",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-ideal-workplace"
+  },
+  "title": "理想の職場選び診断｜看護助手にとって働きやすい環境とは"
+}

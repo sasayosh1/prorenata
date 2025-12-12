@@ -1,0 +1,1562 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-11T00:35:20.517Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "Jx7ptA0c3Aq7il8T99H9na",
+    "articleTitle": "看護助手に必要な医療用語100選｜現場でよく使われる略語も解説",
+    "articleSlug": "nursing-assistant-medical-terms"
+  },
+  "document": {
+    "_createdAt": "2025-09-09T04:58:50Z",
+    "_id": "Jx7ptA0c3Aq7il8T99H9na",
+    "_rev": "vGyZgfn5GqkZeupMk7oVnZ",
+    "_system": {
+      "base": {
+        "id": "Jx7ptA0c3Aq7il8T99H9na",
+        "rev": "4mTb9EmSUWyozhQSTLs2EY"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-10T18:42:32Z",
+    "author": null,
+    "body": [
+      {
+        "_key": "d8a9e0b1c2d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuNL",
+            "_type": "span",
+            "marks": [],
+            "text": "医療現場で働く看護助手にとって、医療用語の理解は必須です。看護師や医師との円滑なコミュニケーション、患者さんの状態を正確に把握するためには、専門用語を正しく理解していることが求められます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3897e2ea5365",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuNL",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、現場で頻繁に使われる医療用語や略語の中から、特に看護助手が知っておくべき100選を厳選して解説します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b2c3d4e5f6a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuPO",
+            "_type": "span",
+            "marks": [],
+            "text": "なぜ看護助手にとって医療用語の理解が重要なのか？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "diagram-1764766328157",
+        "_type": "image",
+        "alt": "現場でよく使う医療用語・略語",
+        "asset": {
+          "_key": "f67c4b5c5dd242c5a78b8bbf91b3b03a",
+          "_ref": "image-e368050cce14c7674e687a9eb248c2427794cffe-800x450-svg",
+          "_type": "reference"
+        },
+        "caption": "現場でよく使う医療用語・略語"
+      },
+      {
+        "_key": "c3d4e5f6a1b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuRR",
+            "_type": "span",
+            "marks": [],
+            "text": "医療用語を理解することは、あなたの業務の質と安全性を高める上で不可欠です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "g1h2i3j4k5l6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuTU",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師との円滑なコミュニケーション：指示を正確に理解し、報告を的確に行うために必要です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "h2i3j4k5l6g1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuVX",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの状態を正確に把握：医療用語が理解できることで、患者さんの状態変化にいち早く気づくことができます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "i3j4k5l6g1h2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuXa",
+            "_type": "span",
+            "marks": [],
+            "text": "業務の安全性の向上：誤解やミスを防ぎ、安全なケアを提供するために重要です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-99ecdc09-f424-467a-8ce1-8c785711c916",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-382d49b1-5a11-4356-99e4-aad60fd37f73",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2b3c4d5e6f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuZd",
+            "_type": "span",
+            "marks": [],
+            "text": "【厳選】看護助手が知っておくべき医療用語100選"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "medical-notice-79fa8838-f74a-4159-a841-4e32a8a09280",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-6bf6ade8-35b4-4997-93ed-4d11ba8c28ed",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "057d23850b6c22be83974b1d3f131937",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF6ox",
+            "_type": "span",
+            "marks": [],
+            "text": "現場で最も頻繁に使用される基本的な用語です。これらをしっかり理解することで、患者さんの状態変化に早く気づけるようになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2d543b69e52ac0e291c2f45c4a765c18",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF6r0",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "バイタルに関する用語"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "f2cebf7a1b1c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF6t3",
+            "_type": "span",
+            "marks": [],
+            "text": "生命の調子を示す基本指標です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "73972a29b0dc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF6r0",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "バイタルサイン（バイタル）："
+          },
+          {
+            "_key": "633288349477",
+            "_type": "span",
+            "marks": [],
+            "text": "体温・脈拍・呼吸・血圧の4つを指します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b59a175174ff",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "633288349477",
+            "_type": "span",
+            "marks": [],
+            "text": "（"
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF6v6",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF6x9",
+            "_type": "span",
+            "marks": [],
+            "text": "「バイタル測定の時間です」と声をかけられたら、これら4つをチェックするタイミングだと分かります。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "56e2d4d0529a385e0b03a34a1d1f75d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF71F",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "体温（タイオン）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF73I",
+            "_type": "span",
+            "marks": [],
+            "text": "身体の熱の高さを示す値です。正常値は36.0〜37.0℃程度。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f20a4b232b64",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF73I",
+            "_type": "span",
+            "marks": [],
+            "text": "（"
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF75L",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF77O",
+            "_type": "span",
+            "marks": [],
+            "text": "「今日のタイオン、いつもよりちょっと高めですね」と患者さんに伝えると、体調の変化に気づいてもらえます。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ba5478699d32812606e033bbf5f141fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7BU",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "脈拍（ミャクハク）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7DX",
+            "_type": "span",
+            "marks": [],
+            "text": "心臓が1分間に打つ回数のことです。正常値は60〜100回/分。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2553f775e8d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7DX",
+            "_type": "span",
+            "marks": [],
+            "text": "（"
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Fa",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Hd",
+            "_type": "span",
+            "marks": [],
+            "text": "「ミャクハク測定中、リズムが少し早いかな」と感じたら、看護師さんに報告します。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bea1653c0e03aa8e19a47e302c731e94",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Lj",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "血圧（ケツアツ）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Nm",
+            "_type": "span",
+            "marks": [],
+            "text": "血管の中の圧力を示す値です。正常値は収縮期120/拡張期80mmHg程度。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b126e64ce3bb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Pp",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "（使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Rs",
+            "_type": "span",
+            "marks": [],
+            "text": "「ケツアツの上の数字がいつもの基準からズレていますね」と気づいたら、すぐに確認します。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b784be2a151c01444ff67025da0db6cc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Vy",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "呼吸数（コキュウスウ）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7Y1",
+            "_type": "span",
+            "marks": [],
+            "text": "1分間の呼吸回数のことです。正常値は12〜20回/分。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "089d8117be5d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7a4",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "（使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7c7",
+            "_type": "span",
+            "marks": [],
+            "text": "「コキュウスウが少し多めかもしれません」と感じたら、患者さんの様子をよく観察します。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "18268950e007a84e41e524a941a506a5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7gD",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "SpO₂（エスピーオーツー）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7iG",
+            "_type": "span",
+            "marks": [],
+            "text": "血液中の酸素の量を示す値です。正常値は95%以上。経皮的動脈血酸素飽和度とも言います。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8838a2661ca6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7kJ",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "（使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7mM",
+            "_type": "span",
+            "marks": [],
+            "text": "「エスピーオーツーが下がっていると心配になりますね」という場面では、パルスオキシメーターの数値をしっかり確認します。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "28d9dc1221f5ca91be9e2f3d436faca6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7qS",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "サチュレーション："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7sV",
+            "_type": "span",
+            "marks": [],
+            "text": "SpO₂の口語表現です。現場では「サチュ」と略して呼ばれることもあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0aaca5fc80b5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF7uY",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "（使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF7wb",
+            "_type": "span",
+            "marks": [],
+            "text": "「サチュ95％切ってるから、ちょっと注意が必要ですね」と看護師さんに報告することがあります。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4cbb2f2fc092d6f8b677b200413004b7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF80h",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "JCS（ジェイシーエス）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF82k",
+            "_type": "span",
+            "marks": [],
+            "text": "日本で使われる意識レベルの評価指標です。0〜300の数値で表します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "366badcde6f2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF84n",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "（使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF86q",
+            "_type": "span",
+            "marks": [],
+            "text": "「ジェイシーエスでの評価を先に聞いてから動きます」と、患者さんの状態把握に役立てます。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2769fbe8ae232ca3ef13a3384609f979",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF8Aw",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "GCS（ジーシーエス）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF8Cz",
+            "_type": "span",
+            "marks": [],
+            "text": "海外由来の意識レベル評価指標です。開眼・言語・運動の3項目で評価します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "45218fcac8f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF8F2",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "（使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF8H5",
+            "_type": "span",
+            "marks": [],
+            "text": "「ジーシーエスは3つの項目で整理されているので、覚えやすいですね」と感じます。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "877f523e6918e5e6db04323471cc66bb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF8LB",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "平熱（ヘイネツ）："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF8NE",
+            "_type": "span",
+            "marks": [],
+            "text": "その人の普段の基準となる体温のことです。個人差があります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9625eee7ba93",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekeF8PH",
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "（使い方："
+          },
+          {
+            "_key": "myhBkL5zK3ghppYekeF8RK",
+            "_type": "span",
+            "marks": [],
+            "text": "「ヘイネツを知らないと、微熱かどうかの判断がブレてしまいます」ので、患者さんごとの平熱を把握することが大切です。）"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fdc87cad7a06",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-9655b1e8-b574-4636-9c64-68e28002a9c9",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-ae49bd8c-2b12-4faf-9df7-0be459e44e0c",
+            "_type": "span",
+            "marks": [
+              "link-04ec29d4-4a63-4c82-a1b2-0042041d1491"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-04ec29d4-4a63-4c82-a1b2-0042041d1491",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "p2q3r4s5t6o1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuny",
+            "_type": "span",
+            "marks": [],
+            "text": "症状・病態に関する用語"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "3qilz2sc6n0l",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "50dgmkks408f",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの訴えや観察結果を正確に伝えるためには、症状や病態に関する医療用語の理解が不可欠です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "q3r4s5t6o1p2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuq1",
+            "_type": "span",
+            "marks": [],
+            "text": "発熱（Fever）：体温が高い状態。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "r4s5t6o1p2q3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHus4",
+            "_type": "span",
+            "marks": [],
+            "text": "疼痛（Pain）：痛み。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "s5t6o1p2q3r4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuu7",
+            "_type": "span",
+            "marks": [],
+            "text": "浮腫（Edema）：むくみ。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "t6o1p2q3r4s5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuwA",
+            "_type": "span",
+            "marks": [],
+            "text": "脱水（Dehydration）：体内の水分が不足した状態。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "u1v2w3x4y5z6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHuyD",
+            "_type": "span",
+            "marks": [],
+            "text": "感染症（Infection）：細菌やウイルスによる病気。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-7120b3c2-c3f1-435d-8f63-f33df257d115",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-afa223e5-c9b1-42b1-8c4a-0330ed165940",
+            "_type": "span",
+            "marks": [],
+            "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "v2w3x4y5z6u1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHv0G",
+            "_type": "span",
+            "marks": [],
+            "text": "検査・処置に関する用語"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "zi5wan4j7ytm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "o39eypi6wx44",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの検査や処置の準備・補助を行う上で、関連する医療用語を知っておくことは、業務をスムーズに進めるために役立ちます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "w3x4y5z6u1v2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHv2J",
+            "_type": "span",
+            "marks": [],
+            "text": "採血（Blood sampling）：血液を採取すること。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "x4y5z6u1v2w3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHv4M",
+            "_type": "span",
+            "marks": [],
+            "text": "点滴（IV drip）：静脈から薬剤などを投与すること。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "y5z6u1v2w3x4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHv6P",
+            "_type": "span",
+            "marks": [],
+            "text": "吸引（Suction）：痰などを吸い取ること。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "z6u1v2w3x4y5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHv8S",
+            "_type": "span",
+            "marks": [],
+            "text": "導尿（Catheterization）：尿道からカテーテルを挿入し、排尿を促すこと。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a3b4c5d6e7f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvAV",
+            "_type": "span",
+            "marks": [],
+            "text": "体位変換（Position change）：寝たきりの患者さんの体の向きを変えること。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-6700b150-65c0-4fbb-aefd-10978ad1f0b8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-9a5865f5-472d-4483-a939-23171ecfbdc8",
+            "_type": "span",
+            "marks": [],
+            "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b4c5d6e7f1a3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvCY",
+            "_type": "span",
+            "marks": [],
+            "text": "医療器具・物品に関する用語"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "v44i1p7d685p",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5kw5ddxikc0m",
+            "_type": "span",
+            "marks": [],
+            "text": "医療現場では様々な器具や物品が使用されます。それらの名称や用途を理解しておくことで、看護師の指示に迅速に対応できます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c5d6e7f1a3b4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvEb",
+            "_type": "span",
+            "marks": [],
+            "text": "カテーテル（Catheter）：体内に挿入して使用する管。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d6e7f1a3b4c5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvGe",
+            "_type": "span",
+            "marks": [],
+            "text": "ガーゼ（Gauze）：傷の手当てなどに使う布。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e7f1a3b4c5d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvIh",
+            "_type": "span",
+            "marks": [],
+            "text": "シリンジ（Syringe）：注射器。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f1a3b4c5d6e7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvKk",
+            "_type": "span",
+            "marks": [],
+            "text": "酸素ボンベ（Oxygen cylinder）：酸素を供給するための容器。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-fcdbe7bb-8344-4b4e-9bd8-2806dd348167",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-c489978b-7bd3-4c90-b70c-c10ebca0fb11",
+            "_type": "span",
+            "marks": [],
+            "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a4b5c6d7e8f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvMn",
+            "_type": "span",
+            "marks": [],
+            "text": "現場でよく使われる略語"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "4e9scphsh226",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "47yy0lyby094",
+            "_type": "span",
+            "marks": [],
+            "text": "忙しい医療現場では、効率化のために多くの略語が使われます。これらの略語を理解しておくことで、コミュニケーションが円滑になります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b5c6d7e8f1a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvOq",
+            "_type": "span",
+            "marks": [],
+            "text": "ADL（Activities of Daily Living）：日常生活動作。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c6d7e8f1a4b5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvQt",
+            "_type": "span",
+            "marks": [],
+            "text": "QOL（Quality of Life）：生活の質。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d7e8f1a4b5c6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvSw",
+            "_type": "span",
+            "marks": [],
+            "text": "Dr.（ドクター）：医師。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e8f1a4b5c6d7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvUz",
+            "_type": "span",
+            "marks": [],
+            "text": "Ns.（ナース）：看護師。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f1a4b5c6d7e8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvX2",
+            "_type": "span",
+            "marks": [],
+            "text": "OP（オペ）：手術。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-48ce79ec-ce05-40a5-bfaa-fcdf7983aea1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-c0581592-3260-469d-bb67-09b5a1153ce2",
+            "_type": "span",
+            "marks": [],
+            "text": "【厳選】看護助手が知っておくべき医療用語100選では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a5b6c7d8e9f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvZ5",
+            "_type": "span",
+            "marks": [],
+            "text": "医療用語を効率よく覚えるための学習法"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "ty7unfkcgqgj",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "j56y8xd5rc3e",
+            "_type": "span",
+            "marks": [],
+            "text": "膨大な医療用語を効率よく覚えるためには、いくつかの学習法があります。ここでは、看護助手として働きながら実践できる学習のコツをご紹介します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b6c7d8e9f1a5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvb8",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "毎日少しずつ覚える"
+          },
+          {
+            "_key": "279cfd448dbf",
+            "_type": "span",
+            "marks": [],
+            "text": "：一度に全てを覚えようとせず、コツコツと継続することが大切です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c7d8e9f1a5b6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvdB",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "実際に使われている場面で覚える"
+          },
+          {
+            "_key": "9215d7d4b6b8",
+            "_type": "span",
+            "marks": [],
+            "text": "：業務中に耳にした言葉や、カルテに書かれている言葉をメモし、意味を調べる習慣をつけましょう。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d8e9f1a5b6c7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvfE",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "ノートにまとめる、単語帳を活用する"
+          },
+          {
+            "_key": "1412dbd1ecc5",
+            "_type": "span",
+            "marks": [],
+            "text": "：自分なりの学習ツールを作成すると、効率よく覚えられます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e9f1a5b6c7d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "myhBkL5zK3ghppYekdHvhH",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "分からないことはすぐに質問する"
+          },
+          {
+            "_key": "92f250cfbe9f",
+            "_type": "span",
+            "marks": [],
+            "text": "：疑問をそのままにせず、先輩や看護師に積極的に質問しましょう。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "section-closing-c10a9a5a-3417-45e3-b0c4-fe16a0199a3b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-1b1ab774-1abf-4af7-9f11-c6cf282b4e10",
+            "_type": "span",
+            "marks": [],
+            "text": "医療用語を効率よく覚えるための学習法では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "quiz-link-d02b74ae-9c3e-4047-9fe5-6cf94f66baf9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-b261addf-aed1-494b-b264-0d52da96a145",
+            "_type": "span",
+            "marks": [],
+            "text": "医療用語を覚えたら、"
+          },
+          {
+            "_key": "text-efa54098-5b28-4b2d-88cb-0ad7de718dcd",
+            "_type": "span",
+            "marks": [
+              "b2e2dab3-e62f-4373-a0ff-8d9423d955b6"
+            ],
+            "text": "メディカルクイズ"
+          },
+          {
+            "_key": "text-11d52235-56c9-4fc6-a850-9c32f4b84330",
+            "_type": "span",
+            "marks": [],
+            "text": "で理解度をチェックしてみましょう。クイズ形式で楽しく復習できます。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "b2e2dab3-e62f-4373-a0ff-8d9423d955b6",
+            "_type": "link",
+            "href": "/quiz",
+            "openInNewTab": true
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-d8e9fd75-c7bd-4480-829a-c33ee16017db",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-4ed08e40-947e-4ac8-8592-0b6d8a50520a",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-0b675803-ce95-4375-9750-d2b693eb9dd9",
+            "_type": "span",
+            "marks": [
+              "link-e9d82721-907e-4a77-b5f3-b1ceace8896c"
+            ],
+            "text": "「医療現場のコミュニケーション｜患者様・スタッフとの関わり方」"
+          },
+          {
+            "_key": "internal-link-span-outro-89279f94-4065-4876-bf71-88b4bcd49e66",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-e9d82721-907e-4a77-b5f3-b1ceace8896c",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-medical-communication-skills"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-7d1120a2-8722-48ad-8c51-63fcb0df0079",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-c1fd2f1e-0fb5-4e76-b9df-a9b5c480fc31",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手に必要な医療用語100選｜現場でよく使われる略語も解説でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-104465e6-a955-459b-a8e5-95c1145c3622",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-adf504ce-d855-4150-a574-58a6f253a458",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-93b95f6b-7b78-4f94-9a81-2e6e2cdf7d8d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-15938d57-cefa-4881-9e9a-7b7d7feab55b",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師との円滑なコミュニケーション：指示を正確に理解し、報告を的確に行うために必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-f8bf6ed9-3aa6-40c3-8a61-278a6cadaf89",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-e003d97d-8f7c-40c3-a93e-978ff3dded7d",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの状態を正確に把握：医療用語が理解できることで、患者さんの状態変化にいち早く気づくことができます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-36b3e857-a25b-4f6a-83f8-e2b0044276fc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-ad478b6a-8692-49d1-ab87-ca4cd6aeb02a",
+            "_type": "span",
+            "marks": [],
+            "text": "業務の安全性の向上：誤解やミスを防ぎ、安全なケアを提供するために重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-094c1c1c-38be-42ba-886e-59ac256c5eb1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-56330115-0569-4cff-b44b-a77b0f341add",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-951cf2a9-ef3a-465a-8df2-467ac8bbb9b2",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ペンやメモ帳はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-6d0f30eb-8dd1-40a0-8fd6-cbe4a8df462a",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">文房具を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "disclaimer-c2226d0d-9203-4f43-8993-283b6f6c8281",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-011fee12-f8f1-44e6-83f0-eb30430dabfa",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "c0b7bfa2-b869-476b-bb0f-0d93081f2c0b",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "description": "看護助手の現場で頻出する医療用語・略語を一覧で解説。申し送りやカルテで困らないための、最低限知っておきたい用語集です。",
+    "excerpt": "看護助手に必須の医療用語100選を厳選解説。現場でよく使われる略語から、身体、症状、検査、医療器具に関する用語まで、自信を持って業務に取り組むための知識が満載です。",
+    "geminiMaintainedAt": "2025-11-08T23:02:23.584Z",
+    "metaDescription": "看護助手が知っておくべき医療用語100選を初心者にもわかりやすく丁寧に解説。バイタルやJCSなどの基礎用語から、忙しい現場で頻繁に使われる略語まで幅広く網羅し、安全なケアやスムーズな報告・連携に役立つ知識をしっかり学べます。今日から実務で活かせる内容です。",
+    "publishedAt": "2024-06-25T02:20:09.069Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-medical-terms"
+    },
+    "tags": [
+      "悩み",
+      "看護助手",
+      "患者対応"
+    ],
+    "title": "看護助手に必要な医療用語100選｜現場でよく使われる略語も解説",
+    "views": 19
+  }
+}

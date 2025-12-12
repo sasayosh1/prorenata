@@ -1,0 +1,758 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:35:03.325Z",
+    "operation": "add-related-section",
+    "articleId": "7c82b05b-a968-43bb-bedc-2f4da5146e3f",
+    "articleTitle": "「場合」に戸惑うあなたへ：看護助手が自信を持って対応できる心構えと実践",
+    "articleSlug": "nursing-assistant-mental-care-journey"
+  },
+  "document": {
+    "_createdAt": "2025-10-26T23:01:23Z",
+    "_id": "7c82b05b-a968-43bb-bedc-2f4da5146e3f",
+    "_rev": "5nU3tVPQxjypaRNzMGhQdK",
+    "_type": "post",
+    "_updatedAt": "2025-12-11T18:34:34Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "ba0c6974e805187d1743f922b60e84ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "36b21ffc3cdb",
+            "_type": "span",
+            "marks": [],
+            "text": "日々の業務はとても充実していますが、正直なところ、慣れないうちは戸惑うことばかりでした。特に、「場合によっては～」とか「その場合は～」といった言葉を聞くたびに、「その場合って、具体的にどんな時なんだろう？」と、内心ドキドキしていたのを覚えています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dfd3c8095eeabe8666f5621cbc4e61dc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e7fdf2b3c71b",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として働くわたしたちは、患者さんの生活に一番近い存在です。だからこそ、日々の些細な変化や、もしかしたら大きな「場合」に遭遇することも少なくありません。そんな時、「どうすればいいんだろう」と不安になったり、「もっとできたことがあったんじゃないか」と自分を責めてしまったりすることもあるかもしれませんね。わたしも、最初はいつもそうでした。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "42da06f97b7ba627fb21c4fe8dfbc4d7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b1b53dbd8a4a",
+            "_type": "span",
+            "marks": [],
+            "text": "でも大丈夫です。経験を重ねるうちに、少しずつ落ち着いて対応できるようになります。この記事では、そんな「場合」に看護助手が自信を持って向き合うための心構えと、現場で役立つ具体的なアドバイスを、わたしの経験を交えながらお話ししていきたいと思います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b1acc09643927b92c02dcc5b23b57689",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e985709ba12b",
+            "_type": "span",
+            "marks": [],
+            "text": "「場合」って、一体どんな時を指すの？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "35e00c70cfb2dbf82fe0038601e402bf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6213d94c715c",
+            "_type": "span",
+            "marks": [],
+            "text": "「場合」という言葉は、医療現場ではとても曖昧に使われることがありますよね。具体的にどんな状況を指すのか、最初はよく分からなくて戸惑うことも多かったです。わたしが経験してきた中で、「あ、これは場合だな」と感じたのは、主にこんな状況でした。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b21ff1cbfc375214e592302ce28e925a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "aa6290f0a3a2",
+            "_type": "span",
+            "marks": [],
+            "text": "・患者さんが突然「しんどい」と訴えられた時"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fe4632f40c6399484035385606c6d93b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3c8576cfd1d5",
+            "_type": "span",
+            "marks": [],
+            "text": "・排泄介助中に、普段と違う便や尿の状態に気づいた時"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "586a1716b4f217b269a8faf69f8c7e15",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dd3f3e3037c8",
+            "_type": "span",
+            "marks": [],
+            "text": "・離床中に、患者さんの顔色が急に悪くなった時"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3de70d7ea6a6c6f632e57270f89e1c80",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e6481c91a140",
+            "_type": "span",
+            "marks": [],
+            "text": "・患者さんがベッドから落ちそうになった、または転倒してしまった時"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d7d12148ea1bba6bfda457c9984e8f4f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fec55d0d5b7a",
+            "_type": "span",
+            "marks": [],
+            "text": "・点滴が外れている、チューブが抜けているなど、医療機器の異常に気づいた時"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-198f9e48-86fa-4a4c-b3f8-d7ed6b605bb3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-f1ab4a24-b398-4383-97c2-af4ce70d44f3",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "60b49c3f75922e8917a11498fef8abdc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d346078207da",
+            "_type": "span",
+            "marks": [],
+            "text": "これらはほんの一部ですが、わたしたちの日常業務の中で、患者さんの生命や安全に関わるような、いつもとは違う状況を「場合」と呼ぶことが多いように感じます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "78e732cc5ba6d69e2d88ef179d86c4f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6bb5e1554c0c",
+            "_type": "span",
+            "marks": [],
+            "text": "わたしたち看護助手の役割は、看護師の指示のもと、患者さんの身の回りのお世話を通じて、安全・安楽な療養環境を提供することです。しかし、「場合」に遭遇した際は、ただ指示を待つだけでなく、状況を適切に判断し、速やかに報告・連絡・相談（報連相）を行うことが非常に重要になります。無理に自分で解決しようとせず、速やかに看護師さんや先輩に伝えることが、患者さんの安全を守るための第一歩だと心得ておきましょうね。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa6683eefc230a8c3e06dbc0257fa24b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "80e9b6420367",
+            "_type": "span",
+            "marks": [],
+            "text": "落ち着いて対応するための「基本のき」"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "dd7ac261b7af1be780eb1d8952af69c8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a1597514bac2",
+            "_type": "span",
+            "marks": [],
+            "text": "「場合」に直面した時、一番大切なのは「焦らないこと」です。とは言っても、急なことだとドキッとしてしまうのは当たり前ですよね。そんな時、わたしがいつも心の中で唱えている「基本のき」を、皆さんにぜひお伝えしたいです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6f1990c92bc4cf617c90e6c9a5f7eae9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "26ee1287df5c",
+            "_type": "span",
+            "marks": [],
+            "text": "① まずは安全確保を最優先に"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "55712d9cb79bca896aea812d1596ce87",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "332060801b7a",
+            "_type": "span",
+            "marks": [],
+            "text": "例えば、患者さんがベッドから落ちそうになったら、まず体を支える。転倒してしまったら、その場で動かさず、安全な体勢を保つ。慌てて起こそうとすると、かえって危険な場合もあります。まずは患者さんの安全を確保し、それ以上状態が悪化しないように努めましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "99dd50f88324853087c02ef0cd794873",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5fc0dbb01b1",
+            "_type": "span",
+            "marks": [],
+            "text": "② 状況を観察し、的確な情報を伝える準備"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "666fc4b1fc87b6a94d865784cbf9c674",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d6e5d6fb3ae",
+            "_type": "span",
+            "marks": [],
+            "text": "看護師さんに報告する際、漠然と「なんか変です」だけでは、次にどう動けばいいのか伝わりにくくなってしまいます。「いつから、どこが、どういう状態か」をできるだけ具体的に伝えられるよう、落ち着いて観察する習慣をつけましょう。例えば、顔色はどうか、呼吸は乱れていないか、意識はあるか、痛みはどこか、などです。もし可能であれば、時間も一緒に記録しておくと良いでしょう。 [INTERNAL_LINK: 患者さんの異変を見つける観察ポイント] は、日頃から意識しておくととても役立ちますよ。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "975b18581ac835e3b03f79fff9a51c94",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0be82aabe3d4",
+            "_type": "span",
+            "marks": [],
+            "text": "③ 躊躇なく、速やかに報連相！"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a34f3c272fe35aa0b27135cfd66a87a7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1c4ff94b6437",
+            "_type": "span",
+            "marks": [],
+            "text": "「こんなことくらいで報告してもいいのかな…？」と迷うこともあるかもしれません。しかし、命を預かる現場では、「気になることは全て報告する」くらいでちょうどいいとされています。特に患者さんの状態に関わることなら、どんな小さな変化でもすぐに看護師さんや先輩に伝えてください。それが、わたしたち看護助手にできる、最も重要な対応の一つです。 [INTERNAL_LINK: 報連相の基本] を改めて確認してみるのも良いですね。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cd33a39fd5c741c9a72dd6b50eb7a633",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb029763632b",
+            "_type": "span",
+            "marks": [],
+            "text": "予期せぬ「場合」に備える、日々の心がけ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "3890826ae38c0516e002d2c91a2f8bee",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "96882368c0c3",
+            "_type": "span",
+            "marks": [],
+            "text": "「場合」はいつ起こるか分かりません。だからこそ、日ごろから意識できることを積み重ねておくことが、いざという時の冷静な対応に繋がります。わたしが心がけていることをいくつかご紹介しますね。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "76a79ceb53c4da5f81831f4071d5520c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ca466a98c8c7",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの情報を「知る」習慣をつける"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6fb24b297e59026e5e9030f33b836638",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fec5f64f0687",
+            "_type": "span",
+            "marks": [],
+            "text": "申し送りやカルテ、患者さんご自身との会話を通して、その方の基本的な状態（病名、既往歴、ADL、認知状況、普段の様子など）を把握しておくようにしています。「この方は普段からふらつきやすい」「この薬を飲んでいると眠気が出やすい」といった情報が頭に入っていると、いつもと違う状況にすぐに気づけるようになりますよ。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "21938551aa41f80ba84d000330813188",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c4eb0280f12c",
+            "_type": "span",
+            "marks": [],
+            "text": "「もしも」を想像してみる"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "587aa281734c677f307bfaa818b50a45",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2549c54fa952",
+            "_type": "span",
+            "marks": [],
+            "text": "少し怖いかもしれませんが、業務中に「もし、この患者さんが急に立ち上がろうとしたらどうしよう？」「もし、この介助中に気分が悪くなったら？」などと、一瞬「もしも」を想像してみることがあります。そうすることで、手すりの位置やコールボタンの場所を再確認したり、介助の仕方を少し変えてみたりと、予防的な行動に繋がることがあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3a720cb7f215f0beb46276008fcfe172",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "112ca1f58cc2",
+            "_type": "span",
+            "marks": [],
+            "text": "十分じゃなくても大丈夫、自分を労ることも大切"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "52894bb5898d73df14ca9f9d65a4f15c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd1d1492f238",
+            "_type": "span",
+            "marks": [],
+            "text": "どんなに準備していても、予期せぬ「場合」は起こりますし、その全てに十分に対応できる人はいません。対応後に「もっとできたんじゃないか」と後悔する気持ちは、真面目な証拠です。でも、自分を責めすぎないでくださいね。わたしたちはチームで働いています。一人で抱え込まず、できるだけ誰かに相談してください。そして、今日頑張った自分に、小さなご褒美をあげてくださいね。わたしはいつも、帰りにちょっといい香りのハンドクリームを買ったり、美味しいお茶を淹れたりしていますよ。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "404a5cec5834aeddd063a8030a08aa92",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c19bbee59214",
+            "_type": "span",
+            "marks": [],
+            "text": "経験を力に変える、振り返りの時間"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "5277697249d2194d56a66ea2e6476b85",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3ec481091bb2",
+            "_type": "span",
+            "marks": [],
+            "text": "「場合」に遭遇することは、誰にとっても大変なことです。でも、その経験はできるだけわたしたちの成長に繋がります。わたしも、初めての「場合」でどうすればいいか分からず、ただ先輩看護師さんの指示に従うことしかできなかった時もありました。でも、その都度、何が起こったのか、どう対応したのか、自分に何が足りなかったのかを振り返るようにしています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3cd37d86599596ad9159216f99953f00",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cdfa21da0278",
+            "_type": "span",
+            "marks": [],
+            "text": "もし、困ったことがあったら、後で落ち着いてから先輩や信頼できる同僚に「あの時、どうすればもっと良かったでしょうか？」と聞いてみてください。きっと、親身になってアドバイスをくれるはずです。そうやって一つずつ経験を積み重ねていくことが、あなたの看護助手としてのスキルと自信を育んでいくことになります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c2edea804cd4040b4d54d95692619a0c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "86b113463d2b",
+            "_type": "span",
+            "marks": [],
+            "text": "「経験は宝」とよく言いますが、まさにその通りです。大変な「場合」を乗り越えたあなたは、きっと一回りも二回りも大きく成長しているはずですよ。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-6cae212f-1f01-4cea-8fab-aae42e212976",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-dd30a21a-775c-4ddb-9a6a-4a67f650de6d",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-07cdddd5-e453-4487-8d2a-754f9eb74c2f",
+            "_type": "span",
+            "marks": [
+              "link-020229a2-d4c9-49a0-9086-596025c7612b"
+            ],
+            "text": "「精神科で働く看護助手のリアル｜外科勤務の友人が聞いた5つの工夫」"
+          },
+          {
+            "_key": "internal-link-span-outro-6bdcc9f6-ff10-4a88-b24a-4b7b2c6beb83",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-020229a2-d4c9-49a0-9086-596025c7612b",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-mental-care-support"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-d58737ab-9ec6-4cc2-a9ae-a7282cc99f60",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-795cf6c2-0c63-4bc0-8bf0-48fd8697724c",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-515e8f6b-a645-4586-aff5-94df96d32aec",
+            "_type": "span",
+            "marks": [],
+            "text": "看護・介護ユニフォーム専門店「ナースリー」"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-243f1544-e150-44f1-98a3-b64baa8ebb05",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-9f0b8959-5d21-4c1a-9a03-013fdbc110d6",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-624ff736-32a8-426b-9279-7a3723ca86f7",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-500af290-6da1-49f7-b7f0-8f9c79b82d03",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-2d109a42-995d-404d-a18c-69ba21affdb0",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-a89190be-17e1-4481-bd16-bf4b569128ca",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f469af97e528e1555c50706816e065e8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a2ed8199a92f",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-f7f23e9b-b10b-448c-8acf-a54fca07f353",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-bd210065-45b4-4e81-8eff-e5a86e339006",
+            "_type": "span",
+            "marks": [],
+            "text": "「場合」に戸惑うあなたへ：看護助手が自信を持って対応できる心構えと実践でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-fc52842e-ad97-4b6f-b6bc-ebe9743ea0fb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-a54d10b6-e608-41a2-9daa-4b805bf9e3e6",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-f16a550a-5b99-47c1-8d96-2ec25dbab6b3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-b00b4467-bf63-4377-991f-2ede564e364a",
+            "_type": "span",
+            "marks": [],
+            "text": "落ち着いて対応するための「基本のき」の視点で① まずは安全確保を最優先にに目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-36f786e6-d94d-44af-bf73-d8f13ace52c6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-fa987adf-df95-4899-a028-fa53f4632bf1",
+            "_type": "span",
+            "marks": [],
+            "text": "落ち着いて対応するための「基本のき」の視点で② 状況を観察し、的確な情報を伝える準備に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-b0adee00-4dd2-4c59-b914-f6ad6e27f450",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-51e93aac-d5b7-4e1c-9843-ea7a9e197d74",
+            "_type": "span",
+            "marks": [],
+            "text": "落ち着いて対応するための「基本のき」の視点で③ 躊躇なく、速やかに報連相！に目を向ける"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-0367c3bb-4b95-44ee-9df8-7ea59aede404",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-439a9896-9fd3-41c1-9f8d-4bc1c9cb1a18",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-1e6de995-dfbd-48b3-a923-bc9d1d936aef",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-994d01b9-5e39-45a8-9d5b-fba510c7bef3",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "source-d63d3729-89c6-480a-93b4-0af57f1f8a4d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-ddc33dfe-4c6f-49c8-a09c-e27b8f4c9694",
+            "_type": "span",
+            "marks": [],
+            "text": "参考資料："
+          },
+          {
+            "_key": "span-04c57614-ec75-448f-84b2-d5611431980e",
+            "_type": "span",
+            "marks": [
+              "link-58c559d3-fb33-48d6-ad70-0e07b0f28ca1"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-58c559d3-fb33-48d6-ad70-0e07b0f28ca1",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-74f15758-bcee-4e3c-9756-45bcdfda16c2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-2f77d690-89a5-4631-94ca-8c2eeee0d6b0",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "c125fa3c-3482-4f08-9757-ba2085d7a6f0",
+        "_ref": "category-stories",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "病棟で働く看護助手の皆さん、こんにちは！「場合」という言葉を聞くと、少しドキッとしませんか？患者さんの急な変化や予期せぬ出来事にどう対応すればいいのか、悩むこともあるかもしれません。この記事では、わたし自身の経験も踏まえながら、そんな「場合」に自信を持って向き合うための心構えと実践的な方法を優しくお伝えしますね。",
+    "geminiMaintainedAt": "2025-11-08T22:57:00.981Z",
+    "metaDescription": "日々の業務で、日々の業務はとても充実していますが、正直なところ、慣れないうちは戸惑うことばかりでした特に、「場合によっては～」とか「その場合は～」といった言葉を聞くたびに、「その場合って、具体的にどんなど、。実体験をもとに解説します。",
+    "publishedAt": "2025-10-26T23:01:22.621Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-mental-care-journey"
+    },
+    "tags": [
+      "場合",
+      "看護助手",
+      "患者対応",
+      "コミュニケーション",
+      "実務ノウハウ"
+    ],
+    "title": "「場合」に戸惑うあなたへ：看護助手が自信を持って対応できる心構えと実践",
+    "views": 1
+  }
+}

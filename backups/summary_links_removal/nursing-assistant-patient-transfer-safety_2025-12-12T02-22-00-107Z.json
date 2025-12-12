@@ -1,0 +1,1189 @@
+{
+  "_id": "k3FMiqj9KhfIHCxGVvIm8s",
+  "body": [
+    {
+      "_key": "c7df1f12-8e60-4b94-b121-c4ae4330bb77",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "12ce6be7-c68d-46bb-a6ec-87a3b5ea8695",
+          "_type": "span",
+          "marks": [],
+          "text": "患者移送の基本原則｜安全な介助のための3つの心構え"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "diagram-1765496833939",
+      "_type": "image",
+      "alt": "移乗介助の安全確認フロー",
+      "asset": {
+        "_ref": "image-25817220b84c6eae16da6927ba35070671ab45b2-800x450-svg",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "diagram-1764737138856",
+      "_type": "image",
+      "alt": "ストレッチャー移送の安全3原則",
+      "asset": {
+        "_key": "eeab7c89667847f9bbf36e78b0dce963",
+        "_ref": "image-b0cf4ad9330b931a96037ad1c817ae452f95d18a-800x450-svg",
+        "_type": "reference"
+      },
+      "caption": "ストレッチャー移送の安全3原則"
+    },
+    {
+      "_key": "cee09117-35ac-4865-bfbe-6f8434327790",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "61e6fa25-e8b0-46f2-8bf6-3192950f54cb",
+          "_type": "span",
+          "marks": [],
+          "text": "徹底した事前準備と安全確認"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "35d615ad-ab84-4756-9719-c7aeb7267a66",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "112f081d-7fdd-418f-850f-b0bae204cc22",
+          "_type": "span",
+          "marks": [],
+          "text": "移送を始める前に、周囲の環境と患者さんの状態を確認することが最も重要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "29fa566d-2990-4a0c-9c85-d347de7a0c47",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a8ddc05e-0caf-4831-9cc8-6c9162dd20bc",
+          "_type": "span",
+          "marks": [],
+          "text": "環境の確認: 移送経路に障害物はないか、床は濡れていないか、十分なスペースが確保されているかを確認します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c3d2307f-b4d9-4541-b563-85c22e0a1ca7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8334b69d-2a3e-4cba-a631-f0cfeb099146",
+          "_type": "span",
+          "marks": [],
+          "text": "用具の点検: ストレッチャーや車椅子のブレーキ、タイヤの空気圧、フットレストなどが正常に機能するかを多くの場合点検します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7311f8df-7088-4801-86af-4a6fec9e0b14",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1b91f9cd-509c-4be4-a6d5-bbf1f31c48e9",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの状態把握: 患者さんの意識レベル、体調、麻痺の有無などを看護師に確認し、情報を共有します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-3586c3f6-2f80-421a-9e8c-4c3a95ee1f8b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-949fbbc2-e20c-4109-a52b-cca78e04a981",
+          "_type": "span",
+          "marks": [],
+          "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a38d0ba0-eca3-4dc6-81ab-ab01a637388f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c35f225b-caf7-45b9-9d85-1c12c267bc24",
+          "_type": "span",
+          "marks": [],
+          "text": "身体への負担を減らす「ボディメカニクス」の活用"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "e4f88013-ce0b-48f7-a9f6-f2b9e9f475cf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "401619c6-5dec-4ee2-9e68-d065745a6dc8",
+          "_type": "span",
+          "marks": [],
+          "text": "ボディメカニクスとは、骨格や筋肉の働きを力学的に活用し、最小限の力で最大限の効果を発揮するための技術です。これを意識することで、腰痛などの職業病を防ぎ、患者さんにも安心感を与えることができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d042dffd-4f63-4f14-91a4-719c9b949de2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "66815543-97d9-4674-beaf-517ddb2d99f4",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "支持基底面積を広くとる"
+        },
+        {
+          "_key": "ac7b946c4744",
+          "_type": "span",
+          "marks": [],
+          "text": ": 両足を肩幅程度に開き、安定した姿勢を保ちます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0fbc773d-43b3-4322-897e-0da9ee6051ce",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "10bd6aaf-822d-4a31-973a-11443945526e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "重心を低くする"
+        },
+        {
+          "_key": "5c19ed8395da",
+          "_type": "span",
+          "marks": [],
+          "text": ": 膝を曲げ、腰を落として重心を低くすることで、安定性が増します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4f3492a4-34d8-441f-a349-46b4f5a3ba4b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1964364d-7ef9-4e81-89c9-a542d5dca432",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "対象に近づく"
+        },
+        {
+          "_key": "a0bb1e28adf2",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんに体を密着させることで、力の伝達がスムーズになります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b371f1f7-94c1-49c2-911d-9eb0ffc00c0e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0eb30bf8-ead5-4d9e-bfd3-f579ede98384",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "大きな筋群を使う"
+        },
+        {
+          "_key": "0addfb9c53d1",
+          "_type": "span",
+          "marks": [],
+          "text": ":腕の力だけでなく、太ももや背中などの大きな筋肉を意識して使います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-5e910ac6-c76d-44f0-a166-6efe6c6daecc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-b1a362bf-c53c-4d46-b051-f8ca1cd314c6",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "50a522b3-1153-4f83-a9e0-48e25e447665",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c27b1921-c99b-415f-a556-1c0b5f2065a2",
+          "_type": "span",
+          "marks": [],
+          "text": "不安を和らげる「声かけ」とコミュニケーション"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "7acfd1dc-5b08-4f57-9f43-aaa7c9a61529",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "21403d2f-8d5a-4139-81bc-12e12a4d68d3",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんは、移乗の際に転倒や痛みの不安を感じています。丁寧な声かけは、その不安を和らげ、協力を得るために不可欠です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "84ded9fb-da84-4428-91fb-9320b480cac4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "624c74eb-9f6f-44d5-adb0-e5157248f92b",
+          "_type": "span",
+          "marks": [],
+          "text": "事前の説明: 「これから車椅子に移りますね」「少し体を動かしますね」など、次に行う動作を具体的に伝えます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3510ff89-1aba-4cfd-9821-26a6fa2df571",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3dab04de-6e63-4152-9dd7-3d34f60ba9ad",
+          "_type": "span",
+          "marks": [],
+          "text": "動作に合わせた声かけ: 「いち、にの、さん」といった掛け声で、動作のタイミングを合わせます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0907dce1-8255-4c03-b10c-cd658c08b160",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6d6ee23c-32ef-42c3-b2d1-7eae9136ed43",
+          "_type": "span",
+          "marks": [],
+          "text": "常に気遣う: 「痛くないですか？」「気分は悪くないですか？」など、移乗中も常に患者さんの状態を気遣う言葉をかけます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-f7b9285e-04ff-444f-8520-64358775a353",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-7c52d043-5693-4747-b93e-78fd6b92c8a7",
+          "_type": "span",
+          "marks": [],
+          "text": "患者移送の基本原則｜安全な介助のための3つの心構えでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cd8c8800-fa89-4c75-b936-c10aa812faf3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b5b03831-e28e-45c7-afe0-b2a531f2240f",
+          "_type": "span",
+          "marks": [],
+          "text": "ストレッチャーの正しい使い方と移乗介助"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "diagram-2nd-1764768784798",
+      "_type": "image",
+      "alt": "車椅子への移乗手順（ベッド→車椅子）",
+      "asset": {
+        "_key": "dd57f86445e3491ca6b49ab35803b5e1",
+        "_ref": "image-a3fa3127edc0317c976d6719ea9bbae7a97e6514-800x450-svg",
+        "_type": "reference"
+      },
+      "caption": "車椅子への移乗手順（ベッド→車椅子）"
+    },
+    {
+      "_key": "e5cc54bb-bec0-4810-835f-0589c3942e36",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ccbc4417-ca2f-441a-889c-a822ba05df3a",
+          "_type": "span",
+          "marks": [],
+          "text": "ストレッチャーは、主に自力で動くことが困難な患者さんや、手術後・処置後の患者さんを安全に搬送するために使用します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-4f23c9de-ef76-4d62-8611-45599bcef33b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-ab333fc1-01c3-4eb3-bc6f-3193412a295a",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0eb5ec68-df19-4db7-b207-b096b9779ede",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e6c23d08-3354-43d1-b2cd-ce40335a3f20",
+          "_type": "span",
+          "marks": [],
+          "text": "ストレッチャーへの移乗手順（ベッドから）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "31b92758-4214-42fb-bb8b-edbc437936b8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "321b1978-0549-4926-ad4d-78505f95d672",
+          "_type": "span",
+          "marks": [],
+          "text": "1. "
+        },
+        {
+          "_key": "e9141fe1f3f2",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "準備"
+        },
+        {
+          "_key": "1fea1bc1771c",
+          "_type": "span",
+          "marks": [],
+          "text": ": ベッドの高さをストレッチャーと同じか、少し高く調整します。ストレッチャーをベッドの横に隙間なくつけ、両方のブレーキを高い確率でかけます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e4fab34d-98c5-4209-8f4a-ed822e106a36",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4b260612-82f4-4d44-8ddb-d0a1a7e045b4",
+          "_type": "span",
+          "marks": [],
+          "text": "2. "
+        },
+        {
+          "_key": "260ce83a45e2",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "患者さんの準備"
+        },
+        {
+          "_key": "fe1edd7dac93",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんに移乗することを説明し、同意を得ます。腕を胸の上で組んでもらい、体を小さくまとめてもらいます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "136bb4cd-9607-4500-9ed2-33348a7da6b6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "93a97b54-d91c-4503-ae8e-94237665db98",
+          "_type": "span",
+          "marks": [],
+          "text": "3. "
+        },
+        {
+          "_key": "1fafe80a02ec",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "移乗"
+        },
+        {
+          "_key": "861d2ac81dad",
+          "_type": "span",
+          "marks": [],
+          "text": ": 複数人（2〜3人）で協力します。患者さんの頭側、腰、足側に分かれ、体の下にスライディングシートなどを敷き込みます。リーダーの掛け声に合わせて、一斉に患者さんを水平にスライドさせて移乗させます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "72ee0f48-6964-4069-9bd1-a23133f6177c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d101e908-86c9-4c8a-b186-f4506cd80dc8",
+          "_type": "span",
+          "marks": [],
+          "text": "4. "
+        },
+        {
+          "_key": "4b5b3ce75b50",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "移乗後の確認"
+        },
+        {
+          "_key": "70d24a9d19dc",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんがストレッチャーの中央に安全な姿勢でいることを確認し、サイドレールを多くの場合上げます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "375536e8-9e77-45c7-85f6-71cb3a19054b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "64c92e3c-153c-4e15-8d8b-65b6909b0d88",
+          "_type": "span",
+          "marks": [],
+          "text": "搬送中の注意点と安全操作"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "74930e74-68f0-4fe3-9a58-462d0f91eb41",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b4f2e841-0754-4552-ace6-bb0f5b4326d3",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "進行方向"
+        },
+        {
+          "_key": "6f1fbfe8aa22",
+          "_type": "span",
+          "marks": [],
+          "text": ": 原則として患者さんの足側から進みます。ただし、エレベーターに乗る際は頭側から入り、降りる際は足側から降ります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "dc030897-1b14-4f88-8061-56f994a7ddbc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d19f536e-61da-4c56-9c0d-aa6378959ebe",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "段差・傾斜"
+        },
+        {
+          "_key": "bbbcd74cbdd6",
+          "_type": "span",
+          "marks": [],
+          "text": ": 段差を超える際は、一度立ち止まり、ゆっくりと操作します。下り坂では、患者さんの頭側に回り、進行方向を向いて後ろ歩きで進むと安全です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ad1b02cd-4e0b-4112-b968-2c6b3be3d268",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "70e46e2e-d7fa-4767-ada8-7031d23e3175",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "常に患者さんから目を離さない"
+        },
+        {
+          "_key": "90970fbbfdac",
+          "_type": "span",
+          "marks": [],
+          "text": ": 搬送中も患者さんの表情や状態に変化がないか、常に観察します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-01d27063-286d-43c2-b211-5816918c1465",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-54252f9d-892a-4503-a193-100a89e8f402",
+          "_type": "span",
+          "marks": [],
+          "text": "ストレッチャーの正しい使い方と移乗介助では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8e7867bb-4530-4559-a865-7d7cc8730bac",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e44de3cc-e4d3-4d20-8adc-be4e52336de3",
+          "_type": "span",
+          "marks": [],
+          "text": "車椅子の正しい使い方と移乗介助"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "a4a7825e-a1c8-4e08-b35e-7a7ecae3d12a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "454d2eba-bb47-4dff-a8f7-5706bc4f9cc3",
+          "_type": "span",
+          "marks": [],
+          "text": "車椅子は、歩行が不安定な患者さんや、長距離の移動が困難な患者さんのために使用します。ストレッチャーよりも利用頻度が高いため、正しい使い方をマスターすることが重要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3dcccbcb-5e2a-49e5-b04f-93e70119dae9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7a21de6d-5208-4946-a6ba-23cb767c207d",
+          "_type": "span",
+          "marks": [],
+          "text": "車椅子への移乗手順（ベッド・椅子から）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "3f796f4f-7608-4e4d-9814-f9d8f3dc6531",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "22760852-b5dc-4520-aa84-d4f1849e2844",
+          "_type": "span",
+          "marks": [],
+          "text": "1. "
+        },
+        {
+          "_key": "90ca83300fd0",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "準備"
+        },
+        {
+          "_key": "de694c955530",
+          "_type": "span",
+          "marks": [],
+          "text": ": 車椅子をベッド（または椅子）に対して30〜45度の角度で、患者さんの麻痺がない「健側」に設置します。ブレーキをかけ、フットレストを上げておきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "397f3fee-0a8f-4408-b3e2-8fc964173552",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8a10a54e-0bc7-4078-9e1e-dfbf512a1af3",
+          "_type": "span",
+          "marks": [],
+          "text": "2. "
+        },
+        {
+          "_key": "537131b98698",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "患者さんの準備"
+        },
+        {
+          "_key": "363543dab01e",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんに移乗を説明し、ベッドの端に深く腰掛けてもらいます。足が床にしっかりとつくように高さを調整します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ac13483b-b494-4cf4-9b03-01782ac528c9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8d7e2c3d-7682-4978-b4bf-1d9a54810afd",
+          "_type": "span",
+          "marks": [],
+          "text": "3. "
+        },
+        {
+          "_key": "efdad92d0284",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "移乗"
+        },
+        {
+          "_key": "bf709944c09d",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんの前に立ち、膝を曲げて重心を落とします。患者さんに前かがみになってもらい、介助者は患者さんの腰と膝を支えます。掛け声とともに立ち上がり、ゆっくりと方向転換し、深く車椅子に座ってもらいます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "dc6a45de-0964-44f4-9201-e1511d8f3fef",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a29772f8-a2aa-4580-b383-fc19a0727a9f",
+          "_type": "span",
+          "marks": [],
+          "text": "4. "
+        },
+        {
+          "_key": "61788203ffb6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "移乗後の確認"
+        },
+        {
+          "_key": "e15c817466ed",
+          "_type": "span",
+          "marks": [],
+          "text": ": フットレストを下ろし、足を乗せてもらいます。ブレーキを解除する前に、姿勢が安定しているかを確認します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ae474ae9-8246-4788-abbd-e1664d8c4cfa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "570cf4cb-5eb6-4ea7-9871-79dcdb32ecad",
+          "_type": "span",
+          "marks": [],
+          "text": "坂道・段差・エレベーターでの安全な操作方法"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "211972d0-0aa0-4617-b6ed-ceffcaf72901",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4ec79c66-e9b4-4de2-a4c6-5e5e69dc6cba",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "上り坂"
+        },
+        {
+          "_key": "a30c0599d634",
+          "_type": "span",
+          "marks": [],
+          "text": ": 前向きで普通に進みます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "46eec643-a433-448b-9f86-401b4c750ab5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0aca7ec4-bcbc-4dec-944f-ae8331aa895f",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "下り坂"
+        },
+        {
+          "_key": "9a34bccf5058",
+          "_type": "span",
+          "marks": [],
+          "text": ": 後ろ向きで進みます。介助者が坂の上側に立つことで、万が一の場合も安全を確保できます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "656625dd-0612-47e9-83f8-875555055f58",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f7334425-030d-4f89-9ec7-d901fac60c2b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "段差"
+        },
+        {
+          "_key": "c6df270956bf",
+          "_type": "span",
+          "marks": [],
+          "text": ": 前輪（キャスター）を上げて段差に乗せ、後輪を押し上げます。降りる際は後ろ向きで、後輪からゆっくりと下ろします。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8382e2e8-8bc7-4b95-ab19-22df3d301159",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "078909ba-b388-4c98-b938-12b866fd58b2",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "エレベーター"
+        },
+        {
+          "_key": "62effe83e3b6",
+          "_type": "span",
+          "marks": [],
+          "text": ": 後ろ向きで入り、前向きで降ります。乗り降りの際は、ドアの溝にキャスターがはまらないよう注意します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-e968b6d7-ad6c-4b2b-98a1-c96091ca4377",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-468ed01c-dd40-4f64-8f97-194262e21f1a",
+          "_type": "span",
+          "marks": [],
+          "text": "車椅子の正しい使い方と移乗介助では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-6134066f-e8ba-4521-a667-9572825693a8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-fe6e027e-9faf-4a99-b9be-d51dede9a1a9",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-18a7227b-a07f-4feb-96c9-a395421693c8",
+          "_type": "span",
+          "marks": [
+            "link-2ad03eb4-4737-47b4-bd0e-1b9ebfcf182b"
+          ],
+          "text": "看護助手の1日スケジュールを徹底紹介"
+        },
+        {
+          "_key": "internal-link-span-outro-055687e7-f753-4267-9a06-349f17834cc5",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-2ad03eb4-4737-47b4-bd0e-1b9ebfcf182b",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-detailed-daily-schedule"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "3bdc8aa8-1dd9-476b-9046-c8cfa79d89f2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af490c9c-62fe-4488-9cb8-fb06fa0880d4",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-e3b81f1b-22bc-4622-8a91-19b440f492c7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-894f6f4e-04fa-4c8f-88d2-ee952b69e8ea",
+          "_type": "span",
+          "marks": [],
+          "text": "患者移送の安全技術｜ストレッチャー・車椅子の正しい使い方でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-a294526a-531d-40c9-aaa2-02d90d768a7d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-fcc13761-3d53-4729-8556-cb265f5cf787",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-f5e32741-18fd-43e0-8d7b-e500c979c661",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-1485f037-d0e0-4da8-ad78-880e088bcda9",
+          "_type": "span",
+          "marks": [],
+          "text": "患者移送の基本原則｜安全な介助のための3つの心構えの視点で徹底した事前準備と安全確認に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-d7e4dbb2-39b6-4f01-98ad-2ea73b2b1926",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-55894401-aad9-482c-b928-1618dc8694bf",
+          "_type": "span",
+          "marks": [],
+          "text": "環境の確認: 移送経路に障害物はないか、床は濡れていないか、十分なスペースが確保されているかを確認します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-5bc6d524-caf1-4ce5-9827-701a4d0dce39",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-2eab6e69-dca6-4462-ba64-fc3c448a7b1b",
+          "_type": "span",
+          "marks": [],
+          "text": "用具の点検: ストレッチャーや車椅子のブレーキ、タイヤの空気圧、フットレストなどが正常に機能するかを多くの場合点検しま…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-9eef329e-26b1-4898-861c-46ad376e54a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-0944976f-4d26-47d7-a7d7-362a9ec1c4b4",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-5bbc2a06-3045-475f-afc7-c735d0dd2551",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-5936b832-c447-4442-b3af-b422d114bbd4",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "source-078dbe1c-f9fd-4854-9a15-251118ef0ec3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-8972fffc-bc59-430c-b0ef-5621dc0db26b",
+          "_type": "span",
+          "marks": [],
+          "text": "参考資料："
+        },
+        {
+          "_key": "span-cb980251-3275-4c6d-a388-9324e0fd5638",
+          "_type": "span",
+          "marks": [
+            "link-e6a37034-d8b1-4407-814c-d4a53208ab07"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-e6a37034-d8b1-4407-814c-d4a53208ab07",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503594148",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503594148-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503594148-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503594148-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503594148-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503594148-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503594148-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503594148-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503594148-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503594148-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-82e50c32-09fd-49b9-a171-563d83d9604a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-13ecc78a-4c0e-4663-9614-44110347fd14",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-patient-transfer-safety"
+  },
+  "title": "患者移送の安全技術｜ストレッチャー・車椅子の正しい使い方"
+}

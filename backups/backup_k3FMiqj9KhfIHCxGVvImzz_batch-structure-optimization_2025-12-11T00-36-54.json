@@ -1,0 +1,869 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-11T00:36:54.792Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "k3FMiqj9KhfIHCxGVvImzz",
+    "articleTitle": "全国看護助手給与実態調査2024｜地域別・職場別の最新データ",
+    "articleSlug": "nursing-assistant-workplace-fit-insights"
+  },
+  "document": {
+    "_createdAt": "2025-09-09T04:58:24Z",
+    "_id": "k3FMiqj9KhfIHCxGVvImzz",
+    "_rev": "uFihGMc3SNE01ZaqQ7GwOb",
+    "_system": {
+      "base": {
+        "id": "k3FMiqj9KhfIHCxGVvImzz",
+        "rev": "IJbunx89jt74fTbO0l2sgu"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-10T18:50:06Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "60638247-329b-4581-8a60-62ffd95d80af",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb6540d3-844d-45ce-9212-97927a3a256b",
+            "_type": "span",
+            "marks": [],
+            "text": "あなたの給与は平均より高い？低い？2025年最新データで徹底解剖"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "9b9bc253-21a3-4266-8515-0c109f8f51f9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cf0393d9-3070-4108-9ab3-2bc0d185c935",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手として働く上で、給与は仕事のモチベーションや将来のライフプランを考える上で非常に重要な要素です。しかし、給与に関する情報はデリケートなため、なかなか他人とは比べにくいのが実情ではないでしょうか。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-7bfc6203-6930-42e7-98e8-a5ef80feb3c1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-de33c3c7-4fdc-4772-97ad-64cc76216566",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-7584c3a7-33a4-462a-8672-79a9b70d7045",
+            "_type": "span",
+            "marks": [
+              "link-44ba77ae-11d7-4410-9ad4-43375215d48c"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-44ba77ae-11d7-4410-9ad4-43375215d48c",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "4fbedaa3-d8ef-478a-9d40-7474e7717663",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6d946cb0-6576-4081-b0e0-433d66a03515",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、公的な統計データや最新の求人情報に基づき、2025年現在の看護助手の給与実態を徹底的に調査しました。全国平均はもちろん、地域別、職場別のリアルな給与水準を知り、あなたのキャリアプランニングに役立ててください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-c3c75a44-2b4d-4dd4-959e-0dcac08a64a3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-030ef615-07c1-4393-9326-864e64a9d111",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-334d5053-82e1-4b24-8645-27632122cc27",
+            "_type": "span",
+            "marks": [
+              "link-21eb0577-2c28-42f1-9408-3d6a3a86e643"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-21eb0577-2c28-42f1-9408-3d6a3a86e643",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "1d3c9791-db5d-403a-bd76-2c27e59e4843",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "80160611-5e20-43ce-84e5-f3a9a0383815",
+            "_type": "span",
+            "marks": [],
+            "text": "2025年版｜看護助手の全国平均給与・年収の実態"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "e17c6937-7b5c-4de2-b3dd-5422770b956b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f870610a-e050-4809-b5d4-5d6e44c1d836",
+            "_type": "span",
+            "marks": [],
+            "text": "厚生労働省の「令和5年賃金構造基本統計調査」によると、看護助手（看護補助者）の平均的な給与は以下のようになっています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-898f3c24-5305-434a-8cbd-fe47cce4e70f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-70bf34e7-554e-4df3-ad31-9ae9924b5dbe",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-6a06a4ae-712b-4ca8-b5a8-82246769a211",
+            "_type": "span",
+            "marks": [
+              "link-1952d0a7-348f-4301-b64d-fc7bf724978e"
+            ],
+            "text": "厚生労働省 賃金構造基本統計調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-1952d0a7-348f-4301-b64d-fc7bf724978e",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/chinginkouzou.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "7f66748c-8d4e-4bea-990f-5782adc639cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1dfc554e-28d4-4465-a383-2160a5a429d4-fad0473d-711b-401d-9a55-87f73731bc70",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "平均月収（きまって支給する現金給与額）"
+          },
+          {
+            "_key": "1dfc554e-28d4-4465-a383-2160a5a429d4-bff8cc7e-3e15-4935-895c-76dc5b7272b1",
+            "_type": "span",
+            "marks": [],
+            "text": ": 約22万円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4eae79c8-8218-4c1f-a914-4aad9038bd06",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "17f1c87d-e228-4d06-90cc-ddb740e1c648-6571b096-9c2d-4a16-b046-6e564fd2538a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "平均賞与（ボーナス）"
+          },
+          {
+            "_key": "17f1c87d-e228-4d06-90cc-ddb740e1c648-534d3708-316f-44f1-b6a8-42f8b63ef7ba",
+            "_type": "span",
+            "marks": [],
+            "text": ": 約35万円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "77be0b2b-8534-43b3-99f4-9219cb6b1d6f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "90ac56d4-02f2-4fed-af7b-94b930e1ee8e-0a7fd754-7c90-4d24-b9b0-4bb20c633f56",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "平均年収"
+          },
+          {
+            "_key": "90ac56d4-02f2-4fed-af7b-94b930e1ee8e-ae346bb9-aa2c-4be3-8f3f-2b5c7f76bd0c",
+            "_type": "span",
+            "marks": [],
+            "text": ": 約300万円〜330万円"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "761d3072-a308-478f-b686-41c066cc840f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "934addea-9173-440d-8d93-e66a98b62edb",
+            "_type": "span",
+            "marks": [],
+            "text": "これはあくまで全国平均の数値です。年齢、経験年数、保有資格、勤務先の地域や規模によって給与は大きく変動します。また、パート・アルバイトの場合は時給制となり、平均時給は1,100円〜1,400円程度が相場です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b4da9c2c-2de4-462f-ac39-984500790415",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e174ab69-8ee9-4793-b3fc-f86e9c1b0219",
+            "_type": "span",
+            "marks": [],
+            "text": "【地域別】給与ランキング｜最も高いのはやはり都市部"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "d164fae8-5df3-448c-a0a5-64c6315d9a1f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3e5fb0db-ce63-40d2-8702-e057a51576ea",
+            "_type": "span",
+            "marks": [],
+            "text": "一般的に、給与水準は物価の高い都市部で高く、地方で低い傾向にあります。看護助手の給与もこの例に漏れません。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "18a1622a-6ded-49e0-97f6-49c88e4c534f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5507ec2-4429-4f26-aa9d-6b02ecedd4d8-df8fad2e-fe63-4245-a591-21882a7f02fe",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "給与が高い地域"
+          },
+          {
+            "_key": "f5507ec2-4429-4f26-aa9d-6b02ecedd4d8-00030853-60ef-476b-9e96-a6bdd55a5eca",
+            "_type": "span",
+            "marks": [],
+            "text": ": 東京都、神奈川県、大阪府、愛知県などの大都市圏では、平均年収が350万円を超えることも珍しくありません。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "88a0a553-746f-4dbd-bf4d-635ee00f944b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6cd5d7b1-e737-408f-9f4e-16b467010a4b-f41c5bae-0ba3-400f-8683-f8b220db07ea",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "給与が低い地域"
+          },
+          {
+            "_key": "6cd5d7b1-e737-408f-9f4e-16b467010a4b-177efe55-5d67-453b-9b8b-f690cd5bedcf",
+            "_type": "span",
+            "marks": [],
+            "text": ": 一方で、地方では平均年収が280万円を下回る地域もあります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c9aa4173-7637-44db-a219-988d5a349db7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f64e55bd-72dd-4b09-8f20-74aa126c27df",
+            "_type": "span",
+            "marks": [],
+            "text": "ただし、給与が高くても家賃などの生活費も高くなるため、一概に都市部の方が良いとは言えません。可処分所得（手取り）や生活コストを総合的に考えることが重要です。転職を考える際は、その地域の物価も考慮に入れましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6a214298-e6f9-4644-b79c-4677bdcd9027",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3e11f6d2-a08a-4a55-ac53-45ebd121b155",
+            "_type": "span",
+            "marks": [],
+            "text": "【職場別】給与比較｜どこで働くのが最も稼げる？"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "267c0e6e-38b7-431f-ae3f-392ab72327dc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "522d71ea-058e-41d6-84de-a5ba446fc102",
+            "_type": "span",
+            "marks": [],
+            "text": "働く場所によっても、給与水準は大きく異なります。一般的には、夜勤があり、より専門的なスキルが求められる職場ほど給与が高くなる傾向にあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f7572847-f91d-459a-9243-091275ef2070",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "45e05f11-8ebe-47eb-8f17-90c0df194510-d2730a87-9dd1-42c9-bc01-d964b47fed04",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "病院（特に規模の大きい急性期病院）"
+          },
+          {
+            "_key": "45e05f11-8ebe-47eb-8f17-90c0df194510-24f2f823-fd21-4a3c-9d5a-60a80d810a99",
+            "_type": "span",
+            "marks": [],
+            "text": ": 夜勤手当や危険手当などが加算されるため、給与水準は最も高い傾向にあります。特に、精神科やICU（集中治療室）などは手当が厚い場合があります。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "medical-notice-94e0b346-af01-4273-9800-6bb9769a5a40",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "medical-notice-span-c912dd6a-5e7b-4948-ace2-d97aed607c93",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "efb07559-d27e-4cdb-a3f7-6fd9b6fbce59",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d67f93b4-ddb8-4aba-87da-70322d0fd6ab-eea2a307-dde4-4635-9c21-6cbd9788cf49",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "介護施設（介護老人保健施設など）"
+          },
+          {
+            "_key": "d67f93b4-ddb8-4aba-87da-70322d0fd6ab-9becde2d-b375-4ce7-89ac-9301a594d608",
+            "_type": "span",
+            "marks": [],
+            "text": ": 病院に次いで給与水準が高い傾向にあります。こちらも夜勤手当が給与に大きく影響します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c4415a22-70c3-4efd-9609-7bd32ef7df94",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d6453047-608d-4430-a7a9-dc78b2281cb7-47336388-bead-4178-9b5e-c7cad51fc677",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "クリニック"
+          },
+          {
+            "_key": "d6453047-608d-4430-a7a9-dc78b2281cb7-9c108184-585c-4d71-8f94-14ed023a3941",
+            "_type": "span",
+            "marks": [],
+            "text": ": 夜勤がないため、総支給額は病院や介護施設に比べて低くなることがほとんどです。しかし、年間休日が多く、ワークライフバランスを重視する方には人気の職場です。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "followup-9b487e42-1e01-4041-8d9c-b6cc6c48adb9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "text-a7c06f95-5975-4042-9564-6675e5f3d870",
+            "_type": "span",
+            "marks": [],
+            "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-5116cbd3-031f-4ff5-845b-b53e744ba5bd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-3abe6d52-224e-4a19-b430-ff2c5c1db563",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-50fe41de-64c6-495b-aa6a-913688fc0ff2",
+            "_type": "span",
+            "marks": [
+              "link-c6548b27-e6ef-4a79-82ae-0d24fdc56623"
+            ],
+            "text": "厚生労働省 医療施設調査"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-c6548b27-e6ef-4a79-82ae-0d24fdc56623",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "b56e3d11-c79c-451e-abe3-bc6f9ad00625",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a407e488-b7bf-42ea-998a-3734ffde7b90",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手が給与アップを目指すための3つの具体的な方法"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "4df43762-6459-4a0c-975b-4580e390898d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dee16010-d84e-46bb-99b8-9f3f1d6b7801",
+            "_type": "span",
+            "marks": [],
+            "text": "現在の給与に満足していない場合、収入を増やすためには具体的なアクションが必要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cd5a9cd6-f4a1-4136-82ad-b03c96747a86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d5dcfbd0-b25b-4494-9f73-6c31075c232d",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 資格を取得して「資格手当」を得る"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "2676ce2f-b647-4b0e-a19f-0ec605099b0f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8cbe47fe-8e6e-4f0d-af19-3d0ee2576d11",
+            "_type": "span",
+            "marks": [],
+            "text": "給与アップに最も直結しやすいのが資格取得です。特に「介護福祉士」の資格は、多くの病院や施設で月5,000円〜15,000円程度の資格手当が支給されます。また、「実務者研修」の修了も手当の対象となる場合があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-2b5a9af1-5898-4638-8708-ad4029b5f4db",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-ec54250f-ae7f-4022-9b3f-3a26a99d110c",
+            "_type": "span",
+            "marks": [],
+            "text": "「1. 資格を取得して「資格手当」を得る」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "05c72184-f535-4f62-b8da-e8f77c008811",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e910151e-c63e-4292-9c67-c0d498b78c43",
+            "_type": "span",
+            "marks": [],
+            "text": "2. 給与水準の高い職場・地域へ転職する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "b5b651ac-35b4-4705-915f-65af10614cab",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3c26312c-31c7-4513-88da-fb291027ba11",
+            "_type": "span",
+            "marks": [],
+            "text": "現在の職場で大幅な昇給が見込めない場合は、より条件の良い職場へ転職するのも有効な手段です。特に、都市部の規模の大きい病院や、人員確保のために給与を高めに設定している施設などが狙い目です。転職エージェントなどを活用し、情報収集を行いましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-e76845cc-5db8-4306-91ab-351b7ca02c89",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-32995cee-dd49-4b3d-b749-773ecf37d5dc",
+            "_type": "span",
+            "marks": [],
+            "text": "「2. 給与水準の高い職場・地域へ転職する」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ae2cc369-ba87-44e8-bca8-27cb7f4f3c43",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "81790af0-f5ef-4819-858a-766b590b248d",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 役職者（リーダー）を目指す"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "cb600412-9296-4c18-9fea-cdf4a5e097d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "355135a7-ab94-4f95-b849-adc5ecee7d86",
+            "_type": "span",
+            "marks": [],
+            "text": "同じ職場でキャリアを積む場合は、看護助手チームのリーダーなどの役職者を目指すことで、役職手当による給与アップが期待できます。日々の業務に真摯に取り組み、リーダーシップを発揮することが重要です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-246e6405-400a-4d48-ac41-ceebcedc7504",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-1d9e0143-8d95-4619-975a-726b5bc9bba4",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-2cb456b6-5e95-4542-bacb-6a889a7ad693",
+            "_type": "span",
+            "marks": [
+              "link-ad04f289-b7b7-4b12-bd1b-b190a388fd95"
+            ],
+            "text": "「看護助手、質問が苦手なあなたへ！新人さんが職場で自信を持って聞けるようになる実践ガイド」"
+          },
+          {
+            "_key": "internal-link-span-outro-58305a97-0a3c-4b75-8682-71820d0290dc",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-ad04f289-b7b7-4b12-bd1b-b190a388fd95",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-workplace-fit"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "66918e21-7f89-4fdd-85ce-819636c7f402",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d155274c-aa36-4b78-aac3-1b0a08232294",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-b81cba5d-145b-496e-820d-93904c30927f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-48c685e5-115d-4b61-91b2-5c24eb1ff2f2",
+            "_type": "span",
+            "marks": [],
+            "text": "全国看護助手給与実態調査2024｜地域別・職場別の最新データでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-c2c26a97-60db-4310-93c3-65413e2b0a86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-3498c447-e2dd-4e0c-85d6-5211435292c9",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-c2686ff7-cd97-44de-998c-97b2eb2e6f34",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-d92fc1dd-4983-41f3-9b47-7c5ac0a341c3",
+            "_type": "span",
+            "marks": [],
+            "text": "平均月収（きまって支給する現金給与額）: 約22万円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-8006509c-0a7c-4eb8-b310-f0fa1b645e32",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-cd5e5417-19e6-49f8-84ab-446f37072f4d",
+            "_type": "span",
+            "marks": [],
+            "text": "平均賞与（ボーナス）: 約35万円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-ae988b07-ec70-4446-9584-9b349a1e7ae7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-9b960d2b-4532-452c-a814-ae7c9f40c696",
+            "_type": "span",
+            "marks": [],
+            "text": "平均年収: 約300万円〜330万円"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-d663f139-972b-4522-8c97-42bc8e3b5e69",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-31b178f2-db90-41fb-b1ab-2438a6572695",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-1dbc6d30-d114-4700-a0d3-2bcc8a58d0e6",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-627ffb2f-70b6-43d1-b17d-da85eec2f95f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-033894fc-1c80-4233-b039-8f4197db365a",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-7872b4e2-081d-4e60-bd6c-a36a5b8e7068",
+            "_type": "span",
+            "marks": [
+              "link-503a5279-40bb-4c78-87c7-ba8696d70bee"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-503a5279-40bb-4c78-87c7-ba8696d70bee",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-645a60eb-dd74-434c-a3ea-36a164c8ceb2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-649f51ed-6b1a-46bf-afb2-d77510c4dd7d",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "contentType": "news",
+    "difficulty": "beginner",
+    "excerpt": "あなたの給与は平均より高い？低い？2025年最新データで徹底解剖 看護助手として働く上で、給与は仕事のモチベーションや将来のライフプランを考える上で非常に重要な要素です。しかし、給与に関する情報はデリケートなため、なかなか他人とは比べにくいのが実情ではないでしょうか。",
+    "featured": false,
+    "geminiMaintainedAt": "2025-11-08T23:06:30.778Z",
+    "metaDescription": "2024年全国看護助手給与実態調査の結果を地域別・職場別に詳しく分析します。都道府県別の給与水準、病院規模による差異、経験年数と給与の関係、各種手当の実態まで、転職や給与交渉に役立つ最新データを調査結果として分かりやすくお届けします。survey-resultに関する最新情報。看護助手への影響と必要な対応について詳しく",
+    "publishedAt": "2024-12-15T19:19:53.099Z",
+    "readingTime": 8,
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-workplace-fit-insights"
+    },
+    "tags": [
+      "キャリア",
+      "夜勤",
+      "年収",
+      "施設",
+      "病院",
+      "看護",
+      "給与",
+      "給与・待遇",
+      "資格",
+      "転職"
+    ],
+    "targetAudience": "experienced",
+    "title": "全国看護助手給与実態調査2024｜地域別・職場別の最新データ",
+    "views": 2
+  }
+}

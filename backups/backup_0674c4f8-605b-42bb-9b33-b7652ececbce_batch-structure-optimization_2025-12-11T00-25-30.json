@@ -1,0 +1,895 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-11T00:25:30.471Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "0674c4f8-605b-42bb-9b33-b7652ececbce",
+    "articleTitle": "看護助手の円満退職完全ガイド｜同僚への伝え方から有給消化まで",
+    "articleSlug": "nursing-assistant-resignation-advice-workplace"
+  },
+  "document": {
+    "_createdAt": "2025-10-26T23:59:56Z",
+    "_id": "0674c4f8-605b-42bb-9b33-b7652ececbce",
+    "_rev": "uFihGMc3SNE01ZaqQ7Bz9Z",
+    "_system": {
+      "base": {
+        "id": "0674c4f8-605b-42bb-9b33-b7652ececbce",
+        "rev": "d1n9NUdu5CwUlXOr5J36D5"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-10T18:34:45Z",
+    "body": [
+      {
+        "_key": "63f8d269369a0725d0f6d51d2273284c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4UZ",
+            "_type": "span",
+            "marks": [],
+            "text": "さて、今日のテーマは、少し重たく感じるかもしれませんが、「看護助手の退職」についてです。もしかしたら、この記事を読んでいるあなたは、今の職場での働き方に悩んだり、新しい道へ進むことを考えていたりするのかもしれませんね。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-09004d98-0786-45f1-8739-ef95a25fb3a2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-c9a679d5-09b7-45b1-be9f-1040f0ff616e",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-b420eb57-ec6b-465f-a763-067279c69f39",
+            "_type": "span",
+            "marks": [
+              "link-14cd054c-2582-47e9-be8f-7d21a92f1c5f"
+            ],
+            "text": "NsPace Career 看護助手の転職・年収コラム"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-14cd054c-2582-47e9-be8f-7d21a92f1c5f",
+            "_type": "link",
+            "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "7be7f6d17417",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4UZ",
+            "_type": "span",
+            "marks": [],
+            "text": "退職を考えるのは、とても勇気のいることですし、不安な気持ちになるのは当然だと、わたしもよくわかります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "40440e933cd567ae3f46af43b7e46b15",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Vc",
+            "_type": "span",
+            "marks": [],
+            "text": "でも、大丈夫ですよ。退職は決してネガティブなことばかりではありません。むしろ、自分自身のキャリアや人生を見つめ直し、より良い未来へ進むための大切な一歩となることもあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "59e95ce94703",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Vc",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、わたし自身の経験や、周りの方々の話も交えながら、看護助手が円満に退職するための具体的なステップや心の準備について、丁寧にお伝えしていきますね。あなたの気持ちに寄り添いながら、一緒に考えていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-8b4a5183-46bb-45fd-9381-015543409b3b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-cb4cd493-55a9-4fde-aa40-888c7c0afda1",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9359265162f755bd6dade9ee23ec5193",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Wf",
+            "_type": "span",
+            "marks": [],
+            "text": "「退職」を考え始めたら、まず心の準備から始めましょう"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "53697e3b26916230fe6a67d6666f0a66",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Xi",
+            "_type": "span",
+            "marks": [],
+            "text": "「辞めたいな」という気持ちが少しでも頭をよぎったら、まずはその気持ちをじっくりと見つめる時間を作ってみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "20269c200ad0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Xi",
+            "_type": "span",
+            "marks": [],
+            "text": "なぜそう感じているのでしょうか？考えられる理由はいくつかありますよね。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0b7cba15ff89",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Xi",
+            "_type": "span",
+            "marks": [],
+            "text": "例えば"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8df3faa77af7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Yl",
+            "_type": "span",
+            "marks": [],
+            "text": "人間関係に悩んでいる"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6fb2cf6c93cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Yl",
+            "_type": "span",
+            "marks": [],
+            "text": "給料や待遇に不満がある"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-6cdd90cb-129d-4be0-b608-e1d9ef3ca27f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-afb6ac81-7a06-4f87-af75-5f8a441986ac",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-88909ad4-8caa-4d7a-97d5-e2d01606c616",
+            "_type": "span",
+            "marks": [
+              "link-115f6288-95f3-46fc-aa55-418e676c3631"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-115f6288-95f3-46fc-aa55-418e676c3631",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "3277d1af611f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Yl",
+            "_type": "span",
+            "marks": [],
+            "text": "仕事内容が合わない"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f651f1b686fe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Yl",
+            "_type": "span",
+            "marks": [],
+            "text": "もっとスキルアップしたい"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3db7b9563f43",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Yl",
+            "_type": "span",
+            "marks": [],
+            "text": "など、人それぞれだと思います。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f451123167fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Yl",
+            "_type": "span",
+            "marks": [],
+            "text": "これらの理由を書き出してみると、自分の気持ちが整理しやすくなりますよ。もしかしたら、退職以外の解決策が見つかるかもしれませんし、もし本当に退職を決意するにしても、その理由が明確であれば、次の一歩を踏み出しやすくなります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "346e4aa7f7f54f542b57f054e408e361",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Zo",
+            "_type": "span",
+            "marks": [],
+            "text": "わたしも、仕事のことで悩んで眠れない夜を過ごした経験があります。そんな時、一番大切なのは、一人で抱え込まないことだと感じました。信頼できる友人や家族に話を聞いてもらうだけでも、心が軽くなることがあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2d1b73c0d5af",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4Zo",
+            "_type": "span",
+            "marks": [],
+            "text": "もし、身近な人には話しにくいと感じたら、外部のキャリア相談窓口などを利用してみるのも良いでしょう。客観的な意見を聞くことで、新しい視点が見つかることもありますよ。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f1adf6a81395",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e73da461e5e0",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-context-a136bdf1-897e-4f78-a0d5-63c37512b867",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-context-span-8fff71fb-4738-41b5-85d6-dd1d0cba49c7",
+            "_type": "span",
+            "marks": [],
+            "text": "⚖️ 退職でお悩みの方へ。弁護士による退職代行サービスを紹介しています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-rabddcnl3-cta-text",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-x4l8edera",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a82e84fe7304264afaf52868ef8b2cec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4ar",
+            "_type": "span",
+            "marks": [],
+            "text": "円満退職のための具体的なステップ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "8cf007803b00f6c79cb153897d77b16b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4bu",
+            "_type": "span",
+            "marks": [],
+            "text": "退職の意思が固まったら、いよいよ具体的な準備に入ります。円満退職のためには、職場のルールを守り、周囲への配慮を忘れずに行動することがとても大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7977e945c3b87a835e120dd325cbe764",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4cx",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 退職の意思を伝えるタイミングと伝え方"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "ddb38c47d34b355e764c4934c65e76a8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4e0",
+            "_type": "span",
+            "marks": [],
+            "text": "まずは、あなたの職場の「就業規則」を確認してください。退職の申し出は、退職希望日の何ヶ月前までに行う必要があるか、書かれているはずです。一般的には、1ヶ月〜3ヶ月前とされていることが多いですね。この期間をしっかり守ることが、円滑な引き継ぎと職場への配慮につながります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "877ddcfe5bded0e86c8c1e09bf0aef2c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4f3",
+            "_type": "span",
+            "marks": [],
+            "text": "退職の意思を伝える際は、まず直属の上司にアポイントメントを取り、落ち着いて話せる場所で口頭で伝えるのが基本です。他のスタッフがいる前ではなく、二人きりの場で話すのがマナーだとされています。「〇月〇日付けで退職させていただきたく、ご相談に参りました」というように、丁寧な言葉遣いを心がけましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "31800e450ca6ca8c441a3b4fe6bb5924",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4g6",
+            "_type": "span",
+            "marks": [],
+            "text": "伝える際のポイントは、感謝の気持ちを伝えることと、退職理由を前向きに伝えることです。例えば、「貴重な経験をさせていただき、本当に感謝しております。今後は、〇〇のような分野で、より専門的なスキルを身につけたいと考えております」といった具合です。職場への不満をストレートに伝えるのは避け、あくまで自分のキャリアプランとして説明すると、角が立たずに済みますよ。そして、「退職日までは、責任を持って業務の引き継ぎを行います」という意思も忘れずに伝えましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "48f13253dbad23f1dd85d05d6cbe0760",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4h9",
+            "_type": "span",
+            "marks": [],
+            "text": "2. 引き継ぎの準備と進め方"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "0b2ba0741d519b6f4881a0592a21b5a6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4iC",
+            "_type": "span",
+            "marks": [],
+            "text": "退職が決まったら、最も大切なのが引き継ぎです。患者さんにご迷惑をおかけしないためにも、そして後任の方がスムーズに業務に入れるようにするためにも、丁寧な引き継ぎを心がけましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "66bb0065fe2c3ab3f3362933064859cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4jF",
+            "_type": "span",
+            "marks": [],
+            "text": "まずは、自分が担当している業務をすべて書き出してみてください。ルーティン業務からイレギュラーな対応まで、細かくリストアップすると良いでしょう。それに加えて、業務の流れや注意点、よく使う物品の場所などをまとめた簡易マニュアルを作成しておくと、後任者にとって非常に役立ちます。わたしも、以前先輩の看護助手が作ってくれたマニュアルに、すごく助けられた経験があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5125a0e45e476ce8823a78144a6fd517",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4kI",
+            "_type": "span",
+            "marks": [],
+            "text": "上司や後任の方と相談して、引き継ぎのスケジュールを共有することも重要です。後任の方が決まったら、OJT（オン・ザ・ジョブ・トレーニング）を兼ねて、一緒に業務を行う時間を設けて、実際に働きながら説明してあげると、理解が深まりますよ。 [INTERNAL_LINK: 業務引き継ぎのコツ] については、別の記事でも詳しく解説していますので、ぜひ参考にしてみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "524612d728615ff6e7ece116a552358f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4lL",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 有給消化と退職日までの過ごし方"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7cf30b8138f7b2bb445ac86d61264ac7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4mO",
+            "_type": "span",
+            "marks": [],
+            "text": "残っている有給休暇は、あなたの権利です。しっかりと確認し、計画的に消化することをおすすめします。ただし、引き継ぎ期間と重なる場合は、職場と相談して、業務に支障が出ない範囲で調整するようにしましょう。スムーズな引き継ぎが最優先です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "21148ab04179aa16d7d50a7b380349d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4nR",
+            "_type": "span",
+            "marks": [],
+            "text": "退職日までの期間は、モチベーションを維持するのが難しいと感じるかもしれません。でも、最後まで責任感を持って働く姿勢は、周りの方にも良い印象を与え、円満退職へとつながります。もし可能であれば、少しずつプライベートの時間を増やしたり、次のステップへの準備を進めたりと、気分転換を取り入れながら過ごしてみてくださいね。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ccb116e0c8efbd83bdfc6dcde04e1ee6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4oU",
+            "_type": "span",
+            "marks": [],
+            "text": "退職日には、制服や貸与品（名札、PHSなど）の返却を忘れずに行いましょう。職場の皆さんへの最後の挨拶も大切です。お菓子などを持参して、「大変お世話になりました。ありがとうございました」と一言添えるだけでも、良い思い出として締めくくれるはずです。わたしも、退職される先輩方が皆さん笑顔で挨拶をされていた姿を見て、気持ちの良いものだと感じました。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cfb77f1d7761",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0d638b6c6c37",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2b839cf49f5acdd96c90237be938296b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4pX",
+            "_type": "span",
+            "marks": [],
+            "text": "新しい一歩を踏み出すために"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "9edce5d3b27f8fdfd93dede115dc34bb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4qa",
+            "_type": "span",
+            "marks": [],
+            "text": "退職を決断し、実際に退職するまでの期間は、もしかしたら心労が伴うかもしれません。でも、その経験はきっと、あなたの新しい一歩を力強く後押ししてくれるはずです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "afd4d0d3b0b2827a2ed6e4a5af6cd7e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4rd",
+            "_type": "span",
+            "marks": [],
+            "text": "退職理由が何であれ、それを前向きなエネルギーに変えて、次の転職活動に活かしましょう。これまでの看護助手としての経験は、どんな職場でも高く評価される貴重なものです。患者さんへの配慮、チームワーク、多職種連携といったスキルは、医療現場だけでなく、様々な場所で求められる能力だとわたしは感じています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "15d5460faf9d6841f9fde993cfa475a3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4tj",
+            "_type": "span",
+            "marks": [],
+            "text": "焦らず、自分のペースで、あなたにとって最適な道を見つけてくださいね。看護助手としての経験は、きっと次の場所でも活かせますし、あなたの優しさや努力は、できるだけ誰かの役に立つと信じています。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e5e1f4923655",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "618492a1361e",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "37065da53749",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "819067ecf19b",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-7981aa84-894b-4618-8988-0b88ca25ac2f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-14dfec82-2dec-4c93-a75d-1c4e278a2207",
+            "_type": "span",
+            "marks": [],
+            "text": "「新しい一歩を踏み出すために」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-0f7a826c-daba-4d03-b563-b9894ce6d319",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-eedf23ed-9b37-480a-b61d-c0c5c67d97eb",
+            "_type": "span",
+            "marks": [],
+            "text": "「新しい一歩を踏み出すために」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ee23772072aa07a90f9313cde17346fb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "iFz7YKPzxbcQjtwtctQ4um",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-deafb8e7-e8fb-4ded-b3a0-f480079240cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-0d5c6243-87c9-45d6-8110-6387909d465b",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の円満退職完全ガイド｜同僚への伝え方から有給消化まででお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-d0911f3f-517f-4563-900f-9b30058d3d2c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-9570de0c-ea06-4623-9e2b-6673c95da68c",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5c7eb8db-5f9a-41e4-afc5-2fddbf0b45c5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-6cf18222-77d1-403a-81f2-e2b11c4820eb",
+            "_type": "span",
+            "marks": [],
+            "text": "人間関係に悩んでいる"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-381c66ee-1833-4045-aeff-d69714ec0670",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-e2f0076b-6106-44c8-ba68-0fc4c4d362d9",
+            "_type": "span",
+            "marks": [],
+            "text": "給料や待遇に不満がある"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-1bd7464a-9a8f-4222-ac4d-fe28d1e5cafc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-357931e8-ee10-48db-b78f-832318d4f98e",
+            "_type": "span",
+            "marks": [],
+            "text": "仕事内容が合わない"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-8244ae92-9ef4-437f-a058-f478df905315",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-76ab75f6-6f12-4a4a-bf98-e8a113a20b3f",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "resignation-comparison-6c73a56f-3e6a-4a84-b92c-e0e22b2f428b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "resignation-comparison-lead-2bc419bc-0875-45a4-bd98-334955c39e61",
+            "_type": "span",
+            "marks": [],
+            "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+          },
+          {
+            "_key": "resignation-comparison-link-29018515-ccc8-47c2-9273-fd2cf0e8f753",
+            "_type": "span",
+            "marks": [
+              "link-60517fb5-5baa-483c-8c64-c1f7d2860c5a"
+            ],
+            "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-60517fb5-5baa-483c-8c64-c1f7d2860c5a",
+            "_type": "link",
+            "href": "/posts/comparison-of-three-resignation-agencies"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "career-comparison-ce761450-7972-489a-a727-02279c633597",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-0ee49b86-7e0a-4ba3-b8cd-06ff3973e98d",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-54dc0281-08c1-4a36-8a18-9271f62d0d5d",
+            "_type": "span",
+            "marks": [
+              "link-4b2b744f-b885-4661-9c6a-aef5ac827095"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-4b2b744f-b885-4661-9c6a-aef5ac827095",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-98486c34-f568-439e-9766-40654916c5cb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-6216bbf0-058b-4610-9b5e-4163eb3f8f01",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "e68e9e824fee3024788d957905704e85",
+        "_ref": "ce8e049b-26ee-42b9-b896-e0d589e37aa4",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "看護助手として働く中で、もし『退職』という選択肢が頭をよぎることがあったら、それは決して悪いことではありません。この記事では、わたし看護助手が、退職を考え始めた皆さんの不安を少しでも和らげられるよう、具体的なステップや心の準備について、優しくお伝えしていきます。円満な退職のために、一緒に考えていきましょう。",
+    "geminiMaintainedAt": "2025-11-08T22:56:35.976Z",
+    "mainImage": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-5e6a6457616da4d32a31928d77e3f91e6df0fc5a-1200x630-jpg",
+        "_type": "reference"
+      }
+    },
+    "metaDescription": "わたしの経験から、さて、今日のテーマは、少し重たく感じるかもしれませんが、「看護助手の退職」についてですもしかしたら、この記事を読んでいるあなたは、今の職場での働き方に悩んだり、新しい道へ進むことを考えてなど、。無理なく続けるヒントをお届けします。",
+    "publishedAt": "2025-10-26T23:59:55.822Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-resignation-advice-workplace"
+    },
+    "tags": [
+      "退職",
+      "看護助手",
+      "転職",
+      "職場"
+    ],
+    "title": "看護助手の円満退職完全ガイド｜同僚への伝え方から有給消化まで",
+    "topImage": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-909a4f622bc2e99d1738fdb995bcc88ccec9b486-1024x1024-jpg",
+        "_type": "reference"
+      }
+    },
+    "views": 5
+  }
+}

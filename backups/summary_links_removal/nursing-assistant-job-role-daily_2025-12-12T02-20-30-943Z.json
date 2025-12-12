@@ -1,0 +1,968 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XNBf7",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1c5c67d3-9938-4850-a721-61df75b179fb",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟は、慢性疾患を持つ患者さんや、検査・治療のために長期入院する患者さんが多く、外科病棟とは異なる看護助手の役割が求められます。患者さんの日常生活を支え、精神的なサポートも行う内科病棟の看護助手は、患者さんにとって身近な存在です。"
+        },
+        {
+          "_key": "61755486-205e-437f-874d-f8f48bea88ad",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "6c5d357c-8e78-4fa1-b581-c7cc72e57b68",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "0352eab0-d22e-448a-86ec-f4a3fadc6ba0",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "3dfb9542-ba00-47f8-b4a9-c58a2da694e3",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "fd8d4b88-ba68-4385-add6-35cb869999b4",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "56a7da58-e418-4ac9-9383-99e9dc4e3b63",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、内科病棟で働く看護助手の具体的な仕事内容と、1日の流れを詳しく解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-b63bb119-9b8e-4d63-a91a-3d342444f031",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-bb0ee376-f753-4772-ae29-86e28b245772",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "69ad73f501de",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟の看護助手の役割"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f465980a0479",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟では、患者さんの状態が比較的安定していることが多いですが、長期的な視点でのケアが求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "72bbc8e11767",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの日常生活のサポート：食事、入浴、排泄、移動介助など、患者さんの身体状況に合わせたきめ細かなケアを行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fc4fa8968e0a",
+          "_type": "span",
+          "marks": [],
+          "text": "検査・治療の補助：患者さんの検査室への移送や、検査前の準備、治療後の片付けなどをサポートします。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a77dcf1dcdc5",
+          "_type": "span",
+          "marks": [],
+          "text": "環境整備：患者さんが安心して療養できる清潔で快適な環境を維持します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "48b062ff0d0f",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの精神的サポート：患者さんの話に耳を傾け、不安を和らげる声かけなど、心のケアも行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "41dd25b25155",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819193451-0prwrtn3c",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟の患者さんは、様々な慢性疾患を抱えていることが多いため、看護助手はそれぞれの疾患に関する基本的な知識があると、より適切なサポートができます。例えば、糖尿病患者さんの食事制限や、呼吸器疾患を持つ患者さんの呼吸状態の変化に注意を払うなど、日々のケアの中で活かせる場面が多くあります。患者さんの小さな変化に気づき、看護師に報告することも重要な役割です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cc0b3bdfdc68",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟での看護助手の一日の流れ（例）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d1838da2c452",
+          "_type": "span",
+          "marks": [],
+          "text": "午前中の業務"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "0myp5grrbqc0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "z38k76r06p5s",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟の午前中は、患者さんの起床介助や清潔ケア、朝食のサポートなど、一日の始まりを快適に過ごしていただくための業務が中心です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b03186fcdbdb",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り：夜勤担当者から患者さんの状況を引き継ぎます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3e8d7a673d92",
+          "_type": "span",
+          "marks": [],
+          "text": "清潔ケア、排泄介助、食事介助：患者さんの状態に合わせて丁寧に行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b9690805a52a",
+          "_type": "span",
+          "marks": [],
+          "text": "検査室への移送、リハビリの付き添い：患者さんの移動をサポートします。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ec4b47e787be",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819193451-2u715xmd2",
+          "_type": "span",
+          "marks": [],
+          "text": "午前中は、検査や診察が多く、患者さんの移送をスムーズに行うことが求められます。時間通りに検査を受けられるよう、患者さんの準備を整え、安全に検査室まで付き添います。また、検査によっては、患者さんの不安を取り除くために、検査内容を簡単に説明したり、励ましの言葉をかけたりすることも大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-4eadut96f-intro-83dcda4d-b737-4459-ae94-4a00d439a519-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-eeorywh8b",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "10f745d4a82f",
+          "_type": "span",
+          "marks": [],
+          "text": "午後の業務"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "7wbyyykdank7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "za1fy2sain4x",
+          "_type": "span",
+          "marks": [],
+          "text": "午後は、患者さんのリハビリの付き添いや体位変換、環境整備など、午前中とは異なる業務が増えてきます。患者さんの状態に合わせた柔軟な対応が求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "de38265830f2",
+          "_type": "span",
+          "marks": [],
+          "text": "食事介助：昼食の配膳や介助を行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "39dd3a35d25f",
+          "_type": "span",
+          "marks": [],
+          "text": "体位変換：寝たきりの患者さんの床ずれ（褥瘡）予防のため、定期的に体位を変えます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a0b323698e3d",
+          "_type": "span",
+          "marks": [],
+          "text": "環境整備、物品補充：清潔な環境を保ち、必要な物品を補充します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "04ec2aeab744",
+          "_type": "span",
+          "marks": [],
+          "text": "入浴介助：午後にまとめて入浴介助を行う場合もあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6399d8eea2b4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819193451-eqvovkwjb",
+          "_type": "span",
+          "marks": [],
+          "text": "午後は、患者さんのリラックスできる時間を作ることも重要です。患者さんとコミュニケーションを取りながら、趣味の話を聞いたり、一緒にテレビを見たりすることで、精神的なケアにもつながります。また、体位変換は、患者さんの安楽を保つだけでなく、褥瘡予防にも不可欠な業務です。患者さんの皮膚の状態を観察し、異常があれば看護師に報告します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a25a6f3ae036",
+          "_type": "span",
+          "marks": [],
+          "text": "夕方以降の業務"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "tbndhe2zqogr",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "uz1kak5f52iu",
+          "_type": "span",
+          "marks": [],
+          "text": "日中の慌ただしさが落ち着き、患者さんがリラックスして就寝できるようサポートする時間帯です。夜勤スタッフへの申し送りも重要な業務です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f3a65e4668ad",
+          "_type": "span",
+          "marks": [],
+          "text": "夕食の配膳・介助"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6f84590d7b5d",
+          "_type": "span",
+          "marks": [],
+          "text": "就寝介助、巡回：患者さんが安心して眠れるようサポートします。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ff174495454e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819193451-6dfjq5emm",
+          "_type": "span",
+          "marks": [],
+          "text": "夕食後は、患者さんが安心して眠れるように、環境を整えることが大切です。室温を調整したり、照明を落としたり、必要に応じて寝具を整えたりします。また、患者さんの不安や不眠の訴えに耳を傾け、できる範囲で対応することも重要です。夜勤スタッフへの申し送りでは、患者さんの状態や日中の出来事を正確に伝えることで、夜間のケアに役立ててもらいます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "w3x4y5z6u1v2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "24c413480486",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟で働く看護助手に求められること"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "tbof07mb60q2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "su075lgqb0b0",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟では、慢性疾患を持つ患者さんや長期入院の患者さんが多いため、一般病棟とは異なるスキルや心構えが求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "x4y5z6u1v2w3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "aa9fd4feea4d",
+          "_type": "span",
+          "marks": [],
+          "text": "忍耐力と継続性：長期的なケアが必要な患者さんが多いため、根気強く関わることが求められます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "y5z6u1v2w3x4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7cb4cac33ec9",
+          "_type": "span",
+          "marks": [],
+          "text": "観察力：患者さんの小さな変化や、言葉にならないサインに気づく力は非常に重要です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "z6u1v2w3x4y5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ed07dbe856e3",
+          "_type": "span",
+          "marks": [],
+          "text": "コミュニケーション能力：患者さんやご家族との信頼関係を築き、不安を和らげる声かけが大切です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c8178eb5d82e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819193451-xq5854i7v",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟では、患者さんの多くが長期入院となるため、看護助手は患者さんの生活の一部を支える存在となります。そのため、患者さんの個性や生活習慣を尊重し、可能な限り、自宅での生活に近い環境を提供できるように努めることが重要です。例えば、食事の好みを聞いたり、趣味の話をしたり、家族との面会をサポートしたりすることで、患者さんのQOL（生活の質）向上に貢献できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-d0ebcec7-59dc-4bf9-9f40-8006c65f15ab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-f59dc2a9-e3ca-4040-8185-567db6775a53",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-6897618f-9ac2-436d-b0f8-5bb82bf6c4d3",
+          "_type": "span",
+          "marks": [
+            "link-22167eef-6cdf-46b3-af06-9db794e6d480"
+          ],
+          "text": "「看護助手はどこまでできる？看護師との役割分担」"
+        },
+        {
+          "_key": "internal-link-span-outro-f6caa997-252e-4bed-b397-ce737be82f23",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-22167eef-6cdf-46b3-af06-9db794e6d480",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-job-role-insights"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-5rn0hsimr-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-aa95dj6y2",
+          "_type": "span",
+          "marks": [],
+          "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-bagu2n4oz-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-o9lad4f8a",
+          "_type": "span",
+          "marks": [],
+          "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-uwfqcn70v-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-eut6yo46c",
+          "_type": "span",
+          "marks": [],
+          "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-9e81a0d5-5f0d-404a-8ccc-92f5385bdb0c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-d47b0cb9-349b-40be-a67e-0026b39da44f",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-75d582fe-a83e-48c9-88ae-bbd7b302958e",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-3c248582-7a4f-4d18-ad11-d7f955d03b8c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-8f1373af-474b-4299-8a56-89d5d8652758",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-f2e3cd5f-6af4-442a-a905-bb6960f9b78b",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-09a04932-6199-4968-bdb8-4fabef46c332",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-c309ade2-4e22-4eec-aa92-e3721b46f19e",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-efa5b15a-8766-4305-8e68-7dc1b540e8fd",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-f01337bd-3d84-4051-a416-28b01fdbc518",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ea71d1e4-f53e-44a6-acce-f8bf0f1ee5b3",
+          "_type": "span",
+          "marks": [],
+          "text": "内科病棟の看護助手の仕事内容と一日でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-7367f726-c433-492c-8ac8-60189033d30e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-60ba3d1b-b08d-4e9e-b1e3-d4a9e2f3a73a",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-d17f6242-e233-403f-b5b0-d0ba177120f7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-532b342f-c3a0-451a-b5cb-0de96bb4dc92",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの日常生活のサポート：食事、入浴、排泄、移動介助など、患者さんの身体状況に合わせたきめ細かなケアを行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-5062d4c9-4cfc-4734-8202-479523cdb73e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-23ba1d37-6b58-4999-a6a3-087c6b38c7c6",
+          "_type": "span",
+          "marks": [],
+          "text": "検査・治療の補助：患者さんの検査室への移送や、検査前の準備、治療後の片付けなどをサポートします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-f7e1774a-d19e-486f-94f0-94a160a4c010",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-56c3e8e8-0bbe-4a73-a267-b57b8baaa68d",
+          "_type": "span",
+          "marks": [],
+          "text": "環境整備：患者さんが安心して療養できる清潔で快適な環境を維持します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-27e32f09-4c82-4eef-a602-49f5632a27f7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-9098a31d-c7a0-4ecc-bf34-690a3e587e7e",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-0648adca-5eaa-4b0c-96b9-0d3966cde2ce",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-8e76dad0-dd00-4bb3-8d55-c8dca5ac5cfc",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "source-803e0a2e-eb3a-4216-bdcb-e95452dd890a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-7ca99336-3cd0-4416-a6d0-7c21dacf5fd6",
+          "_type": "span",
+          "marks": [],
+          "text": "参考資料："
+        },
+        {
+          "_key": "span-ff871dbf-b946-4959-b384-ee1c46c74882",
+          "_type": "span",
+          "marks": [
+            "link-84ded6a3-3477-4420-af92-2bd35f762547"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-84ded6a3-3477-4420-af92-2bd35f762547",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "career-comparison-5417a183-55db-4437-856b-13cbe79258cd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-e4aad737-adf6-4e42-97ad-f092a9ebd505",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-bca8a783-54ee-43de-b0be-641545956096",
+          "_type": "span",
+          "marks": [
+            "link-d402c199-4a4a-45c8-bbca-303d78ee488b"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d402c199-4a4a-45c8-bbca-303d78ee488b",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503423508",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503423508-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503423508-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503423508-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503423508-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503423508-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503423508-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503423508-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503423508-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503423508-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-a4d9961c-dcf2-452b-8e47-96fd81d76834",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-feca2eed-0277-4815-80ee-ef47646c7c91",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-job-role-daily"
+  },
+  "title": "内科病棟の看護助手の仕事内容と一日"
+}

@@ -1,0 +1,896 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-12T01:39:05.743Z",
+    "operation": "add-related-section",
+    "articleId": "VcGv9zZ6obDRZ14YHcUXP8",
+    "articleTitle": "看護助手の夜勤後の疲労回復法5選",
+    "articleSlug": "nursing-assistant-night-shift-recovery"
+  },
+  "document": {
+    "_createdAt": "2025-09-11T06:39:43Z",
+    "_id": "VcGv9zZ6obDRZ14YHcUXP8",
+    "_rev": "OWH8my0cDcn0uzzv5RuZem",
+    "_type": "post",
+    "_updatedAt": "2025-12-11T18:44:13Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "0d44ef17-8f9c-4ead-ab08-386d691bf8df",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "570c36ef-f359-4dc4-9a44-4e7d214a79be",
+            "_type": "span",
+            "marks": [],
+            "text": "16時間にも及ぶ夜勤を終えた後の身体は、心身ともに疲労困憊の状態です。この疲労を次の勤務まで持ち越さないためには、「明け休み」の過ごし方が非常に重要になります。質の高い休息をとり、心と体をリセットすることが、看護助手として長く健康に働き続けるための鍵となります。"
+          },
+          {
+            "_key": "9dc45663-d893-4a13-aea5-46b59e4c71d0",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "acdfbab0-1528-4c85-a127-8a946ab99d28",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          },
+          {
+            "_key": "f9cf40c3-1c41-4c70-9bf2-0950eb7b4b29",
+            "_type": "span",
+            "marks": [],
+            "text": "\n"
+          },
+          {
+            "_key": "41aa2232-b7b6-47c0-865e-00a7af84a957",
+            "_type": "span",
+            "marks": [],
+            "text": "この記事では、多くの看護助手が実践している、夜勤後の効果的な疲労回復法を5つ厳選して紹介します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2b93e6fe-32dc-4c30-b546-5afa716e6722",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "edc81fbf-4752-41ac-8a48-f625af0aada0",
+            "_type": "span",
+            "text": "1. 質の高い睡眠を確保する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "e831b188-db71-4121-85bb-abe76dff6f4a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bf2b5ba0-4755-4c3b-8de1-0aee207419f0",
+            "_type": "span",
+            "text": "何よりも大切なのが、質の高い睡眠です。夜勤明けは体内時計が乱れているため、ただ長く寝るのではなく、「質」にこだわることがポイントです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "10782d33-d253-482a-a301-37d382c84516",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "22a99f65-fe1c-46be-a12b-3b9982a0279d-35c947ef-a5c8-4078-ad4d-af4fd4d1d6d7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "光を遮断する"
+          },
+          {
+            "_key": "22a99f65-fe1c-46be-a12b-3b9982a0279d-ea0eaf68-d790-41b9-a12b-289f66193ebe",
+            "_type": "span",
+            "marks": [],
+            "text": ": 睡眠ホルモンであるメラトニンの分泌を促すため、遮光カーテンやアイマスクを使って寝室を真っ暗にしましょう。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "23548eb7-97ad-462d-9b8c-d071f0cc4d68",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b4e61477-e889-4667-b3a0-fa30cf9cd390-7465b8c2-82a5-4469-b746-c618f676f45b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "帰宅後のスマートフォンは避ける"
+          },
+          {
+            "_key": "b4e61477-e889-4667-b3a0-fa30cf9cd390-ff4c0e40-5133-41fe-a149-b1fef85cdab7",
+            "_type": "span",
+            "marks": [],
+            "text": ": スマホやテレビのブルーライトは脳を覚醒させてしまいます。帰宅後はなるべく見ずに、リラックスできる環境を整えましょう。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "44059c94-4236-4eb3-be0f-e3f377c6495b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "edc4cb4a-2a94-4ce2-8bdf-5f7e0487b9a2-19991d1c-f575-4fd2-ba37-379e19d32c18",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "短時間で切り上げる"
+          },
+          {
+            "_key": "edc4cb4a-2a94-4ce2-8bdf-5f7e0487b9a2-cc09d903-b800-4044-bf7c-e5cd26b4144d",
+            "_type": "span",
+            "marks": [],
+            "text": ": 長時間眠りすぎると、かえって夜の睡眠に影響が出ます。2〜4時間程度の仮眠にとどめ、午後は軽く活動するのがおすすめです。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "section-closing-d55f1ddc-2f96-4615-a0d9-ec7731c32146",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-27cb9443-7be5-4e14-8fc3-df987092765d",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 質の高い睡眠を確保するでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "903ed58b-48aa-4b5d-927d-e0ef6efd4158",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-97d98dbe-7feb-42af-8a9c-134b559865be",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-772ad314-7ea2-4e55-84ee-962cc359db86",
+            "_type": "span",
+            "marks": [
+              "link-0eb4611a-a71d-4717-820a-a26424e6efb5"
+            ],
+            "text": "厚生労働省 統計情報・白書"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-0eb4611a-a71d-4717-820a-a26424e6efb5",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "a033d07e-6be7-4201-bf43-95c43b4979ee",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "66a6e9e9-f8c7-4fca-b96e-1e189bf568b0",
+            "_type": "span",
+            "text": "2. ぬるめのお風呂にゆっくり浸かる"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "5625a39b-4480-4a0e-b87a-0cc158232cdf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b64d1bc1-0773-4684-b867-e04a2a9cbffc",
+            "_type": "span",
+            "text": "シャワーだけで済ませず、38〜40℃程度のぬるめのお湯に15〜20分ほどゆっくり浸かることで、副交感神経が優位になり、心身ともにリラックスできます。血行が促進され、筋肉の緊張もほぐれるため、身体的な疲労回復に効果的です。お気に入りの香りの入浴剤を使うのも良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "37c8bc94-c95b-47e5-9c48-4393c0509e9c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d7fba19d-e96e-488e-a6fd-b0cf3b577342",
+            "_type": "span",
+            "text": "3. 軽い運動で血行を促進する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "f2e86347-f3b1-47fb-963b-b734bab0e9e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "99a815d8-7254-4fd9-ba15-974551783793",
+            "_type": "span",
+            "text": "疲れているからと一日中ゴロゴロしていると、かえって血行が悪くなり、疲労物質が溜まりやすくなります。仮眠から起きた後などに、ウォーキングやストレッチなどの軽い運動を取り入れるのがおすすめです。適度に体を動かすことで、気分転換になり、夜の自然な眠りにも繋がります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f21454ee-5950-4ea9-9794-34817682f76a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "15b20d0a-fcd4-4080-8b57-43f7e3b4588d",
+            "_type": "span",
+            "text": "4. 栄養バランスの取れた食事を摂る"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "65a980e7-f669-40e6-b18e-2827e3948341",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "412c0ead-bf0f-45ba-ba76-a3e749f59433",
+            "_type": "span",
+            "text": "夜勤明けは、疲労からつい簡単な食事で済ませてしまいがちですが、回復のためには栄養バランスの取れた食事が不可欠です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c2f89c8a-3de2-4e8c-b732-0e69bb0f588e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "72514556-62aa-4d77-ae4f-31f764aba38c-67ba9b34-4faa-416b-8b7d-db8963c06f5d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "ビタミンB群"
+          },
+          {
+            "_key": "72514556-62aa-4d77-ae4f-31f764aba38c-4399f5a5-5d97-452b-b949-ededbc173e4c",
+            "_type": "span",
+            "marks": [],
+            "text": ": 豚肉、うなぎ、納豆などに多く含まれ、疲労回復を助けます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "5c43a866-c36d-4373-b5e1-df71cff1e0e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4674f382-6c12-4e68-accf-a7c92264c951-a0fc3b28-76e9-4f8e-9c9b-f337b6d1fab0",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "タンパク質"
+          },
+          {
+            "_key": "4674f382-6c12-4e68-accf-a7c92264c951-64b0dd27-8d67-4114-83b9-5d541ee7c852",
+            "_type": "span",
+            "marks": [],
+            "text": ": 肉、魚、卵、大豆製品など。傷ついた筋肉の修復を助けます。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "117c69d7-1e15-4bac-9034-85170bc21fa0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc3ac021-afd6-409c-be2b-df7e545f0e3a-23ab4b02-3f4f-43f6-a1d5-8d3b3c6f4737",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "クエン酸"
+          },
+          {
+            "_key": "cc3ac021-afd6-409c-be2b-df7e545f0e3a-21fdb3a5-7e12-46dd-8cb7-994eb36d8554",
+            "_type": "span",
+            "marks": [],
+            "text": ": 梅干しやレモンなど。疲労物質である乳酸の分解を促します。"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": []
+      },
+      {
+        "_key": "section-closing-d14801b4-26c3-40ed-870a-c1b2ba993b73",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "section-closing-span-08bea476-2ce8-439a-a5ae-0a0147b920f1",
+            "_type": "span",
+            "marks": [],
+            "text": "4. 栄養バランスの取れた食事を摂るでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fc29ac5e-f2c5-4429-89b1-d811408b46c9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cf87c686-71fd-4666-9484-3372c3654ae2",
+            "_type": "span",
+            "text": "5. 自分の好きなことに没頭する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "d56e02ed-a764-4f87-89aa-6f3193776dac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0dcb8e8-347d-4b50-9a7c-26adcd4b48f8",
+            "_type": "span",
+            "text": "身体の疲れだけでなく、心の疲れを癒すことも大切です。好きな音楽を聴く、映画を見る、趣味に没頭する、友人と話すなど、仕事のことを完全に忘れられる時間を意識的に作りましょう。「これをすれば元気になれる」という自分なりのリフレッシュ方法を見つけておくことが、ストレス管理の鍵となります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818510367-ygukmn3su",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-htcqunw3o",
+            "_type": "span",
+            "marks": [],
+            "text": "1. 質の高い睡眠を確保する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818510367-16lrw1ycd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-984r6jrcg",
+            "_type": "span",
+            "marks": [],
+            "text": "より深い睡眠のための環境づくり"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818510367-r1omywo5f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-tmnm0y8ls",
+            "_type": "span",
+            "marks": [],
+            "text": "睡眠の質を高めるためには、環境を整えることも重要です。室温は一般的に18～20℃が理想的と言われています。また、湿度も50～60％程度に保つと、より快適に眠りやすくなる傾向があります。加湿器や除湿器を活用して、適切な湿度を保つように心がけましょう。可能であれば、アロマディフューザーなどでリラックス効果のあるラベンダーやカモミールなどの香りを取り入れるのも良いでしょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-b5d82acb-4737-4705-9228-7c5811554de5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-111bf4dc-967e-4e9e-ae76-0c602b10cb36",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-4c9b1f01-1c4c-456f-93cc-173fa2f125b6",
+            "_type": "span",
+            "marks": [
+              "link-40a9876d-7231-4b5c-bb82-0b7d844ee3e5"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-40a9876d-7231-4b5c-bb82-0b7d844ee3e5",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818510367-nbn29pk4z",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-7l7nex8jy",
+            "_type": "span",
+            "marks": [],
+            "text": "2. ぬるめのお風呂にゆっくり浸かる"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818510367-8ngh4o2i3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-g34k0nq7u",
+            "_type": "span",
+            "marks": [],
+            "text": "入浴効果を高めるための工夫"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818510367-5bdrtyob2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-uwjkcgj6c",
+            "_type": "span",
+            "marks": [],
+            "text": "入浴剤の香りは、リラックス効果を高める上で重要な要素です。柑橘系や森林系の香りは気分をリフレッシュさせる効果が期待できます。また、炭酸ガス系の入浴剤は、血行促進効果を高める可能性があります。入浴中は、マッサージを行うのも効果的です。特に、首や肩、足などを優しくマッサージすることで、筋肉の緊張を和らげることができます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818510367-6q7vtlqjh",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-tcrij46qt",
+            "_type": "span",
+            "marks": [],
+            "text": "3. 軽い運動で血行を促進する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818510367-n63zsidu9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-z3m9q976k",
+            "_type": "span",
+            "marks": [],
+            "text": "おすすめの軽い運動"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818510367-vpzef0efr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-4nkzlsog9",
+            "_type": "span",
+            "marks": [],
+            "text": "ウォーキングは、特別な道具も必要なく、手軽に始められる運動です。30分程度のウォーキングでも、十分に血行促進効果が期待できます。ストレッチは、筋肉の柔軟性を高め、関節の可動域を広げる効果があります。入浴後に行うと、より効果的です。ヨガやピラティスなども、心身のリラックス効果があり、おすすめです。ただし、激しい運動は避けるようにしましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818510367-fxmdm8smw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-ixdkr7vjt",
+            "_type": "span",
+            "marks": [],
+            "text": "4. 栄養バランスの取れた食事を摂る"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818510367-zdn7twogf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-tmcu9hxxc-2c0c19dd-7547-4c83-8e21-27808fe64cf1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "タンパク質"
+          },
+          {
+            "_key": "span-1760818510367-tmcu9hxxc-b4cf7929-457c-43d5-9bb7-689a4f2abadf",
+            "_type": "span",
+            "marks": [],
+            "text": ": 肉、魚、卵、大豆製品など。傷ついた筋肉の修復を助けます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818510367-y10qtepgb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-l8adbn76k-68c49240-b4bc-4302-909b-7701e7d686f7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "クエン酸"
+          },
+          {
+            "_key": "span-1760818510367-l8adbn76k-bdbcfa9a-98c8-4edc-9dd7-d69ad3de817e",
+            "_type": "span",
+            "marks": [],
+            "text": ": 梅干しやレモンなど。疲労物質である乳酸の分解を促します。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818510367-lyedsuyvj",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-mfatvki4n",
+            "_type": "span",
+            "marks": [],
+            "text": "食事のタイミングと内容"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818510367-4s3ray2tm",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-pvmrzyuxa",
+            "_type": "span",
+            "marks": [],
+            "text": "夜勤明けの食事は、消化の良いものを中心に摂るのがおすすめです。温かいスープやおかゆなどは、胃腸への負担が少なく、栄養も補給できます。また、カフェインの摂取は、一時的に疲労感を軽減する効果がありますが、睡眠を妨げる可能性があるため、できるだけ控えましょう。水分補給も忘れずに行いましょう。特に、夜勤中は水分不足になりがちなので、こまめに水分を摂るように心がけましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block-1760818510367-xc1bf2xc7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-qfgmyrwej",
+            "_type": "span",
+            "marks": [],
+            "text": "5. 自分の好きなことに没頭する"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "block-1760818510367-gq3kseljk",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-uhjireh2n",
+            "_type": "span",
+            "marks": [],
+            "text": "心を癒すリフレッシュ方法"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "block-1760818510367-w29cveod7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-1760818510367-r2dhgv36m",
+            "_type": "span",
+            "marks": [],
+            "text": "読書は、物語の世界に浸ることで、日常のストレスから解放される効果が期待できます。アロマテラピーは、香りの効果で心身をリラックスさせる効果があります。ガーデニングは、植物に触れることで、心が癒される効果があると言われています。友人や家族との交流は、孤独感を解消し、精神的な安定をもたらす効果が期待できます。自分に合ったリフレッシュ方法を見つけて、積極的に取り入れるようにしましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-90fc61ea-ab8a-4895-bf20-e1df43b5334a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-68ebed17-9706-4de9-a218-c0ae66c182fd",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-a04e5dea-c000-4206-8a69-6f116ba8a374",
+            "_type": "span",
+            "marks": [
+              "link-eb0c0ce5-0efd-439d-bad5-e5aff0d03059"
+            ],
+            "text": "「【シフトの悩み】看護助手の夜勤・交代制勤務を乗り切る5つのコツ」"
+          },
+          {
+            "_key": "internal-link-span-outro-a34dc853-bb34-4f90-b272-d41b870d91b9",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-eb0c0ce5-0efd-439d-bad5-e5aff0d03059",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-night-shift-practical"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-b67983d6-9400-43e0-aa27-657da7dce755",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-e9da2edd-3fea-427f-9985-af94c9b7c3db",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-50fb9674-70c1-4aef-8752-5bd04f0e979a",
+            "_type": "span",
+            "marks": [],
+            "text": "Amazonで看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "inline-link-0a68aabf-6a33-46f1-91ce-3e68e0fe6d6b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "inline-pr-cf622236-6993-4fdc-b1cc-27a5cb311160",
+            "_type": "span",
+            "marks": [],
+            "text": "[PR] "
+          },
+          {
+            "_key": "inline-link-text-20bfcd4e-6b34-4874-96d6-50deff8eae39",
+            "_type": "span",
+            "marks": [],
+            "text": "楽天市場で看護助手グッズを探す"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "block--8446521892015027344",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "span-373389077394698207",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-957c0bc5-d176-41d5-8483-1391415092b5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-13c5d89d-abde-4945-8bce-92a44dfbed91",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の夜勤後の疲労回復法5選でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-532f2533-a5d3-4b87-b745-a700b2678963",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-e5762d92-4f8b-4543-957e-0532f459da82",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-d9f79f39-3da2-4523-bb0e-c4c3be9598d3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-c4fdb251-d390-4907-8a21-b99b077e9fe8",
+            "_type": "span",
+            "marks": [],
+            "text": "光を遮断する: 睡眠ホルモンであるメラトニンの分泌を促すため、遮光カーテンやアイマスクを使って寝室を真っ暗にしましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-5a4f931e-78c5-4202-b3c6-d4ea3bee677a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-67cf92f4-601c-4448-bf43-c4dea0b08a7c",
+            "_type": "span",
+            "marks": [],
+            "text": "帰宅後のスマートフォンは避ける: スマホやテレビのブルーライトは脳を覚醒させてしまいます。帰宅後はなるべく見ずに、リラ…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-633dc012-8fe7-4625-9430-f2b7bf03a73a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-2ac20337-b415-409d-955a-c5bcd2f3c1f8",
+            "_type": "span",
+            "marks": [],
+            "text": "短時間で切り上げる: 長時間眠りすぎると、かえって夜の睡眠に影響が出ます。2〜4時間程度の仮眠にとどめ、午後は軽く活動…"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-7af5ec05-8ffa-4eb1-9208-f9344fa62345",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-4006571a-d1c2-4c42-9c02-bc0a35376788",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-86973263-49bf-4750-a236-31fc58a30672",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">防水腕時計はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+        "label": "看護・介護ユニフォーム専門店「ナースリー」",
+        "linkKey": "nursery",
+        "provider": "ナースリー"
+      },
+      {
+        "_key": "affiliate-a5e2497f-0cdf-4475-af84-f58bbc7736fe",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">腕時計を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "disclaimer-9cd540ce-476b-48d9-9075-8127f6488875",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-350ca2b9-8b53-42e7-92fc-a629c73679de",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "47843905-d07c-4150-b8ff-34eeb3545e4b",
+        "_ref": "IGbvz95LMMbfxWk7tzM25u",
+        "_type": "reference"
+      }
+    ],
+    "excerpt": "夜勤明けのつらい疲労を効果的に回復させるための5つの方法を紹介します。質の良い睡眠、栄養バランスの取れた食事、リラックス法などを取り入れて、次の勤務に備えましょう。",
+    "geminiMaintainedAt": "2025-11-08T23:04:44.962Z",
+    "metaDescription": "悩み・相談の看護助手の夜勤後の疲労回復法5選について解説。夜勤明けのつらい疲労を効果的に回復させるための5つの方法を紹介します。質の良い睡眠、栄養バランスの取れた食事、リラックス法などを取り入れて、次の勤務に備えましょう。夜勤明けのつらい疲労を効果的に回復させるための5つの方法を紹介します。質の良い睡眠、栄養バランスの",
+    "publishedAt": "2024-06-27T14:49:28.581Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-night-shift-recovery"
+    },
+    "tags": [
+      "一晩",
+      "参考",
+      "夜勤",
+      "夜勤後",
+      "悩み・相談",
+      "疲労回復",
+      "看護",
+      "看護助手",
+      "紹介",
+      "記事"
+    ],
+    "title": "看護助手の夜勤後の疲労回復法5選"
+  }
+}

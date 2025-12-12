@@ -1,0 +1,1038 @@
+{
+  "_id": "Jx7ptA0c3Aq7il8T99H7Mm",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8a13cc85-3fe9-4f09-963c-c6c3e331c97f",
+          "_type": "span",
+          "marks": [],
+          "text": "2024年、労働基準法が改正され、看護助手を含む医療従事者の労働時間規制にも新たな動きがあります。この改正は、医療現場で働く皆さんの健康とワークライフバランスに大きな影響を与える可能性があります。"
+        },
+        {
+          "_key": "691052b8-de85-4921-9bbd-ed41980943ee",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "01de282e-9035-455f-afa3-7a4b5d6fb707",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "bd60122c-edb4-4967-af6a-c9a24fc54345",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "a203329e-c577-4388-afa9-ebae7e570332",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、看護助手の働き方に影響を与える可能性のある、新労働時間規制のポイントを分かりやすく解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ref-merged-block-cea55568-d3f0-44df-9550-9d0849490603",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ref-label-3e039210-3bbb-4ad5-b40a-6b07aee81a2d",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "ref-merged-span-1a31f96b-bc7b-467c-b7e1-57f6a1d18eb3",
+          "_type": "span",
+          "marks": [
+            "ref-merged-25c530ad-bc54-42f6-a2ba-ea770aa2abd0"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        },
+        {
+          "_key": "ref-sep-690c92db-e959-40cb-9ed5-6f5fc8963883",
+          "_type": "span",
+          "marks": [],
+          "text": " / "
+        },
+        {
+          "_key": "ref-merged-span-8a75f5f9-a00c-4701-a13b-4b03c7b21b9f",
+          "_type": "span",
+          "marks": [
+            "ref-merged-4ba0bbfb-7c44-446a-929a-2303d7464e5c"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ref-merged-25c530ad-bc54-42f6-a2ba-ea770aa2abd0",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        },
+        {
+          "_key": "ref-merged-4ba0bbfb-7c44-446a-929a-2303d7464e5c",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b4f8f917-0828-457e-bdf7-05271efda2d0",
+          "_type": "span",
+          "text": "2024年労働基準法改正の背景と目的"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c7ef1594-4e15-40fb-b851-8a08a848bb67",
+          "_type": "span",
+          "text": "今回の労働基準法改正は、医療現場の過重労働問題の解消と、医療従事者が健康的に働き続けられる環境を整備することを目的としています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "caf1c924-8040-4038-9031-d551f606b3d9",
+          "_type": "span",
+          "text": "医療現場の働き方改革推進：医師の働き方改革と並行して、看護師や看護助手など、他の医療従事者の労働環境改善も進められています。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d62b10b1-cd15-4486-9762-54b04ce32705",
+          "_type": "span",
+          "text": "医療従事者の健康確保とワークライフバランスの改善：長時間労働による健康被害を防ぎ、仕事とプライベートの充実を図ることを目指しています。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-1e8b8768-bdd9-4669-9ac3-046cfa2ddf70",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-06196090-95d0-47c7-ae1e-958214090d19",
+          "_type": "span",
+          "marks": [],
+          "text": "2024年労働基準法改正の背景と目的では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ed98f679-9668-4071-96c9-2c6381513a9f",
+          "_type": "span",
+          "text": "看護助手の働き方に影響する主な改正点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3d09662c-1723-4571-9547-eae3f572e790",
+          "_type": "span",
+          "text": "1. 時間外労働の上限規制"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d923cda8-f29c-4dc0-ad1f-286ed4291fbe",
+          "_type": "span",
+          "text": "原則として、時間外労働は月45時間、年360時間までと定められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8c771d69-76a8-4446-b100-04ebf7ee91e8",
+          "_type": "span",
+          "text": "臨時的な特別な事情がある場合でも、年720時間、複数月平均80時間、単月100時間未満という上限が設けられます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-61cfbf20-9093-4e2c-9e50-e87b80c41e58",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-2cbf873a-c89e-45e4-a427-6542ed8856db",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-0f32e53e-f97e-4e8b-80ad-996a23964599",
+          "_type": "span",
+          "marks": [
+            "link-1de79845-8a7f-43e1-9202-e3a504b9a253"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-1de79845-8a7f-43e1-9202-e3a504b9a253",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0a39d405-a950-434c-85e9-4575ec9373b1",
+          "_type": "span",
+          "text": "2. 勤務間インターバル制度"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "60ec6128-05e7-462f-9050-128629c3bf5b",
+          "_type": "span",
+          "text": "勤務終了から次の勤務開始までの間に、一定時間以上の休息時間を確保する制度です。努力義務ではありますが、導入する病院が増えることが期待されます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5289449b-c9ea-4281-ade3-40c4cb074930",
+          "_type": "span",
+          "text": "3. 年次有給休暇の取得義務化"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a27ff0f7-9e33-40ec-8f3c-e5cf1871443c",
+          "_type": "span",
+          "text": "年10日以上の年次有給休暇が付与される労働者に対して、年5日については使用者が時季を指定して取得させることが義務付けられます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a3b4c5d6e7f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0267605e-e38c-4b12-a35d-847d11c81ae9",
+          "_type": "span",
+          "text": "新規制が看護助手の働き方に与える影響"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "qp2udp1lra7a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "h8wdhh2iounu",
+          "_type": "span",
+          "marks": [],
+          "text": "2024年の診療報酬改定により、看護助手の業務範囲が拡大されることになりました。この変更は、看護助手の働き方やキャリアにどのような影響を与えるのでしょうか。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-5010a262-9870-463c-be03-3311617e81b5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-bc009c23-8632-4c1d-bff9-d9e92f94d02d",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ewl7lbot4tqx",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9kzyl6jt01w4",
+          "_type": "span",
+          "marks": [],
+          "text": "2024年の労働基準法改正は、看護助手の働き方にも大きな影響を与えます。特に、時間外労働の上限規制や、有給休暇の取得義務化など、知っておくべき変更点を見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3ec72d79-6375-4a58-8c28-e9afe4a7cdfa",
+          "_type": "span",
+          "text": "残業時間の削減とプライベートの充実：長時間労働が是正され、仕事以外の時間を確保しやすくなります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a2596777-3e1e-4067-b436-5647a2c32af6",
+          "_type": "span",
+          "text": "労働環境の改善と健康維持：過労による健康リスクが軽減され、より健康的に働き続けられるようになります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e76255eb-30e1-4e32-a504-0b30a28d4eb9",
+          "_type": "span",
+          "text": "病院側のシフト管理の厳格化：病院側は、労働時間管理をより厳格に行う必要があり、看護助手のシフトにも影響が出る可能性があります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-a826549c-aabc-4441-afd1-634e86bc650f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-81a94ff5-0a56-46ba-9cdf-90cdd4620c78",
+          "_type": "span",
+          "marks": [],
+          "text": "新規制が看護助手の働き方に与える影響では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7f7c4fab-6538-4c95-8928-6e9537689d3c",
+          "_type": "span",
+          "text": "看護助手として知っておくべきこと"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-ef79b404",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-166fc844",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3d1ecce9-b8a7-4d81-8a88-981193446b20",
+          "_type": "span",
+          "text": "自分の労働時間を正確に把握する：タイムカードや勤怠管理システムで、自分の労働時間を常に確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1091d4d1-07d7-488f-83e3-bb46e9c74ba5",
+          "_type": "span",
+          "text": "疑問や不安があれば、職場や労働基準監督署に相談する：不当な労働を強いられた場合は、一人で抱え込まず、適切な機関に相談しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-0c5de9d7-2354-4249-8a4b-4ecd6ea0042e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-122912b3-ba16-49a5-902b-066964120a9b",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として知っておくべきことでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-ygadnpz24",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-tj5pqls0b",
+          "_type": "span",
+          "marks": [],
+          "text": "2024年労働基準法改正の背景と目的"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818731577-r1ds2e9th",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-xfv5jqsyu",
+          "_type": "span",
+          "marks": [],
+          "text": "*   医療現場の働き方改革推進：医師の働き方改革と並行して、看護師や看護助手など、他の医療従事者の労働環境改善も進められています。背景には、医療現場における人材不足が深刻化しており、既存の職員への負担が増加している現状があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-5j5wqd5t4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-hat4psrxg",
+          "_type": "span",
+          "marks": [],
+          "text": "*   医療従事者の健康確保とワークライフバランスの改善：長時間労働による健康被害を防ぎ、仕事とプライベートの充実を図ることを目指しています。具体的には、過労死ラインとされる月80時間以上の残業を減らすことが重要な目標とされています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-d3fb256d-e2ac-402d-abda-d1f7412262c9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-2fc31748-74cf-422f-a93b-57eece53d708",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-fe4d8998-a272-4cd8-bea8-2c49547c2f3a",
+          "_type": "span",
+          "marks": [
+            "link-38a7dfff-c20c-40e4-bae6-0b669b44e135"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-38a7dfff-c20c-40e4-bae6-0b669b44e135",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-r5w4c3ae7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-n7todevft",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の働き方に影響する主な改正点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818731577-z0okwcnp6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-izzps57sf",
+          "_type": "span",
+          "marks": [],
+          "text": "1. 時間外労働の上限規制"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818731577-9nfqi5xv1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-c6eljo0gl",
+          "_type": "span",
+          "marks": [],
+          "text": "原則として、時間外労働は月45時間、年360時間までと定められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-dlpqipgsa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-y23f65rs1",
+          "_type": "span",
+          "marks": [],
+          "text": "*   臨時的な特別な事情がある場合でも、年720時間、複数月平均80時間、単月100時間未満という上限が設けられます。この「特別な事情」は、事前に労使間で合意された場合にのみ適用されます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-v3wcze4aw",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-nhmzlpysn",
+          "_type": "span",
+          "marks": [],
+          "text": "2. 勤務間インターバル制度"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818731577-3hceha21r",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-klv8qt88x",
+          "_type": "span",
+          "marks": [],
+          "text": "*   勤務間インターバルは、一般的に11時間以上が推奨されています。これにより、疲労回復や私生活の充実が期待できます。導入には、シフト作成の見直しや人員配置の工夫が必要となる場合があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-y26w942ox",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-pwbjkh54c",
+          "_type": "span",
+          "marks": [],
+          "text": "3. 年次有給休暇の取得義務化"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818731577-n27cyps6w",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-b7b1blu38",
+          "_type": "span",
+          "marks": [],
+          "text": "*   病院側は、看護助手の希望を聞きながら、計画的に有給休暇を取得させる必要があります。取得しやすい環境づくりとして、人員の補充や業務の効率化などが求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-t9xcefw1r",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-yb8lv9zee",
+          "_type": "span",
+          "marks": [],
+          "text": "新規制が看護助手の働き方に与える影響"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818731577-x8gucrj4t",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-t747olo3p",
+          "_type": "span",
+          "marks": [],
+          "text": "*   残業時間の削減とプライベートの充実：長時間労働が是正され、仕事以外の時間を確保しやすくなります。これにより、趣味や家族との時間が増え、生活の質が向上する可能性があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-b8q0h8nqm",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-v1gqi3kn9",
+          "_type": "span",
+          "marks": [],
+          "text": "*   労働環境の改善と健康維持：過労による健康リスクが軽減され、より健康的に働き続けられるようになります。また、有給休暇の取得促進により、心身のリフレッシュを図ることができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-64g7zeahr",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-cx0nv5yqo",
+          "_type": "span",
+          "marks": [],
+          "text": "*   病院側のシフト管理の厳格化：病院側は、労働時間管理をより厳格に行う必要があり、看護助手のシフトにも影響が出る可能性があります。シフト作成においては、公平性や個々の希望を考慮することが重要になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-g2ffpgsc8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-0l2ruem7d",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として知っておくべきこと"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818731577-awmlyn8nx",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-v7gux63wt",
+          "_type": "span",
+          "marks": [],
+          "text": "*   自分の労働時間を正確に把握する：タイムカードや勤怠管理システムで、自分の労働時間を常に確認しましょう。自己申告制の場合は、記録をしっかりと残しておくことが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818731577-y4ktq3xc8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818731577-hs1o8jtl7",
+          "_type": "span",
+          "marks": [],
+          "text": "*   疑問や不安があれば、職場や労働基準監督署に相談する：不当な労働を強いられた場合は、一人で抱え込まず、適切な機関に相談しましょう。労働組合や弁護士に相談することも有効な手段です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-6fa119ee-debc-45c6-859b-2f8905741d8d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-b27d40e2-d9fb-4974-ac3a-18bf9b2b50ae",
+          "_type": "span",
+          "marks": [],
+          "text": "「看護助手として知っておくべきこと」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-05ca57ea-a30c-41a7-9a1f-16eed3bb7317",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-d6b7e820-c763-4ca7-9109-cc0e6f577bc2",
+          "_type": "span",
+          "marks": [],
+          "text": "「看護助手として知っておくべきこと」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-d3f00c80-3036-4fe3-8bd4-7f91550f025b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ae5443ec-bcd0-49e2-9339-c78c3fbecb76",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の労働基準法改正対応｜2024年新労働時間規制の詳細でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-69ebf2d4-df6e-42bc-b292-0e7491f95590",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-4ae019ab-f673-4c1e-a33b-2f5e2726ce1e",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-bdc42b57-c633-4940-8fd7-c0741144c441",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-edca3df7-aa88-4d75-b92c-233762af9779",
+          "_type": "span",
+          "marks": [],
+          "text": "医療現場の働き方改革推進：医師の働き方改革と並行して、看護師や看護助手など、他の医療従事者の労働環境改善も進められてい…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-4353e5db-491a-49d0-807b-899677e89be3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-fce5f7f0-6c38-463a-841b-549daaa80b6b",
+          "_type": "span",
+          "marks": [],
+          "text": "医療従事者の健康確保とワークライフバランスの改善：長時間労働による健康被害を防ぎ、仕事とプライベートの充実を図ることを…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-4139fa8a-0c22-4992-92b9-8d23739a4f9c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-fa5f94df-a708-4a25-a6cc-b2f7776d1e3d",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の働き方に影響する主な改正点の視点で1. 時間外労働の上限規制に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-240420ed-c23d-46fd-b651-bd8af5530fd7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-50b1ab14-db1d-4704-8352-cc93bb1627ca",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "resignation-comparison-3286e641-c650-47b6-83ec-b81db46e2828",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "resignation-comparison-lead-778e2120-75fd-4cbc-a258-3af38a0fd941",
+          "_type": "span",
+          "marks": [],
+          "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+        },
+        {
+          "_key": "resignation-comparison-link-796711a1-df3b-448d-aae3-481b5665dbe1",
+          "_type": "span",
+          "marks": [
+            "link-9dc68902-5b67-46b9-9184-de6b2f53b22a"
+          ],
+          "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-9dc68902-5b67-46b9-9184-de6b2f53b22a",
+          "_type": "link",
+          "href": "/posts/comparison-of-three-resignation-agencies"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "career-comparison-db253315-bf40-4bef-8862-3dd60c974514",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-92ccffe6-acf4-4dda-a3ba-06a897a4d04b",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-6d40e0b4-1d7b-443c-8328-e30627636945",
+          "_type": "span",
+          "marks": [
+            "link-d23fee7e-8414-4593-a38e-2412c2a8f552"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d23fee7e-8414-4593-a38e-2412c2a8f552",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503456468",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503456468-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503456468-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503456468-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503456468-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503456468-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503456468-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503456468-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503456468-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503456468-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-345560db-6847-4a23-be14-c5ecba0dd3a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-57ab1aab-349c-48b9-9d41-5259ab6c30ae",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-care-guide-pathway"
+  },
+  "title": "看護助手の労働基準法改正対応｜2024年新労働時間規制の詳細"
+}

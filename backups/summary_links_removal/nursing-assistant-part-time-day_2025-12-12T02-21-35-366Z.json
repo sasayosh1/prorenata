@@ -1,0 +1,650 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUxTk",
+  "body": [
+    {
+      "_key": "da01961c-8cb0-4ae5-b986-459e28a4e149",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "99f2175f-4d69-4394-9b39-603f02c582d0",
+          "_type": "span",
+          "marks": [],
+          "text": "パート勤務で看護助手を続けると、家庭との両立や体力面とのバランスが取りやすい一方で、限られたシフトのなかでどこまでサポートできるか不安になることもあります。ここでは、日勤パートのタイムラインを例にしながら、現場で意識している段取りや体調管理のコツをまとめました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f252351c-bcee-4215-87ec-158b82576de8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3f3d79be-e95b-4e5b-8b01-1ea8547de9d5",
+          "_type": "span",
+          "marks": [],
+          "text": "出勤前〜申し送り（8:30〜9:00）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d3c11a35-a9d0-4a27-9483-cf986a422a02",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "19d3afa7-d310-49e8-a75b-743f73c72677",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務前にナースステーションへ立ち寄り、夜勤者からの申し送り内容・注意事項を確認します。カルテや連絡ノートだけでなく、リハビリ予定や入浴表もセットでチェックしておくと、短時間でも優先順位が立てやすくなります。必要な物品が足りなければこのタイミングで補充を依頼します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "254228ba-8c2e-4c6b-a24c-80ca50816004",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "030546e0-b162-45d6-abec-146ac8c678bf",
+          "_type": "span",
+          "marks": [],
+          "text": "朝のケアと配膳（9:00〜11:00）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "56000c0d-451c-41f2-b3c5-7c5683d2d697",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "201b4492-7e67-4bed-a9cb-a8eca3df7a9c",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの洗面・整容・着替えをサポートし、朝食の配膳と介助に入ります。食事量や嚥下の様子は看護師に共有するため、メモを手元に置いておくと安心です。入浴や清拭の予定がある患者さんには、衣類とタオルを早めに準備しておくと移動がスムーズです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a1e3c95f-abd4-4e05-b6db-ea290f2f28be",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "066f57f6-f034-48bc-9315-76f822664f23",
+          "_type": "span",
+          "marks": [],
+          "text": "午前後半の環境整備（11:00〜12:30）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "a1e6a583-11b0-4148-a9bb-17c8fd762b95",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c60d51a1-a2ad-4c95-9d44-b08efd54fdc4",
+          "_type": "span",
+          "marks": [],
+          "text": "リネン交換、ゴミ回収、物品補充などをまとめて行います。バイタル測定の補助に入る際は、測定順や計測値をすぐ入力できるよう端末や記録用紙を近くに準備しておきます。携帯する道具を最小限に絞ることで、短い勤務でも集中して動けます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-c02f1c25-8918-4bdc-ba77-bd3edca827b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-79a4c354-7383-40eb-b220-8a1fc63aefca",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5bac8956-1a9e-4099-9f64-78d9774cc762",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9a2e8441-bf24-416d-ab5b-0136bce4c971",
+          "_type": "span",
+          "marks": [],
+          "text": "昼休憩と午後の段取り（12:30〜13:30）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "6e93e14a-a3cc-4285-8c80-e83f3d10d3c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c99eae45-012c-4327-aced-3f32a1a94117",
+          "_type": "span",
+          "marks": [],
+          "text": "食事介助後は片付けと口腔ケアを済ませ、休憩に入ります。休憩中でもステーションの電話対応を交代制にしておくと、急な呼び出しにも対応しやすいです。午後のリハビリや検査予定を確認し、移動介助や書類準備が必要な患者さんを把握しておきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8efc735e-7be6-489f-b0f0-1feeaa653cd2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "81a4b351-2ad5-4578-88e5-943b50cc76ef",
+          "_type": "span",
+          "marks": [],
+          "text": "午後のケアと申し送り準備（13:30〜16:30）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c93cd046-3cdf-463a-985a-98c879be9ee8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8c60da6c-c6a9-4841-af28-14989ac1e655",
+          "_type": "span",
+          "marks": [],
+          "text": "排泄介助や体位変換、物品補充を行いながら、転倒リスクのある患者さんをこまめに見回ります。16時ごろにはカルテ入力や申し送りメモを整理し、患者さんの変化とケア内容を簡潔にまとめて夜勤者へ引き継ぎます。業務フローをさらに掘り下げたい方は"
+        },
+        {
+          "_key": "04ef3a53-9104-4361-aebd-b8a10cc5207d",
+          "_type": "span",
+          "marks": [
+            "ee3a4dcb-abb7-441d-9722-9e4c6c6cfc6b"
+          ],
+          "text": "「看護助手の1日を新人目線で語るブログ記事」"
+        },
+        {
+          "_key": "88f3745f-c352-4cf6-ba1d-2c05e7aa9dd9",
+          "_type": "span",
+          "marks": [],
+          "text": "も参考にしてください。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ee3a4dcb-abb7-441d-9722-9e4c6c6cfc6b",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-care-guide-practice"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "4abd115e-53cd-46ed-932e-6543526847b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6edc3ae9-203d-46b4-88fb-b6a515e5de37",
+          "_type": "span",
+          "marks": [],
+          "text": "パート勤務のメリットと注意点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "25384081-18de-43dd-9a0c-5482babd0563",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "86dc70df-09d4-44ef-919c-a24da2f70af9",
+          "_type": "span",
+          "marks": [],
+          "text": "短時間で働けるぶん、体力の消耗が抑えられ、家事や学びと両立しやすいのがメリットです。その一方で、連絡事項を得る機会が少ないので、勤務開始と終了時の報連相を丁寧に行うことが欠かせません。出勤日が限られる場合は、スケジュール表に「自分が対応できる業務」「代わりに依頼したい業務」を書き分けておくとチームで共有しやすくなります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-5b7f7951-ec96-4a0d-b628-595a376ea06d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-9256e66b-fb66-4b3e-9be3-069da6245868",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-dea67c43-151a-49cd-9e04-a1b75bbbfbbc",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-d1fc4789-18e9-4645-b8c3-57af6aabbd18",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-13d794a8-fe33-4b30-ab16-7b1f9e7ed176",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-f54e3f0c-c383-4992-ab37-a1bbecf9e5b8",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874142138-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874142138-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a781f132-8ee1-4393-8371-da1621cbc568",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4eec54eb-7852-4362-87cd-f6ede8f8ee90",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-30254893-6e01-4434-9099-d77cd8083aab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-0c5f9210-90b1-4daa-a289-a2ac8272cab1",
+          "_type": "span",
+          "marks": [],
+          "text": "パート勤務の看護助手、一日の流れを紹介でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-ecadabe1-986d-4ed9-a54d-ea3f7f264e87",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-635f7f3e-7006-4e41-b0e2-e73b32ae3264",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-dea63f26-e2c2-4026-99e7-47d28b77627b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-cec70bdc-c0df-413d-a575-cc2f2bad9251",
+          "_type": "span",
+          "marks": [],
+          "text": "パート勤務のメリットと注意点の視点で現場で意識したい追加の視点に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-78465932-9e6f-4ede-9a68-771ba30b898e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-a5bd30d8-5c82-4cce-87e7-2aeea99b7b4f",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-2b44ee3f-1684-40b4-97ed-0492b58faf8d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-7df80946-b02f-4ec6-b262-d486c8be7aec",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-4c4ddfa2-bb96-4b0a-a7ac-200224e2ac65",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-01c8b017-1e89-4fb6-8596-16011c0273e7",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-fdfc62d2-9636-491a-8c4e-84ec6d2c5042",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ペンやメモ帳はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-7fa74c1e-ef99-42d2-bb05-d4683a7fb5c2",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">文房具を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "source-0c4d056f-c3bc-4958-a701-30131fc15e59",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-68e9b9a5-65b5-4826-80f9-1bbaafbddb4f",
+          "_type": "span",
+          "marks": [],
+          "text": "参考資料："
+        },
+        {
+          "_key": "span-84a2e2c6-0412-41ae-b25a-48e3d35ac07a",
+          "_type": "span",
+          "marks": [
+            "link-5f6e8eed-f496-4d73-9646-644ef93d9cb0"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-5f6e8eed-f496-4d73-9646-644ef93d9cb0",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503533239",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503533239-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503533239-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503533239-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503533239-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503533239-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503533239-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503533239-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503533239-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503533239-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-96505f57-ca5e-47ac-9ca9-5ecf58249715",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-70e06c84-edfe-4e69-a900-aa981dffdbdf",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-part-time-day"
+  },
+  "title": "パート勤務の看護助手、一日の流れを紹介"
+}

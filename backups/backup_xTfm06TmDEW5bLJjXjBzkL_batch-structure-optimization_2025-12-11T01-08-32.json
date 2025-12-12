@@ -1,0 +1,943 @@
+{
+  "metadata": {
+    "backupDate": "2025-12-11T01:08:32.060Z",
+    "operation": "batch-structure-optimization",
+    "articleId": "xTfm06TmDEW5bLJjXjBzkL",
+    "articleTitle": "看護助手・看護補助者・介護助手・ナースエイドの違いを整理",
+    "articleSlug": "nursing-assistant-terminology-guide"
+  },
+  "document": {
+    "_createdAt": "2025-11-11T23:59:59Z",
+    "_id": "xTfm06TmDEW5bLJjXjBzkL",
+    "_rev": "MSCqfg0XjCNqKYxU4g4Y10",
+    "_system": {
+      "base": {
+        "id": "xTfm06TmDEW5bLJjXjBzkL",
+        "rev": "Reb85AVvrnAV2G6VPwcoNZ"
+      }
+    },
+    "_type": "post",
+    "_updatedAt": "2025-12-10T18:51:05Z",
+    "author": {
+      "_ref": "6c4862df-f90a-45b4-9251-3a57ed95dfe7",
+      "_type": "reference"
+    },
+    "body": [
+      {
+        "_key": "s8p1pntz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "i9778dpq",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手・看護補助者・介護助手・ナースエイドなど、呼び方が複数あるせいで「何が違うの？」と戸惑う声をよく聞きます。結論としては、担当する業務の軸は共通しつつ、勤務先や制度上の位置づけによって名称が変わるケースが多い、というのが実態です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "lmb6fwe2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "19mcp5we",
+            "_type": "span",
+            "marks": [],
+            "text": "本記事では、公的な定義と現場での使い分けを整理し、求人を選ぶ際に確認したいポイントをまとめました。名称だけで判断せず、業務範囲・教育体制・キャリアの見通しをセットで捉えられるようにしておきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c983fbf0a4c3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "94b0c39e3076",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d648si74",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cx96hkxq",
+            "_type": "span",
+            "marks": [],
+            "text": "共通点：どの名称も療養生活を支える補助職"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "diagram-1764767146290",
+        "_type": "image",
+        "alt": "看護助手の用語マスターマップ",
+        "asset": {
+          "_key": "3c0c2d3937804c84adff4b82703e60aa",
+          "_ref": "image-af55b6e18adad69ad4434a3dabfcd95a941d1d10-800x450-svg",
+          "_type": "reference"
+        },
+        "caption": "看護助手の用語マスターマップ"
+      },
+      {
+        "_key": "cjrznf6w",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fecwep6q",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手系の職種に共通するのは「看護師の指示のもと、患者さんの生活を支える」という役割です。医療行為は行わず、療養環境を整えたり身体介助を担ったりすることで、看護師が専門的な判断や処置に集中できるよう支えます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "uc2z3stg",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "sszjhioj",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの食事・排泄・清潔ケアなど生活援助を担当する"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "di8xgit9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "qirj7wk3",
+            "_type": "span",
+            "marks": [],
+            "text": "ベッドメイキングや物品補充など病棟環境を整える"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ns7fflaf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bynyrlss",
+            "_type": "span",
+            "marks": [],
+            "text": "検査への付き添い、記録や搬送など間接業務を支援する"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "j7ztllen",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3epfpulz",
+            "_type": "span",
+            "marks": [],
+            "text": "※看護助手・看護補助者・介護助手・ナースアシスタント（ナースエイド）など名称が違っても、いずれも注射や投薬といった医療行為はできません。医師・看護師の指示を守り、観察した内容を丁寧に共有する姿勢が大切です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "q5t931aw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "v2u4sisk",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "03m2k8vj",
+            "_type": "span",
+            "marks": [
+              "omw3ueva"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "omw3ueva",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "21a92bbce722",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3db1b7c2b588",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2iknjxr7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8uq6qa9l",
+            "_type": "span",
+            "marks": [],
+            "text": "名称ごとのニュアンスと使われ方"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "sg7ri5h8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cl2hlleh",
+            "_type": "span",
+            "marks": [],
+            "text": "どの名称も厚労省の職種分類上は「看護補助者」に含まれますが、施設形態や雇用区分によって呼び方が変わります。求人票では次のような傾向があります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-464ccea6-f128-45a9-b02e-4475dc389694",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-5f956b8e-0dbc-4751-bb3c-d213750c57b8",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-40a0c485-fcd5-4ab8-878a-f0e0aec43916",
+            "_type": "span",
+            "marks": [
+              "link-c68593bb-1da3-4827-823a-b94b3ea3dc72"
+            ],
+            "text": "NsPace Career 看護助手の転職・年収コラム"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-c68593bb-1da3-4827-823a-b94b3ea3dc72",
+            "_type": "link",
+            "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "mga9i3zz",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a17pwcl4",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手 / 看護補助者"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "n2nm39us",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d4v1qtkz",
+            "_type": "span",
+            "marks": [],
+            "text": "病院・診療所で最も一般的な表記です。配置基準や加算（看護補助体制加算 等）に紐づくため、就業規則や人事制度でも「看護補助者」という語が用いられます。研修や評価制度が整っている医療機関ほど、この名称で職責を明確化しているケースが多い印象です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "glqtxscp",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "wphlmjtw",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "iqxdzd5d",
+            "_type": "span",
+            "marks": [
+              "u8fz1msf"
+            ],
+            "text": "日本看護協会 看護補助者活用ガイドライン"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "u8fz1msf",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/nursing/kango_seido/guideline/"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "x2roopib",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "mvv2mgxr",
+            "_type": "span",
+            "marks": [],
+            "text": "介護助手 / 介護補助者"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "afqrfr8a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "tgvgcqjw",
+            "_type": "span",
+            "marks": [],
+            "text": "高齢者施設や地域包括ケア病棟など、介護保険領域に近い職場で使われがちな呼称です。自治体の人材確保事業で「介護助手（サポーター）」を採用し、介護職員初任者研修の受講支援とセットで育成するケースもあります。生活援助が中心で、夜勤の有無や配置単位は事業所ごとに異なります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-fc7a1a4b-dc48-4cf7-816c-22b10ef424d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-fcc9ebb3-f31a-47db-9529-95146a2d1e8b",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-2236ab74-80ee-4fd7-aa5c-fa1018a4ee5c",
+            "_type": "span",
+            "marks": [
+              "link-5606655b-2f40-4c35-a8ff-eefd5fb7c120"
+            ],
+            "text": "日本看護協会 看護補助者の離職状況レポート"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-5606655b-2f40-4c35-a8ff-eefd5fb7c120",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "kkkfmx9z",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "uxtkjvwh",
+            "_type": "span",
+            "marks": [],
+            "text": "ナースアシスタント / ナースエイド"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "zmrilckx",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b7q5farh",
+            "_type": "span",
+            "marks": [],
+            "text": "民間病院や外資系医療グループが英語名称で募集する際によく登場します。業務内容は看護助手と大差ありませんが、英語研修や専門ユニット（手術室サポート 等）を設けてキャリアパスを描きやすくしている例がみられます。求人票では語学力やPCスキルを条件に含めるケースもあります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-1133cbcb-3192-4d6d-8de6-e638191fc997",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-25fe2854-b7d6-4288-b867-6ec7ad8806ea",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-a3a9bad0-8bfb-4b59-9fac-daeed1e87b23",
+            "_type": "span",
+            "marks": [
+              "link-c2b2ca0e-c6ae-4dff-b0db-1cb6083aa6df"
+            ],
+            "text": "日本看護協会 看護サービス提供体制のあり方"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-c2b2ca0e-c6ae-4dff-b0db-1cb6083aa6df",
+            "_type": "link",
+            "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "de348d67f844",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "610651e28c44",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ca5pst4b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4iksmwrv",
+            "_type": "span",
+            "marks": [],
+            "text": "採用条件や賃金表示で確認したいポイント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "u1w2cvl9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "314ow6mu",
+            "_type": "span",
+            "marks": [],
+            "text": "名称が似ていても、勤務シフトや賃金テーブル、福利厚生は施設の区分によって変わります。特に夜勤の有無や病棟配置人数は、働き方の負荷に直結する要素です。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "reference-bb0d6e61-b115-4524-a064-9f510e757002",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "reference-span-label-4b56a6df-1b4b-4e9e-9e63-9f12e2e01b11",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "reference-span-link-4f33c6ad-18b7-412c-800e-b31dbd2c1488",
+            "_type": "span",
+            "marks": [
+              "link-b2405caf-6aeb-460c-a808-7e4e9db7614d"
+            ],
+            "text": "厚生労働省 職業情報提供サイト（看護助手）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-b2405caf-6aeb-460c-a808-7e4e9db7614d",
+            "_type": "link",
+            "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "snzwpj84",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "slolxmuy",
+            "_type": "span",
+            "marks": [],
+            "text": "求人票の「業務内容」欄で、身体介助と環境整備の割合を確認する"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4vc0x0yf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0u60vprx",
+            "_type": "span",
+            "marks": [],
+            "text": "深夜・準夜の有無、週あたりの夜勤回数などシフト条件をできるだけチェックする"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "p9hry68c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "y6vf97wb",
+            "_type": "span",
+            "marks": [],
+            "text": "手当や処遇改善加算の支給対象に含まれるかを確認する"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "pfvxroxx",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0y27n12s",
+            "_type": "span",
+            "marks": [],
+            "text": "賃金水準は地域と施設規模で差がありますが、厚生労働省の賃金構造基本統計調査では看護補助者の平均月給が23万円前後という結果が出ています。求人票が平均とかけ離れている場合は、業務内容や契約条件を詳しく確認しましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "p1leh9dw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6t0xwv7p",
+            "_type": "span",
+            "marks": [],
+            "text": "参考: "
+          },
+          {
+            "_key": "g3o1n83d",
+            "_type": "span",
+            "marks": [
+              "9jwkomwv"
+            ],
+            "text": "厚生労働省 賃金構造基本統計調査（看護補助者）"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "9jwkomwv",
+            "_type": "link",
+            "href": "https://www.mhlw.go.jp/toukei/list/chinginkouzou.html"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "j2m1l8fr",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "jf3vszke",
+            "_type": "span",
+            "marks": [],
+            "text": "キャリア設計に活かすヒント"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "slebge2o",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ilff9ysi",
+            "_type": "span",
+            "marks": [],
+            "text": "名称に惑わされず、学べる内容とフォロー体制を軸にキャリアを描くことが大切です。スキルアップ講座や資格支援がある職場を選べば、介護福祉士・看護師へのステップにもつながります。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "nxqh7abp",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "mhxh1b9d",
+            "_type": "span",
+            "marks": [],
+            "text": "教育担当者がつくOJT制度があるか確認する"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "jwa5r5nw",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "54mvj2mt",
+            "_type": "span",
+            "marks": [],
+            "text": "資格取得支援や通信講座の費用補助があるかを見る"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "l4n7azg2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "64qmzciy",
+            "_type": "span",
+            "marks": [],
+            "text": "評価面談でキャリア希望を伝えられる仕組みがあるか把握する"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "57f3bd0137a0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6f2617bfff97",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "119b371e6b0f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "be5cecc190dc",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-47b51f78-3b7a-46da-9b56-1c50cf4ae90a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-624cbe06-f18c-467f-9f94-1fada1e7d057",
+            "_type": "span",
+            "marks": [],
+            "text": "「キャリア設計に活かすヒント」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-cta-a2755cb4-90c0-499e-a62a-99b3c9410dd9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "affiliate-cta-span-76d7fb17-eed0-494a-affc-342737ae8da4",
+            "_type": "span",
+            "marks": [],
+            "text": "「キャリア設計に活かすヒント」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "internal-link-4219705f-d833-4785-a537-bb290a129779",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "internal-link-span-intro-3f42c96a-1cc2-46ff-80e5-0ab21430e58f",
+            "_type": "span",
+            "marks": [],
+            "text": "詳しくは"
+          },
+          {
+            "_key": "internal-link-span-title-8e8de943-88f6-4d48-ba68-f346bea6ee8b",
+            "_type": "span",
+            "marks": [
+              "link-6ea5c21b-9be4-49ba-aeaf-ae405325807a"
+            ],
+            "text": "「看護助手の労働基準法改正対応｜2024年新労働時間規制の詳細」"
+          },
+          {
+            "_key": "internal-link-span-outro-33f0567f-c50e-4bce-8306-943cb45c891a",
+            "_type": "span",
+            "marks": [],
+            "text": "でも現場のポイントを詳しく解説しています。"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-6ea5c21b-9be4-49ba-aeaf-ae405325807a",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-care-guide-pathway"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "9a179cni",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "tksxm4da",
+            "_type": "span",
+            "marks": [],
+            "text": "まとめ"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "summary-0f4c1972-2829-4523-8ff2-621d3ac109df",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-41077cf2-3705-4e57-b1d0-aa236306e9f9",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手・看護補助者・介護助手・ナースエイドの違いを整理でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-eb705652-f50a-4244-81b1-3cdf105a1c09",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-10b61f23-58e3-4411-ae75-079fdbcbd076",
+            "_type": "span",
+            "marks": [],
+            "text": "すぐに試しやすい行動のヒントは次の通りです。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-67a49b4c-d0e5-437d-a069-1c2161e77171",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-ab44ab73-4194-4789-a08c-693af8f0de3f",
+            "_type": "span",
+            "marks": [],
+            "text": "患者さんの食事・排泄・清潔ケアなど生活援助を担当する"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-e78c5684-4440-4f3a-b166-a6ad094b0a59",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-a0a8a7ac-5690-429e-9706-2e4f5e006d15",
+            "_type": "span",
+            "marks": [],
+            "text": "ベッドメイキングや物品補充など病棟環境を整える"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-bullet-319a5116-cf1c-48ff-82d4-d6744c7c6c62",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-bullet-span-b49c39fd-1df6-4593-a835-c14d29d8e1c9",
+            "_type": "span",
+            "marks": [],
+            "text": "検査への付き添い、記録や搬送など間接業務を支援する"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "summary-e62be12a-43ea-4da9-8e8d-62cec45937b4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "summary-span-20e7a3f5-9aa5-43e5-ae91-362c970cd0e7",
+            "_type": "span",
+            "marks": [],
+            "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "affiliate-5bddae1b-50e6-4243-bc37-de8f7d831ccd",
+        "_type": "affiliateEmbed",
+        "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+        "label": "Amazonで看護助手グッズを探す",
+        "linkKey": "amazon",
+        "provider": "Amazon"
+      },
+      {
+        "_key": "career-comparison-ea74b50f-47f8-4022-91fc-41d1afd585e5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "career-lead-10e9c19e-004d-4b19-8ce6-f6a6a7720720",
+            "_type": "span",
+            "marks": [],
+            "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+          },
+          {
+            "_key": "career-link-4c88cf2e-3acd-44f4-8557-8a72327fcd80",
+            "_type": "span",
+            "marks": [
+              "link-5d313dd7-3c1f-4fc3-85a1-ac743396e7bc"
+            ],
+            "text": "詳しい比較記事を読む"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "link-5d313dd7-3c1f-4fc3-85a1-ac743396e7bc",
+            "_type": "link",
+            "href": "/posts/nursing-assistant-compare-services-perspective"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "disclaimer-34710825-f850-41bd-984a-c7debf86137d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "disclaimer-span-f4338a29-1ba9-481e-8227-1a3061dec41d",
+            "_type": "span",
+            "marks": [],
+            "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "categories": [
+      {
+        "_key": "9eceb925-6e0c-499a-ae27-f685ed8cf377",
+        "_ref": "category-work",
+        "_type": "reference"
+      }
+    ],
+    "description": "看護助手が知っておくべき専門用語をジャンル別に解説。ADL、QOL、バイタルサインなど、基本から応用まで網羅。",
+    "excerpt": "看護助手・看護補助者・介護助手・ナースエイドなど名称が変わる背景と共通点を整理し、求人票で確認すべき業務範囲やシフト条件、キャリア形成のヒントをまとめました。",
+    "internalOnly": false,
+    "mainImage": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-22f1876213831ad3e191cb04b44cf3916990a227-1200x676-png",
+        "_type": "reference"
+      }
+    },
+    "metaDescription": "看護助手・看護補助者・介護助手・ナースエイドの違いを整理について、看護助手として現場で積み重ねた経験をもとに課題の背景と対処法をやさしく解説します。落ち着いて取り組めるポイントやフォローの仕方も紹介し、安心して次の一歩を踏み出せるよう支援します。",
+    "publishedAt": "2025-11-11T23:59:58.893Z",
+    "slug": {
+      "_type": "slug",
+      "current": "nursing-assistant-terminology-guide"
+    },
+    "tags": [
+      "悩み",
+      "看護助手",
+      "患者対応",
+      "転職",
+      "キャリア"
+    ],
+    "title": "看護助手・看護補助者・介護助手・ナースエイドの違いを整理",
+    "views": 7
+  }
+}

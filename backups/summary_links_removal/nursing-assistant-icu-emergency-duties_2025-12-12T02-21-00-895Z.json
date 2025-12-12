@@ -1,0 +1,938 @@
+{
+  "_id": "OPoS2nHFE7kiEoiY47iGiX",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "31cd676c-b4ee-45bb-bd47-f8f31487e62d",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU（集中治療室）や救急病棟は、命に関わる重症患者さんが多く入院しており、医療現場の中でも特に緊迫感のある場所です。看護助手は、看護師の指示のもと、患者さんのケアや環境整備を通じて、医療チームを力強くサポートします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "684bbce70eea",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "31cd676c-b4ee-45bb-bd47-f8f31487e62d",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、ICU・救急病棟での看護助手の具体的な業務内容と、働く上で求められる資質を解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "760efda23a3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1be4c277827f",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "76758fd2-120e-4079-a3a9-fdf84dc908d0",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟における看護助手の役割"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0dc56428-bdf8-4a17-affd-01041140694f",
+          "_type": "span",
+          "marks": [],
+          "text": "ICUや救急病棟では、患者さんの状態が不安定なことが多いため、看護助手には以下のような役割が求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d8986918-6fad-452f-a5d9-dc0594358ee6",
+          "_type": "span",
+          "marks": [],
+          "text": "緊迫した状況での迅速なサポート"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "96acc33870be",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d8986918-6fad-452f-a5d9-dc0594358ee6",
+          "_type": "span",
+          "marks": [],
+          "text": "急変時など、看護師の指示のもと素早く行動し、患者さんの安全確保に貢献します。例えば、急変時に必要な物品（酸素マスクや吸引器など）を迅速に準備したり、患者さんの状態を観察し、変化があればすぐに看護師に報告したりすることが求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db662ebd-dba9-4167-87dc-b39597ace05a",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの安全確保と清潔ケア"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "70658a510483",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db662ebd-dba9-4167-87dc-b39597ace05a",
+          "_type": "span",
+          "marks": [],
+          "text": "重症患者さんの身体介護や清潔ケアを丁寧に行い、感染予防にも努めます。特に、長期臥床の患者さんの場合は、褥瘡（床ずれ）予防のための体位変換や皮膚の観察が重要になります。感染予防のため、手洗いや消毒を徹底し、清潔な環境を維持することが求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "886a43b9-72a8-43cd-8f1b-a196401eb2a2",
+          "_type": "span",
+          "marks": [],
+          "text": "医療機器に囲まれた環境での業務"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "2ed05d61e569",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "886a43b9-72a8-43cd-8f1b-a196401eb2a2",
+          "_type": "span",
+          "marks": [],
+          "text": "様々な医療機器が設置されている中で、安全に業務を行う知識と注意力が求められます。点滴や呼吸器、モニターなど、多くの医療機器が患者さんの状態維持に使用されています。これらの機器の配線に注意し、安全に移動したり、清掃したりする必要があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-5dc3020f-b06a-48b8-9813-bd6f44d1ecc6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-e901e92f-d3bb-43ac-b405-d71e36b98ca6",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "56c5e17d1e3c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e8c340d33988",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dcfd6d9e-fc5e-48fc-9217-c559691a6aa9",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟での具体的な業務内容"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e770bb2e-af6d-47c2-a6b2-bcd168ab312b",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの身体介護"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "hc4ftnlmkuss",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "djvlqwxtscsg",
+          "_type": "span",
+          "marks": [],
+          "text": "ICUや救急病棟では、重症の患者さんが多く、身体介護は特に慎重かつ丁寧に行う必要があります。ここでは、具体的な身体介護の補助業務を見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5f041f17-fa7e-4da1-8d45-305c08f83be1",
+          "_type": "span",
+          "marks": [],
+          "text": "清潔ケア：清拭、口腔ケア、洗髪など、患者さんの体を清潔に保ちます。清拭では、皮膚の状態を観察し、乾燥や発赤などがあれば看護師に報告します。口腔ケアは、感染症予防だけでなく、患者さんの快適性向上にもつながります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0e7358d9-0540-44d2-b908-59edf5ad196d",
+          "_type": "span",
+          "marks": [],
+          "text": "排泄介助：おむつ交換やポータブルトイレの準備など、患者さんの尊厳を守りながら行います。排泄物の量や状態を観察し、異常があれば看護師に報告します。おむつ交換時には、皮膚トラブルがないか確認し、必要に応じて保湿剤を使用します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fabfc927-5d54-4372-8fc8-65b55aa23c8e",
+          "_type": "span",
+          "marks": [],
+          "text": "体位変換：床ずれ（褥瘡）予防のため、定期的に患者さんの体位を変えます。一般的には、2時間おきに体位変換を行うことが多いです。体位変換時には、皮膚の状態を確認し、圧迫されている部位を避けるように注意します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-4b846909-65f0-4ac9-9ec6-c438a0d335a0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-8eb8699f-b05e-4620-8559-39b6d74c2794",
+          "_type": "span",
+          "marks": [],
+          "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c2b6fa21-375b-4d27-ae08-5952e72f118d",
+          "_type": "span",
+          "marks": [],
+          "text": "環境整備と物品管理"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "0jwzls7ihwfg",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "tes304a26651",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの命に関わる重要な医療機器が多数設置されているため、常に清潔で機能的な環境を維持することが求められます。物品の管理も非常に重要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-9ebf433d-216d-4ebb-8da9-e3d0e08b92c6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-e7bb461e-64f1-41cb-b36e-f0a49a15aad6",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-0d05cb8e-c458-473d-a345-7ee66ded5a37",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-24039697-af45-4c19-9b87-b5b8951bbcc4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-80e76ed5-7f38-462a-98d7-c59e60be2d8e",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-afc84cd6-5d4d-4de0-9613-98d54c0e56b9",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "15fe9f0c-094f-4b41-99d6-1e3ef2328589",
+          "_type": "span",
+          "marks": [],
+          "text": "病室の清掃、ベッドメイキング：清潔で安全な療養環境を維持します。感染予防のため、清掃時には消毒液を使用し、特に患者さんが触れる可能性のある場所は丁寧に清掃します。ベッドメイキングは、シーツのしわをなくし、患者さんが快適に過ごせるように行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7981273a-dc4b-49e5-a3e7-2096f2d9fd57",
+          "_type": "span",
+          "marks": [],
+          "text": "医療機器の準備、消耗品の補充：必要な物品がすぐに使えるように準備します。酸素ボンベの残量を確認したり、ガーゼや消毒液などの消耗品を補充したりします。医療機器の動作確認を行い、異常があればすぐに報告します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-e9310a1e-aa50-41e4-94a5-e9cfafb9f8c2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-30e19f9f-d340-498e-9dfd-da18b328f016",
+          "_type": "span",
+          "marks": [],
+          "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e2f27b68-b7a9-4b1f-ba12-16acd409a7ea",
+          "_type": "span",
+          "marks": [],
+          "text": "医療チームの補助"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "8jtsb3cxcffs",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "j6ftlf9g7vbz",
+          "_type": "span",
+          "marks": [],
+          "text": "ICUや救急病棟では、医師や看護師が高度な医療行為に集中できるよう、看護助手の迅速かつ的確な補助が不可欠です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-0546cf35-9238-47b4-8f39-033dd3f33d5a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-82cbac68-e7df-4951-ac09-b09c9cb44277",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "88db7d8a-8a8e-4cd7-b157-94d4821d200a",
+          "_type": "span",
+          "marks": [],
+          "text": "検査や処置の準備：看護師の指示のもと、必要な器具や物品を準備します。例えば、レントゲン検査に必要な物品を準備したり、手術に必要な器械出しを補助したりします。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3b36eac8-0a71-41e0-ad08-ddc168cc2927",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの移送：検査室などへの患者さんの安全な移送を行います。患者さんの状態に注意しながら、安全に移動させることが重要です。移送時には、医療機器の配線が邪魔にならないように注意します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "721c1c7c-78f1-4b27-b552-4144fb523d46",
+          "_type": "span",
+          "marks": [],
+          "text": "緊急時の物品補充：急変時など、迅速に看護師をサポートします。急変時には、アドレナリンや酸素マスクなど、必要な物品を迅速に看護師に届けることが求められます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-a385fb2e-5f89-4c9f-802c-11e19e552683",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-6d21dd8d-e1c5-452a-b7a0-6bcf2eafd90a",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟での具体的な業務内容では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6b16ffd2fa15",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "25b88b5f8c88",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "620edcc0-1e7e-4d98-9e51-883f03bd617c",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟で働く看護助手に求められる資質"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "vvztanitvg71",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "k9kayjybv391",
+          "_type": "span",
+          "marks": [],
+          "text": "重症患者さんのケアを補助するICUや救急病棟では、一般病棟とは異なる、より高度な資質が看護助手に求められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6c681218-a1bb-49e0-89cc-3218728d3bb4",
+          "_type": "span",
+          "marks": [],
+          "text": "迅速な判断力と行動力：緊迫した状況でも冷静に対応し、看護師の指示を素早く実行できる。例えば、患者さんの容態が急変した場合、速やかに応援を呼んだり、必要な物品を準備したりするなどの行動が求められます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "w3x4y5z6u1v2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4b72084b-873a-4ceb-93e0-11b38f7f454c",
+          "_type": "span",
+          "marks": [],
+          "text": "観察力：患者さんのわずかな変化にも気づき、速やかに看護師に報告できる。患者さんの表情、呼吸、皮膚の色、バイタルサインの変化など、注意深く観察し、異常があればすぐに看護師に報告することが重要です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "x4y5z6u1v2w3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9341ddd1-0ef6-4723-9b94-01b7fe94fafd",
+          "_type": "span",
+          "marks": [],
+          "text": "精神的な強さ：重症患者さんとの関わりや、命に関わる現場でのプレッシャーに耐えられる。重症患者さんのケアは精神的な負担が大きいため、ストレスを適切に解消し、精神的な健康を維持することが大切です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-6da2d60a-fcc4-4e2c-bda9-5053351b6595",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-5198ad80-b020-42e9-8c3b-e3a403a3cf94",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-71bd4124-12f0-438c-bc9b-619b7e6ceb69",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "y5z6u1v2w3x4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "031cbe72-a362-4b24-aaff-48a02c311765",
+          "_type": "span",
+          "marks": [],
+          "text": "チームワーク：多職種と連携し、協力して患者さんを支えることができる。医師、看護師、理学療法士など、様々な職種と協力して患者さんのケアを行うため、コミュニケーション能力や協調性が求められます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819753248-uzvi4pyvo",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819753248-tya7c1c24",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-5d4e9088-2269-4ce1-9e06-c3e9bcfe80bc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-5bcfd37e-44a5-46d3-9f3b-89678c81ffc3",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-e9684311-c147-4236-b7a4-47e913cfa33c",
+          "_type": "span",
+          "marks": [
+            "link-08f22d35-fe99-42e5-8ed5-3b6f4aaeea62"
+          ],
+          "text": "「「看護助手 底辺」と見かけたときの胸のざわつきについて」"
+        },
+        {
+          "_key": "internal-link-span-outro-c217ceeb-ce8e-400d-9715-c802f8d4a363",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-08f22d35-fe99-42e5-8ed5-3b6f4aaeea62",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-bottom-myth"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819753248-ycaqvfql9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819753248-dbz3hvkcs",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-68f84c7a-6bf8-474f-8fa5-3d5ce958dfd6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ad618a50-c9cd-440f-9da5-50c818ec8d82",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟での看護助手業務｜重症患者ケアの補助でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-f9fc2a69-d6a7-4fd7-8045-e6fb0a516f13",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-7d0f681c-6b1a-4f58-adcf-76955730717e",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-b1b76ddf-40cd-4c18-818b-a8aa5112c040",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-8e15a004-c5b1-440d-89e6-6b2a72773406",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟における看護助手の役割の視点で緊迫した状況での迅速なサポートに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-93d2f945-6cd5-4d46-b341-508b746c9853",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-2933c7b3-8910-4e1d-a4b3-ff544dfcf07c",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟における看護助手の役割の視点で患者さんの安全確保と清潔ケアに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-d28d37ff-3e4f-46ee-8ec0-20a73839feb7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-67309a5d-c73b-46de-8b85-3e8bb7957a78",
+          "_type": "span",
+          "marks": [],
+          "text": "ICU・救急病棟における看護助手の役割の視点で医療機器に囲まれた環境での業務に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-f9c9b6d0-4127-47d2-9e7e-f524fb44f742",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-14cab175-f60d-418b-a1c3-8d26defc0fed",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-8210c224-0b1e-4d9a-a448-1fd11f9d58b3",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">備品や消耗品はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-86cf9be4-a0fd-4a1a-b372-1cd8f0e97794",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "source-1afde085-257e-485e-b9f6-fe4e2e1740f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-2de52732-5577-437b-9db1-ee1341981b90",
+          "_type": "span",
+          "marks": [],
+          "text": "参考資料："
+        },
+        {
+          "_key": "span-8c7ee373-5250-4fa0-995f-3cd19e0ecd1d",
+          "_type": "span",
+          "marks": [
+            "link-cf561b2f-9ce4-4d72-ad7f-a021798c9821"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-cf561b2f-9ce4-4d72-ad7f-a021798c9821",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-head-1765503475644",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "related-link-1765503475644-0",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503475644-0"
+          ],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503475644-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-patient-safety"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503475644-1",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503475644-1"
+          ],
+          "text": "Speech Bubble Feature Test"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503475644-1",
+          "_type": "link",
+          "href": "/posts/speech-bubble-test-1764822894333"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "related-link-1765503475644-2",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [
+            "rel-link-1765503475644-2"
+          ],
+          "text": "シフトの悩み解決！夜勤・希望休・人間関係を乗り越える働き方と、有給取得のコツを徹底解説"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "rel-link-1765503475644-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-2e0e6dee-f6ad-4e44-a75b-8b46a9c9558e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-16c299d8-3f2e-4d4c-acd3-c1495d2bf72b",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-icu-emergency-duties"
+  },
+  "title": "ICU・救急病棟での看護助手業務｜重症患者ケアの補助"
+}
