@@ -27,6 +27,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251206,/posts/nursing-assistant-medical-terms,mobile,Japan,4,4,27,0.5,151.62836775
 20251207,/posts/nursing-assistant-medical-terms,mobile,Japan,4,3,25,0.75,179.55566525
 20251210,/,desktop,Japan,4,3,59,0.75,95.94165175
+20251211,/posts/nursing-assistant-salary-differences,desktop,Japan,4,1,23,0.5,5.87372075
 20251115,/,desktop,Japan,3,1,29,0.3333333333333333,13.528130333333332
 20251117,/,desktop,Japan,3,1,41,1.0,1383.2402686666667
 20251117,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,11,0.6666666666666666,1.9761003333333333
@@ -289,3 +290,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251210,/posts/nursing-assistant-recommended-shoes,desktop,Russia,1,1,4,1.0,16.073872
 20251210,/posts/nursing-assistant-resignation-advice-long,mobile,Japan,1,1,14,1.0,19.919013
 20251210,/terms,desktop,Japan,1,1,4,1.0,2.328316
+20251211,/,desktop,Japan,1,1,12,1.0,22.536526
+20251211,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,9,1.0,203.858036
+20251211,/posts/nursing-assistant-qualification-guide,mobile,Japan,1,1,6,1.0,28.008911
+20251211,/quiz,desktop,Japan,1,1,1,1.0,5.000729
+20251211,/quiz/rankings,desktop,Japan,1,1,1,1.0,29.932903
