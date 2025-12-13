@@ -11,28 +11,42 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      should_run: ${{ steps.safety.outputs.should_run }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Check last run timestamp (24h safety)
+        id: safety
         run: |
           LAST_RUN_FILE=".github/last_run_timestamp"
           NOW_TS=$(date +%s)
+          SHOULD_RUN=true
 
           if [ -f "$LAST_RUN_FILE" ]; then
-            LAST_RUN_TS=$(cat "$LAST_RUN_FILE")
-            ELAPSED=$(( NOW_TS - LAST_RUN_TS ))
-            if [ $ELAPSED -lt 86400 ]; then
-              echo "This workflow ran less than 24 hours ago (${ELAPSED}s). Exiting to save API cost."
-              exit 1
+            LAST_RUN_TS="$(cat "$LAST_RUN_FILE" | tr -d '\n\r' || true)"
+            if [[ "$LAST_RUN_TS" =~ ^[0-9]+$ ]]; then
+              ELAPSED=$(( NOW_TS - LAST_RUN_TS ))
+              if [ "$ELAPSED" -lt 86400 ]; then
+                echo "This workflow ran less than 24 hours ago (${ELAPSED}s). Skipping to save API cost."
+                SHOULD_RUN=false
+              fi
+            else
+              echo "WARN: last_run_timestamp is missing/invalid; continuing."
             fi
+          fi
+
+          echo "should_run=$SHOULD_RUN" >> "$GITHUB_OUTPUT"
+          if [ "$SHOULD_RUN" = "false" ]; then
+            exit 0
           fi
 
           echo "$NOW_TS" > "$LAST_RUN_FILE"
 
       - name: Commit timestamp file
         uses: stefanzweifel/git-auto-commit-action@v5
+        if: steps.safety.outputs.should_run == 'true'
         with:
           commit_message: "chore: update last_run_timestamp for safety check"
           file_pattern: ".github/last_run_timestamp"
@@ -40,6 +54,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     needs: safety-check
+    if: needs.safety-check.outputs.should_run == 'true'
     permissions:
       contents: read
       issues: write
