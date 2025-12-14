@@ -213,7 +213,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
       paragraphClass = `leading-relaxed text-gray-900 [&]:!text-gray-900 mb-2 mt-6`
     } else if (inlineAffiliateType === 'link' || isAffiliatePrBlock) {
       // [PR]リンクは薄いブルーの背景色で表示（枠線なし）
-      paragraphClass = `leading-relaxed text-black bg-sky-50 rounded-lg px-4 py-3 text-sm mb-6`
+      paragraphClass = `leading-relaxed text-black bg-[#EFF6FF] rounded-lg px-4 py-3 text-sm mb-6`
     }
   } else if (hasInternalLink) {
     // 「あわせて読みたい」等で、段落が内部リンク1本だけの場合はカード装飾（ピンク枠）を付けない
