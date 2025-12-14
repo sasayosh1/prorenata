@@ -1,0 +1,1073 @@
+{
+  "_id": "k3FMiqj9KhfIHCxGVvImgt",
+  "body": [
+    {
+      "_key": "8721e58d-aa9c-4a5c-a80c-76e19289432b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "083958e8-3e50-4a65-904f-a11cde846fb7",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の職場選び｜自分にぴったりの環境を見つける重要性"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "3516397a-4c9a-4c8a-9f12-c70d4dac69eb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bbbee0d3-09a8-401b-8013-c7bc931e9c3b",
+          "_type": "span",
+          "marks": [],
+          "text": "「急性期の医療現場でスキルを磨きたい」「患者さんとじっくり向き合いたい」「家庭と両立できる働き方がしたい」など、あなたの希望は様々でしょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8d83d031-fc78-4634-aa72-a3d074caca07",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fe1548ee-7fde-465c-837f-2a0053ad9c45",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、代表的な3つの職場（病院・クリニック・介護施設）の特徴を徹底比較し、あなたが本当に輝ける場所を見つけるためのガイドを提供します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-e5014844-c7ec-49bd-b5fd-36b89a9c8b2f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-4b6e9d64-d7bf-4560-80b3-21150c133be1",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-eaf6e2c3-0f14-48d0-87e0-0fa9156fb227",
+          "_type": "span",
+          "marks": [
+            "link-a0dca721-ab7f-472b-82af-b9885f061678"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-a0dca721-ab7f-472b-82af-b9885f061678",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "70afecad-6d7e-4406-83f1-05507225ba81",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8e61c344-0a77-44d2-a1b6-8d83b8b64d42",
+          "_type": "span",
+          "marks": [],
+          "text": "【徹底比較】病院 vs クリニック vs 介護施設"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "6093e662-9eab-4d18-939d-abff37d8cbf8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "391efa8d-0635-4e40-84de-825d826ef707",
+          "_type": "span",
+          "marks": [],
+          "text": "それぞれの職場の特徴を、「業務内容」「求められるスキル」「メリット・デメリット」の観点から詳しく見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "dbdb0ce3-a498-4ea7-9bf4-f612a20e48f3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c4627929-db7b-4a48-b685-285e303355bf",
+          "_type": "span",
+          "marks": [],
+          "text": "1. 病院（大学病院、一般病院など）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b4757939-ca77-4e3d-9f52-4eea1eaf8925",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8f276925-8e08-4039-ac81-c812f1717128",
+          "_type": "span",
+          "marks": [],
+          "text": "病院は、看護助手の最も代表的な職場です。病床数や機能によって、急性期、回復期、慢性期など、様々な役割を担っています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "796c80fa-483f-4604-95a6-5a35debf8def",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "efee7d00-7fb6-484c-b5fe-f41dba4a5318-900ae9f3-fd59-45c2-8ff0-032d6d9b1233",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "主な業務内容"
+        },
+        {
+          "_key": "efee7d00-7fb6-484c-b5fe-f41dba4a5318-c4ac0563-03ee-4431-9864-f493e9561852",
+          "_type": "span",
+          "marks": [],
+          "text": ": 入院患者さんの身の回りのお世話（食事、入浴、排泄介助）、ベッドメイキング、環境整備、メッセンジャー業務、看護師の補助業務など、多岐にわたります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "f59a7b3c-995f-4070-9b52-2488f8927477",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "527c35f8-b3c8-4126-a03d-aaddf4cf1d7e-c1b0964d-8ded-405d-8040-a7c489ea8758",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "求められるスキル"
+        },
+        {
+          "_key": "527c35f8-b3c8-4126-a03d-aaddf4cf1d7e-e16bd67d-4bb0-42f6-83e1-1b797abfcfa9",
+          "_type": "span",
+          "marks": [],
+          "text": ": スピードと正確性、多様な疾患への知識、医療チームの一員として連携するコミュニケーション能力、体力。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "a2c7ecba-4048-43d5-8f95-82669a431df4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "46e78cc5-442c-42bd-a39c-fcf3ffa86fd8-8953d9cc-8c7a-4841-8094-634b09b73a7f",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "メリット"
+        },
+        {
+          "_key": "46e78cc5-442c-42bd-a39c-fcf3ffa86fd8-bab0bb23-19b9-4231-9f2c-ab4a146a0bd9",
+          "_type": "span",
+          "marks": [],
+          "text": ": 教育体制が整っていることが多い。最先端の医療に触れられる。多様な症例を経験できる。キャリアアップの道筋が豊富。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "449e32f8-f19f-4d04-a33d-656bd7a7d09f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8f086faa-529a-4e5e-aea7-7c18522fd141-4011063f-7104-4b64-b800-30427300a6f8",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "デメリット"
+        },
+        {
+          "_key": "8f086faa-529a-4e5e-aea7-7c18522fd141-198dfea5-1dce-4436-95d2-b8dffc7db8cf",
+          "_type": "span",
+          "marks": [],
+          "text": ": 忙しく、精神的・身体的な負担が大きい。夜勤がある場合が多い。業務が細分化されていることがある。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-61c8247e-adc7-452c-a4ed-8dcb761da71b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-0c37d38d-0baf-47d4-a7fe-ee9a331f3a57",
+          "_type": "span",
+          "marks": [],
+          "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ec72096d-b4e9-4b4a-b06a-f82d12790cf6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6fd0aff1-2b62-4557-8571-d8af0274d410",
+          "_type": "span",
+          "marks": [],
+          "text": "2. クリニック（診療所）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "medical-notice-fe771768-c60c-4b3e-b165-dedf1ff2e389",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-aa6997ef-16a1-42cc-bb6c-fc5ac87f7eb4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "087a00b1-8c49-4e94-8560-e56bea6e054f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "799d3460-a269-44eb-875b-11772fa27b37",
+          "_type": "span",
+          "marks": [],
+          "text": "クリニックは、地域に密着した外来診療が中心の医療機関です。入院設備がない、または19床以下の小規模な施設を指します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e16bb3ef-8a49-48fc-a6a0-c83da18ffffe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "465f2125-59d1-406c-84a4-02c019849a80-c5cb90a6-46c3-4291-b7da-999295844997",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "主な業務内容"
+        },
+        {
+          "_key": "465f2125-59d1-406c-84a4-02c019849a80-15c4f702-2d47-40c8-bac9-67abc5ea421e",
+          "_type": "span",
+          "marks": [],
+          "text": ": 診察の補助、医療器具の準備・洗浄・滅菌、院内の清掃、受付や会計の補助など。看護業務と医療事務を兼務することも。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "595cc8b2-d88b-49a8-a393-cf8630a090ed",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d2e13bb5-cd13-4f83-8614-492bb3b84d59-67165cad-6efd-4465-81fb-6db532a9e8bf",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "求められるスキル"
+        },
+        {
+          "_key": "d2e13bb5-cd13-4f83-8614-492bb3b84d59-45e81786-da33-4cc3-9016-c5eabd83b5d2",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんへの丁寧な対応、幅広い業務を臨機応変にこなす能力、基本的なPCスキル。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "73b7ecd2-8616-45e6-8693-cea9439b3daf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "31f7fdcb-16e8-495b-bee9-c5d6555e7d96-96084db2-737e-442e-94b1-efaa978bf253",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "メリット"
+        },
+        {
+          "_key": "31f7fdcb-16e8-495b-bee9-c5d6555e7d96-829da478-b932-4b5a-8c58-c230b7be8fbb",
+          "_type": "span",
+          "marks": [],
+          "text": ": 夜勤がなく、日曜・祝日が休みのことが多いため、プライベートとの両立がしやすい。患者さんとの距離が近い。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "95472ed6-a316-4255-af6c-8b16cce079d6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b1960df6-41b0-48f3-a36d-790bb50d96b3-1e050fa9-2cb8-4a1e-8ab8-5779ac441c01",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "デメリット"
+        },
+        {
+          "_key": "b1960df6-41b0-48f3-a36d-790bb50d96b3-c726f720-40c9-4099-a047-7089e4a60af6",
+          "_type": "span",
+          "marks": [],
+          "text": ": 求人数が病院に比べて少ない。教育制度が整っていない場合がある。経験できる症例が限られる。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-5ff69fc8-dbce-4010-a177-776ae987ea13",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-9388a648-7405-4a6a-96bc-60017ac1f434",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-a983980c-b457-4b9f-8034-f3a115736f41",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-a6dc851b-bd6f-4f10-9baf-9fbf83e67f39",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-3be6b20a-9bb2-4092-b8fa-778efa891ae4",
+          "_type": "span",
+          "marks": [
+            "link-48a3cc83-48df-4524-9b5f-d6de7f782033"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-48a3cc83-48df-4524-9b5f-d6de7f782033",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "245a2e13-1e69-4be0-8a06-8f77e1bbbbaa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "675a9516-bb2f-47fc-8a73-56e221cd1e76",
+          "_type": "span",
+          "marks": [],
+          "text": "3. 介護施設（特別養護老人ホーム、介護老人保健施設など）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "75291ae5-859e-46e6-b39f-2406eb3a24e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d976f941-f52d-461f-8248-f6e35cf96559",
+          "_type": "span",
+          "marks": [],
+          "text": "介護施設は、病気の治療よりも、利用者さんの日常生活の支援に重点を置いた施設です。看護助手は「介護職員」として働くことが一般的です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0d0840f2-c3ba-4a25-8dde-cc3209f62df2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d664663b-7241-4ddc-8b24-1a9f7c484be5-c152053b-5313-4f9a-8e46-c27fe9c67d4c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "主な業務内容"
+        },
+        {
+          "_key": "d664663b-7241-4ddc-8b24-1a9f7c484be5-68072cf0-663d-474d-b2ab-bccaff5e9f71",
+          "_type": "span",
+          "marks": [],
+          "text": ": 食事、入浴、排泄などの身体介護、レクリエーションの企画・実施、利用者さんとのコミュニケーションが中心。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "b13fdbe5-3427-4650-8f47-77b934490202",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e225cb32-d2af-4e1a-87ce-db0246e489cf-f463e9a5-c7c0-4ea3-976a-3d695368409e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "求められるスキル"
+        },
+        {
+          "_key": "e225cb32-d2af-4e1a-87ce-db0246e489cf-6014af85-b895-45a9-b071-94b3892767e4",
+          "_type": "span",
+          "marks": [],
+          "text": ": 利用者さんの尊厳を守る介護技術、認知症など高齢者特有の状態への理解、利用者さんに寄り添う共感力。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "fa4d6cea-77f9-4a60-a4e3-46d02921fc2f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ee5e81d4-de3a-4273-86ee-c92be4dfb205-127bd62c-bf73-4f3b-ad05-aa29db65b4f8",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "メリット"
+        },
+        {
+          "_key": "ee5e81d4-de3a-4273-86ee-c92be4dfb205-21d3173b-893f-4a2a-bae9-059cfe244692",
+          "_type": "span",
+          "marks": [],
+          "text": ": 利用者さんと長期的に関わり、深い信頼関係を築ける。医療行為がほとんどないため、精神的なプレッシャーが少ない。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "963eaf1c-c7cd-485b-be0e-177531ccdb58",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fe8b32c6-7de7-4a1b-ac0e-f25dc972cd90-291258d4-3c84-476f-9bc4-e968500017de",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "デメリット"
+        },
+        {
+          "_key": "fe8b32c6-7de7-4a1b-ac0e-f25dc972cd90-22258df6-700a-43a4-b571-e151c7fa62a1",
+          "_type": "span",
+          "marks": [],
+          "text": ": 身体介護の割合が高く、体力が求められる。給与水準が医療機関に比べて低い傾向にある。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-b5de2cca-5c33-4c54-9209-aadc56255300",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-1a9825df-b419-4b5e-a254-f62f54df3c30",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-4bec2950-335d-4efd-901c-09e38ad00aa2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-4303093c-6582-42bb-8daf-56f6af8dfc39",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-d10613ba-ae17-4346-9518-b22e7adcbbd6",
+          "_type": "span",
+          "marks": [
+            "link-7de3fedd-919d-4048-a405-1f17044f9bc7"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-7de3fedd-919d-4048-a405-1f17044f9bc7",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "557c57d8-adbd-497c-9a26-a0720c38839c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7af80850-a69d-4bdf-b096-e692c7d2e37b",
+          "_type": "span",
+          "marks": [],
+          "text": "あなたに合う職場は？3つの診断軸で自己分析"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "3a6b72fe-a9e0-400b-a77e-cc9e373be4ec",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b691498e-451c-4bf5-a038-598e722e7660",
+          "_type": "span",
+          "marks": [],
+          "text": "自分にぴったりの職場を見つけるために、以下の3つの軸で自分の希望を整理してみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ad01e988-2706-41a3-b4c6-17096d0666d0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8e6822bb-1b69-486f-a4af-60fca438b03f",
+          "_type": "span",
+          "marks": [],
+          "text": "診断軸1：どんなケアを提供したいか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "5219a7f1-2867-48fc-a27b-9ad320adb9dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0b1a3b86-a14b-48f2-aaeb-2dbbf4ccb43f-8f78b4c2-39d3-4d70-a1a3-91a2541d8628",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "医療的ケアに関わりたい、スキルアップしたい"
+        },
+        {
+          "_key": "0b1a3b86-a14b-48f2-aaeb-2dbbf4ccb43f-73845d78-2aeb-4cc9-ac8d-4e744e1ffba0",
+          "_type": "span",
+          "marks": [],
+          "text": " → 病院（特に急性期）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "6d4a70d7-0e56-4707-96cd-851a3d4d2c5d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "898aebd5-e89d-49af-88fb-355fb00b587c-21e3ff7d-9eb9-4b2b-b454-587a0c3d9bbc",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "一人ひとりの生活にじっくり寄り添いたい"
+        },
+        {
+          "_key": "898aebd5-e89d-49af-88fb-355fb00b587c-cae6e46d-1c14-41fe-8e71-3854f8035cca",
+          "_type": "span",
+          "marks": [],
+          "text": " → 介護施設、病院（慢性期）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "dad02c3d-42c2-4ddc-9309-c2eba20456e8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "32dcc06e-5c11-41fd-87b3-134f6e3b5f40-687a53bc-0b91-4167-b9d8-46694c456ebd",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "地域の人々の健康を支えたい"
+        },
+        {
+          "_key": "32dcc06e-5c11-41fd-87b3-134f6e3b5f40-584c7403-c436-4c24-8eeb-48b14339c7e3",
+          "_type": "span",
+          "marks": [],
+          "text": " → クリニック"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-199e518e-3733-441d-bbab-5c11113df53f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-a3706707-16de-447c-b19f-475181912e87",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e5c11e51-4a4e-4dc3-80cf-976e5d97dfc3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6e70026c-5593-496a-b136-bf48679247f7",
+          "_type": "span",
+          "marks": [],
+          "text": "診断軸2：どんな働き方をしたいか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "1f9a531d-20c5-4c6c-8fb0-0e09fdfa61e2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4bb06744-11d7-403f-960e-794112735e55-4b9cc0b2-ff10-4307-9456-58fb18ff3137",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "チームで協力しながら働きたい"
+        },
+        {
+          "_key": "4bb06744-11d7-403f-960e-794112735e55-38683156-2839-4893-8df3-7d37adf0a67a",
+          "_type": "span",
+          "marks": [],
+          "text": " → 病院"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "11203a91-ee61-49e2-9c3b-95eaa8c30464",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dd08307f-d2cb-4050-9060-a846b166ff6a-d04530d8-84a8-4489-ba44-e55ca88a1550",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "自分のペースで、幅広い業務をこなしたい"
+        },
+        {
+          "_key": "dd08307f-d2cb-4050-9060-a846b166ff6a-de740fa4-f272-40ba-b657-e21ceaed5dd8",
+          "_type": "span",
+          "marks": [],
+          "text": " → クリニック"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "6dd98040-d346-463c-8eb7-8efd8c9ef4f2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "96dcd824-6bd4-43b6-9253-d8ef07ba8eee-f18bfd8c-6bf0-49c0-af04-6dc8f2eb3b08",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "家庭やプライベートと両立させたい"
+        },
+        {
+          "_key": "96dcd824-6bd4-43b6-9253-d8ef07ba8eee-dbc6d0a5-ffd6-4c0a-8226-34047bf0a1c0",
+          "_type": "span",
+          "marks": [],
+          "text": " → クリニック、デイサービスなどの介護施設"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-32ce7676-b2e7-4fce-9a50-63f35682cc4e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-62b45ba7-6b66-4ee3-8c30-6f7ba36a9d56",
+          "_type": "span",
+          "marks": [],
+          "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3f2dfb12-40cc-4ae8-ab29-ef2dce55c51b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "86eeaabb-ed99-4135-8d6e-24bc0256f35b",
+          "_type": "span",
+          "marks": [],
+          "text": "診断軸3：何を学びたいか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "6edd1996-1b9b-4349-ae90-59d49509420b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1bbadb01-d5f2-46ad-99bf-68047aa43601-f26e1dab-1e8e-4108-8dc4-7a50a3e6292c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "最先端の医療や多様な疾患について学びたい"
+        },
+        {
+          "_key": "1bbadb01-d5f2-46ad-99bf-68047aa43601-41d691d9-3106-487f-b5f8-f7d05ff13a3d",
+          "_type": "span",
+          "marks": [],
+          "text": " → 大学病院、総合病院"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "658d8210-5672-4366-ad61-9cf19b420d3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "55163317-7787-4fd5-ace4-c12e5e210183-5f60c1c5-1eb2-4a66-ac73-7da479ef3f94",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "高齢者ケアや認知症ケアを専門的に学びたい"
+        },
+        {
+          "_key": "55163317-7787-4fd5-ace4-c12e5e210183-0179ac77-942a-4e10-a778-c4950b8dfeee",
+          "_type": "span",
+          "marks": [],
+          "text": " → 介護施設"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "98aa5cbf-7df9-48fc-a464-afc9af21a7f8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "29ee1283-93a0-4305-8f8b-ee1dcb183dac-05cd1b07-8b6a-4fc4-97c8-6b7e5a160a5c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "プライマリ・ケア（初期診療）の流れを学びたい"
+        },
+        {
+          "_key": "29ee1283-93a0-4305-8f8b-ee1dcb183dac-1df39163-5e08-46e2-b67d-4387cb9f98a8",
+          "_type": "span",
+          "marks": [],
+          "text": " → クリニック"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "section-closing-30f83805-97f2-4fb1-88ce-bf2862c7aebd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-5666d157-76f6-4ebf-a2ee-4b1257e66572",
+          "_type": "span",
+          "marks": [],
+          "text": "あなたに合う職場は？3つの診断軸で自己分析では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-e53be11a-a6be-4f8c-a450-25495ae56cf7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-399abfa1-f7fc-47e8-baec-5b40dc7f8d12",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-7dd700e8-fa34-4471-b185-8cd5594e418e",
+          "_type": "span",
+          "marks": [
+            "link-cf6c9a64-4c82-439f-91ad-87b38ede16f9"
+          ],
+          "text": "「看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開」"
+        },
+        {
+          "_key": "internal-link-span-outro-1f6e6c49-ff6a-47f8-91b9-70d273d050ac",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-cf6c9a64-4c82-439f-91ad-87b38ede16f9",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-daily-schedule"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a78404de-614f-4495-9809-630ea9133305",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1aee1cd7-cdd1-497d-a0bf-3f7a2ea16373",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-0b57ce52-80ed-4c09-b90e-2b94b1a02ce2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ecdf5b8b-0e49-41b0-9b1b-9ffa265fa603",
+          "_type": "span",
+          "marks": [],
+          "text": "病院・クリニック・介護施設比較ガイド｜あなたに合う職場は？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-1c64bb9f-b7c2-4199-8408-77ff5d1e7b9b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-9137f17b-fd80-4aec-b0d8-3910d4f1e71a",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-47b66494-b212-4d53-8b77-a5456aa2eeed",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-39e4b068-65ba-456c-9c69-2037b24e0589",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-2ceebbdb-1940-4fe2-93ae-9d387b50d3fd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-8f7cee36-a777-415d-8037-ec0114bc2a5b",
+          "_type": "span",
+          "marks": [],
+          "text": "【徹底比較】病院 vs クリニック vs 介護施設の視点で1. 病院（大学病院、一般病院など）に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-4288aaaa-4145-4636-804f-589971feda86",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-b88a2d19-835f-4cb0-8e2a-d671a9cd22fb",
+          "_type": "span",
+          "marks": [],
+          "text": "主な業務内容: 入院患者さんの身の回りのお世話（食事、入浴、排泄介助）、ベッドメイキング、環境整備、メッセンジャー業務…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-00028e27-93b0-44b1-96a3-2a13d726837d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-d139cdc0-bb44-4436-8d25-ba0ae7699bb2",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "career-comparison-f840801c-283a-4c21-ab06-e6138d4f4cc6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-0d214f37-caf5-4cad-9428-11f826425b7a",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-fe2c3f30-c7b0-4655-98eb-17df572d07e1",
+          "_type": "span",
+          "marks": [
+            "link-0ea90327-51d1-4617-b145-f501afc35e46"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-0ea90327-51d1-4617-b145-f501afc35e46",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-2df84c1a-e135-4854-abb4-a2982b3bdad0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-872cccc2-b44f-4f20-b832-f07525c7b303",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-workplace-comparison"
+  },
+  "title": "病院・クリニック・介護施設比較ガイド｜あなたに合う職場は？"
+}

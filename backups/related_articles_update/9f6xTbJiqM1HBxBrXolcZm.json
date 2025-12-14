@@ -1,0 +1,779 @@
+{
+  "_id": "9f6xTbJiqM1HBxBrXolcZm",
+  "body": [
+    {
+      "_key": "e766e5c3-84c3-4817-83dc-59f9229b66a0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "da57e12d-e3f0-421a-b9a9-a28f4d2ca356",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事では、一日中立ちっぱなしや歩き回ることが多く、靴選びは本当に重要です。足が疲れると集中力が落ちて、患者さんへの対応にも影響が出てしまいます。わたし自身も最初は靴選びに失敗して、夕方には足がパンパンに腫れてしまった経験があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b4bcb4e2-b617-4332-83b9-4c128b3b5061",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bd15156c-97b6-4684-8784-2e9e800d3648",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、現場で実際に使っている看護助手の視点から、本当におすすめできるシューズを7つ厳選してご紹介します。選び方のポイントも詳しく解説しますので、ぜひ参考にしてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4e62a4a5-542b-46c5-8365-19faf0be4565",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ee1a1ca7-e260-4530-a2ad-76c681d648b8",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の靴に求められる3つの条件"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "6e495f09-cfac-462c-873e-35ff8d402748",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "332a31a1-be63-4dbf-a45c-950c45f0256c",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で使う靴には、以下の3つの条件が欠かせません。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cc463dbd-d1ae-4b03-b9bf-d1afc5d502f0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "868b225b-374c-4c7e-b78c-42824f388455",
+          "_type": "span",
+          "marks": [],
+          "text": "1. クッション性と安定性"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f77461ab-c64c-4394-bedf-1674e492784a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cda762fa-22eb-4fb9-be18-8839a338ac8f",
+          "_type": "span",
+          "marks": [],
+          "text": "一日中立ち仕事をするため、クッション性の高いソールは必須です。特にかかと部分のクッションがしっかりしていると、足への負担が大きく軽減されます。また、床が濡れていることもあるため、滑りにくいソールも重要なポイントです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f29f3d8b-9258-4191-9628-54aff2388b6c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1e552acb-3413-4552-a505-1eef31d0fbbb",
+          "_type": "span",
+          "marks": [],
+          "text": "2. 通気性と衛生面"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "28751ecf-f13c-451b-bf13-08b00ee5a9be",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b3348ead-851b-4230-a3d3-79e2f445cf45",
+          "_type": "span",
+          "marks": [],
+          "text": "病院内は温度管理されていますが、動き回ると足が蒸れやすくなります。メッシュ素材など通気性の良い靴を選ぶことで、長時間履いても快適さを保てます。また、洗濯可能なタイプだと衛生的に保ちやすく安心です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "80be8b1e-baae-4103-b5fc-c6395184e095",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c2e04cef-e758-4fde-8d15-23a8f647ac2e",
+          "_type": "span",
+          "marks": [],
+          "text": "3. 脱ぎ履きのしやすさ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f0ec792d-e34a-42b8-8f09-48f568dde619",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "639407e3-cdf3-432d-8a72-10d80d6e978e",
+          "_type": "span",
+          "marks": [],
+          "text": "休憩時間や更衣室での脱ぎ履きが頻繁にあるため、スムーズに脱ぎ履きできる靴が便利です。紐靴よりもマジックテープやスリッポンタイプの方が、時間を節約できて実用的です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b4e63461-03b8-4ac9-a4ac-f3439f6ce311",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e090679e-9be1-4689-8d64-64748882436d",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で実際に使っているおすすめシューズ7選"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "ae176aa5-f6f2-4d88-bd36-dc559782e3e1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "506a41cc-26f0-4e7a-a0ca-a7ed89e3e1ae",
+          "_type": "span",
+          "marks": [],
+          "text": "ここからは、実際に現場で人気のあるシューズを7つご紹介します。それぞれの特徴と、どんな人におすすめかも解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c9a55e38-54ee-4600-9311-2ec311f3bfc0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "737515b1-e3be-4486-a1b9-fefe3f7433ea",
+          "_type": "span",
+          "marks": [],
+          "text": "1. "
+        },
+        {
+          "_key": "f7642319215d",
+          "_type": "span",
+          "marks": [
+            "7830d7579f32"
+          ],
+          "text": "アシックス ナースウォーカー"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "7830d7579f32",
+          "_type": "link",
+          "href": "https://amzn.to/3KniyKN",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "4957314d-f79e-4caf-bfdb-c69241f32df7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2e2435f4-77fe-4c7d-81de-abb9b5b748fa",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護職向けに開発されたシューズで、クッション性と耐久性に優れています。滑りにくいソールで安全性も高く、長時間立ち仕事でも疲れにくい設計です。サイズ展開も豊富で、足幅が広い方にもおすすめです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b444ec90-1dcd-4653-93f6-913222eb25c2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "58a2670f-b0d2-48a9-8d14-4fe31c7a0c61",
+          "_type": "span",
+          "marks": [],
+          "text": "2. "
+        },
+        {
+          "_key": "ad66d686d5ca",
+          "_type": "span",
+          "marks": [
+            "2e56c0a0ce91"
+          ],
+          "text": "ミズノ ナースシューズ"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "2e56c0a0ce91",
+          "_type": "link",
+          "href": "https://amzn.to/4o9UmJH",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "96dfe91b-6b44-41e6-af4a-4efc67684015",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d25dbb93-d09c-490f-9eb1-0ad4aa295750",
+          "_type": "span",
+          "marks": [],
+          "text": "軽量で通気性が良く、長時間履いても蒸れにくいのが特徴です。ミズノ独自のクッション技術で足への衝撃を吸収し、疲労を軽減してくれます。デザインもシンプルで、どんなユニフォームにも合わせやすいです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "74432bbc-6f93-413e-9159-95c0344b01d4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f83bf2e3-f912-4acb-8874-5ea74d97205b",
+          "_type": "span",
+          "marks": [],
+          "text": "3. "
+        },
+        {
+          "_key": "2382a10124f4",
+          "_type": "span",
+          "marks": [
+            "bdc7782c2018"
+          ],
+          "text": "ナースリーオリジナル スリッポン"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "bdc7782c2018",
+          "_type": "link",
+          "href": "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3515026&pid=892170743&vc_url=https%3A%2F%2Fwww.nursery.co.jp%2Fcat%2Fshoes%2Fslipon",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "99202501-84cb-4503-bc9f-48e0eb393abb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3314e4c2-f0a1-4c75-a75b-8f721d79b164",
+          "_type": "span",
+          "marks": [],
+          "text": "脱ぎ履きが非常に楽なスリッポンタイプで、休憩時間の多い方に人気です。インソールが取り外せて洗濯できるため、衛生面も安心です。価格も手頃で、初めて看護助手シューズを購入する方にもおすすめです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c6abd721-cea7-44ca-84dc-9d9d907dbf43",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9eb6b0fc-a567-4a52-8a75-8a74fcf20237",
+          "_type": "span",
+          "marks": [],
+          "text": "4. "
+        },
+        {
+          "_key": "c9cd0fd06794",
+          "_type": "span",
+          "marks": [
+            "a300edc2de5f"
+          ],
+          "text": "ニューバランス WW880"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "a300edc2de5f",
+          "_type": "link",
+          "href": "https://amzn.to/4oi50y6",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "783f874d-fb08-48ce-bc21-074e01ea58dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c23d735c-e09d-4939-ad97-3130c0be649e",
+          "_type": "span",
+          "marks": [],
+          "text": "ウォーキングシューズとして設計されており、クッション性と安定性が抜群です。足裏全体をしっかりサポートしてくれるため、腰や膝への負担も軽減されます。少し価格は高めですが、長く使える耐久性があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "15efb05f-266d-4547-a5bb-fd6cb87f38c4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "372f2ab1-3f40-4bda-9add-af049a90f814",
+          "_type": "span",
+          "marks": [],
+          "text": "5. "
+        },
+        {
+          "_key": "430b6936ad28",
+          "_type": "span",
+          "marks": [
+            "97c21a1c1e9d"
+          ],
+          "text": "ムーンスター フレッシュナース"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "97c21a1c1e9d",
+          "_type": "link",
+          "href": "https://amzn.to/4psni0u",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "d4e3ab63-76b5-4c06-afac-9f49aa8e4973",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d11034d5-45bb-4391-9770-81c2b8711ba0",
+          "_type": "span",
+          "marks": [],
+          "text": "抗菌・防臭機能がついており、衛生面を特に重視する方におすすめです。マジックテープで足にフィットさせやすく、脱ぎ履きもスムーズです。ソールの耐久性も高く、コストパフォーマンスに優れています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d7739164-9ef0-4f28-a733-47b8909e5148",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c6206ae4-8e71-490c-ae55-1704aab2fcb2",
+          "_type": "span",
+          "marks": [],
+          "text": "6. "
+        },
+        {
+          "_key": "3a438fe6e16e",
+          "_type": "span",
+          "marks": [
+            "6cf273e1c514"
+          ],
+          "text": "アキレス クッキングメイト"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "6cf273e1c514",
+          "_type": "link",
+          "href": "https://amzn.to/3XeL6sQ",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "b96208f2-ff04-46c8-8eb3-2d61de016c07",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ae36a6dd-c9fa-428c-8eb5-cd1c01911204",
+          "_type": "span",
+          "marks": [],
+          "text": "厨房用として開発されたシューズですが、病院でも人気があります。滑りにくさが特に優れており、床が濡れている環境でも安心です。軽量で疲れにくく、価格も手頃なのが魅力です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "87851f70-d4a7-429a-a806-a7f3202e8f41",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "87dea7c7-81ee-4dec-bf19-1c37f45a549a",
+          "_type": "span",
+          "marks": [],
+          "text": "7. "
+        },
+        {
+          "_key": "005f40431f85",
+          "_type": "span",
+          "marks": [
+            "1917f13445ba"
+          ],
+          "text": "クロックス ビストロクロッグ"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "1917f13445ba",
+          "_type": "link",
+          "href": "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3515026&pid=892170743&vc_url=https%3A%2F%2Fwww.nursery.co.jp%2Fcat%2Fshoes%2Fclog",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "2caee1eb-0929-4719-8eba-d95579e5b14d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "649d166d-119a-4522-b033-a94f313051ff",
+          "_type": "span",
+          "marks": [],
+          "text": "軽量で履き心地が良く、長時間の立ち仕事でも疲れにくいのが特徴です。水洗いができて乾きも早いため、清潔に保ちやすいです。かかとストラップ付きで脱げにくく、動きやすさも確保されています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fff72fe2-3362-4129-9ae9-160bafdba528",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "87970e1c-7107-464e-b140-b548952a8c14",
+          "_type": "span",
+          "marks": [],
+          "text": "足が疲れない靴の選び方"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "87422d4b-0f1d-45ff-bba4-007ddd193cef",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e348c01c-8e01-4344-a450-4c2c3558fb0a",
+          "_type": "span",
+          "marks": [],
+          "text": "シューズを選ぶ際は、以下のポイントを意識すると失敗しにくくなります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b21df176-65af-40ba-8b00-e73ea615781d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0ba6c1ad-ce17-4adc-a373-42b7e1771ac9",
+          "_type": "span",
+          "marks": [],
+          "text": "サイズは大きめを選ぶ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "a03c107e-c777-4da7-896c-2bd3a40f4e34",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "681dc1ac-4d18-4091-9573-c63e0f0dbd5b",
+          "_type": "span",
+          "marks": [],
+          "text": "長時間立ち仕事をすると、足がむくんで普段より大きくなります。そのため、靴はジャストサイズよりも0.5〜1cm大きめを選ぶのがおすすめです。つま先に少し余裕があると、足指が圧迫されずに快適です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e84986de-76fa-4088-9526-8db93fce612a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cf8c8086-f176-4d12-9f06-f04386f70003",
+          "_type": "span",
+          "marks": [],
+          "text": "試し履きは夕方に"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "5a7b5dcf-7e6b-4576-80ef-bbef00baecab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ce3a00a0-0665-42a5-ba48-7df02526c3cd",
+          "_type": "span",
+          "marks": [],
+          "text": "足は朝よりも夕方の方がむくんで大きくなっています。靴を試し履きするなら、夕方の足のサイズに合わせて選ぶと、実際の勤務時にも快適に履けます。オンラインで購入する場合は、返品・交換が可能なショップを選ぶと安心です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4ffb968d-65a5-4e95-94ea-d17f3d846031",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a472f59a-7a4b-42c2-aa83-8493e2c5bc2b",
+          "_type": "span",
+          "marks": [],
+          "text": "インソールで調整する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "fc2540c1-6b8c-4c20-bc7d-59aae3db9917",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7339b9ea-da0e-43e5-926b-b1868b1bf09b",
+          "_type": "span",
+          "marks": [],
+          "text": "靴のクッション性が足りないと感じたら、クッション性の高いインソールを追加するのもおすすめです。衝撃吸収インソールや土踏まずをサポートするインソールを使うことで、足への負担をさらに軽減できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8d277b8d-0817-407f-b5a4-61b694a31766",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2c1c6b6f-54fc-4c8c-a192-73f9fdad945f",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d57870dc-ec27-4434-a3f9-3cfdeab179d1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b06849d4-61f4-4f29-929a-83715d16934e",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事では、靴選びが仕事のパフォーマンスに直結します。クッション性・通気性・脱ぎ履きのしやすさの3つを満たす靴を選ぶことで、一日中快適に働けます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "052c8b63-fef2-48d6-9fa2-cfc4013046dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f4cfeee9-158b-4cf1-8683-a99e7e3e6c10",
+          "_type": "span",
+          "marks": [],
+          "text": "今回ご紹介した7つのシューズは、どれも現場で実際に使われている信頼できるものばかりです。ご自身の足の形や勤務環境に合わせて、最適な一足を見つけてください。足が楽になると、仕事への集中力も上がり、患者さんへのケアもより丁寧にできるようになります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-f765720d-1041-4db8-9b48-cc96644203d1",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3755453&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3755453&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-3144fae8-4654-4249-86ef-6584cfac30c6",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "af8d36eec0e74b5a9423866c8c831d74",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d58a1ecda4ce441d98912031f14b6e6a",
+          "_type": "span",
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "734d88e6f9a84946bb8341b6439a3222",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "41cd470bd32d46a6b7a372503ea9623d",
+          "_type": "span",
+          "text": "この記事を読んだ方には、以下の記事もおすすめです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e8e81322c09c42d0a2a02d58e4cd9453",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c0da1eb273fa489c91a91927594efecd",
+          "_type": "span",
+          "marks": [
+            "link-related-0"
+          ],
+          "text": "看護助手はどこまでできる？看護師との役割分担"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "link-related-0",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-job-role-insights"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "97e648865624492f8ea8799371ab5ebf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5f7957ec1ebd442cb56765ba7072b42b",
+          "_type": "span",
+          "marks": [
+            "link-related-1"
+          ],
+          "text": "看護助手の志望動機を短く簡単にまとめる方法"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "link-related-1",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-short-motivation-letter"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "97850d262f8a4ac58d40c405ca99a665",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a0404b6f80894f38be15a5ef80fa213d",
+          "_type": "span",
+          "marks": [
+            "link-related-2"
+          ],
+          "text": "日々のケアが自信に変わる｜看護助手としてブランドを築く方法"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "link-related-2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-care-guide"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "8a8c8088-1e4c-4c79-a1e8-618e2ab87b8f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d882d1f9-2ce6-447e-92c1-c7cf0249250b",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-recommended-shoes"
+  },
+  "tags": [
+    "シューズ",
+    "靴",
+    "グッズ",
+    "必要なもの",
+    "準備",
+    "快適",
+    "疲れない"
+  ],
+  "title": "看護助手におすすめのシューズ7選｜現場で本当に使える靴の選び方"
+}

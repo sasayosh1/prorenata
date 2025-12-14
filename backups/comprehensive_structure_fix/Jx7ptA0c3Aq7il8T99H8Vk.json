@@ -1,0 +1,1107 @@
+{
+  "_id": "Jx7ptA0c3Aq7il8T99H8Vk",
+  "body": [
+    {
+      "_key": "29df104aa549",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-wbuozyn98",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手標準研修プログラム改訂｜新カリキュラムの詳細解説"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dc138d4e-7a82-4277-955f-406d39375282",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の専門性向上と質の高いケア提供を目指し、標準研修プログラムが改訂されました。この改訂は、医療現場のニーズの変化に対応し、看護助手がより自信を持って業務に取り組めるよう支援することを目的としています。"
+        },
+        {
+          "_key": "405e94a9-6981-41d2-9c21-d072f02cda78",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "0c50f1d5-aa6e-4ebf-b76e-0f852aee433f",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "6ead27bd-22a8-4d0a-b582-4a479e7c5b93",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "8045b015-a7e5-4b77-bd78-0d5d6e28fe17",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、新しいカリキュラムの主な変更点や、看護助手として働く上で知っておきたいポイントを分かりやすく解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ref-merged-block-46e2307e-33f8-420e-8c7c-90fda46df845",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ref-label-33f7f41a-6b35-4130-8dd7-1ebfa0f7bdbf",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "ref-merged-span-36925427-331d-40ff-8dc8-e9ff5892f9a5",
+          "_type": "span",
+          "marks": [
+            "ref-merged-80b7e5a5-464d-400a-a1d8-3904eefd8511"
+          ],
+          "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+        },
+        {
+          "_key": "ref-sep-23af61ce-9cb6-48cf-a3e1-b376cabf275e",
+          "_type": "span",
+          "marks": [],
+          "text": " / "
+        },
+        {
+          "_key": "ref-merged-span-29a57eae-1488-4209-a5f6-fe07635a32a0",
+          "_type": "span",
+          "marks": [
+            "ref-merged-165c94c9-7235-44a9-979c-065b571a038f"
+          ],
+          "text": "厚生労働省 看護職員需給分科会"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ref-merged-80b7e5a5-464d-400a-a1d8-3904eefd8511",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+        },
+        {
+          "_key": "ref-merged-165c94c9-7235-44a9-979c-065b571a038f",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a68142c3ccea",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手標準研修プログラム改訂の背景"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9977c08964bf",
+          "_type": "span",
+          "marks": [],
+          "text": "今回の改訂は、以下のような背景から行われました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1d2127d78cd2",
+          "_type": "span",
+          "marks": [],
+          "text": "医療・介護ニーズの多様化と高度化：高齢化の進展や医療の複雑化に伴い、看護助手に求められる役割も変化しています。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "66dd407baf4b",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の役割拡大と専門性向上への期待：看護師の業務負担軽減のため、看護助手が担う業務範囲が広がりつつあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1f3936b4bd7a",
+          "_type": "span",
+          "marks": [],
+          "text": "質の高いケア提供と安全確保：患者さんへの安全で質の高いケアを提供するために、看護助手の知識と技術の向上が不可欠です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-fb7b3162-6c85-45a3-9075-98a9412832bf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-cfa3910d-21d1-49d4-9a79-b17ef1935d39",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手標準研修プログラム改訂の背景では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-c8b95287-2756-4d8f-9aa8-d451d4e15028",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-613fcc0a-af7c-4df2-8c77-61e8d393297f",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-19f1b5ef-cad2-4a23-bf4e-a93dd4145230",
+          "_type": "span",
+          "marks": [
+            "link-97bfa1c4-ccd8-46fb-8c98-dfa4fa26ee90"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-97bfa1c4-ccd8-46fb-8c98-dfa4fa26ee90",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "32653e5dc273",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラムの主な変更点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0971787a7942",
+          "_type": "span",
+          "marks": [],
+          "text": "基礎知識の強化"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "lnngism5pag4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "gyr492fiohuu",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラムでは、看護助手として働く上で不可欠な基礎知識がより体系的に学べるようになります。これにより、自信を持って業務に取り組むことができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4011645ebba6",
+          "_type": "span",
+          "marks": [],
+          "text": "医療・介護の倫理：患者さんの尊厳を守り、倫理的な判断ができるよう、基礎的な倫理観を養います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c8340457cd1c",
+          "_type": "span",
+          "marks": [],
+          "text": "感染管理：感染症予防の重要性と具体的な対策について、より深く学びます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db0e92c0bd5a",
+          "_type": "span",
+          "marks": [],
+          "text": "安全管理：転倒・転落防止、誤嚥防止など、患者さんの安全を守るための知識と技術を習得します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-83a47122-b1a8-4492-a194-b65904f603fe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-8a107d9d-defd-44e0-b68a-2ef52c4626dd",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d72e8b686c4c",
+          "_type": "span",
+          "marks": [],
+          "text": "実践的スキルの習得"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "n1cxrk5a26lf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "xmr7erwtgfns",
+          "_type": "span",
+          "marks": [],
+          "text": "座学だけでなく、実際の医療現場で役立つ実践的なスキルを習得するための内容が強化されています。これにより、即戦力として活躍できる看護助手を育成します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af2192d97f4c",
+          "_type": "span",
+          "marks": [],
+          "text": "身体介護：食事、入浴、排泄、移動など、患者さんの身体介護を安全かつ適切に行う技術を習得します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "83e9fed0dc90",
+          "_type": "span",
+          "marks": [],
+          "text": "環境整備：清潔で快適な療養環境を整えるための技術を学びます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4ae48b5191b1",
+          "_type": "span",
+          "marks": [],
+          "text": "コミュニケーション：患者さんやご家族、他の医療スタッフとの円滑なコミュニケーション方法を学びます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-d9dc2a81-956d-4932-9059-b1081e2b3fbf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-65922859-42a3-4b34-b243-26b3e12a5367",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "69d982c7764e",
+          "_type": "span",
+          "marks": [],
+          "text": "チーム医療における役割の理解"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f3prev6zcikv",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "snimce22e8pe",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は、医療チームの一員として重要な役割を担います。新カリキュラムでは、多職種連携における看護助手の役割と、円滑なコミュニケーションの重要性について深く学びます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0914d8fd4ff5",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師との連携：看護師の指示のもと、どのようにサポートすれば良いか、具体的な連携方法を学びます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2b8c7c20275c",
+          "_type": "span",
+          "marks": [],
+          "text": "多職種協働：医師、リハビリスタッフなど、他の医療専門職との連携の重要性を理解します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-c75bc331-9476-4c43-9efe-e162e8a2eb1b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-196637ac-6a01-4520-bccc-b36605eaee39",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラムの主な変更点では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a2080b30efc7",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラムで学ぶことのメリット"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "130y0b2t49t1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "q4iaaycline2",
+          "_type": "span",
+          "marks": [],
+          "text": "改訂された新カリキュラムで学ぶことは、あなたの看護助手としてのキャリアに多くのメリットをもたらします。ここでは、その主なメリットをいくつかご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6b3a76e25110",
+          "_type": "span",
+          "marks": [],
+          "text": "専門知識と技術の習得で自信を持って働ける：体系的に学ぶことで、業務への不安が軽減されます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "w3x4y5z6u1v2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0490b88be395",
+          "_type": "span",
+          "marks": [],
+          "text": "キャリアアップの選択肢が広がる：資格取得や、より専門的な業務への道が開けます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "x4y5z6u1v2w3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "17bfadbab6ee",
+          "_type": "span",
+          "marks": [],
+          "text": "質の高いケア提供で患者さんからの信頼を得られる：患者さんの安全と快適さを守るための知識が身につきます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-299aad0f-5b23-472c-870f-f011e96f987b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-7d67c6c4-fb5b-4892-a012-01eae8eeff7f",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラムで学ぶことのメリットでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "y5z6u1v2w3x4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ab430a721954",
+          "_type": "span",
+          "marks": [],
+          "text": "研修受講のポイント"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "1jbt3py0r8w9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2zxsr295trxl",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラムの研修を最大限に活用し、効果的にスキルアップを図るためには、いくつかのポイントがあります。ここでは、研修受講の際に意識したいことをご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "z6u1v2w3x4y5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "638a0bb403d7",
+          "_type": "span",
+          "marks": [],
+          "text": "研修機関の選び方：実績、カリキュラム内容、サポート体制などを比較検討しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a3b4c5d6e7f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b2df58f6f282",
+          "_type": "span",
+          "marks": [],
+          "text": "働きながら学ぶための工夫：通信講座や夜間コースなど、自分のライフスタイルに合った学習方法を選びましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-5e2e322a-655b-4185-b54e-0f757622be92",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-f4046d38-9b11-49a5-9ebd-c00ed7565a9d",
+          "_type": "span",
+          "marks": [],
+          "text": "研修受講のポイントでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-4nof94bu5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-ejyo9k30y",
+          "_type": "span",
+          "marks": [],
+          "text": "研修効果を高めるために"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760819363268-jv469i44e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-tqfjxboq6",
+          "_type": "span",
+          "marks": [],
+          "text": "研修の効果を最大限に高めるためには、以下の点に留意することが望ましいです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-sa9ocm5rh",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-yuvrvsptb",
+          "_type": "span",
+          "marks": [],
+          "text": "積極的な参加"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "e790b055835d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-yuvrvsptb",
+          "_type": "span",
+          "marks": [],
+          "text": "講義や演習に積極的に参加し、疑問点はその場で質問するように心がけましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-jjw9uid7h",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-c77sg4mey",
+          "_type": "span",
+          "marks": [],
+          "text": "復習の習慣"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "c8ddf08cb681",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-c77sg4mey",
+          "_type": "span",
+          "marks": [],
+          "text": "研修で学んだ内容を、その日のうちに復習する習慣をつけましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-repjbps1u",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-8114mcc6e",
+          "_type": "span",
+          "marks": [],
+          "text": "現場での実践"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "744a3d5047c4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-8114mcc6e",
+          "_type": "span",
+          "marks": [],
+          "text": "研修で得た知識や技術を、実際の業務で積極的に試してみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "629d9625c4bc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-k02j182la",
+          "_type": "span",
+          "marks": [],
+          "text": "自己評価"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "ff57a5eafbad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-k02j182la",
+          "_type": "span",
+          "marks": [],
+          "text": "定期的に自分のスキルを評価し、改善点を見つけましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-p4hhhfjx6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-b835r23ly",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラム修了者の声"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760819363268-kgmkmtdzo",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-dnufw6yk5",
+          "_type": "span",
+          "marks": [],
+          "text": "新カリキュラムを修了した看護助手からは、以下のような声が聞かれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-nygvrlb4d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-0uhfiq4oe",
+          "_type": "span",
+          "marks": [],
+          "text": "・「以前は自信がなかった患者さんの体位変換も、研修で学んだ知識と技術のおかげで、安全にできるようになりました。」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-e5t35ohms",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-xvame4tij",
+          "_type": "span",
+          "marks": [],
+          "text": "・「感染症対策の重要性を改めて認識し、日々の業務で徹底するようになりました。患者さんだけでなく、自分自身の安全にも繋がると感じています。」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819363268-5uxev8sgi",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819363268-a1j9x5bhi",
+          "_type": "span",
+          "marks": [],
+          "text": "・「チーム医療における自分の役割を理解し、積極的に他の医療スタッフとコミュニケーションを取るようになりました。連携がスムーズになり、より質の高いケアを提供できるようになったと思います。」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "da72c1518500",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "91ae0b93b1b3",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-y8riwaivd-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-o3za1dxi5",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-506eddff-1e80-4f9e-b559-aeb2c7fea2c2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-c7a9efe7-80fb-42fa-bc3f-6b7f87378153",
+          "_type": "span",
+          "marks": [],
+          "text": "「新カリキュラム修了者の声」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-550c37f1-582f-4ae1-94ff-528ffe5aeda1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-057060b1-b4b7-48e7-93a9-21c21bfdfa9a",
+          "_type": "span",
+          "marks": [],
+          "text": "「新カリキュラム修了者の声」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-9f922f04-4402-463a-8a10-8a089dca69f5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-2c8f3577-8fa8-4fbf-be22-c4d56a48b5ba",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-baa8ad82-99dc-416b-87b7-976e49d30d5f",
+          "_type": "span",
+          "marks": [
+            "link-05b0c39d-1cb8-4be4-be92-295b5ef07550"
+          ],
+          "text": "「看護助手と介護職員初任者研修の違い」"
+        },
+        {
+          "_key": "internal-link-span-outro-f5e04f83-d25f-42ac-8486-266ecb07d780",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-05b0c39d-1cb8-4be4-be92-295b5ef07550",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-care-guide-plan"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-ee61a2ba-cf37-453e-8bc5-5c462fcd2d89",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-bb0cfcd6-660d-4602-8ac8-28dfd10cce71",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手標準研修プログラム改訂｜新カリキュラムの詳細解説でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-6deb5d01-df1f-423b-bfae-1ae13e0f045d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-806fa012-c3ed-4348-8ec3-5fc0d9976f03",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-61ba188e-54ce-40a8-a738-48e6315acd49",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-bd8cca05-5c29-4edd-ac2d-2627a3255cf0",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-ed3b3701-7ce3-49d4-a10e-ef168de12b15",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-fa0381a5-024d-40f0-9d93-040b6ec50b13",
+          "_type": "span",
+          "marks": [],
+          "text": "医療・介護ニーズの多様化と高度化：高齢化の進展や医療の複雑化に伴い、看護助手に求められる役割も変化しています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-fda89e9c-3f01-4885-8d06-f70ce964af1b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-651006bd-0a48-41c1-ba5f-017ce5cef894",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の役割拡大と専門性向上への期待：看護師の業務負担軽減のため、看護助手が担う業務範囲が広がりつつあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-b12402d2-faa7-43b5-890e-d593216cfd8b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-0d623ce6-96f3-472c-a5e1-c66d301c864b",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-a6b9479f-560e-423b-b57a-20ea69f742c9",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-83193700-79bf-477a-a69c-24a40c8b11be",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-69165417-6c35-4d80-b795-0b5795712da6",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-96269753-0d31-4c56-bb5e-8f21998c6a65",
+          "_type": "span",
+          "marks": [
+            "link-81ae3a3c-b6da-48a6-91cf-583e094b4481"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-81ae3a3c-b6da-48a6-91cf-583e094b4481",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-f79d14ba-a3b4-44a3-a5d4-e534ed2edc78",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-496d54e8-96f9-4555-8bf5-355675a8b236",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-training-program-revision"
+  },
+  "title": "看護助手標準研修プログラム改訂｜新カリキュラムの詳細解説"
+}

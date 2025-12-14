@@ -1,0 +1,653 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUXVQ",
+  "body": [
+    {
+      "_key": "10a626b3-8058-4155-9b09-63cfb88956af",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0781e2c5-5ceb-440f-98d7-fb54a23023be",
+          "_type": "span",
+          "marks": [],
+          "text": "なぜ夜勤を始めようと思ったのですか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "b94e3cf2-8e83-4b2d-98c6-5df9efd3e0dd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fcdc2871-9f83-4907-af67-abcdaf18991a",
+          "_type": "span",
+          "marks": [],
+          "text": "「一番の理由は、やっぱり収入です。日勤だけの頃に比べて、夜勤に入るようになってから月収が5万円以上アップしました。将来のために貯金をしたかったのと、看護学校への進学も考えていたので、効率的に稼げる夜勤は魅力的でした。あとは、日中の時間が自由になるので、平日にしかできない用事を済ませられるのも良いなと思いました。」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-70f162fd-e6c4-42bc-9081-680399e4b89e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-17995e5e-b821-4344-9c1d-3edcf8e2c877",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-b31af5d9-4569-4bd2-b890-af49160e8d7f",
+          "_type": "span",
+          "marks": [
+            "link-f2da41c8-0c94-447c-8212-54d91f040106"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-f2da41c8-0c94-447c-8212-54d91f040106",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "77b35103-b52f-4761-a97d-cae06fd05104",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "89f22c03-8c66-4732-8f2b-f141f98a6d7b",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で一番やりがいを感じる瞬間は？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "577c041e-1ddc-43d8-b268-4434f087e691",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8e78670e-a579-41a5-a0a7-d13d4d417c12",
+          "_type": "span",
+          "marks": [],
+          "text": "「夜間の穏やかな時間に、患者さんとじっくりコミュニケーションが取れることです。日中はバタバタしていて、ゆっくりお話を聞く時間がなかなか取れません。でも夜間は、不安で眠れない患者さんのそばに寄り添って、ただただ話を聞いてあげる、といったケアができます。『あなたがいてくれて安心した』と言ってもらえた時は、本当にこの仕事をしていて良かったと感じます。日中とは違う、患者さんの素顔に触れられるのも夜勤ならではの魅力ですね。」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "25ab6b4d-09af-4dcd-84d5-66ad442e50ed",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cc7a54c4-66d2-4c6d-9186-a171f98ebbf9",
+          "_type": "span",
+          "marks": [],
+          "text": "正直、一番きつかったことは何ですか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "91be457b-ad69-4206-8fc5-41c2c571491a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dc9eb162-fdbc-407a-b2bf-12783513ce50",
+          "_type": "span",
+          "marks": [],
+          "text": "「最初の半年間は、とにかく体調管理が大変でした。特に睡眠のコントロールが難しくて、夜勤明けにうまく眠れず、次の勤務に疲れが残ってしまうことの繰り返しでした。あとは、患者さんの急変があった時です。看護師さんが迅速に対応している間、自分にできることは限られていて、無力感と緊張感で心臓が張り裂けそうでした。スタッフが少ない分、一人ひとりの責任が重いと感じる瞬間は、今でもあります。」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "386402d8-5300-432a-a699-56856d746eb5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "247a9604-af1e-407c-8922-7c59d9169784",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤を続けるために工夫していることは？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "f391736a-a886-4ee2-87e5-874f5e33a7f9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7ca00240-1e28-4aef-9d08-a43df36c8151",
+          "_type": "span",
+          "marks": [],
+          "text": "「自分なりのルーティンを作ることです。夜勤前は多くの場合2時間仮眠をとる、明けの日は午前中に寝て、午後はジムで軽く運動して汗を流す、といったサイクルを確立してからは、体調が安定しました。あとは、意識的に仕事とプライベートを切り替えること。休みの日は、仕事のことは一切考えず、趣味に没頭するようにしています。同僚の夜勤仲間と、明けで一緒に朝ごはんを食べに行くのも、良いストレス解消になっています。」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818580732-8fzx7jin1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-1i2g2g72i",
+          "_type": "span",
+          "marks": [],
+          "text": "なぜ夜勤を始めようと思ったのですか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818580732-uhkcw6h79",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-2o6ygce31",
+          "_type": "span",
+          "marks": [],
+          "text": "加えて、夜勤手当は生活を豊かにする上で大きな助けとなりました。夜勤を始める前は、趣味の旅行もなかなか行けませんでしたが、夜勤を始めてからは年に一度は海外旅行に行けるようになりました。また、スキルアップのためのセミナー参加費や教材費など、自己投資にもお金を回せるようになったのは大きなメリットです。看護助手としてのスキルを向上させることは、患者さんへのより良いケアにつながると考えています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-651bf737-3173-4257-a929-cbded81f6827",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-8790b621-a99b-4b2b-adc0-60ec40b62a24",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-ffd8dc7d-6311-4442-b7a8-a52274b18ee5",
+          "_type": "span",
+          "marks": [
+            "link-79eddea4-312a-4208-8242-bf03d316f385"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-79eddea4-312a-4208-8242-bf03d316f385",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818580732-ap0bonbun",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-1ocgpi4rw",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で一番やりがいを感じる瞬間は？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818580732-n9elvo8xh",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-6alnlcr0y",
+          "_type": "span",
+          "marks": [],
+          "text": "特に印象に残っているのは、認知症の患者さんとの関わりです。夜間、急に不安になって徘徊してしまう患者さんがいたのですが、根気強く話を聞き、好きな音楽を一緒に歌ったり、昔の写真を見たりするうちに、落ち着いて眠れるようになったことがありました。言葉が通じなくても、寄り添うことで患者さんの不安を和らげることができると実感しました。患者さんの心に寄り添うケアは、看護助手にとって非常に重要な役割だと感じています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818580732-dc7pie6db",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-1mo6uv8j6",
+          "_type": "span",
+          "marks": [],
+          "text": "正直、一番きつかったことは何ですか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818580732-cz8wp8hkx",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-16m7o3a5m",
+          "_type": "span",
+          "marks": [],
+          "text": "また、夜勤中は予期せぬ事態が起こることもあります。例えば、夜間に転倒された患者さんの対応や、急な発熱、呼吸困難など、緊急性の高い状況に遭遇することもあります。そういった際には、迅速かつ冷静な判断が求められます。看護師さんの指示を仰ぎながら、できる限りのサポートをすることが重要です。緊急時対応の知識やスキルを身につけておくことは、夜勤で働く上で非常に大切だと感じています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818580732-pcf2vt99i",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-pix17rglj",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤を続けるために工夫していることは？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818580732-pu4byjg1h",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-19hxa62g0",
+          "_type": "span",
+          "marks": [],
+          "text": "睡眠の質を高めるために"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818580732-phpw9ig74",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-98c76p8ok",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤明けの睡眠の質を高めるために、遮光カーテンやアイマスク、耳栓などを活用しています。また、寝る前にカフェインを摂取しない、軽いストレッチをするなど、リラックスできる環境を整えることも大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818580732-znwzcdzh6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-zt3jkap4a",
+          "_type": "span",
+          "marks": [],
+          "text": "食事にも気を配る"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818580732-1gqraxjbk",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-hwb442yb6",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤中は、どうしても食事が不規則になりがちですが、できるだけバランスの取れた食事を心がけています。お弁当を持参したり、病院の食堂でヘルシーなメニューを選んだりする工夫をしています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-adcc89dc-6e7c-4f79-8947-0f6edd0a9eba",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-dcae100d-1227-4c93-a463-c2a7f880d076",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-3ad1e569-bcd5-4821-9ef0-01fd7795ec8c",
+          "_type": "span",
+          "marks": [
+            "link-6a906bd6-38d5-476a-86d1-06c9730931cd"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-6a906bd6-38d5-476a-86d1-06c9730931cd",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818580732-1lwny5nu2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818580732-uv9cft3no",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤を始めるにあたっては、職場環境も重要な要素です。先輩スタッフや看護師さんとのコミュニケーションが円滑で、サポート体制が整っている職場を選ぶことをおすすめします。また、夜勤に関する研修制度が充実しているかどうかも確認しておくと良いでしょう。不安なことや疑問点は、事前にしっかりと確認し、納得した上で夜勤に臨むことが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-e24a3d99-867b-41f4-9419-c2911cf6ae54",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-8a7b4ffd-2870-4286-b86e-830a949ee4a5",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-c4f82823-6333-4f97-90dd-7d4d445cc98a",
+          "_type": "span",
+          "marks": [
+            "link-31359659-0d64-40ab-b77c-e31e52bc689c"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-31359659-0d64-40ab-b77c-e31e52bc689c",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-7a49dfcb-79be-4ec5-a534-7962daedb3ca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-115f5012-97e6-4930-a4d4-936a7fc3dac9",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事「夜勤看護助手のリアル体験談」の要点を踏まえ、自分の働き方や体力・希望条件を整理し、ムリのない判断につなげてください。気になるテーマは各セクションを振り返り、必要に応じて関連情報を確認したうえで次の一歩へ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-358ea014-a56a-499b-80e8-e2fbf13b9947",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-0d73ad28-d09b-4b0d-b475-fd3f4ff62b6c",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-25420072-b865-4376-bbd5-b393f42c5f0f",
+          "_type": "span",
+          "marks": [
+            "link-08f7685e-081e-446c-bd18-c8a23ab5296b"
+          ],
+          "text": "「看護助手のシフト勤務はどのくらい大変？」"
+        },
+        {
+          "_key": "internal-link-span-outro-138276d2-9eb5-483d-8daa-d68ec5795512",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-08f7685e-081e-446c-bd18-c8a23ab5296b",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-shift-work-difficultys"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-f0d62ec9-3753-4df1-a4ac-323340af4b82",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-b43cc7e4-bba1-4d1b-bd65-f53fa2856675",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-32d025f8-07ab-4dc8-a14a-a5ae7f017eba",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-f51b1ad4-8835-42f5-b895-37236d98d5f3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-95c4ca6e-3bef-4c9e-8533-0bac788ca359",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-04f5d677-50cf-4eed-acb3-d6c0ba00fc87",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-cfd143a0-a99f-41d9-8149-f8e9586f0571",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-af13005e-d3ca-4254-9e2e-731573a21c4e",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-5871af26-38bb-4e47-a26d-1eb03b183953",
+          "_type": "span",
+          "marks": [
+            "link-30e05b84-af13-482f-b0ca-902681a1e206"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-30e05b84-af13-482f-b0ca-902681a1e206",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "5adae5fd-4b0f-42cd-bd7a-e83c29ee4fd8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4799a115-4319-4e02-a782-89b7da07a3df",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-880ebd85-8897-4d57-9250-e50926086b2b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-60324a73-9863-489b-8623-200dd20e933a",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤看護助手のリアル体験談でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-9e16d63d-da5c-4eaa-a3f2-d2d34a738534",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-4d2107a5-9eeb-4c66-914a-5d53d0b8dda8",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-916b4f9b-9e60-4f15-9be8-c732dffa9ad7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-83ba6906-1c46-43df-aefc-b7f759b17d0e",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤を続けるために工夫していることは？の視点で睡眠の質を高めるためにに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-0c14ec54-7cfe-4a87-9b2f-48fdb74d19f0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-d11bb592-c53c-49b0-9164-6792bdd60660",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤を続けるために工夫していることは？の視点で食事にも気を配るに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-49c90d3b-b4a3-4537-bc89-e47f2f3c83f7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-6958e2a2-6b0b-400e-8803-7c9a9f29cfe8",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-70f7a604-89f0-4cad-9f40-a7874b2a498f",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやポケットオーガナイザーはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-99192a37-2c07-4be0-9442-25e758c16c99",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-af8d2640-251a-4ca3-bf98-5298e81d34b1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-1d2f7741-3159-48a1-90f0-2ae49f86d27b",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "stories"
+      },
+      "title": "体験"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-night-shift-experiences"
+  },
+  "tags": [
+    "ケア",
+    "仕事",
+    "夜勤",
+    "実務・ノウハウ",
+    "患者",
+    "月収",
+    "看護",
+    "経験",
+    "給与",
+    "自分"
+  ],
+  "title": "夜勤看護助手のリアル体験談"
+}

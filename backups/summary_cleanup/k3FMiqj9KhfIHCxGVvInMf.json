@@ -1,0 +1,852 @@
+{
+  "_id": "k3FMiqj9KhfIHCxGVvInMf",
+  "body": [
+    {
+      "_key": "d504586b-e27e-463b-913b-7abccdb66885",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "62f36d94-f458-4137-bdaf-b0e95669c16e",
+          "_type": "span",
+          "marks": [],
+          "text": "働き方改革は他人事じゃない！看護助手の勤務環境はこう変わる"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fb662f64-a0e7-4d5b-9369-b8859ec8c076",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "da0fee98-ea5d-45e8-8182-c77aad7e681a",
+          "_type": "span",
+          "marks": [],
+          "text": "「医療現場は忙しいのが当たり前」「残業や休日出勤も仕方ない」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b4a9450e-3503-4006-959c-8b3e2e1c3051",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "be14f4c7-0283-47be-897e-8dda9f46025b",
+          "_type": "span",
+          "marks": [],
+          "text": "長年、医療業界ではこうした考え方が根強く残っていましたが、職員の心身の健康を守り、質の高い医療を維持するために、国を挙げて「働き方改革」が推進されています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5c89e39a-a31c-431e-860e-62fcab10f482",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bd5ccacc-36f1-4ebb-b76d-d9ac1105849c",
+          "_type": "span",
+          "marks": [],
+          "text": "この改革の波は、医師や看護師だけでなく、現場を支える看護助手の働き方にも大きな影響を与えています。もはや、働き方改革は他人事ではありません。むしろ、わたしたち自身の労働環境を改善し、やりがいを持って長く働き続けるための大きなチャンスなのです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f9c8f920-686c-468f-b5d4-15393b6436dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "53971a2b-2105-4825-aa51-fb3e75ab48e0",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、医療現場で進む働き方改革の具体的な取り組みと、それによって看護助手の勤務環境がどのように改善されているのかを、実際の事例を交えて紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "867b2ed8-8bc5-4805-a6b4-b813f5455121",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "53ead331-1e8e-44ce-be22-0f750bed72bd",
+          "_type": "span",
+          "marks": [],
+          "text": "なぜ今、医療現場で「働き方改革」が急務なのか？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "0af528e3-baae-4b2a-8b82-c0a6f096c76c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ff9ff8c0-5ca5-4f3e-9fbb-477e30c4f2fc",
+          "_type": "span",
+          "marks": [],
+          "text": "医療現場で働き方改革が重要視される背景には、以下の3つの深刻な課題があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6f50ec7c-a5e5-4c35-91ba-b20aa35d77b7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b0a295a7-6670-4391-a0a5-ead952422544-2e7ceae3-7d4c-4974-a2bf-dd34cb34d030",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "深刻な人手不足"
+        },
+        {
+          "_key": "b0a295a7-6670-4391-a0a5-ead952422544-54ca04db-f2e1-461b-9d78-278ad9921692",
+          "_type": "span",
+          "marks": [],
+          "text": ": 少子高齢化に伴い、医療・介護の需要が増大する一方で、働き手は不足しています。魅力的な労働環境を整備しなければ、人材の確保はますます困難になります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "db51a543-437c-45f8-b7c0-06bd7c1f8ebb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6389161f-35d0-4c34-90f1-7a36196b024f-cd764d0e-3064-406c-b053-f6c57c9e4cec",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "医療の質の維持・向上"
+        },
+        {
+          "_key": "6389161f-35d0-4c34-90f1-7a36196b024f-8f5de258-6e17-4454-954a-4a35747da888",
+          "_type": "span",
+          "marks": [],
+          "text": ": 職員が疲弊した状態では、ヒューマンエラーが起こりやすくなり、医療の質や安全性が脅かされます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "08b813f8-0492-4247-8810-d226cdef9cbe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "504bf208-c801-4887-92c9-35996ecc0f73-3bbd4a68-a355-4fa0-9851-1f395a32f797",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "職員の離職防止"
+        },
+        {
+          "_key": "504bf208-c801-4887-92c9-35996ecc0f73-6170472e-51b1-4389-b036-5419955ae705",
+          "_type": "span",
+          "marks": [],
+          "text": ": 過酷な労働環境は、早期離職の大きな原因です。職員が定着し、キャリアを積んでいける環境を作ることが、組織全体の力になります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-7b76c465-967e-4e4a-be8d-9e2223ddaf55",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-458b6a1b-119f-4ef4-8050-48aea56235da",
+          "_type": "span",
+          "marks": [],
+          "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-c4521847-9356-4f0c-9ba1-1836216b4647",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-113d558b-a4d7-4c64-beea-72105ae0d990",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-f2128178-be68-4292-9772-d4852ce75ca0",
+          "_type": "span",
+          "marks": [
+            "link-c5acc300-06aa-4439-a320-64536462a474"
+          ],
+          "text": "総務省 労働力調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-c5acc300-06aa-4439-a320-64536462a474",
+          "_type": "link",
+          "href": "https://www.stat.go.jp/data/roudou/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "6c8e7f71-1ba1-4e58-a79f-00a703970472",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7f5bedd4-f371-4fe6-a9b0-1de8ced1441f",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の働き方はこう変わる！勤務環境改善の4つの事例"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "afaf6351-2d6a-4448-9863-a31fc61491ae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7ba5386c-444e-4f73-9bb9-fd8b3503fc9e",
+          "_type": "span",
+          "marks": [],
+          "text": "全国の先進的な病院では、看護助手の負担を軽減し、専門性を発揮できる環境を整えるための様々な取り組みが始まっています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-09cc19fd-8ba3-44a1-8bd2-9567966f7f1e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-ffeaba88-0bc9-4c43-b7cd-80de1ad3ad5d",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-9108085c-a66e-4562-83ae-592700eec4de",
+          "_type": "span",
+          "marks": [
+            "link-5d8b9df3-2e99-478a-b320-528802a08503"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-5d8b9df3-2e99-478a-b320-528802a08503",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "585cedd9-5a91-4317-aafb-763615e7fe9f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dac4b28d-1bc4-4cb7-b765-75fe939e00ff",
+          "_type": "span",
+          "marks": [],
+          "text": "事例1：タスク・シフト/シェアの推進"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "2e446190-8e91-41ea-b790-0cadd34ea025",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fa04f2fd-9762-46b4-96d7-9b3e809e7145-7db37ab9-c400-431c-9990-7bc05a3033fc",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "具体例"
+        },
+        {
+          "_key": "fa04f2fd-9762-46b4-96d7-9b3e809e7145-fdc9a052-fdc2-4786-b0d3-6604d3daa046",
+          "_type": "span",
+          "marks": [],
+          "text": ": 看護師が行っていた物品管理やベッドメイキングなどを看護助手が専任で担当する。その結果、看護師は専門的なケアに集中でき、看護助手は業務範囲の拡大によるスキルアップと責任感の向上が期待できます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-7b7d8745-4dde-47bd-8edc-8fc55b2df55c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-d17af3f3-68fc-411b-af93-6da94789d16f",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2a07de1b-ac93-4f2b-a3d1-54045a06ed30",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "29556142-dcf7-4b75-bfee-2c47ae6e5a27",
+          "_type": "span",
+          "marks": [],
+          "text": "事例2：ICT/AI技術の導入による業務効率化"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "3a61d13b-83c9-4ebe-8380-17e6b8c8e065",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3ee4a6d6-a608-4efc-a779-99e9086b745d",
+          "_type": "span",
+          "marks": [],
+          "text": "IT技術を活用して、身体的な負担や事務作業を軽減する取り組みです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "238851d8-d0ec-4e36-a16d-433f1d918406",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a7c1cbca-08fb-4f05-af23-9c0986bd0d58-84dce30c-7cac-4783-a865-3ec6f4bb28f1",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "具体例"
+        },
+        {
+          "_key": "a7c1cbca-08fb-4f05-af23-9c0986bd0d58-f9a52a80-2a73-4547-84bf-b0a33922753d",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんの見守りセンサーや、ベッドから車椅子へ移乗する際のアシストスーツを導入。記録業務を音声入力で行えるようにし、PC入力の時間を削減。これにより、直接的なケアに充てる時間が増加します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-08211eaa-2004-4ab5-9c3c-d7f13f66d77e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-b0548876-8be6-4bc5-bc8b-88583eceaca1",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "25bd7632-fc43-415e-8fbb-3c0741e6a3e6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3a397ed8-305c-4754-85d9-30ef8ba3673d",
+          "_type": "span",
+          "marks": [],
+          "text": "事例3：多様で柔軟な勤務形態の導入"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "e1f6bbc8-7f0c-4667-bf29-41e552e19472",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "11de042a-fc72-4b15-abb6-3bfa7b3d1941",
+          "_type": "span",
+          "marks": [],
+          "text": "職員一人ひとりのライフステージに合わせて、働き続けられる環境を整備する動きです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5b2538c0-4f10-492c-8587-68a73fb8d9da",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "49e157af-997a-44b0-9bad-eeace7080028-187da693-9ddd-48f6-bd23-a2c0fd9509c2",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "具体例"
+        },
+        {
+          "_key": "49e157af-997a-44b0-9bad-eeace7080028-5ef4b3bb-4771-460f-b324-aa31f0b9ce19",
+          "_type": "span",
+          "marks": [],
+          "text": ": 子育てや介護と両立しやすい短時間正職員制度の導入。週3日勤務や、特定の曜日だけ働くといった多様なシフトの導入。これにより、離職を防ぎ、経験豊かな人材の確保に繋がります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-d1ec7e73-d42f-4b0e-a22e-178e8d7cc3f4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-a2599079-5054-4e5b-bb42-d936a2444dbf",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-a75748c7-6857-4e4d-afb1-bd83562a51d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-6c074aff-6cb5-4703-b28e-9d8095ccfb7f",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-3ace9847-5da1-44ae-b7dc-78685cd4b473",
+          "_type": "span",
+          "marks": [
+            "link-ba85443e-a29f-4d8c-bbbd-2acd484b322d"
+          ],
+          "text": "厚生労働省 介護人材対策まとめ"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-ba85443e-a29f-4d8c-bbbd-2acd484b322d",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/stf/newpage_08272.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "94595e12-152b-4fea-9c71-5f9eac8caaac",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b30eb321-d885-4b42-a04b-1eb9e0c21cfd",
+          "_type": "span",
+          "marks": [],
+          "text": "事例4：徹底した時間外労働の削減と休暇取得の促進"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "a7979a78-e26d-4527-8031-4c28b9e909af",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6ac70b98-4e6a-498f-aa63-9cb8c49ca794-2401a659-ecef-4cac-8952-5245399cbd54",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "具体例"
+        },
+        {
+          "_key": "6ac70b98-4e6a-498f-aa63-9cb8c49ca794-e3883cf7-61fb-4db2-8b3c-17c443be8ecc",
+          "_type": "span",
+          "marks": [],
+          "text": ": 「ノー残業デー」の設定。業務の繁閑に合わせてチーム内で勤務時間を調整する。年次有給休暇の計画的付与制度を導入し、休みやすい雰囲気を作る。これにより、心身のリフレッシュを図り、仕事へのモチベーションを維持します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-5c86157e-d294-4fca-a52f-5ef34b3f7a75",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-d2b94f95-aaf4-4a40-a0a1-d4c74903e3ff",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の働き方はこう変わる！勤務環境改善の4つの事例では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a8313362-1a40-4a08-a4a5-e7eb8a9f661c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1d2e10ab-5706-402d-ba9c-c1f3ae16ee3e",
+          "_type": "span",
+          "marks": [],
+          "text": "働きやすい職場を見つけるためのチェックポイント"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "e48afe2a-f7ef-4e83-a68b-ebd08918c0a2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "83cfa664-1ac5-4785-a2a0-d70629eeb47c",
+          "_type": "span",
+          "marks": [],
+          "text": "これから就職・転職を考えている方は、その職場が働き方改革にどれだけ真剣に取り組んでいるかを見極めることが重要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "002019f0-614a-46ac-bb5d-ab48119792b9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fecd0196-9685-4b25-a091-1b050e06adc1-10fa26bf-6a1d-4207-aba0-5abb272444c0",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "求人票で確認"
+        },
+        {
+          "_key": "fecd0196-9685-4b25-a091-1b050e06adc1-dc461482-e39c-44c9-b6e1-77522568f4af",
+          "_type": "span",
+          "marks": [],
+          "text": ": 「働き方改革推進中」「残業月平均〇時間」「有給取得率〇%」などの記載があるかを確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "93c96df7-da73-4c5a-a712-07dceba03a05",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "07cc3150-57d6-459b-8148-c052ea7c3849-96b6acd6-1bc8-4be0-9072-8d17570019c4",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "面接で質問する"
+        },
+        {
+          "_key": "07cc3150-57d6-459b-8148-c052ea7c3849-f9ad0e14-c36e-4542-a372-3017916d8e71",
+          "_type": "span",
+          "marks": [],
+          "text": ": 「残業を減らすために、どのような工夫をされていますか？」「子育て中のスタッフは、どのような働き方をされていますか？」など、具体的に質問してみましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "babd1627-8a3a-4788-9649-1bb3ae268d29",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "04e103a3-6724-490f-8980-a899b64d6dd2-7d3770db-28a5-47bc-a79c-9606dd514e9f",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "口コミサイトなどを参考にする"
+        },
+        {
+          "_key": "04e103a3-6724-490f-8980-a899b64d6dd2-b5fb746f-1ca1-47d2-ae4f-d4289d24828f",
+          "_type": "span",
+          "marks": [],
+          "text": ": 実際にその職場で働いている、または働いていた人のリアルな声も重要な情報源となります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-5040f097-a8b6-4f1e-9540-5b499f5b7bfb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-505c0722-a9d4-4809-83a3-18f11ceb184c",
+          "_type": "span",
+          "marks": [],
+          "text": "働きやすい職場を見つけるためのチェックポイントでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-16ee9cc1-8278-4768-a04b-b76bb1e18b73",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-3fa79afc-af32-4b60-9d95-9f42fc80db31",
+          "_type": "span",
+          "marks": [],
+          "text": "「働きやすい職場を見つけるためのチェックポイント」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-23794620-d4d4-4604-aefb-6490f59e6015",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-013e7f02-5505-4c14-9062-dc9a15011fd6",
+          "_type": "span",
+          "marks": [],
+          "text": "「働きやすい職場を見つけるためのチェックポイント」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "12942165-a1f4-44f8-bd9c-ec57598dd430",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "20c36c41-72e7-4a7c-a712-1e1644272e6b",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-c349f48c-1bcb-463b-a18b-ea42ce742983",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ce608299-7631-44ee-a484-49f98c313bbd",
+          "_type": "span",
+          "marks": [],
+          "text": "医療現場における働き方改革推進｜看護助手の勤務環境改善事例でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-cb412dba-8201-4d55-9c1d-0094f0f0be8d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-18fed28e-2473-49c7-900a-e22d2ff43d3a",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-76ee9d3b-24b8-482b-8651-cb600ced1c40",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-b8918e1a-3f5a-4c7e-8907-5fc4e3861240",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-232ccb6f-9467-4c78-a3d8-6ca1002cd3c7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-245e1ec1-cc69-45cb-855e-180b7bdb908e",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-0c11c69a-1bff-4b44-a445-6c9dec60047e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-57c7f0ca-53fd-4b14-b6b7-eb8576525dd9",
+          "_type": "span",
+          "marks": [],
+          "text": "深刻な人手不足: 少子高齢化に伴い、医療・介護の需要が増大する一方で、働き手は不足しています。魅力的な労働環境を整備し…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-2fec4e9d-f40f-4ef5-b8c8-aff80e8bdc29",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-b33da94e-118e-4119-a01d-fe54edd6be93",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "resignation-comparison-6d2a683a-8f6b-4314-9881-bfa414cb3f8e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "resignation-comparison-lead-733916f8-d1d8-4a4d-95c0-d1f2573176a9",
+          "_type": "span",
+          "marks": [],
+          "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+        },
+        {
+          "_key": "resignation-comparison-link-143708c3-e95e-4b58-a6b9-4b4d35b253d4",
+          "_type": "span",
+          "marks": [
+            "link-0d3149f4-2c19-4bda-82c3-2143ac41517b"
+          ],
+          "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-0d3149f4-2c19-4bda-82c3-2143ac41517b",
+          "_type": "link",
+          "href": "/posts/comparison-of-three-resignation-agencies"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "career-comparison-affa82f1-0b70-46a6-974c-1c2d3e825eca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-4db8656a-3fdb-4cd7-a5e2-58c553f1f6ec",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-5b56a0e0-a6bf-4353-9a8f-9c822fd44f11",
+          "_type": "span",
+          "marks": [
+            "link-11048fc0-c5c3-4148-b604-0105292ca45c"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-11048fc0-c5c3-4148-b604-0105292ca45c",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-743d91c1-ba58-436b-af8b-2e7d13b63604",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-6015552d-e610-4c57-aa03-b96bfaeafa00",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-work-reform-examples"
+  },
+  "title": "医療現場における働き方改革推進｜看護助手の勤務環境改善事例"
+}

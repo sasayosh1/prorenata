@@ -1,0 +1,729 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUWM8",
+  "body": [
+    {
+      "_key": "6659cdd6-4f3d-4cb9-94be-fe2b3d29ce15",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7273818a-dc63-405e-881a-2ca12e9610ad",
+          "_type": "span",
+          "marks": [],
+          "text": "# 看護助手を辞めずに続けるための工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "384b8f5c-300d-4e5d-9fce-924f34744ce3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "de3885e3-6d0e-4e07-afb6-ad7dbd4f34cd-before-7llzfnds3",
+          "_type": "span",
+          "marks": [],
+          "text": "「仕事は辞めたい、でも生活のためには辞められない…」多くの看護助手が、そんなジレンマを抱えながら日々の業務に取り組んでいます。退職や転職も一つの選択肢ですが、その前にもう一度、今の職場で働き続けるための工夫を試してみませんか？少し視点を変えたり、小さな行動を起こしたりするだけで、"
+        },
+        {
+          "_key": "de3885e3-6d0e-4e07-afb6-ad7dbd4f34cd-link-aoyy3qgej",
+          "_type": "span",
+          "marks": [],
+          "text": "辛い時の対処法はこちら"
+        },
+        {
+          "_key": "de3885e3-6d0e-4e07-afb6-ad7dbd4f34cd-after-xmmp9fwr1",
+          "_type": "span",
+          "marks": [],
+          "text": "状況が改善されることもあります。この記事では、看護助手の仕事を辞めずに、前向きに続けるための具体的な工夫を紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-df5d75a5-527c-4b12-817b-deef4f5c797b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-02fd73db-fbc9-4e1e-a747-d1cc6d5146cf",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-58b6c951-8f92-4978-aad0-6f52e9e9b1ea",
+          "_type": "span",
+          "marks": [
+            "link-98f11b5a-a3a3-496a-a636-049b43cb6f2f"
+          ],
+          "text": "NsPace Career 看護助手の転職・年収コラム"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-98f11b5a-a3a3-496a-a636-049b43cb6f2f",
+          "_type": "link",
+          "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "6a56b005-6601-4dcd-b6a9-df33d4e64ca5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "724b7e5f-9bd6-4d47-8bbd-7427a7f6abf7",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事への向き合い方を変える工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "cedad146-62ce-424c-b010-1c9aabfa6580",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "93e5410b-5029-430d-ab97-a031ab6204ea",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事そのものへの考え方や姿勢を少し変えるだけで、精神的な負担は大きく軽減されます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7b2e2b6c-0dd4-4eed-85da-56ce0758aedb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-609f59f1-0efa-41c6-aac3-e5897b54dfa0",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-c53203fe-2706-48c5-8c0c-914cdd0538a9",
+          "_type": "span",
+          "marks": [
+            "link-9bec29ac-9294-421c-9692-721db80a305b"
+          ],
+          "text": "総務省 労働力調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-9bec29ac-9294-421c-9692-721db80a305b",
+          "_type": "link",
+          "href": "https://www.stat.go.jp/data/roudou/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "0c662f28-463c-4c33-8541-592f653449a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f75ed719-2b43-44ea-b21e-d3c3263d8588",
+          "_type": "span",
+          "marks": [],
+          "text": "より良い状態を目指さない"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "d13849f9-2220-4d65-a589-1c9b5ac8cd54",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2e349ab3-d917-4095-8fe9-e2f4a88a8744",
+          "_type": "span",
+          "marks": [],
+          "text": "真面目で責任感の強い人ほど、すべての業務をより良い状態にこなそうとして自分を追い詰めてしまいがちです。しかし、医療現場は常に予測不能なことが起こる場所。「今日は8割できれば上出来」と、少し肩の力を抜いてみましょう。自分にできることとできないことを見極め、時には「できない」と伝える勇気も必要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3f8d8faf-2b97-4aed-969f-adcf5b5295b8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0f741925-b67c-47fa-8d9f-5bb0d00dd57e",
+          "_type": "span",
+          "marks": [],
+          "text": "小さな目標を設定する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "bdd1d7d0-c543-461b-84ea-0453a7d3700a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a7c511da-c526-476a-b113-277f6ca88f7b",
+          "_type": "span",
+          "marks": [],
+          "text": "日々の業務が単調なルーティンに感じてしまうときは、自分なりの小さな目標を設定するのがおすすめです。「今日は〇〇さんともっと話してみよう」「〇〇の業務を5分短縮してみよう」など、ゲーム感覚で目標をクリアしていくことで、仕事に張り合いが生まれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "781c193b-d1b3-41db-a21e-d26c81a63b5b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b50bce9f-19d1-42dd-b71c-b98a65623822",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事とプライベートを完全に切り離す"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "e71cd343-db7b-4bf7-9be4-d14487f2dd62",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "87aed944-dab7-411f-a50a-ac2af749e84c",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事の悩みやストレスを、家に帰っても引きずってしまうのは精神衛生上よくありません。制服を脱いだら、仕事のことは一切考えないと決めましょう。通勤中に好きな音楽を聴いたり、帰宅後にお気に入りのドラマを見たりと、意識的にオンとオフを切り替える習慣をつけることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e6dd696a-0e96-47aa-b709-66c50f55f0cb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bc7a51e2-bfd5-43a1-97f9-02f1c8a02093",
+          "_type": "span",
+          "marks": [],
+          "text": "職場の悩みの多くは人間関係です。すべての人と仲良くする必要はありませんが、業務に支障が出ないよう、円滑な関係を築くための工夫は有効です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5bd39628-553d-45ef-9c81-4d71c369f359",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "679e39d9-c24a-4363-afae-865e6efadf2d",
+          "_type": "span",
+          "marks": [],
+          "text": "相手に期待しすぎない"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "d3ba6114-9502-4624-9bb9-8183655621bf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ae4447cc-308c-463e-96a3-4a7d1d46f1a6",
+          "_type": "span",
+          "marks": [],
+          "text": "「なんで分かってくれないんだろう」「もっと優しく教えてくれてもいいのに」など、他人に期待しすぎると、裏切られたときに大きなストレスを感じます。人はそれぞれ価値観が違うと割り切り、相手を変えようとするのではなく、自分の受け止め方を変える努力をしてみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "78f28fec-0f0e-46bb-9052-fb84345e37e4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "48aa2a67-7b80-4130-bb04-37fb632ee96a",
+          "_type": "span",
+          "marks": [],
+          "text": "挨拶と感謝を徹底する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f2836d47-b39d-44ec-bb1f-41987fb12507",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "64e38931-f6f4-4d7c-8c52-ece238063859",
+          "_type": "span",
+          "marks": [],
+          "text": "人間関係の基本は、挨拶と感謝の言葉です。苦手な相手であっても、こちらから「おはようございます」「ありがとうございます」と明るく声をかけることを徹底しましょう。相手の態度がすぐに変わらなくても、あなたの誠実な姿勢は周囲の人が見てくれています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0924c02b-50fd-49f5-b629-03833fdd40d1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6058b619-a5c4-4192-9f26-ba9140fad9cc",
+          "_type": "span",
+          "marks": [],
+          "text": "職場外に相談相手を見つける"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "acbf2d9c-a1d3-4780-b7fc-5279232ce724",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "78a7984f-56f8-4773-905e-4f5cfda4617c",
+          "_type": "span",
+          "marks": [],
+          "text": "職場の悩みを、職場の人に相談するのは難しい場合も多いです。家族や友人、あるいはSNSなどで繋がった同業の仲間など、利害関係のない第三者に話を聞いてもらうだけで、気持ちが楽になることはよくあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819176738-tko8knn3a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-r9glvt015",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事への向き合い方を変える工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760819176738-5io522mij",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-ra6imi5m2",
+          "_type": "span",
+          "marks": [],
+          "text": "より良い状態を目指さない"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819176738-3yzjsx8wa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-sh0h3ubt3",
+          "_type": "span",
+          "marks": [],
+          "text": "真面目で責任感の強い人ほど、すべての業務をより良い状態にこなそうとして自分を追い詰めてしまいがちです。しかし、医療現場は常に予測不能なことが起こる場所。「今日は8割できれば上出来」と、少し肩の力を抜いてみましょう。自分にできることとできないことを見極め、時には「できない」と伝える勇気も必要です。十分主義を手放すことで、心に余裕が生まれるでしょう。例えば、業務時間内に終わらない場合は、無理に残業するのではなく、引き継ぎをしっかり行い、次の担当者に託すという選択肢も考慮しましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819176738-3mjxso6hf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-wtnfp5n34",
+          "_type": "span",
+          "marks": [],
+          "text": "小さな目標を設定する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819176738-b0x4xswzj",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-xukq3fevu",
+          "_type": "span",
+          "marks": [],
+          "text": "日々の業務が単調なルーティンに感じてしまうときは、自分なりの小さな目標を設定するのがおすすめです。「今日は〇〇さんともっと話してみよう」「〇〇の業務を5分短縮してみよう」など、ゲーム感覚で目標をクリアしていくことで、仕事に張り合いが生まれます。目標を達成するごとに、自分自身を褒めてあげることも大切です。小さな目標を達成していくことで、自己肯定感が高まり、仕事へのモチベーション維持に繋がる傾向があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819176738-gbxj5keuu",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-eexrbm6tf",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事とプライベートを完全に切り離す"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819176738-1pl8ngmrc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-n1coufrxx",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事の悩みやストレスを、家に帰っても引きずってしまうのは精神衛生上よくありません。制服を脱いだら、仕事のことは一切考えないと決めましょう。通勤中に好きな音楽を聴いたり、帰宅後にお気に入りのドラマを見たりと、意識的にオンとオフを切り替える習慣をつけることが大切です。仕事とプライベートの境界線を明確にすることで、心身ともにリフレッシュできる時間を作りましょう。アロマを焚いてリラックスしたり、軽い運動で気分転換を図るのも良いでしょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819176738-lng91084x",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-myen69k3c",
+          "_type": "span",
+          "marks": [],
+          "text": "相手に期待しすぎない"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819176738-e1n4dq78k",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-17abtvxl0",
+          "_type": "span",
+          "marks": [],
+          "text": "「なんで分かってくれないんだろう」「もっと優しく教えてくれてもいいのに」など、他人に期待しすぎると、裏切られたときに大きなストレスを感じます。人はそれぞれ価値観が違うと割り切り、相手を変えようとするのではなく、自分の受け止め方を変える努力をしてみましょう。相手に期待するのではなく、自分自身で解決できることは何かを考えるようにすると、主体的に行動できるようになります。例えば、分からないことは積極的に質問したり、自分で調べて解決策を見つけたりすることで、スキルアップにも繋がるでしょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819176738-11qd8ls3u",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-a3xofiur0",
+          "_type": "span",
+          "marks": [],
+          "text": "挨拶と感謝を徹底する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819176738-hw1e9cafc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-1s5l7v96n",
+          "_type": "span",
+          "marks": [],
+          "text": "人間関係の基本は、挨拶と感謝の言葉です。苦手な相手であっても、こちらから「おはようございます」「ありがとうございます」と明るく声をかけることを徹底しましょう。相手の態度がすぐに変わらなくても、あなたの誠実な姿勢は周囲の人が見てくれています。挨拶や感謝の言葉は、職場の雰囲気を良くする効果も期待できます。日々の業務の中で、積極的にコミュニケーションを取ることを心がけましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819176738-vcmqosabj",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-2vub56psa",
+          "_type": "span",
+          "marks": [],
+          "text": "職場外に相談相手を見つける"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819176738-rh8b6zc1i",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819176738-8iewvmapu",
+          "_type": "span",
+          "marks": [],
+          "text": "職場の悩みを、職場の人に相談するのは難しい場合も多いです。家族や友人、あるいはSNSなどで繋がった同業の仲間など、利害関係のない第三者に話を聞いてもらうだけで、気持ちが楽になることはよくあります。客観的な意見を聞くことで、新たな視点が見つかることもあります。相談する際は、具体的な状況を伝えることで、より適切なアドバイスをもらえる可能性が高まります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-sej8558ds-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-u5v0dpmj6",
+          "_type": "span",
+          "marks": [],
+          "text": "⚡ すぐに退職したい方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-context-4f1b76a6-e1eb-48d1-afd7-8a72bff1781a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-context-span-363d6130-d25e-441d-bcd6-a8c8b00efbb3",
+          "_type": "span",
+          "marks": [],
+          "text": "⚡ すぐに退職したい方へ。スピード退職代行サービスを紹介しています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1pbyfap4j-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-2x9fvmrcf",
+          "_type": "span",
+          "marks": [],
+          "text": "⚖️ 退職でお悩みの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-71knoa1dd-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-b9vu8wu3s",
+          "_type": "span",
+          "marks": [],
+          "text": "⚖️ 退職でお悩みの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-66dd83b2-a64f-447e-9311-13d10d76d8b4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-63c6b3d5-dbc0-48c2-924b-86aaa247a6e0",
+          "_type": "span",
+          "marks": [],
+          "text": "「職場外に相談相手を見つける」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-a631cec7-6419-4ae6-89d9-a5302f100a45",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-c9c6b6b7-0487-4a4a-a823-599d1ea77db8",
+          "_type": "span",
+          "marks": [],
+          "text": "「職場外に相談相手を見つける」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-3865bf83-54c6-49de-8b5c-c588d01247ae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-3fd3a020-e82b-403d-ad39-8a1b6a0497e1",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-0551512b-a304-48ef-81f9-0fda8ed7daed",
+          "_type": "span",
+          "marks": [
+            "link-d5a04923-71f7-4eef-8902-ecfdbb3eac18"
+          ],
+          "text": "厚生労働省 介護人材対策まとめ"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d5a04923-71f7-4eef-8902-ecfdbb3eac18",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/stf/newpage_08272.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-e18cd8a5-53c0-42c5-880c-3eefc194cd2e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-21a1c164-fe56-4fea-89ab-620cca1363f1",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手を辞めずに続けるための工夫でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-e0049050-9223-4c1c-9043-c8046bdcc3d1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-3a81c949-0076-405b-a87a-b7bf5d9740b1",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a895d64d-3ec7-4bf8-94ce-8f0e35b74703",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-194767dc-e9c6-43dc-b82a-ece70af8600b",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの笑顔のために！無理なく長く続けられる働き方と、やりがいを見つけるヒント集"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-b54b1bf9-8cce-4614-af98-da43848e6619",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-4679a94a-412b-4272-a4bb-f211143f0d47",
+          "_type": "span",
+          "marks": [],
+          "text": "仕事への向き合い方を変える工夫の視点でより良い状態を目指さないに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-ceb9c99f-0e88-4671-876e-7104d092ddaa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-17e9f9d6-a17b-436a-a271-b26d641eb74f",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-77e406c5-a76d-4ebf-9855-1700dc8f6d7f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-d5d664e3-9205-4be3-9c12-7270dc708377",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "resignation"
+      },
+      "title": "退職"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-resignation-advice-long"
+  },
+  "tags": [
+    "人間関係",
+    "仕事",
+    "工夫",
+    "悩み・相談",
+    "業務",
+    "看護",
+    "看護助手",
+    "職場",
+    "自分",
+    "転職"
+  ],
+  "title": "看護助手を辞めずに続けるための工夫"
+}

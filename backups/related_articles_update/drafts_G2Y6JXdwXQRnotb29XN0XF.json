@@ -1,0 +1,760 @@
+{
+  "_id": "drafts.G2Y6JXdwXQRnotb29XN0XF",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "uFihGMc3SNE01ZaqQ3xrrn",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として働くことを考えたとき、多くの人が悩むのが「正社員」と「パートタイマー」どちらの働き方を選ぶかという点です。特に給料や待遇面での違いは、生活設計にも大きく関わります。\nこの記事では、それぞれの働き方の給与事情とメリットを比較し、あなたに合った選択をサポートします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-4e362d5b-5697-4ded-baa5-ec192db9499d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-db12fa30-26c9-4fd8-8864-58d09c638c52",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-19a81503-e14b-4636-b208-e83fb1c5c74f",
+          "_type": "span",
+          "marks": [
+            "link-eb014c75-c421-46cb-b212-0ec289a023a2"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-eb014c75-c421-46cb-b212-0ec289a023a2",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9349ca4db36f",
+          "_type": "span",
+          "marks": [],
+          "text": "正社員の給料と待遇の特徴"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2e272d2d0e8e",
+          "_type": "span",
+          "marks": [],
+          "text": "安定した月給とボーナス"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "d4e5f6a1b2c3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "13c4bb6895ad",
+          "_type": "span",
+          "marks": [],
+          "text": "正社員の最大の魅力は、収入の安定性です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4d136dbd651d",
+          "_type": "span",
+          "marks": [],
+          "text": "月給制：毎月決まった額の給与が支払われるため、長期的な生活設計が立てやすくなります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3a115710492e",
+          "_type": "span",
+          "marks": [],
+          "text": "賞与（ボーナス）：多くの病院で夏と冬の年2回、賞与が支給されます。これは収入の大きな柱の一つです。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f5f9addba4d8",
+          "_type": "span",
+          "marks": [],
+          "text": "昇給の機会：勤続年数や実績に応じて、定期的に給与がアップする機会があります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-0022b0a7-8885-4813-a914-94b938c60692",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-ccc01e36-91c2-42f7-a82b-b76c70070419",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4eaf16b219f4",
+          "_type": "span",
+          "marks": [],
+          "text": "充実した福利厚生"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c46f6b3c3378",
+          "_type": "span",
+          "marks": [],
+          "text": "給与以外の面でも、正社員は手厚いサポートを受けられることがほとんどです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1d41d6d6059f",
+          "_type": "span",
+          "marks": [],
+          "text": "社会保険完備：健康保険、厚生年金、雇用保険、労災保険に加入でき、万が一の時も安心です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-3b685379-6a0e-47ab-bd3f-aed74455443a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-a2e1e055-2a86-48c4-9b36-b9387245c62c",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-8d09c4ad-d1d7-44e1-b922-1f4ef5a13cf2",
+          "_type": "span",
+          "marks": [
+            "link-95ba0385-a876-437f-8a18-95983e10f102"
+          ],
+          "text": "NsPace Career 看護助手の転職・年収コラム"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-95ba0385-a876-437f-8a18-95983e10f102",
+          "_type": "link",
+          "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "61607edb5fe5",
+          "_type": "span",
+          "marks": [],
+          "text": "各種手当：住宅手当や家族手当、通勤手当などが支給される場合があります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4d6f47e6405e",
+          "_type": "span",
+          "marks": [],
+          "text": "退職金制度：長年勤務することで、退職時にまとまった金額を受け取れる制度がある職場も多いです。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-f8b2304a-97ad-426f-ba09-4ab926a9cbe2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-46f98eb7-a1ca-4ac5-abee-9f32385958bd",
+          "_type": "span",
+          "marks": [],
+          "text": "正社員の給料と待遇の特徴では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ref-merged-block-4c2cca80-1175-4f21-a86e-d991738fc76c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ref-label-ac60595d-c2d3-4a25-959d-7b3ebd8530b9",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "ref-merged-span-d8f14c74-d270-4437-a344-05f10cffc333",
+          "_type": "span",
+          "marks": [
+            "ref-merged-1d2ed9fb-62e9-45e3-a8ea-1216b913249e"
+          ],
+          "text": "総務省 労働力調査"
+        },
+        {
+          "_key": "ref-sep-bfd61f54-f78f-4802-8634-f3d1b37039ee",
+          "_type": "span",
+          "marks": [],
+          "text": " / "
+        },
+        {
+          "_key": "ref-merged-span-a54ddc76-8fe0-4a4f-8743-108bdb8e84c4",
+          "_type": "span",
+          "marks": [
+            "ref-merged-529c7257-3610-4357-b7e6-55e5f6de8468"
+          ],
+          "text": "厚生労働省 介護人材対策まとめ"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ref-merged-1d2ed9fb-62e9-45e3-a8ea-1216b913249e",
+          "_type": "link",
+          "href": "https://www.stat.go.jp/data/roudou/"
+        },
+        {
+          "_key": "ref-merged-529c7257-3610-4357-b7e6-55e5f6de8468",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/stf/newpage_08272.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b372959b0a9f",
+          "_type": "span",
+          "marks": [],
+          "text": "パートタイマーの給料と待遇の特徴"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "b3c4d5e6f1a2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bd9f6b1c9869",
+          "_type": "span",
+          "marks": [],
+          "text": "柔軟な働き方と時給制"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c4f44496dcdf",
+          "_type": "span",
+          "marks": [],
+          "text": "パートタイマーは、ライフスタイルに合わせた働き方がしやすいのが大きなメリットです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b159a4290e39",
+          "_type": "span",
+          "marks": [],
+          "text": "シフトの自由度：週3日や1日4時間など、勤務時間や曜日を相談しやすく、家庭やプライベートとの両立が可能です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a3bd7dbdaeb5",
+          "_type": "span",
+          "marks": [],
+          "text": "時給制：給与は働いた時間に応じて計算されます。働いた分だけ収入になる、分かりやすい仕組みです。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-e497c987-de3f-4425-9fc4-bd74eb2caa9c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-210811f9-8fbd-44eb-bd7a-bdbe037e633e",
+          "_type": "span",
+          "marks": [],
+          "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "198dbc442451",
+          "_type": "span",
+          "marks": [],
+          "text": "扶養内での勤務も可能"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ebcdc884d488",
+          "_type": "span",
+          "marks": [],
+          "text": "配偶者の扶養に入っている場合、年収を一定額（例：103万円や130万円）に抑えて働くことで、税金や社会保険料の負担を調整することができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1a6596619a52",
+          "_type": "span",
+          "marks": [],
+          "text": "あなたに合うのはどっち？働き方の選び方"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "460831d8ae81",
+          "_type": "span",
+          "marks": [],
+          "text": "安定した収入を得て、将来的にキャリアを築いていきたい方は「正社員」が向いています。一方で、子育てや介護、趣味など、仕事以外の時間を大切にしたい方は「パートタイマー」という選択が良いでしょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "635b30bd595faaba58486ddec49a8c93",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "vGyZgfn5GqkZeupMk28Zz1",
+          "_type": "span",
+          "marks": [],
+          "text": "転職や退職を考えるときの比較記事もあります。退職代行サービスのメリット・デメリット比較や、看護助手向け転職サービスの比較を参考に、今の働き方と次の選択肢を整理してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-0df051a4-09e9-4970-bed4-065a7fae3f73",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-4ad4a600-2584-4249-a332-14e98c776dc1",
+          "_type": "span",
+          "marks": [],
+          "text": "正社員・パートで違う看護助手の給料事情でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-0eaa3fd8-44f9-495b-94f3-31abfd15768f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-a10aa39d-fc58-43f9-8d4e-478a78002439",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-f4f325c2-a601-42d8-979d-3bdf98f60ab8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-2de822b9-2f64-4d9d-97a7-08e596831f64",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-9733dc1f-39fe-40fa-a98c-a8a7275455e6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-8988a585-6f54-44d6-b958-8dbee14c4099",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a30fbc25-6814-4e98-b138-d45a759b901f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-052e7644-1322-42c5-a63d-3746ac052901",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-a40cc8d9-f47c-464f-b9f2-3a88991eab49",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-af139702-2330-408e-bdd7-31b7bd155424",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565531197-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565531197-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-ed94b5d8-990c-4f45-9a4f-6587eab1c1e8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-aa23e9c8-faed-49a1-a0ac-a96e0a561898",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "salary"
+      },
+      "title": "給与"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-salary-differences"
+  },
+  "tags": [
+    "サポート",
+    "ボーナス",
+    "勤務",
+    "待遇",
+    "正社員",
+    "看護",
+    "給与",
+    "給与・待遇",
+    "給料",
+    "賞与"
+  ],
+  "title": "正社員・パートで違う看護助手の給料事情"
+}

@@ -1,0 +1,736 @@
+{
+  "_id": "729b5fb8-4dd0-4490-aedb-4f39ec6caf7d",
+  "body": [
+    {
+      "_key": "33a4ea10c5eb9db51b4f19bda0323837",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3RZ",
+          "_type": "span",
+          "marks": [],
+          "text": "わたしは毎日患者さんと接し、看護師さんのサポートをする中で、やりがいを感じることもたくさんありますが、正直なところ「今日はなんだか心が重いな…」「疲弊しているな」と感じる日も少なくありません。特にこの仕事は、体力だけでなく精神的な負担も大きいと感じています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "75d28df53779ce317ba0ac2f7b0b2852",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Sc",
+          "_type": "span",
+          "text": "もしかしたら、あなたも同じような気持ちを抱えていませんか？患者さんの笑顔に救われる一方で、命に関わる現場のプレッシャーや、人間関係、あるいは予期せぬ出来事に心が揺さぶられることもあるかもしれません。でも、大丈夫。それはあなたが真剣に仕事に向き合っている証拠です。一人で抱え込まずに、まずはこのページを読んでみてください。わたしが現場で実践している、心を少しでも楽にするための方法や考え方を、具体的にお伝えしていきますね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ef77c7d846b1ffae91bafcdd76f0a969",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Tf",
+          "_type": "span",
+          "text": "なぜ看護助手は精神的に疲弊しやすいの？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "e87cfcfac42bdb228baca6d81b33cfce",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Ui",
+          "_type": "span",
+          "text": "看護助手の仕事は、患者さんの身の回りのお世話が中心ですが、その「お世話」の中には、想像以上に精神的なエネルギーを必要とすることがたくさんあります。わたしが特に「精神的にくるな」と感じるのは、主に以下の点です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "55ef0348db5c3abbbb108f2d4f795760",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Vl",
+          "_type": "span",
+          "text": "・"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Wo",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "患者さんの痛みや苦しみに寄り添うこと"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Xr",
+          "_type": "span",
+          "text": "：言葉では言い表せない患者さんの不安や苦痛を間近で感じることが多く、共感するあまり自分まで辛くなってしまうことがあります。特に、病状が悪化していく患者さんを見送る際には、無力感を感じることもありました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fe6b8f666ad31a5aec05dc209ac8c3fc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Yu",
+          "_type": "span",
+          "text": "・"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3Zx",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "命に関わる現場のプレッシャー"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3b0",
+          "_type": "span",
+          "text": "：直接医療行為は行いませんが、患者さんの異変にいち早く気づき、看護師に報告することは非常に重要です。見落としがないか、何かあったらどうしよう、という緊張感が常にあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-3884cdec-45e2-4ffb-8f78-66fd987104b5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-8de70e9a-206f-45d7-83de-5af762ae97a7",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2a667f3641b84fd4bf5737837ce9ae96",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3c3",
+          "_type": "span",
+          "text": "・"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3d6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "多様な人間関係"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3e9",
+          "_type": "span",
+          "text": "：患者さん、ご家族、看護師さん、多職種のスタッフ…たくさんの人たちと関わる中で、時には意見の食い違いや、理解してもらえないと感じる場面もあります。特に、多忙な中で自分の意見を伝えたり、協力を仰いだりすることに気を遣うことも多いですよね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bedf9f5233cb5913935fa93ef8261e29",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3fC",
+          "_type": "span",
+          "text": "・"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3gF",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "感謝の言葉が少ないと感じる瞬間"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3hI",
+          "_type": "span",
+          "text": "：もちろん、患者さんやご家族から「ありがとう」と言われることもたくさんありますが、それが当たり前になってしまうこともあります。報われないと感じた時に、モチベーションを保つのが難しくなることもありました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b603344b7050d0fe4b0fe1c4f2efc459",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3iL",
+          "_type": "span",
+          "text": "これらの要因が重なることで、知らず知らずのうちに心が疲弊してしまうのだと、わたしは感じています。まず、"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3jO",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "「精神的に疲れるのは当然のこと」"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3kR",
+          "_type": "span",
+          "text": "だと受け止めることが、最初の一歩かもしれませんね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "91848b819f6e04a2dfdefbff7e7a6060",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3lU",
+          "_type": "span",
+          "text": "心が折れそうな時、わたしが実践した具体的な対処法"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d6ac4367c7cd6bab1ce7540df92a28a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3mX",
+          "_type": "span",
+          "text": "小さな「オフの時間」を作る工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "263c1d1ed201ee2389166fa38be689db",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3na",
+          "_type": "span",
+          "text": "休憩時間は、物理的な体を休めるだけでなく、心をリセットする大切な時間です。わたしは、休憩時間中にスマホをいじるのをやめて、あえて目を閉じて深呼吸したり、窓の外を眺めてぼーっとしたりする時間を意識的に作っています。お気に入りの飲み物を用意しておくだけでも、心が少し緩むのを感じますよ。休憩から仕事に戻る前の10分間は、仕事のことを考えない「10分ルール」を設けるのもおすすめです。 [INTERNAL_LINK: 休憩時間の有効活用]"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "06920e0dd05b1f1fb504e2ace6c7017a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3od",
+          "_type": "span",
+          "text": "また、帰宅後の切り替えも大切です。お風呂にゆっくり浸かったり、好きな音楽を聴いたり、軽くストレッチをしたり。仕事モードからプライベートモードへ、意識的にスイッチを切り替える習慣を作ることで、翌日に疲れを持ち越さないようにしています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3cc3e771641caea14d1f38582a1db49e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3pg",
+          "_type": "span",
+          "text": "感情の波に飲まれないためのコミュニケーション術"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "ac53044c9939748416fc1b61cae88b42",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3qj",
+          "_type": "span",
+          "text": "患者さんやご家族から厳しい言葉をかけられたり、看護師さんから指示が飛んできたり…。わたしたちはさまざまな感情のやり取りの中にいます。そんな時、わたしは「これは自分個人への攻撃ではない」と一歩引いて考えるようにしています。相手は病気や不安からくるイライラを抱えているのかもしれない、忙しさゆえに言葉が荒くなっているだけかもしれない、と。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "95395384d4ec20266aa58d6d6500b714",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3rm",
+          "_type": "span",
+          "text": "また、困ったことがあったり、これはおかしいなと感じたりした時は、勇気を出して看護師さんに相談することも重要です。忙しそうな時でも「お時間よろしいでしょうか、少しだけお伺いしたいのですが…」と簡潔に前置きをして、タイミングを見計らうと、話を聞いてもらいやすくなります。自分の感情に気づくために、簡単なメモを残したり、信頼できる同僚と短時間で話したりするのも、わたしにとっては有効でした。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "abd633f03c119100383d07cf549a1aeb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3sp",
+          "_type": "span",
+          "text": "身体と心の繋がりを大切にするセルフケア"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "7d90376187faedec89d1ac5a491576cb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3ts",
+          "_type": "span",
+          "text": "「疲れた時は寝る」と当たり前のことですが、質の良い睡眠は心の健康に直結します。わたしは寝る前のスマホを避け、アロマを焚いたり、温かいハーブティーを飲んだりして、リラックスできる環境を整えるようにしています。また、忙しいとついおろそかになりがちな食生活も、意識して見直すようにしています。バランスの取れた食事をしっかり摂ることで、体力も気力も維持しやすくなると感じています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cb6ba2c51697388d99088a1b5a1baed3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3uv",
+          "_type": "span",
+          "text": "そして、"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3vy",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "「小さなごほうび」"
+        },
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3x1",
+          "_type": "span",
+          "text": "も大切です！例えば、仕事終わりにコンビニで好きなスイーツを買う、週末にちょっと贅沢な入浴剤を使う、など。自分を労わる時間を作ることで、心がふっと軽くなりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1cdaf4c3d53db53981a4dba53a64b77f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3y4",
+          "_type": "span",
+          "text": "一人で抱え込まずに、助けを求める勇気も大切です"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "7404e846815e4b954e82dc75bac8a298",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ3z7",
+          "_type": "span",
+          "text": "どんなに努力しても、心が限界だと感じることがあるかもしれません。そんな時は、決して一人で抱え込まないでください。同僚や先輩、信頼できる看護師さんに「実は最近、少ししんどくて…」と打ち明けるだけでも、心が少し軽くなることがあります。わたしも一人で抱え込みそうになった時、先輩に話を聞いてもらい、共感してもらえたことで、乗り越えられた経験があります。職場の相談窓口や、メンタルヘルスサポートが用意されている病院もありますので、積極的に活用することも考えてみてくださいね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-53b5994f-f276-4077-81bb-625ee5b1dcf7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-902806c6-cd24-405c-b5cb-9525477d86a8",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-d073a649-9b8f-453a-8d66-edc01b6b897a",
+          "_type": "span",
+          "marks": [
+            "link-c6750e24-6959-488a-80d2-6c384430c930"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-c6750e24-6959-488a-80d2-6c384430c930",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-4aa5714d-42c5-45b7-bec0-2ead090e585a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-7b766184-8376-455e-b4f5-80349c03da93",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-0120d6a0-7051-4c77-a55f-567e0c7b93bc",
+          "_type": "span",
+          "marks": [
+            "link-299824a2-1f3d-48de-8156-b4f49cc229a2"
+          ],
+          "text": "「心に寄り添う看護助手のあなたへ：精神的な負担を軽くするヒント」"
+        },
+        {
+          "_key": "internal-link-span-outro-04164a5d-a76d-45a8-8dfd-8a93476e548f",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-299824a2-1f3d-48de-8156-b4f49cc229a2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-mental-care-insights"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-d9e095e1-ae57-4d17-88f3-8eee91bb16aa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-c91fac3d-b561-4fcc-a8c9-3fd244bfe2b7",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-27b0eb7c-739b-451b-9e20-e31ab7a5c9d4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-699bf487-690b-4674-96ab-90cd21c86601",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-6635ec75-de26-4860-b46f-d98f9df8b258",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-b979537d-8a3a-424e-ac1b-9e4a3b1769b1",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-c7f92458-590b-4158-84b0-a832d45f731a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-a8a7f997-bfc6-4a5e-8f73-00054df064e2",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-3c597dd5-3d43-4236-b71a-aabcaa17650d",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-b0fea4f5-2a68-4000-8f1e-cef6c84f48c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-74961e3c-0201-4481-b9d5-ab5ff199daa2",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-e7c049ab-b1d1-474c-b678-f9c22e2f0942",
+          "_type": "span",
+          "marks": [
+            "link-e498073c-5060-42b0-a37e-8c301bf93ff9"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-e498073c-5060-42b0-a37e-8c301bf93ff9",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "3a9a085fff151ba4471769d6e15573e3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iFz7YKPzxbcQjtwtctQ41D",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-7af8ec68-180b-4f03-968c-6e9a1902cd57",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-e15155ae-f48e-49f5-b1d7-31538af6c9b1",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手が精神的にきつい理由とストレスと向き合う秘策でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-928d12e4-a01e-40a8-8535-f2e66f63418b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-c41e6e4a-7adc-48ae-a40b-22ef33a59dd1",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-774f7e33-6cb7-47a9-8407-2d32a14c0633",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-0284d226-ce02-4a30-bd56-d66fe422cf2b",
+          "_type": "span",
+          "marks": [],
+          "text": "心が折れそうな時、わたしが実践した具体的な対処法の視点で小さな「オフの時間」を作る工夫に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-f43469bc-4794-4b70-b558-610fcf41d220",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-9b253723-a51f-4cd9-8f90-3bb28a215c4f",
+          "_type": "span",
+          "marks": [],
+          "text": "心が折れそうな時、わたしが実践した具体的な対処法の視点で感情の波に飲まれないためのコミュニケーション術に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-709dc8c8-a29c-4ab6-9311-fb41a58c970a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-cb83565d-032f-45f3-a104-fb65fd2c72ef",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-ffd67c48-bb2c-498d-b8bb-e4df20e05d6e",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやスクラブはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-44075a38-d2f4-4da6-8c18-b1e839dae9b0",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "344296d01f3a11ad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "84299fca3f679f29",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "c5d6885849e26a5b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "28c759d8d3640a3f",
+          "_type": "span",
+          "marks": [
+            "4e035e982298a3a2"
+          ],
+          "text": "夜勤がつらいときの乗り越え方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "4e035e982298a3a2",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-tough-night-shifts"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "9d63a85e53f0a404",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bee13e3e38059d17",
+          "_type": "span",
+          "marks": [
+            "55ac18efd170ecec"
+          ],
+          "text": "看護助手のストレス原因ランキング"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "55ac18efd170ecec",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-stress-ranking"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "34013ca397f40da7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6929cd898b997a44",
+          "_type": "span",
+          "marks": [
+            "ef698ec578b1da53"
+          ],
+          "text": "看護助手の仕事を辞めたくなる瞬間とは？"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ef698ec578b1da53",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-resignation-advice"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-933de787-3319-4f0c-8360-e594744687d6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-6e59ca80-860a-48df-8b65-993ee5a474a9",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-mental-care-stress"
+  },
+  "tags": [
+    "精神的",
+    "看護助手",
+    "ストレス",
+    "メンタルヘルス",
+    "セルフケア"
+  ],
+  "title": "看護助手が精神的にきつい理由とストレスと向き合う秘策"
+}

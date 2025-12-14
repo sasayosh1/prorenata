@@ -1,0 +1,708 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XN567",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5ffb89f3-1108-4994-8031-ed9751374a31",
+          "_type": "span",
+          "marks": [],
+          "text": "医療現場で働くことを考える際、看護助手と看護師の給料の違いは、多くの方が気になるポイントの一つではないでしょうか。"
+        },
+        {
+          "_key": "8de4c91c-bc0d-42a3-ac7e-f983f1a1fc61",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "1f314637-a2d7-4064-9460-6c3edf9f2e16",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "1cc86c38-e99c-436d-9773-32ab94d6c310",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "b1822d20-de04-469d-92b9-ae961d666067",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "57d88724-aee3-4dfb-b5c9-cef71d20c6e8",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "ace2a95f-ae16-465a-96d5-cb50412901d0",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、両者の給与水準を具体的に比較し、なぜ給料に差があるのか、そして看護助手から看護師を目指すことで収入がどのように変わるのかを解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-2960cb44-0ae5-4863-9ea5-e49f36c85ed5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-0161a52f-5b35-4eb8-aa45-5482a7603434",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-fe0df26b-382b-4f96-a61f-09d7da1473de",
+          "_type": "span",
+          "marks": [
+            "link-f4f2a85c-49ac-46a2-9cbd-ad776836449c"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-f4f2a85c-49ac-46a2-9cbd-ad776836449c",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "17e69947-bd7d-4d13-871b-df2c05481c0f",
+          "_type": "span",
+          "text": "看護助手と看護師の平均給料を比較"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9eade50e-69f2-44a3-abd1-729ce3abcb1c",
+          "_type": "span",
+          "text": "看護助手の平均月収・年収"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "d4e5f6a1b2c3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7f9fd8bb-0f0f-4ffd-986f-8695c2b819f6",
+          "_type": "span",
+          "text": "看護助手の平均月収は、正社員で約18万円～22万円、年収では約250万円～300万円程度が目安です。パート・アルバイトの場合は時給制で、地域によって異なりますが、時給1,100円～1,500円程度が一般的です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e5f6a1b2c3d4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "74b38593-5cdd-4fd1-83e2-4b9619617511",
+          "_type": "span",
+          "text": "看護師の平均月収・年収"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f6a1b2c3d4e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ee20ac35-6b41-47e6-9903-f4e78507ed71",
+          "_type": "span",
+          "text": "一方、看護師の平均月収は、正看護師で約30万円～35万円、年収では約400万円～500万円程度とされています。准看護師の場合は、正看護師よりやや低い傾向にあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e1e66196-ce36-458a-b23c-6c1ddc19d11f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-843c2fc8-632f-4b26-9ef5-c2f66eece372",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-dc1329ed-e64f-4d74-a10a-39274dca4059",
+          "_type": "span",
+          "marks": [
+            "link-427df5ff-7b39-47cb-a728-cbdf87e55994"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-427df5ff-7b39-47cb-a728-cbdf87e55994",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "76ef8ff2-79dd-4e97-96f5-ac843956ea38",
+          "_type": "span",
+          "text": "なぜ給料に差があるのか？その理由"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "xmydlvj2y0mc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "jrqi0xdxl1e8",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の給与には大きな差がありますが、その背景には明確な理由が存在します。資格の有無、業務内容、そして求められる責任の範囲という3つの観点から、その違いを詳しく見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db12fe1f-a196-4fe4-8d6d-5c37675d62ab",
+          "_type": "span",
+          "text": "資格の有無：看護師は国家資格が必要ですが、看護助手は必須ではありません。資格取得には専門的な学習と試験が必要です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "reference-a15af5e1-9b7d-4103-9d75-51828100f61b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-2bcd79da-d97a-4706-8d9d-bc1fca316e30",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-a98f84cf-612f-423b-a00c-49f101533b2c",
+          "_type": "span",
+          "marks": [
+            "link-b1cd3227-232a-449f-b090-40db21ab93b8"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-b1cd3227-232a-449f-b090-40db21ab93b8",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "daa483c5-6518-438f-8a66-1de20cf6152b",
+          "_type": "span",
+          "text": "業務内容の違い：看護師は医療行為を行うことができ、患者さんの状態を医学的に判断し、ケアプランを立てるなど、より高度な専門性と責任が求められます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "medical-notice-c132a819-092b-4c05-b3ec-4d3ad1debfff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-27b6d6de-2f53-438f-90ad-acf9bc1e6701",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b8de4391-2f3a-4017-aeec-5ac6df924523",
+          "_type": "span",
+          "text": "責任の範囲：看護師は患者さんの命に直接関わる判断や処置を行うため、その責任の重さが給料に反映されます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-3529eaf9-18d6-46cf-940d-bc9b9f358223",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-db38df0b-e080-4e36-ae6f-b6ea0b7e3b23",
+          "_type": "span",
+          "marks": [],
+          "text": "なぜ給料に差があるのか？その理由では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a3b4c5d6e7f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9893ae50-e20a-4595-b608-e35def24a032",
+          "_type": "span",
+          "text": "看護助手から看護師を目指すと収入はどう変わる？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4582b307-a43f-4c4f-8304-b91b143ef16e",
+          "_type": "span",
+          "text": "看護助手として経験を積んだ後、看護師を目指すことは、収入アップの大きなチャンスです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "80285ab0-86cf-44c1-8473-c7bb7ffe0675",
+          "_type": "span",
+          "text": "給料の大幅アップ：看護師になれば、月収で10万円以上、年収で150万円以上の収入アップが期待できます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3f7f1a16-d9bf-4765-8353-e041016b49a7",
+          "_type": "span",
+          "text": "キャリアアップの選択肢：専門看護師や認定看護師など、さらに専門性を高める道も開けます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-30c1ed54-2643-494e-be29-648b30dd0d07",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-845d3468-66c2-4cfc-9eee-aa9795e9c104",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手から看護師を目指すと収入はどう変わる？では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818957182-7mg8ffcf2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-pwsv0nrfi",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の給料差はいくら？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818957182-clolod8t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-4gsb9jhiw",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の平均給料を比較"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818957182-pbcc4hs18",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-ay9zb0n0u",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の平均月収・年収"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818957182-m3r1mxbga",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-1xdb29nyr",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の給与は、勤務する施設の種類（病院、クリニック、介護施設など）や、経験年数によっても変動します。経験を積むことで、昇給の機会も期待できます。また、資格取得支援制度を設けている医療機関もあり、スキルアップを目指しやすい環境も存在します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818957182-f64rw6ov5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-mqajof0vo",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師の平均月収・年収"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760818957182-44w1tagq9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-sumjt31h4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師の給与水準は、最終学歴や経験年数、勤務先の規模、そして夜勤の有無によって大きく左右されます。大学病院や総合病院など、規模の大きな医療機関では、給与水準が高い傾向にあります。また、専門看護師や認定看護師などの資格を取得することで、更なる収入アップも目指せるでしょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818957182-6pnu1letx",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-x840dmdex",
+          "_type": "span",
+          "marks": [],
+          "text": "なぜ給料に差があるのか？その理由"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818957182-f76my61ab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-1x2tpxeme",
+          "_type": "span",
+          "marks": [],
+          "text": "加えて、教育年数も給与差に影響を与える要素の一つです。看護師は、看護大学や看護専門学校で専門的な知識と技術を習得する必要があり、そのための学費や時間も考慮されています。一方、看護助手は、未経験からでも比較的容易に始められる仕事であり、研修制度などを通じて必要な知識やスキルを習得します。このように、教育への投資と、業務遂行に必要な専門性が、給与に差を生む要因となります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818957182-287s522ts",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-yq3fho57f",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手から看護師を目指すと収入はどう変わる？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760818957182-bnh6gdvmx",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818957182-o1fcmwzm4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手から看護師を目指す場合、進学のための学費や、学習時間の確保など、様々なハードルが存在します。しかし、看護師資格を取得することで、生涯年収が大幅に増加するだけでなく、より専門的な知識やスキルを身につけ、患者さんへの貢献度も高めることができます。また、キャリアアップの道も広がり、よりやりがいのある仕事に就くことができるでしょう。経済的なメリットだけでなく、自己成長の機会としても、看護師への道は魅力的な選択肢と言えます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-498c1694-4ac9-4912-a5a5-d1a37d47d53b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-c22095b3-43c5-46c4-a3d4-5e9dcc7d3b51",
+          "_type": "span",
+          "marks": [],
+          "text": "「看護助手から看護師を目指すと収入はどう変わる？」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-8d27aec1-fd4c-4c1a-a66c-123fc080fe51",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-c09cece1-5b59-4650-b9df-be626763db8d",
+          "_type": "span",
+          "marks": [],
+          "text": "「看護助手から看護師を目指すと収入はどう変わる？」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-6941c718-f05b-467e-9055-21775707160d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-b456d765-35d2-49a2-9b38-ca8f05bd5e82",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-898750a2-7d61-42f0-afe7-158a63a1f1fd",
+          "_type": "span",
+          "marks": [
+            "link-00963217-8965-4958-b3bb-980c092b3bea"
+          ],
+          "text": "「看護助手の給料が低い理由を徹底解説」"
+        },
+        {
+          "_key": "internal-link-span-outro-2380fd71-584a-467b-af04-d282fcbacf6e",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-00963217-8965-4958-b3bb-980c092b3bea",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-low-salary-reasons"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-d1f38bac-9e7b-4992-a6a1-0d400a3b006c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-f69bc013-ab9b-418e-afa6-ec4d547dd2ea",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の給料差はいくら？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-2aeda36f-a9c0-45b5-9eb6-4458562cc897",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-e801379e-51cb-44cd-b5c9-aecd08c52c20",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-1f6f0422-67fc-470a-be9e-ce1f6d207529",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-29d69c7f-b620-48bc-89f1-e9701e700de7",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の平均給料を比較の視点で看護助手の平均月収・年収に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-b42c1b01-8dd5-4ab0-b6bb-fc2e1c4cd978",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-d5b934c3-727b-436f-91a9-7e59bed369dc",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の平均給料を比較の視点で看護師の平均月収・年収に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-7de7378b-3360-4e51-b179-2e1009a966d4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ae55aaeb-3420-4e62-a716-db797697f5c8",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-4bb25a52-8505-4ec4-978f-cd1e3875b563",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-fd4d0772-3db8-4f2b-972e-fcd3488b737a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-082fe2e5-e89c-4546-b9b5-baaa2b68a2b2",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "salary"
+      },
+      "title": "給与"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-salary-difference-nurses"
+  },
+  "tags": [
+    "キャリア",
+    "年収",
+    "月収",
+    "業務内容",
+    "看護",
+    "看護助手",
+    "看護師",
+    "給与・待遇",
+    "給料",
+    "資格"
+  ],
+  "title": "看護助手と看護師の給料差はいくら？"
+}

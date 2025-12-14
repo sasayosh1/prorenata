@@ -1,0 +1,755 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUw4",
+  "body": [
+    {
+      "_key": "d1e26bdf-bb88-4d4d-a962-36e36c000177",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c0f157c9-f2d7-4de1-8333-00aa205d095e",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は国家資格がなくても始められる仕事ですが、現場での学びを補強するために取っておきたい研修や、働きやすさを支える道具があります。ここでは、未経験から働くときに知っておきたいポイントを整理しました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "02d97916-00d7-4a8f-9b25-876a629d8f4f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "313b5019-4251-4e46-841e-a56d5b149b9f",
+          "_type": "span",
+          "marks": [],
+          "text": "資格がなくても始められる理由"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "0bb2e993-9a87-4a7c-900b-4c5db860a4a9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ddf6dad4-bfd9-4bf1-a75c-4b71a6741852",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は医療行為を任されず、生活支援や環境整備が中心です。入職後に院内研修を受けたり、先輩のサポートを受けながら仕事を覚える仕組みになっているため、未経験者でも現場でスキルを磨きながら成長できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-b9b4bb65-64f8-4585-acf3-eb5533f14e87",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-2e4fd07a-d970-453e-b5cf-4b5e1fc88a78",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-e692c718-05c3-4ab4-b308-83da0b354661",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-8a782ef2-bccc-4e97-931e-eeb4570a2533",
+          "_type": "span",
+          "marks": [],
+          "text": "「資格がなくても始められる理由」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "025d7dc9-1bea-4e67-9840-e8748d7873d5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-e64a92f5-f8f8-4c24-b2fc-ef1da6c2304e",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-9b071549-9243-4c4b-a65c-022c561f8a78",
+          "_type": "span",
+          "marks": [
+            "link-1c26d07b-9c16-488b-a88d-80fd686b219f"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-1c26d07b-9c16-488b-a88d-80fd686b219f",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "5a63c1f2-4e3b-4098-b85d-96ba26c0724b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b7320c8c-66f7-4054-8b65-b471831a33ab",
+          "_type": "span",
+          "marks": [],
+          "text": "取得しておくと役立つ研修"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "0d118c60-e631-40a6-ba73-543c4f45a06b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "912481a2-4939-4727-b8d8-355190c7d7b7",
+          "_type": "span",
+          "marks": [],
+          "text": "介護職員初任者研修：身体介助や感染対策の基礎を体系的に学べます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "33be7600-e97c-4949-afba-843e1a4ff2a5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cdd21893-625c-46ff-b393-652cbbe3f211",
+          "_type": "span",
+          "marks": [],
+          "text": "実務者研修：より高度な介助や記録の書き方を学び、リーダー補佐として活躍しやすくなります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3f7a784a-00af-4a47-8721-261bdfea095e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a73eb742-5f78-4e7f-9f21-ea95162c10de",
+          "_type": "span",
+          "marks": [],
+          "text": "介護福祉士：国家資格として信頼性が高く、将来のキャリアアップにもつながります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-15d3942c-abb2-4419-b9eb-cfb0e64d79f4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-0cf2f052-3487-4cc8-81bb-e4e874525505",
+          "_type": "span",
+          "marks": [],
+          "text": "取得しておくと役立つ研修では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c4341bfc-f143-4c0e-8ce0-f4a1d185e609",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "11279d41-c008-474a-9651-7d4bd4cde23a",
+          "_type": "span",
+          "marks": [],
+          "text": "未経験で働く前に準備したいこと"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "63a5bf89-212c-4822-b669-ca70aac80a27",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9584d443-22e6-49cf-a352-8871fe8e4c98",
+          "_type": "span",
+          "marks": [],
+          "text": "体力づくり：簡単なストレッチや筋力トレーニングを習慣にしておくと、初めての夜勤でもスムーズです。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "eee9181f-c61e-4f93-9c2c-e3edc832aa87",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ab7d7735-842d-464c-a9cf-015be98a7d86",
+          "_type": "span",
+          "marks": [],
+          "text": "生活リズムの調整：夜勤や早番がある職場では、睡眠や食事の時間を事前に調整しておくと体調管理がしやすくなります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f8c73f3e-0d0f-4fea-9a48-39dd9e158768",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "463fb5be-8b8a-4cb8-9b1c-a3ebc1b499a1",
+          "_type": "span",
+          "marks": [],
+          "text": "情報収集：病院・施設ごとの研修制度やサポート体制を調べ、自分が安心できる環境かを確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-03531da9-df57-414e-a746-842d01ab8d40",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-7152817c-7657-4227-90e1-aafeba152ffd",
+          "_type": "span",
+          "marks": [],
+          "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-2e882506-f9b7-4a09-b03b-72490e4871de",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-a1c2c7ee-b063-4d81-8be6-e6bdeb4664bb",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-9d856299-1929-41f6-b0ce-0a2aa635a948",
+          "_type": "span",
+          "marks": [
+            "link-b7d089a2-35eb-49e0-bb33-d1a28ba6fbd5"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-b7d089a2-35eb-49e0-bb33-d1a28ba6fbd5",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "daad4073-a1c8-4eaa-89aa-16e497480b0b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "85a433fc-7d79-48a3-abe6-5835bac9901d",
+          "_type": "span",
+          "marks": [],
+          "text": "あると便利な持ち物"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "6ca56b80-982f-4cbe-83b5-d2c50d2e604b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1fe740ae-66d8-47ca-95ce-e4fd48cbe793",
+          "_type": "span",
+          "marks": [],
+          "text": "クッション性の高いナースシューズ：長時間の立ち仕事でも足への負担を減らせます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "342a41c2-dd72-49e3-af9a-a369f57ceacc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "15b58586-1b1b-4428-8ef0-fc7814383cd8",
+          "_type": "span",
+          "marks": [],
+          "text": "防水ポケットオーガナイザー：体温計やメモ帳をまとめて持ち歩けるので、急なコールにもすぐ対応できます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "af41bacc-9b37-4211-81b3-63f714897cd7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2bc50627-d9e1-49a1-899a-6184c49be75c",
+          "_type": "span",
+          "marks": [],
+          "text": "替えのマスクと速乾タオル：ケアの合間にこまめに身だしなみを整えると、患者さんにも安心感を与えられます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-63ee28a1-634b-4bec-a0ed-24fce814ba10",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-313b1397-c704-441c-a5a4-7ac195a2dedf",
+          "_type": "span",
+          "marks": [],
+          "text": "あると便利な持ち物では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-68d2b21b-cc94-44ab-8b38-a7c52f2ee186",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-65eaac0d-585d-40fc-8694-492643060d1f",
+          "_type": "span",
+          "marks": [],
+          "text": "「あると便利な持ち物」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-265410f6-9451-408d-934e-ce8905c9392c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-1a4bd514-a1b1-44a9-ba7c-1e5000347d32",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-6b72acb3-0c34-4420-b75e-d81605370ebc",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-0c981929-e273-4e2c-92fa-2d73fd79db68",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-f4d049eb-f1af-4a95-827e-60eef6898101",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-81588ab9-e2e7-47bb-a4a9-079100d8a37e",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-8e6eaf7a-1625-4a7c-af36-ef76748d7fb0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-fb8a04ba-9dc8-4e04-b80f-fdfd3a7c8c5a",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-4a7ffcef-d807-4a37-8f97-bef8fc49b74c",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-0d07f32e-b314-49ca-8e1b-53493a85a430",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-5d94f444-2126-4d8b-8bad-b0decbe69468",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-78326569-e861-4f49-ba89-f41cc0030462",
+          "_type": "span",
+          "marks": [
+            "link-63bd9d99-1f2c-467b-abd2-2b83e8527740"
+          ],
+          "text": "「看護助手の資格勉強は独学でも大丈夫？」"
+        },
+        {
+          "_key": "internal-link-span-outro-96b44b47-9672-4639-a09e-32c3df6aca80",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-63bd9d99-1f2c-467b-abd2-2b83e8527740",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-self-study-qualifications"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874140359-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874140359-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c78c2ed0-2206-4e3a-890b-c8a2b7a5452a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5c91c103-02c2-43b6-ba1d-ba7baa9b72ed",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-1b072d95-6ff9-4c12-8b6a-623febacdd0b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-80f67bfe-4555-44f5-99a0-9d28798c7873",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手に資格は必要？未経験でも働ける？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-32711d43-5860-4e6e-96a8-10171adc10b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-7ba5ef00-9580-4925-8417-588b42f198f6",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-727a569a-2ecd-4f96-a521-2e780761532c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-ce8f3782-9643-4570-84d3-3dd37de543f7",
+          "_type": "span",
+          "marks": [],
+          "text": "介護職員初任者研修：身体介助や感染対策の基礎を体系的に学べます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-2c818b48-1bdc-4273-9636-56ddfcce521c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-af5932c5-e508-41a5-a77f-bfad190e233a",
+          "_type": "span",
+          "marks": [],
+          "text": "実務者研修：より高度な介助や記録の書き方を学び、リーダー補佐として活躍しやすくなります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-ff0b3f04-5644-4017-9c75-6fc3007456a3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-3bf7eb13-2f37-406c-abff-b82cf7a45827",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-369d1c34-0764-43ce-8708-3c0054575be4",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ポケットオーガナイザーや小物入れはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-d0e753b8-56fa-4643-88b6-922f7ab6c542",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ポケットオーガナイザーを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-06e2a69e-88f6-40b8-8a40-96a679907e21",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-8505725e-1da7-4d1d-9023-e7cfa4438dd7",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "license"
+      },
+      "title": "資格"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-qualifications-needed"
+  },
+  "tags": [
+    "キャリア",
+    "キャリア・資格",
+    "介護",
+    "医療",
+    "取得",
+    "技術",
+    "看護",
+    "看護助手",
+    "経験",
+    "資格"
+  ],
+  "title": "看護助手に資格は必要？未経験でも働ける？"
+}

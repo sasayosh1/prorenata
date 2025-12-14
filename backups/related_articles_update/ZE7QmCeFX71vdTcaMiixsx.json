@@ -1,0 +1,931 @@
+{
+  "_id": "ZE7QmCeFX71vdTcaMiixsx",
+  "body": [
+    {
+      "_key": "3icyfcsq",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7238khip",
+          "_type": "span",
+          "marks": [],
+          "text": "インターネットで「看護助手 底辺」という言葉を目にすると、胸がざわつく方も多いと思います。わたし自身、入職前に同じ検索をして眠れなくなった夜がありました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "he88n1oq",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bwqpq6js",
+          "_type": "span",
+          "marks": [],
+          "text": "ただ、匿名の言葉をそのまま受け取る前に、どんな理由でそう言われるのか、現場で何が起きているのかを落ち着いて見直すと景色が少し変わります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4geypzy4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "pexfdk91",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、よく挙げられる背景・現場で感じる価値・心を整えるコツを、看護助手としての経験を交えて整理します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9e192461-d58b-4fa8-bbed-d7727fca9653",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-7860df1d-6435-4e54-ac3e-9b30326f2dc4",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-ddb49365-7ab9-4966-9723-8e280868b113",
+          "_type": "span",
+          "marks": [
+            "link-b195c151-4853-4c87-bccc-a5384e903161"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-b195c151-4853-4c87-bccc-a5384e903161",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "2up229xb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7g4f8l17",
+          "_type": "span",
+          "marks": [],
+          "text": "なぜ「看護助手 底辺」と言われてしまうのか"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "hsw633c7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "hdefekyi",
+          "_type": "span",
+          "marks": [],
+          "text": "ネット上で繰り返される理由は大きく３つです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "dn7khsgb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "tpofc4ue",
+          "_type": "span",
+          "marks": [],
+          "text": "未経験から挑戦できる求人が多く、スキルのばらつきが目につきやすい"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "l5ol02b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "oyprgwak",
+          "_type": "span",
+          "marks": [],
+          "text": "環境整備やケアの補助など、成果が数値で見えにくい業務が中心"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9fh2apsb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "l068efjq",
+          "_type": "span",
+          "marks": [],
+          "text": "平均賃金よりも「低い部分」だけが切り取られて拡散されやすい"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "czxvb69v",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "73rdnd7i",
+          "_type": "span",
+          "marks": [],
+          "text": "数値や評価だけでは拾いきれない“空気”が病棟にはあります。患者さんの「ありがとう」という一言で救われる夜もあれば、状況が急変して無力感に襲われる日もあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "xpkkm2cp",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "73dhobdm",
+          "_type": "span",
+          "marks": [],
+          "text": "だからこそ、ほかの人の言葉に揺さぶられそうな時ほど、自分が見ているケアの手触りをよりどころにすることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-bfde2ea0-ae95-4903-8241-fcff5150c1d0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-df8ebbd4-2a97-4cdd-9d93-9a96f100b7ec",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-b125fbca-9b22-49aa-bafb-9b10931f85c4",
+          "_type": "span",
+          "marks": [
+            "link-2cd7c436-4b05-4057-a30e-39b52d4bc0ad"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-2cd7c436-4b05-4057-a30e-39b52d4bc0ad",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "jwxik0on",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "917qn6tl",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で感じる“看護助手の価値”"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "b9egb5tv",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ef6068ws",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの表情や声のトーンの変化をいちばん近くでキャッチできるのが看護助手です。主な役割は次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7l9fu5s3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "eutc77fr",
+          "_type": "span",
+          "marks": [],
+          "text": "バイタル測定や診察準備の補助で、看護師が判断に集中できる環境を整える"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-ad75c1e0-68c5-4177-b919-814e620fc8c8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-54a3bddc-c940-4b1e-94cc-2cd9584199b7",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "xgzlpew6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "imaqsp7q",
+          "_type": "span",
+          "marks": [],
+          "text": "食事・排泄・清潔ケアの支援から小さな異変を拾い、早めに共有する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "qs0q3n9b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "t5kfdgxm",
+          "_type": "span",
+          "marks": [],
+          "text": "家族や多職種との橋渡し役として、情報と感情の両方をつなぐ"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6nonmlun",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "15qtlncs",
+          "_type": "span",
+          "marks": [],
+          "text": "診療行為そのものは看護師や医師が担いますが、その前後を丁寧につなぐことで病棟全体の流れが滑らかになります。目立ちにくい仕事ほど、安心の土台を支えていると覚えておきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s10y3igi",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e632xv71",
+          "_type": "span",
+          "marks": [],
+          "text": "キャリアはひとつではない"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "e6yz22e2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "lba5vkc4",
+          "_type": "span",
+          "marks": [],
+          "text": "「看護助手で終わりたくない」という気持ちはとても自然です。日々の業務は、次のステップへ進むための経験値になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "vab9lk53",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "avgu818s",
+          "_type": "span",
+          "marks": [],
+          "text": "介護職員初任者研修 → 実務者研修 → 介護福祉士"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ugna242t",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "x7husa7o",
+          "_type": "span",
+          "marks": [],
+          "text": "准看護師課程 → 看護学校 → 正看護師"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3ihqj66v",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c28mv74z",
+          "_type": "span",
+          "marks": [],
+          "text": "医療事務・地域連携・訪問看護など周辺職種へのジョブチェンジ"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "npcejcht",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "knipb6s5",
+          "_type": "span",
+          "marks": [],
+          "text": "今の経験を棚卸ししながら学びを重ねれば、選択肢は少しずつ広がります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-4d5787bc-9008-4750-9389-ae923c539895",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-72ab2a49-9d72-4d23-9abc-f2e6d0240c1c",
+          "_type": "span",
+          "marks": [],
+          "text": "「キャリアはひとつではない」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4swi90k",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ubbxw3um",
+          "_type": "span",
+          "marks": [],
+          "text": "自分の軸を整えるヒント"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "86tmpclj",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "mmrwamhd",
+          "_type": "span",
+          "marks": [],
+          "text": "否定的な言葉に揺さぶられた日は、思考を“自分のまま”に戻す時間を意識的につくってみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1n14suun",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "qw54dkk2",
+          "_type": "span",
+          "marks": [],
+          "text": "なぜ看護助手を選んだのかを月一でメモし、初心を言語化する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "iquzav5f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8ghrahou",
+          "_type": "span",
+          "marks": [],
+          "text": "困ったときに相談する「先輩」や窓口を決めておく"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4lu5buu8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "oyzjes69",
+          "_type": "span",
+          "marks": [],
+          "text": "睡眠・食事・休憩の質を観察し、無理を溜め込まない"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "xp3q4kl6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7hc8zhqm",
+          "_type": "span",
+          "marks": [],
+          "text": "感情が揺れたときこそ、自分のペースを整えるルーティンが支えになります。焦らず育てていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "69smfyjl",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "qfdcrtgp",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "u6pw517w",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "k2f8d4de",
+          "_type": "span",
+          "marks": [],
+          "text": "同じ業務に見えても、患者さんの体調やチームの状況は日々変化します。こまめな観察と共有が安心につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "mhkp4utp",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6yzahnwv",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者・動線・物品」の３点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "xyckezxv",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "jrnap05b",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど一言の声かけを意識し、不安を和らげる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "kb7km70o",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ek5wvrdh",
+          "_type": "span",
+          "marks": [],
+          "text": "ストレッチと水分補給で翌日に疲れを残さない"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8kt65lhb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "sb0jfqvy",
+          "_type": "span",
+          "marks": [],
+          "text": "小さな手順を積み重ねるだけで、病棟全体のリズムが穏やかになります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "uckoh295",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "xfgjbjk8",
+          "_type": "span",
+          "marks": [],
+          "text": "小さなフォローの習慣"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "o0atop1f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "jhfmgspc",
+          "_type": "span",
+          "marks": [],
+          "text": "声のスピードやトーンを落とす、できごとをメモする――そんな短いフォローが自信を育てます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3rcywlri",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fyf4meks",
+          "_type": "span",
+          "marks": [],
+          "text": "コール対応後の気づきをチームに一言共有する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "gf1sdmc5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "qspboi6s",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・課題を小さくメモし、翌日の改善点にする"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-df3db7ae-2778-4409-9e94-42f1aafdb7c0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-a386a2e7-9966-4409-85cd-fa14cb00e550",
+          "_type": "span",
+          "marks": [],
+          "text": "「小さなフォローの習慣」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k7y6x39d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1j0wofbi",
+          "_type": "span",
+          "marks": [],
+          "text": "全部を一人で抱え込む必要はありません。みんなで直す姿勢が、安心して働ける環境を作ります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-13095d2b-b94e-47f5-a13b-564e3b264f4e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-9eeb90c4-1cf5-46fc-a9e3-a5ea4f9ec390",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-c2a2ef08-61b1-480d-8ecf-6c8b3961aa82",
+          "_type": "span",
+          "marks": [
+            "link-91284640-d4fd-47b6-bec4-0411c2cfbd97"
+          ],
+          "text": "「看護助手・看護補助者・介護助手・ナースエイドの違いを整理」"
+        },
+        {
+          "_key": "internal-link-span-outro-0ce05e18-2d3b-4bdb-85b1-074db505a6b9",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-91284640-d4fd-47b6-bec4-0411c2cfbd97",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-terminology-guide"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "x2ttr53b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f9o0dh3r",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-43c5c88f-2230-4667-bbf8-988d5119181e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-d8f20551-f2c5-4fc8-bad2-f23db6a38558",
+          "_type": "span",
+          "marks": [],
+          "text": "「看護助手 底辺」と見かけたときの胸のざわつきについてでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-960a237f-a758-48b2-962d-23d096d82a86",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-d7bd21fe-41c5-4b78-8f03-8731197124f1",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-342ec6db-f485-4810-a73b-e0b9c8fe5673",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-1ccfff73-9590-48de-a0a1-c09ac8f535b4",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-e9e82922-de03-42ca-a964-bdc53d266d40",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-7e44d469-d05e-4249-829f-2552ecc06004",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-d8c92b84-ff16-4132-938f-74f00ca5e322",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-4aaf1a39-35df-45d9-8873-038cd5f96cbd",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-8d49dcd6-a916-49ae-91f8-e0e29a8057d1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-c19508a0-d1de-4689-9bb8-217c1c91e2eb",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565476657-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565476657-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1765565476657-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565476657-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565476657-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565476657-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565476657-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565476657-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1765565476657-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1765565476657-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-b8db431b-a079-4b72-87a3-b1c20d46d0e8",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">文房具を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-4798c611-45ed-424c-a339-9015a05d0150",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-3590b616-d586-4a45-8520-360715b7d3e2",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-bottom-myth"
+  },
+  "tags": [
+    "看護助手",
+    "キャリア",
+    "悩み",
+    "働き方"
+  ],
+  "title": "「看護助手 底辺」と見かけたときの胸のざわつきについて"
+}

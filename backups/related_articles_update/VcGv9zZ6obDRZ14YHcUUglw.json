@@ -1,0 +1,685 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUglw",
+  "body": [
+    {
+      "_key": "666e07c7-c748-4fa2-90fb-57176392da2b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3696e2bc-b527-40fe-b4b9-6f0e9e013f84",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として病棟に入ったばかりの頃は、段取りを覚えるだけで精一杯でした。それでも朝の空気や患者さんの表情に触れていると、「今日も丁寧に支えたい」という気持ちが自然と湧き上がります。ここでは、わたしが新人時代に身につけた1日の流れを時系列で整理し、現場で大切にしている視点をまとめました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e2b8fc36-5baf-44b2-926d-fc12d76987f6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b1196014-5967-455f-b906-9f4059a032c7",
+          "_type": "span",
+          "marks": [],
+          "text": "慣れていないと焦る場面もありますが、落ち着いて順番を確認すれば大丈夫。この記事が、これから病棟に立つ看護助手の方の安心材料になればうれしいです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bb2db80a-4244-4dfa-ad0d-afcb300dd3ce",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0d33424f-4b63-4fb6-8289-ac49871401c4",
+          "_type": "span",
+          "marks": [],
+          "text": "出勤直後の準備（7:30頃）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "39d5e431-5713-4a9c-8ee5-f3c05b67d515",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4ab9ec91-2d66-4aa9-9308-983e55cfe700",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に、患者さんの夜間の様子や注意点をすばやく把握します。配膳表や入浴スケジュール、リハビリの予定も確認しておくと、その日の優先順位が明確になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b8dd608d-9cd9-419e-b975-402f20d80010",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1fc9e86d-fdb7-42ce-a44d-aae45d22aa33",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースステーションでカルテと連絡ノートをチェックし、危険予防の指示をメモする"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "18a6e36d-18fa-4eea-a081-14712b073b14",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cff90f8d-89ea-4e3b-86f8-3c3d1d51ecfd",
+          "_type": "span",
+          "marks": [],
+          "text": "感染対策の物品や清潔ヶアセットを補充し、足りないものは早めに依頼する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "334a03c1-2938-4a06-a9ce-463eb8513b35",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ea55c1f7-6fe6-4689-8404-478df1e32e64",
+          "_type": "span",
+          "marks": [],
+          "text": "担当患者さんのベッド周りを軽く整え、モーニングケアがスムーズに始められるよう準備する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-60c15b34-df45-4d56-adec-ed9ab9aede9b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-ea63ab9d-6f9f-44ee-bbd1-ea7f6500360d",
+          "_type": "span",
+          "marks": [],
+          "text": "出勤直後の準備（7:30頃）では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2e99eafa-95ec-4cdf-88e7-3d5eabe4bb6c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "32cc7138-f90b-465e-89cd-2bed9b01553a",
+          "_type": "span",
+          "marks": [],
+          "text": "朝のケアとモーニングルーティン（8:00〜9:30）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "85ae78b3-9841-4b7e-9244-21041179809b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a35455b4-a545-461f-a08a-91ab1430987f",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんを起こし、洗面や着替え、口腔ケアをサポートします。朝食の配膳では誤配を防ぐため、できるだけ声かけとラベル照合をセットで行います。食事介助では、食事量・嚥下の様子・血糖値の記録など、看護師へ共有すべき情報を整理しておきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "67ab6c36-93a8-42a8-86a4-12b40cd3f0e9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "356a00f6-557f-469e-bebd-ab8b6d3c0330",
+          "_type": "span",
+          "marks": [],
+          "text": "午前後半の清潔ケアと環境整備（9:30〜11:30）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "962c1d98-8bdf-4c3e-b4b5-c2eeb21788f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ae85fff3-278c-417e-9c10-d811c01b884e",
+          "_type": "span",
+          "marks": [],
+          "text": "入浴介助や清拭は、患者さんの羞恥心に配慮しながらスピード感を保つのがコツです。褥瘡予防や清潔保持に直結するため、体位変換やシーツ交換も丁寧に進めます。バイタル測定の補助に入る際は、看護師の動きを邪魔しない立ち位置を心がけ、測定値の転記ミスがないか二重チェックします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-19d9a4ca-c345-4d05-b813-dd7951607a14",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-466fb3ff-aaad-48ed-91d8-cf8290f6d973",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0c9538a6-a660-4cdf-a2b0-3e55fb8a872b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "15dc4079-050d-40cf-be59-7e8d28c3c9e7",
+          "_type": "span",
+          "marks": [],
+          "text": "昼休憩と午後の段取り（12:00前後）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "7661d30b-f8d7-4c62-b75f-3785bc1bf52d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9ff54666-2b63-4a2b-a5c1-65eaf3318b57",
+          "_type": "span",
+          "marks": [],
+          "text": "昼食前に口腔ケアセットや配膳車を整えておき、食事介助が終わったら片付けとゴミの回収まで一気に済ませます。休憩中でもナースステーションの電話は鳴るので、交代で席を外し、誰か一人は対応できる体制にすると安心です。午後のリハビリや検査予定がある患者さんには、必要な書類や移動介助具を先に準備しておきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6b2b274d-1afe-42e8-beae-bd69b8d6690e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3b662a67-ec8f-41d9-be58-88522c7e4bbd",
+          "_type": "span",
+          "marks": [],
+          "text": "午後シフトの動き（13:00〜16:00）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "cb3e8210-6a2c-4c32-a376-3d1db4d8ace4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d5a44547-3ca1-457f-85ad-c28774687070",
+          "_type": "span",
+          "marks": [],
+          "text": "午後は排泄ケアや体位変換が中心になります。看護師と同じタイミングで回ることで、申し送りに必要な情報をその場で共有できます。物品補充は「一列替えたら一列補充」を合言葉にし、夕方の忙しい時間帯に慌てない環境を作ります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8fe9aea1-8147-481c-917c-4b052c30f353",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ffdfa66f-e960-4c01-a6a4-72c3e66004e9",
+          "_type": "span",
+          "marks": [],
+          "text": "体調の変化があった患者さんには観察ポイントをメモしておき、日誌と申し送りに反映させる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "90129f27-c2f1-4536-99e6-3eabf0517414",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ddc44534-4885-4b36-b785-95ffaa02d6bc",
+          "_type": "span",
+          "marks": [],
+          "text": "歩行練習のサポート時は転倒リスクを最優先に考え、周辺環境を整えてから付き添う"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e5af792e-3bbf-4943-956d-5e707b6de6b9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af04ec17-fab3-407e-a31b-08226aa36e63",
+          "_type": "span",
+          "marks": [],
+          "text": "介助の合間にスタッフ同士の声かけを忘れず、連携の抜け漏れを無くす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-99339e33-e46e-43ad-868f-8da515cb9967",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-36fe5301-fa7c-4f4d-8eea-ea94db52c85e",
+          "_type": "span",
+          "marks": [],
+          "text": "午後シフトの動き（13:00〜16:00）では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8fadef07-41bc-47fe-a626-add4a3ce0f33",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a641686b-61e9-42cc-ba0e-bd5a38c0a500",
+          "_type": "span",
+          "marks": [],
+          "text": "夕方のクロージングと申し送り（16:00以降）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "6be15e3f-2eeb-44ff-9af4-c59c1f0ff7cd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bc6058fa-63a2-4503-a325-23dc0124b493",
+          "_type": "span",
+          "marks": [],
+          "text": "夕方は物品の補充、翌日の入浴表の確認、リネン整理などの後方支援を一気に片付けます。最終的には「患者さんの状態」「ケアの実施状況」「注意点」の3つを整理し、申し送りで簡潔に伝えます。できるだけポジティブな変化も添えると、夜勤者の安心につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f4811f26-e43b-43f9-b520-a80c9874d696",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a6d37e35-3995-4d05-a7bd-e872d5cd9916",
+          "_type": "span",
+          "marks": [],
+          "text": "この時間帯には内部連携の記事もチェックされやすいため、看護助手の基本業務をさらに深く知りたい方は"
+        },
+        {
+          "_key": "8fe32bfd-23fa-4845-86d2-c5757fa98e3d",
+          "_type": "span",
+          "marks": [
+            "62bc688d-49e1-4525-98f4-5e9132201c5d"
+          ],
+          "text": "「看護助手とは？仕事内容から必要なスキルまで徹底解説」"
+        },
+        {
+          "_key": "9dfecf32-9fe6-4f70-8c8a-6d0ed9a47b84",
+          "_type": "span",
+          "marks": [],
+          "text": "を参考にしてください。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "62bc688d-49e1-4525-98f4-5e9132201c5d",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-job-role"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "3fa5a01d-a322-4423-9b20-7c345de09ff2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8691733e-0a6e-4859-95b2-0699c3e7f178",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で役立つ持ち物"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "a3568673-148a-4735-9720-ef6f534637e1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6b3cd991-defb-4bbf-982d-1db84df46e4b",
+          "_type": "span",
+          "marks": [],
+          "text": "長時間のケアを支えてくれるアイテムは、早めに揃えておくと疲労軽減につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "83e1eb73-2f58-4844-8421-f691f36b8f54",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f81adc9e-71f0-4c7a-b8ac-5758cc2c4953",
+          "_type": "span",
+          "marks": [],
+          "text": "アシックス ナースウォーカー：足首をしっかり支えてくれるので立ち仕事が多い日に便利"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "90eb0824-ba12-4903-a129-76dc681a9253",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7a5bf140-659a-456e-98f1-78e2574e96e5",
+          "_type": "span",
+          "marks": [],
+          "text": "防水素材のポケットオーガナイザー：体温計やアルコール綿を分けて収納でき、急な対応時も迷いません"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1763b0d2-9fc5-4e59-bfbb-cd9ee94f75a3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "494d3864-318a-4891-b726-2713fa7f8913",
+          "_type": "span",
+          "marks": [],
+          "text": "替えのマスクと速乾タオル：患者さんの清潔ケア後にさっと交換でき、身だしなみを整えやすい"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e67370cc-a839-4943-b9de-d6755c464e72",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "200f9a05-8e0d-4aaa-bd2d-43a80113f601",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] 看護助手・介護職向けの便利アイテムを一度に探したいときは、以下の楽天市場リンクが使いやすいです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2a3807bf-570a-40f9-8b6b-27169023a35c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6d161efe-58f9-463b-8d97-6308beb47e65",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事はチームワークと段取りが命です。こまめなメモと準備を重ねれば、未経験でも着実に成長できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-5fec2903-2650-42bb-b584-a4a8f9e4253b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-4a21153f-3aa0-4c51-a4b7-842abadcacf2",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-dd42e443-8829-49a7-84a9-d25c303a193b",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-471fac94-8ea5-46c7-adae-99fa0efbdc29",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-1f076011-dad3-4989-93f7-f9efe275dea3",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-6da1dd3b-41cd-4667-822d-952409a273e9",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1135560c-d689-463c-a547-a595b8815db7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ca9088e0-b289-47d9-800c-51c59ccc7059",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-88dec31e-9a1c-4e92-9437-f94d4eb7ae8e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-bf4d278f-06a6-4e27-973e-16baa41960e1",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の1日を新人目線で語るブログ記事でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-712d814c-7d3e-4046-8ad5-83cb231fbc6c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-e023c64b-95ee-463c-9c15-f4af8061f3d8",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-c7018fd8-cebf-4dd6-af45-f586085a05c0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-3aa331fe-37ea-47ad-ba53-6bcba9bf0e4c",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースステーションでカルテと連絡ノートをチェックし、危険予防の指示をメモする"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-d963245b-35dc-4baf-adfd-dd542799864e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-c247ad48-292d-45a3-aa0a-187407f70d8e",
+          "_type": "span",
+          "marks": [],
+          "text": "感染対策の物品や清潔ヶアセットを補充し、足りないものは早めに依頼する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-4198adba-0581-4fc8-bcee-449b46918b24",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-9bb535b6-ba23-4fbb-85ee-c980ebc70f5e",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-70f1b064-e125-4109-9779-295f700529c5",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ポケットオーガナイザーや小物入れはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-628b0399-9976-4b4f-8d85-4075460996f6",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ポケットオーガナイザーを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "source-16765683-9c67-43eb-8d86-5f7bc772d49c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1f1aab84-e570-48b2-b82c-0d5c7a30a5d6",
+          "_type": "span",
+          "marks": [],
+          "text": "参考資料："
+        },
+        {
+          "_key": "span-78920c24-c486-4ac1-a91f-7619760926f3",
+          "_type": "span",
+          "marks": [
+            "link-b6150d23-bb11-4e6c-b9ce-6644dfb37a39"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-b6150d23-bb11-4e6c-b9ce-6644dfb37a39",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-26f2e50b-e2e0-467a-bbe7-438f6a654e25",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-e0afc153-cb6b-49ac-b4da-78c445ef9152",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-care-guide-practice"
+  },
+  "tags": [
+    "ケア",
+    "仕事",
+    "基礎知識・入門",
+    "患者",
+    "業務",
+    "環境整備",
+    "看護",
+    "看護助手",
+    "看護師",
+    "補助"
+  ],
+  "title": "看護助手の1日を新人目線で語るブログ記事"
+}

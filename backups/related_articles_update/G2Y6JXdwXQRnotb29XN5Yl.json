@@ -1,0 +1,993 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XN5Yl",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ec19979b1a6b",
+          "_type": "span",
+          "marks": [],
+          "text": "医療現場で働く看護助手にとって、看護師との役割分担を明確に理解することは、患者さんの安全を守り、円滑なチーム連携のために不可欠です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d9c015a3799c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ec19979b1a6b",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、看護助手と看護師、それぞれの役割の境界線を具体的に解説し、互いに協力し合うことの重要性をお伝えします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f688cc3d5996",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師、それぞれの役割"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4d740a261215",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の役割：患者さんの生活を支える"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d0026ffe85a2",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は、患者さんの療養生活を直接サポートする「非医療行為」が主な業務です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-a41741d5-4541-4562-b4cf-621721d68b75",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-3f2d4ae5-216f-46d3-88de-6bdd506e400b",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f75c6e51799b",
+          "_type": "span",
+          "marks": [],
+          "text": "食事の配膳・介助、入浴・清拭などの清潔ケア"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1048bef1f835",
+          "_type": "span",
+          "marks": [],
+          "text": "排泄の介助、ベッドメイキング、体位変換"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "323606434a26",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの移動・移乗の介助、環境整備"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818358221-ouxtq8xil",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-q1h10lyn6",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに、看護助手は患者さんの精神的なサポートも担うことがあります。具体的には、以下のような活動が含まれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0b221f3e4452",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-q1h10lyn6",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの話し相手となり、不安や孤独感を軽減する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818358221-hcric7qgv",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-z3ko886ku",
+          "_type": "span",
+          "marks": [],
+          "text": "レクリエーション活動のサポートや付き添い"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4fb50a08ff6a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-ax6ng4w3w",
+          "_type": "span",
+          "marks": [],
+          "text": "ご家族とのコミュニケーションの橋渡し役"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-a90ce6b0-5ddb-44f3-a7a7-aa18134bc6c2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-7bf4f2d1-4912-4aa0-b753-282a86926765",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2bec6eae4aeb",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師の役割：医療行為と専門的判断"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "08cceb60b758",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師は、国家資格を持ち、医師の指示のもと医療行為や専門的な判断を行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-0615e195-7617-4bb6-a07e-71efa983e488",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-f5e8d44a-7f57-4627-94cf-b1b970cf91b4",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-b5cd304a-0a8c-4620-9515-249cc817a876",
+          "_type": "span",
+          "marks": [
+            "link-f78c30d6-4722-40d6-bd99-90ae3ba9ad53"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-f78c30d6-4722-40d6-bd99-90ae3ba9ad53",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "87642b2a7b83",
+          "_type": "span",
+          "marks": [],
+          "text": "診察補助、薬剤管理、点滴・注射などの医療行為"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "050505ac73eb",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの状態観察、アセスメント、ケアプランの立案"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8ef72fa14b34",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんやご家族への説明、精神的サポート"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "250ba1f8d9e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8ef72fa14b34",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師は、患者さんの状態を総合的に評価し、最適なケアを提供するために、以下のような活動も行います。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818358221-1slescuav",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-xzap9ywmu",
+          "_type": "span",
+          "marks": [],
+          "text": "バイタルサイン（体温、血圧、脈拍、呼吸など）の測定と記録"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818358221-wt0c4pcc0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-7rkhw3tks",
+          "_type": "span",
+          "marks": [],
+          "text": "症状の変化や異常の早期発見"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0a59e554185d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-v9251gg7f",
+          "_type": "span",
+          "marks": [],
+          "text": "医師や他の医療スタッフとの連携、情報共有"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-be0bb629-68ff-4f5e-b2f7-496b8d4f751b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-6bc0418b-12ef-49d4-911b-db56f1bf488e",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師、それぞれの役割では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-640d82d7-5954-403f-9ad3-4a99a6b6cece",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-05657be9-22ca-4a5c-8a6e-f714c44d3b37",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-bb27e644-9516-4029-9d99-5f074782c97c",
+          "_type": "span",
+          "marks": [
+            "link-a4e029c1-c52b-408e-8ed2-c913aa29137f"
+          ],
+          "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-a4e029c1-c52b-408e-8ed2-c913aa29137f",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fbbb02dbd476",
+          "_type": "span",
+          "marks": [],
+          "text": "役割の境界線が曖昧になるケースと注意点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "qgbn6k71xk5g",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "zhc1paz720px",
+          "_type": "span",
+          "marks": [],
+          "text": "日々の業務の中では、意図せず役割の境界線が曖昧になってしまう場面も存在します。患者さんの安全を守るためにも、特に注意すべきケースを理解しておきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c1767fc25b2c",
+          "_type": "span",
+          "marks": [],
+          "text": "「これくらいなら大丈夫だろう」という自己判断：医療行為に該当する可能性のある業務は、非常に自己判断で行わないでください。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7d7793a78ae1",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい現場での指示の曖昧さ：指示が不明確な場合は、多くの場合確認し、理解できるまで質問しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9955183cec98",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんからの直接の依頼：患者さんから医療行為を依頼されても、看護師に報告し、指示を仰ぎましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818358221-yzl0739hk",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-qf9ggjcx5",
+          "_type": "span",
+          "marks": [],
+          "text": "このような状況を避けるために、以下のような対策を講じることが推奨されます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818358221-6wy0ku8yl",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-zzt1t4zus",
+          "_type": "span",
+          "marks": [],
+          "text": "定期的な研修や勉強会への参加"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818358221-1tsi4da1i",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-kgc0ea5lw",
+          "_type": "span",
+          "marks": [],
+          "text": "職場のマニュアルやガイドラインの確認"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "20b99b4b3f6a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-ig8wxsrhy",
+          "_type": "span",
+          "marks": [],
+          "text": "チーム内でのコミュニケーションを密にすること"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-d0017046-f6c2-42e6-8804-404cbf31b059",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-d7a6a7d6-e0be-477d-85a3-8c6d423517be",
+          "_type": "span",
+          "marks": [],
+          "text": "役割の境界線が曖昧になるケースと注意点では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-deee851b-f255-4615-8b64-44a6e74be044",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-234e8c5c-1d88-47f5-b710-316b30f21e00",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-32d266bf-1f57-44af-be1a-77baa907318d",
+          "_type": "span",
+          "marks": [
+            "link-bbea45a9-8a88-44dc-a2c4-4fee88b8bfac"
+          ],
+          "text": "厚生労働省 看護職員需給分科会"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-bbea45a9-8a88-44dc-a2c4-4fee88b8bfac",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ad30ac39c386",
+          "_type": "span",
+          "marks": [],
+          "text": "円滑な連携のためのコミュニケーション術"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "4l3927l0hz4o",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "mzffnke0e0jq",
+          "_type": "span",
+          "marks": [],
+          "text": "役割の違いを理解した上で、お互いを尊重し、円滑に連携することがチーム医療の質を高めます。ここでは、すぐに実践できるコミュニケーションのコツをご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ee46f7b9dede",
+          "_type": "span",
+          "marks": [],
+          "text": "報連相（報告・連絡・相談）の徹底：患者さんの状態変化や業務の進捗など、常に情報を共有しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "65678a0521f6",
+          "_type": "span",
+          "marks": [],
+          "text": "疑問や不安はすぐに確認する：曖昧なまま業務を進めず、その場で看護師に質問し、解決しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db4049022c65",
+          "_type": "span",
+          "marks": [],
+          "text": "相手の業務を尊重し、感謝を伝える：お互いの専門性を理解し、協力し合う姿勢が良好な関係を築きます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bbe427115625",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-ctwdvad2f",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに、以下のようなコミュニケーション方法も有効です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "591c39653a81",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-pef33pq6d",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの情報共有のための申し送りへの積極的な参加"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "eea70b605594",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-ginye8lcm",
+          "_type": "span",
+          "marks": [],
+          "text": "多職種カンファレンスなど、チーム全体の意見交換の場への参加"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c27c238ee326",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818358221-pb5br8d3i",
+          "_type": "span",
+          "marks": [],
+          "text": "日頃から積極的に声かけを行い、良好な人間関係を構築"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-6ecf633c-0999-4fe0-896f-6b98c0cffc2f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-d2e7882c-d612-408a-af50-ae38ca7c04c3",
+          "_type": "span",
+          "marks": [],
+          "text": "円滑な連携のためのコミュニケーション術では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ef53b2b14f1a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-a6956503-2333-44de-94a1-2211f529347d",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "7875c38a91c6",
+          "_type": "span",
+          "marks": [],
+          "text": "「看護助手の役割と責任｜医療チームにおける位置づけ」"
+        },
+        {
+          "_key": "f1873f57ab28",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-5ad3a7f1-c2fb-4854-9534-7fa46cf00e55",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-cf1c49c5-63cc-4211-90b9-e2ac9c97647d",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-5df58f72-02ce-4946-a67b-1710e64ac1e4",
+          "_type": "span",
+          "marks": [
+            "link-ff67d08b-b542-40e0-a4b3-dbdecaa7032e"
+          ],
+          "text": "「AI技術導入が看護助手業務に与える変化｜最新医療技術トレンド」"
+        },
+        {
+          "_key": "internal-link-span-outro-750fb728-1da3-4fa0-bc67-3c301c2a62d7",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-ff67d08b-b542-40e0-a4b3-dbdecaa7032e",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-job-role-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-9a83dd42-e264-49e1-a8ac-028c0148a8b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-d7fb72e6-e7ab-45ea-ad22-f6315bf3c559",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-fd0451d8-ae63-4ddc-b37e-02acca352970",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-d8711cf3-17c3-491d-8b87-53b7c4fb2c43",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-e454a1a9-1680-430f-a68e-d24ead8fb4fb",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-b9a73d72-5e76-4712-970e-1521bbd3205f",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-b03c474a-afca-4aa7-a4f3-59328a530430",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-1c1d3e70-f824-4aca-8e22-d204232506e7",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の役割の境界線でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-2eeb3bee-5ff9-4f66-9930-6f1364dc0669",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-7fd14b45-729a-4ce7-b10c-4267fad39707",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-2bc7dee3-e437-4fe8-95e3-fe794e5d016e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-5d0cabdf-3022-4ac4-89ee-9599159a9cae",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師、それぞれの役割の視点で看護助手の役割：患者さんの生活を支えるに目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-27613e76-2b7a-466f-8f5e-e1f531aeac72",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-35fb6f9f-6604-4f16-a9be-0037ddcda4f2",
+          "_type": "span",
+          "marks": [],
+          "text": "食事の配膳・介助、入浴・清拭などの清潔ケア"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-cfd15aa6-3821-447b-8d3b-6c663c743819",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-b873f268-97f0-4a21-bfbf-0490c75cc40a",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-17454fbb-4efe-4577-8524-7ead9bb43807",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやポケットオーガナイザーはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-cdb5fd92-1f9f-49c1-ab92-528d110fd371",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-6d8d3664-4497-4242-8006-9a27a5e3c589",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-b169314e-ccab-48a1-b600-ade914c59673",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-role-boundaries"
+  },
+  "tags": [
+    "コミュニケーション",
+    "仕事内容・役割",
+    "医療",
+    "境界線",
+    "役割",
+    "患者",
+    "業務",
+    "看護",
+    "看護助手",
+    "看護師"
+  ],
+  "title": "看護助手と看護師の役割の境界線"
+}

@@ -1,0 +1,899 @@
+{
+  "_id": "t7xQcdMSFrV4JI779kPSQq",
+  "body": [
+    {
+      "_key": "block-1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "33c16457-d813-42eb-b2f2-aa0e263dd85a",
+          "_type": "span",
+          "marks": [],
+          "text": "わたしは外科病棟で看護助手として働いていますが、同期で仲良しの友人が精神科病棟で活躍しています。先日、「精神科の現場ってどんな雰囲気なの？」と素直に疑問をぶつけてみたところ、丁寧にたくさんのことを教えてくれました。"
+        },
+        {
+          "_key": "bad9a96b-5bc6-4fad-91ea-56375b7f9377",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "e544905f-b5c7-415b-9be0-dda59d030ed3",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、その友人の経験をもとに、精神科で働く看護助手のリアルを５つの視点でまとめます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-4",
+          "_type": "span",
+          "marks": [],
+          "text": "精神科への配属を控えている方、異動を検討している方、不安を抱えながら勤務している方にとって、少しでもヒントになれば嬉しいです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-6",
+          "_type": "span",
+          "marks": [],
+          "text": "精神科で看護助手が担う主な役割"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-8",
+          "_type": "span",
+          "marks": [],
+          "text": "精神科病棟では、看護助手の「観察力」と「声かけ」が大きな力になります。友人が日々意識している業務は次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-a",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの表情や行動の変化を見守り、気づいたことをすぐ看護師へ共有する。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-c",
+          "_type": "span",
+          "marks": [],
+          "text": "病室やデイルームの環境を整えて、安全に過ごせる空間を維持する。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-e",
+          "_type": "span",
+          "marks": [],
+          "text": "食事や服薬のタイミングを一緒に確認しながら、生活リズムを整えるサポートを行う。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-be3dc9b6-623d-4b21-ba14-74618e81e9b6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-970cc947-ccb0-419d-bd76-0d77e83124a9",
+          "_type": "span",
+          "marks": [],
+          "text": "精神科で看護助手が担う主な役割では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-g",
+          "_type": "span",
+          "marks": [],
+          "text": "きついと感じた場面と支えになった工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-h",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-i",
+          "_type": "span",
+          "marks": [],
+          "text": "感情の波が大きい患者さんと向き合う場面では、看護助手も揺さぶられることがあります。友人が「きつかったけれど乗り越えられた瞬間」として話してくれたことはこちらです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-j",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-k",
+          "_type": "span",
+          "marks": [],
+          "text": "突然声を荒らげる方に出会ったときは、まず自分が一歩引いて深呼吸。すぐに先輩と交代し、落ち着いてから役割分担を確認する。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-l",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-m",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤中に不安で眠れない患者さんがいたときは、２〜３分でも落ち着いた声で話を聞く。それでも難しいときは看護師と一緒に対応し、ひとりで抱え込まない。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-cf8f5e33-f923-40f0-a15b-98b758f0c2fa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-e86430c1-f687-4c5b-92db-6f9796c9997a",
+          "_type": "span",
+          "marks": [],
+          "text": "きついと感じた場面と支えになった工夫では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-n",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-o",
+          "_type": "span",
+          "marks": [],
+          "text": "安全を守るためのチームワーク"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-p",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-q",
+          "_type": "span",
+          "marks": [],
+          "text": "精神科では「ひとりで完結させないこと」がとても大切だと友人は言っていました。情報共有とチームワークのポイントを３つ教えてくれました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-r",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-s",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送りで得た情報をメモに残し、シフトの仲間と随時確認する。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-t",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-u",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコールの優先度をスタッフ間で共有し、危険度の高いコールに素早く反応できるようにする。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-v",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-w",
+          "_type": "span",
+          "marks": [],
+          "text": "環境整備のときは、危険物になりうる物品をダブルチェックし、できるだけ報告する。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-c2ace7c7-3e55-41d6-b411-0036cc1a578b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-258eba75-3a60-44fe-9aea-d50500b8512c",
+          "_type": "span",
+          "marks": [],
+          "text": "安全を守るためのチームワークでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-x",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-y",
+          "_type": "span",
+          "marks": [],
+          "text": "自分を守るセルフケア"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-z",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-10",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの感情に寄り添う看護助手だからこそ、自分の心と身体のケアも忘れないでほしい――友人から届いたアドバイスです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-11",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-12",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務中に感じたことは、休憩時間にメモやレポートで言語化する。先輩へ相談するときの材料にもなる。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-13",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-14",
+          "_type": "span",
+          "marks": [],
+          "text": "帰宅後は好きな飲み物を準備し、仕事の出来事を切り替えるためのルーティンを持つ。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-15",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-16",
+          "_type": "span",
+          "marks": [],
+          "text": "眠れない日が続くときや食欲が落ちたときは、無理せず上司に申し出てシフトを調整してもらう。"
+        }
+      ],
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-16a724a3-e9a2-4d00-8464-39e7331a5b1c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-7929c9c0-13a6-4295-bfdd-55dccbe474a0",
+          "_type": "span",
+          "marks": [],
+          "text": "自分を守るセルフケアでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-17",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-18",
+          "_type": "span",
+          "marks": [],
+          "text": "これから精神科で働く看護助手さんへ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-19",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1a",
+          "_type": "span",
+          "marks": [],
+          "text": "精神科での看護助手の仕事は、患者さんの安全を守る最前線に立ちながら、自分自身の心とも向き合うとても尊い役割です。ひとりで抱え込まず、チームで支え合える環境を整えてから現場に入ることが、安心して続ける一歩になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1c",
+          "_type": "span",
+          "marks": [],
+          "text": "無理をして強がる必要はありません。「大丈夫かな」と感じたら、遠慮なく声をあげてください。わたしにも、そしてきっとあなたの周りにも、寄り添ってくれる仲間はいます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-c35a473b-301d-4d36-beae-860e71f18f31",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-f6629ce5-c65d-42da-9616-e13c48312ce3",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-59f4fe68-75c3-44f8-a5c8-47e886706521",
+          "_type": "span",
+          "marks": [
+            "link-7b911faf-c0d2-4be5-8a3c-658e3e033b85"
+          ],
+          "text": "「看護助手の「小さな行動」が病棟全体に与える大きな影響力！患者さんの安心とチームの連携を深める秘訣」"
+        },
+        {
+          "_key": "internal-link-span-outro-b93a20d3-424e-40cf-9ffc-a1865a4a24c9",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-7b911faf-c0d2-4be5-8a3c-658e3e033b85",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-mental-care-patient"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-2-h3c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-2-h3c-span",
+          "_type": "span",
+          "marks": [],
+          "text": "学びを深めるためのセルフチェック"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-2-p5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-2-p5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "記事で紹介したポイントを振り返り、実際の勤務で活用するためのセルフチェックシートをつくるのもおすすめです。1週間ごとに「できたこと」「次に試したいこと」を書き出すだけでも、成長を可視化できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-2-list5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-2-list5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "1週間のうちで印象に残った患者さんとの関わりを振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-2-list6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-2-list6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "自分が安心できたサポート例をチームで共有し、取り組みを増やす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1762406733411-2-p6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1762406733411-2-p6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分さ」より「継続できる工夫」を意識して、患者さんと自分自身が心地よく過ごせるリズムを整えていきましょう。焦らず取り組む姿勢こそが、看護助手としての信頼とセラ感を育ててくれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-edcdeb05-fb28-49fc-be97-54bdd229e562",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-ff9502aa-4e95-4e4f-b30e-e524320e05cf",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-049fb09e-5ab0-41e0-b60b-150b563e3bcc",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-d52393de-5d0a-43fc-90dd-7ff26d7ad627",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-265a850c-b291-4683-b883-b9eed4ba78eb",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-545897fe-d8f7-4385-bffd-3b53c1e3a97b",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-5070c239-e352-4f6f-bf0b-027d773c1a96",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-274cef81-ee89-4e46-b35b-b61b75211cbc",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-902ab4af-778d-426b-a26f-d0484b20d265",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-heading-f7d26aa1-30b3-4fb1-ac1f-94b96411915e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-heading-span-e2824912-23d8-4f7c-be0b-7cbbea5305e5",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-2653cfb9-fefe-4dd1-a130-8468320fde14",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-5ec912e0-1021-47a1-ac84-db8abbd78e1a",
+          "_type": "span",
+          "marks": [],
+          "text": "精神科で働く看護助手のリアル｜外科勤務の友人が聞いた5つの工夫でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-7b88b43e-c072-4e3e-ac75-f3e89c2b58e7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-821e35ac-fd1c-42d4-b137-6949548be487",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-d2be388d-5f56-43a4-9de6-68674df83ea5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-4272a0fa-711b-4b49-bf15-3df2854851d1",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんの表情や行動の変化を見守り、気づいたことをすぐ看護師へ共有する。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-211e8784-7736-4286-ab30-dc96abe3d5a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-ffeaf4e6-ff2e-460d-bac4-0abbe782b7bc",
+          "_type": "span",
+          "marks": [],
+          "text": "病室やデイルームの環境を整えて、安全に過ごせる空間を維持する。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-e618eff4-d7f3-4ea9-8be6-5f59b618b3c5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-cdfd862d-19a9-4390-b2bd-3cbd591275ea",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-bd79ac4f-99b5-4431-aadc-2c7907e6b02f",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームやスクラブはナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-4ba1f401-c060-4360-bc5f-144fad09f2bc",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">ユニフォームを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "source-3f9a4416-b21b-46d7-92dc-a214d3139595",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-dd68d0ca-20fd-4f7d-9917-58846c62e49a",
+          "_type": "span",
+          "marks": [],
+          "text": "参考資料："
+        },
+        {
+          "_key": "span-6e94bf82-7367-404b-80f7-efa6ef7d247d",
+          "_type": "span",
+          "marks": [
+            "link-036e361c-e89b-471c-a1de-60ccb9e05e48"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-036e361c-e89b-471c-a1de-60ccb9e05e48",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-7171bcfe-1e39-4642-b5e2-d51a2fb769cc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-2dbd1dad-b9ad-45f6-8cae-d262caac0da3",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "stories"
+      },
+      "title": "体験"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-mental-care-support"
+  },
+  "tags": [
+    "悩み",
+    "看護助手",
+    "仕事内容",
+    "患者対応",
+    "メンタル"
+  ],
+  "title": "精神科で働く看護助手のリアル｜外科勤務の友人が聞いた5つの工夫"
+}

@@ -1,0 +1,811 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUIE",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "17f7222a-0813-4362-8dc8-f255ea482235",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事に興味があるけれど、実際のお給料がどれくらいなのか、気になりますよね。"
+        },
+        {
+          "_key": "a088a808-4f8a-4a9f-aa7c-185d58c96643",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "aa6c5fac-76af-40a9-9c48-1f09ce143e25",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "19413f09-352f-4a09-ab02-15cdd9645cfc",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "aa7fb0c7-f825-4af0-824e-f14bf8aaac40",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、看護助手の平均給料を、最新のデータに基づいて詳しく解説します。地域別、職場別、経験年数別の給与相場を比較し、あなたのキャリアプランの参考にしてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ref-merged-block-373d7f60-4947-4571-b0c7-e045b2a7ad86",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ref-label-1ae12b26-5c39-4d00-b0a6-65874589672d",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "ref-merged-span-33fcdbb5-1c66-4246-ba0f-20b0e7d70084",
+          "_type": "span",
+          "marks": [
+            "ref-merged-5d8cebf7-d6a8-42c9-8f47-2fb425033b63"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        },
+        {
+          "_key": "ref-sep-0e358119-4fc1-4300-a649-922225412299",
+          "_type": "span",
+          "marks": [],
+          "text": " / "
+        },
+        {
+          "_key": "ref-merged-span-3b3fcc10-ee26-4701-9495-f666c9e44685",
+          "_type": "span",
+          "marks": [
+            "ref-merged-97d833a5-6363-4420-8d5e-05ea3a107d0e"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ref-merged-5d8cebf7-d6a8-42c9-8f47-2fb425033b63",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        },
+        {
+          "_key": "ref-merged-97d833a5-6363-4420-8d5e-05ea3a107d0e",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1ec04315-12a0-4890-a463-b33bf7a3987d",
+          "_type": "span",
+          "text": "看護助手の平均給料、全国平均は？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c3d4e5f6a1b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5612e8e8-fc7a-40ff-bfac-601d06c53f93",
+          "_type": "span",
+          "text": "看護助手の平均月収は、正社員で約18万円～23万円、年収では約280万円～350万円程度が目安です。パート・アルバイトの場合は時給1,100円～1,600円あたりが相場です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5089326b-c1c8-49f7-81ae-6b016cac0f48",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-59c470f6-6d0d-4f25-9909-1fde8af40838",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-4e658ebe-763d-4d55-a54d-c4e676b82f56",
+          "_type": "span",
+          "marks": [
+            "link-3e569a12-18e0-45c5-a4a9-585902da2a10"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-3e569a12-18e0-45c5-a4a9-585902da2a10",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "79a3d4b9-8cfd-4522-9119-fe3a72dd497e",
+          "_type": "span",
+          "text": "【地域別】給料相場の比較"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "reference-12c54d2e-47e2-44fc-9601-21e0ff289708",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-63252f7c-08a1-4bb8-b88d-802c27390db0",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-7a3b3cde-69a2-4e8d-8077-2dd91e0a58e4",
+          "_type": "span",
+          "marks": [
+            "link-d89785c6-9813-46fb-98c3-e0f8dc3ac6f7"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d89785c6-9813-46fb-98c3-e0f8dc3ac6f7",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "d4e5f6a1b2c3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4166e309-d01d-480f-8ce6-9121851163f2",
+          "_type": "span",
+          "text": "都市部（関東、関西など）の傾向"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fa1f1121-7235-4ccd-bfdd-d5526a6f9d37",
+          "_type": "span",
+          "text": "都市部では、求人数が多く、給与水準も高めに設定されている傾向があります。しかし、物価や家賃も高いため、手取り額と生活費のバランスを考慮する必要があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7f272784-bd0e-4411-af6c-9a3140f64aa2",
+          "_type": "span",
+          "text": "地方の傾向"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db77aa6b-bbe6-4c0f-a96c-0259e6563a0c",
+          "_type": "span",
+          "text": "都市部に比べると給与水準はやや落ち着く傾向にありますが、その分、生活費を抑えられるメリットがあります。地域手当が支給される場合もあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e68cde54-282e-4e35-b012-80100e713793",
+          "_type": "span",
+          "text": "【職場別】給料相場の比較"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2f2ccca3-a75e-49d9-af5c-27efaf5a0c95",
+          "_type": "span",
+          "text": "大学病院・総合病院"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "69d189f2-d55e-4f13-a1d1-91a54bd9f5a9",
+          "_type": "span",
+          "text": "給与水準が高く、福利厚生も充実している傾向があります。夜勤手当や各種手当も手厚いことが多いです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c8c1bfd3-f6da-42e3-9ae5-ff4f69daa100",
+          "_type": "span",
+          "text": "一般病院・クリニック"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "46481054-26b1-452a-8a48-ecb15b650c5c",
+          "_type": "span",
+          "text": "規模や経営状況によって給与に差があります。日勤のみの求人も多く、ワークライフバランスを重視する方におすすめです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "75608e4d-5abc-4aad-a659-9059fa481f8c",
+          "_type": "span",
+          "text": "介護施設"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "143c899e-d4a3-45fb-8578-a39fe8140587",
+          "_type": "span",
+          "text": "介護職としての給与体系に準じることが多く、夜勤の有無で大きく変動します。医療行為は行いませんが、利用者さんの生活全般を支える重要な役割です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-34384b57-f76c-4d33-b0ca-83446a589181",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-a0af0b1b-5395-4ccf-8d6d-797e34753c56",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "72db0fd9-6b17-40eb-bcfd-8ad7e8361379",
+          "_type": "span",
+          "text": "【経験年数別】給料の変化"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4b2e1f3b-ab03-4b87-a9bc-39f5284285a3",
+          "_type": "span",
+          "text": "未経験からスタートした場合でも、経験を積むことで給与は徐々に上がっていきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "37bf4568-378f-4e4c-8210-78e36c31ac39",
+          "_type": "span",
+          "text": "未経験～3年目：初任給から大きく変動はないが、少しずつ昇給。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3275a450-e2ed-4cec-930b-ef91b6b5f3bd",
+          "_type": "span",
+          "text": "3年目～5年目：業務に慣れ、責任のある仕事を任されるようになり、昇給の幅も大きくなる。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8e504aeb-57b1-46f6-8b3e-fded621dbd26",
+          "_type": "span",
+          "text": "5年目以降：リーダー職や専門性を高めることで、さらに給与アップが期待できます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8477d773-d007-4b0b-b508-b54c269cbd8b",
+          "_type": "span",
+          "text": "資格取得による給与アップ：介護職員初任者研修などの資格手当が支給される場合もあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-88ab44e9-f04d-4f6f-9cc7-c287a3144618",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-62e0858f-58b0-4e53-af41-ddb9c28fc31f",
+          "_type": "span",
+          "marks": [],
+          "text": "【経験年数別】給料の変化では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "w3x4y5z6u1v2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "90f2f00e-4353-4e57-8a89-02c90e85de66",
+          "_type": "span",
+          "text": "給料アップを目指すためのヒント"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "wtqmsomo4auo",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d8k95l7vrvem",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の給料は、経験やスキル、資格によって変動します。ここでは、あなたの給料を少しでもアップさせるための具体的なヒントをご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "x4y5z6u1v2w3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6a7739f0-1885-45c1-8407-963af9358aab",
+          "_type": "span",
+          "text": "資格取得：介護職員初任者研修、介護福祉士など、業務に役立つ資格を取得することで、資格手当が支給されることがあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "y5z6u1v2w3x4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e4b6b858-f8f0-4f0d-97ab-2871f671ca4f",
+          "_type": "span",
+          "text": "夜勤回数を増やす：夜勤手当は収入アップに直結します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "z6u1v2w3x4y5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6e6ec3e9-9173-46b4-87f6-977a1ab1602d",
+          "_type": "span",
+          "text": "経験を積んで昇給を目指す：長く勤務することで、基本給が上がる可能性があります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "a3b4c5d6e7f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af91afb4-cd1a-40e1-b091-87d9cee7a42e",
+          "_type": "span",
+          "text": "転職を検討する：より給与水準の高い病院や施設を探すことも有効です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "bullet"
+    },
+    {
+      "_key": "section-closing-c680eb99-6e94-4dce-b4e1-eea23fc48090",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-c6ebcc9f-ddf3-441d-a25f-2b2ec817d11e",
+          "_type": "span",
+          "marks": [],
+          "text": "給料アップを目指すためのヒントでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-5e734ae8-893c-41ea-a7c4-4c24b6476c14",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-0c2c3c67-b761-4530-985e-cc13709b28c3",
+          "_type": "span",
+          "marks": [],
+          "text": "「給料アップを目指すためのヒント」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-ce26b75a-c86a-4cb5-80f7-9e37d9d8a2c3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-febc1b9e-537a-402e-8e06-13c33376205d",
+          "_type": "span",
+          "marks": [],
+          "text": "「給料アップを目指すためのヒント」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-c708f443-4bc3-42c1-a813-2487562001f5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-4e1715a8-bf4f-480c-8068-73205bea5925",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-fb29e60a-8807-4aa5-99b8-203266a14fd3",
+          "_type": "span",
+          "marks": [
+            "link-80eab0ce-5eb6-49b2-a4eb-025aab2d6f07"
+          ],
+          "text": "「看護助手の1日の流れ｜病院勤務のリアルなスケジュールを公開」"
+        },
+        {
+          "_key": "internal-link-span-outro-4f06e174-ffbb-4fbc-9dc3-8a611bdfe9eb",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-80eab0ce-5eb6-49b2-a4eb-025aab2d6f07",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-daily-schedule"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873982034-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873982034-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764873982034-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873982034-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873982034-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873982034-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873982034-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873982034-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873982034-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873982034-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-f6768127-c6b1-4642-b9b2-3ad9712c6a4a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-74bd9c7c-1df1-4682-9767-95e8ab336334",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の仕事内容を一日スケジュールで紹介でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-6cd3ca73-ae39-4e50-8f68-d4cc68b3c66d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-71e8ddeb-3584-4e20-8d2c-5fd21a8c362d",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a88929aa-c82d-4177-b162-eedcd3812084",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-ce82fde2-9e5c-47db-ac54-37f7a1d1e713",
+          "_type": "span",
+          "marks": [],
+          "text": "【地域別】給料相場の比較の視点で都市部（関東、関西など）の傾向に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-6fe7e9b8-e7ee-43d8-a001-7d43fe3b0797",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-3be80f1b-34d9-4584-abb7-a1cd34f07443",
+          "_type": "span",
+          "marks": [],
+          "text": "【地域別】給料相場の比較の視点で地方の傾向に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-b3da9499-f3a9-4350-a391-2e276f43ab62",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-63cec9c6-18e7-416b-8349-8c200ef63326",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-ce2e435e-eb62-4178-a6d1-e8dd322f43ea",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-72859385-fd1a-4b10-8483-ddf3d12869c5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-8a408785-64e4-457e-bb9c-29a78096c325",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-daily-schedule-introduction"
+  },
+  "tags": [
+    "介護",
+    "基礎知識・入門",
+    "昇給",
+    "病院",
+    "看護",
+    "看護助手",
+    "経験",
+    "給与",
+    "給料",
+    "資格"
+  ],
+  "title": "看護助手の仕事内容を一日スケジュールで紹介"
+}

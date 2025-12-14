@@ -1,0 +1,1376 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUWra",
+  "body": [
+    {
+      "_key": "0c8911b9-3435-4a57-ac14-a77974418078",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6eb65576-1c2c-4f54-b008-6a8e46e01efd",
+          "_type": "span",
+          "marks": [],
+          "text": "# 夜勤で得られる手当と実際の収入アップ例"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "75bc71af-8777-4da9-9698-cf9bf05a4d73",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "749ceba1-b879-4c78-88c5-ea5233c22809",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の給与を大きく押し上げる「夜勤」。日勤のみの勤務に比べて、夜勤に入ることで収入はどれくらいアップするのでしょうか。この記事では、夜勤で得られる手当の種類と、その相場、そして実際の収入がどれくらい変わるのかを具体的なモデルケースでシミュレーションします。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "87f84c89-541d-4a51-b597-afdf2233b752",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-jva5fln15",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: 厚生労働省 令和5年度介護従事者処遇状況等調査"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f07a95a7-3a1c-4d3b-bbde-c5284b752ad5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c3923132-dd88-4de4-8ae5-3e209f1ebdc4",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で支給される2種類の手当"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "reference-c5804806-3a08-480f-8909-f9b4afd46a42",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-38939bf3-7653-4d01-8d61-456a88ac5fc3",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-bdc03189-75b7-47b9-9fe9-9d3fbbf36308",
+          "_type": "span",
+          "marks": [
+            "link-ee694651-f015-462a-883d-2a599b7728e5"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-ee694651-f015-462a-883d-2a599b7728e5",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "92e294ff-3c8c-4d79-8fee-2e544d549303",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "afd6f70c-11ca-47de-8899-6df55e332bf2",
+          "_type": "span",
+          "marks": [],
+          "text": "1. 深夜割増賃金"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "0b79eb48-9ad8-42fa-85ef-93426f2c7858",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a999e8f4-e465-4e85-b8ff-e993f88b62dd-64b9e820-acde-4038-9e04-d1af23521fd1",
+          "_type": "span",
+          "marks": [],
+          "text": "これは労働基準法で定められた、すべての労働者に適用される手当です。"
+        },
+        {
+          "_key": "a999e8f4-e465-4e85-b8ff-e993f88b62dd-757da877-12ba-4b1a-b80c-11b5eb7ed855",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "22時から翌朝5時まで"
+        },
+        {
+          "_key": "a999e8f4-e465-4e85-b8ff-e993f88b62dd-c333d68d-d526-4a63-b5e3-6ef4b548966f",
+          "_type": "span",
+          "marks": [],
+          "text": "の間に勤務した場合、通常の賃金の"
+        },
+        {
+          "_key": "a999e8f4-e465-4e85-b8ff-e993f88b62dd-c449fbf8-a056-4e2d-90a2-7627ae61dcea",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "25%以上"
+        },
+        {
+          "_key": "a999e8f4-e465-4e85-b8ff-e993f88b62dd-1e78af1e-9050-4ea7-9597-47edb9a53572",
+          "_type": "span",
+          "marks": [],
+          "text": "を割り増して支払うことが義務付けられています。これは法律上の義務なので、多くの場合支給されます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "25c66acd-6dcb-4bae-b641-ac9b6d25e729",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-ea2af7a7-9ba3-4ba9-aeeb-bc55e81862bd",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-72e2c61e-3b75-4236-9999-00db82ad3b0b",
+          "_type": "span",
+          "marks": [
+            "link-e2712571-460c-4ee7-b728-7392673a246b"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-e2712571-460c-4ee7-b728-7392673a246b",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "c303c0b7-9f93-4bfd-b13e-7257c677b660",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8514a7d0-7473-4b07-88c1-1e32587359b1",
+          "_type": "span",
+          "marks": [],
+          "text": "2. 夜勤手当"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "1f7720a8-93e2-40a4-ab17-aab995cfd284",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "09408bc5-5840-484c-b7a8-3b063787fdaa-ed96f04f-99ed-415b-b32a-84541f2b38bd",
+          "_type": "span",
+          "marks": [],
+          "text": "こちらは、病院や施設が独自に定めている福利厚生の一環です。深夜割増賃金とは別に支給され、金額は勤務先によって大きく異なります。1回あたりの相場は"
+        },
+        {
+          "_key": "09408bc5-5840-484c-b7a8-3b063787fdaa-6971cf18-4db8-477d-bc89-7aaefcc4cccd",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "3,000円から8,000円程度"
+        },
+        {
+          "_key": "09408bc5-5840-484c-b7a8-3b063787fdaa-ddbe7835-5418-4104-8f05-37498514b58a",
+          "_type": "span",
+          "marks": [],
+          "text": "ですが、中には10,000円を超える手当を支給する病院もあります。この夜勤手当の額が、収入の差に直結します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fa65e1c2-f30c-4616-bf0c-10663de02a84",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "70585d36-2876-4d41-a0fa-78a2f8738091",
+          "_type": "span",
+          "marks": [],
+          "text": "【シミュレーション】夜勤で収入はいくら増える？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "84760ba3-ced5-4b2d-955d-794263e69e73",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6396f80e-75e6-4a56-a82f-97677ba8443c",
+          "_type": "span",
+          "marks": [],
+          "text": "日勤のみの場合と、夜勤に入った場合の月収を比較してみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8bfd69b6-b9cb-4b38-83dd-ba3d16a62726",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4c483ad9-69a7-44c5-9dd6-aafd51b4cff1-a0e76bfa-af63-4879-bf50-41679704b60b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "【前提条件】"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c88a8158-518b-429b-a671-44c9a0603af4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cb454482-3477-4434-964b-13a84378dbd7",
+          "_type": "span",
+          "marks": [],
+          "text": "基本給・諸手当：20万円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c845a352-f0b3-4993-af22-3ef53557dd40",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ea82ddf1-9367-41cc-af43-06b3de5ccdf9",
+          "_type": "span",
+          "marks": [],
+          "text": "1ヶ月の勤務時間：160時間"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "351d049e-75c8-463f-923e-a31106c68b4d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "188e9db2-5968-4767-8e5e-10c9fa9e7337",
+          "_type": "span",
+          "marks": [],
+          "text": "時間あたりの賃金：1,250円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c7edeceb-190e-41a9-af78-e0b3d4ca6183",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d76dce72-5981-435d-9b94-f4949592073b",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当：1回5,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "596f8c37-5d1b-4727-b805-8a0b9a066a3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0bc53532-47c8-4784-988b-854845684f2e",
+          "_type": "span",
+          "marks": [],
+          "text": "2交代制で月4回夜勤（1回16時間、うち深夜時間6時間）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-43fa3daa-5518-49b3-88dd-02b68214936b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-56b7e3d1-fdd3-4c90-8490-bc9ec5829788",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "49bafe98-219e-4e16-a06d-66d3200b3889",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5dbae032-8d5e-496f-a591-20612709ce16",
+          "_type": "span",
+          "marks": [],
+          "text": "ケース1：日勤のみの場合"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f37fca72-1bf7-45fe-a32d-d5ece2a8f0b3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3a0d0836-43aa-4d37-b610-d1a0b62fd05b-9fecae46-2151-43ac-aade-99a31e6b44c9",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "月収：200,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-254a66e4-4c7b-4088-b895-a56fab8b93a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-7cec5e70-85af-4c5e-bd9d-f4a0eeb70654",
+          "_type": "span",
+          "marks": [],
+          "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fcf13cc5-542f-434e-9568-7b5d123d45c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c4448b6c-d644-433e-914b-e45d65234e55",
+          "_type": "span",
+          "marks": [],
+          "text": "ケース2：月4回夜勤に入った場合"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "584d4b13-5ce6-405c-964b-5ab2b5a9c7fc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ee161470-e9f0-4cdc-a3c2-b417ea7cebf2-00a58efa-3758-4865-bead-203eb2bd03b8",
+          "_type": "span",
+          "marks": [],
+          "text": "1.  "
+        },
+        {
+          "_key": "ee161470-e9f0-4cdc-a3c2-b417ea7cebf2-a328d84f-19a5-4bde-bfee-6dfb3b01c72e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "深夜割増賃金"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "886506fb-e30b-43de-8b08-8d91ccea2406",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2931afea-aba9-4c04-9ffe-138c84ba3671-b9267773-9513-40ab-9793-b36f15de93fc",
+          "_type": "span",
+          "marks": [],
+          "text": "1,250円（時給） × 0.25 × 6時間（深夜時間） × 4回（月の夜勤回数） = "
+        },
+        {
+          "_key": "2931afea-aba9-4c04-9ffe-138c84ba3671-23b07392-d0fc-48d6-8c62-b6cfa466d082",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "7,500円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "609b50ea-32f3-43f0-98c6-3cccbcdec9c4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a718e3b4-662b-46a3-9dca-3025959d2fe0-08a5a03e-c51b-4b53-9362-db3ff95d850b",
+          "_type": "span",
+          "marks": [],
+          "text": "5,000円（1回あたり） × 4回 = "
+        },
+        {
+          "_key": "a718e3b4-662b-46a3-9dca-3025959d2fe0-ce6934b8-6f65-4059-9c70-97142469d631",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "20,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3c0583e0-5da4-49ef-b4e6-bffc9bf7913c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c151f33d-4028-44af-a178-144303493cc5-4abbebad-e0d8-4ce4-b74e-6ba7957cf649",
+          "_type": "span",
+          "marks": [],
+          "text": "200,000円（基本給など） + 7,500円（深夜割増） + 20,000円（夜勤手当） = "
+        },
+        {
+          "_key": "c151f33d-4028-44af-a178-144303493cc5-3114a692-9500-4783-9f20-3d681821fae6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "227,500円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fcb61dbc-cc47-42f2-9090-5df2b16b5a92",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e2a7f219-1a5e-4cb7-8d05-547e90a3c485-c2f0ffca-b9d6-47a3-8eed-0cc63ccd3016",
+          "_type": "span",
+          "marks": [],
+          "text": "2.  "
+        },
+        {
+          "_key": "e2a7f219-1a5e-4cb7-8d05-547e90a3c485-30236393-e873-4636-9456-b6b31fb4522d",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "夜勤手当"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7e57beeb-50f8-4983-aa38-d82ae1f62b3e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "175ad02d-7556-4447-8417-f60b1d962b80-19fa913e-ef7d-4c97-98df-08ee2faa1239",
+          "_type": "span",
+          "marks": [],
+          "text": "3.  "
+        },
+        {
+          "_key": "175ad02d-7556-4447-8417-f60b1d962b80-1bae3d1d-15d6-474b-981b-a3edf4ec1735",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "合計月収"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-vza0nyp7g-intro-dc1bdfb3-9f4d-4e2f-9b71-4be42de78bef",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-d87bbhykx",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "416a5dd4-1900-4ce0-a6d8-1aa5bd90086d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "db36678e-8b22-481c-8f3b-3d124c9b8dab-016f90c9-7711-4e99-9a1c-3ab818382d54",
+          "_type": "span",
+          "marks": [],
+          "text": "このケースでは、月に4回夜勤に入るだけで、"
+        },
+        {
+          "_key": "db36678e-8b22-481c-8f3b-3d124c9b8dab-2ddd8265-0ba6-49d2-b1a9-9340a29315c5",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "27,500円の収入アップ"
+        },
+        {
+          "_key": "db36678e-8b22-481c-8f3b-3d124c9b8dab-83a24f5d-6c25-4e6d-8efb-0f007cc255f3",
+          "_type": "span",
+          "marks": [],
+          "text": "に繋がります。年間に換算すると"
+        },
+        {
+          "_key": "db36678e-8b22-481c-8f3b-3d124c9b8dab-b6064967-9cd8-4885-afcd-936323580269",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "33万円"
+        },
+        {
+          "_key": "db36678e-8b22-481c-8f3b-3d124c9b8dab-3114e624-95b8-4db5-bd06-c6076e8cb98d",
+          "_type": "span",
+          "marks": [],
+          "text": "もの差になります。夜勤手当がより高い病院であれば、収入の増加はさらに大きくなります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4f3cee92-30de-4dfc-8e5e-409f5ae7a742",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c440ac3c-b1dd-4e0f-a98f-95b7ef2fd26e",
+          "_type": "span",
+          "marks": [],
+          "text": "求人票で手当を確認する際の注意点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "39a10493-29b9-495a-a24e-23327782f53c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2a0a99eb-1b1d-4fa1-9ef8-b1ce849b695d",
+          "_type": "span",
+          "marks": [],
+          "text": "求人票に「夜勤手当あり」と記載されていても、その金額に「深夜割増賃金」が含まれている場合があります。「夜勤手当5,000円（深夜割増分含む）」と書かれている場合と、「夜勤手当5,000円（別途、深夜割増分支給）」と書かれている場合では、後者の方が実質的な手当は厚くなります。面接などの際に、手当の内訳をしっかりと確認することが重要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-22834c97-1afe-445c-9181-c2b8c5524f0d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-2ea79649-a1bd-445f-9250-46641f63ee7d",
+          "_type": "span",
+          "marks": [],
+          "text": "「求人票で手当を確認する際の注意点」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-ccf72f28-728b-428e-921f-c7741ad37e4a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-85398b69-5fa2-48c3-b0f5-51f4476dbf02",
+          "_type": "span",
+          "marks": [],
+          "text": "「求人票で手当を確認する際の注意点」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-pel6l41o8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-f7p91u7yc",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で得られる手当と実際の収入アップ例"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760819237393-bp1emat4j",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-rpek6ghdu",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で支給される2種類の手当"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760819237393-l8o4c9mtc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-uiwilud7s",
+          "_type": "span",
+          "marks": [],
+          "text": "1. 深夜割増賃金"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819237393-pgz46oloc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-lcw3a0x0u",
+          "_type": "span",
+          "marks": [],
+          "text": "深夜割増賃金は、法律で定められているため、どの病院や施設でもできるだけ支給されますが、計算方法を理解しておくことで、給与明細を確認する際に役立ちます。時給制の場合はもちろん、月給制の場合でも、時間単価を算出して計算することができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-3mgqclu08",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-x9xxjkimj",
+          "_type": "span",
+          "marks": [],
+          "text": "2. 夜勤手当"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819237393-3t4i6v2ky",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-rddhcdh9h",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当は、病院や施設の規模、経営状況、地域によって大きく変動する傾向があります。都市部の人手不足が深刻な地域では、夜勤手当が高めに設定されていることもあります。また、大学病院や大規模な総合病院では、夜勤体制が充実している分、手当も手厚い傾向が見られます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-dglw4uf55",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-o4pf28abu",
+          "_type": "span",
+          "marks": [],
+          "text": "【シミュレーション】夜勤で収入はいくら増える？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760819237393-yh8tkav0u",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-snzwten93",
+          "_type": "span",
+          "marks": [],
+          "text": "日勤のみの場合と、夜勤に入った場合の月収を比較してみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-yglzzulwo",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-toqyemfmh-29878c98-b11c-478d-ad54-40196b9a6a55",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "【前提条件】"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-9dosacldm",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-d2us0sg7t",
+          "_type": "span",
+          "marks": [],
+          "text": "基本給・諸手当：20万円"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-y92cxilc1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-zxtdmk3wh",
+          "_type": "span",
+          "marks": [],
+          "text": "1ヶ月の勤務時間：160時間"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-1bm80a2ft",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-gj7ej514b",
+          "_type": "span",
+          "marks": [],
+          "text": "時間あたりの賃金：1,250円"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-tl4pv9ulo",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-ukofe40xn",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当：1回5,000円"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-jt78m1s1h",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-69b2tzxyv",
+          "_type": "span",
+          "marks": [],
+          "text": "2交代制で月4回夜勤（1回16時間、うち深夜時間6時間）"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-l2un890j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-k61gafryf",
+          "_type": "span",
+          "marks": [],
+          "text": "ケース1：日勤のみの場合"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819237393-wrzs7yh4w",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-omnzmf20k-2e3f647c-8f52-402c-a319-b6e085bf26d3",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "月収：200,000円"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-j1561m62k",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-nkb5wt694",
+          "_type": "span",
+          "marks": [],
+          "text": "ケース2：月4回夜勤に入った場合"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block-1760819237393-hz8d5hb5i",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-016bor69l-3ebe083a-661e-48e1-8dc2-661f2d216c2c",
+          "_type": "span",
+          "marks": [],
+          "text": "1.  "
+        },
+        {
+          "_key": "span-1760819237393-016bor69l-c6d68004-a873-4bef-9ee4-70e16bf0ab0b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "深夜割増賃金"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-ss062ma4j",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-63z47uxrc",
+          "_type": "span",
+          "marks": [],
+          "text": "深夜割増賃金は、深夜時間帯の労働に対する正当な対価です。この計算式を覚えておくことで、自分の給与が適切に計算されているか確認できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-vxqs0lzhf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-20h1w3o1a-030cc057-5c5c-4e0f-a966-6b921a353c4c",
+          "_type": "span",
+          "marks": [],
+          "text": "2.  "
+        },
+        {
+          "_key": "span-1760819237393-20h1w3o1a-d74fe64e-2c4b-4a6d-9eff-498ef67dea3a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "夜勤手当"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-ml6zj2kgc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-dxhyte1fv-ef42a4f8-fed0-454f-a0e6-40460766d08d",
+          "_type": "span",
+          "marks": [],
+          "text": "5,000円（1回あたり） × 4回 = "
+        },
+        {
+          "_key": "span-1760819237393-dxhyte1fv-ff7b982e-ed5b-46b5-9235-8280fb25914b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "20,000円"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-fu7zndr4k",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-k4s5ygm6y",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤手当は、勤務先によって金額が異なります。求人情報を比較検討する際には、この手当の額に注目することが重要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-h8mwpemfp",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-892pgdlpc-6b8a57ea-aad4-4981-8342-4f1717b7982f",
+          "_type": "span",
+          "marks": [],
+          "text": "3.  "
+        },
+        {
+          "_key": "span-1760819237393-892pgdlpc-66ff2a0e-8180-4eca-99ed-ca1e14c82696",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "合計月収"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-92is7daaa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-vce3a0rgl",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ："
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-wye41chtw",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-im4tijfvc",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤回数を増やすことで、さらに収入をアップさせることも可能です。ただし、無理な夜勤は体調を崩す原因にもなるため、自身の体調や生活リズムに合わせて夜勤回数を調整することが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760819237393-nzzlnmyr4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-ttxzd1y9f",
+          "_type": "span",
+          "marks": [],
+          "text": "求人票で手当を確認する際の注意点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block-1760819237393-ael6g6330",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760819237393-sz8li18e0",
+          "_type": "span",
+          "marks": [],
+          "text": "求人票には、夜勤手当の金額だけでなく、支給条件や回数なども記載されている場合があります。例えば、「夜勤4回以上で支給」や「夜勤手当は試用期間後に支給」といった条件が付いていることもありますので、注意が必要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-2t96qzm5u-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-6lrd6cceu",
+          "_type": "span",
+          "marks": [],
+          "text": "👔 ユニフォーム・グッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-q7kpxkfz7-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-tgy40ajfn",
+          "_type": "span",
+          "marks": [],
+          "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-6mqo62ta8-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-rfl8czf86",
+          "_type": "span",
+          "marks": [],
+          "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-4623fd0b-f4e9-49b0-8787-38072661741e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-4c4bda82-1a34-4280-8bdc-2decb5f7ffa9",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-f1a663ae-3104-4f69-8438-c1035424e5c9",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-6a72e309-1cc7-457b-97c3-d0f1bd5f40b6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-54d363aa-cf31-4043-beab-fd434e5abc3a",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-b3d0a46e-cad2-4fcb-a178-d2d47731f5d2",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-a3bea9ef-b6e6-4749-afb3-f3aeb98440d0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-7cc4a3db-69aa-4c87-b18f-72670dec2ccd",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-155ef88d-11d4-4fe6-a9b7-3bd4dca4d728",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-502236b6-663e-4715-854a-e9582b5b9d19",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-5168a29f-618d-48fb-8def-ef9f1e5d56cb",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-6fe2e4c3-a4de-4a9d-8090-9521188ccf9c",
+          "_type": "span",
+          "marks": [
+            "link-12d9683c-b040-41e8-86e6-01f036e4f7c4"
+          ],
+          "text": "「看護助手の夜勤後の疲労回復法5選」"
+        },
+        {
+          "_key": "internal-link-span-outro-38c0ab10-8c31-4124-8136-7022f7850607",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-12d9683c-b040-41e8-86e6-01f036e4f7c4",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-recovery"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-0cef1039-9957-4e2e-bbd1-57bdb9e1782b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-429af31d-9900-427a-a911-4ff77a064949",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で得られる手当と実際の収入アップ例でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-425c7e9d-5f6a-44ca-addb-843b8181e85b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-4a873c76-03a3-4404-885a-19a382024300",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-acbf44e7-f19c-41fb-84b6-bf97b7dbfb37",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-6244bfb9-83b8-4864-b625-51fdac285391",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a5f4d328-21d4-478c-977e-4767f20073cb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-5bfef521-0a5d-4191-9dbd-94d1f8310c03",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で支給される2種類の手当の視点で1. 深夜割増賃金に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-c5c2f0d0-42c9-4f39-9a69-0f8944c6c4bc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-b7c862fd-1dd6-4702-ae95-64d00451b183",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤で支給される2種類の手当の視点で2. 夜勤手当に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-040a84bf-8887-49fa-97f5-665ac2692797",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-9b2a1862-727c-41d5-a84f-fd3b6d9b8ac4",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-7e5fa379-b1fa-49d2-b4d4-361c2be4cca6",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-464732ba-f6b5-4d42-8da9-5ed7910b73a3",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-5c244741-542c-4fa3-98c8-4deccaa3029a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-f600f38e-a6b5-4db5-b981-67e0c2a9cc28",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-58a90279-b4b1-4ba8-9c08-0f9a2216d8d0",
+          "_type": "span",
+          "marks": [
+            "link-5ac870ea-a5a4-4ccf-b633-8f4995a1cf7a"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-5ac870ea-a5a4-4ccf-b633-8f4995a1cf7a",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-de0b4341-0d55-455d-90c3-1fb155b137c6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-6b406312-6e58-4312-85ac-0ec0798ff5d3",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-night-shift-salary"
+  },
+  "title": "夜勤で得られる手当と実際の収入アップ例"
+}

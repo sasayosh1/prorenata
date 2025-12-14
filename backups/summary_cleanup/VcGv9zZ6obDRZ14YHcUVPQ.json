@@ -1,0 +1,720 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUVPQ",
+  "body": [
+    {
+      "_key": "5fb0dcde-9e54-4138-b069-d78626c554f2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "30a1031b-ac64-4e69-868c-aea7baf9c4c6",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の採用面接において、志望動機は合否を左右する最も重要な質問の一つです。「なぜ看護師ではなく、看護助手なのか」「なぜ他の病院ではなく、うちの病院なのか」といった点を、採用担当者は厳しくチェックしています。"
+        },
+        {
+          "_key": "3fa2519c-0cbb-4935-8401-2f5ed3693d13",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "52009e76-370a-4d41-b456-ba67ed466ee9",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "5613e4d3-fe18-4993-b0d2-8779c682dc4b",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "1fde6b52-d6e3-4983-a1af-a366c29e53c7",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、面接官の心に響く、説得力のある志望動機を作成するための基本的な構成と、状況別のテンプレート（例文）を紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "46442388-8025-413a-9d01-c46526043244",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9ed77833-4749-4a7a-ace5-44ee97489abe",
+          "_type": "span",
+          "marks": [],
+          "text": "志望動機作成の3つの基本ステップ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "0f1c71bf-6d7c-4b75-acad-1fed62bc80ea",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a07be925-f621-44fb-9819-ffdb83dd65d1",
+          "_type": "span",
+          "marks": [],
+          "text": "魅力的な志望動機は、以下の3つの要素で構成されます。いきなり書き始めるのではなく、まずこの3つの要素を箇条書きで書き出してみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "69f97c29-4f50-480f-8b9f-b6a04bd9a64b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-4df3169a-090a-44f1-bad0-59b98c6627b9",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-7d521a67-38a1-457b-85f1-b496daa7a77e",
+          "_type": "span",
+          "marks": [
+            "link-ff8d2bed-2eba-4172-85d1-505db1030905"
+          ],
+          "text": "厚生労働省 医療施設調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-ff8d2bed-2eba-4172-85d1-505db1030905",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/79-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "97f9f8d9-74fc-45b0-aa78-bfa40e8dcbb2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "88c4179d-a44c-44cc-b320-ccc447776eae",
+          "_type": "span",
+          "marks": [],
+          "text": "Step 1: なぜ看護助手なのか（結論）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "9c744a0b-eb65-4154-81e1-c6825d0ee8b8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8b69ce6c-4104-45a9-a2f5-010065040e81",
+          "_type": "span",
+          "marks": [],
+          "text": "数ある職種の中で、なぜ看護助手という仕事を選んだのかを明確に伝えます。自身の経験と結びつけて語ることで、説得力が増します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d285a0b9-0200-4c64-9f49-8229e0996a22",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c1af8382-1646-4e81-b58a-ce7025f7fe9f-2cd53f7a-cc76-4de0-8a2c-0dae2b8aeabc",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "例"
+        },
+        {
+          "_key": "c1af8382-1646-4e81-b58a-ce7025f7fe9f-8f99e6fc-4302-4b58-aa85-71d6e5f83016",
+          "_type": "span",
+          "marks": [],
+          "text": ": 「人の役に立ちたい」「医療現場に貢献したい」「過去の入院経験から、患者に寄り添う仕事の重要性を感じた」など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-c69affc0-a322-4c29-ab82-40007599dca3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-a51ca769-c7b3-46ca-a247-6e8191dca77d",
+          "_type": "span",
+          "marks": [],
+          "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "34a57178-0867-4e29-8bde-a46a2390e80a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "964c49f9-de41-4e8a-b531-13e67da24357",
+          "_type": "span",
+          "marks": [],
+          "text": "Step 2: なぜこの職場なのか（具体性）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "6110cfe4-3c79-447b-a7f3-757f31094f1a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "10f0670b-aef7-4908-a0ff-0a6f1147f459",
+          "_type": "span",
+          "marks": [],
+          "text": "他の病院や施設ではなく、「なぜここで働きたいのか」を具体的に述べます。そのためには、応募先のホームページなどを読み込み、理念や特徴を理解しておくことが不可欠です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2a89f28e-e856-4a88-890e-dcb0a12129de",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e3454b54-dc58-4e4d-a0d1-6d758272f883-82ab3476-0d7c-4b70-9109-5ef66dc08d5c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "例"
+        },
+        {
+          "_key": "e3454b54-dc58-4e4d-a0d1-6d758272f883-886fb4e9-33a1-4708-b088-7d5cc25bb7e1",
+          "_type": "span",
+          "marks": [],
+          "text": ": 「貴院の『患者様第一』という理念に深く共感しました」「地域に密着した医療を提供している点に魅力を感じました」「〇〇科の看護に力を入れていると伺い、貢献したいと思いました」など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-7dfedf6a-30f6-4ef6-9fcf-810f8ba899fe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-b6ac10a0-fbfc-4ec0-8cf5-74a36d7f1e77",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-027cb947-7565-41db-a250-0fc76066309f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-8e4a4734-4b8c-4dae-b78f-d26e2bf54869",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-b4496c61-be44-43fa-928b-db774f9e22a3",
+          "_type": "span",
+          "marks": [
+            "link-dbde1915-ecc1-475d-af94-98c7a2b87aae"
+          ],
+          "text": "日本看護協会 看護サービス提供体制のあり方"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-dbde1915-ecc1-475d-af94-98c7a2b87aae",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/publication/pdf/guideline/way_of_nursing_service.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "75a46a0c-d027-4935-9d3e-70b7cc4798f8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d2f46af5-8abc-4834-ad5e-97bf18e21ec1",
+          "_type": "span",
+          "marks": [],
+          "text": "Step 3: どのように貢献できるか（将来性）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "8d54e4a7-1272-4ae3-81c4-849a1c4afdd5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9aeb1fb0-02fc-47cd-b466-658ce2dbba12",
+          "_type": "span",
+          "marks": [],
+          "text": "自分の強みやスキルを、入職後にどのように活かしていきたいかを伝えます。採用担当者に、あなたが活躍する姿をイメージさせることが目的です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ed7036c7-4278-45df-a5c8-ffa7f3a370c5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8f3c7efa-e0a0-450c-a00e-4bc68c82a8c3-160ebf8a-8cf1-4812-a413-47d6571db364",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "例"
+        },
+        {
+          "_key": "8f3c7efa-e0a0-450c-a00e-4bc68c82a8c3-3e14c94c-1f23-4c1a-9d65-56de6ff46f66",
+          "_type": "span",
+          "marks": [],
+          "text": ": 「前職で培ったコミュニケーション能力を活かし、患者様やスタッフと円滑な関係を築きたいです」「体力には自信があり、責任感を持って業務に取り組めます」「将来的には介護福祉士の資格も取得し、より専門的に貢献したいです」など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-4ba3fdad-8123-4df5-b1d2-7838963e209c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-2b413413-4c5c-4156-9b5c-0e621d3dd9eb",
+          "_type": "span",
+          "marks": [],
+          "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-1aa2d4e3-a380-4265-8360-e2589bf2b29d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-51dfb489-b4ff-4ebc-b14d-5471e78ca843",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-050e1602-72bd-4217-b270-e1ab45e59a75",
+          "_type": "span",
+          "marks": [
+            "link-53fe88cc-bc52-4f8d-8bd6-86b5d6d4d6ba"
+          ],
+          "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-53fe88cc-bc52-4f8d-8bd6-86b5d6d4d6ba",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "cd8fc238-53e1-4ad4-98a3-3381f44de7ba",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "31bae2a0-c5bc-4b54-8008-87e92d89886e",
+          "_type": "span",
+          "marks": [],
+          "text": "【状況別】志望動機テンプレート（例文）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "11068ea4-727b-4e4b-b4a8-6d27e07f0521",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "90312d35-899b-4dd0-90ce-81a8214e7cd7",
+          "_type": "span",
+          "marks": [],
+          "text": "上記の3ステップを踏まえ、応募者の状況に合わせた志望動機のテンプレートを紹介します。ご自身の経験に合わせて、言葉をアレンジして活用してください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "896228d5-0899-4474-a2ce-6a40b84c806b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9bfbd1bb-337d-4359-8222-2dfc259f7f0b-before-nq3rh1wq9",
+          "_type": "span",
+          "marks": [],
+          "text": "例文1："
+        },
+        {
+          "_key": "9bfbd1bb-337d-4359-8222-2dfc259f7f0b-link-ylhtdspto",
+          "_type": "span",
+          "marks": [],
+          "text": "未経験からのスタート方法はこちら"
+        },
+        {
+          "_key": "9bfbd1bb-337d-4359-8222-2dfc259f7f0b-after-fyndqvplj",
+          "_type": "span",
+          "marks": [],
+          "text": "者の場合"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "0c7f7531-eec5-47e5-b96d-1ba9fce14618",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f526b3af-28fe-46df-8fbd-02e26cb1f5e8",
+          "_type": "span",
+          "marks": [],
+          "text": "（結論）わたしが看護助手を志望する理由は、患者様に最も近い立場で療養生活を支えたいと考えたからです。以前、祖母が入院した際に、親身に寄り添ってくださる看護助手の方の姿に感銘を受け、医療チームの一員として貢献したいと強く思うようになりました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d4ba71ae-73d3-4c29-bf77-4f05e5b75fa2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0d8e5eaf-edb0-43ac-a6df-a281b9291691",
+          "_type": "span",
+          "marks": [],
+          "text": "（具体性）中でも貴院を志望したのは、地域医療への貢献を第一に考え、患者様一人ひとりと向き合う温かい看護を実践されている点に魅力を感じたからです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "64a547a5-9fda-4518-b6cb-56d11a99c480",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c6fc0ca1-7aa8-4ca3-8ee5-09ce9226af84",
+          "_type": "span",
+          "marks": [],
+          "text": "（将来性）未経験ではございますが、持ち前のコミュニケーション能力と責任感の強さを活かし、一日も早く業務を覚えてチームに貢献したいと考えております。将来的には介護関連の資格取得も視野に入れ、長く貴院で働きたいです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-a132b6b4-0e94-470e-af4e-7c90191a4726",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-1b58ef45-909d-435f-be0d-e5dec64d150d",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-ab19ed65-866d-47e4-8a4c-a66b806eadab",
+          "_type": "span",
+          "marks": [
+            "link-779a5415-414e-4483-8945-bb1aeb84d309"
+          ],
+          "text": "厚生労働省 看護職員需給分科会"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-779a5415-414e-4483-8945-bb1aeb84d309",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "0944ac7b-1d4f-4e68-8dac-cd6ab9f5f4b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0013a28d-cee9-4396-b432-9a12ec2032b8",
+          "_type": "span",
+          "marks": [],
+          "text": "例文2：介護職からの転職の場合"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "78023bf1-3aac-4fc2-9c12-d458ed13e6a3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1ce2aeb7-6c91-4cf7-a6b9-671c99cb723a",
+          "_type": "span",
+          "marks": [],
+          "text": "（結論）わたしが看護助手を志望する理由は、介護施設での経験を活かし、医療的な側面からも利用者の生活を支えるスキルを身につけたいと考えたからです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7b4aa9fc-caa8-47da-a106-fcd649a27678",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "05e49de4-9d02-46fc-9673-27f6ae688a9b",
+          "_type": "span",
+          "marks": [],
+          "text": "（具体性）これまで5年間、特別養護老人ホームで介護職員として勤務し、身体介助の技術と認知症ケアの知識を培ってまいりました。医療依存度の高い利用者様と接する中で、より医療との連携が密な環境で働きたいという思いが強くなりました。急性期から在宅復帰まで一貫したサポート体制を持つ貴院でこそ、わたしの経験が活かせると考えております。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7a670994-6ace-4371-8baf-f5e139a03b34",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5bac98eb-80bf-4764-ae08-14d7cfd2d209",
+          "_type": "span",
+          "marks": [],
+          "text": "（将来性）介護福祉士として培った傾聴力と介助技術を活かし、患者様が安心して療養できる環境づくりに貢献したいです。また、看護師の皆様と密に連携し、医療現場ならではの知識や視点を積極的に学んでいきたいと考えております。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-92292889-2e69-4f92-9d87-813417d8a2ec",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-03ed89c0-ebc7-4a39-a04b-546377124483",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-8b585177-8cc8-46ac-8586-ed2bec24df32",
+          "_type": "span",
+          "marks": [
+            "link-d0c80566-14af-420b-abd8-c37e65c72f1b"
+          ],
+          "text": "「家庭と両立を志望動機にするのはアリ？」"
+        },
+        {
+          "_key": "internal-link-span-outro-a5988e39-50eb-4a5d-bd93-250cc257f8b2",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-d0c80566-14af-420b-abd8-c37e65c72f1b",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-motivation-points-work"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-a558c70a-7647-444a-ba9d-7ba416aa12b4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-c9d5323c-26dc-4787-b732-335e0b3142fa",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手志望動機の書き方テンプレートでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-f78775bf-9222-41ec-b008-e6c26d6c80e3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-52abc651-77b2-4744-ad5a-64afa30cbccc",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-c28d0954-1a63-4e48-904d-875ddd5b3ccc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-b759fd24-f5e1-476f-a92f-c39669335cff",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-180c510f-12bf-4eb0-8156-cbcb0c448f3e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-6ba6b65b-7aa9-4a83-8f14-e32221894125",
+          "_type": "span",
+          "marks": [],
+          "text": "志望動機作成の3つの基本ステップの視点でStep 1: なぜ看護助手なのか（結論）に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-acc68ea3-3cb1-4c1f-abf2-b5b2c70c55df",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-9dcd2e61-0b09-4111-a877-6a96fe806e60",
+          "_type": "span",
+          "marks": [],
+          "text": "例: 「人の役に立ちたい」「医療現場に貢献したい」「過去の入院経験から、患者に寄り添う仕事の重要性を感じた」など。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-7f88b44c-c06f-4dc3-9ea9-53f106bc529c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-7d951290-1423-425a-afe5-6b3713923fe9",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-e6dba705-dc83-4f2b-8f20-a806d63c97ce",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物や替えのグローブなど、毎日使うアイテムを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-aa5d1471-ee57-4776-9056-09b20ec8b4a3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-54284aa7-15ac-460c-aa0a-7a05d5b49967",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-b0856fbb-c08c-4262-9ae1-9cfeb683a548",
+          "_type": "span",
+          "marks": [
+            "link-2c449b10-d842-41b0-abde-f7a62252ec97"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-2c449b10-d842-41b0-abde-f7a62252ec97",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-3cd25563-c113-4dc8-ae60-527cec199366",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-6edcfe06-c68a-4c1f-a198-124b9f21324d",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-motivation-letter-template"
+  },
+  "title": "看護助手志望動機の書き方テンプレート"
+}

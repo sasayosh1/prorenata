@@ -1,0 +1,709 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUsAY",
+  "body": [
+    {
+      "_key": "b62cd736-ea27-4521-bb86-d0737cf877b4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4e5a9211-6227-4822-b92f-6289c999e22b",
+          "_type": "span",
+          "marks": [],
+          "text": "病棟で培ったコミュニケーション力や段取り力は、一般企業でも十分価値があります。看護助手として働きながら「別の環境で自分の力を試してみたい」と感じ始めたときに備えて、スキルの棚卸しや応募までの流れを整理しました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a5099534-2b42-43d9-926c-fc95f85932ca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "81454592-b937-4f79-b389-666af631c723",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の経験が生きるポイント"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "627dbfa4-9a76-4220-9b3f-a7d25033f6fd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8c132f9c-0fa6-43ed-ad39-41976861db8c",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は患者さんやご家族、医療チームと日常的に連携しているため、高い傾聴力とスピーディーな意思疎通が求められます。さらに、危険予防や衛生管理など細やかな観察力も一般企業の品質管理・顧客対応に直結します。「患者さんの変化を察知した」「複数の業務を同時進行で進めた」といった具体例を用意しておくと、面接で伝わりやすくなります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0a457a5d-0776-4606-b15d-80409307c4b6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f78ad595-4029-4016-a5a2-67881ed76da3",
+          "_type": "span",
+          "marks": [],
+          "text": "転職を考え始めたらやること"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "871dc638-5bcf-45dd-a031-4cd10235af5c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "057bab4d-5ef5-4ec6-b1c8-f361aaa0adc1",
+          "_type": "span",
+          "marks": [],
+          "text": "1週間ほど仕事の記録を残し、自分が工夫した点や任された業務を洗い出す。"
+        }
+      ],
+      "level": 1,
+      "listItem": "number",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "02a2083e-c195-4221-9ee8-515207894a9d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f38fab35-0d55-455d-bc14-fe9b27d136d9",
+          "_type": "span",
+          "marks": [],
+          "text": "希望する働き方（休日数、残業の有無、勤務地）を箇条書きにし、譲れない条件と調整できる条件を整理する。"
+        }
+      ],
+      "level": 1,
+      "listItem": "number",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "08cb9609-fca5-4b33-823e-1a2d60dbe9f2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2e89511c-7abf-421f-b9c4-753ce73c3a05",
+          "_type": "span",
+          "marks": [],
+          "text": "履歴書と職務経歴書の下書きを早めに作り、読み手に伝わる言い回しへアップデートする。"
+        }
+      ],
+      "level": 1,
+      "listItem": "number",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-5f3c2879-0d6e-4f21-8f2d-f480c51ff31b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-bfd6b090-1fad-471e-895d-8a4a2118e5a3",
+          "_type": "span",
+          "marks": [],
+          "text": "転職を考え始めたらやることでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "63a474ea-1ca8-4949-b43c-188e31491a36",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7ca1800a-5f9f-41ce-b7b3-80e1f52bbbb4",
+          "_type": "span",
+          "marks": [],
+          "text": "応募書類・面接で押さえるコツ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "a658e442-546a-4412-bf75-5f20f807ff74",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d62e499b-6c9a-4d2d-8559-4c5c6f0deaf6",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんやスタッフとのエピソードを、事実→課題→取った行動→得られた成果の順にまとめる。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "979cb03a-1770-4f11-970a-4e77b16c15d2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "574948a2-998c-4ab2-8f51-7730393f1874",
+          "_type": "span",
+          "marks": [],
+          "text": "「なぜ一般企業なのか」を自分の言葉で語れるようにし、看護助手の経験と次の職場での貢献をつなげる。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bcf0e2b1-6956-45e6-b802-f767427711cd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "841f0ea2-8982-428f-856c-f5afd6174201",
+          "_type": "span",
+          "marks": [],
+          "text": "応募企業に合わせて、感染対策や安全管理の姿勢などをキーワードに盛り込む。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-25bf9c31-b731-48bc-a6f3-824896313253",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-4c840efc-c31f-411a-8013-b46b7f5db198",
+          "_type": "span",
+          "marks": [],
+          "text": "応募書類・面接で押さえるコツでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "84cf9ba0-52ec-4dd1-a76e-29d332c76712",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "60e509e6-a3e1-4030-8bf1-9ebd7ccce370",
+          "_type": "span",
+          "marks": [],
+          "text": "キャリア支援サービスの活用"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "internal-link-dee7899f-d193-42cd-833c-4b18a545aed6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-d8ae03d6-8190-4854-af67-6c37e21455cd",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-c71fefb9-1758-4cc7-bd04-ce45678f11d1",
+          "_type": "span",
+          "marks": [
+            "link-1ab7d18d-3130-4071-b1ac-3f176d8437ac"
+          ],
+          "text": "「看護助手から介護職へ転職する人が多い理由」"
+        },
+        {
+          "_key": "internal-link-span-outro-52c0312a-dc2f-45ed-bb6c-7040170ca16e",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-1ab7d18d-3130-4071-b1ac-3f176d8437ac",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-career-change-journey"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-6871e4dd-2b8a-4303-955e-70049e78a01d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-d0c7fdcd-e5b7-4e8c-bd34-de74f6e58337",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-babafb41-dbaf-47e4-a18c-2bd42453977f",
+          "_type": "span",
+          "marks": [
+            "link-b9302347-5c6a-404a-a87d-c1d54a17e27d"
+          ],
+          "text": "NsPace Career 看護助手の転職・年収コラム"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-b9302347-5c6a-404a-a87d-c1d54a17e27d",
+          "_type": "link",
+          "href": "https://ns-pace-career.com/media/tips/01230/?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-2-h3c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-2-h3c-span",
+          "_type": "span",
+          "marks": [],
+          "text": "学びを深めるためのセルフチェック"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-2-p5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-2-p5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "記事で紹介したポイントを振り返り、実際の勤務で活用するためのセルフチェックシートをつくるのもおすすめです。1週間ごとに「できたこと」「次に試したいこと」を書き出すだけでも、成長を可視化できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-2-list5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-2-list5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "1週間のうちで印象に残った患者さんとの関わりを振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-2-list6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-2-list6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "自分が安心できたサポート例をチームで共有し、取り組みを増やす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874217467-2-p6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874217467-2-p6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分さ」より「継続できる工夫」を意識して、患者さんと自分自身が心地よく過ごせるリズムを整えていきましょう。焦らず取り組む姿勢こそが、看護助手としての信頼とセラ感を育ててくれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0d2a38e7-6279-43c6-b19d-9641d1da1f63",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3849e493-5485-47e5-a3a7-cab08c1d9ba2",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-d3de558e-fc19-422a-9bb6-f70881b469ce",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-e7c11896-b67f-4e47-9bc1-21f0fb94374b",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手から一般企業に転職できる？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-aab194c2-1e13-431e-b87a-861232de504e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-8d257961-99bd-44aa-94b2-191f8981d7e3",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-c103b9d9-641f-4985-ae05-378c6994dbab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-0b7ccfe1-fe1e-478c-90a1-848f47698138",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに安心感を高めるフォロー例"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-06a41665-6b2e-4a37-aa86-d1daaac7a3e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-7d165c3e-1b68-4ff2-9d8a-1a9673161e83",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務の前後で「今日意識したいこと」「できたこと」をそれぞれ3つ書き出す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-4aca69bf-ca97-427a-872a-21bb6d5f3784",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-e3bb6bbf-9518-4835-b9a4-d616c92d6b8e",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんからの感謝や対応の工夫を小さく共有し、チーム全体で活用する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-a68abfd8-7b75-49c3-a6cc-6ee9802d4990",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-f7350d4b-48eb-4394-8733-36a23cdb1bc2",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765565459922-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765565459922-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに安心感を高めるフォロー例"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-extra-1765565459922-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765565459922-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セクションで紹介した内容に加えて、勤務後の振り返りノートを活用すると自分の成長や癖が見えてきます。たとえば「今日は患者さんの不安をどう受け止められたか」「次はどんな声かけを試したいか」を箇条書きで記録するだけでも、翌日のアクションが明確になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765565459922-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765565459922-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務の前後で「今日意識したいこと」「できたこと」をそれぞれ3つ書き出す"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765565459922-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765565459922-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんからの感謝や対応の工夫を小さく共有し、チーム全体で活用する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765565459922-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765565459922-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "こうした積み重ねは数値化しにくいものの、患者さんや同僚が安心して頼れる雰囲気づくりに直結します。忙しい日も、振り返りの2〜3分を確保することが自分の余裕にもつながるので、無理のない範囲で取り入れてみてくださいね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-5256e661-2efc-43c7-82f7-41a73c7006fc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-7a6d9445-ae51-44ef-b859-95d9d7db561d",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "career-change"
+      },
+      "title": "転職"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-career-change-support"
+  },
+  "tags": [
+    "キャリア・資格",
+    "スキル",
+    "一般企業",
+    "医療",
+    "患者",
+    "看護",
+    "看護助手",
+    "経験",
+    "能力",
+    "転職"
+  ],
+  "title": "看護助手から一般企業に転職できる？"
+}

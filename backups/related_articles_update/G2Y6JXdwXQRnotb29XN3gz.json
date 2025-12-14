@@ -1,0 +1,625 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XN3gz",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4991eaad-6de3-48da-b312-f9606b48a439",
+          "_type": "span",
+          "marks": [],
+          "text": "面接で志望動機を話す際、「長く話しすぎてしまう」「何を伝えれば良いか分からない」と悩むことはありませんか。限られた時間の中で、あなたの熱意やポテンシャルを最大限に伝えるためには、志望動機を簡潔にまとめるスキルが非常に重要です。"
+        },
+        {
+          "_key": "0311dc42-b664-4303-9a6a-0c24cce48349",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "cbb9c704-b27d-4af4-b3d0-b1eaf2e0078e",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "2c5ef102-83ae-45cf-a757-115d0d52750c",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "1950f297-882a-4103-b38a-19da5320aae0",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "6570a04c-b39f-4b9c-8cef-f29be97f4663",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "c94cf437-6b9c-4bd7-99e5-70427e9dc771",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、採用担当者の心に響く、短くても伝わる志望動機のまとめ方と、そのための具体的なポイントを解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-e10ff79a-9a7c-4938-80f9-bc26ccf56238",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-3e85f349-b6fb-45bd-b57a-41e04cf50a9f",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-34f2a682-fadd-4706-9d2f-1d606bb9bce4",
+          "_type": "span",
+          "marks": [
+            "link-7e1b36ed-a14a-4cf0-8d1b-a2f4fad69b1d"
+          ],
+          "text": "「看護助手志望動機の書き方テンプレート」"
+        },
+        {
+          "_key": "internal-link-span-outro-e30101c0-ab41-49bb-8ef4-c8e68b146f33",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-7e1b36ed-a14a-4cf0-8d1b-a2f4fad69b1d",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-motivation-letter-template"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-2-h3c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-2-h3c-span",
+          "_type": "span",
+          "marks": [],
+          "text": "学びを深めるためのセルフチェック"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-2-p5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-2-p5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "記事で紹介したポイントを振り返り、実際の勤務で活用するためのセルフチェックシートをつくるのもおすすめです。1週間ごとに「できたこと」「次に試したいこと」を書き出すだけでも、成長を可視化できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-2-list5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-2-list5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "1週間のうちで印象に残った患者さんとの関わりを振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-2-list6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-2-list6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "自分が安心できたサポート例をチームで共有し、取り組みを増やす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873580342-2-p6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873580342-2-p6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分さ」より「継続できる工夫」を意識して、患者さんと自分自身が心地よく過ごせるリズムを整えていきましょう。焦らず取り組む姿勢こそが、看護助手としての信頼とセラ感を育ててくれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b2c3d4e5f6a1-summary",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-eab322eb-15d2-4def-bf18-8f620d436f0b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-ae3282da-26be-40ba-bd89-6ac89059cb2b",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の志望動機を短く簡単にまとめる方法でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-a1e44756-3981-4aec-86de-105c74b55d21",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-566f85e3-129a-4049-a9b2-6b34073d183e",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-4e325c9d-6d97-4e34-9882-c527cf0d0945",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-d10445d3-cc91-4245-80f3-2b92654d82f0",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに安心感を高めるフォロー例"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-07cf0248-182c-4055-bb8f-45f24c3416a8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-8c3dc768-d2d9-4e3b-9c9b-f899891c37ad",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務の前後で「今日意識したいこと」「できたこと」をそれぞれ3つ書き出す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-75ed35ba-e0ff-44c9-80f8-ea2ba38ef1c0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-d98d23d4-b788-4ac5-a4d6-5d87c37b5b2d",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんからの感謝や対応の工夫を小さく共有し、チーム全体で活用する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-f8f3d4d9-6dfd-4802-bd4c-199ee1d9ca9f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-5e9cc6bf-258e-4e07-a44d-9c42abdd5672",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに安心感を高めるフォロー例"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セクションで紹介した内容に加えて、勤務後の振り返りノートを活用すると自分の成長や癖が見えてきます。たとえば「今日は患者さんの不安をどう受け止められたか」「次はどんな声かけを試したいか」を箇条書きで記録するだけでも、翌日のアクションが明確になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務の前後で「今日意識したいこと」「できたこと」をそれぞれ3つ書き出す"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんからの感謝や対応の工夫を小さく共有し、チーム全体で活用する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "こうした積み重ねは数値化しにくいものの、患者さんや同僚が安心して頼れる雰囲気づくりに直結します。忙しい日も、振り返りの2〜3分を確保することが自分の余裕にもつながるので、無理のない範囲で取り入れてみてくださいね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で役立つミニケーススタディ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "たとえば「夜勤帯で患者さんの不眠が続いた」ケースでは、環境調整と声かけのタイミングが重要になります。照明を一段落とし、声のトーンを落として状況を尋ねるだけでも緊張が和らぐことがあります。状況を看護師へ共有する際は、「いつ」「どんな状態だったか」を短くまとめ、必要時に医師へ相談できるよう準備しましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "落ち着いた声で状況を確認し、患者さんの不安に寄り添う"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "必要な情報（時間帯・症状・対応内容）を簡潔に整理して申し送る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564755895-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564755895-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "どの職場でも共有の質が高まるほど、安心して引き継ぎを受け取れるようになります。セラも新人時代は実例を先輩から教わりながら、少しずつ引き継ぎメモの品質を上げてきました。迷ったら一人で抱え込まず、チームの経験を頼って大丈夫ですよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "source-b89f7b82-9cad-4fac-a4c6-5f72ef130f66",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-9d2a7c08-f41b-4804-9112-4922ba3c9adc",
+          "_type": "span",
+          "marks": [],
+          "text": "参考資料："
+        },
+        {
+          "_key": "span-aba94027-d303-4788-8d5d-a1e6685ab22c",
+          "_type": "span",
+          "marks": [
+            "link-8cbeffa9-bbbc-4d81-b8ae-ba781894732b"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-8cbeffa9-bbbc-4d81-b8ae-ba781894732b",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-da5b3df4-21a8-4547-be76-e188e0f75dda",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-5cb5194f-f54e-4d15-94b2-8a860758f485",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-short-motivation-letter"
+  },
+  "tags": [
+    "コミュニケーション",
+    "就職・転職活動",
+    "志望動機",
+    "看護",
+    "看護助手",
+    "簡潔",
+    "経験",
+    "結論",
+    "能力",
+    "面接"
+  ],
+  "title": "看護助手の志望動機を短く簡単にまとめる方法"
+}

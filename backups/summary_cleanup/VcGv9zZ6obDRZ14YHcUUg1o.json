@@ -1,0 +1,1172 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUg1o",
+  "body": [
+    {
+      "_key": "5bd3d0ee-128b-410f-9b81-2828df126d31",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fa325dd7-8db1-4348-82ba-4c2c42931de2",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の夜勤は、日勤とは異なる時間帯に働くため、その一日の流れや過ごし方が気になる方も多いでしょう。夜勤は給与面でのメリットが大きい一方で、生活リズムの管理や体調維持が重要になります。"
+        },
+        {
+          "_key": "225646fa-84b8-453c-951d-42096a7509ae",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "0ae4fa8e-a8a9-469d-85dd-7c6a1b36ee78",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "5b0ec43f-b976-4f66-8ca3-7bef6a5203e6",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "ea9683a3-684a-4426-bf71-abaff00d005c",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、看護助手の夜勤における24時間の具体的なスケジュールを、時間軸に沿って詳しく解説します。夜勤のリアルな働き方をイメージする参考にしてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-5768931f-df4f-464b-9262-c09e21ea4ff9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-aa7ad60d-524b-449d-8a51-d8ca1a5555cf",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-6c654f0e-b917-42c4-b939-de60e41ec97f",
+          "_type": "span",
+          "marks": [
+            "link-67c1f637-2219-48e5-b49b-6c6d88e24341"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-67c1f637-2219-48e5-b49b-6c6d88e24341",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "78bb0d79-ac52-41d8-9f10-708173b15d55",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7c406c5d-328d-4a64-844c-8a5e3234eed4",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤看護助手の24時間スケジュール（2交代制の場合）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "82bd6781-87b8-483b-b923-d782ff2878c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "eae733b5-49e6-4dbb-8483-fbc4641bf5ea",
+          "_type": "span",
+          "marks": [],
+          "text": "ここでは、一般的な2交代制（16時間勤務）の夜勤を例に、夜勤前、夜勤中、夜勤明けの過ごし方を含めた24時間のスケジュールを見ていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c0ddd7a8-4f49-4849-8f0f-1778f93059d1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-42996072-5ada-4a00-8baa-23aa780c1aa9",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-c9891884-30f1-4eb1-b3d4-f1cb20f10da7",
+          "_type": "span",
+          "marks": [
+            "link-e5f7fe1c-6642-4452-b65b-5cca8f7237d5"
+          ],
+          "text": "厚生労働省 統計情報・白書"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-e5f7fe1c-6642-4452-b65b-5cca8f7237d5",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei_hakusho/toukei/index.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "c4180aa3-0495-4722-b1f2-7a5e76fa49dd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b92e15cb-377c-4d8c-9fe7-ae583fdcf0e3",
+          "_type": "span",
+          "marks": [],
+          "text": "【夜勤前】"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "35ecb703-1dfe-4bdd-8fde-9b5e3d8bb3e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "298b40ab-28c4-4c89-8051-1b7a35b06f3c-d9a747dc-be27-4c8e-b766-d9dca0d4043e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "12:00〜16:00 睡眠・仮眠"
+        },
+        {
+          "_key": "298b40ab-28c4-4c89-8051-1b7a35b06f3c-a923b83a-d6cb-4543-acd0-ffc53d58d524",
+          "_type": "span",
+          "marks": [],
+          "text": ": 夜勤に備えて、しっかりと睡眠をとることが重要です。最低でも2〜3時間の仮眠を確保しましょう。遮光カーテンや耳栓を活用し、日中でも質の高い睡眠がとれる環境を整えます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "06cd936e-174b-4ce9-b7fe-4106c42cd49e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "50471241-a814-4479-b7a2-0d99bdddf5c5-5a6588e1-ce86-4ceb-a8a6-1b87f0812534",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "16:00〜16:30 起床・準備"
+        },
+        {
+          "_key": "50471241-a814-4479-b7a2-0d99bdddf5c5-1d11275b-bf8e-4ea8-8e22-9d52b51089e9",
+          "_type": "span",
+          "marks": [],
+          "text": ": 起床後、軽い食事を摂り、身支度を整えます。カフェインを摂る場合は、飲みすぎに注意しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-mjjf0rlll-intro-1390aaff-42ee-4a88-8b2e-6ca874267126",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-v9uuzqcpd",
+          "_type": "span",
+          "marks": [],
+          "text": "👟 快適なワークシューズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "22976fa9-4641-41f2-af92-357fdde2778d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2d073722-cdf9-4814-b18c-fa96d57f59b0",
+          "_type": "span",
+          "marks": [],
+          "text": "【夜勤中】"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "ae0f832b-7cdf-491e-8eb2-ec68a63ef515",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "39dbf8a9-b8bb-4e39-be3b-fd601efa7b36-1116ff6d-332f-4935-84e9-cc52d7044102",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "16:30 勤務開始・申し送り"
+        },
+        {
+          "_key": "39dbf8a9-b8bb-4e39-be3b-fd601efa7b36-de71be56-0b19-4cc1-a10b-c39ad19d8515",
+          "_type": "span",
+          "marks": [],
+          "text": ": 日勤の看護師から、患者さんの状態やその日の出来事について申し送りを受けます。特に注意すべき患者さんや、夜間のケア計画を頭に入れます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "06cf450e-61fa-4795-8326-f1f4af26f599",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "08388388-d689-4fe7-ba1a-7644b0adf79a-dd10cbc8-0b71-4044-8700-60285b21a3e4",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "18:00 夕食の配膳・介助"
+        },
+        {
+          "_key": "08388388-d689-4fe7-ba1a-7644b0adf79a-f313c558-eaa0-4f9e-af4e-7667f3d95118",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんの夕食の配膳と、必要に応じて食事の介助を行います。食後は、口腔ケアや服薬の補助なども担当します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "83b75fbf-79b9-49ad-b225-e8898a3cbbbc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "36ddbdd1-b4b3-4338-8c3e-a74958d6e216-95270ad7-47bb-46c1-bce6-91dea06eb7ea",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "19:00 消灯準備・就寝前のケア"
+        },
+        {
+          "_key": "36ddbdd1-b4b3-4338-8c3e-a74958d6e216-9aa0f783-68e3-436f-8d22-974383ca1b83",
+          "_type": "span",
+          "marks": [],
+          "text": ": 消灯に向けて、病室の環境整備や、患者さんの就寝前のケア（トイレ誘導、おむつ交換、歯磨きなど）を行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e1f3edea-910d-49bd-a561-73f475bdba93",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "97e4350b-0f9b-45a1-9757-cb4bd7867a10-e2eaed7b-8944-483c-9b91-2fd59251d892",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "0:00〜2:00 休憩・仮眠"
+        },
+        {
+          "_key": "97e4350b-0f9b-45a1-9757-cb4bd7867a10-d7351599-8483-418c-9ede-8b70b75ffd79",
+          "_type": "span",
+          "marks": [],
+          "text": ": スタッフが交代で1〜2時間程度の休憩・仮眠を取ります。ただし、緊急時やナースコールが頻繁な場合は、十分に休めないこともあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2092ca34-9c57-463f-80b7-28f0d76e2a6c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "70dd8c1c-13d4-4b5f-9343-857aa880e538-00729bef-4dd0-43c3-8b5d-fec02c68ce05",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "2:00〜5:00 巡視・記録・雑務"
+        },
+        {
+          "_key": "70dd8c1c-13d4-4b5f-9343-857aa880e538-fbe82bbb-ab47-4ad6-8fe7-506524a360b5",
+          "_type": "span",
+          "marks": [],
+          "text": ": 深夜帯も定期的な巡視は続きます。おむつ交換や体位変換のほか、ナースコール対応、使用したリネン類の片付け、翌日の準備などの雑務も行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ddce687a-996e-4b38-ad30-2b69fe588c25",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8811f01f-2611-454d-98b5-3f2257f3bb6e-ecf4c43d-8d44-47f7-8eee-2612e7bc467e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "6:00 起床準備・ケア"
+        },
+        {
+          "_key": "8811f01f-2611-454d-98b5-3f2257f3bb6e-aafdf36d-3f99-4278-ab87-7bcdf0c2d375",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんの起床時間に合わせて、モーニングケア（洗顔、着替えの介助など）を開始します。採血や検査がある患者さんの準備も手伝います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "medical-notice-4a005ca3-a7a6-4064-bd78-837210ffecd6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "medical-notice-span-84edb281-a7c0-45a5-89c0-edfc37dedff1",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は注射や点滴などの医療行為を担当できません。必要な処置がある場合は、できるだけ看護師に共有して指示を仰ぎましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bfc17155-2cf1-42bc-9a2d-87728db3ca15",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d24125ea-0a14-4277-ad3f-1e249811b509-9f5694f8-5a97-4399-9cc5-046672091a8b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "7:30 朝食の配膳・介助"
+        },
+        {
+          "_key": "d24125ea-0a14-4277-ad3f-1e249811b509-923a30e9-958c-4181-a7e4-c3cd3a447c89",
+          "_type": "span",
+          "marks": [],
+          "text": ": 朝食の配膳と食事介助を行います。夜間の患者さんの様子や食事摂取量などを記録します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e7bf8224-d654-4675-b65f-bc39fe6ff9cf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cd8808d6-829f-4b5e-aa47-90fb4e42612b-e4f476fe-df62-40ab-82d7-1e6f946570e7",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "9:00 申し送り・勤務終了"
+        },
+        {
+          "_key": "cd8808d6-829f-4b5e-aa47-90fb4e42612b-625e9087-67f1-4e71-afa8-f8fabc6f76da",
+          "_type": "span",
+          "marks": [],
+          "text": ": 日勤のスタッフに出勤してきたら、夜間の患者さんの様子を申し送ります。すべての報告が終われば、ようやく勤務終了です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-lvcwe1fvr-intro-693b75bd-3a97-445b-8c93-303711bbcc51",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-ugmeer09n",
+          "_type": "span",
+          "marks": [],
+          "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "849107f8-8314-42a8-bb50-89db98f232af",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "422fff30-67b2-473f-9cd0-27117871115f",
+          "_type": "span",
+          "marks": [],
+          "text": "【夜勤明け】"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "4135478d-817e-439d-ac58-b1c6c6329c60",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c2c1c191-32c5-4986-8c87-b1316de31832-6785b9fb-6689-4390-b3b5-069e3e303d22",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "9:00〜10:00 帰宅"
+        },
+        {
+          "_key": "c2c1c191-32c5-4986-8c87-b1316de31832-eff4e341-fdd3-4d9f-b340-700386b8986f",
+          "_type": "span",
+          "marks": [],
+          "text": ": 勤務終了後、速やかに帰宅します。寄り道はせず、できるだけ早く休息できる環境へ。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4f4b83d4-d909-4aed-b7a0-8f48f20b7ed2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cf775e42-75fb-4501-acc4-3bb4fca3a6a5-e84c0153-cf50-470c-95cf-54c755e08f21",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "10:00〜14:00 睡眠"
+        },
+        {
+          "_key": "cf775e42-75fb-4501-acc4-3bb4fca3a6a5-e0d76893-bae7-4cf9-866b-6ee2a006049d",
+          "_type": "span",
+          "marks": [],
+          "text": ": 帰宅後、すぐに睡眠をとります。この睡眠で、夜勤で不足した睡眠を補います。ただし、あまり長く寝すぎると夜の睡眠に影響が出るため、4時間程度を目安にしましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "01833905-715a-4d7b-a254-01a05d89f78e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4d88b7ee-fcb3-49c7-b2d4-9fc7da6f60c0-92f3b3ab-c115-4d91-975d-b28ac0c50d44",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "14:00〜22:00 自由時間"
+        },
+        {
+          "_key": "4d88b7ee-fcb3-49c7-b2d4-9fc7da6f60c0-793756e8-abfe-4394-911d-a30d5c87e924",
+          "_type": "span",
+          "marks": [],
+          "text": ": 起床後は、趣味や買い物、友人との食事など、自分の好きなことに時間を使います。夜は早めに就寝し、生活リズムを整えましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-41040ef2-e47f-4e35-93b1-9fe68d455557",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-5806141c-b22d-42ad-a82a-857b04c098cf",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤看護助手の24時間スケジュール（2交代制の場合）では、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-title-f1lhn5p46",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6c2872d4-65ff-47c0-85e0-d533c05ebc87",
+          "_type": "span",
+          "marks": [],
+          "text": "日々の業務に欠かせないアイテム"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "section-intro-oa894kvjl",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fed7383b-2581-4482-a6d9-3ecfc8fb171e",
+          "_type": "span",
+          "marks": [],
+          "text": "毎日の業務をサポートしてくれる、現場スタッフ愛用のアイテムをご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-afz3dus41-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-ju814fdcs",
+          "_type": "span",
+          "marks": [],
+          "text": "🛍️ 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-yp84harnn-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1fk79d0rf",
+          "_type": "span",
+          "marks": [],
+          "text": "📦 看護助手・介護職向けグッズをお探しの方へ： "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-688c3431-4d4f-457f-af75-4f1e2ddf0e3f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-8aa13283-b9ae-4d21-b394-f1f872cfce8c",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-104244c4-4f33-40b5-86f8-65da88a9d42a",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-7d7e4be0-54b5-4889-9fa0-64d717025327",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-6fe0f052-1314-428f-b194-198ebcd1ddf3",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-e2e148aa-9032-4d24-aabe-d8ae550dcd62",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-title-iscoanmov",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fef0465a-763b-4657-bbf8-fec81fd4c05b",
+          "_type": "span",
+          "marks": [],
+          "text": "アシックス ナースウォーカー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "product-benefit-z1f4m6sns",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2b8bebdd-2013-4ff6-9054-6f9ae24bca56",
+          "_type": "span",
+          "marks": [],
+          "text": "長時間の立ち仕事でも足が疲れにくい医療現場専用設計"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-label-uw22uult3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3005c1e2-40f9-4555-aea4-ff6586452949",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "主な特徴："
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-0-s91dtexvi",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "98075832-0ec8-41bd-af93-22ca958e7689",
+          "_type": "span",
+          "marks": [],
+          "text": "滑りにくいソール"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-1-mn4sn4vu5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e6eb07d8-505b-49e2-b7c2-c06bf92551fa",
+          "_type": "span",
+          "marks": [],
+          "text": "疲労軽減クッション"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-2-33jnjskr0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "07ea4731-6482-487e-94af-1ea8b714a3ca",
+          "_type": "span",
+          "marks": [],
+          "text": "通気性の良い素材"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-links-w6ayzq6z8-intro-b842e50e-b938-404f-b8e1-ae3d6b5f97f5-cta-text",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0e4488eb-59c6-4800-9597-4f439c7f4ca2",
+          "_type": "span",
+          "marks": [],
+          "text": " [PR] | "
+        },
+        {
+          "_key": "d2e70a4f-2ab3-4ab5-b784-a97540e5ca9d",
+          "_type": "span",
+          "marks": [],
+          "text": " [PR]"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-title-08zb23cgh",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fcaadce7-a59d-4e21-83a7-7797141c6f38",
+          "_type": "span",
+          "marks": [],
+          "text": "ナース専用腕時計"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "product-benefit-haqrmidcf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "11feabf8-c5da-401a-9e7c-264afe02ae53",
+          "_type": "span",
+          "marks": [],
+          "text": "秒針付きで脈拍測定、防水仕様で手洗いも安心"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-label-1aztl17s0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c75146f1-2dec-423f-aed6-8584e39aa577",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "主な特徴："
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-0-c9e1mdtuz",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e53a5a8e-64f7-4bb1-b119-b47ebbd2b46d",
+          "_type": "span",
+          "marks": [],
+          "text": "秒針付き"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-1-gboqo7a6g",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e039b041-83cd-4927-818a-6ee90044b82f",
+          "_type": "span",
+          "marks": [],
+          "text": "防水仕様"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-2-p8igwu1vd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e880ed23-cc24-4bee-927a-fbc0a1e2d9d8",
+          "_type": "span",
+          "marks": [],
+          "text": "見やすい文字盤"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-0f4d264c-47aa-44d0-892b-6746985e90f5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-eb8c71b5-cd13-42a9-8f93-3c04b7923e92",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを意識することで、スムーズに業務を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-title-uugqrno1m",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "462b6921-eef2-4f0c-8f04-59e11b626cc5",
+          "_type": "span",
+          "marks": [],
+          "text": "三色ボールペン（医療用）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "product-benefit-g1o5984vr",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "58ca8482-7ccb-4d14-b7f8-dbee746db40f",
+          "_type": "span",
+          "marks": [],
+          "text": "記録・申し送りに便利、インク切れの心配なし"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-label-90lpgoyr2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2aca0cf2-f459-4a92-990d-a981545208f0",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "主な特徴："
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-0-0jt2lbkwx",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "42985611-6a4f-4917-95a6-ccdb88fd4a1f",
+          "_type": "span",
+          "marks": [],
+          "text": "黒・赤・青の3色"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-726b2653-3383-4d2b-a699-e3da47cd58ae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-9b1da526-b5c8-4e46-a4de-9de0090cd1e0",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-27864912-ad5d-4d9d-9823-2f340e0eaf93",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-1-2q10jxi9n",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "929886a0-b34e-4395-9400-e518e60b26fe",
+          "_type": "span",
+          "marks": [],
+          "text": "クリップ付き"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "product-feature-2-z8673tnif",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "529d3e23-7a28-40c2-b85c-0c0cf130cce3",
+          "_type": "span",
+          "marks": [],
+          "text": "速乾性インク"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-f7b3abc2-0203-4edc-8c06-e0009aeb3965",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-ae9516db-b55c-4132-99e9-bae0ed131d2f",
+          "_type": "span",
+          "marks": [],
+          "text": "日々の業務に欠かせないアイテムでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-8a4dedd2-8247-4c5a-8496-f10b603be6ae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-4f49f2ef-edb3-43d4-8e3b-b2bb94d00b4a",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-c8b2214f-a47e-4f26-96e4-285bfa60cc98",
+          "_type": "span",
+          "marks": [
+            "link-835bd222-58a5-42c0-9948-e6d7d5256912"
+          ],
+          "text": "「夜勤中に看護助手が担当する仕事内容」"
+        },
+        {
+          "_key": "internal-link-span-outro-10c893bd-1cf8-48de-8818-75888f43ca85",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-835bd222-58a5-42c0-9948-e6d7d5256912",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-night-shift-duties"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-90c82635-e122-4692-8d85-10dfb0f3c271",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-41a7ce46-77fc-478d-a3b7-570dd19296b5",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤看護助手の24時間スケジュールでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-80f539ee-f230-4c01-8b70-91d33504c126",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-8b216845-83d9-4f18-a4ae-7d23a66ebc9a",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-7bca53bd-6d66-4b1d-af71-5770a16ee544",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-f2093859-03e0-4bd6-8a57-ac5241fbb10c",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-a387aea4-e001-4edd-9550-432276a46640",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-3f0ffc0f-7e74-4214-af76-839abd957f88",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤看護助手の24時間スケジュール（2交代制の場合）の視点で【夜勤前】に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-93df69d2-4bc1-4fdb-b3f3-51592dce5567",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-dc775487-e412-4dd5-a32e-15a5a50e08e8",
+          "_type": "span",
+          "marks": [],
+          "text": "12:00〜16:00 睡眠・仮眠: 夜勤に備えて、しっかりと睡眠をとることが重要です。最低でも2〜3時間の仮眠を確保…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-601ef22c-7131-4b40-b50c-55ceace4cec8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-2a6bddeb-d5b5-47fd-896f-2b193187309a",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-bd870a95-8b3a-40ea-bbef-8a7f08f56bfe",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">防水腕時計はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-f8a5b3fb-6dc8-46a6-a93d-6a16ef36f814",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">腕時計を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-ac4762f1-9daa-479d-9b07-690f76477a80",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-15335981-e87b-4367-a0a3-3f60202907c4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-730995b4-0f4e-4928-b56a-1263d15e2265",
+          "_type": "span",
+          "marks": [
+            "link-f32f97af-aefc-4fd9-add7-582518f100b8"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-f32f97af-aefc-4fd9-add7-582518f100b8",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-c8497212-d005-47f3-b6c4-dd3c6e3fedb8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-8d1cbe4a-8cb2-413a-85d7-049d9e2d184b",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-night-shift-daily"
+  },
+  "title": "夜勤看護助手の24時間スケジュール"
+}

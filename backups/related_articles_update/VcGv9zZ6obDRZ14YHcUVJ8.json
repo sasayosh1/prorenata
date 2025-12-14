@@ -1,0 +1,843 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUVJ8",
+  "body": [
+    {
+      "_key": "57ad3a91-3188-4812-8a0c-ec4c679209c5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "914b9198-e67c-43f3-8b33-d9481c1a54f3",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の面接では、志望動機や自己PRといった内容と同じくらい、第一印象を決定づける「服装」と「マナー」が重要です。医療現場で働く一員として、清潔感と信頼感を与えられるかどうかが厳しく見られています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2aff55213526",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "914b9198-e67c-43f3-8b33-d9481c1a54f3",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、看護助手の面接にふさわしい服装の基本から、受付から退室までのマナーについて、具体的なポイントを解説します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a06275addc05",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "02d365487dba",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7f6c3042-db0f-408d-bae8-c1ae08bb871d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e637b480-762c-4f85-9e98-33123330ce12",
+          "_type": "span",
+          "marks": [],
+          "text": "面接の服装：基本はスーツスタイル"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "a27e0e4c-98e4-4653-a107-9a5e2bb224a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "81536940-0abe-4fe7-9644-cad8406caa15",
+          "_type": "span",
+          "marks": [],
+          "text": "特に指定がない限り、面接にはスーツを着用していくのが最も無難で、誠実な印象を与えられます。パートの面接であっても、スーツを選ぶのが賢明です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "pr-639733dc-f9b2-4a95-851d-68e46aea1381",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "pr-span-bf3056b3-75b3-4121-8cae-7afab9642813",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-7dbc0604-165e-4b8f-b4d8-365408266a5f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-1081c5a5-45e8-4953-8e81-7b08df5fcf41",
+          "_type": "span",
+          "marks": [],
+          "text": "「面接の服装：基本はスーツスタイル」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "429c034b-86d6-466f-9322-20421980656c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "38ba0d12-8ccc-40b4-8c7b-17badfe1e770",
+          "_type": "span",
+          "marks": [],
+          "text": "スーツの選び方"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "f9091422-97f4-4787-bf38-c252bf56f5e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "126935a5-ca83-4717-8e62-0e92fc4f4d91",
+          "_type": "span",
+          "marks": [],
+          "text": "色：黒、紺、濃いグレーなどの落ち着いた色が基本です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "492a814c-ab60-4d81-88f3-f823fe6023b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "94d712cb-f802-49d4-be29-713fb1c295c4",
+          "_type": "span",
+          "marks": [],
+          "text": "デザイン：無地のシンプルなデザインを選びましょう。リクルートスーツで問題ありません。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "828b8251-283a-4378-b661-68e024f62ef6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c4288f43-1a23-41fe-b586-b835bf40aa40",
+          "_type": "span",
+          "marks": [],
+          "text": "サイズ：体型に合った、大きすぎず小さすぎないサイズを選びます。シワや汚れがないか、事前に多くの場合確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-7caffa11-ec20-47ad-a721-ea349ced7d8b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-56efb694-995d-441e-a3d0-4530dea99051",
+          "_type": "span",
+          "marks": [],
+          "text": "このように、ひとつずつ確認しながら進めることが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c6d3fbcb-72b4-43f8-b336-c7c53dad27f3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5ac1d222-da2e-4168-8ac2-ca08be70e574",
+          "_type": "span",
+          "marks": [],
+          "text": "インナー・小物類"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "dd747be6-9da6-4396-a67e-986187dac985",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8cb93e15-74c9-4f53-9f56-a05ef4cb60a7",
+          "_type": "span",
+          "marks": [],
+          "text": "インナー：白のブラウスやカットソーが基本です。胸元が開きすぎていない、清潔感のあるデザインを選びます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "edf8deb0-99db-485c-8806-52ad5e6b65cd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5f53665a-a84f-401e-af0a-b5deb94117ae",
+          "_type": "span",
+          "marks": [],
+          "text": "靴：黒のシンプルなパンプスが最適です。ヒールは高すぎない3〜5cm程度のものを選び、汚れやかかとのすり減りがないか確認しましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "40255c4c-5d63-4cc9-915e-59266f126723",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "578495cc-eca0-4ae5-9775-28cdcc6292a2",
+          "_type": "span",
+          "marks": [],
+          "text": "カバン：A4サイズの書類が入る、黒や紺のビジネスバッグが基本です。床に置いたときに自立するタイプが便利です。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "44a903ccfcfb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bbee440aa4ac",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-f8e615db-5987-46c3-bffe-05a3db596678",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-ab585fa0-c7d5-46f3-8f00-1c8b67b54ba1",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-5707a50a-75e4-462c-961f-19918e68d52a",
+          "_type": "span",
+          "marks": [],
+          "text": "Amazonで看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c9c1f130-c0e5-4b8f-8db7-bb0692a24103",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d8408194-9598-4146-be76-58c5cf7a185f",
+          "_type": "span",
+          "marks": [],
+          "text": "「わたし服でお越しください」と言われたら？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "235c87fa-6936-4205-a138-ff5b593e9be3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "21b2786e-078d-4967-a509-ec7f527f11ca",
+          "_type": "span",
+          "marks": [],
+          "text": "この場合は、スーツよりも少し柔らかい印象の「オフィスカジュアル」を意識します。ジャケットにきれいめのブラウス、パンツまたはスカートを合わせるのが良いでしょう。Tシャツやデニム、スニーカーなどのラフすぎる服装は避けてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ae4e8e3e17c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d567d3c612d6",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "35f71bcf-cea3-4c8c-a621-286415920db4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8a8d84d2-30fc-4371-b1bd-4d2139ea675c",
+          "_type": "span",
+          "marks": [],
+          "text": "面接当日のマナー：受付から退室まで"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "389168f4-e78b-4cab-8714-5d2c60c762f7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1daad628-abcf-4aaf-b799-6c5e7ac15fed",
+          "_type": "span",
+          "marks": [],
+          "text": "面接は、会場に到着した瞬間から始まっています。一つひとつの所作に気を配り、丁寧な行動を心がけましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cb6c60d3-263d-4152-8836-8de8b5cc64cf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7c813bae-6e89-4671-b630-ad8e374d0288",
+          "_type": "span",
+          "marks": [],
+          "text": "受付でのマナー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "071a53d3-501c-4a26-bb23-209f4742d345",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "17c209d6-c480-4a1d-b6ed-ca76b7418445",
+          "_type": "span",
+          "marks": [],
+          "text": "到着時間：指定された時間の5〜10分前に到着するのが理想です。早すぎても遅すぎても、相手の迷惑になる可能性があります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "23f6bb91-2f98-41cf-bf85-8975ecda27c2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "75c12e95-cba0-4fec-a227-d564b0d585d2",
+          "_type": "span",
+          "marks": [],
+          "text": "受付での挨拶：コートを脱いでから受付に向かいます。「本日〇時から面接のお約束をいただいております、〇〇（氏名）と申します」と、ハキハキと伝えましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-74eed207-b617-421c-b7d6-679e5e75458a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-aad786b9-8f0b-4c17-aa79-0bebd2bd7aec",
+          "_type": "span",
+          "marks": [],
+          "text": "これらのポイントを押さえて、日々の業務に活かしていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1a9a6629-acf1-4489-9cbd-49a1ff4f6592",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "40a9ef59-7ccb-455d-a2ba-7d26de9227b9",
+          "_type": "span",
+          "marks": [],
+          "text": "控室・入室時のマナー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "543b75d9-8fde-4e6c-a1ea-ff46d03bc3d6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5055080f-997e-4a1d-8e6e-41aaf83db159",
+          "_type": "span",
+          "marks": [],
+          "text": "控室での態度：スマートフォンをいじるなどはせず、姿勢を正して静かに待ちます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "56e5fae2-2df3-4884-9219-7e2afc08ed5e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8cffe183-fd75-4585-b5b9-6f93dc92c531",
+          "_type": "span",
+          "marks": [],
+          "text": "入室：名前を呼ばれたら、「はい」と返事をしてドアを3回ノックします。「どうぞ」と言われたら、「失礼します」と言って入室し、面接官の方を向いて再度「失礼します。〇〇です。本日はよろしくお願いいたします」と言って一礼します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "followup-22eaecdd-edc9-4b9f-a62c-2e4fe40c1c18",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-054b0be6-29dd-4369-9716-a92cc86609f8",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0d7fdb59-ebb9-4b01-a557-0bcb0574f852",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c180aad5-43fa-4b63-85dd-acb0b920f986",
+          "_type": "span",
+          "marks": [],
+          "text": "面接中のマナー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "c36b8b95-67b6-47a9-85e6-cb4b5eddc910",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2ee11c81-e433-4428-9b1f-362c0d8f91d4",
+          "_type": "span",
+          "marks": [],
+          "text": "姿勢：背筋を伸ばし、深く椅子に腰掛けます。手は膝の上に置きましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "25b1a824-094c-4ed5-85b6-5e43c3b8f688",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3e906f26-dbf0-4652-be14-cc1d5479dac4",
+          "_type": "span",
+          "marks": [],
+          "text": "話し方：明るくハキハキとした声で、相手の目を見て話すことを意識します。質問には、まず「はい」と答えてから、結論から話すようにすると分かりやすいです。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "d7d2b8dc-03f0-46b4-9219-2c9177f135cc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d7b1d2ff-c883-494f-af17-6dc1a7555d1b",
+          "_type": "span",
+          "marks": [],
+          "text": "逆質問：最後に「何か質問はありますか？」と聞かれたら、多くの場合1つは質問しましょう。「特にありません」と答えると、意欲がないと見なされる可能性があります。仕事内容や研修制度などについて質問すると良いでしょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-3c33dcac-d1ea-47d2-875c-76e869ce880a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-63526d9a-3cbb-4ef0-b66a-fccb0d844f30",
+          "_type": "span",
+          "marks": [],
+          "text": "これらを参考に、自分に合った方法を見つけてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-392f7133-3f08-42b3-acbc-6881f97f3402",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-65288a54-7dfa-4933-a110-4a0ebd8dfaf1",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-76e715b7-d89f-467f-b542-2c6b6356fdb9",
+          "_type": "span",
+          "marks": [
+            "link-13f3c955-8bec-472b-9cf9-21f269c15611"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-13f3c955-8bec-472b-9cf9-21f269c15611",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "e6261528-6974-44cc-8d26-8744afe353ad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e39b4f85-c127-47d7-817b-dff656142765",
+          "_type": "span",
+          "marks": [],
+          "text": "退室時のマナー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "24c0ad4c-c3c5-4b66-bbf5-4e3a658926f6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d0af0e72-64be-4eac-bfdd-bfd277b0fd05",
+          "_type": "span",
+          "marks": [],
+          "text": "退室の挨拶：面接が終わったら、「本日は貴重なお時間をいただき、ありがとうございました」と言って立ち上がり、椅子の横で一礼します。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "101d575e-4338-4ee8-aa3e-5493057ea9c0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fde14d13-ce17-4284-a84c-7d80bc7c10a0",
+          "_type": "span",
+          "marks": [],
+          "text": "ドアの前で：ドアの前まで来たら、面接官の方を向き直り、「失礼します」と再度一礼してから退室します。ドアは静かに閉めましょう。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "_key": "inline-link-a4d56b08-e1fa-46e5-8812-b3bd919cfe8e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-4ff37cf8-7623-4fbd-8894-fc0d42fd2504",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-fc1e3e3b-9f59-44f9-a736-b93a23cd831a",
+          "_type": "span",
+          "marks": [],
+          "text": "看護・介護ユニフォーム専門店「ナースリー」"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-f08e87be-1b21-4b98-b00e-2e64291a1092",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-e1e2e5da-50d6-4fbd-bf43-672a5053abb0",
+          "_type": "span",
+          "marks": [],
+          "text": "面接当日のマナー：受付から退室まででは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "inline-link-2b6a1194-e193-4eb3-b1e6-7ad16c596710",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "inline-pr-1b6c80f0-2713-4dbb-bcc7-07f112332f77",
+          "_type": "span",
+          "marks": [],
+          "text": "[PR] "
+        },
+        {
+          "_key": "inline-link-text-e2769f45-7349-43f1-9bbb-9fb658e23fd0",
+          "_type": "span",
+          "marks": [],
+          "text": "楽天市場で看護助手グッズを探す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "resignation-comparison-7d2d29ac-078d-4150-bf15-2860c5acea8d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "resignation-comparison-link-083caf25-c6f5-414f-bc5e-2995a216687c",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-30eb4167-ad01-4d7c-bab3-5cbe0c054ca2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-89dde7a6-212b-4eac-903e-9c03e85e0e35",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-bf5a56f3-348d-4d60-b3a7-e3b57e46b340",
+          "_type": "span",
+          "marks": [
+            "link-413a8559-ad85-4378-a798-5d86a1ec81eb"
+          ],
+          "text": "「看護助手面接対策マスター講座｜よくある質問と回答例」"
+        },
+        {
+          "_key": "internal-link-span-outro-b5d09383-efb6-45d8-8ba3-4d3212d13da1",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-413a8559-ad85-4378-a798-5d86a1ec81eb",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-interview-prep"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-10f3574c-42a7-4dc0-98a1-5d37a251188b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-6ad6f541-dda1-48fd-834a-ebeb65f9ef7f",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の面接で服装やマナーはどうすればいい？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-45e730d7-d46d-4170-b887-39ee23618a73",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-5a627e36-d5b4-4399-8ead-fc3a7ce77289",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-374fe5df-df29-4ad9-8062-daa405864801",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-43864a52-a30c-4024-ac42-0790c98aed4c",
+          "_type": "span",
+          "marks": [],
+          "text": "面接の服装：基本はスーツスタイルの視点でスーツの選び方に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-f6290c66-3acc-4ed6-8d2c-e1ce1ed726b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-ec91b7cd-2379-4326-836c-5c80c127214c",
+          "_type": "span",
+          "marks": [],
+          "text": "色：黒、紺、濃いグレーなどの落ち着いた色が基本です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-08011ef5-db94-4e84-bc95-8110e446668e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-fb7ca8a3-65e5-4bfc-9eb5-43515491cdb6",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-8f73c14f-e182-410c-a0ca-18f580bc0273",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズや滑りにくい靴はナースリーが便利です。現場で必要なサイズやカラーも細かく選べます。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3757192&pid=892328264\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">看護・介護ユニフォーム専門店「ナースリー」</a><img src=\"//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3757192&pid=892328264\" height=\"1\" width=\"1\" border=\"0\">\n  </p>\n</div>",
+      "label": "看護・介護ユニフォーム専門店「ナースリー」",
+      "linkKey": "nursery",
+      "provider": "ナースリー"
+    },
+    {
+      "_key": "affiliate-ecab9b84-11e6-4ae1-a851-8b3cdc5a0ff9",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-54c9200a-ff2f-4e01-9a0e-6a31219df518",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-7e67f6a0-d7db-4e38-bb0d-57247bb340d3",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "career-change"
+      },
+      "title": "転職"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-interview-attire-manners"
+  },
+  "tags": [
+    "マナー",
+    "医療",
+    "受付",
+    "基本",
+    "就職・転職活動",
+    "服装",
+    "看護",
+    "看護助手",
+    "退室",
+    "面接"
+  ],
+  "title": "看護助手の面接で服装やマナーはどうすればいい？"
+}

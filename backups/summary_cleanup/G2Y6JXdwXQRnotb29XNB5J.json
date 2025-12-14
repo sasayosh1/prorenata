@@ -1,0 +1,740 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XNB5J",
+  "body": [
+    {
+      "_key": "e4c14497-19b7-412c-af44-eeffc95837f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b4430546-978e-4d09-90ae-85e48de53a3d",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として働いていると、患者さんとの関わりやチーム内での役割の中で心が揺れる瞬間があります。「わたしだけがつらいのかな」と感じる前に、現場でよく耳にするストレスの原因を整理し、乗り越える視点をまとめました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "55a76c69-cdc6-4fe9-9b61-5151a938e1fd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6852fe42-c96d-46fa-8274-5108129d7fcf",
+          "_type": "span",
+          "marks": [],
+          "text": "ストレスが大きくなりやすい場面"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "b9358b26-735f-4423-987b-31d6a4167a6d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "18d20f10-df0b-4fff-9f5c-e09eac0270bb",
+          "_type": "span",
+          "marks": [],
+          "text": "人間関係のすれ違い：指示の伝達ミスや相談しづらさが重なると、孤立感につながります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5c3d4036-6c20-40d6-83e0-c5691b903dd7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7cb77eb3-6279-4451-80d3-0777c8858a72",
+          "_type": "span",
+          "marks": [],
+          "text": "業務量と責任のギャップ：患者さんが増える時期は、段取りや優先順位が曖昧になりがちです。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "84ff3755-2a24-401c-b461-62d3975aba1f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "71958f3b-09b9-4d39-916e-bcceea9dd9ed",
+          "_type": "span",
+          "marks": [],
+          "text": "生活リズムの乱れ：夜勤や早番が続くと睡眠不足になり、焦りやすくなります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5151ae3b-1425-486f-b82f-35c577bc12a2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "562e36f8-03d7-4dca-8919-ededeae6caf1",
+          "_type": "span",
+          "marks": [],
+          "text": "評価やキャリアの不安：給料や昇進が見えにくいと、頑張りが報われないと感じることがあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-18253979-2d14-4be2-897e-7745cf26e633",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-0a0e3561-f52b-4ffa-8cc3-4ac8923a2fe8",
+          "_type": "span",
+          "marks": [],
+          "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-e2d1b76b-3952-4ce1-ae55-2720309d99ef",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-d6a7ee53-106f-4d93-bf0b-7b9b996bfc26",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-d954ebd4-751a-4bc9-b183-b40bf585d2b0",
+          "_type": "span",
+          "marks": [
+            "link-8c35e874-388d-42f0-a274-c2e8547b2175"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-8c35e874-388d-42f0-a274-c2e8547b2175",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "84613bfb-95ac-4ee8-9d99-dcd39c0e3977",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8d5f7aed-6a18-4f3a-aa5d-fdb513cd43c0",
+          "_type": "span",
+          "marks": [],
+          "text": "心が軽くなるヒント"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "b4873247-7b52-4dba-a267-b51dc864d747",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "211a5601-7b32-4144-b053-f86731f77926",
+          "_type": "span",
+          "marks": [],
+          "text": "1. 報連相を小さく刻む"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "0266a2e8-8eee-4a16-a9ce-5d3547abd0a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "952a0aa9-cf8a-4465-bdc5-444a4ae67447",
+          "_type": "span",
+          "marks": [],
+          "text": "「この段階で共有していいかな」と迷ったときほど、短いメモと一緒に相談してみましょう。早い段階で会話を重ねるほど、責任の分担が明確になり気持ちも落ち着きます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8ee86c24-4d8b-4a02-9d1c-c20a85f7c465",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f47e0f7c-85e2-47ea-99bd-fcedc6d97765",
+          "_type": "span",
+          "marks": [],
+          "text": "2. 休息のルーティンを作る"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "3b48ceba-8742-4cd8-8b6c-17aac89d3956",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0720ef0e-c48e-4fb0-9fab-1e36578ecca0",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務外の時間に何をすればリセットできるかを決めておくと、疲労の蓄積を防げます。5分のストレッチや湯船に浸かる日を決めるだけでも十分です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d00a5bbe-4314-4a11-a614-55ffe6fa8e24",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d98706d9-83ee-49fe-95ca-4900f970f581",
+          "_type": "span",
+          "marks": [],
+          "text": "3. 成長の記録を残す"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "72748c9e-f3c6-451c-bb2f-b4dad9eb6d05",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "951c59f1-4759-4fa4-a44f-720a22b8e500",
+          "_type": "span",
+          "marks": [],
+          "text": "「できたこと」「気づいたこと」を短い文章で残しておくと、自己肯定感が保ちやすくなります。応募や異動を考えたときの材料にもなります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9fc9b884-3a5b-49b1-be78-5ddb15252377",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "59739c0e-3aa3-4dbd-819b-d8e09f267bfd",
+          "_type": "span",
+          "marks": [],
+          "text": "支えになる相談先"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "internal-link-37494c7a-fdfb-4b21-a494-4d5426c984c4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-11cc15bb-38a0-4915-96b6-518dc1320771",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-aae8fe73-4ebb-4941-aa2b-6aa54e98333e",
+          "_type": "span",
+          "marks": [
+            "link-4f0c4d0e-8753-4451-a0d6-2b7edca2e061"
+          ],
+          "text": "「看護助手のストレス解消法ベスト5」"
+        },
+        {
+          "_key": "internal-link-span-outro-96a98c9d-b263-462a-ae1b-d0a9b0f44f50",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-4f0c4d0e-8753-4451-a0d6-2b7edca2e061",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-stress-relief"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-24a93655-de19-4774-a1dd-7266fda7ed3f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-80c90d3f-813c-4145-8d72-bcfd0090f931",
+          "_type": "span",
+          "marks": [],
+          "text": "「支えになる相談先」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-1-h3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-1-h3b-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セラが大切にしているフォローの工夫"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-1-p3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-1-p3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しいシフトの中で患者さんや家族へ安心を届けるには、声のトーンやスピードを意識することも効果的です。「ゆっくり・落ち着いて・見守っていますよ」というサインを出すだけで、患者さんの表情が柔らかくなることがあります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-1-list3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-1-list3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "ナースコール対応後に短い振り返りをチームと共有し、次へ活かす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-1-list4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-1-list4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "できたこと・うまくいかなかったことを素直にメモして振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-1-p4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-1-p4-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分にやらなければ」と抱え込むより、チームで一緒に改善していく姿勢を大切にすると心も軽くなります。小さな成功を認め合い、「今日はここがスムーズだったね」と声を掛け合える空気をつくるのも、看護助手ができる立派な貢献です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-2-h3c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-2-h3c-span",
+          "_type": "span",
+          "marks": [],
+          "text": "学びを深めるためのセルフチェック"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-2-p5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-2-p5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "記事で紹介したポイントを振り返り、実際の勤務で活用するためのセルフチェックシートをつくるのもおすすめです。1週間ごとに「できたこと」「次に試したいこと」を書き出すだけでも、成長を可視化できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-2-list5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-2-list5-span",
+          "_type": "span",
+          "marks": [],
+          "text": "1週間のうちで印象に残った患者さんとの関わりを振り返る"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-2-list6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-2-list6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "自分が安心できたサポート例をチームで共有し、取り組みを増やす"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764873786855-2-p6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764873786855-2-p6-span",
+          "_type": "span",
+          "marks": [],
+          "text": "「十分さ」より「継続できる工夫」を意識して、患者さんと自分自身が心地よく過ごせるリズムを整えていきましょう。焦らず取り組む姿勢こそが、看護助手としての信頼とセラ感を育ててくれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "60064ff1-13e5-4170-802a-566aaf17d294",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2cb4851b-b452-4dc0-a906-265d63da66d7",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-f74e6e54-9df8-441c-b438-5fa1b8dc3311",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-79af7033-63c0-4266-8161-a2cf60868113",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手のストレス原因ランキングでお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-b4d58e31-a35a-48ac-83e6-acbb33d9dae6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-4440bd87-8841-494c-866a-c35ea7846673",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-06238aad-f54e-4fca-a1da-9cde32b29a24",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-6f185235-048c-4ba3-adb5-019a1a9d4719",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに安心感を高めるフォロー例"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-53b64a27-19ea-4700-8ad4-20cc33aa68b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-17214b64-005f-4818-bdcd-ac147d33a369",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務の前後で「今日意識したいこと」「できたこと」をそれぞれ3つ書き出す"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-eab6f53e-4a0f-4fac-a846-ac5d6f3ce522",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-c9112265-5bb3-43cb-a997-f027a21df823",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんからの感謝や対応の工夫を小さく共有し、チーム全体で活用する"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-76e89643-a8dd-4fe4-808f-439db5726743",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-2f927ce7-1b44-4b07-96aa-058e6de6fe19",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564965373-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564965373-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに安心感を高めるフォロー例"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564965373-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564965373-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "セクションで紹介した内容に加えて、勤務後の振り返りノートを活用すると自分の成長や癖が見えてきます。たとえば「今日は患者さんの不安をどう受け止められたか」「次はどんな声かけを試したいか」を箇条書きで記録するだけでも、翌日のアクションが明確になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564965373-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564965373-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "勤務の前後で「今日意識したいこと」「できたこと」をそれぞれ3つ書き出す"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564965373-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564965373-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "患者さんからの感謝や対応の工夫を小さく共有し、チーム全体で活用する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-extra-1765564965373-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-extra-1765564965373-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "こうした積み重ねは数値化しにくいものの、患者さんや同僚が安心して頼れる雰囲気づくりに直結します。忙しい日も、振り返りの2〜3分を確保することが自分の余裕にもつながるので、無理のない範囲で取り入れてみてくださいね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "career-comparison-2f62262f-7ecc-4ec2-8633-b5b363c41977",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-9d3783f6-796f-41df-b2eb-3b690652fb10",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-f1d4097e-57ff-4288-b48a-67416cc47b42",
+          "_type": "span",
+          "marks": [
+            "link-2d9510d6-3230-4ffd-9429-47640eb514f6"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-2d9510d6-3230-4ffd-9429-47640eb514f6",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-6823b570-8633-40c2-b061-695c2a460e3c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-5e8a715a-8873-4381-b38e-83d60765b760",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-stress-ranking"
+  },
+  "title": "看護助手のストレス原因ランキング"
+}

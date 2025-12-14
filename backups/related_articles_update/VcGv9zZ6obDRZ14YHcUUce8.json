@@ -1,0 +1,823 @@
+{
+  "_id": "VcGv9zZ6obDRZ14YHcUUce8",
+  "body": [
+    {
+      "_key": "5801997d-e41c-4131-ae2e-696e79a90865",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-32ef86b4-f20f-4ab0-a113-ee5375ecc744",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-45d9063a-8147-48e7-a5be-791085cd5b90",
+          "_type": "span",
+          "marks": [
+            "link-a15eca30-8297-400a-98f1-07d4af1fd3c0"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-a15eca30-8297-400a-98f1-07d4af1fd3c0",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "5eed3edf-4be2-4bc3-a7e3-a70ef30eba53",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "201c557c-0acf-4b82-947a-3f1ecb0cb7cb",
+          "_type": "span",
+          "marks": [],
+          "text": "最大の違い：医療行為の可否と資格の有無"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "9635efb755ff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bddc41dff5b8",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は、注射や点滴などの医療行為を行うことはできません。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9974d3497230",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bddc41dff5b8",
+          "_type": "span",
+          "marks": [],
+          "text": "医療行為を実施できるかどうかは保有している資格によって明確に区別されています。必要な処置がある場合は、速やかに看護師へ共有し、指示を仰ぐことが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "80fbc98e-0c9d-43eb-b9d4-fb7fc77fbe07",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "700422d6-2dc0-4311-be9a-1bf89f09db28-85f255dc-9e4b-4db5-8f3d-7240da082eac",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "看護師"
+        },
+        {
+          "_key": "700422d6-2dc0-4311-be9a-1bf89f09db28-fadaced5-9c27-4ab7-a0df-6b6644283398",
+          "_type": "span",
+          "marks": [],
+          "text": ": 国家資格である「看護師免許」が必要です。医師の指示のもと、あるいは自らの判断で、採血、注射、点滴などの医療行為を行うことができます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d334e086-506f-4a56-bcce-9b564f29515d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "05211246-6b33-41fd-a69c-666939de6df4-432d38cb-d208-43c5-97d5-cbd0731e2b13",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "看護助手"
+        },
+        {
+          "_key": "05211246-6b33-41fd-a69c-666939de6df4-a3adc8f0-9f7a-4628-a312-2716288778b6",
+          "_type": "span",
+          "marks": [],
+          "text": ": 必須の資格はありません。そのため、医療行為を行うことは法律で固く禁じられています。業務は、看護師の指示のもとで行う「補助業務」に限られます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-3cf7f8ca-0534-4798-98e7-eaf0c15d262b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-5c0b184c-c426-48bc-86eb-81eb2653238f",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-de3e998d-9ca6-4641-a9a9-ac33c3aca71a",
+          "_type": "span",
+          "marks": [
+            "link-505ecc6b-3990-4867-ae75-8d1256592694"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-505ecc6b-3990-4867-ae75-8d1256592694",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "5bd925f4-60ab-40d7-a2f4-45e19612f61c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "efabd99d-fb53-4802-ad09-a520c07b51a5",
+          "_type": "span",
+          "marks": [],
+          "text": "業務内容の違い"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "eb33ffef-3119-423f-965b-8636c9720623",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2892cd2c-2f95-45a3-8926-683592d96c30",
+          "_type": "span",
+          "marks": [],
+          "text": "医療行為の可否によって、それぞれの業務内容は大きく異なります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "81dfcb77-d676-47df-923e-ea3b67bb4d6b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7830229a-8fc2-47a6-bb33-477ddffde4a0",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師の主な業務"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "21a67b69-9aa4-4a60-bda3-f3e636a6a514",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c7313d3b-3bf7-46d1-9f21-4d10615749d5",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師は、専門的な知識と技術に基づき、患者さんの診療や治療に直接関わります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4d76f301-7250-4e00-abe3-e6e340c032fe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cf6d6b3d-db78-4aab-9db9-d1fcb5190652-fbf21563-dea7-443e-bbd2-4f27606a65d7",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "診療の補助"
+        },
+        {
+          "_key": "cf6d6b3d-db78-4aab-9db9-d1fcb5190652-2bc1adcb-7253-43ca-afd4-f4f821117ffc",
+          "_type": "span",
+          "marks": [],
+          "text": ": 医師の指示に基づく採血、注射、点滴、与薬など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "01f70337-4854-4645-9b5e-630504d56f18",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5c3dd996-8d28-4ece-b863-c9dcdde3b3db-f83c2d80-6843-4a4e-b46b-5b978ea711aa",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "療養上の世話"
+        },
+        {
+          "_key": "5c3dd996-8d28-4ece-b863-c9dcdde3b3db-065fe92d-a241-427d-a8f3-7ee1d75ac054",
+          "_type": "span",
+          "marks": [],
+          "text": ": 専門的な知識に基づく健康状態のアセスメント（評価）、ケア計画の立案、褥瘡（床ずれ）の処置など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f9736145-647a-4ae4-854d-c4339505263a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "513ca7bb-2e5e-4f14-a7dd-8eca1218ed99-05ba92d7-203b-4cd9-b29a-7269e852cec1",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "看護計画の立案と評価"
+        },
+        {
+          "_key": "513ca7bb-2e5e-4f14-a7dd-8eca1218ed99-596d2efd-1ab2-4243-937d-3875dbf85460",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さん一人ひとりの状態に合わせた看護計画を立て、その実施と評価を行います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5d4fe7b2-a258-4920-9b48-050b8d1016c0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "882d7632-5a02-4b34-9b90-b3f02a1a5d20-085fc8b5-31a5-4ec5-b51f-0e8fea80beaf",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "他職種との連携"
+        },
+        {
+          "_key": "882d7632-5a02-4b34-9b90-b3f02a1a5d20-434d17f9-c11e-4b6b-bf3b-12046e84e8ca",
+          "_type": "span",
+          "marks": [],
+          "text": ": 医師やリハビリスタッフなど、チーム医療のコーディネート役を担います。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "followup-3fef9674-01fd-48cd-b201-96d48ffb28a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "text-d4cde9bd-32c8-4182-bab7-b3a5d771df7d",
+          "_type": "span",
+          "marks": [],
+          "text": "上記の点に注意しながら、無理なく取り組んでいきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "207189d7-c03e-462b-9adc-817f11568d7d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "32777fe9-48e3-4dbe-ba38-a9b4174a6da6",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の主な業務"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "0705a9f4-5e80-4453-8768-23d8951fbff3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "541e0760-2af9-482c-add5-feb038226fae",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手は、看護師の指示のもと、患者さんの療養生活を支える身の回りのお世話や、環境整備が主な仕事です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4966320c-7e55-4cd9-a4f9-6695aa39a6ff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3af17753-e6c0-4f07-97a5-539eaf1675d8-290a5980-092a-42a4-9b31-01db6159b94a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "身体介助"
+        },
+        {
+          "_key": "3af17753-e6c0-4f07-97a5-539eaf1675d8-8d7cbb37-0621-4035-83e9-3666d801a9c4",
+          "_type": "span",
+          "marks": [],
+          "text": ": 食事、入浴、排泄の介助、体位変換、移乗の補助など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "28d4c84c-d8d6-4a57-92e0-804e067fe8f9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "568df62a-e27f-4de3-8da0-2ea08488e7d4-02e401b2-8b3d-44e0-8715-63ddc406da49",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "環境整備"
+        },
+        {
+          "_key": "568df62a-e27f-4de3-8da0-2ea08488e7d4-ec296b58-b331-4df5-95b6-67869bfa59ef",
+          "_type": "span",
+          "marks": [],
+          "text": ": ベッドメイキング、病室の清掃、リネン交換など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cba98a56-22d0-4c6f-8521-c61fe89b2b1a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a8f3a6b7-eae2-434d-bdf9-6bb3f119e36a-321600e2-e6d4-4c6e-92b3-9eb6ad45ed8a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "看護師の補助"
+        },
+        {
+          "_key": "a8f3a6b7-eae2-434d-bdf9-6bb3f119e36a-8393b7e1-c6de-4be1-afed-36e186521d06",
+          "_type": "span",
+          "marks": [],
+          "text": ": 医療器具の洗浄・準備、メッセンジャー業務、書類整理など。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-544fc361-461e-43f4-9a55-4479ec090f1b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-eee6017f-a912-4a25-aaf2-d67fcd516f54",
+          "_type": "span",
+          "marks": [],
+          "text": "業務内容の違いでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "06fc2527-09f7-40d7-ab8d-fff48e2993b4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dd229659-e4ea-4315-8f03-0323114e9689",
+          "_type": "span",
+          "marks": [],
+          "text": "役割と責任の違い"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "f4ef67d0-5c94-4280-bca4-651afb3db6fe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "023ff63e-9009-429a-87c7-5cee00048add-0124444e-b660-4d9c-9202-2baa34cfc1ef",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "看護師"
+        },
+        {
+          "_key": "023ff63e-9009-429a-87c7-5cee00048add-0c864641-f3b7-4e04-b76d-232e7be02a03",
+          "_type": "span",
+          "marks": [],
+          "text": ": 患者さんの健康状態や生命に直接関わる医療行為を行うため、その判断と実施に対して重大な責任を負います。看護助手が安全に業務を行えるよう、適切に指示を出し、監督する責任もあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9299c328-bef9-472e-9b8d-c5985b37379a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "674c34a6-c8e1-4d71-a1c0-0f0b763cda86-6be56194-ab9d-4723-bc95-fca1def6421a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "看護助手"
+        },
+        {
+          "_key": "674c34a6-c8e1-4d71-a1c0-0f0b763cda86-9d591b4f-9f58-4f23-a39c-fcbbe6bee3a4",
+          "_type": "span",
+          "marks": [],
+          "text": ": 看護師の指示を正確に実行する責任があります。患者さんの状態に異変を感じた際は、自己判断せずに速やかに看護師に報告する義務があります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-660847b0-ac6f-4fd6-ba90-eef45bb38698",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-7db02144-c344-407f-943d-cd62fd45c3cc",
+          "_type": "span",
+          "marks": [],
+          "text": "役割と責任の違いでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0de650ff-d0d3-4c5a-a52f-95bee2ba2031",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9ee9a8a5-a198-4ae1-94bc-329be082c9fb",
+          "_type": "span",
+          "marks": [],
+          "text": "給与とキャリアパスの違い"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "0d744d70-464b-466e-a648-c37b8f5d1de8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7f9d4c0c-3266-4f48-8694-62fd3172bdc6-c147d65c-1a68-4374-9189-00e54df4a5ee",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "給与"
+        },
+        {
+          "_key": "7f9d4c0c-3266-4f48-8694-62fd3172bdc6-62ee6dd6-c331-4a60-8b87-370595967d93",
+          "_type": "span",
+          "marks": [],
+          "text": ": 専門性と責任の重さから、一般的に看護師の方が看護助手よりも給与水準は高くなります。夜勤手当や資格手当なども、看護師の方が手厚い傾向にあります。看護助手の場合、経験年数や勤務する施設によって給与が変動することがあります。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "48b162e7-302d-43a4-9b65-78d631f5916c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2171949d-f2ba-4a0a-b70d-ca44549ae09b-828315d9-3a5c-4f85-94d2-72b032ec6236",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "キャリアパス"
+        },
+        {
+          "_key": "2171949d-f2ba-4a0a-b70d-ca44549ae09b-d8e506d5-23fc-4c4d-9dbf-216a63d6c9f4",
+          "_type": "span",
+          "marks": [],
+          "text": ": 看護師は、認定看護師や専門看護師、管理職（看護師長など）といった明確なキャリアパスがあります。一方、看護助手からのキャリアアップとしては、介護福祉士や、看護師を目指すといった道が一般的です。近年では、看護助手として経験を積んだ後、准看護師の資格を取得し、さらに看護師を目指す方もいます。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "section-closing-4ff81349-f0c4-4864-90e7-9cbbc505544e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "section-closing-span-d3a4dd30-3779-4491-9389-69cffc4e8f47",
+          "_type": "span",
+          "marks": [],
+          "text": "給与とキャリアパスの違いでは、看護師と連携しながら無理のない範囲で進めることが大切です。気になる点はその都度共有し、安全第一で取り組みましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0c1f340678b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-3aa0618b-b1e6-4081-982e-5f2c68339b8f",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-b29291cb-9388-425d-8a87-47d698300d84",
+          "_type": "span",
+          "marks": [
+            "link-a44d591c-0ffc-4d28-baef-bb91a40586e7"
+          ],
+          "text": "「看護助手は介護職とどう違う？仕事内容を比較」"
+        },
+        {
+          "_key": "internal-link-span-outro-2487c2e8-43cc-4982-8f75-def132936d68",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-a44d591c-0ffc-4d28-baef-bb91a40586e7",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-job-role-market"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874067819-0-h3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874067819-0-h3-span",
+          "_type": "span",
+          "marks": [],
+          "text": "現場で意識したい追加の視点"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "auto-expansion-1764874067819-0-p1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874067819-0-p1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として毎日を過ごすと、同じ業務が続いているように感じる場面もありますが、患者さんの変化やチームの状況は日々わずかに異なります。こまめに観察ポイントを記録し、後輩や看護師と共有するだけでも「気づきの循環」が生まれ、職場全体の安心感につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874067819-0-list1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874067819-0-list1-span",
+          "_type": "span",
+          "marks": [],
+          "text": "申し送り前に「患者さんの様子・動線・物品」の3点を再確認する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874067819-0-list2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874067819-0-list2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "忙しい時間帯ほど声かけを一言添えて、患者さんの安心感を維持する"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "auto-expansion-1764874067819-0-p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "auto-expansion-1764874067819-0-p2-span",
+          "_type": "span",
+          "marks": [],
+          "text": "また、体力面への不安があるときは休憩の過ごし方を見直すのも大切です。短時間でもストレッチや水分補給を意識し、翌日の疲れを持ち越さない工夫を取り入れるだけで、患者さんへの対応にも余裕が生まれます。小さな工夫を積み重ねていけば、記事全体の内容もさらに実践的になりますよ。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-981fb903-8806-4b7f-be42-e3b4a2c2d372",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-efe6d527-15d1-4cb8-8df6-aace89e96779",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手と看護師の仕事の違いを徹底比較でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-33db1c6e-f3a3-4d3d-b112-736dfe6023bd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-dccb8bff-7cf6-484c-a64e-26a2825ce580",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-3d479933-3f15-496e-be51-224acaaa0dfd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-5621425c-dc1f-429e-8c1d-ffc822800c2a",
+          "_type": "span",
+          "marks": [],
+          "text": "看護師: 国家資格である「看護師免許」が必要です。医師の指示のもと、あるいは自らの判断で、採血、注射、点滴などの医療行…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-669e21be-9c82-4702-85fd-ae5d9a88cd80",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-497f9094-e9d5-4d30-bd1c-37bf70503bbf",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手: 必須の資格はありません。そのため、医療行為を行うことは法律で固く禁じられています。業務は、看護師の指示のも…"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-2d4211c7-310e-4260-a5cd-cc0e3c881cb6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-3677c37c-0024-469e-a758-1c3c7602d8cb",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-5c63db6d-8bc8-4deb-a213-7e732cb12d21",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">小物を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "disclaimer-5b42e816-7867-43a0-9590-b6a3298c5455",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-9cd8c9db-f45f-48dd-bf2f-e47828663f96",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "slug": {
+        "_type": "slug",
+        "current": "work"
+      },
+      "title": "仕事"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-market-info"
+  },
+  "tags": [
+    "キャリア",
+    "医療",
+    "基礎知識・入門",
+    "患者",
+    "業務内容",
+    "看護",
+    "看護助手",
+    "看護師",
+    "補助",
+    "資格"
+  ],
+  "title": "看護助手と看護師の仕事の違いを徹底比較"
+}

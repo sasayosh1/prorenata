@@ -1,0 +1,934 @@
+{
+  "_id": "G2Y6JXdwXQRnotb29XN0hz",
+  "body": [
+    {
+      "_key": "d8a9e0b1c2d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "15941202-031b-4319-bc72-366d1059ddf2",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として働きたいけれど、「お給料だけでちゃんと生活できるかな？」という不安は大きいですよね。"
+        },
+        {
+          "_key": "4a82ede9-64c6-41e8-a0c8-e2f8f4149ea6",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "f57b3190-ec9a-4a74-9b3b-8e09229bdda7",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "d560fab7-1493-46c8-accd-f17fe903840a",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "d4be7078-a6b8-4c7b-b23a-c8a7057a8e19",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        },
+        {
+          "_key": "7984bad0-8021-43cf-987a-5994bffd4c00",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "e6a5618d-aa0f-4eb5-ae9b-1625368e2b9e",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、看護助手の平均的な給与を元に、一人暮らしや実家暮らしのケース別にリアルな生活費をシミュレーション。賢い節約術も交えながら、看護助手の仕事と生活のバランスについて考えます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-70c0ba18-198c-4958-b2d3-fbcc1a31c12f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-0605a8eb-d954-4981-a4c1-e15159774a85",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-b08fa5dc-e93d-4c9b-912f-4a4df3cdd5d9",
+          "_type": "span",
+          "marks": [
+            "link-9245bf3b-a2b9-44e0-a90e-097167f24b95"
+          ],
+          "text": "厚生労働省 職業情報提供サイト（看護助手）"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-9245bf3b-a2b9-44e0-a90e-097167f24b95",
+          "_type": "link",
+          "href": "https://shigoto.mhlw.go.jp/User/Occupation/Detail/246?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b2c3d4e5f6a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9a15bd218840",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の平均月収（手取り）はどのくらい？"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "62b04bbccfa0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4ebc8a3b0867",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の正社員の場合、平均的な月収（額面）は18万円〜22万円ほどで、そこから税金や社会保険料が引かれるため、手取りは15万円〜19万円ほどになることが多いです。実際に生活費を考えると、この手取り額ではかなり厳しさを感じやすい金額だといえます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e42889a4d2b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8486c42e35dc",
+          "_type": "span",
+          "marks": [],
+          "text": "また、看護助手の給与は、勤務する地域や施設、経験年数によって差が出やすい傾向があります。都市部は求人が多く比較的高めの給与が期待できますが、同時に家賃や生活費も高くなるため、単純に「給与だけ」で判断するとギャップが生まれやすい点に注意が必要です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fb0ab7d194f4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dde0640dcb88",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに、夜勤手当や残業手当の有無も月収に大きく影響しますので、求人を見る際には基本給だけではなく、各種手当・支給条件を合わせて確認することが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "45d1d4cc942a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "90b816bdd13e",
+          "_type": "span",
+          "marks": [],
+          "text": "「いくらもらえるか」ではなく"
+        },
+        {
+          "_key": "630e9381e62a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "“実際に手取りでいくら残るか”"
+        },
+        {
+          "_key": "826e09c6794f",
+          "_type": "span",
+          "marks": [],
+          "text": "を基準に見ることが、後悔しない転職や職場選びにつながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e68d6a7c-28a2-4ea9-af76-52d93ca816db",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-df396bc0-1c44-460f-8390-5e4ecb2db758",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-f283233b-f587-44e2-9a02-fb448d0da4de",
+          "_type": "span",
+          "marks": [
+            "link-c3650a2e-6aed-4d58-8d71-418dc657b1db"
+          ],
+          "text": "厚生労働省 看護師等学校養成所卒業生就業状況調査"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-c3650a2e-6aed-4d58-8d71-418dc657b1db",
+          "_type": "link",
+          "href": "https://www.mhlw.go.jp/toukei/list/100-1.html"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a2b3c4d5e6f1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "82f0ef607acc",
+          "_type": "span",
+          "marks": [],
+          "text": "【ケース別】生活費シミュレーション"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d4e5f6a1b2c3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "792fbb96a70c",
+          "_type": "span",
+          "marks": [],
+          "text": "一人暮らしの場合（手取り17万円と仮定）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "3x3urjd7lj7h",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "y40odta9nlqz",
+          "_type": "span",
+          "marks": [],
+          "text": "ここでは、手取り17万円で一人暮らしをする場合の、具体的な生活費の内訳をシミュレーションしてみましょう。家賃や食費をどのくらいに設定すれば、無理なく生活できるかの目安になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "g1h2i3j4k5l6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4d59a7aa156d",
+          "_type": "span",
+          "marks": [],
+          "text": "家賃：60,000円（都心部を避けたワンルーム）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "h2i3j4k5l6g1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fa53fa33b62d",
+          "_type": "span",
+          "marks": [],
+          "text": "食費：30,000円（自炊中心）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "i3j4k5l6g1h2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bf5a075224c4",
+          "_type": "span",
+          "marks": [],
+          "text": "水道・光熱費：10,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "j4k5l6g1h2i3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "675c5e6ea439",
+          "_type": "span",
+          "marks": [],
+          "text": "通信費：5,000円（格安SIM利用）"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "k5l6g1h2i3j4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5da657606734",
+          "_type": "span",
+          "marks": [],
+          "text": "交際費・雑費：30,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "l6g1h2i3j4k5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bc8e72443dbf",
+          "_type": "span",
+          "marks": [],
+          "text": "貯金・予備費：35,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "m1n2o3p4q5r6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "564e78dced7e",
+          "_type": "span",
+          "marks": [],
+          "text": "合計：170,000円。計画的に家計を管理すれば、一人暮らしでも十分に生活し、貯金も可能です。しかし想定外の出費に備えて、予備費を設けておくことも大切です。医療費や家具の修理代など、急な支出に対応できるよう、毎月少しずつでも貯蓄しておくと安心です。また、初期費用を抑えるために、家具家電付きの賃貸物件を探すのも一つの方法です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "n2o3p4q5r6m1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b726e9afa65a",
+          "_type": "span",
+          "marks": [],
+          "text": "実家暮らしの場合（手取り17万円と仮定）"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "2x3obg5o3gfi",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "n6y7t7iquzxl",
+          "_type": "span",
+          "marks": [],
+          "text": "実家で暮らす場合は、一人暮らしに比べて家賃や食費を大幅に抑えられるのが大きなメリットです。同じ手取り17万円でも、どのくらい余裕が生まれるのか見てみましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "o1p2q3r4s5t6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "595e2c0fe485",
+          "_type": "span",
+          "marks": [],
+          "text": "実家に入れるお金：30,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "p2q3r4s5t6o1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "698cc50260b8",
+          "_type": "span",
+          "marks": [],
+          "text": "通信費：5,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "q3r4s5t6o1p2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1dbfd9b5d7d8",
+          "_type": "span",
+          "marks": [],
+          "text": "交際費・雑費：40,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "r4s5t6o1p2q3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "58b1d3760cc9",
+          "_type": "span",
+          "marks": [],
+          "text": "貯金・予備費：95,000円"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "s5t6o1p2q3r4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d12732b85a6c",
+          "_type": "span",
+          "marks": [],
+          "text": "合計：170,000円。家賃や食費の負担が少ない分、自由に使えるお金や貯金に回せる額が大幅に増えます。ですが実家暮らしの場合でも、将来のために計画的な貯蓄は心がけましょう。住宅購入や結婚資金、スキルアップのための資格取得費用など、具体的な目標を設定することで、モチベーションを維持しやすくなります。また、家族への感謝の気持ちを忘れずに、積極的に家事の手伝いをしたり、プレゼントを贈ったりするのも良いですね。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "reference-016e6ff6-415a-43f4-8fed-859b046ee3dd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "reference-span-label-bebff0f0-2cb4-4840-886b-84e76c5af53f",
+          "_type": "span",
+          "marks": [],
+          "text": "参考: "
+        },
+        {
+          "_key": "reference-span-link-10afa4a2-349c-47fa-b3cb-d95967d916d1",
+          "_type": "span",
+          "marks": [
+            "link-cb40fba3-263e-4585-888b-e4c87a3b8b51"
+          ],
+          "text": "日本看護協会 看護補助者の離職状況レポート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-cb40fba3-263e-4585-888b-e4c87a3b8b51",
+          "_type": "link",
+          "href": "https://www.nurse.or.jp/home/assets/20231005_nl01.pdf?utm_source=chatgpt.com"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "t6o1p2q3r4s5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d87bd7225bb0",
+          "_type": "span",
+          "marks": [],
+          "text": "無理なく続けるための賢い節約術"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "oju7rg6scup4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "u2y2s4q1ydgr",
+          "_type": "span",
+          "marks": [],
+          "text": "給料日前に焦らないために、日々の生活で少しだけ意識したい節約のポイントがあります。無理なく続けられる、賢い節約術をいくつかご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "u1v2w3x4y5z6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0e3534db0fa8",
+          "_type": "span",
+          "marks": [],
+          "text": "自炊を心がける"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "fa5e65651230",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0e3534db0fa8",
+          "_type": "span",
+          "marks": [],
+          "text": "外食を減らし、お弁当を持参するだけで食費は大きく節約できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "v2w3x4y5z6u1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ddbfe61eb3bb",
+          "_type": "span",
+          "marks": [],
+          "text": "格安SIMを活用する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "00e5d0d0aa1f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ddbfe61eb3bb",
+          "_type": "span",
+          "marks": [],
+          "text": "大手キャリアから乗り換えることで、毎月の通信費を数千円単位で削減可能です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "w3x4y5z6u1v2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "64385572e497",
+          "_type": "span",
+          "marks": [],
+          "text": "寮や住宅手当のある職場を選ぶ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "6540677d9ff8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "64385572e497",
+          "_type": "span",
+          "marks": [],
+          "text": "家賃は生活費の大きな割合を占めます。この負担を軽減できる職場は大きな魅力です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "aa153724245e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "de1651b6fb2e",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818441160-hlb1ls4um",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-4ycgoeswx",
+          "_type": "span",
+          "marks": [],
+          "text": "さらに、節約術をいくつかご紹介します。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818441160-utm3k49rd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-80xgslt28",
+          "_type": "span",
+          "marks": [],
+          "text": "公共料金を見直す"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "6569f60d5756",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-80xgslt28",
+          "_type": "span",
+          "marks": [],
+          "text": " 電気やガスの契約プランを見直したり、節水シャワーヘッドや節電タップを導入したりすることで、公共料金を削減できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818441160-rl5zywmx4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-0g10tsp0j",
+          "_type": "span",
+          "marks": [],
+          "text": "フリマアプリやリサイクルショップを利用する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "734406d26150",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-0g10tsp0j",
+          "_type": "span",
+          "marks": [],
+          "text": "不要になった物を売ったり、必要な物を安く購入したりすることで、収入を増やしたり、支出を減らしたりすることができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818441160-yix08v93b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-coxafnnoe",
+          "_type": "span",
+          "marks": [],
+          "text": "図書館を活用する"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "2399626ea01b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-coxafnnoe",
+          "_type": "span",
+          "marks": [],
+          "text": "本や雑誌を無料で借りられる図書館を活用することで、書籍代を節約できます。また、図書館では、セミナーやイベントなども開催されており、無料で参加することができます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block-1760818441160-jupa013ej",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-1760818441160-2j6byqc52",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-61145c94-66e6-4df5-8f1f-f3889c2e11a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-77e5cfce-8124-4c64-8ba0-159e53489fb9",
+          "_type": "span",
+          "marks": [],
+          "text": "「図書館を活用する」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-cta-ee17250c-fb39-4500-a2ee-f9eb4e43edc2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "affiliate-cta-span-0fa3a908-2a3d-461d-b6c9-ed7b0005abc3",
+          "_type": "span",
+          "marks": [],
+          "text": "「図書館を活用する」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "internal-link-12050d58-12aa-4483-9b78-c6d7e5febc18",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "internal-link-span-intro-ab5710b4-8dd3-4d07-a444-fb8ffe03d321",
+          "_type": "span",
+          "marks": [],
+          "text": "詳しくは"
+        },
+        {
+          "_key": "internal-link-span-title-aae909e8-ad9f-40a7-a33e-b5e4da5a6564",
+          "_type": "span",
+          "marks": [
+            "link-3e2cb287-fc42-445a-8164-31e7f0a34884"
+          ],
+          "text": "「看護助手の給料が低い理由を徹底解説」"
+        },
+        {
+          "_key": "internal-link-span-outro-8a75aac2-79aa-4a9e-a11e-55e3a3dc744b",
+          "_type": "span",
+          "marks": [],
+          "text": "でも現場のポイントを詳しく解説しています。"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-3e2cb287-fc42-445a-8164-31e7f0a34884",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-low-salary-reasons"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block--8446521892015027344",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span-373389077394698207",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "summary-bba69937-c21d-4400-ae3e-9c314d0d97d4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-483c1c7e-bbfc-4c9f-9ce0-e6fe05916870",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の給料と生活費、実際やっていける？でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-70f14341-a29c-455a-b016-1152c5195aa5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-fd8ab62e-00e8-4b43-b01c-f4111b997e64",
+          "_type": "span",
+          "marks": [],
+          "text": "すぐに試しやすい行動のヒントは次の通りです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-cf664642-35f7-42a1-8005-af021d424010",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-e0fca686-aa5f-4f45-9bca-7e88515c5bc9",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-8a7a519d-2bc0-4b72-8598-8c711252dcd1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-9c74e2ff-57bf-48d0-ab60-ecdd7b4dc274",
+          "_type": "span",
+          "marks": [],
+          "text": "【ケース別】生活費シミュレーションの視点で一人暮らしの場合（手取り17万円と仮定）に目を向ける"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-bullet-bad6e5c0-ce57-48a4-bbe1-a1def4727502",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-bullet-span-32a85e7c-88f2-4113-9de0-a02a525db72c",
+          "_type": "span",
+          "marks": [],
+          "text": "家賃：60,000円（都心部を避けたワンルーム）"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "summary-ea8a6be1-fb08-4cbf-8e20-f37f89c1e54d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "summary-span-aea5b2a0-d6de-4d5c-af0d-59af31f0d7ef",
+          "_type": "span",
+          "marks": [],
+          "text": "あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-d7ce5456-94ee-4ae6-86cf-930adc2c30c2",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">シューズを買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。</p>\n  <p style=\"margin: 0 0 8px 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">Amazonで看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5211352&p_id=170&pc_id=185&pl_id=4161\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">楽天市場で看護助手グッズを探す</a><img src=\"//i.moshimo.com/af/i/impression?a_id=5207851&p_id=54&pc_id=54&pl_id=621\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\">\n  </p>\n</div>",
+      "label": "Amazonで看護助手グッズを探す",
+      "linkKey": "amazon",
+      "provider": "Amazon"
+    },
+    {
+      "_key": "career-comparison-c35ebbdf-525f-4bca-978b-254dfa6ae639",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "career-lead-0adf6153-830a-4dcc-95f9-ebe1de57f137",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職サービス３社比較で、強みとサポート内容を整理してから次の選択肢を決めましょう。"
+        },
+        {
+          "_key": "career-link-c35f1781-27d2-4382-a2b6-a8ca66997d92",
+          "_type": "span",
+          "marks": [
+            "link-c5308693-90fb-4e25-8bf7-c41c5d694d85"
+          ],
+          "text": "詳しい比較記事を読む"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-c5308693-90fb-4e25-8bf7-c41c5d694d85",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-compare-services-perspective"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-dcab16f8-c65e-4bc6-8e8d-2e4b20490b79",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-span-b11e594a-6259-42b9-8418-0e899c23ea92",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての現場経験に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-salary-living-expenses"
+  },
+  "title": "看護助手の給料と生活費、実際やっていける？"
+}
