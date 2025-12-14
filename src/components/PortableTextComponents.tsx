@@ -202,6 +202,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
   const inlineAffiliateType = getInlineAffiliateType(value)
   const isAffiliatePrBlock = isAffiliatePrParagraph(value)
   const hasInternalLink = containsInternalLink(value) && !inlineAffiliateType
+  const isStandaloneInternalLink = isStandaloneInternalLinkParagraph(value)
   const plainText = extractPlainText(value)
   const sanitizedText = sanitizeSummaryText(plainText)
 
@@ -211,11 +212,16 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
       // アフィリエイトCTAテキストは通常のスタイルで表示（背景色なし）
       paragraphClass = `leading-relaxed text-gray-900 [&]:!text-gray-900 mb-2 mt-6`
     } else if (inlineAffiliateType === 'link' || isAffiliatePrBlock) {
-      // [PR]リンクは薄いブルーの背景色で表示
-      paragraphClass = `leading-relaxed text-gray-900 [&]:!text-gray-900 bg-sky-50/80 border border-sky-100 rounded-md px-4 py-3 mb-6`
+      // [PR]リンクは薄いブルーの背景色で表示（枠線なし）
+      paragraphClass = `leading-relaxed text-black bg-sky-50 rounded-lg px-4 py-3 text-sm mb-6`
     }
   } else if (hasInternalLink) {
-    paragraphClass = `${paragraphClass} bg-rose-50/80 border border-rose-100 rounded-md px-4 py-3 mb-6`
+    // 「あわせて読みたい」等で、段落が内部リンク1本だけの場合はカード装飾（ピンク枠）を付けない
+    if (isStandaloneInternalLink) {
+      paragraphClass = `${paragraphClass} mb-8`
+    } else {
+      paragraphClass = `${paragraphClass} bg-white border border-[#F3D5D5] rounded-lg px-4 py-4 text-sm mb-8`
+    }
   } else {
     paragraphClass = `${paragraphClass} mb-6`
   }
@@ -243,7 +249,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
 
   if (isDisclaimerBlock(value)) {
     return (
-      <p className="mb-6 rounded-md border border-yellow-200 bg-yellow-50 px-4 py-3 text-sm leading-relaxed text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+      <p className="mb-6 rounded-md border border-[#F0E6AA] bg-white px-4 py-3 text-[13px] leading-relaxed text-[#555]" style={{ color: '#555 !important' }}>
         {children}
       </p>
     )
@@ -267,6 +273,27 @@ function containsInternalLink(value?: PortableTextBlock) {
   return value.markDefs.some(
     def => def?._type === 'link' && typeof def.href === 'string' && def.href.startsWith('/posts')
   )
+}
+
+function isStandaloneInternalLinkParagraph(value?: PortableTextBlock) {
+  if (!value || !Array.isArray(value.children) || !Array.isArray(value.markDefs)) return false
+
+  const internalLinkKeys = new Set(
+    value.markDefs
+      .filter(
+        def => def?._type === 'link' && typeof def.href === 'string' && def.href.startsWith('/posts') && def._key
+      )
+      .map(def => def._key as string)
+  )
+
+  if (internalLinkKeys.size === 0) return false
+
+  return value.children.every(child => {
+    const text = (child as { text?: string }).text?.trim() ?? ''
+    if (!text) return true
+    const marks = (child as { marks?: string[] }).marks
+    return Array.isArray(marks) && marks.some(mark => internalLinkKeys.has(mark))
+  })
 }
 
 function getInlineAffiliateType(value?: PortableTextBlock) {
