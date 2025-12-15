@@ -7,6 +7,10 @@ on:
   workflow_dispatch:
     # 手動実行可能
 
+concurrency:
+  group: repo-write-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   issues: write
@@ -60,6 +64,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: daily analytics & SEO report $(date +'%Y-%m-%d')"
+            git pull --rebase --autostash origin main
             git push
           fi
 
@@ -92,5 +97,4 @@ jobs:
       - name: Clean up credentials
         if: always()
         run: rm -f /tmp/sa.json
-
 
