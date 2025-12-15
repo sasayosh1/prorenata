@@ -432,8 +432,8 @@ function CustomList(props: any) {
   const type = props.value?.listItem || 'bullet'
   const Tag = type === 'number' ? 'ol' : 'ul'
   const listClass = type === 'number'
-    ? "list-decimal list-inside mb-6 space-y-2 text-gray-900 [&]:!text-gray-900"
-    : "list-disc list-inside mb-6 space-y-2 text-gray-900 [&]:!text-gray-900"
+    ? "list-decimal list-outside pl-6 mb-6 space-y-2 text-gray-900 [&]:!text-gray-900"
+    : "list-disc list-outside pl-6 mb-6 space-y-2 text-gray-900 [&]:!text-gray-900"
 
   return (
     <Tag className={listClass} style={{ color: '#111827 !important' }}>
@@ -446,7 +446,10 @@ function CustomList(props: any) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomListItem(props: any) {
   return (
-    <li className="ml-4 text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+    <li
+      className="text-gray-900 [&]:!text-gray-900 [&>p]:inline [&>p]:m-0"
+      style={{ color: '#111827 !important' }}
+    >
       {props.children}
     </li>
   )

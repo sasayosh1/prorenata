@@ -25,6 +25,8 @@
 
 const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env.private' });
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -299,6 +301,7 @@ async function rewriteParagraph(model, paragraph) {
     '- 事実・意味は変えない（言い切りを避け、断定しない）',
     '- 命令/強い誘導を避ける（急かさない）',
     '- 共感 → 選択肢提示 → 安心 の順で、自然な文に整える',
+    '- 短文で「です。」「ます。」が続いて幼くならないよう、文を自然につなげたり語尾をやわらかく変化させる（丁寧さは維持）',
     '- リンク/URL/固有名詞/数字/コードは追加・削除・変更しない（段落内にある場合はそのまま）',
     '- 句読点や言い回しだけを整えるイメージ',
     '- 出力は書き換え後の段落本文のみ（前置き不要）',
@@ -610,4 +613,3 @@ main().catch(async (error) => {
   } catch {}
   process.exit(0);
 });
-

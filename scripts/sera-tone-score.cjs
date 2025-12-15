@@ -17,6 +17,8 @@
  *   SANITY_API_TOKEN=... (or SANITY_WRITE_TOKEN)
  */
 
+require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env.private' });
 const { createClient } = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
@@ -156,6 +158,31 @@ function splitSentences(text) {
   return parts;
 }
 
+function computePoliteEndingStreakPenalty(sentences) {
+  if (!Array.isArray(sentences) || sentences.length === 0) return { penalty: 0, streaks: 0, maxStreak: 0 };
+
+  const politeEnding = (s) => /(?:です|ます|でした|ました|でしょう|ません)\s*[。！？!?]$/u.test(s);
+  const shortish = (s) => s.length <= 28;
+
+  let current = 0;
+  let maxStreak = 0;
+  let streaks = 0;
+
+  for (const s of sentences) {
+    if (politeEnding(s) && shortish(s)) {
+      current += 1;
+      if (current > maxStreak) maxStreak = current;
+    } else {
+      if (current >= 3) streaks += 1;
+      current = 0;
+    }
+  }
+  if (current >= 3) streaks += 1;
+
+  const penalty = clamp(0, (maxStreak >= 3 ? (maxStreak - 2) * 4 : 0) + streaks * 2, 18);
+  return { penalty, streaks, maxStreak };
+}
+
 function computeSeraToneScore(text) {
   const reasons = [];
   if (!text) {
@@ -187,6 +214,12 @@ function computeSeraToneScore(text) {
   const redundantPenalty = clamp(0, redundantHits * 2, 16);
   score -= redundantPenalty;
   if (redundantPenalty > 0) reasons.push(`冗長表現: -${redundantPenalty} (hits=${redundantHits})`);
+
+  const streak = computePoliteEndingStreakPenalty(sentences);
+  score -= streak.penalty;
+  if (streak.penalty > 0) {
+    reasons.push(`短文のです/ます連続: -${streak.penalty} (maxStreak=${streak.maxStreak}, streaks=${streak.streaks})`);
+  }
 
   // Mild bonus for question-based softening
   const questionCount = countOccurrences(text, '？') + countOccurrences(text, '?');
@@ -313,4 +346,3 @@ main().catch((error) => {
   // safety: do not crash scheduled workflows
   process.exit(0);
 });
-
