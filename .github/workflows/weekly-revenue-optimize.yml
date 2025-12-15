@@ -1,0 +1,96 @@
+name: Weekly Revenue Optimization (GSC/GA4 → Sanity)
+
+on:
+  schedule:
+    # 毎週火曜日 AM11:00 JST (火曜日 02:00 UTC) に実行（health-checkの後）
+    - cron: '0 2 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  revenue-optimize:
+    runs-on: ubuntu-latest
+
+    env:
+      REVENUE_OPT_LIMIT: '10'
+      REVENUE_OPT_DAYS: '7'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies (include dev)
+        run: npm ci --include=dev
+
+      - name: Read analytics/health.json
+        id: health
+        run: |
+          if [ ! -f analytics/health.json ]; then
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "reason=missing_health_json" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          node -e "const fs=require('fs');const h=JSON.parse(fs.readFileSync('analytics/health.json','utf8'));process.stdout.write(`ok=${h.ok}\\nreason=${h.reason||''}\\ncheckedAt=${h.checkedAt||''}\\n`);" >> "$GITHUB_OUTPUT"
+
+      - name: Create issue if skipped (analytics unhealthy)
+        if: steps.health.outputs.ok != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '💰 Revenue optimization skipped (analytics unhealthy)';
+            const fs = require('fs');
+            let details = '';
+            try {
+              const h = JSON.parse(fs.readFileSync('analytics/health.json', 'utf8'));
+              details = '```json\n' + JSON.stringify(h, null, 2) + '\n```';
+            } catch (e) {
+              details = 'health.json not available';
+            }
+
+            const body = `## Revenue Optimization\n\nanalytics/health.json が OK ではないため、最適化をスキップしました。\n\n- Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\n${details}`;
+
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            if (issues.data.some(i => i.title === title)) return;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['automated', 'revenue'],
+            });
+
+      - name: Revenue optimize (apply to Sanity)
+        if: steps.health.outputs.ok == 'true'
+        env:
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+        run: |
+          node scripts/revenue-optimize.cjs --limit "${REVENUE_OPT_LIMIT}" --days "${REVENUE_OPT_DAYS}" --apply
+
+      - name: Commit progress files
+        if: steps.health.outputs.ok == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add analytics/revenue-optimize-last-run.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: revenue optimize ($(date -u +'%Y-%m-%d'))"
+            git push
+          fi
+

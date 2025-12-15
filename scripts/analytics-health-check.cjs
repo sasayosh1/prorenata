@@ -31,6 +31,13 @@ function appendGithubOutput(key, value) {
   fs.appendFileSync(outputPath, `${key}=${String(value)}\n`, 'utf8');
 }
 
+function writeHealthFile(payload) {
+  const dir = path.join(process.cwd(), 'analytics');
+  const filePath = path.join(dir, 'health.json');
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+}
+
 function clampNumber(value, fallback) {
   const num = Number(value);
   return Number.isFinite(num) ? num : fallback;
@@ -255,6 +262,14 @@ async function main() {
       .filter(Boolean)
       .join(', ');
 
+    writeHealthFile({
+      ok: false,
+      reason: 'missing_data',
+      checkedAt: new Date().toISOString(),
+      dateCheckedUtc: yIso,
+      missing,
+    });
+
     const title = '📉 Analytics health-check failed (missing data)';
     const body = [
       '## Analytics Health Check',
@@ -293,6 +308,15 @@ async function main() {
   const staleIso = toDateStringUtc(staleCutoff);
 
   if (!latestGsc || !latestGa4 || latestGsc < staleIso || latestGa4 < staleIso) {
+    writeHealthFile({
+      ok: false,
+      reason: 'stale_data',
+      checkedAt: new Date().toISOString(),
+      dateCheckedUtc: yIso,
+      staleThresholdUtc: staleIso,
+      latest: { gsc: latestGsc || null, ga4: latestGa4 || null },
+    });
+
     const title = '📉 Analytics health-check failed (stale data)';
     const body = [
       '## Analytics Health Check',
@@ -349,6 +373,19 @@ async function main() {
   ];
 
   if (problems.length > 0) {
+    writeHealthFile({
+      ok: false,
+      reason: 'anomaly_detected',
+      checkedAt: new Date().toISOString(),
+      dateCheckedUtc: yIso,
+      thresholds: { lookbackDays, dropRatio, staleDays },
+      metrics: {
+        ga4: { yesterdaySessions: ga4Y, dayBeforeSessions: ga4D, recentAvgSessions: ga4Avg },
+        gsc: { yesterdayClicks: gscY, dayBeforeClicks: gscD, recentAvgClicks: gscAvg },
+      },
+      problems,
+    });
+
     const title = `📉 Analytics anomaly detected ${yIso}`;
     const body = [
       '## Analytics Health Check',
@@ -385,6 +422,18 @@ async function main() {
   console.log(`- GA4 sessions: ${ga4Y}`);
   console.log(`- GSC clicks: ${gscY}`);
 
+  writeHealthFile({
+    ok: true,
+    reason: 'ok',
+    checkedAt: new Date().toISOString(),
+    dateCheckedUtc: yIso,
+    thresholds: { lookbackDays, dropRatio, staleDays },
+    metrics: {
+      ga4: { yesterdaySessions: ga4Y, dayBeforeSessions: ga4D, recentAvgSessions: ga4Avg },
+      gsc: { yesterdayClicks: gscY, dayBeforeClicks: gscD, recentAvgClicks: gscAvg },
+    },
+  });
+
   appendGithubOutput('healthy', 'true');
   appendGithubOutput('reason', 'ok');
 }
@@ -393,6 +442,13 @@ main().catch((error) => {
   console.error('❌ analytics-health-check failed:', error?.message || error);
   try {
     const date = toDateStringUtc(new Date());
+    writeHealthFile({
+      ok: false,
+      reason: 'script_error',
+      checkedAt: new Date().toISOString(),
+      dateCheckedUtc: date,
+      error: String(error?.message || error),
+    });
     const title = '📉 Analytics health-check failed (script error)';
     const body = [
       '## Analytics Health Check',
