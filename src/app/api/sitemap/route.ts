@@ -1,7 +1,7 @@
 import { client } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 
-const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
+const PUBLIC_POST_FILTER = '(!defined(internalOnly) || internalOnly == false)'
 
 type UrlEntry = {
   url: string

@@ -32,7 +32,7 @@ const builder = imageUrlBuilder(client)
 
 export const urlFor = (source: SanityImageSource) => builder.image(source)
 
-const PUBLIC_POST_FILTER = '!defined(internalOnly) || internalOnly == false'
+const PUBLIC_POST_FILTER = '(!defined(internalOnly) || internalOnly == false)'
 
 // 型定義
 export interface SanityImage {
