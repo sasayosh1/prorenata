@@ -1435,12 +1435,15 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
     suggestLinksForArticle,
     createMoshimoLinkBlocks,
     NON_LIMITED_AFFILIATE_KEYS,
-    MOSHIMO_LINKS
+    MOSHIMO_LINKS,
+    extractMainItemFromArticle
   } = require('../moshimo-affiliate-links')
   const SERVICE_AFFILIATE_LIMIT = 2
   const disableRetirementAffiliates = Boolean(options.disableRetirementAffiliates)
   const disableCareerAffiliates = Boolean(options.disableCareerAffiliates)
   const bodyText = blocksToPlainText(blocks)
+  const mainItem = extractMainItemFromArticle(title, bodyText)
+  const allowItemAffiliates = Boolean(mainItem && mainItem.item)
   const suggestions = suggestLinksForArticle(title, bodyText)
 
   const affiliateHrefMap = Object.entries(MOSHIMO_LINKS).reduce((map, [key, link]) => {
@@ -1504,9 +1507,10 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
   let remainingServiceSlots = Math.max(0, SERVICE_AFFILIATE_LIMIT - existingServiceCount)
 
   const preferredKeys = resolvePreferredAffiliateKeys(currentPost, combinedText)
-  const prioritizedSuggestions = suggestions.filter(link =>
-    isAffiliateSuggestionRelevant(link, combinedText, slug, categoryNames)
-  )
+  const prioritizedSuggestions = suggestions
+    .filter(link => isAffiliateSuggestionRelevant(link, combinedText, slug, categoryNames))
+    // アイテム案件は「アイテム記事」だけに限定（不適切な挿入を防ぐ）
+    .filter(link => (allowItemAffiliates ? true : link.category !== 'アイテム'))
 
   const selectedLinks = []
   const trySelect = link => {

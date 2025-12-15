@@ -216,12 +216,8 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
       paragraphClass = `leading-relaxed text-black bg-[#EFF6FF] rounded-lg px-4 py-3 text-sm mb-6`
     }
   } else if (hasInternalLink) {
-    // 「あわせて読みたい」等で、段落が内部リンク1本だけの場合はカード装飾（ピンク枠）を付けない
-    if (isStandaloneInternalLink) {
-      paragraphClass = `${paragraphClass} mb-8`
-    } else {
-      paragraphClass = `${paragraphClass} bg-white border border-[#F3D5D5] rounded-lg px-4 py-4 text-sm mb-8`
-    }
+    // 内部リンク段落は装飾（背景/枠）を付けない（ユーザビリティ優先）
+    paragraphClass = `${paragraphClass} ${isStandaloneInternalLink ? 'mb-8' : 'mb-6'}`
   } else {
     paragraphClass = `${paragraphClass} mb-6`
   }
