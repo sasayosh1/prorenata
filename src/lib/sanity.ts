@@ -360,7 +360,6 @@ export async function getCuratedTagStats(): Promise<TagStat[]> {
       const postCount = await client.fetch<number>(
         `count(*[_type == "post" && ${PUBLIC_POST_FILTER}
           && count(tags[@ in $keywords]) > 0
-          && "${CATEGORY_SUMMARY[tag.categorySlug].title}" in categories[]->title
         ])`,
         { keywords }
       )
@@ -377,7 +376,6 @@ export async function getPostsByTagSlug(tagSlug: string, limit: number = 40): Pr
 
   const keywords = buildTagKeywords(definition)
   const query = `*[_type == "post" && ${PUBLIC_POST_FILTER} && count(tags[@ in $keywords]) > 0] | order(coalesce(publishedAt, _createdAt) desc) [0...$limit] {
-    "_categoryMatch": "${CATEGORY_SUMMARY[definition.categorySlug].title}" in categories[]->title,
     _id,
     title,
     slug,
@@ -389,9 +387,6 @@ export async function getPostsByTagSlug(tagSlug: string, limit: number = 40): Pr
     internalOnly
   }`
 
-  const posts: ({ _categoryMatch?: boolean } & Post)[] = await client.fetch(query, { keywords, limit })
-  // タグのカテゴリと一致しない記事は除外
+  const posts: Post[] = await client.fetch(query, { keywords, limit })
   return posts
-    .filter(p => p._categoryMatch)
-    .map(({ _categoryMatch, ...rest }) => rest as Post)
 }
