@@ -64,3 +64,4 @@ scripts/tmp/
 scripts/analytics/service-account-antigravity.json
 ga4env/
 .budget/
+.analytics/
