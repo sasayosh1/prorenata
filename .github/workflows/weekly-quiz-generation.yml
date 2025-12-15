@@ -13,6 +13,8 @@ permissions:
 jobs:
   generate-quiz-term:
     runs-on: ubuntu-latest
+    env:
+      GEMINI_BUDGET_JPY: '100'
 
     steps:
       - name: リポジトリをチェックアウト
@@ -41,7 +43,36 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
+      - name: Analytics health check (GA4/GSC)
+        id: analytics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/analytics-health-check.cjs
+
+      - name: Determine budget month (UTC)
+        if: steps.analytics.outputs.healthy == 'true'
+        id: budget_month
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Gemini budget state
+        if: steps.analytics.outputs.healthy == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .budget
+          key: gemini-budget-${{ runner.os }}-${{ github.repository }}-${{ steps.budget_month.outputs.month }}-${{ github.run_id }}
+          restore-keys: |
+            gemini-budget-${{ runner.os }}-${{ github.repository }}-${{ steps.budget_month.outputs.month }}-
+            gemini-budget-${{ runner.os }}-${{ github.repository }}-
+
+      - name: Budget guard (pre-check)
+        if: steps.analytics.outputs.healthy == 'true'
+        id: budget
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/budget-guard.cjs --reserve-jpy 0.05
+
       - name: メディカルクイズ問題を生成
+        if: steps.analytics.outputs.healthy == 'true' && steps.budget.outputs.allowed == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |

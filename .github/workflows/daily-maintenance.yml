@@ -78,7 +78,14 @@ jobs:
       - name: Install dependencies (include dev)
         run: npm ci --include=dev
 
+      - name: Analytics health check (GA4/GSC)
+        id: analytics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/analytics-health-check.cjs
+
       - name: Run maintenance script - All checks and auto-fix
+        if: steps.analytics.outputs.healthy == 'true'
         env:
           SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
