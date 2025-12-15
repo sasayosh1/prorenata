@@ -8,6 +8,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251201,/posts/nursing-assistant-night-shift-journey,desktop,Japan,8,2,55,1.0,247.44553
 20251202,/about,desktop,Japan,8,4,103,0.875,737.20032
 20251204,/posts,desktop,Japan,8,4,84,0.875,278.32468850000004
+20251214,/posts/comparison-of-three-resignation-agencies,desktop,Japan,8,2,79,0.75,407.6988875
 20251207,/tags,desktop,Japan,7,2,54,0.8571428571428571,166.61156042857144
 20251129,/,desktop,Japan,6,2,133,0.8333333333333334,737.7147491666666
 20251206,/,desktop,Japan,6,2,21,0.8333333333333334,82.553608
@@ -30,6 +31,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251211,/posts/nursing-assistant-salary-differences,desktop,Japan,4,1,23,0.5,5.87372075
 20251212,/,desktop,Japan,4,2,31,0.75,254.9018625
 20251212,/posts/nursing-assistant-care-guide-toolbox,desktop,Japan,4,2,25,0.5,8.111350999999999
+20251214,/,desktop,Japan,4,2,15,0.75,205.3176215
 20251115,/,desktop,Japan,3,1,29,0.3333333333333333,13.528130333333332
 20251117,/,desktop,Japan,3,1,41,1.0,1383.2402686666667
 20251117,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,11,0.6666666666666666,1.9761003333333333
@@ -96,7 +98,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251210,/posts/nursing-assistant-deal-with-nurses,desktop,Japan,2,1,6,1.0,54.544287
 20251212,/posts/nursing-assistant-medical-terms,desktop,Japan,2,1,8,0.0,2.9362415
 20251212,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,2,2,14,1.0,76.245941
-20251214,/,desktop,Japan,2,2,6,0.5,398.752426
+20251214,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,2,1,17,1.0,21.5091345
+20251214,/posts/nursing-assistant-long-term-mindset,mobile,Japan,2,1,7,0.0,2.911928
 20251115,/search,desktop,Japan,1,1,10,1.0,61.83853
 20251116,/,desktop,Japan,1,1,1,1.0,12.126769
 20251116,"/posts/<a href=""/af.moshimo.com/af/c/click",desktop,Japan,1,1,19,1.0,26.601203
@@ -318,7 +321,11 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251213,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,5,0.0,5.952059
 20251213,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,6,1.0,149.683981
 20251213,/posts/nursing-assistant-salary-increase-nurse,desktop,Japan,1,1,5,0.0,5.624425
-20251214,/posts/comparison-of-three-resignation-agencies,desktop,Japan,1,1,1,1.0,21.121291
-20251214,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,1,1,15,1.0,43.018269
+20251214,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,7,1.0,32.100379
+20251214,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,0.0,5.905847
+20251214,/posts/nursing-assistant-patient-safety,desktop,Japan,1,1,5,1.0,11.315641
+20251214,/posts/nursing-assistant-qualification-guide,mobile,Japan,1,1,5,0.0,5.888065
 20251214,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,1,1,1,1.0,15.589927
+20251214,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,6,1.0,217.507262
 20251214,/posts/nursing-assistant-salary-increase-nurse,desktop,Japan,1,1,5,1.0,25.622474
+20251214,/posts/nursing-assistant-stressful-relationships-solutions,mobile,Japan,1,1,2,0.0,0.0
