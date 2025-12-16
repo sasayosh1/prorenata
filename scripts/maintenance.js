@@ -978,8 +978,9 @@ const RETIREMENT_KEYWORDS = [
   '有給',
   '退職代行'
 ]
-// NOTE: 転職系CTAの誤爆（仕事/給与/資格などへの過剰挿入）を防ぐため、文脈判定は厳しめにする
-const CAREER_KEYWORD_REGEX = /転職(サービス|サイト|活動|先)?|求人|就職|応募|志望動機|面接|履歴書|職務経歴書|エージェント|紹介会社|内定|入社|派遣|career|job|apply|interview/
+// NOTE: 転職系CTAの誤爆（仕事/給与/資格などへの過剰挿入）を防ぐため、文脈判定は「転職の手続き/準備」に寄せて厳しめにする
+// 「転職」という単語の"ついで言及"だけでは挿入しない（給与/仕事/資格の記事で過剰に入りやすい）
+const CAREER_KEYWORD_REGEX = /求人|就職|応募|志望動機|面接|履歴書|職務経歴書|エージェント|紹介会社|内定|入社|career|job|apply|interview/
 
 const REFERENCE_MAPPINGS = [
   {
