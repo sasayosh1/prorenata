@@ -309,12 +309,31 @@ function generateFallbackH3Paragraph({ articleTitle, sectionTitle, h3Text, bulle
 function buildFallbackSummaryBlocks({ articleTitle, summaryBlocks, leadingBlocks }) {
   const { randomUUID } = require('crypto')
 
+  const stableIndex = (seed = '', mod = 1) => {
+    const str = String(seed || '')
+    let hash = 0
+    for (let i = 0; i < str.length; i += 1) {
+      hash = (hash * 31 + str.charCodeAt(i)) >>> 0
+    }
+    return mod > 0 ? hash % mod : 0
+  }
+
   const getText = block =>
     stripFormatting(
       (block?.children || [])
         .map(child => child?.text || '')
         .join('')
     )
+
+  const topicCandidates = []
+  leadingBlocks.forEach(block => {
+    if (!block || block._type !== 'block') return
+    if (block.style !== 'h2' && block.style !== 'h3') return
+    const text = getText(block)
+    if (!text) return
+    if (/^(まとめ|参考資料|参考|免責|注意|次のステップ)$/i.test(text)) return
+    if (!topicCandidates.includes(text)) topicCandidates.push(text)
+  })
 
   const bulletCandidates = summaryBlocks
     .filter(block => block && (block.listItem === 'bullet' || block.style === 'h3'))
@@ -353,6 +372,66 @@ function buildFallbackSummaryBlocks({ articleTitle, summaryBlocks, leadingBlocks
     }
   })
 
+  const topics = topicCandidates.slice(0, 5)
+  const focus = topics.length > 0 ? topics[stableIndex(articleTitle, topics.length)] : ''
+  const focusTextRaw = focus && focus.length <= 28 ? focus : ''
+
+  const shortTitle = String(articleTitle || '')
+    .replace(/（[^）]*）/g, '')
+    .replace(/【[^】]*】/g, '')
+    .split(/[：:｜|]/)[0]
+    .trim()
+  const shortTitleText = truncateText(shortTitle, 32)
+
+  const hintPieces = highlights.slice(0, 2).map(h => truncateText(h, 28))
+  const hintText = hintPieces.filter(Boolean).join('・')
+
+  const openingTemplates = [
+    ({ shortTitleText: st, focusTextRaw: f, hintText: h }) => {
+      const focus = f || (st ? st : '')
+      if (focus && h) return `この記事では「${focus}」を軸に、${h}などのポイントを整理しました。`
+      if (focus) return `この記事では「${focus}」で押さえたいコツを、看護助手の視点でまとめました。`
+      return 'この記事では、現場で押さえたいコツを、看護助手の視点でまとめました。'
+    },
+    ({ shortTitleText: st, hintText: h }) => {
+      if (h) return `忙しい日でも取り入れやすい工夫として、${h}を中心にまとめました。`
+      if (st) return `「${st}」のテーマで、今日から試しやすい工夫をまとめました。`
+      return '今日から試しやすい工夫をまとめました。'
+    },
+    ({ focusTextRaw: f, hintText: h }) => {
+      if (f) return `「${f}」の場面でつまずきやすい点を、無理のない手順に落とし込みました。`
+      if (h) return `${h}を手がかりに、無理のない進め方を整理しました。`
+      return '無理のない進め方を整理しました。'
+    },
+    ({ shortTitleText: st, hintText: h }) => {
+      if (st && h) return `「${st}」について、${h}を中心にポイントを絞って整理しました。`
+      if (st) return `「${st}」について、現場で役立つ考え方を短く整理しました。`
+      if (h) return `${h}を中心に、今日から使えるコツを整理しました。`
+      return '現場で役立つ考え方を短く整理しました。'
+    },
+    ({ focusTextRaw: f, hintText: h }) => {
+      if (f && h) return `「${f}」の場面で、${h}をどう使うかを整理しました。`
+      if (f) return `「${f}」の場面で、やり方を迷ったときの考え方をまとめました。`
+      if (h) return `${h}のポイントを、ひとつずつ確認できる形にしました。`
+      return 'やり方を迷ったときの考え方をまとめました。'
+    }
+  ]
+  const closingTemplates = [
+    () =>
+      '全部を一度に変えなくても大丈夫です。気になるところをひとつ選んで、小さく試してみてくださいね。',
+    () =>
+      '迷ったら、今の状況と困っている点を短く共有してみましょう。チームで揃えるだけでも、動きやすくなることがあります。',
+    () =>
+      '不安が強い日は、優先順位をひとつに絞るのも手です。今日の勤務につながる一歩から始めていきましょう。'
+    ,
+    () =>
+      '急がなくて大丈夫です。できそうなところから一つだけ選んで、次の勤務で試してみましょう。',
+    () =>
+      'うまくいかない日があっても大丈夫です。続けやすい形に整えながら、少しずつ自分の型にしていきましょう。',
+    () =>
+      '「いま一番困っていること」だけでも言葉にできると、相談もしやすくなります。無理のない範囲で整えていきましょう。'
+  ]
+
   const makeParagraph = text => ({
     _type: 'block',
     _key: `summary-${randomUUID()}`,
@@ -387,19 +466,38 @@ function buildFallbackSummaryBlocks({ articleTitle, summaryBlocks, leadingBlocks
 
   const result = []
   result.push(
-    makeParagraph(`${articleTitle}でお伝えした内容を振り返ると、日々の現場で大切にしたいポイントが幾つか見えてきます。`)
+    makeParagraph(
+      openingTemplates[stableIndex(articleTitle, openingTemplates.length)]({
+        shortTitleText,
+        focusTextRaw,
+        hintText
+      })
+    )
   )
 
   if (highlights.length > 0) {
-    result.push(makeParagraph('すぐに試しやすい行動のヒントは次の通りです。'))
+    const introCandidates = [
+      'まずは、今日の勤務で試しやすい順に並べると、次のようになります。',
+      'すぐに形にしやすい工夫を、3つに絞ると次の通りです。',
+      '忙しい日でも取り入れやすいヒントは、次の通りです。'
+    ]
+    result.push(makeParagraph(introCandidates[stableIndex(`${articleTitle}-intro`, introCandidates.length)]))
     highlights.slice(0, 3).forEach(text => result.push(makeBullet(text)))
   }
 
-  result.push(
-    makeParagraph('あわてず一歩ずつ、チームと情報を共有しながら進めれば大丈夫です。今日の学びを小さく実践し、次の勤務につなげていきましょう。')
-  )
+  result.push(makeParagraph(closingTemplates[stableIndex(`${articleTitle}-close`, closingTemplates.length)]()))
 
   return result
+}
+
+function isGenericFallbackSummaryText(text = '') {
+  if (!text) return false
+  const needles = [
+    'でお伝えした内容を振り返ると',
+    'あわてず一歩ずつ',
+    'すぐに試しやすい行動のヒントは次の通りです'
+  ]
+  return needles.some(needle => text.includes(needle))
 }
 
 
@@ -1283,13 +1381,33 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
 
   // Gemini APIが利用できない場合は、H3を削除するのみ
   if (!geminiModel) {
+    const summaryText = summaryBlocks
+      .filter(b => b && b._type === 'block')
+      .map(b => b.children?.map(c => c.text || '').join('').trim())
+      .filter(Boolean)
+      .join('\n')
+
+    const hasH3InSummary = summaryBlocks.some(b => b && b._type === 'block' && b.style === 'h3')
+    const shouldRegenerate =
+      summaryBlocks.length === 0 || isGenericFallbackSummaryText(summaryText)
+
+    // 原則: Geminiが無い場合は「まとめ」を勝手に置き換えない（差分最小）
+    // ただし、テンプレまとめ・空に近い場合のみフォールバックで再生成する
+    if (!shouldRegenerate && !hasH3InSummary) {
+      return blocks
+    }
+
+    const cleanedSummaryBlocks = shouldRegenerate
+      ? buildFallbackSummaryBlocks({
+          articleTitle: title,
+          summaryBlocks,
+          leadingBlocks: blocks.slice(0, summaryIndex)
+        })
+      : summaryBlocks.filter(b => !(b && b._type === 'block' && b.style === 'h3'))
+
     const result = [
       ...blocks.slice(0, summaryIndex + 1),
-      ...buildFallbackSummaryBlocks({
-        articleTitle: title,
-        summaryBlocks,
-        leadingBlocks: blocks.slice(0, summaryIndex)
-      })
+      ...cleanedSummaryBlocks
     ]
 
     if (nextSectionIndex !== -1) {
