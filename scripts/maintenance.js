@@ -4341,6 +4341,13 @@ async function autoFixMetadata() {
         sourceLinkAdded = sourceLinkResult.addedSource
       }
     }
+    // 出典は「まとめ」内に置かない（後段で追加されても安全側で除去）
+    if (post.body && Array.isArray(updates.body || post.body)) {
+      const finalReferenceCleanup = removeReferencesAfterSummary(updates.body || post.body)
+      if (finalReferenceCleanup.removed > 0) {
+        updates.body = finalReferenceCleanup.body
+      }
+    }
 
       if (shouldInsertComparisonLink) {
         const comparisonLinkResult = ensureResignationComparisonLink(updates.body || post.body, post, { force: true })
@@ -5268,6 +5275,13 @@ async function sanitizeAllBodies(options = {}) {
           sourceLinkAdded = sourceResult.addedSource
           bodyChanged = true
         }
+      }
+      // 出典は「まとめ」内に置かない（後段で追加されても安全側で除去）
+      const finalReferenceCleanup = removeReferencesAfterSummary(body)
+      if (finalReferenceCleanup.removed > 0) {
+        body = finalReferenceCleanup.body
+        summaryAdjusted = true
+        bodyChanged = true
       }
 
       if (shouldInsertComparisonLink) {

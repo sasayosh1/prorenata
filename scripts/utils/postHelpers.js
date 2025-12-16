@@ -2098,7 +2098,6 @@ async function addSourceLinksToArticle(blocks, title, currentPost = null) {
     return { body: blocks, addedSource: null }
   }
 
-  let summaryEndIndex = -1
   let summaryStartIndex = -1
 
   for (let i = 0; i < blocks.length; i++) {
@@ -2108,14 +2107,13 @@ async function addSourceLinksToArticle(blocks, title, currentPost = null) {
 
       if (h2Text === 'まとめ') {
         summaryStartIndex = i
-      } else if (summaryStartIndex !== -1 && i > summaryStartIndex) {
-        summaryEndIndex = i
-        break
       }
     }
   }
 
-  const insertPosition = summaryEndIndex !== -1 ? summaryEndIndex : blocks.length
+  // まとめセクション内（および直後）に参考を置くのは禁止。
+  // 参考リンクは原則として各セクション末尾に置くが、最低限「まとめの前」に挿入してUXを守る。
+  const insertPosition = summaryStartIndex !== -1 ? summaryStartIndex : blocks.length
 
   const linkMarkKey = `link-${randomUUID()}`
   const sourceBlock = {
