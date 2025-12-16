@@ -1,0 +1,126 @@
+name: Weekly Summary Personalize (Gemini)
+
+on:
+  schedule:
+    # 毎週木曜日 AM11:00 JST (木曜日 02:00 UTC)
+    - cron: '0 2 * * 4'
+  workflow_dispatch:
+
+concurrency:
+  group: repo-write-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  summary-personalize:
+    runs-on: ubuntu-latest
+
+    env:
+      GEMINI_BUDGET_JPY: '100'
+      GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '0.2'
+      SUMMARY_PERSONALIZE_LIMIT: '10'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies (include dev)
+        run: npm ci --include=dev
+
+      - name: Read analytics/health.json
+        id: health
+        run: |
+          if [ ! -f analytics/health.json ]; then
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "reason=missing_health_json" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          node -e 'const fs=require("fs");const h=JSON.parse(fs.readFileSync("analytics/health.json","utf8"));process.stdout.write("ok="+(h.ok===true?"true":"false")+"\\n");process.stdout.write("reason="+String(h.reason??"")+"\\n");process.stdout.write("checkedAt="+String(h.checkedAt??"")+"\\n");' >> "$GITHUB_OUTPUT"
+
+      - name: Create issue if skipped (analytics unhealthy)
+        if: steps.health.outputs.ok != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '🧾 Summary personalize skipped (analytics unhealthy)';
+            const fs = require('fs');
+            let details = '';
+            try {
+              const h = JSON.parse(fs.readFileSync('analytics/health.json', 'utf8'));
+              details = '```json\n' + JSON.stringify(h, null, 2) + '\n```';
+            } catch (e) {
+              details = 'health.json not available';
+            }
+            const body = `## Summary Personalize\n\nanalytics/health.json が OK ではないため、まとめの個別化をスキップしました。\n\n- Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\n${details}`;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            if (issues.data.some(i => i.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['automated', 'summary'],
+            });
+
+      - name: Determine budget month (UTC)
+        if: steps.health.outputs.ok == 'true'
+        id: budget_month
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Gemini budget state
+        if: steps.health.outputs.ok == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .budget
+          key: gemini-budget-${{ runner.os }}-${{ github.repository }}-${{ steps.budget_month.outputs.month }}-${{ github.run_id }}
+          restore-keys: |
+            gemini-budget-${{ runner.os }}-${{ github.repository }}-${{ steps.budget_month.outputs.month }}-
+            gemini-budget-${{ runner.os }}-${{ github.repository }}-
+
+      - name: Budget guard (reserve)
+        if: steps.health.outputs.ok == 'true'
+        id: budget
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/budget-guard.cjs --reserve-articles "${SUMMARY_PERSONALIZE_LIMIT}"
+
+      - name: Personalize summaries (Gemini)
+        if: steps.health.outputs.ok == 'true' && steps.budget.outputs.allowed == 'true'
+        env:
+          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/summary-personalize.cjs --limit "${SUMMARY_PERSONALIZE_LIMIT}" --apply
+
+      - name: Commit progress file
+        if: steps.health.outputs.ok == 'true' && steps.budget.outputs.allowed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .analytics/summary-personalize-last-run.json || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: summary personalize ($(date -u +'%Y-%m-%d'))"
+            git pull --rebase --autostash origin main
+            git push
+          fi
+

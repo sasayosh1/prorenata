@@ -1,0 +1,195 @@
+{
+  "updatedAt": "2025-12-16T11:20:06.074Z",
+  "updated": 17,
+  "processed": {
+    "nursing-assistant-recommended-shoes": {
+      "personalizedAt": "2025-12-16T10:54:28.497Z"
+    },
+    "nursing-scholarship-interest-risk": {
+      "personalizedAt": "2025-12-16T10:54:32.693Z"
+    },
+    "nursing-assistant-resignation-advice-workplace": {
+      "personalizedAt": "2025-12-16T11:06:45.974Z"
+    },
+    "nursing-assistant-career-change-compass": {
+      "personalizedAt": "2025-12-16T10:54:41.732Z"
+    },
+    "nursing-assistant-patient-safety": {
+      "personalizedAt": "2025-12-16T11:02:03.410Z"
+    },
+    "nursing-assistant-mental-care-patient": {
+      "personalizedAt": "2025-12-16T10:54:53.627Z"
+    },
+    "nursing-assistant-mental-care": {
+      "personalizedAt": "2025-12-16T10:55:00.640Z"
+    },
+    "nursing-assistant-job-role-patient": {
+      "personalizedAt": "2025-12-16T11:04:50.714Z"
+    },
+    "nursing-assistant-mental-care-stress": {
+      "personalizedAt": "2025-12-16T10:55:10.860Z"
+    },
+    "nursing-assistant-mental-care-insights": {
+      "personalizedAt": "2025-12-16T10:55:14.851Z"
+    },
+    "nursing-assistant-patient-safety-insights": {
+      "skippedAt": "2025-12-16T11:17:51.318Z",
+      "reason": "missing_anchors"
+    },
+    "nursing-assistant-mental-care-compass": {
+      "personalizedAt": "2025-12-16T11:17:58.192Z"
+    },
+    "nursing-assistant-mental-care-journey": {
+      "personalizedAt": "2025-12-16T11:14:47.907Z"
+    },
+    "nursing-assistant-workplace-fit": {
+      "skippedAt": "2025-12-16T11:17:58.193Z",
+      "reason": "missing_anchors"
+    },
+    "nursing-assistant-care-guide": {
+      "skippedAt": "2025-12-16T11:17:58.193Z",
+      "reason": "missing_anchors"
+    },
+    "nursing-assistant-hospital-roles-explained": {
+      "personalizedAt": "2025-12-16T11:08:14.096Z"
+    },
+    "nursing-assistant-duties-scope": {
+      "personalizedAt": "2025-12-16T11:08:18.194Z"
+    },
+    "nursing-assistant-recommended-options": {
+      "personalizedAt": "2025-12-16T11:08:22.134Z"
+    },
+    "nursing-assistant-job-fulfillment": {
+      "personalizedAt": "2025-12-16T11:08:27.889Z"
+    },
+    "nursing-assistant-job-description-beginners": {
+      "personalizedAt": "2025-12-16T11:08:35.223Z"
+    },
+    "nursing-assistant-care-guide-insights": {
+      "personalizedAt": "2025-12-16T11:08:39.241Z"
+    },
+    "nursing-assistant-starting-salary-comparison": {
+      "personalizedAt": "2025-12-16T11:08:45.236Z"
+    },
+    "nursing-assistant-salary-differences": {
+      "personalizedAt": "2025-12-16T11:14:51.929Z"
+    },
+    "nursing-assistant-night-shift-allowance": {
+      "personalizedAt": "2025-12-16T11:08:56.994Z"
+    },
+    "nursing-assistant-salary-living-expenses": {
+      "personalizedAt": "2025-12-16T11:14:55.939Z"
+    },
+    "nursing-assistant-no-experience-insights": {
+      "personalizedAt": "2025-12-16T11:18:02.993Z"
+    },
+    "nursing-assistant-qualification-study-insights": {
+      "personalizedAt": "2025-12-16T11:09:13.300Z"
+    },
+    "nursing-assistant-motivation-letter-examples": {
+      "personalizedAt": "2025-12-16T11:18:07.740Z"
+    },
+    "nursing-assistant-qualifications-skills": {
+      "personalizedAt": "2025-12-16T11:09:25.792Z"
+    },
+    "nursing-assistant-qualification-study": {
+      "personalizedAt": "2025-12-16T11:15:12.983Z"
+    },
+    "nursing-assistant-interview-questions-answers": {
+      "personalizedAt": "2025-12-16T11:09:35.960Z"
+    },
+    "nursing-assistant-motivation-letter-samples": {
+      "personalizedAt": "2025-12-16T11:15:16.922Z"
+    },
+    "nursing-assistant-interview-tips-insights": {
+      "personalizedAt": "2025-12-16T11:18:12.305Z"
+    },
+    "nursing-assistant-motivation-fulfillment": {
+      "personalizedAt": "2025-12-16T11:09:52.226Z"
+    },
+    "nursing-assistant-short-motivation-letter": {
+      "personalizedAt": "2025-12-16T11:15:26.896Z"
+    },
+    "nursing-assistant-resignation-advice-top": {
+      "personalizedAt": "2025-12-16T11:18:20.777Z"
+    },
+    "nursing-assistant-tough-night-shifts": {
+      "personalizedAt": "2025-12-16T11:10:12.097Z"
+    },
+    "nursing-assistant-quitting-relationships": {
+      "personalizedAt": "2025-12-16T11:18:26.360Z"
+    },
+    "nursing-assistant-salary-difference-nurses": {
+      "personalizedAt": "2025-12-16T11:10:23.402Z"
+    },
+    "nursing-assistant-become-nurse-method": {
+      "personalizedAt": "2025-12-16T11:10:29.503Z"
+    },
+    "nursing-assistant-care-guide-journey": {
+      "personalizedAt": "2025-12-16T11:10:33.540Z"
+    },
+    "nursing-assistant-care-guide-support": {
+      "personalizedAt": "2025-12-16T11:10:39.744Z"
+    },
+    "nursing-assistant-benefits-becoming-nurse": {
+      "personalizedAt": "2025-12-16T11:18:33.827Z"
+    },
+    "nursing-assistant-role-boundaries": {
+      "personalizedAt": "2025-12-16T11:18:47.075Z"
+    },
+    "nursing-assistant-future-prospects": {
+      "personalizedAt": "2025-12-16T11:10:55.324Z"
+    },
+    "nursing-assistant-future-job-experience": {
+      "personalizedAt": "2025-12-16T11:18:56.194Z"
+    },
+    "nursing-assistant-anxious-future-advice": {
+      "personalizedAt": "2025-12-16T11:19:04.433Z"
+    },
+    "nursing-assistant-long-term": {
+      "personalizedAt": "2025-12-16T11:11:15.652Z"
+    },
+    "nursing-assistant-career-plan-method": {
+      "personalizedAt": "2025-12-16T11:19:09.728Z"
+    },
+    "nursing-assistant-day-psychiatric-ward": {
+      "personalizedAt": "2025-12-16T11:11:25.710Z"
+    },
+    "nursing-assistant-day-surgical-ward": {
+      "personalizedAt": "2025-12-16T11:11:31.746Z"
+    },
+    "nursing-assistant-morning-routine": {
+      "personalizedAt": "2025-12-16T11:19:19.813Z"
+    },
+    "nursing-assistant-job-role-market": {
+      "personalizedAt": "2025-12-16T11:19:30.894Z"
+    },
+    "nursing-assistant-psychiatric-ward-duties": {
+      "personalizedAt": "2025-12-16T11:11:47.734Z"
+    },
+    "nursing-assistant-salary-increase-nurse": {
+      "personalizedAt": "2025-12-16T11:11:53.827Z"
+    },
+    "nursing-assistant-real-salary-example": {
+      "personalizedAt": "2025-12-16T11:11:57.786Z"
+    },
+    "nursing-assistant-qualification-study-recommended": {
+      "personalizedAt": "2025-12-16T11:12:06.866Z"
+    },
+    "nursing-assistant-career-change-no": {
+      "personalizedAt": "2025-12-16T11:19:40.792Z"
+    },
+    "nursing-assistant-interview-tips": {
+      "personalizedAt": "2025-12-16T11:19:49.762Z"
+    },
+    "nursing-assistant-quit-experiences": {
+      "personalizedAt": "2025-12-16T11:12:24.847Z"
+    },
+    "nursing-assistant-night-shift-duties": {
+      "personalizedAt": "2025-12-16T11:19:57.010Z"
+    },
+    "nursing-assistant-stress-ranking": {
+      "personalizedAt": "2025-12-16T11:20:06.074Z"
+    }
+  }
+}

@@ -204,6 +204,7 @@ async function main() {
     appendGithubOutput('budget_jpy', context.budgetJpy);
     appendGithubOutput('spent_jpy', context.spentJpy);
     appendGithubOutput('projected_jpy', context.projectedJpy);
+    console.log('allowed=false');
     process.exit(0);
   }
 
@@ -233,6 +234,7 @@ async function main() {
   appendGithubOutput('budget_jpy', context.budgetJpy);
   appendGithubOutput('spent_jpy', roundJpy(state.spentJpy));
   appendGithubOutput('projected_jpy', context.projectedJpy);
+  console.log('allowed=true');
 }
 
 main().catch((error) => {
@@ -268,4 +270,3 @@ main().catch((error) => {
   appendGithubOutput('allowed', 'false');
   process.exit(0);
 });
-
