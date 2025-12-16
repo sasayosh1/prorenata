@@ -113,7 +113,12 @@ function buildArticleContext(blocks, summaryIndex) {
       if (text) lines.push(text)
     }
   }
-  return normalizeText(lines.join('\n')).slice(0, 2200)
+  const full = normalizeText(lines.join('\n'))
+  // コストを抑えつつ品質を上げるため、先頭と末尾（まとめ直前）をバランス良く渡す
+  if (full.length <= 2200) return full
+  const head = full.slice(0, 1200)
+  const tail = full.slice(Math.max(0, full.length - 1200))
+  return normalizeText(`${head}\n${tail}`).slice(0, 2400)
 }
 
 function splitToPortableTextParagraphs({ summary, follow }) {
