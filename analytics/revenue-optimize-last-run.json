@@ -1,0 +1,219 @@
+{
+  "ranAt": "2025-12-16T03:17:57.561Z",
+  "apply": true,
+  "rangeUtc": {
+    "startIso": "2025-12-09",
+    "endIso": "2025-12-15"
+  },
+  "limit": 10,
+  "thresholds": {
+    "targetCtr": 0.03,
+    "targetDurationSec": 45
+  },
+  "selected": [
+    {
+      "slug": "nursing-assistant-essentials-checklist",
+      "score": 83.86858595555556,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 83,
+        "ctr": 0
+      },
+      "ga4": {
+        "sessions": 1,
+        "avgSessionDuration": 5.913632
+      }
+    },
+    {
+      "slug": "nursing-assistant-resume-writing",
+      "score": 78,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 78,
+        "ctr": 0
+      },
+      "ga4": null
+    },
+    {
+      "slug": "nursing-assistant-interview-prep",
+      "score": 35.872934622222225,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 35,
+        "ctr": 0
+      },
+      "ga4": {
+        "sessions": 1,
+        "avgSessionDuration": 5.717942
+      }
+    },
+    {
+      "slug": "nursing-assistant-stressful-relationships-solutions",
+      "score": 33,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0
+      },
+      "ga4": {
+        "sessions": 1,
+        "avgSessionDuration": 0
+      }
+    },
+    {
+      "slug": "nursing-assistant-patient-transfer-safety",
+      "score": 16,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 16,
+        "ctr": 0
+      },
+      "ga4": {
+        "sessions": 2,
+        "avgSessionDuration": 76.245941
+      }
+    },
+    {
+      "slug": "nursing-assistant-become-nurse-guide",
+      "score": 14,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0
+      },
+      "ga4": null
+    },
+    {
+      "slug": "nursing-assistant-suitable-person-characteristics",
+      "score": 13,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0
+      },
+      "ga4": null
+    },
+    {
+      "slug": "nursing-assistant-job-change-manual",
+      "score": 12,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0
+      },
+      "ga4": null
+    },
+    {
+      "slug": "nursing-assistant-aptitude-test",
+      "score": 11,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0
+      },
+      "ga4": null
+    },
+    {
+      "slug": "nursing-assistant-daily-schedule",
+      "score": 7,
+      "gsc": {
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0
+      },
+      "ga4": null
+    }
+  ],
+  "results": [
+    {
+      "slug": "nursing-assistant-essentials-checklist",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-resume-writing",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-interview-prep",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-stressful-relationships-solutions",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-patient-transfer-safety",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-become-nurse-guide",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-suitable-person-characteristics",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-job-change-manual",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-aptitude-test",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    },
+    {
+      "slug": "nursing-assistant-daily-schedule",
+      "status": "updated",
+      "changes": [
+        "insert:intro",
+        "insert:middle",
+        "insert:end"
+      ]
+    }
+  ]
+}
