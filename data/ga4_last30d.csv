@@ -33,6 +33,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251212,/,desktop,Japan,4,2,31,0.75,254.9018625
 20251212,/posts/nursing-assistant-care-guide-toolbox,desktop,Japan,4,2,25,0.5,8.111350999999999
 20251214,/,desktop,Japan,4,2,15,0.75,205.3176215
+20251216,/,desktop,Japan,4,1,28,1.0,47.54136975
+20251216,/posts/nursing-assistant-psychiatric-ward-duties,desktop,Japan,4,1,17,0.75,11.397993
 20251117,/,desktop,Japan,3,1,41,1.0,1383.2402686666667
 20251117,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,3,1,11,0.6666666666666666,1.9761003333333333
 20251128,/,desktop,Japan,3,2,53,1.0,613.6898043333333
@@ -54,6 +56,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251210,/posts/nursing-assistant-salary-differences,desktop,Japan,3,1,20,0.6666666666666666,437.91441333333336
 20251212,/posts/nursing-assistant-salary-differences,desktop,Japan,3,1,13,0.6666666666666666,3.961354666666667
 20251215,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,2,19,0.6666666666666666,247.02033633333335
+20251216,/posts/nursing-assistant-patient-safety-insights,desktop,Japan,3,1,24,0.6666666666666666,55.496592666666665
+20251216,/tags,desktop,Japan,3,1,31,0.6666666666666666,573.7582103333333
 20251117,/quiz,desktop,Japan,2,1,43,1.0,99.997523
 20251117,/quiz/rankings,desktop,Japan,2,1,57,1.0,48.8828295
 20251119,/posts/nursing-assistant-night-shift-duties,desktop,Japan,2,1,20,0.5,19.536954
@@ -101,12 +105,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251214,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,2,1,17,1.0,21.5091345
 20251214,/posts/nursing-assistant-long-term-mindset,mobile,Japan,2,1,7,0.0,2.911928
 20251215,/posts/nursing-assistant-patient-safety,desktop,Japan,2,2,10,0.5,5.4468049999999995
-20251116,/,desktop,Japan,1,1,1,1.0,12.126769
-20251116,"/posts/<a href=""/af.moshimo.com/af/c/click",desktop,Japan,1,1,19,1.0,26.601203
-20251116,"/posts/<a href=""/ck.jp.ap.valuecommerce.com/servlet/referral",desktop,Japan,1,1,9,1.0,53.439094
-20251116,"/posts/<a href=""https:/px.a8.net/svt/ejp",desktop,Japan,1,1,4,1.0,2.954466
-20251116,/posts/comparison-of-three-resignation-agencies,desktop,Japan,1,1,17,1.0,728.789259
-20251116,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,1,1,4,1.0,7.864736
+20251216,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,2,2,2,1.0,11.279656
+20251216,/search,desktop,Japan,2,2,4,1.0,7.231834
 20251117,/about,desktop,Japan,1,1,1,1.0,4.792177
 20251117,/categories,desktop,Japan,1,1,1,1.0,1.264868
 20251117,/categories/job-description,desktop,Japan,1,1,1,1.0,0.0
@@ -338,3 +338,19 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251215,/posts/nursing-assistant-recommended-shoes,desktop,Japan,1,1,5,1.0,1.764635
 20251215,/posts/nursing-assistant-salary-update-career,desktop,Japan,1,1,4,1.0,1.629373
 20251215,/posts/nursing-scholarship-interest-risk,desktop,Japan,1,1,4,1.0,0.89868
+20251216,/about,desktop,Japan,1,1,1,1.0,4.300136
+20251216,/categories,desktop,Japan,1,1,2,1.0,14.422115
+20251216,/posts/comparison-of-three-resignation-agencies,desktop,Japan,1,1,1,1.0,4.875628
+20251216,/posts/nursing-assistant-care-guide-toolbox,desktop,Japan,1,1,1,1.0,11.159319
+20251216,/posts/nursing-assistant-career-change-support,desktop,Japan,1,1,1,1.0,5.009701
+20251216,/posts/nursing-assistant-job-change-steps,desktop,Japan,1,1,1,1.0,0.0
+20251216,/posts/nursing-assistant-patient-safety,desktop,Japan,1,1,18,1.0,31.483888
+20251216,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,1.0,203.333419
+20251216,/posts/nursing-assistant-quit-retirement,mobile,Japan,1,1,5,0.0,4.935548
+20251216,/posts/nursing-assistant-recruitment-agent-utilization,desktop,Japan,1,1,1,1.0,0.001407
+20251216,/posts/nursing-assistant-resignation-advice-workplace,desktop,Japan,1,1,1,1.0,5.003438
+20251216,/quiz,desktop,Japan,1,1,1,1.0,7.630895
+20251216,/quiz/rankings,desktop,Japan,1,1,1,1.0,27.088206
+20251216,/tags/certification,desktop,Japan,1,1,2,1.0,11.042522
+20251216,/tags/human-relationships,desktop,Japan,1,1,1,1.0,0.0
+20251216,/tags/infection-control,desktop,Japan,1,1,1,1.0,0.01079
