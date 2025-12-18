@@ -107,7 +107,7 @@ export default async function Home() {
                 >
                   {recentPosts
                     .filter((post) => post.slug?.current)
-                    .slice(0, 10)
+                    .slice(0, 3)
                     .map((post) => {
                       const displayTitle = sanitizeTitle(post.title)
                       const publishedDate = post.publishedAt || post._createdAt
