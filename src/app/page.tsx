@@ -1,10 +1,10 @@
-import { getAllPosts, type Post, formatPostDate, urlFor } from '@/lib/sanity'
+import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
 import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import PopularPosts from '@/components/PopularPosts'
 import HomeSearch from '@/components/HomeSearch'
+import HomePopularGrid from '@/components/HomePopularGrid'
 import { sanitizeTitle } from '@/lib/title'
 
 export const dynamic = 'force-dynamic'
@@ -15,7 +15,7 @@ export default async function Home() {
   let recentPosts: Post[] = []
 
   try {
-    const posts = await getAllPosts({ limit: 6 }) // 最新6記事に増やす（画像が増えて見栄えが良くなるため）
+    const posts = await getAllPosts({ limit: 12 })
     recentPosts = posts
   } catch (error) {
     console.error('Failed to load posts:', error)
@@ -85,127 +85,94 @@ export default async function Home() {
             <HomeSearch />
           </div>
 
-          {/* Blog Section */}
-          <div className="mb-16">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold leading-8 tracking-tight text-gray-900">
-                最新記事
-              </h2>
-              <Link
-                href="/posts"
-                className="text-cyan-600 hover:text-cyan-800 font-medium flex items-center gap-1 transition-colors"
-              >
-                すべて見る <span aria-hidden="true">&rarr;</span>
-              </Link>
-            </div>
-
-            {/* Recent Posts */}
-            {recentPosts.length > 0 ? (
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {recentPosts.filter(post => post.slug?.current).map((post) => {
-                  const { label } = formatPostDate(post)
-                  const displayTitle = sanitizeTitle(post.title)
-
-                  return (
-                    <Link href={`/posts/${post.slug.current}`} key={post._id} className="block h-full">
-                      <article className="flex flex-col h-full bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                        {/* Image Area */}
-                        <div className="h-48 bg-gray-100 relative overflow-hidden group">
-                          {post.mainImage ? (
-                            <Image
-                              src={urlFor(post.mainImage).width(800).height(600).url()}
-                              alt={post.title}
-                              fill
-                              className="object-cover transition-transform duration-500 group-hover:scale-105"
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            />
-                          ) : (
-                            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-100 to-blue-50 opacity-50 group-hover:scale-105 transition-transform duration-500"></div>
-                          )}
-                          <div className="absolute bottom-0 left-0 p-4 z-10">
-                            {post.categories && post.categories.length > 0 && (
-                              <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-cyan-700 text-xs font-bold rounded-full shadow-sm">
-                                {typeof post.categories[0] === 'string' ? post.categories[0] : post.categories[0]?.title}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="flex-1 p-6 flex flex-col">
-                          <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-cyan-600 transition-colors">
-                            {displayTitle}
-                          </h3>
-
-                          {post.excerpt && (
-                            <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
-                              {post.excerpt}
-                            </p>
-                          )}
-
-                          <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between text-xs text-gray-400">
-                            <time dateTime={post.publishedAt || post._createdAt}>
-                              {label}
-                            </time>
-                            <span className="text-cyan-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                              続きを読む
-                            </span>
-                          </div>
-                        </div>
-                      </article>
-                    </Link>
-                  )
-                })}
+          {/* Latest + Quiz (UX first) */}
+          <div className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-12">
+            {/* Latest posts: text-only */}
+            <section className="lg:col-span-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <h2 className="text-xl font-bold text-gray-900">最新記事</h2>
+                <Link href="/posts" className="text-cyan-700 hover:text-cyan-800 text-sm font-semibold">
+                  すべて見る →
+                </Link>
               </div>
-            ) : (
-              <div className="text-center py-12 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200">
-                <div className="text-gray-400 mb-4">
-                  <svg className="mx-auto h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-1">記事を読み込んでいます</h3>
-                <p className="text-gray-500">
-                  しばらくお待ちください。
-                </p>
-              </div>
-            )}
-          </div>
 
-          {/* 医療用語クイズセクション */}
-          <div className="mb-20">
-            <Link href="/quiz" className="block group">
-              <div className="relative overflow-hidden bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                {/* Decorative circles */}
-                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-white opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500"></div>
+              {recentPosts.length > 0 ? (
+                <ul className="divide-y divide-gray-100">
+                  {recentPosts
+                    .filter((post) => post.slug?.current)
+                    .slice(0, 10)
+                    .map((post) => {
+                      const displayTitle = sanitizeTitle(post.title)
+                      const publishedDate = post.publishedAt || post._createdAt
+                      const label = publishedDate ? new Date(publishedDate).toLocaleDateString('ja-JP') : ''
+                      const category =
+                        post.categories && post.categories.length > 0 ? post.categories[0]?.title || '' : ''
 
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0 bg-white/20 p-4 rounded-full backdrop-blur-sm">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1 text-center md:text-left text-white">
-                    <h3 className="text-2xl font-bold mb-3">
-                      医療用語クイズでスキルアップ
-                    </h3>
-                    <p className="text-cyan-50 text-lg opacity-90">
-                      現場で役立つ知識を、3択クイズで楽しくマスター。
-                      <br className="hidden md:inline" />毎日の積み重ねが、あなたの自信になります。
+                      return (
+                        <li key={post._id}>
+                          <Link href={`/posts/${post.slug.current}`} className="block py-3 group">
+                            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                              <div className="min-w-0">
+                                <div className="text-sm font-semibold text-gray-900 group-hover:text-cyan-700 transition-colors line-clamp-2">
+                                  {displayTitle}
+                                </div>
+                                {category && <div className="mt-1 text-xs text-gray-500">{category}</div>}
+                              </div>
+                              {label && (
+                                <time className="text-xs text-gray-400 shrink-0" dateTime={publishedDate || undefined}>
+                                  {label}
+                                </time>
+                              )}
+                            </div>
+                          </Link>
+                        </li>
+                      )
+                    })}
+                </ul>
+              ) : (
+                <div className="text-sm text-gray-500">記事を読み込んでいます…</div>
+              )}
+            </section>
+
+            {/* Medical quiz promo */}
+            <section className="lg:col-span-4">
+              <Link href="/quiz" className="block group h-full">
+                <div className="h-full relative overflow-hidden bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 -mr-24 -mt-24 w-72 h-72 rounded-full bg-white opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-72 h-72 rounded-full bg-white opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500"></div>
+
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-3">
+                      <div className="flex-shrink-0 bg-white/20 p-3 rounded-full backdrop-blur-sm">
+                        <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                      </div>
+                      <div className="text-white">
+                        <div className="text-sm font-semibold opacity-90">毎日3分で</div>
+                        <h3 className="text-xl font-bold">メディカルクイズ</h3>
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-cyan-50 opacity-95 leading-relaxed">
+                      現場でよく見る医療用語を、3択でサクッと確認。
+                      <br />
+                      ちょっとした自信が、明日の余裕につながります。
                     </p>
-                  </div>
-                  <div className="flex-shrink-0">
-                    <span className="inline-block px-6 py-3 bg-white text-cyan-700 font-bold rounded-full shadow-lg hover:bg-cyan-50 transition-colors">
-                      今すぐ挑戦する &rarr;
-                    </span>
+
+                    <div className="mt-auto pt-6">
+                      <span className="inline-block w-full text-center px-5 py-3 bg-white text-cyan-700 font-bold rounded-full shadow-lg hover:bg-cyan-50 transition-colors">
+                        今すぐ挑戦する →
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </section>
           </div>
 
-          {/* 人気記事ランキング */}
-          <PopularPosts limit={3} />
+          {/* Popular posts (GSC/GA4 + revenue-aware) */}
+          <HomePopularGrid limit={9} />
         </main>
       </div>
 
