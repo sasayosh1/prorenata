@@ -1,6 +1,8 @@
 const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { randomUUID } = require('crypto');
+const fs = require('fs');
+const path = require('path');
 const { SERA_FULL_PERSONA } = require('./utils/seraPersona');
 const {
   ensurePortableTextKeys,
@@ -21,6 +23,160 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Reverted to process.env.GE
 
 // --- Main Logic ---
 
+function parseCsv(content) {
+  const rows = [];
+  let row = [];
+  let field = '';
+  let inQuotes = false;
+
+  const pushField = () => {
+    row.push(field);
+    field = '';
+  };
+  const pushRow = () => {
+    rows.push(row);
+    row = [];
+  };
+
+  for (let i = 0; i < content.length; i++) {
+    const ch = content[i];
+
+    if (inQuotes) {
+      if (ch === '"') {
+        const next = content[i + 1];
+        if (next === '"') {
+          field += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        field += ch;
+      }
+      continue;
+    }
+
+    if (ch === '"') {
+      inQuotes = true;
+      continue;
+    }
+
+    if (ch === ',') {
+      pushField();
+      continue;
+    }
+
+    if (ch === '\r') continue;
+    if (ch === '\n') {
+      pushField();
+      pushRow();
+      continue;
+    }
+
+    field += ch;
+  }
+
+  pushField();
+  if (row.length > 1 || (row.length === 1 && row[0] !== '')) pushRow();
+
+  const header = rows.shift() || [];
+  const records = [];
+  for (const r of rows) {
+    if (r.length === 1 && r[0] === '') continue;
+    const rec = {};
+    for (let i = 0; i < header.length; i++) {
+      rec[header[i]] = r[i] ?? '';
+    }
+    records.push(rec);
+  }
+  return records;
+}
+
+function loadCsvRecords(filePath) {
+  if (!fs.existsSync(filePath)) return null;
+  const content = fs.readFileSync(filePath, 'utf8');
+  if (!content.trim()) return [];
+  return parseCsv(content);
+}
+
+function normalizeQueryForCompare(query) {
+  return String(query || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function pickTailFromText(text) {
+  const normalized = normalizeQueryForCompare(text);
+  if (!normalized) return 'long';
+  const tokens = normalized.split(' ').filter(Boolean);
+  const length = normalized.length;
+
+  if (tokens.length <= 1 && length <= 12) return 'short';
+  if (tokens.length <= 2 && length <= 22) return 'middle';
+  return 'long';
+}
+
+function toPathFromUrl(url) {
+  try {
+    const u = new URL(url);
+    return u.pathname || '/';
+  } catch {
+    return null;
+  }
+}
+
+function computeQueryScore({ impressions, ctr, position, ga4Sessions, ga4AvgDuration, ga4EngagementRate }) {
+  const imp = Number(impressions || 0);
+  if (!Number.isFinite(imp) || imp <= 0) return 0;
+
+  const safeCtr = Number.isFinite(ctr) ? Math.min(1, Math.max(0, ctr)) : 0;
+  const pos = Number.isFinite(position) ? position : 999;
+
+  // Prefer queries with visibility but underperforming CTR.
+  const ctrFactor = 0.2 + (1 - safeCtr); // keep a floor
+
+  // Prefer queries close enough to win (roughly positions 6-30).
+  let posFactor = 0.6;
+  if (pos <= 8) posFactor = 0.8;
+  else if (pos <= 20) posFactor = 1.2;
+  else if (pos <= 35) posFactor = 1.0;
+  else if (pos <= 60) posFactor = 0.7;
+
+  // GA4: if a page already gets sessions but engagement is low, a dedicated article can help.
+  const sessions = Number.isFinite(ga4Sessions) ? ga4Sessions : 0;
+  const duration = Number.isFinite(ga4AvgDuration) ? ga4AvgDuration : 0;
+  const engagement = Number.isFinite(ga4EngagementRate) ? ga4EngagementRate : null;
+  let gaFactor = 1.0;
+  if (sessions >= 10) {
+    if (duration > 0 && duration < 60) gaFactor *= 1.15;
+    if (engagement != null && engagement < 0.5) gaFactor *= 1.15;
+  }
+
+  return imp * ctrFactor * posFactor * gaFactor;
+}
+
+async function fetchSuggestQueries(seedQuery) {
+  const q = String(seedQuery || '').trim();
+  if (!q) return [];
+
+  const url = `https://suggestqueries.google.com/complete/search?client=firefox&hl=ja&q=${encodeURIComponent(q)}`;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 4000);
+
+  try {
+    const res = await fetch(url, { signal: controller.signal, headers: { 'user-agent': 'prorenata-bot' } });
+    if (!res.ok) return [];
+    const json = await res.json();
+    const list = Array.isArray(json) ? json[1] : [];
+    return Array.isArray(list) ? list.filter((s) => typeof s === 'string').slice(0, 10) : [];
+  } catch {
+    return [];
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function generateAndSaveArticle() {
   console.log("Starting daily article generation process...");
 
@@ -33,82 +189,201 @@ async function generateAndSaveArticle() {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" }); // バージョン固定、Proフォールバック防止、Vertex AI禁止
 
-  // 2. Select a topic
-  console.log("Selecting a topic...");
+  // 2. Select a topic/keyword
+  console.log("Selecting a topic/keyword...");
   let selectedTopic;
+  let selectedKeyword = null;
+  let targetTail = 'long'; // Default to long tail
   try {
-    const query = `*[_type == "post" && defined(tags)].tags`;
-    const tagsArrays = await sanityClient.fetch(query);
+    // Prefer data-driven keywords from GSC/GA4 exports (committed by daily analytics workflow).
+    const gscPath = path.join(process.cwd(), 'data', 'gsc_last30d.csv');
+    const ga4Path = path.join(process.cwd(), 'data', 'ga4_last30d.csv');
+    const gscRecords = loadCsvRecords(gscPath);
+    const ga4Records = loadCsvRecords(ga4Path);
+
+    // Fallback tag list (used when analytics files are missing).
+    const tagsArrays = await sanityClient.fetch(`*[_type == "post" && defined(tags)].tags`);
     const allTags = [].concat.apply([], tagsArrays);
-    const uniqueTags = [...new Set(allTags)];
-    if (uniqueTags.length === 0) {
-      console.error("No tags found to select a topic from.");
-      return;
+    const uniqueTags = [...new Set(allTags)].filter(Boolean);
+
+    if (gscRecords && gscRecords.length > 0 && ga4Records && ga4Records.length > 0) {
+      // Aggregate GA4 by pagePath
+      const ga4ByPath = new Map();
+      for (const r of ga4Records) {
+        const pagePath = r.pagePath || '/';
+        const sessions = Number(r.sessions || 0);
+        const avgDur = Number(r.averageSessionDuration || 0);
+        const engagement = Number(r.engagementRate || 0);
+        if (!ga4ByPath.has(pagePath)) {
+          ga4ByPath.set(pagePath, { sessions: 0, durationWeighted: 0, engagementWeighted: 0 });
+        }
+        const acc = ga4ByPath.get(pagePath);
+        acc.sessions += Number.isFinite(sessions) ? sessions : 0;
+        acc.durationWeighted += (Number.isFinite(sessions) ? sessions : 0) * (Number.isFinite(avgDur) ? avgDur : 0);
+        acc.engagementWeighted += (Number.isFinite(sessions) ? sessions : 0) * (Number.isFinite(engagement) ? engagement : 0);
+      }
+      for (const [p, acc] of ga4ByPath.entries()) {
+        const s = acc.sessions || 0;
+        ga4ByPath.set(p, {
+          sessions: s,
+          avgDuration: s > 0 ? acc.durationWeighted / s : 0,
+          engagementRate: s > 0 ? acc.engagementWeighted / s : 0,
+        });
+      }
+
+      // Aggregate GSC by query
+      const byQuery = new Map();
+      for (const r of gscRecords) {
+        const query = String(r.query || '').trim();
+        if (!query) continue;
+        if (/^https?:\/\//i.test(query)) continue;
+        if (query.length < 2) continue;
+
+        const impressions = Number(r.impressions || 0);
+        const clicks = Number(r.clicks || 0);
+        const position = Number(r.position || 0);
+
+        const pagePath = toPathFromUrl(r.page);
+        const ga = pagePath ? ga4ByPath.get(pagePath) : null;
+
+        if (!byQuery.has(query)) {
+          byQuery.set(query, {
+            query,
+            impressions: 0,
+            clicks: 0,
+            positionWeighted: 0,
+            positionWeight: 0,
+            ga4Sessions: 0,
+            ga4AvgDuration: null,
+            ga4EngagementRate: null,
+          });
+        }
+        const acc = byQuery.get(query);
+        acc.impressions += Number.isFinite(impressions) ? impressions : 0;
+        acc.clicks += Number.isFinite(clicks) ? clicks : 0;
+
+        if (Number.isFinite(impressions) && impressions > 0 && Number.isFinite(position) && position > 0) {
+          acc.positionWeighted += impressions * position;
+          acc.positionWeight += impressions;
+        }
+
+        if (ga && Number.isFinite(ga.sessions)) {
+          acc.ga4Sessions = Math.max(acc.ga4Sessions, ga.sessions);
+          acc.ga4AvgDuration = acc.ga4AvgDuration == null ? ga.avgDuration : Math.min(acc.ga4AvgDuration, ga.avgDuration);
+          acc.ga4EngagementRate =
+            acc.ga4EngagementRate == null ? ga.engagementRate : Math.min(acc.ga4EngagementRate, ga.engagementRate);
+        }
+      }
+
+      const existingTitles = await sanityClient.fetch(`*[_type == "post" && defined(title)].title`);
+      const titleList = Array.isArray(existingTitles) ? existingTitles : [];
+      const existingTitleSet = new Set(titleList.map((t) => normalizeQueryForCompare(t)));
+
+      // Determine keyword tail type (Short/Middle/Long) based on existing title distribution.
+      const tailCount = { short: 0, middle: 0, long: 0 };
+      titleList.forEach((title) => {
+        const length = String(title || '').length;
+        if (length <= 30) tailCount.short++;
+        else if (length <= 45) tailCount.middle++;
+        else tailCount.long++;
+      });
+
+      const total = Math.max(1, titleList.length);
+      const shortPercent = (tailCount.short / total) * 100;
+      const middlePercent = (tailCount.middle / total) * 100;
+      const longPercent = (tailCount.long / total) * 100;
+
+      // Target ratios from CLAUDE.md (Short 1 : Middle 3 : Long 5)
+      const targetShort = 12.5; // 10-15%
+      const targetMiddle = 37.5; // 35-40%
+      const targetLong = 50; // 45-55%
+
+      const shortDiff = targetShort - shortPercent;
+      const middleDiff = targetMiddle - middlePercent;
+      const longDiff = targetLong - longPercent;
+
+      console.log(
+        `現在のテール分布: ショート${shortPercent.toFixed(1)}%, ミドル${middlePercent.toFixed(1)}%, ロング${longPercent.toFixed(1)}%`
+      );
+      console.log(`目標比率: ショート${targetShort}%, ミドル${targetMiddle}%, ロング${targetLong}%`);
+
+      if (longDiff > 0 && longDiff >= middleDiff && longDiff >= shortDiff) {
+        targetTail = 'long';
+        console.log(`テールバランス調整: ロングテール優先（${longDiff.toFixed(1)}%不足）`);
+      } else if (middleDiff > 0 && middleDiff >= shortDiff) {
+        targetTail = 'middle';
+        console.log(`テールバランス調整: ミドルテール優先（${middleDiff.toFixed(1)}%不足）`);
+      } else if (shortDiff > 0) {
+        targetTail = 'short';
+        console.log(`テールバランス調整: ショートテール優先（${shortDiff.toFixed(1)}%不足）`);
+      } else {
+        targetTail = 'long';
+        console.log(`テールバランス調整: すべて適正範囲、ロングテール生成（SEO最優先）`);
+      }
+
+      const scored = [];
+      for (const acc of byQuery.values()) {
+        const ctr = acc.impressions > 0 ? acc.clicks / acc.impressions : 0;
+        const position = acc.positionWeight > 0 ? acc.positionWeighted / acc.positionWeight : 999;
+        const score = computeQueryScore({
+          impressions: acc.impressions,
+          ctr,
+          position,
+          ga4Sessions: acc.ga4Sessions,
+          ga4AvgDuration: acc.ga4AvgDuration ?? 0,
+          ga4EngagementRate: acc.ga4EngagementRate ?? 0,
+        });
+
+        scored.push({ ...acc, ctr, position, score, tail: pickTailFromText(acc.query) });
+      }
+      scored.sort((a, b) => b.score - a.score);
+
+      // Try to pick a keyword that hasn't been used in a title yet.
+      const pickNew = (candidates) =>
+        candidates.find((c) => !existingTitleSet.has(normalizeQueryForCompare(c.query))) || candidates[0] || null;
+      const topCandidates = scored.filter((c) => c.tail === targetTail).slice(0, 50);
+      const picked = pickNew(topCandidates);
+      selectedKeyword = picked ? picked.query : (scored[0]?.query || null);
+
+      // Optional: expand via suggest, then re-pick by tail match later.
+      const suggestions = await fetchSuggestQueries(selectedKeyword);
+      if (suggestions.length > 0) {
+        const suggestCandidates = suggestions
+          .map((s) => ({ query: s, tail: pickTailFromText(s) }))
+          .filter((s) => s.tail === targetTail)
+          .filter((s) => !existingTitleSet.has(normalizeQueryForCompare(s.query)));
+
+        // Prefer suggestions that include "看護助手" or are clearly nursing related if possible.
+        const nursingFirst =
+          suggestCandidates.find((s) => /看護助手|看護|患者|病棟|介護|医療|病院/.test(s.query)) || suggestCandidates[0];
+        if (nursingFirst?.query) selectedKeyword = nursingFirst.query;
+      }
+
+      // Keep topic tags simple and stable: pick from existing tags if possible.
+      if (uniqueTags.length > 0) {
+        selectedTopic = uniqueTags[Math.floor(Math.random() * uniqueTags.length)];
+      } else {
+        selectedTopic = '仕事';
+      }
+      console.log(`Keyword selected (GSC/GA4): "${selectedKeyword}"`);
+      console.log(`Topic tag selected: "${selectedTopic}"`);
+    } else {
+      if (uniqueTags.length === 0) {
+        console.error("No tags found to select a topic from.");
+        return;
+      }
+      const randomIndex = Math.floor(Math.random() * uniqueTags.length);
+      selectedTopic = uniqueTags[randomIndex];
+      selectedKeyword = `看護助手 ${selectedTopic}`;
+      console.log(`Topic selected (fallback): "${selectedTopic}"`);
+      console.log(`Keyword selected (fallback): "${selectedKeyword}"`);
     }
-    const randomIndex = Math.floor(Math.random() * uniqueTags.length);
-    selectedTopic = uniqueTags[randomIndex];
-    console.log(`Topic selected: "${selectedTopic}"`);
   } catch (error) {
     console.error("Error selecting topic from Sanity:", error);
     return;
   }
 
-  // 3. Determine keyword tail type (Short/Middle/Long)
-  console.log("Determining keyword tail type...");
-  let targetTail = 'long'; // Default to long tail
-  try {
-    const posts = await sanityClient.fetch(`*[_type == "post"] { title }`);
-
-    const tailCount = { short: 0, middle: 0, long: 0 };
-    posts.forEach(post => {
-      const length = post.title.length;
-      if (length <= 30) {
-        tailCount.short++;
-      } else if (length <= 45) {
-        tailCount.middle++;
-      } else {
-        tailCount.long++;
-      }
-    });
-
-    const total = posts.length;
-    const shortPercent = (tailCount.short / total) * 100;
-    const middlePercent = (tailCount.middle / total) * 100;
-    const longPercent = (tailCount.long / total) * 100;
-
-    // Target ratios from CLAUDE.md (Short 1 : Middle 3 : Long 5)
-    const targetShort = 12.5; // 10-15%
-    const targetMiddle = 37.5; // 35-40%
-    const targetLong = 50; // 45-55%
-
-    const shortDiff = targetShort - shortPercent;
-    const middleDiff = targetMiddle - middlePercent;
-    const longDiff = targetLong - longPercent;
-
-    console.log(`現在のテール分布: ショート${shortPercent.toFixed(1)}%, ミドル${middlePercent.toFixed(1)}%, ロング${longPercent.toFixed(1)}%`);
-    console.log(`目標比率: ショート${targetShort}%, ミドル${targetMiddle}%, ロング${targetLong}%`);
-
-    // Select most deficient tail type
-    if (longDiff > 0 && longDiff >= middleDiff && longDiff >= shortDiff) {
-      targetTail = 'long';
-      console.log(`テールバランス調整: ロングテール優先（${longDiff.toFixed(1)}%不足）`);
-    } else if (middleDiff > 0 && middleDiff >= shortDiff) {
-      targetTail = 'middle';
-      console.log(`テールバランス調整: ミドルテール優先（${middleDiff.toFixed(1)}%不足）`);
-    } else if (shortDiff > 0) {
-      targetTail = 'short';
-      console.log(`テールバランス調整: ショートテール優先（${shortDiff.toFixed(1)}%不足）`);
-    } else {
-      // All targets met, default to long tail (most valuable for SEO)
-      targetTail = 'long';
-      console.log(`テールバランス調整: すべて適正範囲、ロングテール生成（SEO最優先）`);
-    }
-  } catch (error) {
-    console.error('Error analyzing tail distribution:', error);
-    console.log('Defaulting to long tail...');
-  }
-
-  // 4. Generate content with Gemini
+  // 3. Generate content with Gemini
   console.log("Generating article content with Gemini AI...");
   console.log("Fetching 白崎セラ author document...");
   let authorReference;
@@ -161,8 +436,8 @@ async function generateAndSaveArticle() {
 ${SERA_FULL_PERSONA}
 
 # 記事要件
-- テーマ: 「看護助手と${selectedTopic}」
-- 文字数: 1500〜2200文字、Portable Textブロック形式
+- テーマ: 「${selectedKeyword}」（看護助手向け）
+- 文字数: 制限なし（読みやすさ最優先。冗長に伸ばさず、必要な情報を優先）
 - 構成: 導入 → H2見出し3〜4個 → まとめ
 - **重要**: まとめでは「次回〜」「お楽しみに」など次回への言及は不要
 - 実務的なアドバイス、断定回避（「〜とされています」等）。曖昧な情報は「わからない」と明記。
