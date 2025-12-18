@@ -315,7 +315,12 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
           const category = post.categories && post.categories.length > 0 ? post.categories[0]?.title : null
 
           return (
-            <Link key={post._id} href={href} className="group block h-full">
+            <Link
+              key={post._id}
+              href={href}
+              className="group block h-full no-underline"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
                   {post.mainImage ? (
@@ -354,4 +359,3 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     </section>
   )
 }
-

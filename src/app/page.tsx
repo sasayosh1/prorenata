@@ -91,13 +91,20 @@ export default async function Home() {
             <section className="lg:col-span-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
               <div className="flex items-center justify-between gap-3 mb-4">
                 <h2 className="text-xl font-bold text-gray-900">最新記事</h2>
-                <Link href="/posts" className="text-cyan-700 hover:text-cyan-800 text-sm font-semibold">
+                <Link
+                  href="/posts"
+                  className="text-cyan-700 hover:text-cyan-800 text-sm font-semibold"
+                  style={{ textDecoration: 'none' }}
+                >
                   すべて見る →
                 </Link>
               </div>
 
               {recentPosts.length > 0 ? (
-                <ul className="divide-y divide-gray-100">
+                <ul
+                  className="m-0 p-0 list-none divide-y divide-gray-100"
+                  style={{ listStyle: 'none', padding: 0, margin: 0 }}
+                >
                   {recentPosts
                     .filter((post) => post.slug?.current)
                     .slice(0, 10)
@@ -110,7 +117,11 @@ export default async function Home() {
 
                       return (
                         <li key={post._id}>
-                          <Link href={`/posts/${post.slug.current}`} className="block py-3 group">
+                          <Link
+                            href={`/posts/${post.slug.current}`}
+                            className="block py-3 group no-underline"
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                          >
                             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                               <div className="min-w-0">
                                 <div className="text-sm font-semibold text-gray-900 group-hover:text-cyan-700 transition-colors line-clamp-2">
