@@ -19,8 +19,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GEMINI_BUDGET_JPY: '100'
-      GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '0.2'
+      GEMINI_BUDGET_JPY: '300'
+      GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '10'
       GEMINI_MODEL: 'gemini-2.0-flash-lite-001'
       SUMMARY_PERSONALIZE_LIMIT: '10'
 

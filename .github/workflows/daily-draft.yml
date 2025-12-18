@@ -14,8 +14,8 @@ jobs:
       issues: write
 
     env:
-      GEMINI_BUDGET_JPY: '100'
-      GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '0.2'
+      GEMINI_BUDGET_JPY: '300'
+      GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '10'
 
     steps:
       - name: Checkout repository

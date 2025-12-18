@@ -19,8 +19,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GEMINI_BUDGET_JPY: '100'
-      GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '0.2'
+      GEMINI_BUDGET_JPY: '300'
+      GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '10'
       SERA_TONE_THRESHOLD: '55'
       SERA_TONE_LIMIT: '10'
 

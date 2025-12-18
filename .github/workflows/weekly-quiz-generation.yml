@@ -18,7 +18,7 @@ jobs:
   generate-quiz-term:
     runs-on: ubuntu-latest
     env:
-      GEMINI_BUDGET_JPY: '100'
+      GEMINI_BUDGET_JPY: '300'
 
     steps:
       - name: リポジトリをチェックアウト
