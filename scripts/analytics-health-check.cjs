@@ -17,7 +17,7 @@
  * Env:
  *   HEALTHCHECK_LOOKBACK_DAYS=7
  *   HEALTHCHECK_DROP_RATIO=0.2
- *   HEALTHCHECK_STALE_DAYS=2
+ *   HEALTHCHECK_STALE_DAYS=4
  *   GITHUB_TOKEN=...
  *   GITHUB_REPOSITORY=owner/repo
  */
@@ -243,7 +243,8 @@ function sumByDate(records, dateKey, valueKey) {
 async function main() {
   const lookbackDays = Math.max(3, Math.floor(clampNumber(process.env.HEALTHCHECK_LOOKBACK_DAYS, 7)));
   const dropRatio = clampNumber(process.env.HEALTHCHECK_DROP_RATIO, 0.2);
-  const staleDays = Math.max(1, Math.floor(clampNumber(process.env.HEALTHCHECK_STALE_DAYS, 2)));
+  // GSC "final" data often lags by ~2-3 days, so default stale window is 4 days.
+  const staleDays = Math.max(1, Math.floor(clampNumber(process.env.HEALTHCHECK_STALE_DAYS, 4)));
 
   const ga4Path = path.join(process.cwd(), 'data', 'ga4_last30d.csv');
   const gscPath = path.join(process.cwd(), 'data', 'gsc_last30d.csv');

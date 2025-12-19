@@ -369,8 +369,7 @@ async function generateAndSaveArticle() {
       console.log(`Topic tag selected: "${selectedTopic}"`);
     } else {
       if (uniqueTags.length === 0) {
-        console.error("No tags found to select a topic from.");
-        return;
+        throw new Error("No tags found to select a topic from.");
       }
       const randomIndex = Math.floor(Math.random() * uniqueTags.length);
       selectedTopic = uniqueTags[randomIndex];
@@ -380,7 +379,7 @@ async function generateAndSaveArticle() {
     }
   } catch (error) {
     console.error("Error selecting topic from Sanity:", error);
-    return;
+    throw error;
   }
 
   // 3. Generate content with Gemini
@@ -394,8 +393,7 @@ async function generateAndSaveArticle() {
     );
 
     if (!authorDoc?._id) {
-      console.error('FATAL: Author "白崎セラ" not found in Sanity.');
-      return;
+      throw new Error('FATAL: Author "白崎セラ" not found in Sanity.');
     }
 
     authorReference = ensureReferenceKeys([
@@ -407,7 +405,7 @@ async function generateAndSaveArticle() {
     console.log(`Author resolved: ${authorDoc.name} (${authorDoc._id})`);
   } catch (error) {
     console.error('Error fetching author document:', error);
-    return;
+    throw error;
   }
 
   // Define title length based on tail type
@@ -483,7 +481,7 @@ ${SERA_FULL_PERSONA}
     console.log("Successfully generated article content.");
   } catch (error) {
     console.error("Error generating content with Gemini AI:", error);
-    return;
+    throw error;
   }
 
   // 5. カテゴリとExcerptは空で保存（メンテナンススクリプトで自動生成）
@@ -528,7 +526,11 @@ ${SERA_FULL_PERSONA}
     console.log(`📝 カテゴリとExcerptはメンテナンススクリプトで自動生成されます`)
   } catch (error) {
     console.error("Error saving draft to Sanity:", error);
+    throw error;
   }
 }
 
-generateAndSaveArticle();
+generateAndSaveArticle().catch((error) => {
+  console.error("FATAL: daily generation failed:", error?.message || error);
+  process.exit(1);
+});

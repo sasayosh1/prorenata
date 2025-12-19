@@ -16,6 +16,7 @@ jobs:
     env:
       GEMINI_BUDGET_JPY: '300'
       GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: '10'
+      HEALTHCHECK_STALE_DAYS: '4'
 
     steps:
       - name: Checkout repository
@@ -92,3 +93,6 @@ jobs:
         run: |
           echo "✅ 記事生成プロセス完了"
           echo "📊 実行時刻: $(TZ=Asia/Tokyo date '+%Y年%m月%d日 %H:%M')"
+          echo "🔎 analytics healthy: ${{ steps.analytics.outputs.healthy }} (${{ steps.analytics.outputs.reason }})"
+          echo "💰 budget allowed: ${{ steps.budget.outputs.allowed }}"
+          echo "🧾 generation step: ${{ steps.generate.outcome }}"

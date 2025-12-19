@@ -4,6 +4,8 @@ const client = createClient({
   projectId: '72m8vhy2',
   dataset: 'production',
   apiVersion: '2024-01-01',
+  // Draft documents are hidden unless we query with drafts perspective.
+  perspective: 'drafts',
   token: process.env.SANITY_API_TOKEN,
   useCdn: false
 });
