@@ -4,7 +4,12 @@ on:
   schedule:
     # 毎日 AM2:00 (JST) = 前日 PM5:00 (UTC) に実行
     - cron: '0 17 * * *'
-  workflow_dispatch: # 手動実行も可能にする
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force run even if already ran today (JST)'
+        required: false
+        default: 'false'
 
 jobs:
   generate_draft:
@@ -21,6 +26,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Determine run date (JST)
+        id: run_date
+        run: echo "date=$(TZ=Asia/Tokyo date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Daily run guard (cache)
+        id: daily_guard
+        uses: actions/cache@v4
+        with:
+          path: .daily-draft-marker
+          key: daily-draft-${{ github.repository }}-${{ steps.run_date.outputs.date }}
+
+      - name: Create daily marker
+        if: steps.daily_guard.outputs.cache-hit != 'true'
+        run: |
+          echo "date=${{ steps.run_date.outputs.date }}" > .daily-draft-marker
+          echo "run_id=${{ github.run_id }}" >> .daily-draft-marker
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -44,12 +66,12 @@ jobs:
         run: node scripts/analytics-health-check.cjs
 
       - name: Determine budget month (UTC)
-        if: steps.analytics.outputs.healthy == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true'
         id: budget_month
         run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Gemini budget state
-        if: steps.analytics.outputs.healthy == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true'
         uses: actions/cache@v4
         with:
           path: .budget
@@ -59,7 +81,7 @@ jobs:
             gemini-budget-${{ runner.os }}-${{ github.repository }}-
 
       - name: Budget guard (pre-check)
-        if: steps.analytics.outputs.healthy == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true'
         id: budget
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -67,7 +89,7 @@ jobs:
 
       - name: Run article generation script
         id: generate
-        if: steps.analytics.outputs.healthy == 'true' && steps.budget.outputs.allowed == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true' && steps.budget.outputs.allowed == 'true'
         run: node scripts/run-daily-generation.cjs
         env:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
@@ -93,6 +115,8 @@ jobs:
         run: |
           echo "✅ 記事生成プロセス完了"
           echo "📊 実行時刻: $(TZ=Asia/Tokyo date '+%Y年%m月%d日 %H:%M')"
+          echo "🗓️ run date (JST): ${{ steps.run_date.outputs.date }}"
+          echo "🛑 daily guard cache-hit: ${{ steps.daily_guard.outputs.cache-hit }} (force=${{ github.event.inputs.force }})"
           echo "🔎 analytics healthy: ${{ steps.analytics.outputs.healthy }} (${{ steps.analytics.outputs.reason }})"
           echo "💰 budget allowed: ${{ steps.budget.outputs.allowed }}"
           echo "🧾 generation step: ${{ steps.generate.outcome }}"

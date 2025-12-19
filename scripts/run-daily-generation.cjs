@@ -17,6 +17,93 @@ function appendGithubOutput(key, value) {
   fs.appendFileSync(outputPath, `${key}=${safe}\n`, 'utf8');
 }
 
+function buildPostSlug(input) {
+  const keywordMap = {
+    'シフト': 'shift',
+    '夜勤': 'night-shift',
+    '給料': 'salary',
+    '年収': 'income',
+    '転職': 'career',
+    '辞めたい': 'quit',
+    '退職': 'retirement',
+    '資格': 'qualification',
+    '仕事': 'work',
+    '業務': 'duties',
+    '人間関係': 'relationship',
+    'やりがい': 'reward',
+    '求人': 'job',
+    'スキル': 'skill',
+    '未経験': 'beginner',
+    'きつい': 'tough',
+    'パート': 'part-time',
+    '正社員': 'full-time',
+    'メリット': 'merit',
+    'デメリット': 'demerit',
+    'コツ': 'tips',
+    '方法': 'method',
+    '理由': 'reason',
+    '悩み': 'concern',
+    'キャリア': 'career',
+    '朝': 'morning',
+    '昼': 'day',
+    '夜': 'night',
+    '専従': 'dedicated',
+  };
+
+  const title = String(input || '').trim();
+  if (!title) {
+    return `nursing-assistant-general-${Date.now().toString(36).slice(-5)}-${randomUUID().slice(0, 4)}`.slice(0, 96);
+  }
+
+  let keywords = [];
+  for (const [jp, en] of Object.entries(keywordMap)) {
+    if (title.includes(jp)) {
+      keywords.push(en);
+      if (keywords.length >= 3) break;
+    }
+  }
+
+  if (keywords.length < 2) {
+    const titleWords = title
+      .replace(/【|】|[・、。！？]/g, ' ')
+      .split(/\s+/)
+      .filter((w) => w.length > 0);
+
+    for (const word of titleWords) {
+      for (const [jp, en] of Object.entries(keywordMap)) {
+        if (word.includes(jp) && !keywords.includes(en)) {
+          keywords.push(en);
+          if (keywords.length >= 2) break;
+        }
+      }
+      if (keywords.length >= 2) break;
+    }
+  }
+
+  if (keywords.length === 0) {
+    keywords = ['general'];
+  }
+
+  const keywordSegment = keywords.slice(0, 3).join('-');
+  const normalizedTitle = title
+    .normalize('NFKD')
+    .replace(/[^\w\s-]/g, ' ')
+    .trim()
+    .replace(/\s+/g, '-')
+    .toLowerCase()
+    .replace(/-+/g, '-')
+    .slice(0, 48);
+
+  const uniqueSuffix = `${Date.now().toString(36).slice(-5)}-${randomUUID().slice(0, 4)}`;
+
+  return ['nursing-assistant', keywordSegment, normalizedTitle, uniqueSuffix]
+    .filter(Boolean)
+    .join('-')
+    .replace(/-+/g, '-')
+    .replace(/-$/, '')
+    .slice(0, 96);
+}
+
 // --- Configuration ---
 const SANITY_CONFIG = {
   projectId: '72m8vhy2',
@@ -493,12 +580,15 @@ ${SERA_FULL_PERSONA}
 
   // 5. カテゴリとExcerptは空で保存（メンテナンススクリプトで自動生成）
   console.log("Saving generated article as a draft to Sanity...");
+  const title = generatedArticle.title;
+  const slugCurrent = buildPostSlug(title);
   const draft = {
     _type: 'post',
     _id: `drafts.${randomUUID()}`,
     author: authorReference,
     publishedAt: new Date().toISOString(),
-    title: generatedArticle.title,
+    title,
+    slug: { _type: 'slug', current: slugCurrent },
     tags: generatedArticle.tags,
     body: ensurePortableTextKeys(generatedArticle.body || []),
     categories: [], // メンテナンスで自動選択
