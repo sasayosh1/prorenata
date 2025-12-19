@@ -10,6 +10,13 @@ const {
 } = require('./utils/keyHelpers');
 require('dotenv').config({ path: '../.env.local' }); // For local testing
 
+function appendGithubOutput(key, value) {
+  const outputPath = process.env.GITHUB_OUTPUT;
+  if (!outputPath) return;
+  const safe = String(value ?? '').replace(/\r?\n/g, ' ').trim();
+  fs.appendFileSync(outputPath, `${key}=${safe}\n`, 'utf8');
+}
+
 // --- Configuration ---
 const SANITY_CONFIG = {
   projectId: '72m8vhy2',
@@ -502,6 +509,8 @@ ${SERA_FULL_PERSONA}
     const createdDraft = await sanityClient.create(draft);
     console.log("\n--- Process Complete ---");
     console.log(`Successfully created new draft in Sanity with ID: ${createdDraft._id}`);
+    appendGithubOutput('draft_id', createdDraft._id);
+    appendGithubOutput('draft_title', generatedArticle.title);
 
     // Verify tail type
     const titleLength = generatedArticle.title.length;

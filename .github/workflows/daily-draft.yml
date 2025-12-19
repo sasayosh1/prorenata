@@ -96,3 +96,5 @@ jobs:
           echo "🔎 analytics healthy: ${{ steps.analytics.outputs.healthy }} (${{ steps.analytics.outputs.reason }})"
           echo "💰 budget allowed: ${{ steps.budget.outputs.allowed }}"
           echo "🧾 generation step: ${{ steps.generate.outcome }}"
+          echo "🆔 draft id: ${{ steps.generate.outputs.draft_id }}"
+          echo "📝 draft title: ${{ steps.generate.outputs.draft_title }}"
