@@ -177,6 +177,23 @@ function computeRevenueBoost(post: Pick<Post, 'title' | 'categories' | 'tags' | 
   return 0.05
 }
 
+async function fetchFallbackPosts(limit: number): Promise<Post[]> {
+  const query = `*[_type == "post" && (!defined(internalOnly) || internalOnly == false) && defined(slug.current)] 
+    | order(coalesce(publishedAt, _createdAt) desc)[0...$limit]{
+      _id,
+      title,
+      slug,
+      _createdAt,
+      publishedAt,
+      excerpt,
+      mainImage,
+      "categories": categories[]->{title,"slug":slug.current},
+      tags,
+      internalOnly
+    }`
+  return await client.fetch(query, { limit })
+}
+
 async function fetchPostsBySlugs(slugs: string[], limit: number): Promise<Post[]> {
   if (slugs.length === 0) return []
 
@@ -198,13 +215,78 @@ async function fetchPostsBySlugs(slugs: string[], limit: number): Promise<Post[]
   return slugs.map((s) => bySlug.get(s)).filter(Boolean).slice(0, limit) as Post[]
 }
 
+function renderPopularSection(picked: Post[]) {
+  return (
+    <section className="mb-20">
+      <div className="flex items-end justify-between gap-3 mb-6">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">人気記事</h2>
+          <p className="mt-1 text-sm text-gray-600">いま注目されている記事をまとめました。</p>
+        </div>
+        <Link href="/posts" className="text-cyan-700 hover:text-cyan-800 text-sm font-semibold">
+          記事一覧 →
+        </Link>
+      </div>
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {picked.map((post) => {
+          const title = sanitizeTitle(post.title)
+          const href = `/posts/${post.slug.current}`
+          const category = post.categories && post.categories.length > 0 ? post.categories[0]?.title : null
+
+          return (
+            <Link
+              key={post._id}
+              href={href}
+              className="group block h-full no-underline"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
+                  {post.mainImage ? (
+                    <Image
+                      src={urlFor(post.mainImage).width(900).height(560).url()}
+                      alt={title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-tr from-cyan-100 to-blue-50 opacity-60"></div>
+                  )}
+                  {category ? (
+                    <div className="absolute bottom-3 left-3">
+                      <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-cyan-700 text-xs font-bold rounded-full shadow-sm">
+                        {category}
+                      </span>
+                    </div>
+                  ) : null}
+                </div>
+
+                <div className="p-5">
+                  <h3 className="text-base font-bold text-gray-900 line-clamp-2 group-hover:text-cyan-700 transition-colors">
+                    {title}
+                  </h3>
+                  {post.excerpt ? <p className="mt-2 text-sm text-gray-600 line-clamp-2">{post.excerpt}</p> : null}
+                </div>
+              </article>
+            </Link>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
 export default async function HomePopularGrid({ limit = 9 }: { limit?: number }) {
   try {
     const gsc = loadCsv<GscRow>('data/gsc_last30d.csv')
     const ga4 = loadCsv<Ga4Row>('data/ga4_last30d.csv')
 
     if (!gsc || !ga4) {
-      return null
+      const picked = await fetchFallbackPosts(limit)
+      if (picked.length === 0) return null
+      return renderPopularSection(picked)
     }
 
     const gscAgg = new Map<
@@ -295,7 +377,11 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     finalScored.sort((a, b) => b.score - a.score)
 
     const picked = finalScored.slice(0, limit).map((x) => x.post)
-    if (picked.length === 0) return null
+    if (picked.length === 0) {
+      const fallback = await fetchFallbackPosts(limit)
+      if (fallback.length === 0) return null
+      return renderPopularSection(fallback)
+    }
 
     return (
       <section className="mb-20">
@@ -358,7 +444,10 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
       </section>
     )
   } catch (error) {
-    console.error('HomePopularGrid failed; skipping popular section:', error)
-    return null
+    console.error('HomePopularGrid failed; using fallback popular section:', error)
+    const fallback = await fetchFallbackPosts(limit)
+    if (fallback.length === 0) return null
+
+    return renderPopularSection(fallback)
   }
 }
