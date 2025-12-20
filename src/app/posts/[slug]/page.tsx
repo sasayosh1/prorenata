@@ -5,7 +5,6 @@ import { draftMode } from 'next/headers'
 import ArticleWithTOC from '@/components/ArticleWithTOC'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import RelatedPosts from '@/components/RelatedPosts'
 import ViewCounter from '@/components/ViewCounter'
 import { ArticleStructuredData, BreadcrumbStructuredData, OrganizationStructuredData, FAQStructuredData } from '@/components/StructuredData'
 import { formatPostDate, getRelatedPosts, urlFor } from '@/lib/sanity'
@@ -22,6 +21,8 @@ const token = process.env.SANITY_API_TOKEN
 export const revalidate = 0
 
 type RawCategory = string | { title?: string | null; slug?: string | null }
+type PortableTextSpan = { _type?: string; text?: string }
+type PortableTextBlock = { _type?: string; style?: string; children?: PortableTextSpan[]; _key?: string }
 
 interface NormalizedCategory {
   title: string
@@ -98,6 +99,54 @@ function normalizeTags(tags?: string[] | null): NormalizedTag[] {
   }
 
   return normalized
+}
+
+function getPortableTextBlockText(block: PortableTextBlock): string {
+  const children = Array.isArray(block.children) ? block.children : []
+  return children
+    .map((child) => (typeof child?.text === 'string' ? child.text : ''))
+    .join('')
+    .trim()
+}
+
+function isSummaryHeading(block: PortableTextBlock): boolean {
+  if (block?._type !== 'block' || block.style !== 'h2') return false
+  const text = getPortableTextBlockText(block)
+  return text === 'まとめ' || text.startsWith('まとめ') || text.includes('まとめ')
+}
+
+function isDisclaimerParagraph(block: PortableTextBlock): boolean {
+  if (block?._type !== 'block' || block.style) return false
+  const text = getPortableTextBlockText(block)
+  return text.startsWith('免責事項')
+}
+
+function injectRelatedPostsBeforeDisclaimer(
+  body: unknown,
+  posts: Array<{ title: string; slug: string; categories?: Array<{ title: string; slug?: string | null }> | null }>
+) {
+  if (!Array.isArray(body) || body.length === 0) return body
+  if (!Array.isArray(posts) || posts.length === 0) return body
+
+  const blocks = body as PortableTextBlock[]
+  const alreadyInserted = blocks.some((block) => block?._type === 'relatedPosts')
+  if (alreadyInserted) return body
+
+  const summaryIndex = blocks.findIndex(isSummaryHeading)
+  const disclaimerIndex = blocks.findIndex(isDisclaimerParagraph)
+
+  const insertAt =
+    disclaimerIndex >= 0 && (summaryIndex < 0 || disclaimerIndex > summaryIndex)
+      ? disclaimerIndex
+      : blocks.length
+
+  const relatedBlock = {
+    _type: 'relatedPosts',
+    _key: `related-posts-${posts[0]?.slug || 'auto'}`,
+    posts,
+  }
+
+  return [...blocks.slice(0, insertAt), relatedBlock, ...blocks.slice(insertAt)]
 }
 
 function createSanityClient(isDraftMode = false) {
@@ -250,12 +299,37 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
   const hasTopicMeta = normalizedCategories.length > 0 || normalizedTags.length > 0
 
-  // 関連記事の取得（lib/sanity.tsの共通関数を使用）
-  const relatedPosts = post
-    ? await getRelatedPosts(post._id, categorySlugs, 2)
+  const primaryRelatedPosts = post
+    ? await getRelatedPosts(post._id, categorySlugs, 6)
     : []
 
+  let relatedPosts = primaryRelatedPosts
+  if (post && relatedPosts.length < 4) {
+    const fallbackQuery = `*[_type == "post" && defined(slug.current) && _id != $id && !internalOnly] | order(coalesce(publishedAt, _createdAt) desc)[0...8]{
+      title,
+      "slug": slug.current,
+      "categories": categories[]->{title,"slug":slug.current}
+    }`
+    const fallback = await client.fetch(fallbackQuery, { id: post._id })
+
+    const seen = new Set<string>(relatedPosts.map((p) => p.slug))
+    const merged = [...relatedPosts]
+    for (const item of Array.isArray(fallback) ? fallback : []) {
+      const slug = typeof item?.slug === 'string' ? item.slug : ''
+      if (!slug || seen.has(slug)) continue
+      seen.add(slug)
+      merged.push({
+        title: item.title,
+        slug,
+        categories: item.categories || [],
+      })
+      if (merged.length >= 6) break
+    }
+    relatedPosts = merged
+  }
+
   const hasBody = post && Array.isArray(post.body) && post.body.length > 0
+  const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(post.body, relatedPosts) : post.body
 
   if (!post) {
     return (
@@ -382,7 +456,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
               {/* 記事コンテンツ */}
               <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{ color: '#111827 !important' }}>
                 {hasBody ? (
-                  <ArticleWithTOC content={post.body} />
+                  <ArticleWithTOC content={bodyWithRelated} />
                 ) : (
                   <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">
                     <p className="text-lg font-semibold mb-2">この記事は現在準備中です。</p>
@@ -453,9 +527,6 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   </div>
                 </div>
               )}
-
-              {/* 関連記事セクション（次のステップ） - 削除済み */}
-              {/* {relatedPosts.length > 0 && <RelatedPosts posts={relatedPosts} />} */}
 
               {/* 記事下部のナビゲーション */}
               <footer className="pt-8">

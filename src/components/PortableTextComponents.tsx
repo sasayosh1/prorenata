@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { PortableTextComponents, PortableTextComponentProps } from '@portabletext/react'
 import { PortableTextBlock } from '@portabletext/types'
 import { sanitizeTitle } from '@/lib/title'
+import type { RelatedPostSummary } from '@/lib/sanity'
 import SpeechBubble from './SpeechBubble'
 
 // 外部リンクかどうかを判定する関数
@@ -518,6 +519,59 @@ export const portableTextComponents: PortableTextComponents = {
 
   // 将来の拡張用：カスタムタイプ
   types: {
+    relatedPosts: ({ value }: { value?: { posts?: RelatedPostSummary[] } }) => {
+      const posts = Array.isArray(value?.posts) ? value.posts : []
+
+      return (
+        <section className="mt-12 pt-8 border-t border-gray-200" aria-label="あわせて読みたい">
+          <h3 className="text-2xl font-bold mb-6 text-gray-900">あわせて読みたい</h3>
+          {posts.length > 0 ? (
+            <ul className="space-y-3">
+              {posts.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/posts/${post.slug}`}
+                    className="text-lg text-cyan-700 hover:text-cyan-900 font-semibold transition-colors duration-200"
+                  >
+                    {sanitizeTitle(post.title)}
+                  </Link>
+                  {post.categories && post.categories.length > 0 && (
+                    <div className="mt-1 flex flex-wrap gap-2 text-sm text-gray-600">
+                      {post.categories.slice(0, 2).map((category, idx) => {
+                        const key = category.slug || `${category.title}-${idx}`
+                        if (category.slug) {
+                          return (
+                            <Link
+                              key={key}
+                              href={`/categories/${category.slug}`}
+                              className="underline decoration-dotted hover:text-cyan-700"
+                            >
+                              {category.title}
+                            </Link>
+                          )
+                        }
+                        return (
+                          <span key={key} className="text-gray-600">
+                            {category.title}
+                          </span>
+                        )
+                      })}
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="text-sm text-gray-600">
+              <Link href="/blog" className="underline decoration-dotted hover:text-cyan-700">
+                記事一覧
+              </Link>
+              から気になるテーマを探してみてください。
+            </div>
+          )}
+        </section>
+      )
+    },
     image: ({ value }: { value: { asset: { _ref: string }; alt?: string } }) => {
       if (!value?.asset?._ref) {
         return null
