@@ -1,6 +1,7 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
 20251201,/,desktop,Japan,19,3,165,0.8421052631578947,429.8574879473684
 20251202,/,desktop,Japan,14,4,124,0.7857142857142857,624.7182336428572
+20251219,/,desktop,Japan,13,3,192,0.8461538461538461,439.1643661538462
 20251204,/,desktop,Japan,11,3,122,0.8181818181818182,325.9860666363636
 20251205,/,desktop,Japan,11,3,98,0.6363636363636364,476.10495209090914
 20251207,/,desktop,Japan,11,3,80,0.7272727272727273,31.86080281818182
@@ -9,6 +10,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251202,/about,desktop,Japan,8,4,103,0.875,737.20032
 20251204,/posts,desktop,Japan,8,4,84,0.875,278.32468850000004
 20251214,/posts/comparison-of-three-resignation-agencies,desktop,Japan,8,2,79,0.875,407.6988875
+20251219,/search,desktop,Japan,8,2,54,0.75,83.63409374999999
 20251207,/tags,desktop,Japan,7,2,54,0.8571428571428571,166.61156042857144
 20251129,/,desktop,Japan,6,2,133,0.8333333333333334,737.7147491666666
 20251206,/,desktop,Japan,6,2,21,0.8333333333333334,82.553608
@@ -34,6 +36,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251216,/,desktop,Japan,4,1,28,1.0,47.54136975
 20251216,/posts/nursing-assistant-psychiatric-ward-duties,desktop,Japan,4,1,17,0.75,11.397993
 20251218,/posts/nursing-assistant-infection-control-manual,mobile,Japan,4,1,39,1.0,206.7696305
+20251219,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,4,2,30,0.75,109.12171
 20251128,/,desktop,Japan,3,2,53,1.0,613.6898043333333
 20251130,/,desktop,Japan,3,2,18,0.6666666666666666,47.436138666666665
 20251130,/,desktop,United States,3,3,14,0.0,3.9220403333333334
@@ -55,7 +58,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251215,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,2,19,0.6666666666666666,247.02033633333335
 20251216,/posts/nursing-assistant-patient-safety-insights,desktop,Japan,3,1,24,0.6666666666666666,55.496592666666665
 20251216,/tags,desktop,Japan,3,1,31,0.6666666666666666,573.7582103333333
-20251119,/posts/nursing-assistant-night-shift-duties,desktop,Japan,2,1,20,0.5,19.536954
 20251128,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,1,3,1.0,17.582986
 20251129,/about,desktop,Japan,2,2,2,1.0,14.1164475
 20251129,/posts,desktop,Japan,2,2,6,1.0,14.5494385
@@ -106,8 +108,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251218,/posts,desktop,Japan,2,1,11,0.5,8.53424
 20251218,/posts/nursing-assistant-infection-control-manual,desktop,Japan,2,2,16,1.0,319.169657
 20251218,/posts/nursing-assistant-role-boundaries,mobile,Japan,2,1,6,0.5,7.1484305
-20251119,/,desktop,Japan,1,1,4,1.0,118.086153
-20251119,/search,desktop,Japan,1,1,6,1.0,53.172774
+20251219,/quiz,desktop,Japan,2,1,8,1.0,17.813523
+20251220,/medical-quiz,desktop,Japan,2,2,16,0.0,216.6927585
 20251120,/,desktop,Japan,1,1,2,1.0,3.037064
 20251120,/posts/nursing-assistant-job-role-patient,desktop,Japan,1,1,10,1.0,19.345461
 20251120,/quiz,desktop,Japan,1,1,7,1.0,456.075632
@@ -358,4 +360,12 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251218,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,6,1.0,116.961161
 20251218,/posts/nursing-assistant-resume-writing,mobile,Japan,1,1,6,0.0,5.843484
 20251218,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,14,1.0,117.194537
+20251219,/medical-quiz,desktop,Japan,1,1,4,1.0,23.685311
+20251219,/posts,desktop,Japan,1,1,1,1.0,2.646055
+20251219,/posts/comparison-of-three-resignation-agencies,desktop,Japan,1,1,8,1.0,28.175908
+20251219,/posts/nursing-assistant-infection-control-handwashing,desktop,Japan,1,1,10,1.0,1626.911628
+20251219,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,7,1.0,166.902196
 20251219,/posts/nursing-assistant-low-salary-reasons,mobile,Japan,1,1,6,0.0,5.924967
+20251219,/posts/nursing-assistant-stressful-relationships-solutions,mobile,Japan,1,1,3,1.0,37.866493
+20251219,/posts/nursing-assistant-terminology-guide,mobile,Japan,1,1,6,1.0,174.261749
+20251219,/quiz/rankings,desktop,Japan,1,1,1,1.0,39.736862
