@@ -10,7 +10,7 @@ export default function MedicalQuizPage() {
     const [clientId, setClientId] = useState<string | null>(null);
     const [sessionId, setSessionId] = useState<Id<"quizSessions"> | null>(null);
     const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-    const [result, setResult] = useState<{ isCorrect: boolean; correctIndex: number; explanation?: string } | null>(null);
+    const [result, setResult] = useState<{ isCorrect: boolean; correctIndex: number } | null>(null);
 
     const upsertSession = useMutation(api.quiz.upsertSession);
     const submitAnswer = useMutation(api.quiz.submitAnswer);
@@ -29,6 +29,7 @@ export default function MedicalQuizPage() {
 
     const handleSelect = async (index: number) => {
         if (!clientId || !sessionId || !question || result !== null) return;
+        if (!question.qid) return;
         setSelectedIdx(index);
 
         const res = await submitAnswer({
@@ -40,7 +41,6 @@ export default function MedicalQuizPage() {
         setResult({
             isCorrect: res.isCorrect,
             correctIndex: res.correctIndex,
-            explanation: res.explanation
         });
     };
 
@@ -148,22 +148,10 @@ export default function MedicalQuizPage() {
                                             <p className={`mt-2 ${result.isCorrect ? 'text-green-700' : 'text-red-700'} font-medium`}>
                                                 {result.isCorrect
                                                     ? "その調子で次も頑張りましょう！"
-                                                    : `正解は「${question?.choices[result.correctIndex]}」でした。`}
+                                                    : `正解は「${question?.choices?.[result.correctIndex] ?? "（不明）"}」でした。`}
                                             </p>
                                         </div>
                                     </div>
-
-                                    {result.explanation && (
-                                        <div className="bg-blue-50 border border-blue-100 p-6 rounded-2xl">
-                                            <h3 className="text-blue-900 font-bold mb-2 flex items-center gap-2">
-                                                <span className="bg-blue-600 text-white text-[10px] px-1.5 py-0.5 rounded uppercase tracking-wider">Check</span>
-                                                学びのポイント
-                                            </h3>
-                                            <p className="text-blue-800 text-sm leading-relaxed">
-                                                {result.explanation}
-                                            </p>
-                                        </div>
-                                    )}
 
                                     <button
                                         onClick={handleNext}
