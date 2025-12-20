@@ -551,6 +551,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'member-upper-limb',
+    term: '上肢（じょうし）',
+    reading: 'じょうし',
+    meaning: '腕全体のこと。肩から手先までの部分を指します。',
+    distractors: ['下肢', '体幹'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {

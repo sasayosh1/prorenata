@@ -1,11 +1,23 @@
 {
-  "ok": false,
-  "reason": "stale_data",
-  "checkedAt": "2025-12-19T17:24:47.374Z",
-  "dateCheckedUtc": "2025-12-18",
-  "staleThresholdUtc": "2025-12-17",
-  "latest": {
-    "gsc": "2025-12-16",
-    "ga4": "2025-12-19"
+  "ok": true,
+  "reason": "ok",
+  "checkedAt": "2025-12-20T17:22:51.297Z",
+  "dateCheckedUtc": "2025-12-19",
+  "thresholds": {
+    "lookbackDays": 7,
+    "dropRatio": 0.2,
+    "staleDays": 4
+  },
+  "metrics": {
+    "ga4": {
+      "yesterdaySessions": 36,
+      "dayBeforeSessions": 18,
+      "recentAvgSessions": 20.571428571428573
+    },
+    "gsc": {
+      "yesterdayClicks": 0,
+      "dayBeforeClicks": 0,
+      "recentAvgClicks": 0
+    }
   }
 }
