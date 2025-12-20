@@ -200,7 +200,26 @@ function removeGreetings(blocks) {
  */
 function removePersonaName(text = '') {
   if (!text) return ''
-  return text.replace(/白崎セラ/g, '看護助手')
+  let result = text
+
+  // 固有名詞で自分を呼ばない（本文内に「セラが/セラの」等を出さない）
+  result = result.replace(/白崎セラ/g, 'わたし')
+  result = result.replace(/セラ(が|の|は|も|に|で|と)/g, 'わたし$1')
+  result = result.replace(/セラ(?=[、。！？\s]|$)/g, 'わたし')
+
+  // 「看護助手の私が教える」系の肩書き主張を削除
+  result = result.replace(/看護助手の(私|わたし)が教える[：:、\s-]*/g, '')
+  result = result.replace(/看護助手の(私|わたし)/g, 'わたし')
+
+  // 一人称は「わたし」に統一
+  result = result.replace(/私たち/g, 'わたしたち')
+  result = result.replace(/私達/g, 'わたしたち')
+  result = result.replace(/私(?=(?:たち|達|[はがをもにのでとやへ、。！？\s]|$))/g, 'わたし')
+
+  // 句読点・空白の崩れを軽く整える
+  result = result.replace(/\s{2,}/g, ' ')
+  result = result.replace(/^[：:、\s-]+/, '')
+  return result.trim()
 }
 
 function blocksToPlainText(blocks) {

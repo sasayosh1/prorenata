@@ -173,7 +173,11 @@ function buildPrompt({ title, context, anchors }) {
     'もしよければ、公式X（@prorenata_jp）もフォローしてみてくださいね。'
   ]
   const followText = followTemplates.map(t => `- ${t}`).join('\n')
-  return `あなたは20歳の看護助手「白崎セラ」です。一人称は「わたし」。丁寧な「です・ます」調で書いてください。
+  return `あなたはProReNataの記事執筆者です。一人称は必ず「わたし」。丁寧な「です・ます」調で書いてください。
+
+禁止事項:
+- 文章内で自分の名前を出さない（例: 「白崎セラです」「セラが」「セラの」など）
+- 「看護助手の私が教える、」のような肩書き主張を入れない
 
 記事タイトル: ${title}
 

@@ -14,6 +14,14 @@ const { spawn } = require('child_process')
 const { randomUUID } = require('crypto')
 const { createClient } = require('@sanity/client')
 const { GoogleGenerativeAI } = require('@google/generative-ai')
+
+// Load local environment variables when running from a dev machine.
+// (GitHub Actions will provide secrets via env; locally we rely on .env.local.)
+try {
+  require('dotenv').config({ path: path.resolve(__dirname, '..', '.env.local') })
+} catch {
+  // noop
+}
 const {
   blocksToPlainText,
   generateExcerpt,
@@ -187,8 +195,8 @@ const ITEM_ROUNDUP_KEYWORDS = [
 const ITEM_ROUNDUP_SELECTION_REGEX = /[0-9０-９]+\s*選/
 const AFFILIATE_MIN_GAP_BLOCKS = 2
 const AFFILIATE_PR_LABEL = '[PR]'
-const TITLE_PERSONA_PATTERN = /(白崎セラ|看護助手セラ|現役看護助手セラ|セラ(?=[がはをにのもとで、。！？\s]|$))/g
-const BODY_PERSONA_PATTERN = /白崎セラ/g
+const TITLE_PERSONA_PATTERN = /(白崎セラ|看護助手セラ|現役看護助手セラ|セラ(?=[がはをにのもとで、。！？\s]|$)|看護助手の(?:私|わたし)が教える)/g
+const BODY_PERSONA_PATTERN = /(白崎セラ|セラ(?=[がはをにのもとで、。！？\s]|$)|看護助手の(?:私|わたし)が教える|看護助手の(?:私|わたし))/g
 const AFFILIATE_NETWORK_SUFFIX_PATTERN = /（もしもアフィリエイト経由）/g
 const FIRST_PERSON_REGEX = /私(?=(?:たち|達|[はがをもにのでとやへ、。！？\s]|$))/g
 
@@ -199,9 +207,81 @@ function sanitizeTitlePersona(title = '') {
   cleaned = cleaned.replace(/看護助手セラ/g, '看護助手')
   cleaned = cleaned.replace(/白崎セラ/g, '')
   cleaned = cleaned.replace(/セラ(?=[がはをにのもとで、。！？\s]|$)/g, '')
+  cleaned = cleaned.replace(/^看護助手の(私|わたし)が教える[：:、\s-]*/g, '')
+  cleaned = cleaned.replace(/看護助手の(私|わたし)が教える/g, '')
+  cleaned = cleaned.replace(/看護助手の(私|わたし)/g, 'わたし')
   cleaned = cleaned.replace(/\s{2,}/g, ' ')
   cleaned = cleaned.replace(/\s([!！?？、。])/g, '$1')
   return cleaned.trim()
+}
+
+function normalizeVoiceText(text = '') {
+  if (!text) {
+    return { text, count: 0 }
+  }
+
+  let count = 0
+  let normalized = text
+
+  // 自分の名前で語らない（セラが/セラの → わたしが/わたしの）
+  normalized = normalized.replace(/セラ(が|の|は|も|に|で|と)/g, (_, particle) => {
+    count += 1
+    return `わたし${particle}`
+  })
+  normalized = normalized.replace(/白崎セラ/g, () => {
+    count += 1
+    return 'わたし'
+  })
+
+  // 肩書き主張を削除
+  normalized = normalized.replace(/看護助手の(私|わたし)が教える[：:、\s-]*/g, () => {
+    count += 1
+    return ''
+  })
+  normalized = normalized.replace(/看護助手の(私|わたし)/g, () => {
+    count += 1
+    return 'わたし'
+  })
+
+  return { text: normalized, count }
+}
+
+function normalizeVoiceInBlocks(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, replaced: 0 }
+  }
+
+  let replaced = 0
+  const updatedBlocks = blocks.map(block => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+      return block
+    }
+    let blockChanged = false
+    const newChildren = block.children.map(child => {
+      if (!child || typeof child.text !== 'string') {
+        return child
+      }
+      const { text, count } = normalizeVoiceText(child.text)
+      if (count > 0) {
+        replaced += count
+        blockChanged = true
+        return {
+          ...child,
+          text
+        }
+      }
+      return child
+    })
+    if (blockChanged) {
+      return {
+        ...block,
+        children: newChildren
+      }
+    }
+    return block
+  })
+
+  return { body: updatedBlocks, replaced }
 }
 
 function normalizeFirstPersonText(text = '') {
@@ -209,7 +289,12 @@ function normalizeFirstPersonText(text = '') {
     return { text, count: 0 }
   }
   let count = 0
-  let normalized = text.replace(/私たち/g, () => {
+  const voiceNormalized = normalizeVoiceText(text)
+  let normalized = voiceNormalized.text
+  if (voiceNormalized.count > 0) {
+    count += voiceNormalized.count
+  }
+  normalized = normalized.replace(/私たち/g, () => {
     count += 1
     return 'わたしたち'
   })
@@ -5139,6 +5224,13 @@ async function sanitizeAllBodies(options = {}) {
         bodyChanged = true
       }
 
+      const voiceResult = normalizeVoiceInBlocks(body)
+      if (voiceResult.replaced > 0) {
+        body = voiceResult.body
+        totalPronounAdjustments += voiceResult.replaced
+        bodyChanged = true
+      }
+
       bodyChanged =
         removedRelated > 0 ||
         removedDuplicateParagraphs > 0 ||
@@ -6914,6 +7006,74 @@ async function generateReport() {
   console.log('\n='.repeat(60))
 }
 
+async function enforceVoiceRules({ apply = false } = {}) {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    excerpt,
+    metaDescription,
+    body,
+    slug,
+    internalOnly,
+    maintenanceLocked
+  }`
+
+  const posts = await client.fetch(query)
+  let inspected = 0
+  let changed = 0
+
+  for (const post of posts) {
+    inspected += 1
+    if (!post || post.maintenanceLocked) continue
+    if (isProtectedRevenueArticle(post)) continue
+
+    const updates = {}
+
+    if (typeof post.title === 'string') {
+      const cleanedTitle = sanitizeTitlePersona(post.title)
+      if (cleanedTitle && cleanedTitle !== post.title) {
+        updates.title = cleanedTitle
+      }
+    }
+
+    if (typeof post.excerpt === 'string') {
+      const cleanedExcerpt = normalizeFirstPersonText(removePersonaName(post.excerpt)).text
+      if (cleanedExcerpt !== post.excerpt) {
+        updates.excerpt = cleanedExcerpt
+      }
+    }
+
+    if (typeof post.metaDescription === 'string') {
+      const cleanedMeta = normalizeFirstPersonText(removePersonaName(post.metaDescription)).text
+      if (cleanedMeta !== post.metaDescription) {
+        updates.metaDescription = cleanedMeta
+      }
+    }
+
+    if (Array.isArray(post.body) && post.body.length > 0) {
+      const bodyResult = normalizeFirstPersonPronouns(post.body)
+      const normalizedBody = bodyResult.body
+      if (JSON.stringify(normalizedBody) !== JSON.stringify(post.body)) {
+        updates.body = normalizedBody
+      }
+    }
+
+    if (Object.keys(updates).length === 0) continue
+    changed += 1
+
+    const slug = post?.slug?.current ? post.slug.current : post._id
+    if (!apply) {
+      console.log(`DRYRUN: would update ${slug}`)
+      continue
+    }
+
+    await client.patch(post._id).set(updates).commit()
+    console.log(`UPDATED: ${slug}`)
+  }
+
+  console.log(`\nVoice rules: inspected=${inspected} changed=${changed} apply=${apply}`)
+}
+
 // CLI実行
 if (require.main === module) {
   const args = process.argv.slice(2)
@@ -7056,6 +7216,12 @@ if (require.main === module) {
       break
     }
 
+    case 'voice': {
+      const apply = args.includes('--apply')
+      enforceVoiceRules({ apply }).catch(console.error)
+      break
+    }
+
     case 'recategorize':
       recategorizeAllPosts().catch(console.error)
       break
@@ -7156,6 +7322,10 @@ if (require.main === module) {
                       - --top-views   : 閲覧数上位から指定件数を抽出（クールダウン経過分を優先）
                       - --cooldown    : --top-views指定時のクールダウン日数（デフォルト30日）
                       - --force-links : アフィリエイト/内部/出典リンクを全記事で再配置
+  voice [--apply]     話者ルールを強制（全記事/ドラフト対象）
+                      - 「看護助手の私が教える」等の肩書き主張を除去
+                      - 「セラが/セラの」等の自己名指しを除去
+                      - 一人称を「わたし」に統一
   all                 総合メンテナンス（report + recategorize + autofix を順次実行）★推奨
                       - 問題を検出し、カテゴリ再評価、自動修復可能なものはすべて修正
                       - GitHub Actions で週3回自動実行（月・水・金 AM3:00）
