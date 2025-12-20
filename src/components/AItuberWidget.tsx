@@ -265,6 +265,7 @@ export default function AItuberWidget() {
                                     height={32}
                                     className="object-cover w-full h-full object-center"
                                     style={{ objectPosition: "50% 35%" }}
+                                    unoptimized
                                 />
                             </div>
                             <span className="font-bold text-sm">白崎セラ (ChatBot)</span>
@@ -334,6 +335,7 @@ export default function AItuberWidget() {
                         height={64}
                         className="object-cover w-full h-full object-center"
                         style={{ objectPosition: "50% 35%" }}
+                        unoptimized
                     />
                 </div>
                 {!isOpen && (
