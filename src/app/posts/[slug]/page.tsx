@@ -121,16 +121,50 @@ function isDisclaimerParagraph(block: PortableTextBlock): boolean {
   return text.startsWith('免責事項')
 }
 
+function isManualRelatedHeading(block: PortableTextBlock): boolean {
+  if (block?._type !== 'block' || block.style !== 'h2') return false
+  const text = getPortableTextBlockText(block)
+  return /あわせて読/.test(text) || text.includes('関連記事')
+}
+
+function stripManualRelatedSection(body: unknown) {
+  if (!Array.isArray(body) || body.length === 0) return body
+  const blocks = body as PortableTextBlock[]
+
+  const stripped: PortableTextBlock[] = []
+  let skipUntilNextH2 = false
+
+  for (const block of blocks) {
+    if (skipUntilNextH2) {
+      if (block?._type === 'block' && block.style === 'h2') {
+        skipUntilNextH2 = false
+      } else {
+        continue
+      }
+    }
+
+    if (isManualRelatedHeading(block)) {
+      skipUntilNextH2 = true
+      continue
+    }
+
+    stripped.push(block)
+  }
+
+  return stripped
+}
+
 function injectRelatedPostsBeforeDisclaimer(
   body: unknown,
   posts: Array<{ title: string; slug: string; categories?: Array<{ title: string; slug?: string | null }> | null }>
 ) {
-  if (!Array.isArray(body) || body.length === 0) return body
+  const cleanedBody = stripManualRelatedSection(body)
+  if (!Array.isArray(cleanedBody) || cleanedBody.length === 0) return cleanedBody
   if (!Array.isArray(posts) || posts.length === 0) return body
 
-  const blocks = body as PortableTextBlock[]
+  const blocks = cleanedBody as PortableTextBlock[]
   const alreadyInserted = blocks.some((block) => block?._type === 'relatedPosts')
-  if (alreadyInserted) return body
+  if (alreadyInserted) return cleanedBody
 
   const summaryIndex = blocks.findIndex(isSummaryHeading)
   const disclaimerIndex = blocks.findIndex(isDisclaimerParagraph)
