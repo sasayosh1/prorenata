@@ -302,9 +302,7 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
         <div className="flex items-end justify-between gap-3 mb-6">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">人気記事</h2>
-            <p className="mt-1 text-sm text-gray-600">
-              GSC/GA4の動きから、読まれやすい記事を中心にピックアップしています。
-            </p>
+            <p className="mt-1 text-sm text-gray-600">いま注目されている記事をまとめました。</p>
           </div>
           <Link href="/posts" className="text-cyan-700 hover:text-cyan-800 text-sm font-semibold">
             記事一覧 →
