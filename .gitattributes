@@ -1,1 +1,2 @@
 画像/etc/*.mp4 filter=lfs diff=lfs merge=lfs -text
+public/images/etc/*.mp4 filter=lfs diff=lfs merge=lfs -text

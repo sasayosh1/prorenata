@@ -222,9 +222,9 @@ def create_svg_night_shift_schedule(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("generated_diagrams", exist_ok=True)
-    create_svg_stress_relief_ranking("generated_diagrams/stress_relief_ranking.svg")
-    create_svg_useful_goods("generated_diagrams/useful_goods.svg")
-    create_svg_salary_simulation("generated_diagrams/salary_simulation.svg")
-    create_svg_aptitude_check_reverse("generated_diagrams/aptitude_check_reverse.svg")
-    create_svg_night_shift_schedule("generated_diagrams/night_shift_schedule.svg")
+    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
+    create_svg_stress_relief_ranking("public/images/chibichara/diagrams/stress_relief_ranking.svg")
+    create_svg_useful_goods("public/images/chibichara/diagrams/useful_goods.svg")
+    create_svg_salary_simulation("public/images/chibichara/diagrams/salary_simulation.svg")
+    create_svg_aptitude_check_reverse("public/images/chibichara/diagrams/aptitude_check_reverse.svg")
+    create_svg_night_shift_schedule("public/images/chibichara/diagrams/night_shift_schedule.svg")

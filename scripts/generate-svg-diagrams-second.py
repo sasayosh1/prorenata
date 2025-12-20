@@ -207,9 +207,9 @@ def create_svg_clean_unclean_area(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("generated_diagrams", exist_ok=True)
-    create_svg_resume_motivation("generated_diagrams/resume_motivation.svg")
-    create_svg_interview_qa("generated_diagrams/interview_qa.svg")
-    create_svg_wheelchair_transfer("generated_diagrams/wheelchair_transfer.svg")
-    create_svg_nurse_study_schedule_weekly("generated_diagrams/nurse_study_schedule_weekly.svg")
-    create_svg_clean_unclean_area("generated_diagrams/clean_unclean_area.svg")
+    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
+    create_svg_resume_motivation("public/images/chibichara/diagrams/resume_motivation.svg")
+    create_svg_interview_qa("public/images/chibichara/diagrams/interview_qa.svg")
+    create_svg_wheelchair_transfer("public/images/chibichara/diagrams/wheelchair_transfer.svg")
+    create_svg_nurse_study_schedule_weekly("public/images/chibichara/diagrams/nurse_study_schedule_weekly.svg")
+    create_svg_clean_unclean_area("public/images/chibichara/diagrams/clean_unclean_area.svg")

@@ -215,9 +215,9 @@ def create_svg_study_schedule(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("generated_diagrams", exist_ok=True)
-    create_svg_aptitude_test("generated_diagrams/aptitude_test.svg")
-    create_svg_daily_schedule("generated_diagrams/daily_schedule.svg")
-    create_svg_interview_tips("generated_diagrams/interview_tips.svg")
-    create_svg_care_guide("generated_diagrams/care_guide.svg")
-    create_svg_study_schedule("generated_diagrams/study_schedule.svg")
+    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
+    create_svg_aptitude_test("public/images/chibichara/diagrams/aptitude_test.svg")
+    create_svg_daily_schedule("public/images/chibichara/diagrams/daily_schedule.svg")
+    create_svg_interview_tips("public/images/chibichara/diagrams/interview_tips.svg")
+    create_svg_care_guide("public/images/chibichara/diagrams/care_guide.svg")
+    create_svg_study_schedule("public/images/chibichara/diagrams/study_schedule.svg")

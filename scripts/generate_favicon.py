@@ -10,7 +10,7 @@ if __name__ == "__main__":
         input_image = sys.argv[1]
     else:
         # Default to the master source in the new asset directory
-        input_image = "画像/thumbnail&top/favicon_source.png"
+        input_image = "public/images/chibichara/thumbnails/favicon_source.png"
     
     output_directory = "src/app"
     

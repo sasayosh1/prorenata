@@ -3,9 +3,9 @@ import base64
 
 # Configuration
 # Source for chibi assets
-CHIBI_DIR = "画像/chibi chara"
+CHIBI_DIR = "public/images/chibichara"
 # Output for generated diagrams
-OUTPUT_DIR = "画像/diagram"
+OUTPUT_DIR = "public/images/chibichara/diagrams"
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -151,7 +151,7 @@ def create_svg_transfer_safety(filename, base64_img):
 
 if __name__ == "__main__":
     # Load base64 image
-    sera_img = get_base64_image("sera_thinking.png")
+    sera_img = get_base64_image("sera_chibi_thinking.png")
     # sera_img = "" # Temporarily disabled
     
     create_svg_resume_checklist("resume_checklist.svg", sera_img)

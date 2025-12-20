@@ -12,7 +12,7 @@ const client = createClient({
     useCdn: false
 })
 
-const DIAGRAM_DIR = path.resolve(__dirname, '../画像/diagram')
+const DIAGRAM_DIR = path.resolve(__dirname, '../public/images/chibichara/diagrams')
 
 const MAPPINGS = [
     {

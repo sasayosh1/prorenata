@@ -4,7 +4,7 @@ import os
 
 # Raw source
 RAW_SOURCE = "/Users/sasakiyoshimasa/.gemini/antigravity/brain/01888079-e1e7-4645-a113-1c41e5e601d8/uploaded_image_1764898872638.png"
-OUTPUT_PATH = "画像/chibi chara/sera_thinking.png"
+OUTPUT_PATH = "public/images/chibichara/sera_chibi_thinking.png"
 
 def debug_and_fix(input_path, output_path, threshold=240):
     if not os.path.exists(input_path):

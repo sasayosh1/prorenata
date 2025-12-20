@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -253,7 +254,9 @@ export default async function RootLayout({
                   });
                 `}
               </Script>
-              <Analytics />
+              <Suspense fallback={null}>
+                <Analytics />
+              </Suspense>
             </>
           )}
 

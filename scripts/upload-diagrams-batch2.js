@@ -6,43 +6,54 @@ const client = createClient({
     projectId: '72m8vhy2',
     dataset: 'production',
     apiVersion: '2024-01-01',
-    token: process.env.SANITY_API_TOKEN,
+    token: process.env.SANITY_API_TOKEN || 'skCHyaNwM7IJU5RSAkrE3ZGFEYVcXx3lJzbKIz0a8HNUJmTwHRn1phhfsAYXZSeAVeWo2ogJj0COIwousCyb2MLGPwyxe4FuDbDETY2xz5hkjuUIcdz6YcubOZ5SfRywxB2Js8r4vKtbOmlbLm1pXJyHl0Kgajis2MgxilYSTpkEYe6GGWEu',
     useCdn: false,
 });
 
 const DIAGRAMS = [
     {
-        slug: 'nursing-assistant-stressful-relationships-solutions',
-        filePath: 'generated_diagrams/stress_relationships.svg',
-        alt: '人間関係ストレス対処の3ステップ',
-        targetHeadingKeywords: ['対処', 'ステップ', '方法']
+        slug: 'nursing-assistant-icu-emergency-duties',
+        filePath: 'public/images/chibichara/diagrams/nursing-assistant-icu-duties.svg',
+        alt: 'ICU・救急での看護助手業務',
+        caption: '緊張感のある現場で求められる動き',
+        targetHeadingKeywords: ['ICU', '救急', '業務', '役割']
     },
     {
-        slug: 'nursing-assistant-become-nurse-guide',
-        filePath: 'generated_diagrams/nurse_scholarship.svg',
-        alt: '奨学金活用の3つのポイント',
-        targetHeadingKeywords: ['奨学金', '費用', '支援']
+        slug: 'nursing-assistant-suitable-person-characteristics',
+        filePath: 'public/images/chibichara/diagrams/nursing-assistant-suitable-types.svg',
+        alt: '看護助手に向いている人の特徴',
+        caption: 'あなたはどのタイプ？',
+        targetHeadingKeywords: ['向いて', '特徴', 'タイプ', '性格']
     },
     {
-        slug: 'nursing-assistant-to-nurse-route',
-        filePath: 'generated_diagrams/nurse_route.svg',
-        alt: '看護助手から看護師への3つのルート',
-        targetHeadingKeywords: ['ルート', '方法', '道']
+        slug: 'nursing-assistant-vital-signs-support',
+        filePath: 'public/images/chibichara/diagrams/nursing-assistant-vital-signs.svg',
+        alt: 'バイタルサイン測定のサポート',
+        caption: '正確な測定をアシストする流れ',
+        targetHeadingKeywords: ['バイタル', '測定', 'サポート', '手順']
     },
     {
-        slug: 'nursing-assistant-essentials-checklist',
-        filePath: 'generated_diagrams/essentials_checklist.svg',
-        alt: '看護助手の必須持ち物チェックリスト',
-        targetHeadingKeywords: ['持ち物', 'アイテム', '必要']
+        slug: 'nursing-assistant-emr-system-changes',
+        filePath: 'public/images/chibichara/diagrams/nursing-assistant-emr-changes.svg',
+        alt: '電子カルテ導入前後の変化',
+        caption: '業務効率はどう変わった？',
+        targetHeadingKeywords: ['電子カルテ', '導入', '変化', '効率']
+    },
+    {
+        slug: 'nursing-assistant-uniform-selection',
+        filePath: 'public/images/chibichara/diagrams/nursing-assistant-uniform-selection.svg',
+        alt: '看護助手のユニフォーム選び',
+        caption: '快適に働くための選択ポイント',
+        targetHeadingKeywords: ['ユニフォーム', '選び方', 'ポイント', '服装']
     }
 ];
 
 async function uploadAndInsertDiagrams() {
-    console.log('=== Uploading and Inserting Additional Diagrams ===\n');
+    console.log('=== Uploading and Inserting Batch 2 Diagrams ===\n');
 
     for (const item of DIAGRAMS) {
         try {
-            console.log(`Processing: ${item.slug}`);
+            console.log(`\nProcessing: ${item.slug}`);
 
             // 1. Upload Image
             const filePath = path.join(process.cwd(), item.filePath);
@@ -52,74 +63,106 @@ async function uploadAndInsertDiagrams() {
             }
 
             const fileStream = fs.createReadStream(filePath);
-            console.log(`  Uploading ${item.filePath}...`);
-            const asset = await client.assets.upload('image', fileStream, {
-                filename: path.basename(filePath),
-                contentType: 'image/svg+xml'
-            });
-            console.log(`  ✅ Uploaded asset: ${asset._id}`);
+            console.log(`  📤 Uploading ${path.basename(item.filePath)}...`);
 
-            // 2. Fetch Article
-            const article = await client.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug: item.slug });
-            if (!article) {
-                console.error(`  ❌ Article not found: ${item.slug}`);
+            const asset = await client.assets.upload('image', fileStream, {
+                filename: path.basename(item.filePath),
+            });
+            console.log(`  ✅ Uploaded with ID: ${asset._id}`);
+
+            // 2. Fetch article
+            const query = `*[_type == "post" && slug.current == $slug][0]`;
+            const post = await client.fetch(query, { slug: item.slug });
+
+            if (!post) {
+                console.error(`  ❌ Post not found: ${item.slug}`);
                 continue;
             }
 
-            // 3. Find Insertion Point
-            let insertIndex = 1; // Default: after first block
-            let foundHeading = false;
+            console.log(`  📄 Found article: ${post.title}`);
 
-            if (article.body && Array.isArray(article.body)) {
-                for (let i = 0; i < article.body.length; i++) {
-                    const block = article.body[i];
-                    if (block._type === 'block' && (block.style === 'h2' || block.style === 'h3')) {
-                        const text = block.children.map(c => c.text).join('');
-                        if (item.targetHeadingKeywords.some(kw => text.includes(kw))) {
-                            insertIndex = i + 1;
-                            foundHeading = true;
-                            console.log(`  Found target heading: "${text}" at index ${i}`);
-                            break;
-                        }
+            // 3. Find insertion point in body
+            if (!post.body || !Array.isArray(post.body)) {
+                console.error(`  ❌ Post body is empty or invalid`);
+                continue;
+            }
+
+            let insertIndex = -1;
+
+            // Try to find a relevant heading
+            for (let i = 0; i < post.body.length; i++) {
+                const block = post.body[i];
+                if (block.style && block.style.startsWith('h') && block.children) {
+                    const headingText = block.children
+                        .map(child => child.text)
+                        .join('')
+                        .toLowerCase();
+
+                    // Check if heading contains any target keywords
+                    const hasKeyword = item.targetHeadingKeywords.some(keyword =>
+                        headingText.includes(keyword.toLowerCase())
+                    );
+
+                    if (hasKeyword) {
+                        insertIndex = i + 1; // Insert after this heading
+                        console.log(`  🎯 Found target heading: "${headingText.substring(0, 50)}..."`);
+                        break;
                     }
                 }
             }
 
-            if (!foundHeading) {
-                console.log('  ⚠️ Target heading not found, inserting after first H2 or at index 2');
-                // Try to find first H2
-                const firstH2Index = article.body.findIndex(b => b.style === 'h2');
-                if (firstH2Index !== -1) {
-                    insertIndex = firstH2Index + 1;
-                } else {
-                    insertIndex = Math.min(2, article.body.length);
+            // If no specific heading found, insert after first H2
+            if (insertIndex === -1) {
+                for (let i = 0; i < post.body.length; i++) {
+                    if (post.body[i].style === 'h2') {
+                        insertIndex = i + 1;
+                        console.log(`  📍 Inserting after first H2`);
+                        break;
+                    }
                 }
             }
 
-            // 4. Create Image Block
+            // If still no position, insert near the beginning (after intro)
+            if (insertIndex === -1) {
+                insertIndex = Math.min(3, post.body.length);
+                console.log(`  📍 Inserting near beginning (position ${insertIndex})`);
+            }
+
+            // 4. Create image block
             const imageBlock = {
                 _type: 'image',
-                _key: `diagram-${Date.now()}`,
+                _key: `diagram_${Date.now()}`,
                 asset: {
                     _type: 'reference',
-                    _ref: asset._id
+                    _ref: asset._id,
                 },
                 alt: item.alt,
-                caption: item.alt
+                caption: item.caption
             };
 
-            // 5. Patch Article
-            console.log(`  Inserting diagram at index ${insertIndex}...`);
-            await client.patch(article._id)
-                .insert('after', `body[${insertIndex - 1}]`, [imageBlock])
+            // 5. Insert into body
+            const updatedBody = [
+                ...post.body.slice(0, insertIndex),
+                imageBlock,
+                ...post.body.slice(insertIndex),
+            ];
+
+            // 6. Update post
+            await client
+                .patch(post._id)
+                .set({ body: updatedBody })
                 .commit();
 
-            console.log(`  ✅ Successfully inserted diagram into ${item.slug}\n`);
+            console.log(`  ✅ Successfully inserted diagram into article`);
+            console.log(`  📊 Position: ${insertIndex} of ${post.body.length + 1} blocks`);
 
         } catch (error) {
-            console.error(`  ❌ Error processing ${item.slug}:`, error.message);
+            console.error(`\n❌ Error processing ${item.slug}:`, error.message);
         }
     }
+
+    console.log('\n\n=== Batch 2 Upload and Insertion Complete ===');
 }
 
-uploadAndInsertDiagrams();
+// Run the script
+uploadAndInsertDiagrams().catch(console.error);

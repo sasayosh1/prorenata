@@ -184,8 +184,8 @@ def create_svg_nurse_scholarship(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("generated_diagrams", exist_ok=True)
-    create_svg_stress_relationships("generated_diagrams/stress_relationships.svg")
-    create_svg_nurse_route("generated_diagrams/nurse_route.svg")
-    create_svg_essentials_checklist("generated_diagrams/essentials_checklist.svg")
-    create_svg_nurse_scholarship("generated_diagrams/nurse_scholarship.svg")
+    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
+    create_svg_stress_relationships("public/images/chibichara/diagrams/stress_relationships.svg")
+    create_svg_nurse_route("public/images/chibichara/diagrams/nurse_route.svg")
+    create_svg_essentials_checklist("public/images/chibichara/diagrams/essentials_checklist.svg")
+    create_svg_nurse_scholarship("public/images/chibichara/diagrams/nurse_scholarship.svg")

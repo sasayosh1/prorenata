@@ -186,9 +186,9 @@ def create_svg_career_change_timing(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("generated_diagrams", exist_ok=True)
-    create_svg_medical_terms("generated_diagrams/medical_terms.svg")
-    create_svg_communication_tips("generated_diagrams/communication_tips.svg")
-    create_svg_night_shift("generated_diagrams/night_shift.svg")
-    create_svg_certification_merit("generated_diagrams/certification_merit.svg")
-    create_svg_career_change_timing("generated_diagrams/career_change_timing.svg")
+    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
+    create_svg_medical_terms("public/images/chibichara/diagrams/medical_terms.svg")
+    create_svg_communication_tips("public/images/chibichara/diagrams/communication_tips.svg")
+    create_svg_night_shift("public/images/chibichara/diagrams/night_shift.svg")
+    create_svg_certification_merit("public/images/chibichara/diagrams/certification_merit.svg")
+    create_svg_career_change_timing("public/images/chibichara/diagrams/career_change_timing.svg")

@@ -186,9 +186,9 @@ def create_svg_operating_room(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("generated_diagrams", exist_ok=True)
-    create_svg_career_vision("generated_diagrams/career_vision.svg")
-    create_svg_characteristics("generated_diagrams/characteristics.svg")
-    create_svg_salary_comparison("generated_diagrams/salary_comparison.svg")
-    create_svg_terminology_guide("generated_diagrams/terminology_guide.svg")
-    create_svg_operating_room("generated_diagrams/operating_room.svg")
+    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
+    create_svg_career_vision("public/images/chibichara/diagrams/career_vision.svg")
+    create_svg_characteristics("public/images/chibichara/diagrams/characteristics.svg")
+    create_svg_salary_comparison("public/images/chibichara/diagrams/salary_comparison.svg")
+    create_svg_terminology_guide("public/images/chibichara/diagrams/terminology_guide.svg")
+    create_svg_operating_room("public/images/chibichara/diagrams/operating_room.svg")

@@ -7,7 +7,7 @@
 echo "Starting diagram regeneration and asset sync..."
 
 # 1. Regenerate Diagrams
-# This script now outputs to "画像/diagram"
+# New unified structure: scripts generate diagrams directly to public/images/chibichara/diagrams
 echo "Running generate-svg-diagrams.py..."
 python3 scripts/generate-svg-diagrams.py
 echo "Running generate-svg-diagrams-batch2.py..."
@@ -23,19 +23,7 @@ python3 scripts/generate-svg-diagrams-second.py
 echo "Running generate-svg-diagrams-second-batch2.py..."
 python3 scripts/generate-svg-diagrams-second-batch2.py
 
-# 2. Sync Diagrams to Public
-echo "Syncing diagrams to public/diagrams/..."
-mkdir -p public/diagrams
-cp "画像/diagram/"*.svg public/diagrams/
-
-# 3. Sync Chibi Assets to Public
-echo "Syncing chibi assets to public/images/avatars/..."
-mkdir -p public/images/avatars
-cp "画像/chibi chara/"*.png public/images/avatars/
-
-# 4. Sync Thumbnails to Public
-echo "Syncing thumbnails to public/images/thumbnails/..."
-mkdir -p public/images/thumbnails
-cp "画像/thumbnail&top/"*.png public/images/thumbnails/
+# 2. Assets are now unified in public/images/chibichara/diagrams
+echo "Assets are now unified in public/images/chibichara/"
 
 echo "Asset sync complete!"
