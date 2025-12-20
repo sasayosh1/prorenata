@@ -2298,6 +2298,72 @@ async function addSourceLinksToArticle(blocks, title, currentPost = null) {
   }
 }
 
+function isReferenceParagraph(block) {
+  if (!block || block._type !== 'block') return false
+  if (block.style && block.style !== 'normal') return false
+  const text = blockPlainText(block)
+  return /^参考(資料)?[:：]/.test(text) || /^出典[:：]/.test(text)
+}
+
+function relocateReferencesAwayFromHeadingsAndLead(blocks) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, moved: 0 }
+  }
+
+  const refs = []
+  const kept = []
+  let moved = 0
+
+  const firstH2Index = blocks.findIndex(b => b && b._type === 'block' && b.style === 'h2')
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (!block) continue
+
+    // 見出しの「参考/出典」は禁止（段落ブロックにする）
+    if (block._type === 'block' && block.style === 'h2') {
+      const text = blockPlainText(block)
+      if (/^(参考|出典)/.test(text)) {
+        moved += 1
+        continue
+      }
+    }
+
+    if (!isReferenceParagraph(block)) {
+      kept.push(block)
+      continue
+    }
+
+    // リード（最初のH2より前）に参考を置くのは禁止
+    if (firstH2Index === -1 || i < firstH2Index) {
+      refs.push(block)
+      moved += 1
+      continue
+    }
+
+    // H2直下（最初の段落）に参考を置くのは禁止
+    const prev = blocks[i - 1]
+    const prevIsH2 = prev && prev._type === 'block' && prev.style === 'h2'
+    if (prevIsH2) {
+      refs.push(block)
+      moved += 1
+      continue
+    }
+
+    kept.push(block)
+  }
+
+  if (refs.length === 0) {
+    return { body: blocks, moved: 0 }
+  }
+
+  // まとめの前にまとめて差し込む（まとめ直後に参考を置くのは禁止）
+  const insertAt = findSummaryInsertIndex(kept)
+  const body = [...kept.slice(0, insertAt), ...refs, ...kept.slice(insertAt)]
+
+  return { body, moved }
+}
+
 function removeReferencesAfterSummary(blocks) {
   if (!Array.isArray(blocks) || blocks.length === 0) {
     return { body: blocks, removed: 0 }
@@ -2356,6 +2422,7 @@ module.exports = {
   optimizeSummarySection,
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
+  relocateReferencesAwayFromHeadingsAndLead,
   buildFallbackSummaryBlocks,
   findSummaryInsertIndex,
   removeReferencesAfterSummary,

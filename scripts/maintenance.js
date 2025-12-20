@@ -38,6 +38,7 @@ const {
   optimizeSummarySection,
   addAffiliateLinksToArticle,
   addSourceLinksToArticle,
+  relocateReferencesAwayFromHeadingsAndLead,
   buildFallbackSummaryBlocks,
   findSummaryInsertIndex,
   removePersonaName,
@@ -2797,7 +2798,7 @@ async function resolveReferenceUrl(url, cache) {
  * @param {Array} blocks
  * @returns {{body: Array, removedRelated: number, removedDuplicateParagraphs: number, removedInternalLinks: number}}
  */
-function sanitizeBodyBlocks(blocks) {
+function sanitizeBodyBlocks(blocks, currentPost = null) {
   if (!Array.isArray(blocks) || blocks.length === 0) {
     return {
       body: blocks,
@@ -2827,6 +2828,7 @@ function sanitizeBodyBlocks(blocks) {
 
   const cleaned = []
   const seenParagraphs = new Set()
+  const deferredReferences = []
   let removedRelated = 0
   let removedDuplicates = 0
   let removedInternalLinks = 0
@@ -2847,6 +2849,20 @@ function sanitizeBodyBlocks(blocks) {
   let removedNextStepsSections = 0
   let denseParagraphsSplit = 0
   const inlineAffiliateSeenKeys = new Set()
+
+  const currentSlug = (typeof currentPost?.slug === 'string' ? currentPost.slug : currentPost?.slug?.current || '').toLowerCase()
+  const currentCategories = Array.isArray(currentPost?.categories)
+    ? currentPost.categories.map(c => (typeof c === 'string' ? c : c?.title || '')).join(' ')
+    : ''
+  const bodyPlain = blocksToPlainText(expandedBlocks)
+  const combined = `${currentPost?.title || ''}\n${currentCategories}\n${bodyPlain}`.toLowerCase()
+  const allowRetirementService =
+    currentSlug === 'nursing-assistant-compare-services-perspective' ||
+    currentSlug === 'comparison-of-three-resignation-agencies' ||
+    /退職代行|退職\b|辞めたい|辞める|退職したい/.test(combined)
+  const allowCareerService =
+    currentSlug === 'nursing-assistant-compare-services-perspective' ||
+    /転職|求人|職場を変える|仕事を変える/.test(combined)
   for (let blockIndex = 0; blockIndex < expandedBlocks.length; blockIndex += 1) {
     let block = expandedBlocks[blockIndex]
     if (!block) {
@@ -2854,6 +2870,17 @@ function sanitizeBodyBlocks(blocks) {
     }
 
     if (block._type === 'affiliateEmbed') {
+      const linkKey = typeof block.linkKey === 'string' ? block.linkKey : ''
+      if (['miyabi', 'sokuyame', 'gaia'].includes(linkKey) && !allowRetirementService) {
+        removedAffiliateCtas += 1
+        previousWasLinkBlock = false
+        continue
+      }
+      if (['humanlifecare', 'kaigobatake', 'renewcare'].includes(linkKey) && !allowCareerService) {
+        removedAffiliateCtas += 1
+        previousWasLinkBlock = false
+        continue
+      }
       if (
         typeof block.linkKey === 'string' &&
         INLINE_AFFILIATE_KEYS.has(block.linkKey) &&
@@ -2939,6 +2966,13 @@ function sanitizeBodyBlocks(blocks) {
     const text = extractBlockText(block)
     const normalizedText = text.replace(/\s+/g, ' ').trim()
 
+    // 参考/出典はリード・見出し直下に置かない（後でまとめて移動）
+    if (/^(参考(資料)?|出典)[:：]/.test(normalizedText)) {
+      deferredReferences.push(block)
+      previousWasLinkBlock = false
+      continue
+    }
+
     if (normalizedText === '[PR]') {
       continue
     }
@@ -3017,6 +3051,20 @@ function sanitizeBodyBlocks(blocks) {
     }
 
     if (affiliateMarkDefs.length > 0) {
+      // 退職/転職アフィリエイト単体は該当記事以外禁止（関連性がない場合は除外）
+      const affiliateKeysInBlock = affiliateMarkDefs
+        .map(def => findAffiliateKeyByHref(def?.href))
+        .filter(Boolean)
+      if (affiliateKeysInBlock.some(key => ['miyabi', 'sokuyame', 'gaia'].includes(key)) && !allowRetirementService) {
+        removedAffiliateCtas += 1
+        previousWasLinkBlock = false
+        continue
+      }
+      if (affiliateKeysInBlock.some(key => ['humanlifecare', 'kaigobatake', 'renewcare'].includes(key)) && !allowCareerService) {
+        removedAffiliateCtas += 1
+        previousWasLinkBlock = false
+        continue
+      }
       if (isInlineAffiliateBlock(block)) {
         const affiliateMark = block.markDefs.find(def => affiliateMarkDefs.some(a => a._key === def._key))
         const linkKey = affiliateMark ? findAffiliateKeyByHref(affiliateMark.href) : null
@@ -3171,6 +3219,16 @@ function sanitizeBodyBlocks(blocks) {
     const { isInternalLinkOnly, isInternalLink } = analyseLinkBlock(block)
 
     if (isInternalLink) {
+      // 自動挿入っぽい「詳しくは『…』」内部リンクは末尾の「あわせて読みたい」に集約する
+      if (
+        /^詳しくは「/.test(normalizedText) &&
+        Array.isArray(block.markDefs) &&
+        block.markDefs.some(def => def?._type === 'link' && typeof def.href === 'string' && def.href.startsWith('/posts/'))
+      ) {
+        removedInternalLinks += 1
+        previousWasLinkBlock = false
+        continue
+      }
       internalLinkCount += 1
 
       // 2つ目以降の内部リンク、または連続リンクは削除
@@ -3219,7 +3277,16 @@ function sanitizeBodyBlocks(blocks) {
   const denseSplitResult = splitDenseParagraphs(cleaned)
   denseParagraphsSplit = denseSplitResult.splitCount
   const embedRestoreResult = restoreInlineAffiliateEmbeds(denseSplitResult.body)
-  const bodyWithKeys = ensurePortableTextKeys(embedRestoreResult.body)
+  let relocated = embedRestoreResult.body
+  if (deferredReferences.length > 0) {
+    const insertAt = findSummaryInsertIndex(relocated)
+    relocated = [...relocated.slice(0, insertAt), ...deferredReferences, ...relocated.slice(insertAt)]
+  }
+  const relocation = relocateReferencesAwayFromHeadingsAndLead(relocated)
+  if (relocation.moved > 0) {
+    relocated = relocation.body
+  }
+  const bodyWithKeys = ensurePortableTextKeys(relocated)
   const restoredAffiliateEmbeds = embedRestoreResult.restored
 
   return {
@@ -5122,9 +5189,10 @@ async function sanitizeAllBodies(options = {}) {
     let removedSummaryHeadings = 0
     let personaHeadingsFixed = 0
     let personaBodyMentionsRemoved = 0
-    let affiliateLabelsRemoved = 0
-    let disclaimerAdded = 0
-    let bodyChanged = false
+	    let affiliateLabelsRemoved = 0
+	    let disclaimerAdded = 0
+	    let disclaimerRepositioned = false
+	    let bodyChanged = false
     let referencesFixedForPost = 0
     let expansionResult = { expanded: false }
     let referenceBlocksAdded = 0
@@ -5193,7 +5261,7 @@ async function sanitizeAllBodies(options = {}) {
     }
 
     if (Array.isArray(post.body) && post.body.length > 0) {
-      const sanitised = sanitizeBodyBlocks(post.body)
+      const sanitised = sanitizeBodyBlocks(post.body, post)
       body = sanitised.body
       removedRelated = sanitised.removedRelated
       removedDuplicateParagraphs = sanitised.removedDuplicateParagraphs

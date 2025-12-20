@@ -342,8 +342,13 @@ function sanitizeSummaryText(text: string): string {
 
   let result = text
 
-  // 先頭の【…】を除去
-  result = result.replace(/^【[^】]*】\s*/, '')
+  // 先頭の【…】は基本的に残す（例: 【2026年診療報酬改定】）
+  // ただし、ペルソナ/PRなどのノイズは除去
+  result = result.replace(/^【([^】]*)】\s*/u, (full, inner) => {
+    const t = String(inner || '')
+    if (/(PR|広告|看護助手|セラ|白崎セラ)/i.test(t)) return ''
+    return full
+  })
 
   // タイトルをそのまま使ったテンプレはタイトル部を除去
   result = sanitizeTitle(result)

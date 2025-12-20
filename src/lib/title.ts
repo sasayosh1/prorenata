@@ -3,8 +3,13 @@ export function sanitizeTitle(title: string): string {
 
   let result = title.trim();
 
-  // 先頭の【...】を丸ごと除去
-  result = result.replace(/^【[^】]*】\s*/, '');
+  // 先頭の【...】は基本的に残す（例: 【2026年診療報酬改定】）
+  // ただし、ペルソナ/PRなどのノイズだけは除去する
+  result = result.replace(/^【([^】]*)】\s*/u, (full, inner) => {
+    const text = String(inner || '')
+    if (/(PR|広告|看護助手|セラ|白崎セラ)/i.test(text)) return ''
+    return full
+  })
 
   // よくあるペルソナ表現を除去
   const patterns = [
@@ -50,6 +55,13 @@ export function sanitizePersonaText(text: string): string {
   for (const p of patterns) {
     result = result.replace(p, '');
   }
+
+  // 先頭の【...】は基本的に残すが、ノイズは落とす
+  result = result.replace(/^【([^】]*)】\s*/u, (full, inner) => {
+    const t = String(inner || '')
+    if (/(PR|広告|看護助手|セラ|白崎セラ)/i.test(t)) return ''
+    return full
+  })
 
   // 不要な句読点や連続スペースを整理
   result = result.replace(/^[：:、\s-]+/, '').replace(/\s{2,}/g, ' ').trim();
