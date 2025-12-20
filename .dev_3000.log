@@ -1,0 +1,1681 @@
+
+> prorenata@1.0.0 dev
+> NODE_ENV=development next dev -p 3000
+
+   ▲ Next.js 15.5.7
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.104:3000
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 3s
+ ○ Compiling / ...
+ ✓ Compiled / in 1737ms (4371 modules)
+ ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+ GET / 200 in 3764ms
+ ✓ Compiled /favicon.ico in 289ms (2625 modules)
+ GET /favicon.ico 200 in 376ms
+ ○ Compiling /search ...
+ ✓ Compiled /search in 815ms (4395 modules)
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 2985ms
+ ○ Compiling /api/chat ...
+ ✓ Compiled /api/chat in 887ms (4402 modules)
+[chat-log] {
+  input: '転職したいけど悩んでいる',
+  hits: [ '看護助手が「辞めたい」と思ったら？退職の選択肢とサービス比較【2026年版】' ],
+  suggestion: undefined
+}
+ POST /api/chat 200 in 943ms
+ HEAD /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 225ms
+ GET /search?q=URL%E3%82%92%E6%95%99%E3%81%88%E3%81%A6 200 in 2384ms
+ GET /favicon.ico 200 in 10ms
+ GET / 200 in 965ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B%E3%81%8C%E3%80%8C%E8%BE%9E%E3%82%81%E3%81%9F%E3%81%84 200 in 1562ms
+ GET /favicon.ico 200 in 5ms
+ ✓ Compiled /_not-found in 324ms (4403 modules)
+ GET /icon-144x144.png 404 in 434ms
+ GET / 200 in 1483ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 2371ms
+ GET /favicon.ico 200 in 32ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 1954ms
+ ○ Compiling /posts/[slug] ...
+ ✓ Compiled /posts/[slug] in 1244ms (4405 modules)
+ ✓ Compiled /_not-found in 143ms (2633 modules)
+ GET /icon-144x144.png 404 in 287ms
+ GET /posts/nursing-assistant-patient-transfer-safety 200 in 3162ms
+ ✓ Compiled /api/views/[slug] in 272ms (4428 modules)
+ POST /api/views/nursing-assistant-patient-transfer-safety 200 in 1868ms
+ POST /api/views/nursing-assistant-patient-transfer-safety 200 in 1873ms
+ GET /api/views/nursing-assistant-patient-transfer-safety 200 in 364ms
+ GET /api/views/nursing-assistant-patient-transfer-safety 200 in 369ms
+ ✓ Compiled in 1590ms (4420 modules)
+ ⚠ Fast Refresh had to perform a full reload when a/prorenata/node_modules/next/dist/client/script.js","ids":["*"]}, a/prorenata/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Geist\",\"arguments\":[{\"variable\":\"--font-geist-sans\",\"subsets\":[\"latin\"],\"display\":\"swap\"}],\"variableName\":\"geistSans\"}","ids":[]}, a/prorenata/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Geist_Mono\",\"arguments\":[{\"variable\":\"--font-geist-mono\",\"subsets\":[\"latin\"],\"display\":\"swap\"}],\"variableName\":\"geistMono\"}","ids":[]}, a/prorenata/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Noto_Sans_JP\",\"arguments\":[{\"variable\":\"--font-noto-sans-jp\",\"subsets\":[\"latin\"],\"display\":\"swap\"}],\"variableName\":\"notoSansJP\"}","ids":[]}, a/prorenata/src/app/globals.css","ids":[]}, a/prorenata/src/components/AItuberWidget.tsx","ids":["default"]}, a/prorenata/src/components/Analytics.tsx","ids":["default"]}, a/prorenata/src/components/ScrollToTopButton.tsx","ids":["default"]} changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload when a/prorenata/node_modules/next/dist/client/script.js","ids":["*"]}, a/prorenata/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Geist\",\"arguments\":[{\"variable\":\"--font-geist-sans\",\"subsets\":[\"latin\"],\"display\":\"swap\"}],\"variableName\":\"geistSans\"}","ids":[]}, a/prorenata/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Geist_Mono\",\"arguments\":[{\"variable\":\"--font-geist-mono\",\"subsets\":[\"latin\"],\"display\":\"swap\"}],\"variableName\":\"geistMono\"}","ids":[]}, a/prorenata/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Noto_Sans_JP\",\"arguments\":[{\"variable\":\"--font-noto-sans-jp\",\"subsets\":[\"latin\"],\"display\":\"swap\"}],\"variableName\":\"notoSansJP\"}","ids":[]}, a/prorenata/src/app/globals.css","ids":[]}, a/prorenata/src/components/AItuberWidget.tsx","ids":["default"]}, a/prorenata/src/components/Analytics.tsx","ids":["default"]}, a/prorenata/src/components/ScrollToTopButton.tsx","ids":["default"]} changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /posts/nursing-assistant-patient-transfer-safety 200 in 780ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 920ms
+ ✓ Compiled in 740ms (4420 modules)
+ GET /posts/nursing-assistant-patient-transfer-safety 200 in 2494ms
+ GET /posts/nursing-assistant-patient-transfer-safety 200 in 1022ms
+ ✓ Compiled /favicon.ico in 485ms (2647 modules)
+ GET /favicon.ico 200 in 606ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 1473ms
+ ✓ Compiled /_not-found in 191ms (2650 modules)
+ GET /icon-144x144.png 404 in 366ms
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'call')] {
+  digest: '1586496712'
+}
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 3905ms
+ GET /icon-144x144.png 404 in 53ms
+ ○ Compiling /api/views/[slug] ...
+ ✓ Compiled /api/views/[slug] in 568ms (2654 modules)
+ POST /api/views/nursing-assistant-patient-transfer-safety 200 in 1955ms
+ POST /api/views/nursing-assistant-patient-transfer-safety 200 in 1959ms
+ GET /api/views/nursing-assistant-patient-transfer-safety 200 in 334ms
+ GET /api/views/nursing-assistant-patient-transfer-safety 200 in 316ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/client-development/8.pack.gz_' -> '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/client-development/8.pack.gz'
+ GET /icon-144x144.png 404 in 130ms
+ GET / 200 in 1448ms
+ GET /icon-144x144.png 404 in 44ms
+ GET /search?q=%E9%80%80%E8%81%B7 200 in 1893ms
+ GET /search?q=%E8%BB%A2%E8%81%B7 200 in 1689ms
+ GET /icon-144x144.png 404 in 48ms
+ GET /search?q=%E8%BB%A2%E8%81%B7 200 in 1931ms
+ GET /favicon.ico 200 in 12ms
+ GET /favicon.ico 200 in 27ms
+ GET /icon-144x144.png 404 in 37ms
+ GET /search?q=%E9%81%93%E5%85%B7 200 in 1736ms
+ GET /search?q=%E9%81%93%E5%85%B7 200 in 1571ms
+ GET /icon-144x144.png 404 in 28ms
+ GET /search?q=%E9%80%80%E8%81%B7 200 in 1825ms
+ GET /icon-144x144.png 404 in 25ms
+ GET /search?q=%E9%80%80%E8%81%B7 200 in 2262ms
+ GET /search?q=%E8%BB%A2%E8%81%B7 200 in 1775ms
+ GET /icon-144x144.png 404 in 48ms
+ GET /search?q=%E8%BB%A2%E8%81%B7 200 in 1914ms
+ GET /icon-144x144.png 404 in 26ms
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 1874ms
+ GET /icon-144x144.png 404 in 28ms
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 2069ms
+ GET /icon-144x144.png 404 in 25ms
+ ✓ Compiled in 1607ms (2630 modules)
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 422ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 422ms
+ ✓ Compiled /_not-found in 418ms (2647 modules)
+ ✓ Compiled in 0ms (2650 modules)
+ ✓ Compiled in 0ms (2650 modules)
+ ✓ Compiled in 0ms (2650 modules)
+ GET /favicon.ico 200 in 1300ms
+ ✓ Compiled in 0ms (2650 modules)
+ GET /icon-144x144.png 404 in 1912ms
+ GET /icon-144x144.png 404 in 1891ms
+ GET /favicon.ico 200 in 773ms
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 1611ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 1616ms
+ GET /favicon.ico 200 in 18ms
+ GET /favicon.ico 200 in 182ms
+ GET /icon-144x144.png 404 in 196ms
+ GET /icon-144x144.png 404 in 193ms
+ ✓ Compiled in 1548ms (4440 modules)
+ ⨯ ReferenceError: searchPosts is not defined
+    at SearchPage (src/app/search/page.tsx:24:7)
+  22 |
+  23 |   const posts = query
+> 24 |     ? await searchPosts(query)
+     |       ^
+  25 |     : await getAllPosts({ limit: 15 })
+  26 |
+  27 |   const filteredPosts: Post[] = query {
+  digest: '3717390072'
+}
+ ⨯ ReferenceError: searchPosts is not defined
+    at SearchPage (src/app/search/page.tsx:24:7)
+  22 |
+  23 |   const posts = query
+> 24 |     ? await searchPosts(query)
+     |       ^
+  25 |     : await getAllPosts({ limit: 15 })
+  26 |
+  27 |   const filteredPosts: Post[] = query {
+  digest: '936746458'
+}
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 174ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 174ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 46ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 40ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1032ms (4765 modules)
+ GET /icon-144x144.png 500 in 2097ms
+ GET /icon-144x144.png 500 in 2098ms
+ ⨯ ReferenceError: searchPosts is not defined
+    at SearchPage (src/app/search/page.tsx:24:7)
+  22 |
+  23 |   const posts = query
+> 24 |     ? await searchPosts(query)
+     |       ^
+  25 |     : await getAllPosts({ limit: 15 })
+  26 |
+  27 |   const filteredPosts: Post[] = query {
+  digest: '3717390072'
+}
+ ⨯ ReferenceError: searchPosts is not defined
+    at SearchPage (src/app/search/page.tsx:24:7)
+  22 |
+  23 |   const posts = query
+> 24 |     ? await searchPosts(query)
+     |       ^
+  25 |     : await getAllPosts({ limit: 15 })
+  26 |
+  27 |   const filteredPosts: Post[] = query {
+  digest: '936746458'
+}
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 705ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 733ms
+ ⨯ ReferenceError: searchPosts is not defined
+    at SearchPage (src/app/search/page.tsx:24:7)
+  22 |
+  23 |   const posts = query
+> 24 |     ? await searchPosts(query)
+     |       ^
+  25 |     : await getAllPosts({ limit: 15 })
+  26 |
+  27 |   const filteredPosts: Post[] = query {
+  digest: '3717390072'
+}
+ ⨯ ReferenceError: searchPosts is not defined
+    at SearchPage (src/app/search/page.tsx:24:7)
+  22 |
+  23 |   const posts = query
+> 24 |     ? await searchPosts(query)
+     |       ^
+  25 |     : await getAllPosts({ limit: 15 })
+  26 |
+  27 |   const filteredPosts: Post[] = query {
+  digest: '936746458'
+}
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 25ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 24ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 16ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /icon-144x144.png 500 in 30ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 15ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /icon-144x144.png 500 in 16ms
+ ✓ Compiled in 614ms (4779 modules)
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 22ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 13ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /icon-144x144.png 500 in 52ms
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 1265ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /icon-144x144.png 500 in 23ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 2262ms
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '213400595'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2821541017'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '213400595'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '213400595'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '213400595'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '673087335'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '673087335'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '673087335'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '673087335'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '673087335'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '673087335'
+}
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'call')] {
+  digest: '2918013106'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '213400595'
+}
+[TypeError: Cannot read properties of undefined (reading 'call')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'call')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'call')] {
+  page: '/search'
+}
+ ⨯ Error: Cannot find module './5611.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:327)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:374) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading 'call')] {
+  page: '/search'
+}
+ ⨯ Error: Cannot find module './5611.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:327)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:374) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ GET /search?q=%E9%81%93%E5%85%B7 500 in 1949ms
+ GET /search?q=%E9%81%93%E5%85%B7 500 in 16ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 14ms
+ ✓ Compiled in 1233ms (4666 modules)
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 319ms
+ ✓ Compiled /_not-found in 353ms (2743 modules)
+ ✓ Compiled (2746 modules)
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 553ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 31ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 1049ms
+ ✓ Compiled /_error in 396ms (4765 modules)
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ Error: Cannot find module './5611.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/pages/_document.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:327)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:374) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5611.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/pages/_document.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:327)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:374) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ GET /icon-144x144.png 500 in 1026ms
+ GET /icon-144x144.png 500 in 44ms
+ GET /icon-144x144.png 500 in 1015ms
+ GET /icon-144x144.png 500 in 44ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/pages/_document.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 16ms
+ GET /search?q=%E9%81%93%E5%85%B7 200 in 1881ms
+ ✓ Compiled in 750ms (4779 modules)
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 196ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 21ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 261ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 44ms
+ ⨯ Error: Cannot find module './5611.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:327)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:374) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5611.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:327)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:374) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ GET /icon-144x144.png 500 in 98ms
+ GET /icon-144x144.png 500 in 48ms
+ GET /icon-144x144.png 500 in 97ms
+ GET /icon-144x144.png 500 in 49ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/client-development/1.pack.gz_' -> '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/client-development/1.pack.gz'
+ ✓ Compiled in 1308ms (4652 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/client-development-fallback/1.pack.gz_' -> '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/client-development-fallback/1.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/server-development/6.pack.gz_' -> '/Users/sasakiyoshimasa/prorenata/.next/cache/webpack/server-development/6.pack.gz'
+ ✓ Compiled in 1059ms (1940 modules)
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 647ms
+ ✓ Compiled /favicon.ico in 460ms (2729 modules)
+ ✓ Compiled (2746 modules)
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 624ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/favicon.ico/route.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 18ms
+ ✓ Compiled /_error in 301ms (4765 modules)
+ GET /icon-144x144.png 500 in 1016ms
+ GET /icon-144x144.png 500 in 916ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 1706ms
+ ✓ Compiled in 890ms (1941 modules)
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 419ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 28ms
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7640)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7707) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './5873.js'
+Require stack:
+- /Users/sasakiyoshimasa/prorenata/.next/server/webpack-runtime.js
+- /Users/sasakiyoshimasa/prorenata/.next/server/app/search/page.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/require.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/load-components.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/utils.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/options.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/swc/index.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/router-server.js
+- /Users/sasakiyoshimasa/prorenata/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:10594)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:10651) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 58ms
+ GET /icon-144x144.png 500 in 79ms
+ GET /icon-144x144.png 500 in 74ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 570ms
+ ✓ Compiled in 719ms (4779 modules)
+ ⨯ ReferenceError: ConvexClientProvider is not defined
+    at RootLayout (src/app/layout.tsx:227:10)
+  225 |         </a>
+  226 |
+> 227 |         <ConvexClientProvider>
+      |          ^
+  228 |           <main id="main-content" className="min-h-screen">
+  229 |             {children}
+  230 |           </main> {
+  digest: '1103964621'
+}
+ ⨯ ReferenceError: ConvexClientProvider is not defined
+    at RootLayout (src/app/layout.tsx:227:10)
+  225 |         </a>
+  226 |
+> 227 |         <ConvexClientProvider>
+      |          ^
+  228 |           <main id="main-content" className="min-h-screen">
+  229 |             {children}
+  230 |           </main> {
+  digest: '1103964621'
+}
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 200 in 256ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 200 in 286ms
+ ✓ Compiled in 992ms (4867 modules)
+ ⨯ Error: No address provided to ConvexReactClient.
+If trying to deploy to production, make sure to follow all the instructions found at https://docs.convex.dev/production/hosting/
+If running locally, make sure to run `convex dev` and ensure the .env.local file is populated.
+    at eval (src/components/chatbot/ConvexClientProvider.tsx:6:16)
+    at (ssr)/./src/components/chatbot/ConvexClientProvider.tsx (.next/server/app/search/page.js:449:1)
+  4 | import React from "react";
+  5 |
+> 6 | const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
+    |                ^
+  7 |
+  8 | export function ConvexClientProvider({ children }: { children: React.ReactNode }) {
+  9 |     return <ConvexProvider client={convex}>{children}</ConvexProvider>; {
+  digest: '254607883'
+}
+ ⨯ Error: Could not find the module "/Users/sasakiyoshimasa/prorenata/src/components/chatbot/ConvexClientProvider.tsx#ConvexClientProvider" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '2879342663'
+}
+ ⨯ ./src/components/chatbot/ChatWidget.tsx:5:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  3 | import { useState, useEffect, useRef } from 'react'
+  4 | import { useQuery, useMutation } from 'convex/react'
+> 5 | import { api } from '../../convex/_generated/api'
+    | ^
+  6 |
+  7 | export default function ChatWidget() {
+  8 |     const [isOpen, setIsOpen] = useState(false)
+
+https://nextjs.org/docs/messages/module-not-found
+ GET /search?q=%E4%BA%BA%E9%96%93%E9%96%A2%E4%BF%82 500 in 2784ms
+ GET /favicon.ico 500 in 22ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 500 in 3440ms
+   Reload env: .env.local
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+Request timed out after 3000ms
+
+Retrying 2/3...
+ ⨯ ./src/components/chatbot/ChatWidget.tsx:5:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  3 | import { useState, useEffect, useRef } from 'react'
+  4 | import { useQuery, useMutation } from 'convex/react'
+> 5 | import { api } from '../../convex/_generated/api'
+    | ^
+  6 |
+  7 | export default function ChatWidget() {
+  8 |     const [isOpen, setIsOpen] = useState(false)
+
+https://nextjs.org/docs/messages/module-not-found
+[?25h

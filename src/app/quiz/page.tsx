@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import MedicalTermQuiz from '@/components/MedicalTermQuiz'
+import ConvexMedicalQuiz from '@/components/ConvexMedicalQuiz'
 
 export const metadata: Metadata = {
   title: 'メディカルクイズ | ProReNata',
@@ -14,7 +14,7 @@ export default function QuizPage() {
     <>
       <Header />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-        <main>
+        <main id="main-content">
           <div className="divide-y divide-gray-200">
             <div className="space-y-2 pb-8 pt-6 md:space-y-5">
               {/* パンくずナビゲーション */}
@@ -35,7 +35,7 @@ export default function QuizPage() {
             </div>
 
             <div className="pt-8 pb-8">
-              <MedicalTermQuiz />
+              <ConvexMedicalQuiz />
             </div>
 
             <div className="pt-8 pb-8 prose max-w-none text-gray-900">

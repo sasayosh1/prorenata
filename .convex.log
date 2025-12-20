@@ -1,0 +1,40 @@
+✔ Started running a deployment locally at http://127.0.0.1:3210 and saved its name as CONVEX_DEPLOYMENT to .env.local
+Run `npx convex login` at any time to create an account and link this deployment.
+
+Write your Convex functions in convex/
+Give us feedback at https://convex.dev/community or support@convex.dev
+View the Convex dashboard at http://127.0.0.1:6790/?d=anonymous-prorenata
+
+- Preparing Convex functions...
+
+✔ 01:33:23 Convex functions ready! (261.71ms)
+- Preparing Convex functions...
+
+✔ 01:33:58 Convex functions ready! (167.38ms)
+- Preparing Convex functions...
+
+✔ 04:16:23 Convex functions ready! (337.44ms)
+- Preparing Convex functions...
+
+✔ 04:16:29 Convex functions ready! (149.73ms)
+- Preparing Convex functions...
+
+✔ 04:16:48 Convex functions ready! (170.8ms)
+- Preparing Convex functions...
+
+✔ 04:24:06 Convex functions ready! (213.57ms)
+- Preparing Convex functions...
+
+✖ In order to push, add `convex` to your package.json dependencies.
+- Preparing Convex functions...
+
+✔ 09:07:34 Convex functions ready! (320.35ms)
+- Preparing Convex functions...
+
+✔ 09:11:37 Convex functions ready! (171.23ms)
+- Preparing Convex functions...
+
+✔ 09:20:11 Convex functions ready! (201.98ms)
+- Preparing Convex functions...
+
+✔ 09:21:08 Convex functions ready! (190.57ms)

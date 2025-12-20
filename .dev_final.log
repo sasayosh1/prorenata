@@ -1,0 +1,137 @@
+ ⚠ You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env
+   ▲ Next.js 15.5.7
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.10.104:3001
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 3.6s
+ ○ Compiling /search ...
+ ⨯ ./src/app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @tailwind base;
+| @tailwind components;
+| @tailwind utilities;
+
+Import trace for requested module:
+./src/app/globals.css
+./src/app/layout.tsx
+ ⨯ ./src/app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @tailwind base;
+| @tailwind components;
+| @tailwind utilities;
+
+Import trace for requested module:
+./src/app/globals.css
+./src/app/layout.tsx
+ ⨯ ./src/app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @tailwind base;
+| @tailwind components;
+| @tailwind utilities;
+
+Import trace for requested module:
+./src/app/globals.css
+./src/app/layout.tsx
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/sasakiyoshimasa/prorenata/.next/required-server-files.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/sasakiyoshimasa/prorenata/.next/required-server-files.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/sasakiyoshimasa/prorenata/.next/required-server-files.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/sasakiyoshimasa/prorenata/.next/required-server-files.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/sasakiyoshimasa/prorenata/.next/required-server-files.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/sasakiyoshimasa/prorenata/.next/required-server-files.json'
+}
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 500 in 8681ms
+ GET /search?q=%E7%9C%8B%E8%AD%B7%E5%8A%A9%E6%89%8B 500 in 8ms
+ ⨯ ./src/app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @tailwind base;
+| @tailwind components;
+| @tailwind utilities;
+
+Import trace for requested module:
+./src/app/globals.css
+./src/app/layout.tsx
+ ✓ Compiled /favicon.ico in 623ms (1926 modules)
+ ✓ Compiled in 439ms (1926 modules)
+ ✓ Compiled in 553ms (105 modules)
+ ✓ Compiled in 359ms (1926 modules)
+ ✓ Compiled in 262ms (1926 modules)
+ ✓ Compiled in 764ms (1926 modules)
+ ✓ Compiled in 421ms (1926 modules)
+ ✓ Compiled in 780ms (2017 modules)
+ ✓ Compiled in 799ms (1926 modules)
+ ✓ Compiled in 673ms (1926 modules)
+ ✓ Compiled in 294ms (1926 modules)
+ ✓ Compiled in 417ms (1926 modules)
+ ✓ Compiled in 328ms (1926 modules)
+   Reload env: .env.local
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+ ✓ Compiled in 7s (2058 modules)
+[?25h
