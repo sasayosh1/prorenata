@@ -1,12 +1,103 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { PaperAirplaneIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 interface Message {
     role: "user" | "model";
     text: string;
+}
+
+type ChatAnalyticsContext = {
+    chat_session_id: string;
+    page_path: string;
+};
+
+function safeString(value: unknown, maxLen = 120) {
+    const s = String(value ?? "");
+    return s.length > maxLen ? s.slice(0, maxLen) : s;
+}
+
+function getOrCreateChatSessionId() {
+    const KEY_ID = "aituber-chat-session-id";
+    const KEY_TS = "aituber-chat-last-activity-ts";
+    const now = Date.now();
+    const idleResetMs = 30 * 60 * 1000; // 30m
+
+    const read = (key: string) => {
+        try {
+            return localStorage.getItem(key);
+        } catch {
+            return null;
+        }
+    };
+    const write = (key: string, value: string) => {
+        try {
+            localStorage.setItem(key, value);
+        } catch {
+            // noop
+        }
+    };
+
+    const lastTs = Number(read(KEY_TS) || 0);
+    const existingId = read(KEY_ID);
+    const shouldReset = !existingId || !Number.isFinite(lastTs) || now - lastTs > idleResetMs;
+
+    const newId = (() => {
+        const cryptoObj = globalThis.crypto as Crypto | undefined;
+        if (cryptoObj && typeof cryptoObj.randomUUID === "function") return cryptoObj.randomUUID();
+        return `chat-${now.toString(16)}-${Math.random().toString(16).slice(2)}`;
+    })();
+
+    const id = shouldReset ? newId : existingId!;
+    write(KEY_ID, id);
+    write(KEY_TS, String(now));
+    return id;
+}
+
+function touchChatSessionActivity() {
+    try {
+        localStorage.setItem("aituber-chat-last-activity-ts", String(Date.now()));
+    } catch {
+        // noop
+    }
+}
+
+function pickAttribution() {
+    if (typeof window === "undefined") return {};
+    const params = new URLSearchParams(window.location.search || "");
+    const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid"];
+    const out: Record<string, string> = {};
+    for (const k of keys) {
+        const v = params.get(k);
+        if (v) out[k] = safeString(v, 100);
+    }
+    return out;
+}
+
+function safeUrlForAnalytics(href: string) {
+    try {
+        const u = new URL(href, window.location.origin);
+        const isInternal = u.origin === window.location.origin;
+        if (isInternal) {
+            return { link_type: "internal", link_value: safeString(u.pathname, 200) };
+        }
+        return { link_type: "external", link_value: safeString(u.hostname, 160) };
+    } catch {
+        return { link_type: "unknown", link_value: "invalid" };
+    }
+}
+
+function sendChatEvent(eventName: string, params: Record<string, unknown>) {
+    if (typeof window === "undefined") return;
+    if (typeof window.gtag !== "function") return;
+    try {
+        window.gtag("event", eventName, params);
+    } catch {
+        // noop
+    }
 }
 
 export default function AItuberWidget() {
@@ -25,11 +116,51 @@ export default function AItuberWidget() {
     const [hydrated, setHydrated] = useState(false);
     const [avatarSrc, setAvatarSrc] = useState("/images/sera_icon.jpg?v=20251221");
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
+    const chatSessionIdRef = useRef<string>("");
+    const chatOpenedAtRef = useRef<number | null>(null);
+    const lastPathRef = useRef<string>("");
+    const lastChatActiveRef = useRef<number>(0);
+    const userMessageCountRef = useRef<number>(0);
+    const modelMessageCountRef = useRef<number>(0);
 
     // Auto-scroll to bottom
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
+
+    // Init chat session id (no message content; analytics only)
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        chatSessionIdRef.current = getOrCreateChatSessionId();
+        lastPathRef.current = window.location.pathname || "/";
+    }, []);
+
+    // Track navigation after chat usage (journey)
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        if (!pathname) return;
+        const prev = lastPathRef.current || "/";
+        if (!prev) {
+            lastPathRef.current = pathname;
+            return;
+        }
+        if (prev === pathname) return;
+        lastPathRef.current = pathname;
+
+        const withinMs = 10 * 60 * 1000; // 10m window
+        if (Date.now() - lastChatActiveRef.current > withinMs) return;
+
+        const ctx: ChatAnalyticsContext = {
+            chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+            page_path: pathname
+        };
+        sendChatEvent("chat_navigation", {
+            ...ctx,
+            from_path: safeString(prev, 200),
+            to_path: safeString(pathname, 200),
+        });
+    }, [pathname]);
 
     // Load saved messages from localStorage
     useEffect(() => {
@@ -59,6 +190,48 @@ export default function AItuberWidget() {
         }
     }, [messages, hydrated]);
 
+    // Maintain counters without storing content
+    useEffect(() => {
+        const userCount = messages.filter(m => m.role === "user").length;
+        const modelCount = messages.filter(m => m.role === "model").length;
+        userMessageCountRef.current = userCount;
+        modelMessageCountRef.current = modelCount;
+    }, [messages]);
+
+    // Track open/close
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        const ctx: ChatAnalyticsContext = {
+            chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+            page_path: window.location.pathname || "/",
+        };
+
+        if (isOpen) {
+            chatOpenedAtRef.current = Date.now();
+            lastChatActiveRef.current = Date.now();
+            touchChatSessionActivity();
+
+            sendChatEvent("chat_open", {
+                ...ctx,
+                referrer_host: document.referrer ? safeString(new URL(document.referrer).hostname, 160) : "",
+                ...pickAttribution(),
+            });
+        } else {
+            if (!chatOpenedAtRef.current) return;
+            const duration_ms = Date.now() - chatOpenedAtRef.current;
+            chatOpenedAtRef.current = null;
+            lastChatActiveRef.current = Date.now();
+            touchChatSessionActivity();
+
+            sendChatEvent("chat_close", {
+                ...ctx,
+                duration_ms,
+                user_messages: userMessageCountRef.current,
+                model_messages: modelMessageCountRef.current,
+            });
+        }
+    }, [isOpen]);
+
     // Text-to-Speech function
     const speak = () => {
         // 音声出力は現段階では無効化（テキストのみ運用）
@@ -73,6 +246,21 @@ export default function AItuberWidget() {
         setInput("");
         setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
         setIsLoading(true);
+        lastChatActiveRef.current = Date.now();
+        touchChatSessionActivity();
+
+        if (typeof window !== "undefined") {
+            const ctx: ChatAnalyticsContext = {
+                chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+                page_path: window.location.pathname || "/",
+            };
+            sendChatEvent("chat_message_send", {
+                ...ctx,
+                message_length: userMessage.length,
+                message_index: userMessageCountRef.current,
+            });
+        }
+        const startedAt = Date.now();
 
         try {
             // Filter out the initial greeting message (index 0) from history
@@ -97,12 +285,37 @@ export default function AItuberWidget() {
 
             setMessages((prev) => [...prev, { role: "model", text: replyText }]);
             speak();
+
+            if (typeof window !== "undefined") {
+                const ctx: ChatAnalyticsContext = {
+                    chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+                    page_path: window.location.pathname || "/",
+                };
+                sendChatEvent("chat_message_receive", {
+                    ...ctx,
+                    response_length: replyText.length,
+                    latency_ms: Date.now() - startedAt,
+                    status: res.ok ? "ok" : "http_error",
+                });
+            }
         } catch (error) {
             console.error("Chat error:", error);
             setMessages((prev) => [
                 ...prev,
                 { role: "model", text: "ごめんなさい、通信エラーが起きました。少し時間をおいてお試しください。" },
             ]);
+
+            if (typeof window !== "undefined") {
+                const ctx: ChatAnalyticsContext = {
+                    chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+                    page_path: window.location.pathname || "/",
+                };
+                sendChatEvent("chat_error", {
+                    ...ctx,
+                    latency_ms: Date.now() - startedAt,
+                    error_type: safeString(error instanceof Error ? error.name : typeof error, 60),
+                });
+            }
         } finally {
             setIsLoading(false);
         }
@@ -195,6 +408,22 @@ export default function AItuberWidget() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="underline text-blue-600 hover:text-blue-800 break-words"
+                                onClick={() => {
+                                    try {
+                                        const ctx: ChatAnalyticsContext = {
+                                            chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+                                            page_path: window.location.pathname || "/",
+                                        };
+                                        lastChatActiveRef.current = Date.now();
+                                        touchChatSessionActivity();
+                                        sendChatEvent("chat_link_click", {
+                                            ...ctx,
+                                            ...safeUrlForAnalytics(href),
+                                        });
+                                    } catch {
+                                        // noop
+                                    }
+                                }}
                             >
                                 {strong}
                             </a>
@@ -208,6 +437,22 @@ export default function AItuberWidget() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="underline text-blue-600 hover:text-blue-800 break-words"
+                            onClick={() => {
+                                try {
+                                    const ctx: ChatAnalyticsContext = {
+                                        chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+                                        page_path: window.location.pathname || "/",
+                                    };
+                                    lastChatActiveRef.current = Date.now();
+                                    touchChatSessionActivity();
+                                    sendChatEvent("chat_link_click", {
+                                        ...ctx,
+                                        ...safeUrlForAnalytics(href),
+                                    });
+                                } catch {
+                                    // noop
+                                }
+                            }}
                         >
                             {urlText}
                         </a>
@@ -223,6 +468,22 @@ export default function AItuberWidget() {
                             key={`title-${lineIndex}-${start}`}
                             href={searchUrl}
                             className="underline text-blue-600 hover:text-blue-800 break-words"
+                            onClick={() => {
+                                try {
+                                    const ctx: ChatAnalyticsContext = {
+                                        chat_session_id: chatSessionIdRef.current || getOrCreateChatSessionId(),
+                                        page_path: window.location.pathname || "/",
+                                    };
+                                    lastChatActiveRef.current = Date.now();
+                                    touchChatSessionActivity();
+                                    sendChatEvent("chat_link_click", {
+                                        ...ctx,
+                                        ...safeUrlForAnalytics(searchUrl),
+                                    });
+                                } catch {
+                                    // noop
+                                }
+                            }}
                         >
                             {raw}
                         </a>
