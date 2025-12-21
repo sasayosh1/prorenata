@@ -5,8 +5,34 @@ import { useQuery, useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { getClientId } from "@/lib/clientId";
 import { Id } from "../../../convex/_generated/dataModel";
+import Link from "next/link";
 
 export default function MedicalQuizPage() {
+    const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
+
+    if (!convexUrl) {
+        return (
+            <div className="max-w-2xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 p-8 text-center">
+                    <h1 className="text-2xl font-bold text-gray-900">メディカルクイズ</h1>
+                    <p className="mt-3 text-gray-600 leading-relaxed">
+                        ただいまクイズ機能の準備中です。少し時間をおいてから再度お試しください。
+                    </p>
+                    <Link
+                        href="/"
+                        className="inline-flex mt-6 items-center justify-center rounded-full bg-cyan-600 px-6 py-3 text-white font-semibold hover:bg-cyan-700 transition-colors"
+                    >
+                        ホームへ戻る
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
+    return <MedicalQuizInner />;
+}
+
+function MedicalQuizInner() {
     const [clientId, setClientId] = useState<string | null>(null);
     const [sessionId, setSessionId] = useState<Id<"quizSessions"> | null>(null);
     const [selectedIdx, setSelectedIdx] = useState<number | null>(null);

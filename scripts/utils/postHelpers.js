@@ -1306,7 +1306,12 @@ async function addBodyToEmptyH3Sections(blocks, title, geminiModel = null) {
         }
 
         // Gemini APIで本文を生成
-        const prompt = `あなたは20歳の看護助手「白崎セラ」です。一人称「わたし」、丁寧な「です・ます」調で書いてください。
+        const prompt = `あなたは看護助手向けメディアの編集者です。一人称「わたし」、丁寧な「です・ます」調で書いてください。
+
+制約:
+- 自分の名前（例: セラ/白崎セラ）や年齢を名乗らない
+- 「看護助手の私が教える」のような肩書き主張は入れない
+- 「参考/出典」はリード（最初のH2より前）とH2直下に置かない（本文内の節末なら可）
 
 記事タイトル: ${title}
 現在のセクション（H2）: ${currentH2}
@@ -1315,7 +1320,6 @@ H3見出し: ${h3Text}
 
 このH3見出しに続く本文を2〜3文（80〜150文字）で書いてください。
 - 前後の文脈に自然につながる内容
-- 白崎セラの優しい口調
 - 「です。」「ます。」の短文が連続して幼く見えないよう、文を自然につなげたり語尾を少し変化させる
 - 読者に役立つ具体的な情報
 - 本文のみ出力（見出しや装飾なし）`
@@ -1452,7 +1456,12 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
     .join('\n')
 
   // Gemini APIでまとめセクションを最適化
-  const prompt = `あなたは20歳の看護助手「白崎セラ」です。一人称「わたし」、丁寧な「です・ます」調で書いてください。
+  const prompt = `あなたは看護助手向けメディアの編集者です。一人称「わたし」、丁寧な「です・ます」調で書いてください。
+
+制約:
+- 自分の名前（例: セラ/白崎セラ）や年齢を名乗らない
+- 「看護助手の私が教える」のような肩書き主張は入れない
+- 「参考/出典」はリード（最初のH2より前）とH2直下に置かない（本文内の節末なら可）
 
 記事タイトル: ${title}
 
@@ -2237,22 +2246,23 @@ async function addSourceLinksToArticle(blocks, title, currentPost = null) {
     return { body: blocks, addedSource: null }
   }
 
-  let summaryStartIndex = -1
+  const summaryInsertIndex = findSummaryInsertIndex(blocks)
+  const firstH2Index = blocks.findIndex(b => b && b._type === 'block' && b.style === 'h2')
 
-  for (let i = 0; i < blocks.length; i++) {
-    const block = blocks[i]
-    if (block._type === 'block' && block.style === 'h2') {
-      const h2Text = block.children.map(child => child.text || '').join('').trim()
-
-      if (h2Text === 'まとめ') {
-        summaryStartIndex = i
-      }
-    }
+  // 参考/出典はリード（最初のH2より前）とH2直下に置かない。
+  // 可能な限り「どこかのH2セクション末尾（まとめの前）」に差し込む。
+  let insertPosition = summaryInsertIndex
+  for (let i = summaryInsertIndex - 1; i >= 0; i -= 1) {
+    const b = blocks[i]
+    if (!b || b._type !== 'block') continue
+    if (b.style === 'h2' || b.style === 'h3') continue
+    const t = blockPlainText(b)
+    if (!t || /^(参考(資料)?|出典)[:：]/.test(t)) continue
+    if (firstH2Index !== -1 && i < firstH2Index) continue
+    // 直後が見出しになる位置は「セクション末尾」扱いにできるので、この段落の直後へ挿入
+    insertPosition = i + 1
+    break
   }
-
-  // まとめセクション内（および直後）に参考を置くのは禁止。
-  // 参考リンクは原則として各セクション末尾に置くが、最低限「まとめの前」に挿入してUXを守る。
-  const insertPosition = summaryStartIndex !== -1 ? summaryStartIndex : blocks.length
 
   const linkMarkKey = `link-${randomUUID()}`
   const sourceBlock = {
@@ -2310,58 +2320,83 @@ function relocateReferencesAwayFromHeadingsAndLead(blocks) {
     return { body: blocks, moved: 0 }
   }
 
-  const refs = []
-  const kept = []
-  let moved = 0
-
   const firstH2Index = blocks.findIndex(b => b && b._type === 'block' && b.style === 'h2')
-
-  for (let i = 0; i < blocks.length; i += 1) {
-    const block = blocks[i]
-    if (!block) continue
-
-    // 見出しの「参考/出典」は禁止（段落ブロックにする）
-    if (block._type === 'block' && block.style === 'h2') {
-      const text = blockPlainText(block)
-      if (/^(参考|出典)/.test(text)) {
-        moved += 1
-        continue
-      }
-    }
-
-    if (!isReferenceParagraph(block)) {
-      kept.push(block)
-      continue
-    }
-
-    // リード（最初のH2より前）に参考を置くのは禁止
-    if (firstH2Index === -1 || i < firstH2Index) {
-      refs.push(block)
-      moved += 1
-      continue
-    }
-
-    // H2直下（最初の段落）に参考を置くのは禁止
-    const prev = blocks[i - 1]
-    const prevIsH2 = prev && prev._type === 'block' && prev.style === 'h2'
-    if (prevIsH2) {
-      refs.push(block)
-      moved += 1
-      continue
-    }
-
-    kept.push(block)
-  }
-
-  if (refs.length === 0) {
+  if (firstH2Index === -1) {
+    // セクションが無い場合は移動できない（現状維持）
     return { body: blocks, moved: 0 }
   }
 
-  // まとめの前にまとめて差し込む（まとめ直後に参考を置くのは禁止）
-  const insertAt = findSummaryInsertIndex(kept)
-  const body = [...kept.slice(0, insertAt), ...refs, ...kept.slice(insertAt)]
+  const h2Indices = blocks
+    .map((b, idx) => (b && b._type === 'block' && b.style === 'h2' ? idx : -1))
+    .filter(idx => idx >= 0)
 
-  return { body, moved }
+  const pendingBySectionStart = new Map()
+  const movedIndices = new Set()
+  let moved = 0
+
+  const queue = (sectionStartIndex, block) => {
+    if (!pendingBySectionStart.has(sectionStartIndex)) {
+      pendingBySectionStart.set(sectionStartIndex, [])
+    }
+    pendingBySectionStart.get(sectionStartIndex).push(block)
+  }
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (!isReferenceParagraph(block)) continue
+
+    const prev = blocks[i - 1]
+    const prevIsH2 = prev && prev._type === 'block' && prev.style === 'h2'
+    const isInLead = i < firstH2Index
+    if (!isInLead && !prevIsH2) continue
+
+    movedIndices.add(i)
+    moved += 1
+
+    if (isInLead) {
+      queue(firstH2Index, block)
+      continue
+    }
+
+    queue(i - 1, block)
+  }
+
+  if (moved === 0) {
+    return { body: blocks, moved: 0 }
+  }
+
+  const output = []
+  let currentSectionStart = firstH2Index
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+
+    if (block && block._type === 'block' && block.style === 'h2') {
+      // セクション境界に入ったので、前セクションの末尾に参考を差し込む
+      if (i !== firstH2Index) {
+        const refs = pendingBySectionStart.get(currentSectionStart) || []
+        if (refs.length > 0) {
+          output.push(...refs)
+          pendingBySectionStart.delete(currentSectionStart)
+        }
+        currentSectionStart = i
+      }
+    }
+
+    if (movedIndices.has(i)) {
+      continue
+    }
+
+    output.push(block)
+  }
+
+  // 最終セクション末尾
+  const tailRefs = pendingBySectionStart.get(currentSectionStart) || []
+  if (tailRefs.length > 0) {
+    output.push(...tailRefs)
+  }
+
+  return { body: output, moved }
 }
 
 function removeReferencesAfterSummary(blocks) {

@@ -8,6 +8,28 @@ import { getClientId } from "@/lib/clientId";
 import { Id } from "../../convex/_generated/dataModel";
 
 export default function ConvexMedicalQuiz() {
+    const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
+    if (!convexUrl) {
+        return (
+            <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 p-8 text-center">
+                <h2 className="text-2xl font-bold text-gray-900">メディカルクイズ</h2>
+                <p className="mt-3 text-gray-600 leading-relaxed">
+                    ただいまクイズ機能の準備中です。少し時間をおいてから再度お試しください。
+                </p>
+                <Link
+                    href="/"
+                    className="inline-flex mt-6 items-center justify-center rounded-full bg-cyan-600 px-6 py-3 text-white font-semibold hover:bg-cyan-700 transition-colors"
+                >
+                    ホームへ戻る
+                </Link>
+            </div>
+        );
+    }
+
+    return <ConvexMedicalQuizInner />;
+}
+
+function ConvexMedicalQuizInner() {
     const [clientId, setClientId] = useState<string | null>(null);
     const [sessionId, setSessionId] = useState<Id<"quizSessions"> | null>(null);
     const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
@@ -28,15 +50,15 @@ export default function ConvexMedicalQuiz() {
         const id = getClientId();
         setClientId(id);
         upsertSession({ clientId: id }).then(setSessionId);
-    }, []); // Run once on mount
+    }, [upsertSession]); // Run once on mount
 
     // Update activeQuestion when a new question arrives via query
     useEffect(() => {
-        if (question && question.status === "ok") {
+        if (question && question.status === "ok" && question.qid && question.prompt && Array.isArray(question.choices)) {
             setActiveQuestion({
-                qid: question.qid!,
-                prompt: question.prompt!,
-                choices: question.choices!,
+                qid: question.qid,
+                prompt: question.prompt,
+                choices: question.choices,
                 category: question.category,
                 difficulty: question.difficulty
             });

@@ -2828,7 +2828,6 @@ function sanitizeBodyBlocks(blocks, currentPost = null) {
 
   const cleaned = []
   const seenParagraphs = new Set()
-  const deferredReferences = []
   let removedRelated = 0
   let removedDuplicates = 0
   let removedInternalLinks = 0
@@ -2851,18 +2850,9 @@ function sanitizeBodyBlocks(blocks, currentPost = null) {
   const inlineAffiliateSeenKeys = new Set()
 
   const currentSlug = (typeof currentPost?.slug === 'string' ? currentPost.slug : currentPost?.slug?.current || '').toLowerCase()
-  const currentCategories = Array.isArray(currentPost?.categories)
-    ? currentPost.categories.map(c => (typeof c === 'string' ? c : c?.title || '')).join(' ')
-    : ''
-  const bodyPlain = blocksToPlainText(expandedBlocks)
-  const combined = `${currentPost?.title || ''}\n${currentCategories}\n${bodyPlain}`.toLowerCase()
-  const allowRetirementService =
+  const allowServiceAffiliate =
     currentSlug === 'nursing-assistant-compare-services-perspective' ||
-    currentSlug === 'comparison-of-three-resignation-agencies' ||
-    /退職代行|退職\b|辞めたい|辞める|退職したい/.test(combined)
-  const allowCareerService =
-    currentSlug === 'nursing-assistant-compare-services-perspective' ||
-    /転職|求人|職場を変える|仕事を変える/.test(combined)
+    currentSlug === 'comparison-of-three-resignation-agencies'
   for (let blockIndex = 0; blockIndex < expandedBlocks.length; blockIndex += 1) {
     let block = expandedBlocks[blockIndex]
     if (!block) {
@@ -2871,12 +2861,12 @@ function sanitizeBodyBlocks(blocks, currentPost = null) {
 
     if (block._type === 'affiliateEmbed') {
       const linkKey = typeof block.linkKey === 'string' ? block.linkKey : ''
-      if (['miyabi', 'sokuyame', 'gaia'].includes(linkKey) && !allowRetirementService) {
+      if (['miyabi', 'sokuyame', 'gaia'].includes(linkKey) && !allowServiceAffiliate) {
         removedAffiliateCtas += 1
         previousWasLinkBlock = false
         continue
       }
-      if (['humanlifecare', 'kaigobatake', 'renewcare'].includes(linkKey) && !allowCareerService) {
+      if (['humanlifecare', 'kaigobatake', 'renewcare'].includes(linkKey) && !allowServiceAffiliate) {
         removedAffiliateCtas += 1
         previousWasLinkBlock = false
         continue
@@ -2966,13 +2956,6 @@ function sanitizeBodyBlocks(blocks, currentPost = null) {
     const text = extractBlockText(block)
     const normalizedText = text.replace(/\s+/g, ' ').trim()
 
-    // 参考/出典はリード・見出し直下に置かない（後でまとめて移動）
-    if (/^(参考(資料)?|出典)[:：]/.test(normalizedText)) {
-      deferredReferences.push(block)
-      previousWasLinkBlock = false
-      continue
-    }
-
     if (normalizedText === '[PR]') {
       continue
     }
@@ -3055,12 +3038,12 @@ function sanitizeBodyBlocks(blocks, currentPost = null) {
       const affiliateKeysInBlock = affiliateMarkDefs
         .map(def => findAffiliateKeyByHref(def?.href))
         .filter(Boolean)
-      if (affiliateKeysInBlock.some(key => ['miyabi', 'sokuyame', 'gaia'].includes(key)) && !allowRetirementService) {
+      if (affiliateKeysInBlock.some(key => ['miyabi', 'sokuyame', 'gaia'].includes(key)) && !allowServiceAffiliate) {
         removedAffiliateCtas += 1
         previousWasLinkBlock = false
         continue
       }
-      if (affiliateKeysInBlock.some(key => ['humanlifecare', 'kaigobatake', 'renewcare'].includes(key)) && !allowCareerService) {
+      if (affiliateKeysInBlock.some(key => ['humanlifecare', 'kaigobatake', 'renewcare'].includes(key)) && !allowServiceAffiliate) {
         removedAffiliateCtas += 1
         previousWasLinkBlock = false
         continue
@@ -3278,10 +3261,6 @@ function sanitizeBodyBlocks(blocks, currentPost = null) {
   denseParagraphsSplit = denseSplitResult.splitCount
   const embedRestoreResult = restoreInlineAffiliateEmbeds(denseSplitResult.body)
   let relocated = embedRestoreResult.body
-  if (deferredReferences.length > 0) {
-    const insertAt = findSummaryInsertIndex(relocated)
-    relocated = [...relocated.slice(0, insertAt), ...deferredReferences, ...relocated.slice(insertAt)]
-  }
   const relocation = relocateReferencesAwayFromHeadingsAndLead(relocated)
   if (relocation.moved > 0) {
     relocated = relocation.body
@@ -3573,7 +3552,7 @@ function expandShortContent(blocks, title) {
         _type: 'block',
         _key: `auto-expansion-${timestampBase}-${index}-h3b`,
         style: 'h3',
-        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-h3b-span`, text: 'セラが大切にしているフォローの工夫', marks: [] }],
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-h3b-span`, text: '現場で大切にしたいフォローの工夫', marks: [] }],
         markDefs: []
       },
       {
@@ -3646,7 +3625,7 @@ function expandShortContent(blocks, title) {
         _type: 'block',
         _key: `auto-expansion-${timestampBase}-${index}-p6`,
         style: 'normal',
-        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p6-span`, text: '「完璧さ」より「継続できる工夫」を意識して、患者さんと自分自身が心地よく過ごせるリズムを整えていきましょう。焦らず取り組む姿勢こそが、看護助手としての信頼とセラ感を育ててくれます。', marks: [] }],
+        children: [{ _type: 'span', _key: `auto-expansion-${timestampBase}-${index}-p6-span`, text: '「完璧さ」より「継続できる工夫」を意識して、患者さんと自分自身が心地よく過ごせるリズムを整えていきましょう。焦らず取り組む姿勢こそが、看護助手としての信頼感を育ててくれます。', marks: [] }],
         markDefs: []
       }
     ]
@@ -3731,7 +3710,7 @@ function expandShortContent(blocks, title) {
         _type: 'block',
         _key: `auto-expansion-extra-${timestampBase}-${index}-p4`,
         style: 'normal',
-        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-p4-span`, text: 'どの職場でも共有の質が高まるほど、安心して引き継ぎを受け取れるようになります。セラも新人時代は実例を先輩から教わりながら、少しずつ引き継ぎメモの品質を上げてきました。迷ったら一人で抱え込まず、チームの経験を頼って大丈夫ですよ。', marks: [] }],
+        children: [{ _type: 'span', _key: `auto-expansion-extra-${timestampBase}-${index}-p4-span`, text: 'どの職場でも共有の質が高まるほど、安心して引き継ぎを受け取れるようになります。わたしも新人時代は実例を先輩から教わりながら、少しずつ引き継ぎメモの品質を上げてきました。迷ったら一人で抱え込まず、チームの経験を頼って大丈夫ですよ。', marks: [] }],
         markDefs: []
       }
     ]
@@ -5176,6 +5155,7 @@ async function sanitizeAllBodies(options = {}) {
   for (const post of posts) {
     const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
     const originalSlug = typeof post.slug === 'string' ? post.slug : (post.slug?.current || '')
+    const slug = String(originalSlug || '').toLowerCase()
 
     const updates = {}
     let body = Array.isArray(post.body) ? post.body : []
@@ -5402,8 +5382,16 @@ async function sanitizeAllBodies(options = {}) {
       }
 
       const irrelevantAffiliateResult = removeIrrelevantAffiliateBlocks(body, post, {
-        removeRetirementAffiliates: shouldInsertComparisonLink,
-        removeCareerAffiliates: needsCareerLink
+        removeRetirementAffiliates:
+          slug === 'nursing-assistant-compare-services-perspective' ||
+          slug === 'comparison-of-three-resignation-agencies'
+            ? false
+            : true,
+        removeCareerAffiliates:
+          slug === 'nursing-assistant-compare-services-perspective' ||
+          slug === 'comparison-of-three-resignation-agencies'
+            ? false
+            : true
       })
       if (irrelevantAffiliateResult.removed > 0) {
         body = irrelevantAffiliateResult.body
@@ -5478,8 +5466,16 @@ async function sanitizeAllBodies(options = {}) {
       const hasAffiliateEmbedInBody = body.some(block => block?._type === 'affiliateEmbed')
       if (forceLinkMaintenance || !hasAffiliateEmbedInBody) {
         const affiliateResult = addAffiliateLinksToArticle(body, post.title, post, {
-          disableRetirementAffiliates: shouldInsertComparisonLink,
-          disableCareerAffiliates: needsCareerLink
+          disableRetirementAffiliates:
+            slug === 'nursing-assistant-compare-services-perspective' ||
+            slug === 'comparison-of-three-resignation-agencies'
+              ? false
+              : true,
+          disableCareerAffiliates:
+            slug === 'nursing-assistant-compare-services-perspective' ||
+            slug === 'comparison-of-three-resignation-agencies'
+              ? false
+              : true
         })
         if (affiliateResult.addedLinks > 0) {
           body = affiliateResult.body
@@ -5505,6 +5501,13 @@ async function sanitizeAllBodies(options = {}) {
           sourceLinkAdded = sourceResult.addedSource
           bodyChanged = true
         }
+      }
+
+      // リード内とH2直下の参考/出典は禁止。該当する参考ブロックは各H2セクション末尾へ移動する。
+      const refRelocation = relocateReferencesAwayFromHeadingsAndLead(body)
+      if (refRelocation.moved > 0) {
+        body = refRelocation.body
+        bodyChanged = true
       }
       // 出典は「まとめ」内に置かない（後段で追加されても安全側で除去）
       const finalReferenceCleanup = removeReferencesAfterSummary(body)

@@ -568,7 +568,7 @@ export const portableTextComponents: PortableTextComponents = {
             </ul>
           ) : (
             <div className="text-sm text-gray-600">
-              <Link href="/blog" className="underline decoration-dotted hover:text-cyan-700">
+              <Link href="/posts" className="underline decoration-dotted hover:text-cyan-700">
                 記事一覧
               </Link>
               から気になるテーマを探してみてください。

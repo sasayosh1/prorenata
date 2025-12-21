@@ -259,7 +259,7 @@ export default function AItuberWidget() {
                         <div className="flex items-center gap-2">
                             <div className="w-8 h-8 rounded-full overflow-hidden bg-white/20">
                                 <Image
-                                    src="/images/sera_icon.jpg"
+                                    src="/images/sera_icon.jpg?v=20251221"
                                     alt="Sera"
                                     width={32}
                                     height={32}
@@ -329,7 +329,7 @@ export default function AItuberWidget() {
             >
                 <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white">
                     <Image
-                        src="/images/sera_icon.jpg"
+                        src="/images/sera_icon.jpg?v=20251221"
                         alt="Sera"
                         width={64}
                         height={64}

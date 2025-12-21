@@ -66,7 +66,7 @@ export default async function Home() {
               <div className="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-500">
                 <Image
                   className="w-full h-auto object-cover"
-                  src="/hero-image.png"
+                  src="/hero-image.png?v=20251221"
                   alt="看護助手サポート"
                   width={1200}
                   height={900}

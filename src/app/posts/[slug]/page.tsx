@@ -121,8 +121,13 @@ function isDisclaimerParagraph(block: PortableTextBlock): boolean {
   return text.startsWith('免責事項')
 }
 
+function isAffiliateEmbedBlock(block: PortableTextBlock): boolean {
+  return block?._type === 'affiliateEmbed'
+}
+
 function isManualRelatedHeading(block: PortableTextBlock): boolean {
-  if (block?._type !== 'block' || block.style !== 'h2') return false
+  if (block?._type !== 'block') return false
+  if (block.style !== 'h2' && block.style !== 'h3') return false
   const text = getPortableTextBlockText(block)
   return /あわせて読/.test(text) || text.includes('関連記事')
 }
@@ -132,19 +137,21 @@ function stripManualRelatedSection(body: unknown) {
   const blocks = body as PortableTextBlock[]
 
   const stripped: PortableTextBlock[] = []
-  let skipUntilNextH2 = false
+  let skippingRelated = false
 
   for (const block of blocks) {
-    if (skipUntilNextH2) {
-      if (block?._type === 'block' && block.style === 'h2') {
-        skipUntilNextH2 = false
-      } else {
-        continue
-      }
+    if (skippingRelated) {
+      const stop =
+        (block?._type === 'block' && block.style === 'h2') ||
+        isDisclaimerParagraph(block) ||
+        isAffiliateEmbedBlock(block) ||
+        block?._type === 'relatedPosts'
+      if (!stop) continue
+      skippingRelated = false
     }
 
     if (isManualRelatedHeading(block)) {
-      skipUntilNextH2 = true
+      skippingRelated = true
       continue
     }
 
@@ -160,7 +167,7 @@ function injectRelatedPostsBeforeDisclaimer(
 ) {
   const cleanedBody = stripManualRelatedSection(body)
   if (!Array.isArray(cleanedBody) || cleanedBody.length === 0) return cleanedBody
-  if (!Array.isArray(posts) || posts.length === 0) return body
+  if (!Array.isArray(posts) || posts.length === 0) return cleanedBody
 
   const blocks = cleanedBody as PortableTextBlock[]
   const alreadyInserted = blocks.some((block) => block?._type === 'relatedPosts')
@@ -333,9 +340,15 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
   const hasTopicMeta = normalizedCategories.length > 0 || normalizedTags.length > 0
 
-  const primaryRelatedPosts = post
-    ? await getRelatedPosts(post._id, categorySlugs, 6)
-    : []
+  let primaryRelatedPosts: Array<{ title: string; slug: string; categories?: Array<{ title: string; slug?: string | null }> | null }> = []
+  if (post) {
+    try {
+      primaryRelatedPosts = await getRelatedPosts(post._id, categorySlugs, 6)
+    } catch (error) {
+      console.error('Failed to load related posts:', error)
+      primaryRelatedPosts = []
+    }
+  }
 
   let relatedPosts = primaryRelatedPosts
   if (post && relatedPosts.length < 4) {
