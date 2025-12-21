@@ -63,7 +63,10 @@ export default async function Home() {
               </p>
             </div>
             <div className="relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center">
-              <div className="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-500">
+              <div
+                className="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-500 bg-cover bg-center"
+                style={{ backgroundImage: "url('/hero-banner.png')" }}
+              >
                 <Image
                   className="w-full h-auto object-cover"
                   src="/hero-image.png?v=20251221"

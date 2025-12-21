@@ -8,6 +8,7 @@ import { SITE_URL } from "@/lib/constants";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import AItuberWidget from "@/components/AItuberWidget";
 import { ConvexClientProvider } from "@/components/chatbot/ConvexClientProvider";
+import ServiceWorkerCleanup from "@/components/ServiceWorkerCleanup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -218,6 +219,7 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased`}>
+        <ServiceWorkerCleanup />
         <ConvexClientProvider>
           {/* Skip to content リンク (アクセシビリティ) */}
           <a

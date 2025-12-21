@@ -23,6 +23,7 @@ export default function AItuberWidget() {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [hydrated, setHydrated] = useState(false);
+    const [avatarSrc, setAvatarSrc] = useState("/images/sera_icon.jpg?v=20251221");
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     // Auto-scroll to bottom
@@ -259,13 +260,14 @@ export default function AItuberWidget() {
                         <div className="flex items-center gap-2">
                             <div className="w-8 h-8 rounded-full overflow-hidden bg-white/20">
                                 <Image
-                                    src="/images/sera_icon.jpg?v=20251221"
+                                    src={avatarSrc}
                                     alt="Sera"
                                     width={32}
                                     height={32}
                                     className="object-cover w-full h-full object-center"
                                     style={{ objectPosition: "50% 35%" }}
                                     unoptimized
+                                    onError={() => setAvatarSrc("/images/sera_profile.png")}
                                 />
                             </div>
                             <span className="font-bold text-sm">白崎セラ (ChatBot)</span>
@@ -329,13 +331,14 @@ export default function AItuberWidget() {
             >
                 <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white">
                     <Image
-                        src="/images/sera_icon.jpg?v=20251221"
+                        src={avatarSrc}
                         alt="Sera"
                         width={64}
                         height={64}
                         className="object-cover w-full h-full object-center"
                         style={{ objectPosition: "50% 35%" }}
                         unoptimized
+                        onError={() => setAvatarSrc("/images/sera_profile.png")}
                     />
                 </div>
                 {!isOpen && (
