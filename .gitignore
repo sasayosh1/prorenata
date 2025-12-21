@@ -65,3 +65,4 @@ scripts/analytics/service-account-antigravity.json
 ga4env/
 .budget/
 .analytics/
+.convex.log

@@ -251,7 +251,7 @@
 - **日時**: 2025-10-18（2回目更新）
 - **内容**: Sanity API Tokenを新しいEditorトークンに更新
 - **ファイル**: `.env.local`
-- **新トークン**: skfM8OirMvwXssxg7zFZ9h0vqAFjNlvuJLbKoENsfr5k0XTuUqI9zz7liwUR8036qr3ufUhtlvEcwoOK3QsDKkuTlbsFfcMmEousWhzynyGG49eXXFL3GeAwdhO3ESGD6KvwhYR2SfDCqxD3vMWhEKizPbzJf0BhlSFSiyvboPhvL17O0W3G
+- **新トークン**: `[REDACTED]`（トークンはリポジトリに記載しない）
 - **テスト結果**: 正常に動作確認完了（maintenance.js report実行成功）
 
 ### 🚨 重大インシデント：Git保存漏れによる他環境での作業停止 ⚠️
@@ -267,6 +267,7 @@
   - **今後は作業完了時に必ず自動的に `git add -A && git commit && git push` を実行**
   - ユーザーへの確認は不要、自動実行を徹底
   - 「全部保存」「保存」などの指示があった時点で即座に実行
+  - 補助: `npm run all-save`（ビルド + ドキュメント更新ヒント + 次アクション）
 - **影響**: ユーザーの貴重な時間を無駄にした重大なミス
 - **再発防止**: このインシデデントをPROJECT_STATUS.mdに記録し、今後同様のミスを防止
 
