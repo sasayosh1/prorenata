@@ -1,12 +1,12 @@
-name: X Mailer
+name: X Mailer (semi-auto)
 
 on:
   workflow_dispatch:
   schedule:
-    # 08:30 JST = 23:30 UTC (前日)
-    - cron: "30 23 * * *"
-    # 20:30 JST = 11:30 UTC
-    - cron: "30 11 * * *"
+    # 朝 07:35 (JST) = 22:35 (UTC)
+    - cron: "35 22 * * *"
+    # 夜 20:50 (JST) = 11:50 (UTC)
+    - cron: "50 11 * * *"
 
 jobs:
   send:
@@ -17,26 +17,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci --include=dev
 
       - name: Send mail
         env:
-          # Optional (recommended)
           SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
-          POST_TYPE: ${{ vars.POST_TYPE }}
           PROJECT_NAME: ${{ vars.PROJECT_NAME }}
 
-          # Required (Sanity)
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
           SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
 
-          # Required (Gmail)
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
+
+          POST_TYPE: ${{ vars.POST_TYPE }}
         run: node .github/scripts/x-mailer.mjs
