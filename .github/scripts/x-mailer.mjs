@@ -1,74 +1,88 @@
-import process from 'node:process'
-import nodemailer from 'nodemailer'
-import { fetchOnePost } from './sanity-fetch.mjs'
+import nodemailer from "nodemailer";
+import { pickPostFromSanity } from "./sanity-fetch.mjs";
 
-function requiredEnv(name) {
-  const value = process.env[name]
-  if (!value || !String(value).trim()) {
-    throw new Error(`Missing required ENV/Secret: ${name}`)
+const MAX_LEN = 140;
+
+function must(name, v) {
+  if (!v || String(v).trim() === "") {
+    throw new Error(`Missing env: ${name}`);
   }
-  return String(value).trim()
+  return v;
 }
 
-function optionalEnv(name, fallback = '') {
-  const value = process.env[name]
-  return value ? String(value).trim() : fallback
+function normalize(s) {
+  return (s ?? "").replace(/\s+/g, " ").trim();
 }
 
-function normalizeBaseUrl(url) {
-  return String(url).replace(/\/+$/, '')
+function truncate(s, n) {
+  if (s.length <= n) return s;
+  return s.slice(0, n - 1) + "…";
 }
 
-async function sendMail({ subject, body }) {
-  const GMAIL_USER = requiredEnv('GMAIL_USER')
-  const GMAIL_APP_PASSWORD = requiredEnv('GMAIL_APP_PASSWORD')
-  const MAIL_TO = requiredEnv('MAIL_TO')
+/**
+ * X投稿用テキストを生成（140文字以内）
+ */
+function buildXPost({ title, comment, url }) {
+  title = normalize(title);
+  comment = normalize(comment);
+  url = normalize(url);
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD },
-  })
+  // 改行2つ分を想定
+  const reserved = url.length + 2; // "\n\n"
+  const available = MAX_LEN - reserved;
 
-  await transporter.sendMail({
-    from: `"X Mailer" <${GMAIL_USER}>`,
-    to: MAIL_TO,
-    subject,
-    text: body,
-  })
-}
+  // タイトル＋コメントで使える文字数
+  const titleMax = Math.min(available, 60);
+  const commentMax = Math.max(0, available - titleMax - 1);
 
-function buildShortLine(mode) {
-  return mode === 'fresh' ? '新着のおすすめです。' : '過去記事のおすすめです。'
-}
+  const t = truncate(title, titleMax);
+  const c = commentMax > 0 ? truncate(comment, commentMax) : "";
 
-function deriveProjectName() {
-  return (
-    optionalEnv('PROJECT_NAME') ||
-    (process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : '') ||
-    'site'
-  )
+  return c
+    ? `${t}\n${c}\n${url}`
+    : `${t}\n${url}`;
 }
 
 async function main() {
-  const { mode, post } = await fetchOnePost()
+  const gmailUser = must("GMAIL_USER", process.env.GMAIL_USER);
+  const appPass = must("GMAIL_APP_PASSWORD", process.env.GMAIL_APP_PASSWORD);
+  const mailTo = must("MAIL_TO", process.env.MAIL_TO);
+  const siteBaseUrl = must("SITE_BASE_URL", process.env.SITE_BASE_URL);
+  const postType = process.env.POST_TYPE || "post";
+  const mode = process.env.MODE || "fresh";
 
-  const SITE_BASE_URL = optionalEnv('SITE_BASE_URL')
-  if (!SITE_BASE_URL) {
-    throw new Error('Missing optional ENV: SITE_BASE_URL (example: https://sasakiyoshimasa.com or https://prorenata.jp)')
-  }
+  const post = await pickPostFromSanity({
+    mode,
+    siteBaseUrl,
+    postType,
+  });
 
-  const baseUrl = normalizeBaseUrl(SITE_BASE_URL)
-  const url = `${baseUrl}/posts/${post.slug}`
+  const title = post.title;
+  const comment =
+    post.summary ||
+    "これから働く人向けに、現場の流れをまとめました。";
+  const url = post.url;
 
-  const subject = `【X投稿用｜${deriveProjectName()}】${post.slug}`
-  const body = [post.title, buildShortLine(mode), url].join('\n')
+  const xText = buildXPost({ title, comment, url });
 
-  await sendMail({ subject, body })
-  console.log(`✅ Sent mail (${mode}): ${post.slug}`)
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: { user: gmailUser, pass: appPass },
+  });
+
+  await transporter.sendMail({
+    from: gmailUser,
+    to: mailTo,
+    subject: `[X投稿用｜${mode === "fresh" ? "朝" : "夜"}] ${truncate(title, 40)}`,
+    text: xText,
+  });
+
+  console.log("=== X POST TEXT ===");
+  console.log(xText);
+  console.log("Length:", xText.length);
 }
 
-main().catch((error) => {
-  console.error('[x-mailer] Failed:', error?.message || error)
-  process.exitCode = 1
-})
-
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
