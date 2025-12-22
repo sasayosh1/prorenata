@@ -1,8 +1,8 @@
 {
   "ok": true,
   "reason": "ok",
-  "checkedAt": "2025-12-21T17:24:00.442Z",
-  "dateCheckedUtc": "2025-12-20",
+  "checkedAt": "2025-12-22T03:02:20.042Z",
+  "dateCheckedUtc": "2025-12-21",
   "thresholds": {
     "lookbackDays": 7,
     "dropRatio": 0.2,
@@ -10,9 +10,9 @@
   },
   "metrics": {
     "ga4": {
-      "yesterdaySessions": 14,
-      "dayBeforeSessions": 36,
-      "recentAvgSessions": 22
+      "yesterdaySessions": 20,
+      "dayBeforeSessions": 40,
+      "recentAvgSessions": 26.285714285714285
     },
     "gsc": {
       "yesterdayClicks": 0,
