@@ -43,6 +43,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Send X post mail
+        if: ${{ secrets.GMAIL_USER != '' && secrets.GMAIL_APP_PASSWORD != '' }}
         run: node scripts/x_mailer.mjs
         env:
           PROJECT_NAME: prorenata
@@ -52,7 +53,8 @@ jobs:
           MAIL_TO: ${{ secrets.MAIL_TO }}
 
       - name: Append summary to Issue
-        if: always() && vars.X_SUMMARY_ISSUE_NUMBER != ''
+        # Gmail送信が有効な場合は、GitHub通知メールと二重になり得るためIssue追記をスキップ
+        if: ${{ always() && vars.X_SUMMARY_ISSUE_NUMBER != '' && (secrets.GMAIL_USER == '' || secrets.GMAIL_APP_PASSWORD == '') }}
         uses: actions/github-script@v7
         env:
           SUMMARY_ISSUE_NUMBER: ${{ vars.X_SUMMARY_ISSUE_NUMBER }}
