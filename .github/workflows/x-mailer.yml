@@ -1,0 +1,13 @@
+name: X Mailer (semi-auto)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 23 * * *"
+    - cron: "30 11 * * *"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "X Mailer workflow loaded"
