@@ -172,12 +172,38 @@ async function sendMail({ subject, body }) {
     auth: { user: gmailUser, pass: gmailAppPassword },
   })
 
-  await transporter.sendMail({
-    from: `"X Mailer" <${gmailUser}>`,
-    to: mailTo,
-    subject,
-    text: body,
-  })
+  try {
+    await transporter.sendMail({
+      from: `"X Mailer" <${gmailUser}>`,
+      to: mailTo,
+      subject,
+      text: body,
+    })
+  } catch (error) {
+    const code = error?.code
+    const responseCode = error?.responseCode
+    const command = error?.command
+    const response = error?.response
+
+    if (code === 'EAUTH' || responseCode === 535) {
+      throw new Error(
+        [
+          'Gmail authentication failed (EAUTH/535).',
+          'Fix:',
+          '- Make sure the GitHub Secret `GMAIL_APP_PASSWORD` is an App Password for the *same* `GMAIL_USER` you just updated.',
+          '- The Gmail account must have 2-Step Verification enabled, then generate an App Password (Google Account > Security > App passwords).',
+          '- If you recently changed accounts, update both `GMAIL_USER` and `GMAIL_APP_PASSWORD` in this repo.',
+          '',
+          `Details: code=${code} responseCode=${responseCode} command=${command}`,
+          response ? `response=${String(response).slice(0, 200)}` : '',
+        ]
+          .filter(Boolean)
+          .join('\n')
+      )
+    }
+
+    throw error
+  }
 }
 
 async function main() {
