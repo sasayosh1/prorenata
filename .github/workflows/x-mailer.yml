@@ -19,6 +19,13 @@ jobs:
           node-version: "20"
           cache: "npm"
 
+      - name: Debug script version
+        run: |
+          echo "HEAD: $(git rev-parse HEAD)"
+          node -v
+          echo "--- .github/scripts/x-mailer.mjs (head) ---"
+          sed -n '1,60p' .github/scripts/x-mailer.mjs
+
       - name: Install mailer dependency (minimal)
         run: npm install --no-save nodemailer@^6.10.1
 
