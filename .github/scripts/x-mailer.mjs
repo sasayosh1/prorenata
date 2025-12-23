@@ -51,6 +51,16 @@ function deriveProjectName() {
   )
 }
 
+function maskEmail(email) {
+  const value = String(email || '')
+  const at = value.indexOf('@')
+  if (at <= 0) return value ? `${value.slice(0, 2)}***` : ''
+  const name = value.slice(0, at)
+  const domain = value.slice(at + 1)
+  const maskedName = name.length <= 2 ? `${name[0] || ''}*` : `${name[0]}***${name[name.length - 1]}`
+  return `${maskedName}@${domain}`
+}
+
 function buildSeraImpression(post, mode) {
   const title = String(post?.title || '').trim()
   const topic = title
@@ -168,12 +178,21 @@ async function sendMail({ subject, body }) {
   const gmailAppPassword = gmailAppPasswordRaw.replace(/\s+/g, '')
   const mailTo = requiredEnv('MAIL_TO')
 
+  const smtpHost = optionalEnv('SMTP_HOST', 'smtp.gmail.com')
+  const smtpPort = Number(optionalEnv('SMTP_PORT', '465'))
+  const smtpSecure = isTruthy(optionalEnv('SMTP_SECURE', 'true'))
+
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: smtpHost,
+    port: Number.isFinite(smtpPort) ? smtpPort : 465,
+    secure: smtpSecure,
     auth: { user: gmailUser, pass: gmailAppPassword },
   })
 
   try {
+    // Fail fast with clearer diagnostics (same credentials as sendMail).
+    await transporter.verify()
+
     await transporter.sendMail({
       from: `"X Mailer" <${gmailUser}>`,
       to: mailTo,
@@ -191,6 +210,8 @@ async function sendMail({ subject, body }) {
       throw new Error(
         [
           'Gmail authentication failed (EAUTH/535).',
+          `SMTP: host=${smtpHost} port=${Number.isFinite(smtpPort) ? smtpPort : 465} secure=${smtpSecure}`,
+          `Account: ${maskEmail(gmailUser)} (appPassLen=${passLen})`,
           'Fix:',
           '- Make sure the GitHub Secret `GMAIL_APP_PASSWORD` is an App Password for the *same* `GMAIL_USER` you just updated.',
           '- The Gmail account must have 2-Step Verification enabled, then generate an App Password (Google Account > Security > App passwords).',
