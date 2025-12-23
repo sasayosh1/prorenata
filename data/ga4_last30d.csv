@@ -121,6 +121,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251221,/medical-quiz,desktop,Japan,2,2,4,0.0,0.004635
 20251221,/posts,desktop,Japan,2,1,11,1.0,14.3184205
 20251221,/posts/nursing-assistant-care-guide-approach,desktop,Japan,2,1,14,1.0,864.863933
+20251222,/,mobile,United States,2,2,12,0.0,7.6117545
 20251127,/,desktop,Japan,1,1,6,1.0,849.694166
 20251128,/posts/nursing-assistant-job-role-patient,desktop,Japan,1,1,1,1.0,0.0
 20251128,/posts/nursing-assistant-recommended-shoes,desktop,Japan,1,1,1,1.0,5.600496
@@ -396,5 +397,13 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251221,/posts/nursing-assistant-resume-writing,mobile,Japan,1,1,7,1.0,28.570049
 20251221,/search,desktop,Japan,1,1,2,0.0,0.002028
 20251222,/,desktop,Japan,1,1,5,0.0,5.968147
+20251222,/posts,tablet,Japan,1,1,22,1.0,1312.695585
+20251222,/posts/nursing-assistant-career-change-support,mobile,Japan,1,1,5,0.0,5.579457
+20251222,/posts/nursing-assistant-essentials-checklist,tablet,Japan,1,1,1,1.0,9.746085
+20251222,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,7,1.0,428.686151
+20251222,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,7,0.0,8.108691
 20251222,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,0.0,5.906589
+20251222,/posts/nursing-assistant-no-experience,tablet,Japan,1,1,1,1.0,10.295878
+20251222,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,1.0,51.84428
+20251222,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,1.0,236.5368
 20251222,/posts/nursing-assistant-resume-writing,mobile,Japan,1,1,6,0.0,5.982902
