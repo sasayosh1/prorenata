@@ -164,7 +164,8 @@ function buildXTextAndUrl(post, baseUrl, mode) {
 
 async function sendMail({ subject, body }) {
   const gmailUser = requiredEnv('GMAIL_USER')
-  const gmailAppPassword = requiredEnv('GMAIL_APP_PASSWORD')
+  const gmailAppPasswordRaw = requiredEnv('GMAIL_APP_PASSWORD')
+  const gmailAppPassword = gmailAppPasswordRaw.replace(/\s+/g, '')
   const mailTo = requiredEnv('MAIL_TO')
 
   const transporter = nodemailer.createTransport({
@@ -186,12 +187,15 @@ async function sendMail({ subject, body }) {
     const response = error?.response
 
     if (code === 'EAUTH' || responseCode === 535) {
+      const passLen = Array.from(gmailAppPassword).length
       throw new Error(
         [
           'Gmail authentication failed (EAUTH/535).',
           'Fix:',
           '- Make sure the GitHub Secret `GMAIL_APP_PASSWORD` is an App Password for the *same* `GMAIL_USER` you just updated.',
           '- The Gmail account must have 2-Step Verification enabled, then generate an App Password (Google Account > Security > App passwords).',
+          '- If you copied an App Password shown like "abcd efgh ijkl mnop", remove spaces (this script strips whitespace automatically).',
+          passLen !== 16 ? `- Your app password length after stripping spaces is ${passLen} (expected 16).` : '',
           '- If you recently changed accounts, update both `GMAIL_USER` and `GMAIL_APP_PASSWORD` in this repo.',
           '',
           `Details: code=${code} responseCode=${responseCode} command=${command}`,
