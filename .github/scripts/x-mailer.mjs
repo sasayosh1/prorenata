@@ -17,7 +17,7 @@ function optionalEnv(name, fallback = '') {
 
 function extractFirstHttpUrl(input) {
   const text = String(input || '')
-  const match = text.match(new RegExp('https?://\\\\S+'))
+  const match = text.match(new RegExp('https?://\\S+'))
   return match ? match[0] : ''
 }
 
