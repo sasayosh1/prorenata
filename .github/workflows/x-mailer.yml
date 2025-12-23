@@ -33,6 +33,7 @@ jobs:
         env:
           # Optional
           SITE_BASE_URL: https://prorenata.jp
+          X_MAX: ${{ vars.X_MAX || '280' }}
           POST_TYPE: ${{ vars.POST_TYPE }}
           PROJECT_NAME: ${{ vars.PROJECT_NAME }}
           # Required (Sanity)
