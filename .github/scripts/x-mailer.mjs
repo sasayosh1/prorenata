@@ -17,12 +17,12 @@ function optionalEnv(name, fallback = '') {
 
 function extractFirstHttpUrl(input) {
   const text = String(input || '')
-  const match = text.match(/https?:\\/\\/\\S+/)
+  const match = text.match(new RegExp('https?://\\\\S+'))
   return match ? match[0] : ''
 }
 
 function normalizeBaseUrl(url) {
-  return String(url).replace(/\\/+$/, '')
+  return String(url).replace(/\/+$/, '')
 }
 
 function buildShortLine(mode) {
@@ -70,7 +70,7 @@ async function main() {
   const url = `${normalizeBaseUrl(siteBaseUrl)}/posts/${post.slug}`
 
   const subject = `【X投稿用｜${deriveProjectName()}】${post.slug}`
-  const body = [post.title, buildShortLine(mode), url].join('\\n')
+  const body = [post.title, buildShortLine(mode), url].join('\n')
 
   await sendMail({ subject, body })
   console.log(`✅ Sent mail (${mode}): ${post.slug}`)
