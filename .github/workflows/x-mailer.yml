@@ -32,7 +32,7 @@ jobs:
       - name: Send mail
         env:
           # Optional
-          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+          SITE_BASE_URL: https://prorenata.jp
           POST_TYPE: ${{ vars.POST_TYPE }}
           PROJECT_NAME: ${{ vars.PROJECT_NAME }}
           # Required (Sanity)
