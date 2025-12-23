@@ -27,7 +27,7 @@ jobs:
           sed -n '1,60p' .github/scripts/x-mailer.mjs
 
       - name: Install mailer dependency (minimal)
-        run: npm install --no-save nodemailer@^6.10.1
+        run: npm install --no-save nodemailer@^6.10.1 twitter-text@^3.1.0
 
       - name: Send mail
         env:
