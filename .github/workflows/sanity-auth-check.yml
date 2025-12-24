@@ -1,0 +1,33 @@
+name: Sanity Auth Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily 03:10 JST = 18:10 UTC
+    - cron: "10 18 * * *"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --include=dev
+
+      - name: Verify Sanity token (read + write)
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          SANITY_POST_TYPE: post
+        run: node .github/scripts/sanity-auth-check.mjs
+
