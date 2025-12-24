@@ -115,6 +115,136 @@ function isSummaryHeading(block: PortableTextBlock): boolean {
   return text === 'まとめ' || text.startsWith('まとめ') || text.includes('まとめ')
 }
 
+function extractTitleKeywords(rawTitle: string): string[] {
+  const t = String(rawTitle || '')
+    .replace(/^【[^】]+】\s*/u, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  const stop = new Set([
+    '看護助手',
+    '看護補助者',
+    'ProReNata',
+    '徹底解説',
+    '解説',
+    'まとめ',
+    '完全',
+    '完全版',
+    '基本',
+    '方法',
+    'コツ',
+    'ポイント',
+    '心構え',
+    'よくある',
+    '質問',
+    '回答',
+    '対策',
+    '準備',
+    '徹底',
+    '採用',
+  ])
+
+  const tokens: string[] = []
+  const re = /[A-Za-z0-9][A-Za-z0-9_-]{1,30}|[一-龠々〆ヵヶぁ-んァ-ヶー]{2,20}/g
+  for (const match of t.matchAll(re)) {
+    const token = String(match[0] || '').trim()
+    if (!token) continue
+    if (stop.has(token)) continue
+    tokens.push(token)
+  }
+
+  const intentPriority = [
+    '面接',
+    '志望動機',
+    '自己PR',
+    '自己ＰＲ',
+    '逆質問',
+    '履歴書',
+    '職務経歴書',
+    '転職',
+    '退職',
+    '夜勤',
+    '給料',
+    '人間関係',
+    'メンタル',
+  ]
+  const unique: string[] = []
+  const seen = new Set<string>()
+
+  for (const p of intentPriority) {
+    if (t.includes(p) && !seen.has(p)) {
+      unique.push(p)
+      seen.add(p)
+    }
+  }
+  for (const token of tokens) {
+    if (seen.has(token)) continue
+    seen.add(token)
+    unique.push(token)
+    if (unique.length >= 6) break
+  }
+
+  return unique
+}
+
+function isSupportiveClosing(text: string): boolean {
+  return /(応援|大丈夫|無理しない|焦らない|一歩ずつ|今日から|少しずつ|できます|してみて|試して)/.test(text)
+}
+
+function pruneOffTopicSummary(body: unknown, title: string) {
+  if (!Array.isArray(body) || body.length === 0) return body
+  const blocks = body as PortableTextBlock[]
+  const keywords = extractTitleKeywords(title)
+  if (!keywords || keywords.length === 0) return body
+
+  const summaryIndex = blocks.findIndex(isSummaryHeading)
+  if (summaryIndex < 0) return body
+
+  let endIndex = blocks.length
+  for (let i = summaryIndex + 1; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (block?._type === 'block' && block.style === 'h2') {
+      endIndex = i
+      break
+    }
+  }
+
+  const before = blocks.slice(0, summaryIndex + 1)
+  const summaryBlocks = blocks.slice(summaryIndex + 1, endIndex)
+  const after = blocks.slice(endIndex)
+
+  const kept: PortableTextBlock[] = []
+  for (const block of summaryBlocks) {
+    if (!block || block._type !== 'block') {
+      kept.push(block)
+      continue
+    }
+    if (block.style === 'h3') continue
+
+    const text = getPortableTextBlockText(block)
+    if (!text) {
+      kept.push(block)
+      continue
+    }
+
+    if (text.length <= 40 && isSupportiveClosing(text)) {
+      kept.push(block)
+      continue
+    }
+
+    const matches = keywords.some((k) => text.includes(k))
+    if (matches) {
+      kept.push(block)
+      continue
+    }
+
+    if (text.length >= 30) continue
+    kept.push(block)
+  }
+
+  return [...before, ...(kept.length > 0 ? kept : summaryBlocks), ...after]
+}
+
 function isDisclaimerParagraph(block: PortableTextBlock): boolean {
   if (block?._type !== 'block' || block.style) return false
   const text = getPortableTextBlockText(block)
@@ -376,7 +506,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   }
 
   const hasBody = post && Array.isArray(post.body) && post.body.length > 0
-  const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(post.body, relatedPosts) : post.body
+  const cleanedBody = hasBody ? pruneOffTopicSummary(post.body, post.title) : post.body
+  const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(cleanedBody, relatedPosts) : cleanedBody
 
   if (!post) {
     return (

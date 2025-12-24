@@ -1374,6 +1374,132 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
 
   const { randomUUID } = require('crypto')
 
+  function extractTitleKeywords(rawTitle = '') {
+    const t = String(rawTitle || '')
+      .replace(/^【[^】]+】\s*/u, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+    const stop = new Set([
+      '看護助手',
+      '看護補助者',
+      'ProReNata',
+      '徹底解説',
+      '解説',
+      'まとめ',
+      '完全',
+      '完全版',
+      '基本',
+      '方法',
+      'コツ',
+      'ポイント',
+      '心構え',
+      'よくある',
+      '質問',
+      '回答',
+      '対策',
+      '準備',
+      '徹底',
+      '勝ち取る'
+    ])
+
+    // Pull Japanese chunks and ASCII words.
+    const tokens = []
+    const re = /[A-Za-z0-9][A-Za-z0-9_-]{1,30}|[一-龠々〆ヵヶぁ-んァ-ヶー]{2,20}/g
+    for (const match of t.matchAll(re)) {
+      const token = String(match[0] || '').trim()
+      if (!token) continue
+      if (stop.has(token)) continue
+      tokens.push(token)
+    }
+
+    // Keep short list of unique keywords, prioritizing common intent words.
+    const intentPriority = [
+      '面接',
+      '志望動機',
+      '自己PR',
+      '自己ＰＲ',
+      '逆質問',
+      '履歴書',
+      '職務経歴書',
+      '転職',
+      '退職',
+      '夜勤',
+      '給料',
+      '人間関係',
+      'メンタル'
+    ]
+    const unique = []
+    const seen = new Set()
+
+    for (const p of intentPriority) {
+      if (t.includes(p) && !seen.has(p)) {
+        unique.push(p)
+        seen.add(p)
+      }
+    }
+    for (const token of tokens) {
+      if (seen.has(token)) continue
+      seen.add(token)
+      unique.push(token)
+      if (unique.length >= 6) break
+    }
+
+    return unique
+  }
+
+  function isSupportiveClosing(text = '') {
+    const t = String(text || '').trim()
+    if (!t) return false
+    return /(応援|大丈夫|無理しない|焦らない|一歩ずつ|今日から|少しずつ|できます|してみて|試して)/.test(t)
+  }
+
+  function blockToText(block) {
+    if (!block || block._type !== 'block') return ''
+    return (block.children || []).map(c => c.text || '').join('').trim()
+  }
+
+  function pruneSummaryBlocks(summaryBlocks, rawTitle) {
+    const keywords = extractTitleKeywords(rawTitle)
+    if (!keywords || keywords.length === 0) return summaryBlocks
+
+    const kept = []
+    for (const block of summaryBlocks) {
+      if (!block || block._type !== 'block') {
+        kept.push(block)
+        continue
+      }
+      if (block.style === 'h3') continue
+
+      const text = blockToText(block)
+      if (!text) {
+        kept.push(block)
+        continue
+      }
+
+      // Always keep one short closing line even if it doesn't contain keywords.
+      if (text.length <= 40 && isSupportiveClosing(text)) {
+        kept.push(block)
+        continue
+      }
+
+      const matches = keywords.some(k => text.includes(k))
+      if (matches) {
+        kept.push(block)
+        continue
+      }
+
+      // Drop off-topic long paragraphs/bullets in summary.
+      if (text.length >= 30) continue
+
+      // Keep very short connective phrases (rare).
+      kept.push(block)
+    }
+
+    // Safety: never return empty summary content.
+    return kept.length > 0 ? kept : summaryBlocks
+  }
+
   // まとめセクションを検出
   let summaryIndex = -1
   let nextSectionIndex = -1
@@ -1428,9 +1554,11 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
         })
       : summaryBlocks.filter(b => !(b && b._type === 'block' && b.style === 'h3'))
 
+    const prunedSummaryBlocks = pruneSummaryBlocks(cleanedSummaryBlocks, title)
+
     const result = [
       ...blocks.slice(0, summaryIndex + 1),
-      ...cleanedSummaryBlocks
+      ...prunedSummaryBlocks
     ]
 
     if (nextSectionIndex !== -1) {
@@ -1479,10 +1607,12 @@ ${currentSummary}
    - 本文のみ（2〜3段落）
    - 本文（1段落）→ 箇条書き（●で始まる2〜3項目）→ 締めの文（1文）
 3. 長すぎるとユーザビリティに反するので、簡潔さと伝わりやすさのバランスを重視
-4. 「汎用テンプレの言い回し」は禁止（本文の具体語を最低2つ入れる）
-5. 締めの文で「次のステップ」や「行動」を促す
-6. 最後に1文だけ、押しつけない形でフォローを入れる（ブックマーク or 公式X @prorenata_jp）
-7. H3見出しは使わない
+4. 記事タイトルと本文に無い話題を「まとめ」で新しく追加しない（脱線禁止）
+   - 例: 面接記事に「申し送り・観察・休憩ストレッチ」などの現場実務の話を混ぜない
+5. 「汎用テンプレの言い回し」は禁止（本文の具体語を最低2つ入れる）
+6. 締めの文で「次のステップ」や「行動」を促す
+7. 最後に1文だけ、押しつけない形でフォローを入れる（ブックマーク or 公式X @prorenata_jp）
+8. H3見出しは使わない
 
 **出力形式**:
 プレーンテキストで出力してください。箇条書きは ● で始めてください。`
@@ -1524,10 +1654,12 @@ ${currentSummary}
       }
     }
 
+    const prunedSummaryBlocks = pruneSummaryBlocks(newSummaryBlocks, title)
+
     // まとめセクションを置き換え
     const result = [
       ...blocks.slice(0, summaryIndex + 1),
-      ...newSummaryBlocks
+      ...prunedSummaryBlocks
     ]
 
     if (nextSectionIndex !== -1) {
