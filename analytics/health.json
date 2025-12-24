@@ -1,8 +1,8 @@
 {
   "ok": false,
   "reason": "anomaly_detected",
-  "checkedAt": "2025-12-23T17:28:01.089Z",
-  "dateCheckedUtc": "2025-12-22",
+  "checkedAt": "2025-12-24T17:24:50.386Z",
+  "dateCheckedUtc": "2025-12-23",
   "thresholds": {
     "lookbackDays": 7,
     "dropRatio": 0.2,
@@ -10,9 +10,9 @@
   },
   "metrics": {
     "ga4": {
-      "yesterdaySessions": 13,
-      "dayBeforeSessions": 20,
-      "recentAvgSessions": 25.714285714285715
+      "yesterdaySessions": 17,
+      "dayBeforeSessions": 13,
+      "recentAvgSessions": 24.857142857142858
     },
     "gsc": {
       "yesterdayClicks": 0,
