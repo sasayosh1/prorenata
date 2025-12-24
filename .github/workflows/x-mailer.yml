@@ -3,9 +3,7 @@ name: X Mailer (semi-auto)
 on:
   workflow_dispatch:
   schedule:
-    # 朝 07:35 (JST) = 22:35 (UTC)
-    - cron: "35 22 * * *"
-    # 夜 20:50 (JST) = 11:50 (UTC)
+    # 20:50 (JST) = 11:50 (UTC)
     - cron: "50 11 * * *"
 
 jobs:
