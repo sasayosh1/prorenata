@@ -1,11 +1,10 @@
 name: Daily X Auto Post
 
 on:
-  schedule:
-    # 毎日PM8:30頃 (JST) = PM11:30 (UTC) に起動
-    # スクリプト内で0〜60分のランダム待機後に投稿（実質PM8:30〜9:30の間）
-    - cron: '30 11 * * *'
-  workflow_dispatch: # 手動実行も可能にする
+  # NOTE:
+  # - X投稿メール送信は `X Mailer (semi-auto)` に一本化しました。
+  # - ここでメールを送ると二重送信になるため、定期実行は停止しています。
+  workflow_dispatch:
 
 jobs:
   post_to_x:
@@ -13,11 +12,6 @@ jobs:
     permissions:
       contents: read
       issues: write
-    env:
-      # secrets は if 式で直接参照できないため、env 経由で判定する
-      GMAIL_USER: ${{ secrets.GMAIL_USER }}
-      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-      MAIL_TO: ${{ secrets.MAIL_TO }}
 
     steps:
       - name: Checkout repository
@@ -47,16 +41,8 @@ jobs:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Send X post mail
-        if: ${{ env.GMAIL_USER != '' && env.GMAIL_APP_PASSWORD != '' }}
-        run: node scripts/x_mailer.mjs
-        env:
-          PROJECT_NAME: prorenata
-          SITE_URL: https://prorenata.jp
-
       - name: Append summary to Issue
-        # Gmail送信が有効な場合は、GitHub通知メールと二重になり得るためIssue追記をスキップ
-        if: ${{ always() && vars.X_SUMMARY_ISSUE_NUMBER != '' && (env.GMAIL_USER == '' || env.GMAIL_APP_PASSWORD == '') }}
+        if: ${{ always() && vars.X_SUMMARY_ISSUE_NUMBER != '' }}
         uses: actions/github-script@v7
         env:
           SUMMARY_ISSUE_NUMBER: ${{ vars.X_SUMMARY_ISSUE_NUMBER }}
