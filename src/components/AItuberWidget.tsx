@@ -114,7 +114,7 @@ export default function AItuberWidget() {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [hydrated, setHydrated] = useState(false);
-    const [avatarSrc, setAvatarSrc] = useState("/images/sera_icon.jpg?v=20251221");
+    const [avatarSrc, setAvatarSrc] = useState("/images/sera_icon.jpg");
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const pathname = usePathname();
     const chatSessionIdRef = useRef<string>("");

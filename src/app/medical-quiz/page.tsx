@@ -37,6 +37,7 @@ function MedicalQuizInner() {
     const [sessionId, setSessionId] = useState<Id<"quizSessions"> | null>(null);
     const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
     const [result, setResult] = useState<{ isCorrect: boolean; correctIndex: number } | null>(null);
+    const [initError, setInitError] = useState<string | null>(null);
 
     const upsertSession = useMutation(api.quiz.upsertSession);
     const submitAnswer = useMutation(api.quiz.submitAnswer);
@@ -48,9 +49,25 @@ function MedicalQuizInner() {
     );
 
     useEffect(() => {
-        const id = getClientId();
-        setClientId(id);
-        upsertSession({ clientId: id }).then(setSessionId);
+        let cancelled = false;
+        async function run() {
+            try {
+                const id = getClientId();
+                if (cancelled) return;
+                setClientId(id);
+                const sid = await upsertSession({ clientId: id });
+                if (cancelled) return;
+                setSessionId(sid);
+            } catch (err) {
+                console.error("Failed to init quiz session", err);
+                if (cancelled) return;
+                setInitError("クイズの初期化に失敗しました。通信状態を確認して再度お試しください。");
+            }
+        }
+        void run();
+        return () => {
+            cancelled = true;
+        };
     }, [upsertSession]);
 
     const handleSelect = async (index: number) => {
@@ -74,6 +91,31 @@ function MedicalQuizInner() {
         setSelectedIdx(null);
         setResult(null);
     };
+
+    if (initError) {
+        return (
+            <div className="max-w-2xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 p-8 text-center">
+                    <h1 className="text-2xl font-bold text-gray-900">メディカルクイズ</h1>
+                    <p className="mt-3 text-gray-600 leading-relaxed">{initError}</p>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                        <button
+                            onClick={() => window.location.reload()}
+                            className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-white font-semibold hover:bg-blue-700 transition-colors"
+                        >
+                            再読み込み
+                        </button>
+                        <Link
+                            href="/"
+                            className="inline-flex items-center justify-center rounded-full bg-gray-100 px-6 py-3 text-gray-800 font-semibold hover:bg-gray-200 transition-colors"
+                        >
+                            ホームへ戻る
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     if (!clientId || !sessionId) {
         return (

@@ -69,7 +69,7 @@ export default async function Home() {
               >
                 <Image
                   className="w-full h-auto object-cover"
-                  src="/hero-image.png?v=20251221"
+                  src="/hero-image.png"
                   alt="看護助手サポート"
                   width={1200}
                   height={900}

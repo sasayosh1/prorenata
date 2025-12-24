@@ -31,7 +31,7 @@ export default function ServiceWorkerCleanup() {
         await Promise.all(
           keys.map(async (key) => {
             // workbox/next系のキャッシュだけを削除（originスコープ内）
-            if (/^workbox-|^next-|next\.cache|_next/i.test(key)) {
+            if (/^workbox-|^next-|next\.cache|_next/i.test(key) || /^prorenata-/i.test(key)) {
               await caches.delete(key);
             }
           })
@@ -49,4 +49,3 @@ export default function ServiceWorkerCleanup() {
 
   return null;
 }
-
