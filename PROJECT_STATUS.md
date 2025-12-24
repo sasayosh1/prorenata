@@ -45,7 +45,7 @@
 - **実施内容**:
   1. **記事生成**: `scripts/run-daily-generation.cjs` をセラの一人称「わたし」・現場視点・柔らかい断り表現に最適化し、著者を自動で白崎セラ参照に変更。
   2. **既存記事加筆**: `scripts/expand-short-posts.js` / `generate-content-for-existing-titles.js` の生成文をセラの語りで追記できるようプロンプトとテンプレートを更新。
-  3. **X自動投稿**: `scripts/auto-post-to-x.js` で作成されるポストをセラのトーン・労い表現・現実的アドバイス付きに統一。
+  3. **X投稿用メール**: `X Mailer (semi-auto)`（`.github/workflows/x-mailer.yml`）で、Xに貼る文面（テキスト＋URL）を送信する運用に統一。
   4. **運用ドキュメント**: `docs/ARTICLE_GENERATION_STRATEGY.md` と `PROJECT_KNOWLEDGE_BASE.md` にキャラクターボイス指針を追記し、スクリプト運用時の参照手順を明文化。
 - **重要度**: ブランド一貫性の維持と読者体験の向上
 

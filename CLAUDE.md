@@ -149,13 +149,13 @@ vercel --previewe
 - **内容**: 全記事の品質チェック（必須フィールド、SEO、文字数など）
 - **コスト**: 無料（Sanity API無料枠内、月間約5,000リクエスト/無料枠100,000の5%）
 
-**3. X自動投稿**
-- **実行時刻**: 毎日 PM8:30-PM9:30の間（ランダム、スパム対策）
-- **実行頻度**: 毎日（月30回）
-- **ワークフロー**: `.github/workflows/daily-x-post.yml`
-- **内容**: ランダム記事をX（Twitter）に自動投稿
-- **生成エンジン**: Excerpt直接使用（Gemini API不使用）
-- **月間コスト**: 完全無料（Excerptは既に白崎セラ口調で最適化済み）
+**3. X投稿用メール（semi-auto）**
+- **実行時刻**: 朝/夜（workflowのcronに準拠）
+- **実行頻度**: 1日2回
+- **ワークフロー**: `.github/workflows/x-mailer.yml`
+- **内容**: Sanityから記事を1件選び、Gmailで投稿用テキスト（140字以内）+ URL を送信
+- **生成**: テンプレなし（テキスト + 改行 + URL）
+- **月間コスト**: 無料（Sanity Query + Gmail送信のみ）
 
 ### キーワード戦略（黄金比）
 
@@ -777,11 +777,11 @@ vercel --previewe
      - Pro料金：$5.00/1M output tokens（gemini-1.5-flash-001の約17倍）
    - **緊急対応**:
      - 記事自動生成・メンテナンスワークフローを即座に停止
-     - 4つのスクリプト全てを修正：
-       - `scripts/run-daily-generation.cjs`
-       - `scripts/expand-short-posts.js`
-       - `scripts/clean-affiliate-sections.js`
-       - `scripts/auto-post-to-x.js`
+	     - 4つのスクリプト全てを修正：
+	       - `scripts/run-daily-generation.cjs`
+	       - `scripts/expand-short-posts.js`
+	       - `scripts/clean-affiliate-sections.js`
+	       - `.github/scripts/x-mailer.mjs`
      - モデル名を「gemini-1.5-flash-001」に統一
    - **コスト削減効果**:
      - 修正前：¥545/月（20記事、Proモデル）
@@ -794,27 +794,15 @@ vercel --previewe
      - **月間コスト総額：¥21-55**（予算¥300の7-18%）
    - **Google Cloud予算アラート**: ¥300/月に設定済み
 
-17. ✅ **X自動投稿のExcerpt直接使用化（完全無料化）** (2025-10-29)
+17. ✅ **X投稿用メールの文字数制約強化（semi-auto）** (2025-10-29)
    - **問題**: gemini-1.5-flash-001もv1beta APIで404エラー（Flashモデル全体が非対応）
-   - **対応**:
-     - Gemini API依存を完全削除
-     - Excerpt直接使用に変更（既に白崎セラ口調で最適化済み）
-     - GoogleGenerativeAI依存関係を削除
-     - GEMINI_API_KEYチェックを削除
-   - **質の評価**:
-     - Excerptは `scripts/utils/postHelpers.js` の `generateExcerpt()` で生成
-     - 記事全体を理解した上で100-150文字に要約
-     - 「わたし」一人称、丁寧な「です・ます」調を維持
-     - 読者のメリット明確、自然な句読点
-     - 140文字制限に自動調整
-   - **コスト削減効果**:
-     - 修正前：¥15-45/月（Gemini API使用）
-     - 修正後：完全無料（Excerpt直接使用）
-   - **最終設定（週1回実行、記事生成のみGemini API使用）**:
-     - 記事自動生成：週1回（月曜AM2:00）→ ¥6-10/月（gemini-1.5-flash-001）
-     - メンテナンス：週1回（月曜AM3:00）→ 無料（Gemini API未使用）
-     - X自動投稿：毎日 → **完全無料**（Excerpt直接使用）
-     - **月間コスト総額：¥6-10**（予算¥300の2-3%）
+	   - **対応**:
+	     - 投稿用テキストを `twitter-text` でX互換の文字数（weightedLength）として計測
+	     - 「テキスト + 改行 + URL」が **必ず140字以内** になるように二分探索でトリム
+	     - 末尾が `...` / `…` で終わらないように整形
+	   - **対象**:
+	     - `.github/workflows/x-mailer.yml`
+	     - `.github/scripts/x-mailer.mjs`
 
 18. ✨ **まとめセクション最適化の文字数制約を柔軟化** (2025-10-29)
    - **変更内容**: まとめセクション最適化の文字数制約を柔軟化
@@ -1363,7 +1351,7 @@ vercel --previewe
   - `scripts/run-daily-generation.cjs`: gemini-2.0-flash-lite-001 使用（週1回）
   - `scripts/expand-short-posts.js`: gemini-2.0-flash-lite-001 使用（手動実行のみ）
   - `scripts/clean-affiliate-sections.js`: gemini-2.0-flash-lite-001 使用（手動実行のみ）
-  - `scripts/auto-post-to-x.js`: **Gemini API不使用**（Excerpt直接使用）
+  - `.github/scripts/x-mailer.mjs`: **Gemini API不使用**（Sanityの既存フィールドから所感を組み立て、X互換の文字数に収める）
 - **モデル移行履歴**:
   - 2025-11-04以前: `gemini-1.5-flash-001`（廃止により404エラー）
   - 2025-11-04以降: `gemini-2.0-flash-lite-001`（バージョン固定、最低コスト、Proフォールバック防止、Vertex AI禁止）
