@@ -346,6 +346,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     publishedAt,
     _updatedAt,
     slug,
+    mainImage,
     metaDescription,
     featured,
     readingTime,
@@ -389,6 +390,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const hasBodyContent = Boolean(post.hasBody)
     const noIndex = post.internalOnly === true || !hasBodyContent
 
+    const ogImageUrl = post.mainImage
+      ? urlFor(post.mainImage).width(1200).height(630).fit('crop').url()
+      : `${baseUrl}/og-image.png`
+
     return {
       title,
       description,
@@ -406,11 +411,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         publishedTime,
         modifiedTime,
         authors: post.author?.name ? [post.author.name] : ['ProReNata編集部'],
+        images: [
+          {
+            url: ogImageUrl,
+            width: 1200,
+            height: 630,
+            alt: displayTitle,
+          },
+        ],
       },
       twitter: {
         card: 'summary_large_image',
         title,
         description,
+        images: [ogImageUrl],
       },
       robots: noIndex
         ? {
