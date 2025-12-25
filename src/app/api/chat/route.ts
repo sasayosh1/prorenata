@@ -155,9 +155,7 @@ export async function POST(req: Request) {
         const lines = [
             "このあたりが近そうです。必要ならURLも出します。",
             urlLine ? `${titleLine}\n${urlLine}` : titleLine,
-            wantsUrl
-                ? "リンクから直接ご覧ください。"
-                : "URLが必要なときは「URLを教えて」と聞いてください。"
+            ...(wantsUrl ? ["リンクから直接ご覧ください。"] : []),
         ];
 
         logInteraction(text, hits, undefined);
