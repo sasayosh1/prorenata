@@ -829,10 +829,10 @@ ${SERA_FULL_PERSONA}
     console.log("\n--- Process Complete ---");
     console.log(`Successfully created new draft in Sanity with ID: ${createdDraft._id}`);
     appendGithubOutput('draft_id', createdDraft._id);
-    appendGithubOutput('draft_title', generatedArticle.title);
+    appendGithubOutput('draft_title', title);
 
     // Verify tail type
-    const titleLength = generatedArticle.title.length;
+    const titleLength = title.length;
     let actualTail = '';
     if (titleLength <= 30) {
       actualTail = 'short';
@@ -842,7 +842,7 @@ ${SERA_FULL_PERSONA}
       actualTail = 'long';
     }
 
-    console.log(`Title: "${generatedArticle.title}" (${titleLength}文字)`);
+    console.log(`Title: "${title}" (${titleLength}文字)`);
     console.log(`Target tail: ${targetTail.toUpperCase()} / Actual tail: ${actualTail.toUpperCase()}`);
 
     if (actualTail === targetTail) {
