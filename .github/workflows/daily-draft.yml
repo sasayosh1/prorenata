@@ -66,12 +66,12 @@ jobs:
         run: node scripts/analytics-health-check.cjs
 
       - name: Determine budget month (UTC)
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true')
         id: budget_month
         run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Gemini budget state
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true')
         uses: actions/cache@v4
         with:
           path: .budget
@@ -81,7 +81,7 @@ jobs:
             gemini-budget-${{ runner.os }}-${{ github.repository }}-
 
       - name: Budget guard (pre-check)
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true')
         id: budget
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -89,11 +89,28 @@ jobs:
 
       - name: Run article generation script
         id: generate
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy == 'true' && steps.budget.outputs.allowed == 'true'
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.budget.outputs.allowed == 'true'
         run: node scripts/run-daily-generation.cjs
         env:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Fail if no draft created
+        if: steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true'
+        run: |
+          if [ "${{ steps.budget.outputs.allowed }}" != "true" ]; then
+            echo "ERROR: Budget guard blocked generation (allowed=${{ steps.budget.outputs.allowed }})."
+            exit 1
+          fi
+          if [ "${{ steps.generate.outcome }}" != "success" ]; then
+            echo "ERROR: Generation step did not run successfully (outcome=${{ steps.generate.outcome }})."
+            exit 1
+          fi
+          if [ -z "${{ steps.generate.outputs.draft_id }}" ]; then
+            echo "ERROR: No draft_id output was produced by generation script."
+            exit 1
+          fi
+          echo "OK: draft_id=${{ steps.generate.outputs.draft_id }}"
 
       - name: Create issue if generation failed
         if: failure()
