@@ -291,6 +291,32 @@ function stripManualRelatedSection(body: unknown) {
   return stripped
 }
 
+function reorderBlocksForABTesting(body: unknown, postId: string) {
+  if (!Array.isArray(body) || body.length < 10) return body
+  const blocks = body as PortableTextBlock[]
+
+  // 簡易ABテストロジック: IDの末尾文字で判定 (A: 偶数/0-7, B: 奇数/8-f)
+  // ここでは A: オリジナル配置, B: 終盤へ移動
+  const charCode = postId.charCodeAt(postId.length - 1)
+  const isVariantB = charCode % 2 !== 0
+
+  if (!isVariantB) return body
+
+  const recIndex = blocks.findIndex(b => b._type === 'seraRecommendation')
+  if (recIndex < 0) return body
+
+  // すでに後半(後ろから1/3)にある場合は動かさない
+  if (recIndex > blocks.length * 0.7) return body
+
+  const summaryIndex = blocks.findIndex(isSummaryHeading)
+  const insertAt = summaryIndex >= 0 ? summaryIndex : blocks.length
+
+  const [recBlock] = blocks.splice(recIndex, 1)
+  blocks.splice(insertAt - 1, 0, recBlock) // まとめ見出しの直前に挿入
+
+  return blocks
+}
+
 function injectRelatedPostsBeforeDisclaimer(
   body: unknown,
   posts: Array<{ title: string; slug: string; categories?: Array<{ title: string; slug?: string | null }> | null }>
@@ -337,24 +363,25 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params
-  const client = createSanityClient()
-  const query = `*[_type == "post" && slug.current == $slug][0] {
-    _id,
-    title,
-    excerpt,
-    _createdAt,
-    publishedAt,
-    _updatedAt,
-    slug,
-    mainImage,
-    metaDescription,
-    featured,
-    readingTime,
-    "categories": categories[]->{title,"slug":slug.current},
-    "author": author->{name},
-    "hasBody": defined(body[0]),
-    internalOnly
-  }`
+	  const client = createSanityClient()
+	  const query = `*[_type == "post" && slug.current == $slug][0] {
+	    _id,
+	    title,
+	    excerpt,
+	    _createdAt,
+	    publishedAt,
+	    _updatedAt,
+	    slug,
+	    mainImage,
+	    metaDescription,
+	    featured,
+	    readingTime,
+	    "categories": categories[]->{title,"slug":slug.current},
+	    "author": author->{name},
+	    "hasBody": defined(body[0]),
+	    "firstBodyImage": body[_type == "image"][0],
+	    internalOnly
+	  }`
 
   try {
     const post = await client.fetch(query, { slug: resolvedParams.slug })
@@ -390,9 +417,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const hasBodyContent = Boolean(post.hasBody)
     const noIndex = post.internalOnly === true || !hasBodyContent
 
-    const ogImageUrl = post.mainImage
-      ? urlFor(post.mainImage).width(1200).height(630).fit('crop').url()
-      : `${baseUrl}/og-image.png`
+	    const ogImageSource = post.mainImage?.asset ? post.mainImage : post.firstBodyImage
+	    const ogImageUrl = ogImageSource?.asset
+	      ? urlFor(ogImageSource).width(1200).height(630).fit('crop').url()
+	      : `${baseUrl}/og-image.png`
 
     return {
       title,
@@ -471,6 +499,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     "categories": categories[]->{title,"slug":slug.current},
     "author": author->{name, slug},
     faq,
+    stickyCTA,
+    isSeraPick,
     internalOnly
   }`
   const post = await client.fetch(query, { slug: resolvedParams.slug })
@@ -521,7 +551,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
   const hasBody = post && Array.isArray(post.body) && post.body.length > 0
   const cleanedBody = hasBody ? pruneOffTopicSummary(post.body, post.title) : post.body
-  const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(cleanedBody, relatedPosts) : cleanedBody
+  const abTestedBody = hasBody ? reorderBlocksForABTesting(cleanedBody, post._id) : cleanedBody
+  const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(abTestedBody, relatedPosts) : abTestedBody
 
   if (!post) {
     return (
@@ -631,10 +662,10 @@ export default async function PostDetailPage({ params }: PostPageProps) {
             </header>
 
             {/* アイキャッチ画像 */}
-            {post.mainImage && (
-              <div className="relative w-full aspect-video mb-8 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src={urlFor(post.mainImage).url()}
+	            {post.mainImage?.asset && (
+	              <div className="relative w-full aspect-video mb-8 rounded-xl overflow-hidden shadow-lg">
+	                <Image
+	                  src={urlFor(post.mainImage).url()}
                   alt={post.title}
                   fill
                   className="object-cover"

@@ -11,26 +11,26 @@ type SpeechBubbleProps = {
 
 const AVATARS = {
     sera: {
-        normal: '/images/avatars/sera_normal.png',
-        happy: '/images/avatars/sera_happy.png',
-        sad: '/images/avatars/sera_sad.png',
-        thinking: '/images/avatars/sera_thinking.png',
-        angry: '/images/avatars/sera_angry.png',
+        normal: '/images/chibichara/sera_chibi_explaining.png',
+        happy: '/images/chibichara/sera_chibi_happy.png',
+        sad: '/images/chibichara/sera_chibi_troubled.png',
+        thinking: '/images/etc/sera_chibi_thinking.png',
+        angry: '/images/etc/sera_chibi_panicked.png',
     },
     // Placeholders for other speakers
     patient: {
-        normal: '/images/avatars/patient_normal.png',
-        happy: '/images/avatars/patient_normal.png', // Fallback
-        sad: '/images/avatars/patient_normal.png', // Fallback
-        thinking: '/images/avatars/patient_normal.png', // Fallback
-        angry: '/images/avatars/patient_normal.png', // Fallback
+        normal: '/images/sera_icon.jpg',
+        happy: '/images/sera_icon.jpg',
+        sad: '/images/sera_icon.jpg',
+        thinking: '/images/sera_icon.jpg',
+        angry: '/images/sera_icon.jpg',
     },
     nurse: {
-        normal: '/images/avatars/nurse_normal.png',
-        happy: '/images/avatars/nurse_normal.png', // Fallback
-        sad: '/images/avatars/nurse_normal.png', // Fallback
-        thinking: '/images/avatars/nurse_normal.png', // Fallback
-        angry: '/images/avatars/nurse_normal.png', // Fallback
+        normal: '/images/etc/元気なナースのサムズアップ.png',
+        happy: '/images/etc/元気なナースのサムズアップ.png',
+        sad: '/images/etc/元気なナースのサムズアップ.png',
+        thinking: '/images/etc/元気なナースのサムズアップ.png',
+        angry: '/images/etc/元気なナースのサムズアップ.png',
     }
 };
 

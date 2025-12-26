@@ -1,7 +1,7 @@
 // ProReNata Service Worker
 // キャッシュ戦略とオフライン機能を提供
 
-const CACHE_NAME = 'prorenata-v1.4.0'
+const CACHE_NAME = 'prorenata-v1.4.1'
 const OFFLINE_URL = '/offline'
 
 // キャッシュするリソース
@@ -9,7 +9,7 @@ const STATIC_ASSETS = [
   '/',
   '/offline',
   '/search',
-  '/favorites', 
+  '/favorites',
   '/community',
   '/nursing-assistant',
   '/manifest.json'
@@ -26,7 +26,7 @@ const CACHE_PATTERNS = {
 // Service Worker インストール時
 self.addEventListener('install', (event) => {
   console.log('[SW] Install event')
-  
+
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -47,7 +47,7 @@ self.addEventListener('install', (event) => {
 // Service Worker アクティベーション時
 self.addEventListener('activate', (event) => {
   console.log('[SW] Activate event')
-  
+
   event.waitUntil(
     caches.keys()
       .then((cacheNames) => {
@@ -73,7 +73,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event
   const url = new URL(request.url)
-  
+
   // 非GETリクエストは処理しない
   if (request.method !== 'GET') {
     return
@@ -122,15 +122,15 @@ async function handleFetch(request) {
 
   } catch (error) {
     console.error('[SW] Fetch error:', error)
-    
+
     // ナビゲーションリクエストの場合はオフラインページを返す
     if (request.mode === 'navigate') {
       return getOfflinePage()
     }
-    
-    return new Response('Service Unavailable', { 
-      status: 503, 
-      statusText: 'Service Unavailable' 
+
+    return new Response('Service Unavailable', {
+      status: 503,
+      statusText: 'Service Unavailable'
     })
   }
 }
@@ -140,24 +140,24 @@ async function handleNavigation(request) {
   try {
     // まずネットワークから取得を試みる
     const response = await fetch(request)
-    
+
     if (response.ok) {
       // 成功した場合はキャッシュに保存
       const cache = await caches.open(CACHE_NAME)
       cache.put(request, response.clone())
       return response
     }
-    
+
     throw new Error('Network response not ok')
   } catch (error) {
     console.log('[SW] Navigation network failed, trying cache:', request.url)
-    
+
     // ネットワークが失敗した場合はキャッシュから取得
     const cachedResponse = await caches.match(request)
     if (cachedResponse) {
       return cachedResponse
     }
-    
+
     // キャッシュにもない場合はオフラインページを返す
     return getOfflinePage()
   }
@@ -167,7 +167,7 @@ async function handleNavigation(request) {
 async function handlePostPage(request) {
   const cache = await caches.open(CACHE_NAME)
   const cachedResponse = await cache.match(request)
-  
+
   // バックグラウンドでネットワークから更新
   const networkPromise = fetch(request)
     .then((response) => {
@@ -177,12 +177,12 @@ async function handlePostPage(request) {
       return response
     })
     .catch(() => cachedResponse)
-  
+
   // キャッシュがある場合はすぐに返す
   if (cachedResponse) {
     return cachedResponse
   }
-  
+
   // キャッシュがない場合はネットワークを待つ
   return networkPromise
 }
@@ -191,13 +191,13 @@ async function handlePostPage(request) {
 async function handleApiRequest(request) {
   try {
     const response = await fetch(request)
-    
+
     if (response.ok) {
       // 成功した場合はキャッシュに保存（短期間）
       const cache = await caches.open(CACHE_NAME)
       cache.put(request, response.clone())
     }
-    
+
     return response
   } catch (error) {
     // ネットワークが失敗した場合はキャッシュから取得
@@ -205,7 +205,7 @@ async function handleApiRequest(request) {
     if (cachedResponse) {
       return cachedResponse
     }
-    
+
     throw error
   }
 }
@@ -216,7 +216,7 @@ async function handleImageRequest(request) {
   if (cachedResponse) {
     return cachedResponse
   }
-  
+
   try {
     const response = await fetch(request)
     if (response.ok) {
@@ -236,7 +236,7 @@ async function handleFontRequest(request) {
   if (cachedResponse) {
     return cachedResponse
   }
-  
+
   const response = await fetch(request)
   if (response.ok) {
     const cache = await caches.open(CACHE_NAME)
@@ -263,11 +263,11 @@ async function handleGenericRequest(request) {
 async function getOfflinePage() {
   const cache = await caches.open(CACHE_NAME)
   const cachedOffline = await cache.match(OFFLINE_URL)
-  
+
   if (cachedOffline) {
     return cachedOffline
   }
-  
+
   // オフラインページがキャッシュにない場合のフォールバック
   return new Response(`
     <!DOCTYPE html>
@@ -331,12 +331,12 @@ async function getOfflinePage() {
 // プッシュ通知の処理
 self.addEventListener('push', (event) => {
   if (!event.data) return
-  
+
   const data = event.data.json()
   const options = {
     body: data.body || '新しい記事が投稿されました',
-    icon: '/icon-192x192.png',
-    badge: '/icon-72x72.png',
+    icon: '/favicon-96x96.png',
+    badge: '/favicon-32x32.png',
     image: data.image,
     data: data.url,
     actions: [
@@ -354,7 +354,7 @@ self.addEventListener('push', (event) => {
     requireInteraction: true,
     tag: 'prorenata-notification'
   }
-  
+
   event.waitUntil(
     self.registration.showNotification(data.title || 'ProReNata', options)
   )
@@ -363,13 +363,13 @@ self.addEventListener('push', (event) => {
 // 通知クリック時の処理
 self.addEventListener('notificationclick', (event) => {
   event.notification.close()
-  
+
   if (event.action === 'close') {
     return
   }
-  
+
   const url = event.notification.data || '/'
-  
+
   event.waitUntil(
     self.clients.matchAll({ type: 'window' }).then((clients) => {
       // 既存のウィンドウがある場合はそれを使用
@@ -378,7 +378,7 @@ self.addEventListener('notificationclick', (event) => {
           return client.focus()
         }
       }
-      
+
       // 新しいウィンドウを開く
       if (self.clients.openWindow) {
         return self.clients.openWindow(url)
@@ -398,7 +398,7 @@ async function doBackgroundSync() {
   try {
     // バックグラウンドで実行する処理
     console.log('[SW] Background sync triggered')
-    
+
     // 例: お気に入りデータの同期
     const clients = await self.clients.matchAll()
     clients.forEach(client => {

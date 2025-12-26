@@ -100,6 +100,14 @@ function sendChatEvent(eventName: string, params: Record<string, unknown>) {
     }
 }
 
+function sanitizeModelReplyText(input: string) {
+    const text = String(input ?? "");
+    return text
+        .replace(/URLが必要なときは「URLを教えて」と聞いてください。?/g, "")
+        .replace(/\n{3,}/g, "\n\n")
+        .trim();
+}
+
 export default function AItuberWidget() {
     const STORAGE_KEY = "aituber-messages-v1";
     const defaultMessages: Message[] = [
@@ -280,7 +288,7 @@ export default function AItuberWidget() {
 
             const replyText =
                 (typeof data.response === "string" && data.response.trim().length > 0)
-                    ? data.response.trim()
+                    ? sanitizeModelReplyText(data.response)
                     : "ごめんなさい、うまくお答えできませんでした。記事検索やカテゴリから探すのもおすすめです。";
 
             setMessages((prev) => [...prev, { role: "model", text: replyText }]);
@@ -462,6 +470,11 @@ export default function AItuberWidget() {
                 // 括弧付きタイトル（「タイトル」）はサイト内検索にリンク
                 if (isBracketTitle) {
                     const titleText = raw.slice(1, -1);
+                    if (titleText === "URLを教えて") {
+                        elements.push(<span key={`title-text-${lineIndex}-${start}`}>{raw}</span>);
+                        lastIndex = start + raw.length;
+                        continue;
+                    }
                     const searchUrl = `/search?q=${encodeURIComponent(titleText)}`;
                     elements.push(
                         <a
@@ -528,7 +541,7 @@ export default function AItuberWidget() {
                                     className="object-cover w-full h-full object-center"
                                     style={{ objectPosition: "50% 35%" }}
                                     unoptimized
-                                    onError={() => setAvatarSrc("/images/sera_profile.png")}
+                                    onError={() => setAvatarSrc("/images/shirasaki-sera.jpg")}
                                 />
                             </div>
                             <span className="font-bold text-sm">白崎セラ (ChatBot)</span>
@@ -599,7 +612,7 @@ export default function AItuberWidget() {
                         className="object-cover w-full h-full object-center"
                         style={{ objectPosition: "50% 35%" }}
                         unoptimized
-                        onError={() => setAvatarSrc("/images/sera_profile.png")}
+                        onError={() => setAvatarSrc("/images/shirasaki-sera.jpg")}
                     />
                 </div>
                 {!isOpen && (

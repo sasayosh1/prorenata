@@ -38,7 +38,7 @@ export default async function Home() {
               <p className="mt-6 text-base text-gray-600 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl leading-relaxed">
                 現場で働くあなたに、確かな情報を。<br className="hidden sm:inline" />
                 給与、資格、キャリア、メンタルケアまで、<br className="hidden sm:inline" />
-                経験者が語る実践的ガイド。
+                ProReNata編集部による客観的で実践的なガイド。
               </p>
               <div className="mt-8 sm:mx-auto sm:max-w-lg sm:flex sm:justify-center lg:mx-0">
                 <div className="mt-3 sm:mt-0">

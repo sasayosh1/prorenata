@@ -10,71 +10,31 @@
   "scope": "/",
   "lang": "ja",
   "dir": "ltr",
-  "categories": ["medical", "education", "healthcare"],
-  "screenshots": [
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "モバイル版のスクリーンショット"
-    },
-    {
-      "src": "/screenshot-desktop.png", 
-      "sizes": "1200x800",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "デスクトップ版のスクリーンショット"
-    }
+  "categories": [
+    "medical",
+    "education",
+    "healthcare"
   ],
   "icons": [
     {
-      "src": "/icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
     },
     {
-      "src": "/icon-96x96.png",
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-96x96.png",
       "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "type": "image/png"
     },
     {
-      "src": "/icon-128x128.png",
-      "sizes": "128x128",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icon-152x152.png",
-      "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icon-512x512.png",
+      "src": "/favicon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "type": "image/png"
     }
   ],
   "shortcuts": [
@@ -82,58 +42,15 @@
       "name": "記事を検索",
       "short_name": "検索",
       "description": "看護助手関連の記事を検索します",
-      "url": "/search",
-      "icons": [
-        {
-          "src": "/icon-shortcut-search.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "url": "/search"
     },
     {
       "name": "お気に入り記事",
       "short_name": "お気に入り",
       "description": "お気に入りに追加した記事を確認します",
-      "url": "/favorites",
-      "icons": [
-        {
-          "src": "/icon-shortcut-favorite.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "コミュニティ",
-      "short_name": "コミュニティ",
-      "description": "看護助手コミュニティに参加します",
-      "url": "/community",
-      "icons": [
-        {
-          "src": "/icon-shortcut-community.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "看護助手情報",
-      "short_name": "助手情報",
-      "description": "看護助手の専門情報を確認します",
-      "url": "/nursing-assistant",
-      "icons": [
-        {
-          "src": "/icon-shortcut-nursing.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "url": "/favorites"
     }
   ],
   "related_applications": [],
-  "prefer_related_applications": false,
-  "edge_side_panel": {
-    "preferred_width": 480
-  }
+  "prefer_related_applications": false
 }

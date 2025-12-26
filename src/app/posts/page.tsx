@@ -91,7 +91,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                   <article className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer group h-full flex flex-col">
                     {/* Image Area */}
                     <div className="h-48 bg-gray-100 relative overflow-hidden">
-                      {post.mainImage ? (
+                      {post.mainImage?.asset ? (
                         <Image
                           src={urlFor(post.mainImage).width(800).height(600).url()}
                           alt={post.title}
