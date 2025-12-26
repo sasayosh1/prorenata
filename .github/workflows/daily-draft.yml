@@ -38,12 +38,6 @@ jobs:
           path: .daily-draft-marker
           key: daily-draft-${{ github.repository }}-${{ steps.run_date.outputs.date }}
 
-      - name: Create daily marker
-        if: steps.daily_guard.outputs.cache-hit != 'true'
-        run: |
-          echo "date=${{ steps.run_date.outputs.date }}" > .daily-draft-marker
-          echo "run_id=${{ github.run_id }}" >> .daily-draft-marker
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -118,8 +112,8 @@ jobs:
         if: steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true'
         run: |
           if [ "${{ steps.budget.outputs.allowed }}" != "true" ]; then
-            echo "ERROR: Budget guard blocked generation (allowed=${{ steps.budget.outputs.allowed }})."
-            exit 1
+            echo "SKIP: Budget guard blocked generation (allowed=${{ steps.budget.outputs.allowed }})."
+            exit 0
           fi
           if [ "${{ steps.generate.outcome }}" != "success" ]; then
             echo "ERROR: Generation step did not run successfully (outcome=${{ steps.generate.outcome }})."
@@ -130,6 +124,14 @@ jobs:
             exit 1
           fi
           echo "OK: draft_id=${{ steps.generate.outputs.draft_id }}"
+
+      - name: Create daily marker (after successful/decided run)
+        if: steps.daily_guard.outputs.cache-hit != 'true' && (steps.budget.outputs.allowed != 'true' || steps.generate.outputs.draft_id != '')
+        run: |
+          echo "date=${{ steps.run_date.outputs.date }}" > .daily-draft-marker
+          echo "run_id=${{ github.run_id }}" >> .daily-draft-marker
+          echo "budget_allowed=${{ steps.budget.outputs.allowed }}" >> .daily-draft-marker
+          echo "draft_id=${{ steps.generate.outputs.draft_id }}" >> .daily-draft-marker
 
       - name: Create issue if analytics still unhealthy after autofix
         if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true' && steps.analytics_recheck.outputs.healthy != 'true'
@@ -150,7 +152,8 @@ jobs:
             const fixReasonCode = process.env.AUTOFIX_REASON_CODE || 'UNKNOWN';
             const fixed = process.env.AUTOFIX_FIXED || 'false';
 
-            const title = `📉 Analytics unhealthy after autofix (${reasonCode})`;
+            const date = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
+            const title = `📉 Analytics unhealthy after autofix (${reasonCode}) ${date}`;
             const body = [
               '## Analytics Health Check',
               '',
@@ -171,7 +174,18 @@ jobs:
               '- Check `Daily Analytics & SEO Report` workflow and service account permissions.',
             ].join('\\n');
 
-            github.rest.issues.create({
+            const list = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            if (list.data.some((issue) => issue?.title === title)) {
+              core.info(`Issue already exists: ${title}`);
+              return;
+            }
+
+            await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title,
