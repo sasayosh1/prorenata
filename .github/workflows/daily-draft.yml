@@ -38,12 +38,63 @@ jobs:
           path: .daily-draft-marker
           key: daily-draft-${{ github.repository }}-${{ steps.run_date.outputs.date }}
 
+      - name: Decide whether to skip today
+        id: daily_decision
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FORCE="${{ github.event.inputs.force }}"
+          CACHE_HIT="${{ steps.daily_guard.outputs.cache-hit }}"
+
+          # Forced runs always proceed.
+          if [ "$FORCE" = "true" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "skip_reason=forced" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # No cache => proceed.
+          if [ "$CACHE_HIT" != "true" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "skip_reason=no_cache" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Cache-hit: only skip if marker indicates a completed/decided run.
+          # Older marker formats may only include date/run_id; treat those as invalid so we can re-run.
+          if [ ! -f .daily-draft-marker ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "skip_reason=cache_hit_no_marker_file" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          DRAFT_ID="$(sed -n 's/^draft_id=//p' .daily-draft-marker | head -n 1 || true)"
+          BUDGET_ALLOWED="$(sed -n 's/^budget_allowed=//p' .daily-draft-marker | head -n 1 || true)"
+
+          if [ -n "$DRAFT_ID" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "skip_reason=already_ran_with_draft" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "$BUDGET_ALLOWED" = "false" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "skip_reason=already_ran_budget_blocked" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "skip_reason=cache_hit_invalid_marker" >> "$GITHUB_OUTPUT"
+
       - name: Set up Node.js
+        if: steps.daily_decision.outputs.skip != 'true'
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
       - name: CI -> fail if NPM_CONFIG_PRODUCTION=true
+        if: steps.daily_decision.outputs.skip != 'true'
         run: |
           if [ "${NPM_CONFIG_PRODUCTION:-false}" = "true" ]; then
             echo "ERROR: NPM_CONFIG_PRODUCTION=true will skip devDependencies. Set NPM_CONFIG_PRODUCTION=false or use npm ci --include=dev.";
@@ -51,10 +102,12 @@ jobs:
           fi
 
       - name: Install dependencies (include dev)
+        if: steps.daily_decision.outputs.skip != 'true'
         run: npm ci --include=dev
 
       - name: Analytics health check (GA4/GSC)
         id: analytics
+        if: steps.daily_decision.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEALTHCHECK_CREATE_ISSUE: 'false'
@@ -62,7 +115,7 @@ jobs:
 
       - name: Analytics anomaly autofix (best-effort)
         id: analytics_autofix
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true'
+        if: steps.daily_decision.outputs.skip != 'true' && steps.analytics.outputs.healthy != 'true'
         env:
           GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
           GA4_PROPERTY_ID: '504242963'
@@ -71,19 +124,19 @@ jobs:
 
       - name: Analytics health re-check (GA4/GSC)
         id: analytics_recheck
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true'
+        if: steps.daily_decision.outputs.skip != 'true' && steps.analytics.outputs.healthy != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEALTHCHECK_CREATE_ISSUE: 'false'
         run: node scripts/analytics-health-check.cjs
 
       - name: Determine budget month (UTC)
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true')
+        if: steps.daily_decision.outputs.skip != 'true'
         id: budget_month
         run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Gemini budget state
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true')
+        if: steps.daily_decision.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: .budget
@@ -93,7 +146,7 @@ jobs:
             gemini-budget-${{ runner.os }}-${{ github.repository }}-
 
       - name: Budget guard (pre-check)
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true')
+        if: steps.daily_decision.outputs.skip != 'true'
         id: budget
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -101,7 +154,7 @@ jobs:
 
       - name: Run article generation script
         id: generate
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.budget.outputs.allowed == 'true'
+        if: steps.daily_decision.outputs.skip != 'true' && steps.budget.outputs.allowed == 'true'
         run: node scripts/run-daily-generation.cjs
         env:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
@@ -109,7 +162,7 @@ jobs:
           ANALYTICS_MODE: ${{ (steps.analytics.outputs.healthy == 'true' || steps.analytics_recheck.outputs.healthy == 'true') && 'enabled' || 'disabled' }}
 
       - name: Fail if no draft created
-        if: steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true'
+        if: steps.daily_decision.outputs.skip != 'true'
         run: |
           if [ "${{ steps.budget.outputs.allowed }}" != "true" ]; then
             echo "SKIP: Budget guard blocked generation (allowed=${{ steps.budget.outputs.allowed }})."
@@ -126,7 +179,7 @@ jobs:
           echo "OK: draft_id=${{ steps.generate.outputs.draft_id }}"
 
       - name: Create daily marker (after successful/decided run)
-        if: steps.daily_guard.outputs.cache-hit != 'true' && (steps.budget.outputs.allowed != 'true' || steps.generate.outputs.draft_id != '')
+        if: steps.daily_decision.outputs.skip != 'true' && (steps.budget.outputs.allowed != 'true' || steps.generate.outputs.draft_id != '')
         run: |
           echo "date=${{ steps.run_date.outputs.date }}" > .daily-draft-marker
           echo "run_id=${{ github.run_id }}" >> .daily-draft-marker
@@ -134,7 +187,7 @@ jobs:
           echo "draft_id=${{ steps.generate.outputs.draft_id }}" >> .daily-draft-marker
 
       - name: Create issue if analytics still unhealthy after autofix
-        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true' && steps.analytics_recheck.outputs.healthy != 'true'
+        if: steps.daily_decision.outputs.skip != 'true' && steps.analytics.outputs.healthy != 'true' && steps.analytics_recheck.outputs.healthy != 'true'
         uses: actions/github-script@v6
         env:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -215,6 +268,7 @@ jobs:
           echo "📊 実行時刻: $(TZ=Asia/Tokyo date '+%Y年%m月%d日 %H:%M')"
           echo "🗓️ run date (JST): ${{ steps.run_date.outputs.date }}"
           echo "🛑 daily guard cache-hit: ${{ steps.daily_guard.outputs.cache-hit }} (force=${{ github.event.inputs.force }})"
+          echo "🧭 daily decision: skip=${{ steps.daily_decision.outputs.skip }} (reason=${{ steps.daily_decision.outputs.skip_reason }})"
           echo "🔎 analytics healthy: ${{ steps.analytics.outputs.healthy }} (${{ steps.analytics.outputs.reason }})"
           echo "🔎 analytics recheck: ${{ steps.analytics_recheck.outputs.healthy }} (${{ steps.analytics_recheck.outputs.reason }})"
           echo "🧯 analytics autofix: fixed=${{ steps.analytics_autofix.outputs.fixed }} (code=${{ steps.analytics_autofix.outputs.fix_reason_code }})"
