@@ -66,3 +66,10 @@ ga4env/
 .budget/
 .analytics/
 .convex.log
+
+# local-only scratch (contains one-off scripts/artifacts)
+_local/
+
+# local dev runtime files
+.dev.log
+.dev.pid

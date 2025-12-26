@@ -2,8 +2,11 @@ const { createClient } = require('next-sanity');
 const fs = require('fs');
 const path = require('path');
 
-// Hardcoded token from user rules as fallback
-const token = process.env.SANITY_API_TOKEN || 'skCHyaNwM7IJU5RSAkrE3ZGFEYVcXx3lJzbKIz0a8HNUJmTwHRn1phhfsAYXZSeAVeWo2ogJj0COIwousCyb2MLGPwyxe4FuDbDETY2xz5hkjuUIcdz6YcubOZ5SfRywxB2Js8r4vKtbOmlbLm1pXJyHl0Kgajis2MgxilYSTpkEYe6GGWEu';
+const token = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN;
+if (!token) {
+    console.error('Error: SANITY_WRITE_TOKEN or SANITY_API_TOKEN is required.');
+    process.exit(1);
+}
 const projectId = '72m8vhy2';
 const dataset = 'production';
 const apiVersion = '2024-01-01';

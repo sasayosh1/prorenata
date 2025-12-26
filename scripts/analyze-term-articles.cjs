@@ -1,11 +1,17 @@
 const { createClient } = require('@sanity/client');
 
+const token = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN;
+if (!token) {
+  console.error('Error: SANITY_WRITE_TOKEN or SANITY_API_TOKEN is required.');
+  process.exit(1);
+}
+
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'aoxze287',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
   useCdn: false,
-  token: process.env.SANITY_API_TOKEN || 'skkTjwpdrsjKKpaDxKVShzCSI7GMWE1r5TQdwl0b7LTylVPoAxzBg0oPqhtUQyfPjyvtZW2mu6nfUMNUJ'
+  token
 });
 
 async function analyzeTermArticles() {
