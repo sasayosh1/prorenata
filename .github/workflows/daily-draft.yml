@@ -134,14 +134,14 @@ jobs:
       - name: Create issue if analytics still unhealthy after autofix
         if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true' && steps.analytics_recheck.outputs.healthy != 'true'
         uses: actions/github-script@v6
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          ANALYTICS_REASON: ${{ steps.analytics_recheck.outputs.reason }}
+          ANALYTICS_REASON_CODE: ${{ steps.analytics_recheck.outputs.reason_code }}
+          AUTOFIX_FIXED: ${{ steps.analytics_autofix.outputs.fixed }}
+          AUTOFIX_REASON_CODE: ${{ steps.analytics_autofix.outputs.fix_reason_code }}
+          AUTOFIX_SUMMARY: ${{ steps.analytics_autofix.outputs.fix_summary }}
         with:
-          env:
-            RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            ANALYTICS_REASON: ${{ steps.analytics_recheck.outputs.reason }}
-            ANALYTICS_REASON_CODE: ${{ steps.analytics_recheck.outputs.reason_code }}
-            AUTOFIX_FIXED: ${{ steps.analytics_autofix.outputs.fixed }}
-            AUTOFIX_REASON_CODE: ${{ steps.analytics_autofix.outputs.fix_reason_code }}
-            AUTOFIX_SUMMARY: ${{ steps.analytics_autofix.outputs.fix_summary }}
           script: |
             const runUrl = process.env.RUN_URL;
             const reason = process.env.ANALYTICS_REASON || 'unknown';
