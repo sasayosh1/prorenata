@@ -289,11 +289,17 @@ async function generateAndSaveArticle() {
   let selectedKeyword = null;
   let targetTail = 'long'; // Default to long tail
   try {
+    const analyticsModeRaw = String(process.env.ANALYTICS_MODE || 'enabled').trim().toLowerCase();
+    const analyticsEnabled = !['disabled', 'off', 'false', '0', 'no'].includes(analyticsModeRaw);
+    if (!analyticsEnabled) {
+      console.log('ANALYTICS_MODE=disabled: skip GA4/GSC keyword selection and use fallback topic.');
+    }
+
     // Prefer data-driven keywords from GSC/GA4 exports (committed by daily analytics workflow).
     const gscPath = path.join(process.cwd(), 'data', 'gsc_last30d.csv');
     const ga4Path = path.join(process.cwd(), 'data', 'ga4_last30d.csv');
-    const gscRecords = loadCsvRecords(gscPath);
-    const ga4Records = loadCsvRecords(ga4Path);
+    const gscRecords = analyticsEnabled ? loadCsvRecords(gscPath) : null;
+    const ga4Records = analyticsEnabled ? loadCsvRecords(ga4Path) : null;
 
     // Fallback tag list (used when analytics files are missing).
     const tagsArrays = await sanityClient.fetch(`*[_type == "post" && defined(tags)].tags`);

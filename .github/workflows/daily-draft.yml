@@ -63,6 +63,24 @@ jobs:
         id: analytics
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEALTHCHECK_CREATE_ISSUE: 'false'
+        run: node scripts/analytics-health-check.cjs
+
+      - name: Analytics anomaly autofix (best-effort)
+        id: analytics_autofix
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true'
+        env:
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+          GA4_PROPERTY_ID: '504242963'
+          GSC_SITE_URL: 'https://prorenata.jp/'
+        run: node scripts/anomaly-autofix.cjs
+
+      - name: Analytics health re-check (GA4/GSC)
+        id: analytics_recheck
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEALTHCHECK_CREATE_ISSUE: 'false'
         run: node scripts/analytics-health-check.cjs
 
       - name: Determine budget month (UTC)
@@ -94,6 +112,7 @@ jobs:
         env:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANALYTICS_MODE: ${{ (steps.analytics.outputs.healthy == 'true' || steps.analytics_recheck.outputs.healthy == 'true') && 'enabled' || 'disabled' }}
 
       - name: Fail if no draft created
         if: steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true'
@@ -111,6 +130,54 @@ jobs:
             exit 1
           fi
           echo "OK: draft_id=${{ steps.generate.outputs.draft_id }}"
+
+      - name: Create issue if analytics still unhealthy after autofix
+        if: (steps.daily_guard.outputs.cache-hit != 'true' || github.event.inputs.force == 'true') && steps.analytics.outputs.healthy != 'true' && steps.analytics_recheck.outputs.healthy != 'true'
+        uses: actions/github-script@v6
+        with:
+          env:
+            RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            ANALYTICS_REASON: ${{ steps.analytics_recheck.outputs.reason }}
+            ANALYTICS_REASON_CODE: ${{ steps.analytics_recheck.outputs.reason_code }}
+            AUTOFIX_FIXED: ${{ steps.analytics_autofix.outputs.fixed }}
+            AUTOFIX_REASON_CODE: ${{ steps.analytics_autofix.outputs.fix_reason_code }}
+            AUTOFIX_SUMMARY: ${{ steps.analytics_autofix.outputs.fix_summary }}
+          script: |
+            const runUrl = process.env.RUN_URL;
+            const reason = process.env.ANALYTICS_REASON || 'unknown';
+            const reasonCode = process.env.ANALYTICS_REASON_CODE || 'UNKNOWN';
+            const fixSummary = process.env.AUTOFIX_SUMMARY || '(none)';
+            const fixReasonCode = process.env.AUTOFIX_REASON_CODE || 'UNKNOWN';
+            const fixed = process.env.AUTOFIX_FIXED || 'false';
+
+            const title = `📉 Analytics unhealthy after autofix (${reasonCode})`;
+            const body = [
+              '## Analytics Health Check',
+              '',
+              `- Run: ${runUrl}`,
+              `- Result: unhealthy`,
+              `- reason_code: \`${reasonCode}\``,
+              `- reason: \`${reason}\``,
+              '',
+              '## Autofix attempt',
+              `- fixed: \`${fixed}\``,
+              `- fix_reason_code: \`${fixReasonCode}\``,
+              `- fix_summary: ${fixSummary}`,
+              '',
+              '## Note',
+              '- Draft generation continues, but analytics-driven topic selection is disabled for this run.',
+              '',
+              '## Next steps',
+              '- Check `Daily Analytics & SEO Report` workflow and service account permissions.',
+            ].join('\\n');
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['analytics', 'automated']
+            });
 
       - name: Create issue if generation failed
         if: failure()
@@ -135,6 +202,8 @@ jobs:
           echo "🗓️ run date (JST): ${{ steps.run_date.outputs.date }}"
           echo "🛑 daily guard cache-hit: ${{ steps.daily_guard.outputs.cache-hit }} (force=${{ github.event.inputs.force }})"
           echo "🔎 analytics healthy: ${{ steps.analytics.outputs.healthy }} (${{ steps.analytics.outputs.reason }})"
+          echo "🔎 analytics recheck: ${{ steps.analytics_recheck.outputs.healthy }} (${{ steps.analytics_recheck.outputs.reason }})"
+          echo "🧯 analytics autofix: fixed=${{ steps.analytics_autofix.outputs.fixed }} (code=${{ steps.analytics_autofix.outputs.fix_reason_code }})"
           echo "💰 budget allowed: ${{ steps.budget.outputs.allowed }}"
           echo "🧾 generation step: ${{ steps.generate.outcome }}"
           echo "🆔 draft id: ${{ steps.generate.outputs.draft_id }}"

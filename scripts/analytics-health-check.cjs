@@ -31,6 +31,29 @@ function appendGithubOutput(key, value) {
   fs.appendFileSync(outputPath, `${key}=${String(value)}\n`, 'utf8');
 }
 
+function shouldCreateIssue() {
+  const raw = process.env.HEALTHCHECK_CREATE_ISSUE;
+  if (raw == null) return true;
+  return !/^(false|0|no)$/i.test(String(raw).trim());
+}
+
+function mapReasonCode(reason) {
+  switch (reason) {
+    case 'ok':
+      return 'OK';
+    case 'missing_data':
+      return 'MISSING_DATA';
+    case 'stale_data':
+      return 'STALE_DATA';
+    case 'anomaly_detected':
+      return 'ANOMALY';
+    case 'script_error':
+      return 'SCRIPT_ERROR';
+    default:
+      return 'UNKNOWN';
+  }
+}
+
 function writeHealthFile(payload) {
   const dir = path.join(process.cwd(), 'analytics');
   const filePath = path.join(dir, 'health.json');
@@ -266,6 +289,7 @@ async function main() {
     writeHealthFile({
       ok: false,
       reason: 'missing_data',
+      reason_code: mapReasonCode('missing_data'),
       checkedAt: new Date().toISOString(),
       dateCheckedUtc: yIso,
       missing,
@@ -291,14 +315,17 @@ async function main() {
       `Timestamp: ${new Date().toISOString()}`,
     ].join('\n');
 
-    try {
-      await ensureIssue({ title, body, labels: ['analytics', 'automated'] });
-    } catch (error) {
-      console.warn('⚠️ Failed to create issue:', error?.message || error);
+    if (shouldCreateIssue()) {
+      try {
+        await ensureIssue({ title, body, labels: ['analytics', 'automated'] });
+      } catch (error) {
+        console.warn('⚠️ Failed to create issue:', error?.message || error);
+      }
     }
 
     appendGithubOutput('healthy', 'false');
     appendGithubOutput('reason', 'missing_data');
+    appendGithubOutput('reason_code', mapReasonCode('missing_data'));
     process.exit(0);
   }
 
@@ -312,6 +339,7 @@ async function main() {
     writeHealthFile({
       ok: false,
       reason: 'stale_data',
+      reason_code: mapReasonCode('stale_data'),
       checkedAt: new Date().toISOString(),
       dateCheckedUtc: yIso,
       staleThresholdUtc: staleIso,
@@ -337,14 +365,17 @@ async function main() {
       `Timestamp: ${new Date().toISOString()}`,
     ].join('\n');
 
-    try {
-      await ensureIssue({ title, body, labels: ['analytics', 'automated'] });
-    } catch (error) {
-      console.warn('⚠️ Failed to create issue:', error?.message || error);
+    if (shouldCreateIssue()) {
+      try {
+        await ensureIssue({ title, body, labels: ['analytics', 'automated'] });
+      } catch (error) {
+        console.warn('⚠️ Failed to create issue:', error?.message || error);
+      }
     }
 
     appendGithubOutput('healthy', 'false');
     appendGithubOutput('reason', 'stale_data');
+    appendGithubOutput('reason_code', mapReasonCode('stale_data'));
     process.exit(0);
   }
 
@@ -377,6 +408,7 @@ async function main() {
     writeHealthFile({
       ok: false,
       reason: 'anomaly_detected',
+      reason_code: mapReasonCode('anomaly_detected'),
       checkedAt: new Date().toISOString(),
       dateCheckedUtc: yIso,
       thresholds: { lookbackDays, dropRatio, staleDays },
@@ -407,14 +439,17 @@ async function main() {
       `Timestamp: ${new Date().toISOString()}`,
     ].join('\n');
 
-    try {
-      await ensureIssue({ title, body, labels: ['analytics', 'automated'] });
-    } catch (error) {
-      console.warn('⚠️ Failed to create issue:', error?.message || error);
+    if (shouldCreateIssue()) {
+      try {
+        await ensureIssue({ title, body, labels: ['analytics', 'automated'] });
+      } catch (error) {
+        console.warn('⚠️ Failed to create issue:', error?.message || error);
+      }
     }
 
     appendGithubOutput('healthy', 'false');
     appendGithubOutput('reason', 'anomaly_detected');
+    appendGithubOutput('reason_code', mapReasonCode('anomaly_detected'));
     process.exit(0);
   }
 
@@ -426,6 +461,7 @@ async function main() {
   writeHealthFile({
     ok: true,
     reason: 'ok',
+    reason_code: mapReasonCode('ok'),
     checkedAt: new Date().toISOString(),
     dateCheckedUtc: yIso,
     thresholds: { lookbackDays, dropRatio, staleDays },
@@ -437,6 +473,7 @@ async function main() {
 
   appendGithubOutput('healthy', 'true');
   appendGithubOutput('reason', 'ok');
+  appendGithubOutput('reason_code', mapReasonCode('ok'));
 }
 
 main().catch((error) => {
@@ -446,6 +483,7 @@ main().catch((error) => {
     writeHealthFile({
       ok: false,
       reason: 'script_error',
+      reason_code: mapReasonCode('script_error'),
       checkedAt: new Date().toISOString(),
       dateCheckedUtc: date,
       error: String(error?.message || error),
@@ -470,12 +508,15 @@ main().catch((error) => {
       `Timestamp: ${new Date().toISOString()}`,
     ].join('\n');
 
-    ensureIssue({ title, body, labels: ['analytics', 'automated'] }).catch(() => {});
+    if (shouldCreateIssue()) {
+      ensureIssue({ title, body, labels: ['analytics', 'automated'] }).catch(() => {});
+    }
   } catch {
     // ignore
   }
 
   appendGithubOutput('healthy', 'false');
   appendGithubOutput('reason', 'script_error');
+  appendGithubOutput('reason_code', mapReasonCode('script_error'));
   process.exit(0);
 });
