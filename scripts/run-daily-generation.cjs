@@ -8,13 +8,218 @@ const {
   ensurePortableTextKeys,
   ensureReferenceKeys
 } = require('./utils/keyHelpers');
-require('dotenv').config({ path: '../.env.local' }); // For local testing
+require('dotenv').config({ path: path.join(process.cwd(), '.env.local') }); // For local testing
 
 function appendGithubOutput(key, value) {
   const outputPath = process.env.GITHUB_OUTPUT;
   if (!outputPath) return;
   const safe = String(value ?? '').replace(/\r?\n/g, ' ').trim();
   fs.appendFileSync(outputPath, `${key}=${safe}\n`, 'utf8');
+}
+
+function toCodePoints(str) {
+  return Array.from(String(str ?? ''));
+}
+
+function codePointLength(str) {
+  return toCodePoints(str).length;
+}
+
+function sliceCodePoints(str, n) {
+  return toCodePoints(str).slice(0, Math.max(0, n)).join('');
+}
+
+function normalizeForSimilarity(text) {
+  return String(text || '')
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/[【】\[\]（）()]/g, ' ')
+    .replace(/[・、。！？!?,:：\u3000]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function bigrams(text) {
+  const s = normalizeForSimilarity(text).replace(/\s/g, '');
+  if (s.length < 2) return [];
+  const out = [];
+  for (let i = 0; i < s.length - 1; i++) out.push(s.slice(i, i + 2));
+  return out;
+}
+
+function diceSimilarity(a, b) {
+  const A = bigrams(a);
+  const B = bigrams(b);
+  if (A.length === 0 || B.length === 0) return 0;
+  const counts = new Map();
+  for (const g of A) counts.set(g, (counts.get(g) || 0) + 1);
+  let inter = 0;
+  for (const g of B) {
+    const n = counts.get(g) || 0;
+    if (n > 0) {
+      inter++;
+      counts.set(g, n - 1);
+    }
+  }
+  return (2 * inter) / (A.length + B.length);
+}
+
+function sanitizeGeneratedTitle(input) {
+  let title = String(input || '').trim();
+  if (!title) return '';
+
+  // Remove bracketed prefixes like 【看護助手 面接対策】 to avoid repeated template feel.
+  title = title.replace(/^【[^】]{1,40}】\s*/g, '');
+
+  // Avoid overused endings and mid-sentence ellipsis.
+  title = title.replace(/(?:…|\.{3,})+$/g, '').trim();
+  title = title.replace(/徹底解説/g, 'ポイント整理');
+  title = title.replace(/完全ガイド/g, '実践ガイド');
+
+  // Normalize repeated separators
+  title = title.replace(/\s*[:：]\s*/g, '：');
+  title = title.replace(/\s*・\s*/g, '・');
+  title = title.replace(/\s+/g, ' ').trim();
+
+  return title;
+}
+
+function endsWithBadPunctuation(title) {
+  return /[、,・…\.]$/.test(String(title || '').trim());
+}
+
+function ensureTitleEndsCleanly(title, maxLen) {
+  let t = String(title || '').trim();
+  if (!t) return t;
+
+  // Titles should not end with ellipsis or dangling punctuation.
+  while (t && endsWithBadPunctuation(t)) t = t.slice(0, -1).trim();
+
+  // Never end with "..." / "…"
+  t = t.replace(/(?:…|\.{3,})+$/g, '').trim();
+
+  // If we trimmed too hard, keep within limit without adding ellipsis.
+  if (maxLen && codePointLength(t) > maxLen) t = sliceCodePoints(t, maxLen).trim();
+  while (t && endsWithBadPunctuation(t)) t = t.slice(0, -1).trim();
+  return t;
+}
+
+function buildAlternativeTitles({ baseSubject, features, tail }) {
+  const hasSelfPR = features.hasSelfPR;
+  const hasMotivation = features.hasMotivation;
+  const hasQuestions = features.hasQuestions;
+
+  const variations = [];
+
+  if (tail === 'short') {
+    variations.push(`${baseSubject}の基本`);
+    variations.push(`${baseSubject}の準備ポイント`);
+    variations.push(`${baseSubject}で押さえること`);
+    return variations;
+  }
+
+  if (tail === 'middle') {
+    variations.push(`${baseSubject}：準備の流れとチェックリスト`);
+    if (hasSelfPR || hasMotivation) variations.push(`${baseSubject}：自己PR・志望動機の整え方`);
+    if (hasQuestions) variations.push(`${baseSubject}：よくある質問と答え方のコツ`);
+    variations.push(`${baseSubject}で落ちやすいポイントと対策`);
+    return variations;
+  }
+
+  // long
+  variations.push(`${baseSubject}：準備の手順・自己PR・志望動機をまとめて整理（チェックリスト付き）`);
+  if (hasQuestions) variations.push(`${baseSubject}：よくある質問の答え方と当日の心構え（例文つき）`);
+  if (hasSelfPR && hasMotivation) variations.push(`${baseSubject}：自己PRと志望動機で差がつく準備法（例文あり）`);
+  variations.push(`${baseSubject}：失敗しやすい落とし穴と対策（当日の流れも解説）`);
+  return variations;
+}
+
+function clampTitleLength(title, minLen, maxLen) {
+  let t = String(title || '').trim();
+  if (!t) return t;
+
+  // If too long, try to drop trailing parentheticals first.
+  if (maxLen && codePointLength(t) > maxLen) {
+    t = t.replace(/（[^）]{1,24}）$/g, '').trim();
+  }
+
+  if (maxLen && codePointLength(t) > maxLen) {
+    // Prefer truncating after a separator if present.
+    const separators = ['：', '｜', '—', '-', '–'];
+    for (const sep of separators) {
+      const idx = t.lastIndexOf(sep);
+      if (idx > 8) {
+        const cand = t.slice(0, idx).trim();
+        if (codePointLength(cand) >= minLen && codePointLength(cand) <= maxLen) {
+          t = cand;
+          break;
+        }
+      }
+    }
+  }
+
+  if (maxLen && codePointLength(t) > maxLen) {
+    t = sliceCodePoints(t, maxLen).trim();
+  }
+
+  // If too short, append a short qualifier (no ellipsis).
+  if (minLen && codePointLength(t) < minLen) {
+    const fillers = ['（チェックリスト付き）', '（例文つき）', '（準備の流れ）', '（答え方のコツ）'];
+    for (const f of fillers) {
+      const cand = `${t}${f}`;
+      if (codePointLength(cand) >= minLen && (!maxLen || codePointLength(cand) <= maxLen)) {
+        t = cand;
+        break;
+      }
+    }
+  }
+
+  return ensureTitleEndsCleanly(t, maxLen);
+}
+
+function chooseDistinctTitle({ generatedTitle, selectedKeyword, tail, minLen, maxLen, recentTitles }) {
+  const sanitized = sanitizeGeneratedTitle(generatedTitle);
+  const recent = Array.isArray(recentTitles) ? recentTitles.filter(Boolean) : [];
+
+  const maxSim = recent.reduce((m, t) => Math.max(m, diceSimilarity(sanitized, t)), 0);
+  const hasListyPattern = /・/.test(sanitized) && (sanitized.match(/・/g) || []).length >= 2;
+  const overusedPattern = /採用を勝ち取る|合格を引き寄せる|徹底解説/.test(String(generatedTitle || ''));
+
+  // Threshold tuned to catch near-duplicates without overfiring.
+  const TOO_SIMILAR = 0.78;
+  const shouldRewrite = maxSim >= TOO_SIMILAR || (hasListyPattern && overusedPattern);
+
+  const features = {
+    hasSelfPR: /自己pr/i.test(sanitized) || sanitized.includes('自己PR'),
+    hasMotivation: sanitized.includes('志望動機'),
+    hasQuestions: sanitized.includes('質問') || sanitized.includes('逆質問'),
+  };
+
+  const baseSubjectRaw = String(selectedKeyword || '').trim();
+  const baseSubject = baseSubjectRaw.includes('看護助手')
+    ? baseSubjectRaw
+    : baseSubjectRaw
+      ? `看護助手の${baseSubjectRaw}`
+      : '看護助手の面接対策';
+
+  const candidates = [sanitized, ...buildAlternativeTitles({ baseSubject, features, tail })]
+    .map((t) => clampTitleLength(t, minLen, maxLen))
+    .filter((t) => t && codePointLength(t) >= minLen && (!maxLen || codePointLength(t) <= maxLen));
+
+  let best = candidates[0] || sanitized;
+  let bestScore = Number.POSITIVE_INFINITY;
+  for (const cand of candidates) {
+    const sim = recent.reduce((m, t) => Math.max(m, diceSimilarity(cand, t)), 0);
+    if (sim < bestScore) {
+      bestScore = sim;
+      best = cand;
+    }
+    if (sim < 0.62) break; // sufficiently distinct
+  }
+
+  // If no rewrite needed, keep sanitized (but length-clamped).
+  if (!shouldRewrite) return clampTitleLength(sanitized, minLen, maxLen);
+  return best;
 }
 
 function buildPostSlug(input) {
@@ -288,12 +493,21 @@ async function generateAndSaveArticle() {
   let selectedTopic;
   let selectedKeyword = null;
   let targetTail = 'long'; // Default to long tail
+  let titleList = [];
+  let existingTitleSet = new Set();
   try {
     const analyticsModeRaw = String(process.env.ANALYTICS_MODE || 'enabled').trim().toLowerCase();
     const analyticsEnabled = !['disabled', 'off', 'false', '0', 'no'].includes(analyticsModeRaw);
     if (!analyticsEnabled) {
       console.log('ANALYTICS_MODE=disabled: skip GA4/GSC keyword selection and use fallback topic.');
     }
+
+    // Fetch recent titles up-front (used for tail distribution and title de-dup).
+    const existingTitleDocs = await sanityClient.fetch(
+      `*[_type == "post" && defined(title)]|order(coalesce(publishedAt,_createdAt) desc)[0...500]{title}`
+    );
+    titleList = Array.isArray(existingTitleDocs) ? existingTitleDocs.map((d) => d?.title).filter(Boolean) : [];
+    existingTitleSet = new Set(titleList.map((t) => normalizeQueryForCompare(t)));
 
     // Prefer data-driven keywords from GSC/GA4 exports (committed by daily analytics workflow).
     const gscPath = path.join(process.cwd(), 'data', 'gsc_last30d.csv');
@@ -374,10 +588,6 @@ async function generateAndSaveArticle() {
             acc.ga4EngagementRate == null ? ga.engagementRate : Math.min(acc.ga4EngagementRate, ga.engagementRate);
         }
       }
-
-      const existingTitles = await sanityClient.fetch(`*[_type == "post" && defined(title)].title`);
-      const titleList = Array.isArray(existingTitles) ? existingTitles : [];
-      const existingTitleSet = new Set(titleList.map((t) => normalizeQueryForCompare(t)));
 
       // Determine keyword tail type (Short/Middle/Long) based on existing title distribution.
       const tailCount = { short: 0, middle: 0, long: 0 };
@@ -542,6 +752,9 @@ ${SERA_FULL_PERSONA}
 - 挨拶や自己紹介（「白崎セラです」等）は入れず、本題から開始する。
 - タイトル/本文で「看護助手の私が教える、」のような肩書き主張は入れない。
 - 文章内で自分の名前を出さない（例: 「セラが」「セラの」などは禁止）。必要なら「わたし」で表現する。
+- タイトルに「【】」などの括弧装飾は使わない（一覧で同じ見た目になりやすいため）。
+- タイトル末尾を「…」「...」で終えない（途中省略で終わらせない）。
+- タイトルは「徹底解説」「完全ガイド」等のテンプレ語を連発しない。必要なら別表現（ポイント整理/チェックリスト等）にする。
 - **タイトル文字数（SEO戦略・絶対厳守）**:
   **${titleLengthGuide}**
   **最低${titleMinLength}文字、最大${titleMaxLength}文字**
@@ -588,7 +801,15 @@ ${SERA_FULL_PERSONA}
 
   // 5. カテゴリとExcerptは空で保存（メンテナンススクリプトで自動生成）
   console.log("Saving generated article as a draft to Sanity...");
-  const title = generatedArticle.title;
+  const recentTitles = Array.isArray(titleList) ? titleList.slice(0, 50) : [];
+  const title = chooseDistinctTitle({
+    generatedTitle: generatedArticle.title,
+    selectedKeyword,
+    tail: targetTail,
+    minLen: titleMinLength,
+    maxLen: titleMaxLength,
+    recentTitles,
+  });
   const slugCurrent = buildPostSlug(title);
   const draft = {
     _type: 'post',
