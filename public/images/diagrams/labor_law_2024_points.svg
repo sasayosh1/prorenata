@@ -1,0 +1,41 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#1E3A8A" text-anchor="middle">2024年 労働基準法改正のポイント（看護助手）</text>
+
+  <!-- Point 1 -->
+  <g transform="translate(60, 100)">
+    <rect width="210" height="230" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+    <text x="105" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">⏳</text>
+    <text x="105" y="85" font-family="sans-serif" font-size="16" font-weight="700" fill="#0369A1" text-anchor="middle">残業時間の制限</text>
+    <text x="105" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">月45時間・年360時間の</text>
+    <text x="105" y="145" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">原則が徹底されます。</text>
+    <text x="105" y="165" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">（医師含め全体で適正化）</text>
+  </g>
+
+  <!-- Point 2 -->
+  <g transform="translate(295, 100)">
+    <rect width="210" height="230" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="2"/>
+    <text x="105" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">🛌</text>
+    <text x="105" y="85" font-family="sans-serif" font-size="16" font-weight="700" fill="#047857" text-anchor="middle">休息時間の確保</text>
+    <text x="105" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">勤務終了から次までの</text>
+    <text x="105" y="145" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">「インターバル」の確保が</text>
+    <text x="105" y="165" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">より重視されます。</text>
+  </g>
+
+  <!-- Point 3 -->
+  <g transform="translate(530, 100)">
+    <rect width="210" height="230" rx="20" fill="#FDF2F8" stroke="#FCE7F3" stroke-width="2"/>
+    <text x="105" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">⚖️</text>
+    <text x="105" y="85" font-family="sans-serif" font-size="16" font-weight="700" fill="#BE185D" text-anchor="middle">同一労働・同一賃金</text>
+    <text x="105" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">正社員・非正規間の</text>
+    <text x="105" y="145" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">不合理な待遇差解消が</text>
+    <text x="105" y="165" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">進められます。</text>
+  </g>
+
+  <!-- Sera's Advice -->
+  <rect x="200" y="350" width="400" height="30" rx="15" fill="#EEF2FF"/>
+  <text x="400" y="370" font-family="sans-serif" font-size="14" font-weight="500" fill="#1E3A8A" text-anchor="middle">制度を味方につけて、心身ともに健やかな働き方を✨</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#047857" text-anchor="middle">外来でのスムーズな一日｜看護助手の業務フロー</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(40, 100)">
+    <rect width="170" height="150" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="2"/>
+    <text x="85" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">📋</text>
+    <text x="85" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#047857" text-anchor="middle">1. 事前準備</text>
+    <text x="85" y="110" font-family="sans-serif" font-size="13" fill="#065F46" text-anchor="middle">診察室の清掃、</text>
+    <text x="85" y="125" font-family="sans-serif" font-size="13" fill="#065F46" text-anchor="middle">器材・書類の用意</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M210 175 L230 175" stroke="#E5E7EB" stroke-width="2" marker-end="url(#arrow_gray)"/>
+
+  <!-- Step 2 -->
+  <g transform="translate(230, 100)">
+    <rect width="170" height="150" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+    <text x="85" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">🗣️</text>
+    <text x="85" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#0369A1" text-anchor="middle">2. 患者案内</text>
+    <text x="85" y="110" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">中待合への誘導、</text>
+    <text x="85" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">車椅子の介助など</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M400 175 L420 175" stroke="#E5E7EB" stroke-width="2" marker-end="url(#arrow_gray)"/>
+
+  <!-- Step 3 -->
+  <g transform="translate(420, 100)">
+    <rect width="170" height="150" rx="20" fill="#FFFBEB" stroke="#FDE68A" stroke-width="2"/>
+    <text x="85" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">🤝</text>
+    <text x="85" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#B45309" text-anchor="middle">3. 診療サポート</text>
+    <text x="85" y="110" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">検体の運搬、</text>
+    <text x="85" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">看護師の補助作業</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M590 175 L610 175" stroke="#E5E7EB" stroke-width="2" marker-end="url(#arrow_gray)"/>
+
+  <!-- Step 4 -->
+  <g transform="translate(610, 100)">
+    <rect width="150" height="150" rx="20" fill="#FDF2F8" stroke="#FCE7F3" stroke-width="2"/>
+    <text x="75" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">🧹</text>
+    <text x="75" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#BE185D" text-anchor="middle">4. 片付け</text>
+    <text x="75" y="110" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">次の方のための</text>
+    <text x="75" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">環境リセット</text>
+  </g>
+
+  <!-- Sera's Support -->
+  <rect x="150" y="320" width="500" height="40" rx="20" fill="#ECFDF5"/>
+  <text x="400" y="345" font-family="sans-serif" font-size="14" font-weight="600" fill="#047857" text-anchor="middle">✨ 流れるような連携で、安心できる外来をつくりましょう ✨</text>
+
+  <defs>
+    <marker id="arrow_gray" markerWidth="6" markerHeight="6" refX="5" refY="3" orientation="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#E5E7EB" />
+    </marker>
+  </defs>
+</svg>

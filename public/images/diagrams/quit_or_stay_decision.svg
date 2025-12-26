@@ -1,0 +1,60 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">「辞めたい」と思ったら。今の自分の気持ちを整理</text>
+
+  <!-- Start Box -->
+  <rect x="300" y="100" width="200" height="60" rx="30" fill="#FDF2F8" stroke="#FCE7F3" stroke-width="2"/>
+  <text x="400" y="135" font-family="sans-serif" font-size="16" font-weight="700" fill="#BE185D" text-anchor="middle">スタート：今の状況は？</text>
+
+  <!-- Branching Arrows -->
+  <path d="M300 130 L150 200" stroke="#FCE7F3" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M500 130 L650 200" stroke="#FCE7F3" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Left: Physical/Mental Exhaustion -->
+  <g transform="translate(50, 200)">
+    <rect width="250" height="100" rx="20" fill="#FFF1F2" stroke="#FECDD3" stroke-width="1"/>
+    <text x="125" y="40" font-family="sans-serif" font-size="15" font-weight="700" fill="#E11D48" text-anchor="middle">体や心がボロボロ...</text>
+    <text x="125" y="70" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">心身の健康が最優先。</text>
+    <text x="125" y="85" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">無理せず「退職・休む」選択を。</text>
+  </g>
+
+  <!-- Right: Interpersonal/Environment -->
+  <g transform="translate(500, 200)">
+    <rect width="250" height="100" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+    <text x="125" y="40" font-family="sans-serif" font-size="15" font-weight="700" fill="#0284C7" text-anchor="middle">人間関係や環境が辛い</text>
+    <text x="125" y="70" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">配置転換や相談で改善可能か？</text>
+    <text x="125" y="85" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">難しければ「転職」も視野に。</text>
+  </g>
+
+  <!-- Central Question -->
+  <rect x="300" y="220" width="200" height="60" rx="15" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="400" y="245" font-family="sans-serif" font-size="14" font-weight="600" fill="#374151" text-anchor="middle">「やりたいこと」は</text>
+  <text x="400" y="265" font-family="sans-serif" font-size="14" font-weight="600" fill="#374151" text-anchor="middle">今の職場で叶う？</text>
+
+  <!-- Result Boxes -->
+  <g transform="translate(100, 360)">
+    <rect width="250" height="80" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="2"/>
+    <text x="125" y="35" font-family="sans-serif" font-size="16" font-weight="700" fill="#059669" text-anchor="middle">YES：まずは相談</text>
+    <text x="125" y="60" font-family="sans-serif" font-size="13" fill="#065F46" text-anchor="middle">環境を変える努力をしてみる</text>
+  </g>
+
+  <g transform="translate(450, 360)">
+    <rect width="250" height="80" rx="20" fill="#FEF2F2" stroke="#FECDD3" stroke-width="2"/>
+    <text x="125" y="35" font-family="sans-serif" font-size="16" font-weight="700" fill="#DC2626" text-anchor="middle">NO：新しい環境へ</text>
+    <text x="125" y="60" font-family="sans-serif" font-size="13" fill="#991B1B" text-anchor="middle">勇気を持って次の一歩を</text>
+  </g>
+
+  <!-- Sera's Advice -->
+  <rect x="200" y="460" width="400" height="25" rx="12" fill="#FDF2F8"/>
+  <text x="400" y="477" font-family="sans-serif" font-size="13" font-weight="500" fill="#BE185D" text-anchor="middle">逃げることと、自分を守ることは違います。自分を大切に✨</text>
+
+  <!-- Arrow Marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orientation="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FCE7F3" />
+    </marker>
+  </defs>
+</svg>

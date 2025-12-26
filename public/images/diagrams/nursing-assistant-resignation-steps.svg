@@ -1,0 +1,71 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="softBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4F1F4;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#E8DEF8;stop-opacity:0.2" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.12"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#softBg)" rx="20"/>
+  <rect x="60" y="40" width="780" height="100" rx="18" fill="#4FD1C5" opacity="0.15" filter="url(#softShadow)"/>
+  <text x="450" y="80" font-family="Hiragino Sans, sans-serif" font-size="28" font-weight="600" text-anchor="middle" fill="#4A5568">看護助手の円満退職の流れ</text>
+  <text x="450" y="115" font-family="Hiragino Sans, sans-serif" font-size="15" text-anchor="middle" fill="#718096">スムーズに次のステップへ進むために</text>
+  <g transform="translate(100, 180)">
+    <circle cx="0" cy="30" r="28" fill="#4FD1C5" opacity="0.9" filter="url(#softShadow)"/>
+    <text x="0" y="38" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="white">1</text>
+  </g>
+  <rect x="160" y="180" width="660" height="70" rx="15" fill="white" filter="url(#softShadow)"/>
+  <rect x="160" y="180" width="8" height="70" rx="4" fill="#4FD1C5" opacity="0.8"/>
+  <text x="185" y="210" font-family="Hiragino Sans, sans-serif" font-size="17" font-weight="600" fill="#4A5568">退職の意思決定</text>
+  <text x="185" y="232" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#718096">自分の気持ちを整理し、理由を明確にする</text>
+  <path d="M 450 255 L 450 265" stroke="#A0AEC0" stroke-width="2" stroke-dasharray="4,4" opacity="0.5"/>
+  <polygon points="450,270 445,263 455,263" fill="#A0AEC0" opacity="0.5"/>
+  <g transform="translate(100, 270)">
+    <circle cx="0" cy="30" r="28" fill="#FFB3C6" opacity="0.9" filter="url(#softShadow)"/>
+    <text x="0" y="38" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="white">2</text>
+  </g>
+  <rect x="160" y="270" width="660" height="70" rx="15" fill="white" filter="url(#softShadow)"/>
+  <rect x="160" y="270" width="8" height="70" rx="4" fill="#FFB3C6" opacity="0.8"/>
+  <text x="185" y="300" font-family="Hiragino Sans, sans-serif" font-size="17" font-weight="600" fill="#4A5568">上司への相談（1-2ヶ月前）</text>
+  <text x="185" y="322" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#718096">直属の上司に直接話し、退職の意思を伝える</text>
+  <path d="M 450 345 L 450 355" stroke="#A0AEC0" stroke-width="2" stroke-dasharray="4,4" opacity="0.5"/>
+  <polygon points="450,360 445,353 455,353" fill="#A0AEC0" opacity="0.5"/>
+  <g transform="translate(100, 360)">
+    <circle cx="0" cy="30" r="28" fill="#C9A9E9" opacity="0.9" filter="url(#softShadow)"/>
+    <text x="0" y="38" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="white">3</text>
+  </g>
+  <rect x="160" y="360" width="660" height="70" rx="15" fill="white" filter="url(#softShadow)"/>
+  <rect x="160" y="360" width="8" height="70" rx="4" fill="#C9A9E9" opacity="0.8"/>
+  <text x="185" y="390" font-family="Hiragino Sans, sans-serif" font-size="17" font-weight="600" fill="#4A5568">退職届の提出</text>
+  <text x="185" y="412" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#718096">正式な書類を作成し、人事部門へ提出</text>
+  <path d="M 450 435 L 450 445" stroke="#A0AEC0" stroke-width="2" stroke-dasharray="4,4" opacity="0.5"/>
+  <polygon points="450,450 445,443 455,443" fill="#A0AEC0" opacity="0.5"/>
+  <g transform="translate(100, 450)">
+    <circle cx="0" cy="30" r="28" fill="#FFCBA4" opacity="0.9" filter="url(#softShadow)"/>
+    <text x="0" y="38" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="white">4</text>
+  </g>
+  <rect x="160" y="450" width="660" height="70" rx="15" fill="white" filter="url(#softShadow)"/>
+  <rect x="160" y="450" width="8" height="70" rx="4" fill="#FFCBA4" opacity="0.8"/>
+  <text x="185" y="480" font-family="Hiragino Sans, sans-serif" font-size="17" font-weight="600" fill="#4A5568">引き継ぎ業務</text>
+  <text x="185" y="502" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#718096">後任者への丁寧な引き継ぎを行う</text>
+  <path d="M 450 525 L 450 535" stroke="#A0AEC0" stroke-width="2" stroke-dasharray="4,4" opacity="0.5"/>
+  <polygon points="450,540 445,533 455,533" fill="#A0AEC0" opacity="0.5"/>
+  <g transform="translate(100, 540)">
+    <circle cx="0" cy="30" r="28" fill="#90CAF9" opacity="0.9" filter="url(#softShadow)"/>
+    <text x="0" y="38" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="white">5</text>
+  </g>
+  <rect x="160" y="540" width="660" height="70" rx="15" fill="white" filter="url(#softShadow)"/>
+  <rect x="160" y="540" width="8" height="70" rx="4" fill="#90CAF9" opacity="0.8"/>
+  <text x="185" y="570" font-family="Hiragino Sans, sans-serif" font-size="17" font-weight="600" fill="#4A5568">退職手続き完了</text>
+  <text x="185" y="592" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#718096">保険証返却、離職票受領、最終日の挨拶</text>
+  <circle cx="820" cy="575" r="12" fill="#90CAF9" opacity="0.3"/>
+  <path d="M 813 575 L 817 580 L 827 570" stroke="#90CAF9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <rect x="60" y="620" width="780" height="50" rx="12" fill="#E3F2FD" opacity="0.3"/>
+  <text x="450" y="650" font-family="Hiragino Sans, sans-serif" font-size="13" text-anchor="middle" fill="#718096">各ステップを確実に進めることで、スムーズに完了できます</text>
+  <text x="450" y="685" font-family="Hiragino Sans, sans-serif" font-size="12" text-anchor="middle" fill="#A0AEC0">© ProReNata</text>
+</svg>

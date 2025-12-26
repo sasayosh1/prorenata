@@ -1,0 +1,53 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">夜間の「もしも」に備える！緊急時の報告フロー</text>
+
+  <!-- Step 1: Discovery -->
+  <g transform="translate(40, 100)">
+    <rect width="180" height="150" rx="20" fill="#FEF2F2" stroke="#FECDD3" stroke-width="2"/>
+    <text x="90" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">👀</text>
+    <text x="90" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#9D174D" text-anchor="middle">1. 発見・確認</text>
+    <text x="90" y="110" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">意識はあるか？</text>
+    <text x="90" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">呼吸はしているか？</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M220 175 L240 175" stroke="#E5E7EB" stroke-width="2" marker-end="url(#arrow_gray)"/>
+
+  <!-- Step 2: Immediate Report -->
+  <g transform="translate(240, 100)">
+    <rect width="180" height="150" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+    <text x="90" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">📢</text>
+    <text x="90" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#0369A1" text-anchor="middle">2. すぐに報告</text>
+    <text x="90" y="110" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">ナースコールや</text>
+    <text x="90" y="125" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">PHSで看護師を呼ぶ</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M420 175 L440 175" stroke="#E5E7EB" stroke-width="2" marker-end="url(#arrow_gray)"/>
+
+  <!-- Step 3: Concise Info -->
+  <g transform="translate(440, 100)">
+    <rect width="320" height="150" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="2"/>
+    <text x="160" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">📝</text>
+    <text x="160" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#047857" text-anchor="middle">3. 簡潔に状況を伝える</text>
+    <text x="160" y="110" font-family="sans-serif" font-size="14" fill="#065F46" text-anchor="middle">「◯◯さんが廊下で倒れています！」</text>
+    <text x="160" y="130" font-family="sans-serif" font-size="14" fill="#065F46" text-anchor="middle">「意識はありますが、返答が鈍いです」</text>
+  </g>
+
+  <!-- Step 4: Safety & Support -->
+  <rect x="100" y="280" width="600" height="60" rx="30" fill="#FDF2F8" stroke="#FCE7F3" stroke-width="1"/>
+  <text x="400" y="315" font-family="sans-serif" font-size="16" font-weight="600" fill="#BE185D" text-anchor="middle">🚨 看護師が到着するまで、そばを離れず安全を確保します</text>
+
+  <!-- Sera's Calm Tip -->
+  <text x="400" y="375" font-family="sans-serif" font-size="14" font-weight="500" fill="#BE185D" text-anchor="middle">焦らなくて大丈夫。あなたの「呼びかけ」が命を繋ぎます✨</text>
+
+  <defs>
+    <marker id="arrow_gray" markerWidth="6" markerHeight="6" refX="5" refY="3" orientation="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#E5E7EB" />
+    </marker>
+  </defs>
+</svg>

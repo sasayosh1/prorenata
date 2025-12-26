@@ -1,0 +1,62 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Evening Sky Gradient Decoration -->
+  <rect x="0" y="0" width="800" height="100" fill="url(#paint0_linear)" rx="32"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="400" y1="0" x2="400" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0F2FE"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="60" font-family="sans-serif" font-size="24" font-weight="600" fill="#1E3A8A" text-anchor="middle">🌙 看護助手の夜勤タイムルーティン（例）</text>
+
+  <!-- Timeline Line -->
+  <path d="M120 150 L120 530" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Schedule Items -->
+  <g transform="translate(140, 140)">
+    <!-- 16:00 Handover -->
+    <circle cx="-20" cy="15" r="8" fill="#3B82F6"/>
+    <rect width="550" height="70" rx="15" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+    <text x="20" y="30" font-family="sans-serif" font-size="18" font-weight="700" fill="#0369A1">16:00　日勤からの申し送り</text>
+    <text x="20" y="55" font-family="sans-serif" font-size="14" fill="#475569">患者さんの様子や夜間の注意点を確認します</text>
+    
+    <!-- 18:00 Dinner Support -->
+    <circle cx="-20" cy="95" r="8" fill="#3B82F6"/>
+    <rect y="80" width="550" height="70" rx="15" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+    <text x="20" y="110" font-family="sans-serif" font-size="18" font-weight="700" fill="#0369A1">18:00　夕食の配膳・介助</text>
+    <text x="20" y="135" font-family="sans-serif" font-size="14" fill="#475569">食事のセッティングや、必要な方の食事介助を行います</text>
+
+    <!-- 21:00 Rounds & Lights Out -->
+    <circle cx="-20" cy="175" r="8" fill="#3B82F6"/>
+    <rect y="160" width="550" height="70" rx="15" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+    <text x="20" y="190" font-family="sans-serif" font-size="18" font-weight="700" fill="#0369A1">21:00　消灯・巡視</text>
+    <text x="20" y="215" font-family="sans-serif" font-size="14" fill="#475569">就寝の準備を整え、病室の見回り（ラウンド）を始めます</text>
+
+    <!-- 00:00 - 04:00 Napping & Rounds -->
+    <circle cx="-20" cy="255" r="8" fill="#6366F1"/>
+    <rect y="240" width="550" height="70" rx="15" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+    <text x="20" y="270" font-family="sans-serif" font-size="18" font-weight="700" fill="#4338CA">深夜帯　交代で仮眠・おむつ交換</text>
+    <text x="20" y="295" font-family="sans-serif" font-size="14" fill="#475569">2時間おきの巡視や体位変換、交代で仮眠を取ります</text>
+
+    <!-- 07:00 Morning Routine -->
+    <circle cx="-20" cy="335" r="8" fill="#F59E0B"/>
+    <rect y="320" width="550" height="70" rx="15" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+    <text x="20" y="350" font-family="sans-serif" font-size="18" font-weight="700" fill="#B45309">07:00　起床・朝食の準備</text>
+    <text x="20" y="375" font-family="sans-serif" font-size="14" fill="#475569">洗面、着替えのサポート、朝食の配膳を行います</text>
+
+    <!-- 09:00 Handover & Finish -->
+    <circle cx="-20" cy="415" r="8" fill="#10B981"/>
+    <rect y="400" width="550" height="70" rx="15" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <text x="20" y="430" font-family="sans-serif" font-size="18" font-weight="700" fill="#047857">09:00　日勤への申し送り・業務終了</text>
+    <text x="20" y="455" font-family="sans-serif" font-size="14" fill="#475569">夜間の様子を報告し、お疲れ様でした！</text>
+  </g>
+
+  <!-- Sera's Support -->
+  <rect x="150" y="550" width="500" height="30" rx="15" fill="#FDF2F8"/>
+  <text x="400" y="570" font-family="sans-serif" font-size="14" font-weight="500" fill="#BE185D" text-anchor="middle">夜勤あけの空は、いつもより綺麗に見える気がします✨</text>
+</svg>

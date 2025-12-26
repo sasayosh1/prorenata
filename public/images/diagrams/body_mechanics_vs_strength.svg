@@ -1,0 +1,41 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">力仕事だけじゃない！身体への負担を減らすコツ</text>
+
+  <!-- Brute Force (Left) -->
+  <g transform="translate(60, 100)">
+    <rect width="330" height="230" rx="20" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <text x="165" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#6B7280" text-anchor="middle">❌ 腕力まかせの介助</text>
+    <text x="50" y="100" font-family="sans-serif" font-size="14" fill="#9CA3AF">● 重いものを腰だけで持ち上げる</text>
+    <text x="50" y="140" font-family="sans-serif" font-size="14" fill="#9CA3AF">● 患者さんから体を離して支える</text>
+    <text x="50" y="180" font-family="sans-serif" font-size="14" fill="#9CA3AF">● 勢いだけで動かそうとする</text>
+    <rect x="50" y="210" width="230" height="1" fill="#E5E7EB"/>
+    <text x="165" y="225" font-family="sans-serif" font-size="12" fill="#EF4444" text-anchor="middle">腰痛の原因に...</text>
+  </g>
+
+  <!-- Central Connection -->
+  <path d="M400 215 L430 215" stroke="#E5E7EB" stroke-width="2" marker-end="url(#arrow_gray)"/>
+
+  <!-- Body Mechanics (Right) -->
+  <g transform="translate(410, 100)">
+    <rect width="330" height="230" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="2"/>
+    <text x="165" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#047857" text-anchor="middle">✨ ボディメカニクスの活用</text>
+    <text x="50" y="100" font-family="sans-serif" font-size="14" fill="#065F46">● 重心を低くし、足を広げて安定</text>
+    <text x="50" y="140" font-family="sans-serif" font-size="14" fill="#065F46">● 患者さんと体を密着させて支える</text>
+    <text x="50" y="180" font-family="sans-serif" font-size="14" fill="#065F46">● てこの原理や全身の力を使う</text>
+    <rect x="50" y="210" width="230" height="1" fill="#A7F3D0"/>
+    <text x="165" y="225" font-family="sans-serif" font-size="12" fill="#059669" text-anchor="middle">少ない力で安全に！</text>
+  </g>
+
+  <!-- Sera's Advice -->
+  <text x="400" y="370" font-family="sans-serif" font-size="15" font-weight="500" fill="#BE185D" text-anchor="middle">力に自信がなくても大丈夫。正しい知識があなたを守ります✨</text>
+
+  <defs>
+    <marker id="arrow_gray" markerWidth="6" markerHeight="6" refX="5" refY="3" orientation="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#E5E7EB" />
+    </marker>
+  </defs>
+</svg>

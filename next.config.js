@@ -6,6 +6,20 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', '@sanity/client', '@portabletext/react'],
   },
 
+  // Legacy asset path compatibility (keep old URLs working)
+  async rewrites() {
+    return [
+      // Diagrams moved under /images/diagrams
+      { source: '/diagrams/:path*', destination: '/images/diagrams/:path*' },
+      // Stickers moved under /images/linestamp
+      { source: '/LINEstamp/:path*', destination: '/images/linestamp/:path*' },
+      // Sera assets moved under /images/sera
+      { source: '/sera/:path*', destination: '/images/sera/:path*' },
+      // Drawing assets moved under /images/drawing
+      { source: '/drawing/:path*', destination: '/images/drawing/:path*' },
+    ]
+  },
+
   // 外部画像ホストの許可（next/image のエラー対策）
   images: {
     remotePatterns: [
