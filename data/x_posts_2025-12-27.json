@@ -1,0 +1,422 @@
+[
+  {
+    "id": "p01",
+    "target": "top10",
+    "type": "problem",
+    "title": "解決/problem",
+    "text": "「患者移送の安全技術」で迷うときは、論点を3つに分けると整理できます。要点をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-patient-transfer-safety",
+    "char_count": {
+      "text": 45,
+      "url": 68,
+      "total": 114
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p02",
+    "target": "top10",
+    "type": "checklist",
+    "title": "解決/checklist",
+    "text": "「医療用語」は準備の順番で楽になります。チェック項目を短くまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-medical-terms",
+    "char_count": {
+      "text": 36,
+      "url": 58,
+      "total": 95
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p03",
+    "target": "top10",
+    "type": "myth",
+    "title": "制度/myth",
+    "text": "「感染対策」は断定が増えやすいテーマです。よくある誤解と、現実的な考え方を整理しました。 制度は公式情報も確認を。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-infection-control-manual",
+    "char_count": {
+      "text": 57,
+      "url": 69,
+      "total": 127
+    },
+    "note": "top10; intent=制度 (ymyl)"
+  },
+  {
+    "id": "p04",
+    "target": "top10",
+    "type": "empathy",
+    "title": "転職/empathy",
+    "text": "「履歴書・職務経歴書」がつらいと感じたら、休む・相談する・環境を変えるも選択肢です。整理して書きました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-resume-writing",
+    "char_count": {
+      "text": 52,
+      "url": 59,
+      "total": 112
+    },
+    "note": "top10; intent=転職"
+  },
+  {
+    "id": "p05",
+    "target": "top10",
+    "type": "step",
+    "title": "お金/step",
+    "text": "「給料・待遇の見方」は順番を決めると進みます。最初の一歩から手順をまとめました。 条件は職場で差があるので、公式も確認を。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-salary-differences",
+    "char_count": {
+      "text": 61,
+      "url": 63,
+      "total": 125
+    },
+    "note": "top10; intent=お金 (ymyl)"
+  },
+  {
+    "id": "p06",
+    "target": "top10",
+    "type": "note",
+    "title": "解決/note",
+    "text": "「手術室での看護助手業務」は「何を優先するか」で答えが変わります。判断材料をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-operating-room-duties",
+    "char_count": {
+      "text": 45,
+      "url": 66,
+      "total": 112
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p07",
+    "target": "top10",
+    "type": "problem",
+    "title": "解決/problem",
+    "text": "「看護助手に有利な資格取得完全ガイド」で迷うときは、論点を3つに分けると整理できます。要点をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-qualification-guide",
+    "char_count": {
+      "text": 53,
+      "url": 64,
+      "total": 118
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p08",
+    "target": "top10",
+    "type": "checklist",
+    "title": "退職/checklist",
+    "text": "「辞めたいと感じたとき」は準備の順番で楽になります。チェック項目を短くまとめました。 必要なら公的窓口や専門家も。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-quit-retirement",
+    "char_count": {
+      "text": 57,
+      "url": 60,
+      "total": 118
+    },
+    "note": "top10; intent=退職 (ymyl)"
+  },
+  {
+    "id": "p09",
+    "target": "top10",
+    "type": "myth",
+    "title": "悩み/myth",
+    "text": "「看護助手の人間関係が辛い時の対処法」は断定が増えやすいテーマです。よくある誤解と、現実的な考え方を整理しました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-stressful-relationships-solutions",
+    "char_count": {
+      "text": 57,
+      "url": 78,
+      "total": 136
+    },
+    "note": "top10; intent=悩み"
+  },
+  {
+    "id": "p10",
+    "target": "top10",
+    "type": "empathy",
+    "title": "解決/empathy",
+    "text": "「夜勤中に看護助手が担当する仕事内容」がつらいと感じたら、休む・相談する・環境を変えるも選択肢です。整理して書きました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-night-shift-duties",
+    "char_count": {
+      "text": 60,
+      "url": 63,
+      "total": 124
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p11",
+    "target": "top10",
+    "type": "step",
+    "title": "解決/step",
+    "text": "「看護助手の役割と責任」は順番を決めると進みます。最初の一歩から手順をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-role-responsibility-team",
+    "char_count": {
+      "text": 42,
+      "url": 69,
+      "total": 112
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p12",
+    "target": "top10",
+    "type": "note",
+    "title": "解決/note",
+    "text": "「精神科病棟で働く看護助手の業務内容とは」は「何を優先するか」で答えが変わります。判断材料をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-psychiatric-ward-duties",
+    "char_count": {
+      "text": 53,
+      "url": 68,
+      "total": 122
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p13",
+    "target": "top10",
+    "type": "problem",
+    "title": "転職/problem",
+    "text": "「面接の準備」で迷うときは、論点を3つに分けると整理できます。要点をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-interview-prep",
+    "char_count": {
+      "text": 41,
+      "url": 59,
+      "total": 101
+    },
+    "note": "top10; intent=転職"
+  },
+  {
+    "id": "p14",
+    "target": "top10",
+    "type": "checklist",
+    "title": "制度/checklist",
+    "text": "「感染対策」は準備の順番で楽になります。チェック項目を短くまとめました。 制度は公式情報も確認を。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-infection-control-handwashing",
+    "char_count": {
+      "text": 49,
+      "url": 74,
+      "total": 124
+    },
+    "note": "top10; intent=制度 (ymyl)"
+  },
+  {
+    "id": "p15",
+    "target": "top10",
+    "type": "myth",
+    "title": "解決/myth",
+    "text": "「看護助手の1日スケジュールを徹底紹介」は断定が増えやすいテーマです。よくある誤解と、現実的な考え方を整理しました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-detailed-daily-schedule",
+    "char_count": {
+      "text": 58,
+      "url": 68,
+      "total": 127
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p16",
+    "target": "top10",
+    "type": "empathy",
+    "title": "お金/empathy",
+    "text": "「給料・待遇の見方」がつらいと感じたら、休む・相談する・環境を変えるも選択肢です。整理して書きました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-salary-difference-nurses",
+    "char_count": {
+      "text": 51,
+      "url": 69,
+      "total": 121
+    },
+    "note": "top10; intent=お金 (ymyl)"
+  },
+  {
+    "id": "p17",
+    "target": "top10",
+    "type": "step",
+    "title": "解決/step",
+    "text": "「看護助手を長く続けるための心の持ち方」は順番を決めると進みます。最初の一歩から手順をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-long-term-mindset",
+    "char_count": {
+      "text": 50,
+      "url": 62,
+      "total": 113
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p18",
+    "target": "top10",
+    "type": "note",
+    "title": "体験/note",
+    "text": "「看護助手から看護師になるには？最短ルートと体」は「何を優先するか」で答えが変わります。判断材料をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-become-nurse-guide",
+    "char_count": {
+      "text": 56,
+      "url": 63,
+      "total": 120
+    },
+    "note": "top10; intent=体験"
+  },
+  {
+    "id": "p19",
+    "target": "top10",
+    "type": "problem",
+    "title": "解決/problem",
+    "text": "「看護助手のキャリアビジョン設計ワークショップ」で迷うときは、論点を3つに分けると整理できます。要点をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-career-vision",
+    "char_count": {
+      "text": 58,
+      "url": 58,
+      "total": 117
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p20",
+    "target": "top10",
+    "type": "checklist",
+    "title": "解決/checklist",
+    "text": "「看護助手から看護師になるための方法」は準備の順番で楽になります。チェック項目を短くまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-become-nurse-method",
+    "char_count": {
+      "text": 49,
+      "url": 64,
+      "total": 114
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p21",
+    "target": "top10",
+    "type": "myth",
+    "title": "解決/myth",
+    "text": "「看護師と看護助手の関係がうまくいかないときの」は断定が増えやすいテーマです。よくある誤解と、現実的な考え方を整理しました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-deal-with-nurses",
+    "char_count": {
+      "text": 62,
+      "url": 61,
+      "total": 124
+    },
+    "note": "top10; intent=解決"
+  },
+  {
+    "id": "p22",
+    "target": "longtail",
+    "type": "empathy",
+    "title": "お金/empathy",
+    "text": "「給料・待遇の見方」がつらいと感じたら、休む・相談する・環境を変えるも選択肢です。整理して書きました。 条件は職場で差があるので、公式も確認を。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-real-salary-example",
+    "char_count": {
+      "text": 72,
+      "url": 64,
+      "total": 137
+    },
+    "note": "longtail; intent=お金 (ymyl)"
+  },
+  {
+    "id": "p23",
+    "target": "longtail",
+    "type": "step",
+    "title": "体験/step",
+    "text": "「看護助手の1日の流れ」は順番を決めると進みます。最初の一歩から手順をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-daily-schedule",
+    "char_count": {
+      "text": 42,
+      "url": 59,
+      "total": 102
+    },
+    "note": "longtail; intent=体験"
+  },
+  {
+    "id": "p24",
+    "target": "longtail",
+    "type": "note",
+    "title": "解決/note",
+    "text": "「看護助手に向いている人の特徴5選」は「何を優先するか」で答えが変わります。判断材料をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-suitable-person-characteristics",
+    "char_count": {
+      "text": 50,
+      "url": 76,
+      "total": 127
+    },
+    "note": "longtail; intent=解決"
+  },
+  {
+    "id": "p25",
+    "target": "longtail",
+    "type": "problem",
+    "title": "転職/problem",
+    "text": "「面接の準備」で迷うときは、論点を3つに分けると整理できます。要点をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-job-change-manual",
+    "char_count": {
+      "text": 41,
+      "url": 62,
+      "total": 104
+    },
+    "note": "longtail; intent=転職"
+  },
+  {
+    "id": "p26",
+    "target": "longtail",
+    "type": "checklist",
+    "title": "お金/checklist",
+    "text": "「給料・待遇の見方」は準備の順番で楽になります。チェック項目を短くまとめました。 条件は職場で差があるので、公式も確認を。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-latest-salary-comparison",
+    "char_count": {
+      "text": 61,
+      "url": 69,
+      "total": 131
+    },
+    "note": "longtail; intent=お金 (ymyl)"
+  },
+  {
+    "id": "p27",
+    "target": "longtail",
+    "type": "myth",
+    "title": "解決/myth",
+    "text": "「看護助手の制服・ユニフォーム選び」は断定が増えやすいテーマです。よくある誤解と、現実的な考え方を整理しました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-uniform-selection",
+    "char_count": {
+      "text": 56,
+      "url": 62,
+      "total": 119
+    },
+    "note": "longtail; intent=解決"
+  },
+  {
+    "id": "p28",
+    "target": "longtail",
+    "type": "empathy",
+    "title": "転職/empathy",
+    "text": "「最新看護助手求人市場分析」がつらいと感じたら、休む・相談する・環境を変えるも選択肢です。整理して書きました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-job-market-analysis",
+    "char_count": {
+      "text": 55,
+      "url": 64,
+      "total": 120
+    },
+    "note": "longtail; intent=転職"
+  },
+  {
+    "id": "p29",
+    "target": "longtail",
+    "type": "step",
+    "title": "解決/step",
+    "text": "「看護助手スキルアップロードマップ」は順番を決めると進みます。最初の一歩から手順をまとめました。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-skillup-roadmap",
+    "char_count": {
+      "text": 48,
+      "url": 60,
+      "total": 109
+    },
+    "note": "longtail; intent=解決"
+  },
+  {
+    "id": "p30",
+    "target": "longtail",
+    "type": "note",
+    "title": "制度/note",
+    "text": "「医療現場における働き方改革推進」は「何を優先するか」で答えが変わります。判断材料をまとめました。 制度は公式情報も確認を。",
+    "url": "https://prorenata.jp/posts/nursing-assistant-work-reform-examples",
+    "char_count": {
+      "text": 62,
+      "url": 65,
+      "total": 128
+    },
+    "note": "longtail; intent=制度 (ymyl)"
+  }
+]
