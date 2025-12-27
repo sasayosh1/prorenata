@@ -73,3 +73,7 @@ _local/
 # local dev runtime files
 .dev.log
 .dev.pid
+
+# local debug/temp artifacts
+temp_*.json
+debug_*.json

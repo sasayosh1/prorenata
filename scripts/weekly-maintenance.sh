@@ -12,8 +12,11 @@ LOG_FILE="$LOG_DIR/weekly-maintenance-$(date +%Y%m%d-%H%M%S).log"
 # ログディレクトリ作成
 mkdir -p "$LOG_DIR"
 
-# SANITY_API_TOKENを環境変数に設定
-export SANITY_API_TOKEN="sk0JHLbzLymgI7SU6goYNL4xy0y8TjZqpgR8PrcBVuDmgY1Lh828ppX3vBhbArJkZyJV7OvwUK9kKH9mojEOxboJQ9c8MXxVQ3onQ9HgGWxUywl34xYCC18jsQWmjTEzaYvCqcqGn9uHrD13E0v7f5SUFdQBxWz8jWpHcfioQ3zLd9yhCnJi"
+# Sanity token must be provided via environment (never hardcode)
+if [ -z "${SANITY_API_TOKEN:-}" ] && [ -n "${SANITY_WRITE_TOKEN:-}" ]; then
+  export SANITY_API_TOKEN="$SANITY_WRITE_TOKEN"
+fi
+: "${SANITY_API_TOKEN:?Missing SANITY_API_TOKEN (or SANITY_WRITE_TOKEN)}"
 
 # ログ開始
 {

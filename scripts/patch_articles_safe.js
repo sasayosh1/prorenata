@@ -1,9 +1,10 @@
 const { createClient } = require('@sanity/client')
 
-// Hardcoded valid token from ~/.config/sanity/config.json
-const token = "skvhUA9WNYFdx3yTa1f462Z94kUyzLnBpWab0kTY1NA5e8ahqhe6pZfCDeftW6mWAnB7dPazt1bd2bZd8"
-
-console.log(`🔑 Using Token (Length: ${token.length})`)
+const token = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN || process.env.SANITY_TOKEN
+if (!token) {
+    console.error('Error: Missing Sanity token. Set SANITY_WRITE_TOKEN (preferred) or SANITY_API_TOKEN / SANITY_TOKEN.')
+    process.exit(1)
+}
 
 const client = createClient({
     projectId: '72m8vhy2',

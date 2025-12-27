@@ -7,7 +7,7 @@ import sys
 # Sanity project details
 PROJECT_ID = "72m8vhy2"
 DATASET = "production"
-API_TOKEN = "skMFpCccii6DeosxmnEc47RikE1kkdwAgOJ2L4PNgi6bAfRMQn8tuSl8S0FFYUBoxdDAcnzzhWdaydpaAxhcrxVwHSL7OUK7HgRflDFh3YjlcEFFdOY4Oz2L6Dz2Q9ev3D1gUbQ0Wn4GelO1fSPnEP7JdwNXoxyKNsJ5Hh4Fsz8N95b3U4VP"
+API_TOKEN = os.getenv("SANITY_WRITE_TOKEN") or os.getenv("SANITY_API_TOKEN") or os.getenv("SANITY_TOKEN")
 
 # Load article data from article.json
 try:
@@ -36,7 +36,7 @@ if not body:
 
 # Ensure API_TOKEN is set
 if not API_TOKEN:
-    print("Error: Sanity API token is not set. Please set the API_TOKEN variable.")
+    print("Error: Sanity API token is not set. Please set SANITY_WRITE_TOKEN (preferred) or SANITY_API_TOKEN / SANITY_TOKEN.")
     sys.exit(1)
 
 # Construct the mutation
