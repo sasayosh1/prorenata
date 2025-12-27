@@ -85,37 +85,75 @@ function extractTextFromPortableText(body) {
   return text.trim()
 }
 
+function ensurePoliteEnding(text) {
+  let result = String(text || '').trim()
+
+  // Remove ellipsis endings
+  result = result.replace(/(?:\.\.\.|…)+$/g, '').trim()
+  result = result.replace(/[、,]+$/g, '').trim()
+
+  // If already ends with polite form, keep it
+  if (/(?:です|ます|ました|でした|ません|ませんでした)[。！？]?$/.test(result)) {
+    if (!/[。！？]$/.test(result)) {
+      result += '。'
+    }
+    return result
+  }
+
+  // If ends with だ/である form, convert to です
+  result = result.replace(/(?:だ|である)[。！？]?$/g, 'です。')
+
+  // If ends with verb plain form, add polite ending hint
+  if (!/[。！？]$/.test(result)) {
+    result += '。'
+  }
+
+  return result
+}
+
 function buildSeraImpression(post, mode) {
-  // Extract actual article content
+  const title = String(post?.title || '').trim()
   const bodyText = extractTextFromPortableText(post.body || [])
 
   if (!bodyText) {
-    // Fallback if no body text available
-    const title = String(post?.title || '').trim()
-    return title ? `${title}について、詳しく解説しています。` : '看護助手の現場で役立つ情報をまとめました。'
+    return `${title || '看護助手の現場で役立つ情報'}について、詳しく解説しています。`
   }
 
-  // Find the first substantive paragraph (skip very short intro sentences)
-  const sentences = bodyText.split(/[。！？]/).filter(s => s.trim().length > 15)
+  // Extract sentences from article body
+  const sentences = bodyText
+    .split(/[。！？]/)
+    .map(s => s.trim())
+    .filter(s => s.length > 15)
 
   if (sentences.length === 0) {
-    return bodyText.slice(0, 100).trim()
+    return ensurePoliteEnding(bodyText.slice(0, 100))
   }
 
-  // Use the first 1-2 sentences as the base impression
-  let impression = sentences[0].trim()
+  // Build claim-reason-claim structure
+  // Claim 1: Opening statement (from title or first sentence)
+  const claim1 = sentences[0] || title
 
-  // If the first sentence is short, add the second one
-  if (impression.length < 40 && sentences.length > 1) {
-    impression += '。' + sentences[1].trim()
+  // Reason: Supporting detail (from second sentence if available)
+  const reason = sentences.length > 1 ? sentences[1] : null
+
+  // Claim 2: Closing statement with call to action
+  const closingPhrases = [
+    'ぜひ参考にしてみてください',
+    '詳しく解説しています',
+    'チェックしてみてください',
+    '確認してみましょう',
+    '見ていきましょう'
+  ]
+  const claim2 = closingPhrases[Math.floor(Math.random() * closingPhrases.length)]
+
+  // Combine into claim-reason-claim structure
+  let impression = claim1
+  if (reason && impression.length + reason.length < 100) {
+    impression += '。' + reason
   }
+  impression += '。' + claim2
 
-  // Ensure it ends properly
-  if (!/[。！？]$/.test(impression)) {
-    impression += '。'
-  }
-
-  return impression
+  return ensurePoliteEnding(impression)
 }
 
 function fitToX({ text, url, xMax }) {
@@ -347,6 +385,17 @@ async function main() {
         post: {
           title: '看護助手の夜勤がつらいときの対処：体調と心を守るコツ',
           slug: 'nursing-assistant-night-shift-coping',
+          body: [
+            {
+              _type: 'block',
+              children: [
+                {
+                  _type: 'span',
+                  text: '看護助手として夜勤を続けていると、体調管理が難しくなることがあります。睡眠リズムの乱れや疲労の蓄積は、心身に大きな負担をかけます。'
+                }
+              ]
+            }
+          ]
         },
       }
     }
@@ -365,19 +414,12 @@ async function main() {
   const preview = clampCodepoints(impression, 50).replace(/\n/g, ' ').trim()
   const subject = `【X投稿用｜${deriveProjectName()}】${preview}...`
 
-  // Format the email body with clear sections
+  // Simple email body with just the post text
   const emailBody = `=== X投稿用テキスト（${weightedLength}/${xMax}文字） ===
 
 ${body}
 
-=== 詳細情報 ===
-記事タイトル: ${post.title || '(タイトルなし)'}
-記事スラッグ: ${post.slug}
-投稿モード: ${mode}
-文字数: ${impressionLen}文字（本文）+ ${urlLen}文字（URL）= ${bodyLen}文字
-X加重文字数: ${weightedLength}/${xMax}
-
-=== コピー用（上記の投稿テキストをそのままコピーしてください） ===`
+=== コピー用（上記のテキストをそのままコピーしてください） ===`
 
   if (dryRun) {
     console.log(emailBody)
