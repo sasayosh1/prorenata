@@ -37,7 +37,8 @@ function buildSanityQuery({ postType, mode, freshDays, evergreenDays }) {
           title,
           "slug": slug.current,
           publishedAt,
-          _createdAt
+          _createdAt,
+          body
         }
     `
   }
@@ -49,7 +50,8 @@ function buildSanityQuery({ postType, mode, freshDays, evergreenDays }) {
         title,
         "slug": slug.current,
         publishedAt,
-        _createdAt
+        _createdAt,
+        body
       }
   `
 }
@@ -126,6 +128,7 @@ export async function fetchOnePost() {
       slug: String(picked.slug || '').trim(),
       publishedAt: picked.publishedAt || null,
       createdAt: picked._createdAt || null,
+      body: picked.body || [],
     },
   }
 }

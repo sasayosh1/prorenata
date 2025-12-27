@@ -68,39 +68,54 @@ function maskEmail(email) {
   return `${maskedName}@${domain}`
 }
 
+function extractTextFromPortableText(body) {
+  if (!Array.isArray(body)) return ''
+
+  let text = ''
+  for (const block of body) {
+    if (block._type === 'block' && Array.isArray(block.children)) {
+      for (const child of block.children) {
+        if (child._type === 'span' && child.text) {
+          text += child.text
+        }
+      }
+      text += ' '
+    }
+  }
+  return text.trim()
+}
+
 function buildSeraImpression(post, mode) {
-  const title = String(post?.title || '').trim()
-  const topic = title
-    .replace(/^【[^】]+】/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, 40)
+  // Extract actual article content
+  const bodyText = extractTextFromPortableText(post.body || [])
 
-  const isResign = /退職|辞める|辞めたい|退職代行/u.test(title)
-  const isJobChange = /転職|職場|面接|履歴書/u.test(title)
-  const isPay = /給料|賃金|年収/u.test(title)
-  const isNight = /夜勤|シフト/u.test(title)
-  const isRelation = /人間関係|コミュニケーション/u.test(title)
-  const isSkill = /資格|スキル|勉強/u.test(title)
+  if (!bodyText) {
+    // Fallback if no body text available
+    const title = String(post?.title || '').trim()
+    return title ? `${title}について、詳しく解説しています。` : '看護助手の現場で役立つ情報をまとめました。'
+  }
 
-  const opener =
-    mode === 'fresh'
-      ? '今日の現場メモです。'
-      : 'たまに読み返すと、効き目が強い話です。'
+  // Find the first substantive paragraph (skip very short intro sentences)
+  const sentences = bodyText.split(/[。！？]/).filter(s => s.trim().length > 15)
 
-  const angle = (() => {
-    if (isResign) return '「急いで決めない」ための整理から入ります。'
-    if (isJobChange) return '次の一歩を軽くするために、見る順番を整えます。'
-    if (isPay) return '数字に振り回されない見方を作ります。'
-    if (isNight) return '体力と心の消耗を減らすコツに寄せます。'
-    if (isRelation) return '相手を変えるより、自分を守る手順を優先します。'
-    if (isSkill) return '遠回りに見えても、積み上がる順番で進めます。'
-    return '今日から一つだけ試せる形に落とします。'
-  })()
+  if (sentences.length === 0) {
+    return bodyText.slice(0, 100).trim()
+  }
 
-  const pivot = topic ? `話題は「${topic}」。` : '話題は、現場の不安が大きくなりやすい所です。'
+  // Use the first 1-2 sentences as the base impression
+  let impression = sentences[0].trim()
 
-  return `${opener}${pivot}${angle}わたしは、今の状況を否定せずに、できる範囲から整えるのがいちばん早いと思っています。`
+  // If the first sentence is short, add the second one
+  if (impression.length < 40 && sentences.length > 1) {
+    impression += '。' + sentences[1].trim()
+  }
+
+  // Ensure it ends properly
+  if (!/[。！？]$/.test(impression)) {
+    impression += '。'
+  }
+
+  return impression
 }
 
 function fitToX({ text, url, xMax }) {
@@ -346,10 +361,26 @@ async function main() {
   const bodyLen = codepointLen(body)
   lastDiagnostics = { X_MAX: xMax, urlLen, impressionLen, bodyLen, weightedLength }
 
-  const subject = `【X投稿用｜${deriveProjectName()}】${post.slug}`
+  // Create a preview for the subject line (first 50 chars of impression)
+  const preview = clampCodepoints(impression, 50).replace(/\n/g, ' ').trim()
+  const subject = `【X投稿用｜${deriveProjectName()}】${preview}...`
+
+  // Format the email body with clear sections
+  const emailBody = `=== X投稿用テキスト（${weightedLength}/${xMax}文字） ===
+
+${body}
+
+=== 詳細情報 ===
+記事タイトル: ${post.title || '(タイトルなし)'}
+記事スラッグ: ${post.slug}
+投稿モード: ${mode}
+文字数: ${impressionLen}文字（本文）+ ${urlLen}文字（URL）= ${bodyLen}文字
+X加重文字数: ${weightedLength}/${xMax}
+
+=== コピー用（上記の投稿テキストをそのままコピーしてください） ===`
 
   if (dryRun) {
-    console.log(body)
+    console.log(emailBody)
     console.log(
       JSON.stringify(
         { X_MAX: xMax, urlLen, impressionLen, bodyLen, weightedLength },
@@ -360,7 +391,7 @@ async function main() {
     return
   }
 
-  await sendMail({ subject, body })
+  await sendMail({ subject, body: emailBody })
   console.log(`✅ Sent mail (${mode}): ${post.slug}`)
 }
 
