@@ -1,0 +1,1416 @@
+{
+  "_createdAt": "2025-11-11T02:41:16Z",
+  "_id": "fc67aa26-02eb-4655-8af7-b904d6c1c01e",
+  "_rev": "334sSgiLA3lXfAfRyhPiOq",
+  "_system": {
+    "base": {
+      "id": "fc67aa26-02eb-4655-8af7-b904d6c1c01e",
+      "rev": "iYcrG4EOZKrdjDrEDgGeHs"
+    }
+  },
+  "_type": "post",
+  "_updatedAt": "2025-12-26T12:52:19Z",
+  "autoEditLock": true,
+  "body": [
+    {
+      "_key": "pr-1766753538850",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "pr-span-1766753538850",
+          "_type": "span",
+          "marks": [
+            "em"
+          ],
+          "text": "※当サイトはアフィリエイト広告を利用しています"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fc5a5e4a-6bdd-4d4e-8bcc-6e571c48ffdd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "aeaf9d88-b4ae-41f3-b80d-3a42a4d06091",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手として転職を考えるとき、求人票だけでは分からないサポート範囲や担当者の動き方が気になります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "63dd31ef-d44f-4811-bbac-d34e111ef01f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0b5ae94d-be2e-463f-9276-9c040ca69be2",
+          "_type": "span",
+          "marks": [],
+          "text": "この記事では、現場でよく耳にする３つの相談先を「看護助手の悩み」にフォーカスして比較し、どんな人に向いているかを整理しました。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "11d15e1a3d536d705a2fff129187ae1b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKE8i",
+          "_type": "span",
+          "text": "【図解】看護助手おすすめ転職サービス3社の違い"
+        }
+      ],
+      "style": "h2"
+    },
+    {
+      "_key": "5974e87dcce016d5505c488ee9c5dbee",
+      "_type": "image",
+      "alt": "看護助手転職サービス比較図解",
+      "asset": {
+        "_ref": "image-975e5578b2537449294fe50b469aadff2c78e2dd-1024x600-svg",
+        "_type": "reference"
+      },
+      "caption": "働き方や目的に合わせてサービスを選びましょう"
+    },
+    {
+      "_key": "a649cf5feab4053615dee781d0ff4979",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEDx",
+          "_type": "span",
+          "text": "転職サービスはどこも同じではありません。「資格を取りたい」「給料を上げたい」「家の近くで働きたい」など、あなたの優先順位によって登録すべきサービスは変わります。"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "d468743d-5e2c-4fa8-9ce9-636fea1791a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "eb5576fa-ec41-4caa-a9de-71148ace85b4",
+          "_type": "span",
+          "marks": [],
+          "text": "１．サービスの特徴をざっくり比較"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "f848b2d9-3b67-4fbd-8c71-feee80fbb4ca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c26e5d11-6421-4845-a7fc-55350b50ae8f",
+          "_type": "span",
+          "marks": [],
+          "text": "最初に全体像を押さえましょう。どのサービスも無料で相談できますが、得意領域や担当者のスタイルが異なるため、優先したいことを明確にしておくと相性の良い窓口が見つかります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2b3a3822-7bc7-4e6e-93de-6c0fdf11a68a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1eaa78ad-2889-44eb-886b-df67f6eb9afe",
+          "_type": "span",
+          "marks": [],
+          "text": "全国求人を横断的に確認したいときは、教育制度や福利厚生の細部まで調べてくれる窓口を選ぶこと。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "746b8904-75ac-4429-924d-c7918e4743d0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "da01db5d-1bde-460b-92d2-2dda308e9879",
+          "_type": "span",
+          "marks": [],
+          "text": "関西圏・都市部で条件交渉を任せたいときは、夜勤回数や残業時間の交渉実績がある担当者が心強い。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "77ed2cb2-d7d4-4fca-bfbc-b7ccf13766b5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "064c0258-86b8-4885-aef7-685560a41cff",
+          "_type": "span",
+          "marks": [],
+          "text": "無資格・未経験から挑戦する場合は、資格取得支援や派遣で経験を積む仕組みがあるサービスが安心。"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9ac314e5-2644-4ac3-b07d-50c7652e0093",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3eed6ae0-b3e8-4300-8ccc-ca3fccbc2193",
+          "_type": "span",
+          "marks": [
+            "48d21646baa3"
+          ],
+          "text": "ヒューマンライフケア"
+        },
+        {
+          "_key": "f6ecc85b657b",
+          "_type": "span",
+          "marks": [],
+          "text": "｜全国の病院・老健とつながる王道ルート"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "48d21646baa3",
+          "_type": "link",
+          "href": "https://www.rentracks.jp/adx/r.html?idx=0.71551.371865.8943.12704&dna=148900",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "59568da9-50d6-4a98-bef2-f8d9f0998574",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "343b7222-86a4-4a5e-adde-533d4c5e3096",
+          "_type": "span",
+          "marks": [],
+          "text": "医療法人や老健と長年取引しており、面接前に教育制度・福利厚生・夜勤体制の細部まで確認してくれます。地方から都市部への移動、家庭の事情による時短勤務など、事情を汲んで提案してくれるのが強みです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3fe3e693-10d6-48c9-816a-2dd625f2d238",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7ab3c3a6-ec87-456a-939f-e670595b79d1",
+          "_type": "span",
+          "marks": [],
+          "text": "病棟の教育担当者に直接ヒアリングし、研修スケジュールを事前に共有してくれる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3d76fdac-4792-4faf-8d67-c488876370c6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "054c59c0-39e8-4066-99b0-ebe4130dcd43",
+          "_type": "span",
+          "marks": [],
+          "text": "配属後のフォローが手厚く、ミスマッチを感じた場合も早めに調整してくれる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1dca0bc0-7868-4e34-b493-97e49ae7f277",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8ad8fc3e-a76e-4cd9-9194-063b53b906d9",
+          "_type": "span",
+          "marks": [],
+          "text": "デイサービスや老健など医療以外の選択肢も視野に入れて提案してくれる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2072cedd-3b1a-453c-bf58-a803218a4fbf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d8adccb9-ec2d-4d11-9e21-d0ee1d6b473f",
+          "_type": "span",
+          "marks": [
+            "13f132d2c5e8"
+          ],
+          "text": "リニューケア"
+        },
+        {
+          "_key": "9f8cb166b296",
+          "_type": "span",
+          "marks": [],
+          "text": "｜関西圏・都市部の条件交渉に強いパートナー"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "13f132d2c5e8",
+          "_type": "link",
+          "href": "//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "45a2c4f4-3dd4-42c1-8581-694f91ba1ca8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "63446af2-bd8a-4d3d-b1f9-155227eae18c",
+          "_type": "span",
+          "marks": [],
+          "text": "大阪・京都・神戸など都市部の医療法人と密に連携し、夜勤回数や給与レンジの交渉を得意とするサービスです。LINEでのやり取りが中心なので、夜勤前後の限られた時間でも相談しやすいのが魅力です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5cfd1357-1025-448a-bb16-bac383588e66",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4e488595-a0cd-46b0-8464-e58cff851524",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤月何回まで、残業はどの程度かといった細かな条件交渉を代行"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "10548ef6-687e-4499-b4e9-effd0c3c46c7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "57491409-764c-4b3d-bb24-240558d50834",
+          "_type": "span",
+          "marks": [],
+          "text": "都市部の非公開求人に強く、病院ごとの雰囲気や師長の人柄まで共有してくれる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b13b61ff-bd76-4ecf-8f34-25ab22e751ce",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7bba14e8-809d-4f65-90cc-0680ec807b0b",
+          "_type": "span",
+          "marks": [],
+          "text": "深夜帯でもLINE返信があり、シフト制の生活リズムでも連絡が途切れない"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1f454f9c-d2c4-42e6-9649-4429edbd028e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e67630a6-76e9-4efb-b114-02c91a6b9a97",
+          "_type": "span",
+          "marks": [
+            "2126a9ac6e60"
+          ],
+          "text": "かいご畑"
+        },
+        {
+          "_key": "18bc552bc3de",
+          "_type": "span",
+          "marks": [],
+          "text": "｜無資格・未経験から資格取得まで伴走"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "2126a9ac6e60",
+          "_type": "link",
+          "href": "https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "048caf8c-b216-4157-a9de-cb05ffd24209",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "53154b35-7a57-429b-971f-a02edbe5dcbc",
+          "_type": "span",
+          "marks": [],
+          "text": "派遣・紹介予定派遣を組み合わせ、経験を積みながら資格取得を目指せるのがかいご畑です。実務者研修の受講費用を一部負担する制度があり、「まず現場に慣れてから正社員を目指したい」という人から支持されています。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a8a0b441-d3cd-48a3-aca1-6e48b6d532a5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2546da4b-d379-4021-be1a-773cceab4c62",
+          "_type": "span",
+          "marks": [],
+          "text": "派遣で週３日からスタートし、慣れてきたら正社員求人を紹介してくれる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c3421eef-3b0f-4140-9fa3-66dd83a8b466",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b46acbf3-2989-4f13-8544-743a56adea58",
+          "_type": "span",
+          "marks": [],
+          "text": "実務者研修や介護福祉士受験に向けた学習サポートがある"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5329030e-a3d4-4f4e-91b7-1579af8981e3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b06601ed-aa45-4d4c-a1e8-4f11357b8117",
+          "_type": "span",
+          "marks": [],
+          "text": "子育てや介護と両立するためのシフト調整を一緒に考えてくれる"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cc9e357a-b0eb-417d-b7b3-1ea89595c6ae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0bb0285d-7857-4e8e-99f6-8932e7cce458",
+          "_type": "span",
+          "marks": [],
+          "text": "ここまでで全体像と個別の強みを押さえられました。気になる点があれば、担当者に直接質問できるようメモを残し、どのサービスに何を任せたいかを明確にしておきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "26ceef18-21a8-420f-9c97-141c456c2069",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bd89a174-fbc1-4821-9d0b-bfdeddf800f7",
+          "_type": "span",
+          "marks": [],
+          "text": "２．料金と契約のしくみ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "48b6c6ee-d806-4740-a212-9ac69307beca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9ca03ec1-69b7-475c-8a5d-bfd178207ebf",
+          "_type": "span",
+          "marks": [],
+          "text": "３社とも登録者から費用を取らず、病院や施設側が紹介料を支払う完全無料型です。面談・求人紹介・書類添削・面接日程の調整までまとめて任せられるので、「紹介料を払っている病院の希望だけ押し付けられるのでは？」と心配な場合も、率直に条件を伝えて問題ありません。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "90f84533-1d53-43ba-913a-cd91ea48a534",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7226798c-926f-4d9a-92e7-1ba6812449bc",
+          "_type": "span",
+          "marks": [],
+          "text": "ただし、契約形態や更新時期のフォローには違いがあります。自分の生活リズムにあった契約タイプを選べるよう、各サービスの特徴を把握しておきましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d1dc0487-da66-47e5-923d-cbfec1ada0f7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6eb99b48-ee7d-4e27-b676-3bd5c6b10369",
+          "_type": "span",
+          "marks": [],
+          "text": "費用負担と契約タイプを比較"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "941786322649ce3e",
+      "_type": "image",
+      "alt": "転職サービス3社比較チャート",
+      "asset": {
+        "_ref": "image-190e2f2b9bb28e5ccedd35135af3838a43afc85b-2400x1358-png",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "a51a1b3d-bebf-4c55-a5cf-ad9cf80a3cc7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "56cc3dcc-82ab-4b5d-853a-42d6027f1408",
+          "_type": "span",
+          "marks": [],
+          "text": "ヒューマンライフケアは正社員・契約社員の紹介が中心で、内定後に提示される労働条件書を一緒に確認してくれます。賞与や住宅手当の有無など、書面で見落としがちな部分も丁寧にチェックしてくれるので、年収シミュレーションまで安心して任せられます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "284b058b-0729-478f-9b31-c34be00703ea",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2a2c0e5e-ef07-4b87-88e0-9636b7ce0ae8",
+          "_type": "span",
+          "marks": [],
+          "text": "リニューケアは都市部の医療法人と交渉実績が多く、夜勤手当や残業代の発生条件など数字の部分に強いのが特徴です。LINEで条件交渉の進捗を共有してくれるため、「あと一歩基本給を上げたい」「夜勤を月６回に抑えたい」といった希望を現実的なラインに落とし込んでくれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "687aa975-2145-45db-854a-d59d0f69bac6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4ad79707-c339-445c-b82a-d105cbe0bcd0",
+          "_type": "span",
+          "marks": [],
+          "text": "かいご畑は派遣・紹介予定派遣の案件を多く扱い、契約期間ごとに面談が入ります。更新前にはシフトや体調をヒアリングし、無理のない労働時間を一緒に考えてくれます。派遣で働きながら資格取得を進め、タイミングを見て正社員紹介へ切り替える利用者も多いです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7e75a2bb-aa5e-4441-8146-528aa5af4a4a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4dcf0217-5740-4b4b-8231-24193a3e3b32",
+          "_type": "span",
+          "marks": [],
+          "text": "このように契約タイプが違うため、「まずは派遣で経験を積む」「初めから正社員で腰を据える」など、自分のステップに合わせて相談先を選ぶことが大切です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f42a62ba-45ec-4a45-bfe9-aeee8b62a942",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "090a60c2-5748-4c86-9954-02d6f92bdaf0",
+          "_type": "span",
+          "marks": [],
+          "text": "３．登録から入職までの流れ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "20a58fb0040b942c",
+      "_type": "image",
+      "alt": "登録から入職までの流れ",
+      "asset": {
+        "_ref": "image-2cc015f361d43e47dfaa1834782261f9c56f9316-2400x1358-png",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "ee6c20aa-cfe1-4017-88b0-12f7569665df",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5d057802-2cbe-4e67-b248-b93a62ccd854",
+          "_type": "span",
+          "marks": [],
+          "text": "各社とも大きな流れは共通しています。事前に準備しておくと、面談がスムーズです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bff0880f-bf97-4b44-823c-1f84dee286d7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6897b064-265b-493c-8128-59a2e2ac8074",
+          "_type": "span",
+          "marks": [],
+          "text": "1. WebフォームやLINEで登録 → 面談日程を調整。勤務中なら夜勤明けの時間帯も相談可能。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "048af096-18f2-4221-9386-4c1e2790d95f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "25199ded-ecbb-479b-b893-d7b092ac9756",
+          "_type": "span",
+          "marks": [],
+          "text": "2. 担当者ヒアリング → 希望業務、通勤時間、残業の限度、夜勤回数など優先順位を整理。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e4aaecd6-3129-463f-a1d4-cabc83e6e644",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0dce9759-3277-4165-915e-78525cfb17d6",
+          "_type": "span",
+          "marks": [],
+          "text": "3. 求人紹介・面接調整 → 条件に合う求人を提案し、応募先と日程を組む。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0ac0a5ca-e90d-4d83-a0a8-265e8555788f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "54be8497-fb51-4a50-8ba7-fe0be2221a10",
+          "_type": "span",
+          "marks": [],
+          "text": "4. 面接対策と条件確認 → 面接前に想定質問や確認事項を共有し、内定後は書面の条件を一緒にチェック。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e969dd25-c6b3-43a8-8e64-05e9cc2259c6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "48884871-306f-4ab5-a735-9958012f0a9d",
+          "_type": "span",
+          "marks": [],
+          "text": "5. 入職準備 → ロッカーや制服、勤務開始日の詳細を確認し、必要書類を提出。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5d028159-e539-4cca-a346-8ad99ecc968c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1206520e-9ba8-4935-9e6a-806bd7504e80",
+          "_type": "span",
+          "marks": [],
+          "text": "この流れを踏むことで、担当者は「譲れない条件」と「妥協してもよい条件」を把握してくれます。とくに看護助手は夜勤や介助業務が多い仕事なので、体力面の不安や家族のサポート事情なども遠慮なく共有しておくと、配属先のミスマッチを防げます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "70b3c33a-dd6e-48d6-9714-7eb6a6f888a2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "73d424ab-cb27-45af-ae1d-77f91f038ff2",
+          "_type": "span",
+          "marks": [],
+          "text": "４．サポート体制で見る３つの違い"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "b6205d7f-a940-43c0-a098-3c6bb75cc756",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2f283fd6-7df1-48cc-875e-0ec7db0f3572",
+          "_type": "span",
+          "marks": [],
+          "text": "担当者の関わり方は、転職活動のストレスを減らすうえでとても大切です。それぞれのサポートスタイルを事前に知っておくと、相談の切り出し方が変わり、希望が通りやすくなります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ef348b31-2801-43c4-acf8-640a139352f0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b2b1e905-3421-41be-9aec-9cc0c43dfd61",
+          "_type": "span",
+          "marks": [],
+          "text": "ヒューマンライフケアのフォロー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "8b39ec8f-7e9b-4773-a12f-af76d1c5eee8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bddae9d2-ec39-4e24-9d4d-60728516f9b4",
+          "_type": "span",
+          "marks": [],
+          "text": "日中の電話・メール対応が得意で、病棟の教育担当者や人事と直接やり取りしてくれます。面接同行の際は「この病棟ではこんなアピールが好印象」といったポイントまで共有してくれるので、初めての転職でも安心して臨めます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9e0e6a0e-868f-40da-8408-feb5f8780d9d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "413196d1-abe9-477e-aff7-dec6b308cb7d",
+          "_type": "span",
+          "marks": [],
+          "text": "リニューケアのフォロー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "6ccd7368-5608-440d-a94b-af716c3738f9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "37ffb984-d744-482a-a04c-e92233ec1f40",
+          "_type": "span",
+          "marks": [],
+          "text": "夜勤前後でもLINEで気軽に相談でき、数字の交渉に強いのが特徴です。給与・夜勤回数・残業時間など、こちらが言いづらい条件もテキストで伝えられるため、生活リズムを崩さずに交渉を進められます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ca1a812c-5e5e-4ec5-bb6e-65a960d89a8b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1de99758-e148-4bd3-b958-5afee3b277ae",
+          "_type": "span",
+          "marks": [],
+          "text": "かいご畑のフォロー"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "67835953-b4e6-4c7d-8138-628185379fa3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a5f2d984-2e7d-4d42-a375-d71e1d41834d",
+          "_type": "span",
+          "marks": [],
+          "text": "派遣で経験を積みながら資格取得を目指す場合、勉強時間の確保が課題になります。かいご畑は研修日程を考慮したシフト案を一緒に組んでくれるので、無理なくスキルアップを続けられます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e92c19ce-4857-411d-9a31-b280688bbc0d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "be4593d8-2726-4a84-8de7-0bc1aab3acbd",
+          "_type": "span",
+          "marks": [],
+          "text": "担当者とこまめに状況を共有しておくことで、夜勤前後の連絡や契約更新時のサポートがスムーズになります。「いま何に困っているか」を遠慮なく伝える姿勢が、より良い提案につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b208abe2-476b-40ad-9cba-a37e56161b61",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0c9bfff2-209d-4c4e-8c67-98275ea6c940",
+          "_type": "span",
+          "marks": [],
+          "text": "５．それぞれが向いている人"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "cb2730bc-f473-44b5-abfd-c4168f89a343",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8bbd8e44-190f-4e91-bfdb-69124773e240",
+          "_type": "span",
+          "marks": [],
+          "text": "ヒューマンライフケアは「教育体制が整った病棟でリスタートしたい」「転居したばかりで土地勘がない」といった人に向いています。全国の求人を比較しながら提案してくれるので、複数の地域を検討している人にもおすすめです。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "25802e9a-7eed-42cd-ac0f-9f8f49c92c9c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dd8faa20-95f5-40ea-b5e6-95e1434c1982",
+          "_type": "span",
+          "marks": [],
+          "text": "リニューケアは「今より夜勤回数を減らしたい」「基本給を上げたい」など交渉テーマが明確な人と相性が良いです。関西圏・都市部の情報に強いので、都市型病院でキャリアアップしたい人は相談してみる価値があります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6d5a52f0-d398-4e43-860d-5c3b9682c280",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0985b698-8ce6-4895-8444-94b2321968ec",
+          "_type": "span",
+          "marks": [],
+          "text": "かいご畑は「まずは週３日の派遣から始めたい」「資格取得の費用を抑えたい」という人にぴったり。子育てや家族の介護と両立しながら経験を積みたい場合も、柔軟なシフトを一緒に考えてくれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "50de1daa-38ed-4312-839d-3163efb29166",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6d489d65-e167-4d9f-a5d9-68e5d900423f",
+          "_type": "span",
+          "marks": [],
+          "text": "自分の希望を整理したうえで、「どのサービスに何を任せるか」を決めておくと、面談で聞きたいことが明確になります。複数の窓口を併用しながら、最も相性の良い担当者を探しましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9e7389f4-813e-4a9f-a4d5-4f405d30fa43",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e4350c16-df2d-46ef-9449-fe1d0b0748ad",
+          "_type": "span",
+          "marks": [],
+          "text": "６．利用者の声とよくある質問"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "cf3dec1b-76c3-4b20-9993-745bdc29edec",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dd3678be-ba09-4644-9c1a-9302df748f28",
+          "_type": "span",
+          "marks": [],
+          "text": "実際にサービスを利用した看護助手の声や、よく届く質問をまとめました。不安に感じやすいポイントを事前に把握しておくと、面談で遠慮なく相談できます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a6e85bff-d06c-4d55-a01d-60b8c4b8d925",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d43d5678-15cc-46d6-b558-fbccc83bbee5",
+          "_type": "span",
+          "marks": [],
+          "text": "「ヒューマンライフケアは面接同行が丁寧で、緊張しがちな自分でも話しやすかった」"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ae236731-9375-4dee-8dbb-f00c603b1056",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0688d344-f2e4-4c6e-ac56-bfe37df9a802",
+          "_type": "span",
+          "marks": [],
+          "text": "「リニューケアは深夜でもLINEで相談でき、夜勤型の生活リズムでもやり取りしやすかった」"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "919f9464-325f-4d35-98bc-c42bf7ddf09c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cbe1f5e2-8885-4936-bb77-3254be967e4e",
+          "_type": "span",
+          "marks": [],
+          "text": "「かいご畑の派遣で半年働きながら実務者研修を受け、希望の病院に転職できた」"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "34e24b16-1bbc-4f42-8f71-1dcdedb2e7b1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6bca5e3a-3198-4e12-91cf-272bad8c579f",
+          "_type": "span",
+          "marks": [],
+          "text": "Q. 複数サービスに登録しても失礼ではありませんか？ → むしろ比較することで相性の良い担当者が見つかります。どのサービスも併用を前提にしているので、遠慮なく相談しましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5b8a8a6e-58ef-484e-9c24-044903b514ab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cd1f68f8-1e19-4a84-9498-6f94c0996274",
+          "_type": "span",
+          "marks": [],
+          "text": "Q. すぐ辞めたくなった場合は？ → 派遣契約なら更新前に担当へ相談、正社員の場合も再度求人を探してもらえます。退職理由を一人で抱え込む前に共有するのが得策です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "62f71794-77d4-40ef-b11b-75f7b5002d01",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "76cba428-8b50-416c-9bfe-09cbcffb4936",
+          "_type": "span",
+          "marks": [],
+          "text": "Q. 家族に相談しづらいのですが？ → 担当者にそのまま伝えれば、家族へ説明する時の資料や話し方までアドバイスしてくれます。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4c5d2d07-3912-417f-bc4e-4bde587b5ace",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "360797d6-8cec-419e-a2f7-4a646299c88f",
+          "_type": "span",
+          "marks": [],
+          "text": "心配ごとがあれば、面談の場だけでなくチャットや電話でも相談できます。遠慮せず質問を重ねることが、納得できる転職活動につながります。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0c4ec253a6f7988009c49f90ec4ac37e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEJC",
+          "_type": "span",
+          "text": "データで見る：転職で給料は上がる？"
+        }
+      ],
+      "style": "h2"
+    },
+    {
+      "_key": "b8edf7369ca09544104e6f7f1c23787e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEOR",
+          "_type": "span",
+          "text": "看護助手の転職において、適切なサービスを利用することで給料アップに成功するケースは多いです。"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "e435e00ba8f7884375f2befc30de534b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKETg",
+          "_type": "span",
+          "text": "平均給料アップ額"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "57feb40cfce92e0ceb5a3bc7b77425a5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEYv",
+          "_type": "span",
+          "text": "市場データによると、適切な転職を行った場合、平均して月額1.5〜3万円の給与アップが見込めます。年収換算では20〜40万円の差になることもあります。特に「夜勤手当の充実した病院」や「賞与実績のある大手法人」への転職がカギとなります。"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "53a8d84cbe8d694a85ba43afb08e959a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEeA",
+          "_type": "span",
+          "text": "成功率を高めるポイント"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "58b727e42975348307552cbca21a758c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEjP",
+          "_type": "span",
+          "text": "1つのサービスだけでなく、2〜3社に登録して求人を比較する"
+        }
+      ],
+      "listItem": "bullet",
+      "style": "normal"
+    },
+    {
+      "_key": "2e68047ef6bc55076ca326ea0a4b0a52",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEoe",
+          "_type": "span",
+          "text": "「給与」だけでなく「年間休日」や「福利厚生」もトータルで見る"
+        }
+      ],
+      "listItem": "bullet",
+      "style": "normal"
+    },
+    {
+      "_key": "f803af52b3578f8f11ea14512d07f667",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEtt",
+          "_type": "span",
+          "text": "担当者に「高待遇の非公開求人はありますか？」と必ず聞く"
+        }
+      ],
+      "listItem": "bullet",
+      "style": "normal"
+    },
+    {
+      "_key": "90455a742ccd34e54e0ca374afcc12d8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKEz8",
+          "_type": "span",
+          "text": "看護助手の転職に関するFAQ"
+        }
+      ],
+      "style": "h2"
+    },
+    {
+      "_key": "b04e5dc88da7edf65add9e0610163afc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKF4N",
+          "_type": "span",
+          "text": "Q. 働きながら活動できますか？"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "c79ce0ad7adfa36868d6d69e68b1c821",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKF9c",
+          "_type": "span",
+          "text": "はい、むしろ働きながらの活動をおすすめします。転職エージェント（かいご畑やレバウェル介護など）を利用すれば、面接日程の調整や条件交渉を代行してくれるため、忙しい業務の合間でもスムーズに進められます。"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "3050b401eb39d4c3496cbb56911297c0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKFEr",
+          "_type": "span",
+          "text": "Q. 無資格でも登録できますか？"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "fa2ed729c35fad3d2985a03aed409e80",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKFK6",
+          "_type": "span",
+          "text": "全く問題ありません。特に「かいご畑」などは無資格・未経験者へのサポートが手厚く、働きながら資格を取れる制度（キャリアアップ応援制度）が充実しています。"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "4580655aee76d5ae7d455441fcf43ff0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKFPL",
+          "_type": "span",
+          "text": "Q. 登録にお金はかかりますか？"
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "365a177659f17c44cc2383a4a5ef7323",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "iYcrG4EOZKrdjDrEDgKFUa",
+          "_type": "span",
+          "text": "紹介したサービスはすべて完全無料です。求職者から費用をもらうことは一切ありません（採用側の施設から手数料をもらう仕組みのため）。安心して相談してください。"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "374e5501fc7ec0d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bca3829b4b508086",
+          "_type": "span",
+          "marks": [
+            "e99db251ae72636e"
+          ],
+          "text": "看護助手を辞めずに続けるための工夫"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "e99db251ae72636e",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-resignation-advice-long"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "64b4cb30-48d9-4ef6-9492-12956153f9dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b643fe67-808f-488d-9cba-60a34d8bc0b8",
+          "_type": "span",
+          "marks": [],
+          "text": "まとめ"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "74cb1412-2990-4837-9349-fc8ca45b40bd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "09cae0b6-cd3e-4fc7-b78d-c8c9a64556c4",
+          "_type": "span",
+          "marks": [],
+          "text": "看護助手の転職は、求人の数だけでなく担当者のサポート領域で成果が変わります。全国の情報を網羅したいならヒューマンライフケア、条件交渉を細かく進めたいならリニューケア、未経験から準備したいならかいご畑といったように、自分の優先順位に合わせて相談先を使い分けてください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f3d09ba6-f244-4fa9-b3f9-1e121a42ef23",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cb3a9409-8943-4d6d-87a9-b2ac6b92e83e",
+          "_type": "span",
+          "marks": [],
+          "text": "希望条件をメモしたチェックリストを作っておくと、各サービスの面談で聞き忘れがなくなります。気になる施設があれば、通勤時間や夜勤の入り方まで具体的に質問して比較しましょう。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "274ac481-6866-4965-908c-e08a8494cd45",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7e339a24-3842-4353-991b-2f56dd6389bd",
+          "_type": "span",
+          "marks": [],
+          "text": "３社とも無料で利用できるので、まずは連絡が取りやすい時間帯と希望条件を整理し、できるだけ早く情報を集めるのが成功の近道です。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "affiliate-66d02209-f1e9-47b8-b9e0-16fa4441f263",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">「まとめ」で感じた課題を整理するときはヒューマンライフケアに相談して条件やサポート体制を具体化してみてください。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <img src=\"https://www.rentracks.jp/adx/p.gifx?idx=0.71551.371865.8943.12704&dna=148900\" border=\"0\" height=\"1\" width=\"1\"><a href=\"https://www.rentracks.jp/adx/r.html?idx=0.71551.371865.8943.12704&dna=148900\" rel=\"nofollow noopener\" target=\"_blank\">ヒューマンライフケア</a>\n  </p>\n</div>",
+      "label": "ヒューマンライフケア",
+      "linkKey": "humanlifecare",
+      "provider": "ヒューマンライフケア"
+    },
+    {
+      "_key": "affiliate-7ed9b66a-7d1e-4790-b86b-b8fb85dd0329",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">「まとめ」で感じた課題を整理するときはリニューケアに相談して条件やサポート体制を具体化してみてください。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"//af.moshimo.com/af/c/click?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">リニューケアの転職支援に相談する</a><img src=\"//www18.moshimo.com/af/i/impression?a_id=5207862&p_id=6826&pc_id=19536&pl_id=86880\" width=\"1\" height=\"1\" style=\"border:none;\" loading=\"lazy\" alt=\"\">\n  </p>\n</div>",
+      "label": "リニューケアの転職支援に相談する",
+      "linkKey": "renewcare",
+      "provider": "リニューケア"
+    },
+    {
+      "_key": "affiliate-bd729a85-32ac-498b-9efa-2df91a51ea92",
+      "_type": "affiliateEmbed",
+      "html": "<div style=\"background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%); border: 1px solid #b3d9ff; border-radius: 8px; padding: 16px; margin: 16px 0;\">\n  <p style=\"margin: 0 0 12px 0; color: #1a1a1a; line-height: 1.6;\">「まとめ」で感じた課題を整理するときはかいご畑に相談して条件やサポート体制を具体化してみてください。</p>\n  <p style=\"margin: 0;\">\n    [PR]\n    <a href=\"https://px.a8.net/svt/ejp?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY\" target=\"_blank\" rel=\"nofollow\" style=\"color: #0066cc; text-decoration: underline;\">介護職・看護助手の求人なら「かいご畑」</a><img border=\"0\" width=\"1\" height=\"1\" src=\"https://www17.a8.net/0.gif?a8mat=2ZTT9A+D2Y8MQ+1W34+C8VWY\" alt=\"\">\n  </p>\n</div>",
+      "label": "介護職・看護助手の求人なら「かいご畑」",
+      "linkKey": "kaigobatake",
+      "provider": "かいご畑"
+    },
+    {
+      "_key": "c5514e69573828dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "983f7e8bb4d6b402",
+          "_type": "span",
+          "marks": [],
+          "text": "あわせて読みたい"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "90bf1502be467585",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7feb70abed0be4b9",
+          "_type": "span",
+          "marks": [
+            "1dc7bc4e01a5e741"
+          ],
+          "text": "看護助手の円満退職完全ガイド｜同僚への伝え方から有給消化まで"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "1dc7bc4e01a5e741",
+          "_type": "link",
+          "href": "/posts/nursing-assistant-resignation-advice-workplace"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b42f441303a7c9b6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2a7d605fef2c1b85",
+          "_type": "span",
+          "marks": [
+            "fc63fdf618100308"
+          ],
+          "text": "退職代行３社のメリット・デメリット徹底比較"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "fc63fdf618100308",
+          "_type": "link",
+          "href": "/posts/comparison-of-three-resignation-agencies"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "disclaimer-68d2e2f5-d87e-46e3-8022-7b55397f5a59",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "disclaimer-text-761b354b-ea65-4a81-958f-725be9a360f7",
+          "_type": "span",
+          "marks": [],
+          "text": "免責事項: この記事は、看護助手としての調査と検証に基づく一般的な情報提供を目的としています。職場や地域、個人の状況によって異なる場合がありますので、詳細は勤務先や専門家にご確認ください。"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "_key": "b70486d77a3f",
+      "_ref": "ce8e049b-26ee-42b9-b896-e0d589e37aa4",
+      "_type": "reference"
+    }
+  ],
+  "excerpt": "看護助手の転職で失敗したくない方へ。求人の質やサポート体制が異なる大手3社を比較し、あなたのキャリアプランや希望する働き方に最適なサービスがどこか、独自の評価基準で解説しています。",
+  "internalContent": false,
+  "internalOnly": false,
+  "mainImage": {
+    "_type": "image",
+    "asset": {
+      "_ref": "image-728300d144f6a9636d9a5680c1a4e01acbbb297a-1024x576-png",
+      "_type": "reference"
+    }
+  },
+  "maintenanceLocked": true,
+  "metaDescription": "「給料を上げたい」「今の職場がきつい」という看護助手におすすめの転職サイト3社（ヒューマンライフケア・リニューケア・かいご畑）を徹底比較。無資格・未経験OKや夜勤なしなど、希望条件に強いエージェントの選び方と、失敗しない年収アップのコツを実例付きで紹介します。",
+  "publishedAt": "2025-11-11T02:41:10.219Z",
+  "slug": {
+    "_type": "slug",
+    "current": "nursing-assistant-compare-services-perspective"
+  },
+  "tags": [
+    "転職",
+    "求人",
+    "看護助手",
+    "比較"
+  ],
+  "title": "【2026年版】看護助手おすすめ転職サービス3社比較｜給料アップ実績あり",
+  "views": 27
+}

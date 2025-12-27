@@ -12,6 +12,8 @@ import { SITE_URL } from '@/lib/constants'
 import { CATEGORY_SUMMARY, resolveTagDefinition, type CategorySlug } from '@/data/tagCatalog'
 import Image from 'next/image'
 import { sanitizeTitle, sanitizePersonaText } from '@/lib/title'
+import PRDisclosure from '@/components/Article/PRDisclosure'
+import StandardDisclaimer from '@/components/Article/StandardDisclaimer'
 
 const projectId = '72m8vhy2'
 const dataset = 'production'
@@ -363,8 +365,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params
-	  const client = createSanityClient()
-	  const query = `*[_type == "post" && slug.current == $slug][0] {
+  const client = createSanityClient()
+  const query = `*[_type == "post" && slug.current == $slug][0] {
 	    _id,
 	    title,
 	    excerpt,
@@ -417,10 +419,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const hasBodyContent = Boolean(post.hasBody)
     const noIndex = post.internalOnly === true || !hasBodyContent
 
-	    const ogImageSource = post.mainImage?.asset ? post.mainImage : post.firstBodyImage
-	    const ogImageUrl = ogImageSource?.asset
-	      ? urlFor(ogImageSource).width(1200).height(630).fit('crop').url()
-	      : `${baseUrl}/og-image.png`
+    const ogImageSource = post.mainImage?.asset ? post.mainImage : post.firstBodyImage
+    const ogImageUrl = ogImageSource?.asset
+      ? urlFor(ogImageSource).width(1200).height(630).fit('crop').url()
+      : `${baseUrl}/og-image.png`
 
     return {
       title,
@@ -662,10 +664,10 @@ export default async function PostDetailPage({ params }: PostPageProps) {
             </header>
 
             {/* アイキャッチ画像 */}
-	            {post.mainImage?.asset && (
-	              <div className="relative w-full aspect-video mb-8 rounded-xl overflow-hidden shadow-lg">
-	                <Image
-	                  src={urlFor(post.mainImage).url()}
+            {post.mainImage?.asset && (
+              <div className="relative w-full aspect-video mb-8 rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src={urlFor(post.mainImage).url()}
                   alt={post.title}
                   fill
                   className="object-cover"
@@ -679,7 +681,11 @@ export default async function PostDetailPage({ params }: PostPageProps) {
               {/* 記事コンテンツ */}
               <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{ color: '#111827 !important' }}>
                 {hasBody ? (
-                  <ArticleWithTOC content={bodyWithRelated} />
+                  <>
+                    <PRDisclosure />
+                    <ArticleWithTOC content={bodyWithRelated} />
+                    <StandardDisclaimer />
+                  </>
                 ) : (
                   <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">
                     <p className="text-lg font-semibold mb-2">この記事は現在準備中です。</p>

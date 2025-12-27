@@ -2067,7 +2067,7 @@
     get-it "^8.6.7"
     rxjs "^7.0.0"
 
-"@sanity/client@^6.24.1":
+"@sanity/client@^6.29.1":
   version "6.29.1"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-6.29.1.tgz"
   integrity sha512-BQRCMeDlBxwnMbFtB61HUxFf9aSb4HNVrpfrC7IFVqFf4cwcc3o5H8/nlrL9U3cDFedbe4W0AXt1mQzwbY/ljw==

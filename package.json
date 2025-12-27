@@ -48,7 +48,7 @@
     "@google/generative-ai": "^0.24.1",
     "@heroicons/react": "^2.2.0",
     "@portabletext/react": "^4.0.3",
-    "@sanity/client": "^6.24.1",
+    "@sanity/client": "^6.29.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/presentation-comlink": "^1.0.33",
     "@sanity/vision": "^4.10.2",

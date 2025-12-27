@@ -8,11 +8,9 @@ export default function AboutPage() {
     <>
       <Header />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-        {/* Main Content */}
         <main>
           <div className="divide-y divide-gray-200">
             <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-              {/* パンくずナビゲーション */}
               <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-4">
                 <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
                   ホーム
@@ -25,210 +23,130 @@ export default function AboutPage() {
                 About ProReNata
               </h1>
               <p className="text-lg leading-7 text-gray-500">
-                看護助手として働く「白崎セラ」が運営する、寄りかかれる情報サイトです。
+                看護助手の未来を、嘘のない情報で支える専門メディア
               </p>
             </div>
-            
+
             <div className="prose max-w-none pt-8 pb-8 text-gray-900">
-              <div className="space-y-8">
-                {/* 白崎セラのプロフィールカード */}
-                <section className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 shadow-md">
+              <div className="space-y-12">
+
+                {/* 運営理念セクション */}
+                <section>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    「信頼できる情報」を、現場で働くあなたへ
+                  </h2>
+                  <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                    <p>
+                      ProReNata（プロレナータ）は、現役の看護助手や、これから看護助手を目指す方のための情報ウェブマガジンです。
+                      サイト名の由来は、ラテン語の医療用語「<span className="font-semibold text-cyan-700">必要なときに（Pro Re Nata）</span>」。
+                    </p>
+                    <p>
+                      あなたが仕事やキャリアで迷ったとき、必要な情報をすぐに、そして正確に取り出せる「薬箱」のような存在でありたい──そんな願いを込めました。
+                    </p>
+                  </div>
+                </section>
+
+                {/* 白崎セラの役割再定義 */}
+                <section className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 shadow-sm border border-cyan-100">
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    {/* プロフィール画像 */}
                     <div className="flex-shrink-0">
-                      <div className="relative w-48 h-48 rounded-full overflow-hidden ring-4 ring-white shadow-xl">
+                      <div className="relative w-40 h-40 rounded-full overflow-hidden ring-4 ring-white shadow-lg bg-white">
                         <Image
                           src="/images/sera_profile.png"
                           alt="白崎セラ"
                           fill
-                          sizes="192px"
+                          sizes="160px"
                           className="object-cover"
                           priority
                         />
                       </div>
                     </div>
 
-                    {/* プロフィール情報 */}
                     <div className="flex-1 text-center md:text-left">
-                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                      <div className="inline-block px-3 py-1 bg-cyan-600 text-white text-xs font-bold rounded-full mb-3">
+                        Official Navigator
+                      </div>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-0">
                         白崎セラ
                       </h2>
-                      <p className="text-cyan-700 font-semibold mb-4">
-                        ProReNata 運営者 / 看護助手
+                      <p className="text-cyan-700 font-medium mb-4">
+                        ProReNata 公式ナビゲーター
                       </p>
-                      <div className="space-y-3 text-gray-700">
-                        <div className="flex items-center justify-center md:justify-start gap-2">
-                          <span className="text-cyan-600">👤</span>
-                          <span>20歳</span>
-                        </div>
-                        <div className="flex items-center justify-center md:justify-start gap-2">
-                          <span className="text-cyan-600">🏥</span>
-                          <span>病棟で看護助手として勤務</span>
-                        </div>
-                        <div className="flex items-center justify-center md:justify-start gap-2">
-                          <span className="text-cyan-600">✍️</span>
-                          <span>看護助手に寄り添う記事を執筆</span>
-                        </div>
-                      </div>
-                      <div className="mt-6 p-4 bg-white rounded-lg shadow-sm">
-                        <p className="text-sm text-gray-600 italic">
-                          「必要なときに、必要な言葉を届けたい。わたしが現場で感じたことや、調べて確かめたことを、落ち着いて伝えていきたいんです。」
-                        </p>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        当サイトの案内役。複雑な医療制度や業界の動向を、分かりやすく噛み砕いてお伝えします。
+                        ProReNata編集部が収集した膨大なデータと知見をベースに、あなたのキャリアに伴走する「頼れるガイド」として活動しています。
+                      </p>
+                      <div className="p-4 bg-white/80 rounded-lg text-sm text-gray-600 italic">
+                        「データや法律は少し難しく感じるかもしれませんが、私が間に入って分かりやすくお繋ぎします。一緒にこれからの道を探していきましょう。」
                       </div>
                     </div>
                   </div>
                 </section>
 
+                {/* 3つの約束（編集方針） */}
                 <section>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
-                    はじめまして、白崎セラです
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    読者への3つの約束（編集方針）
                   </h2>
-                  <div className="space-y-4 text-lg leading-7 text-gray-700">
-                    <p>
-                      看護助手として病棟で働きながら、同じ立場のみなさんに寄り添える場所をつくりたい──そんな思いで
-                      <span className="mx-1 font-semibold text-cyan-600">ProReNata</span> を運営しています。
-                    </p>
-                    <p>
-                      「必要なときに、必要な言葉を届けたい」。その気持ちをそのまま名前にしたくて、ラテン語の医療用語
-                      <em> Pro Re Nata</em>（必要なときに）をサイト名に選びました。現場で感じたことも、調べて確かめたことも、落ち着いて伝えられる場所にしたい──それがこのサイトの出発点です。
-                    </p>
-                    <p>
-                      「わたしだけかな」という不安を少しでも軽くできるように、現場のリアルと確かな情報をそっと並べています。今働いている方も、これから挑戦したい方も、安心して立ち寄ってください。
-                    </p>
-                  </div>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
-                    このブログを作った理由
-                  </h2>
-                  <div className="space-y-4 text-lg leading-7 text-gray-700">
-                    <p>
-                      看護助手は患者さんにいちばん近くで寄り添う、とても大切な役割です。でも、仕事やキャリア、お金のことを安心して相談できる場所は多くありません。わたし自身も同じように迷い、調べ方すら分からない時期がありました。
-                    </p>
-                    <p>
-                      だからこそ、このブログを“寄りかかれる場所”にしたいと思いました。必要なときに、必要な分だけ持ち帰れる情報をそっと置いておく。現場の手触りと公的データを組み合わせて、落ち着いて選べるように整えていきます。
-                    </p>
-                  </div>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
-                    わたしが大切にしていること
-                  </h2>
-                  <div className="space-y-4 text-lg leading-7 text-gray-700">
-                    <p>
-                      「分からないまま何となく進む」不安を、わたしも何度も味わいました。だから、ここでは必ず「体験＋根拠」をセットでお届けします。優しい言葉だけに寄りかからず、必要なときには現実的な視点もきちんと伝える──それが、わたしなりの「寄り添う」形です。
-                    </p>
-                  </div>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
-                    目指している未来
-                  </h2>
-                  <div className="space-y-4 text-lg leading-7 text-gray-700">
-                    <p>
-                      このブログを、“看護助手で終わる”という前提のない場所に育てたいと思っています。わたしたちには、続けることも、進むことも、選び直すことも、どの道も選ぶ自由があります。
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2">
-                      <li>看護助手として働き続ける</li>
-                      <li>看護師をめざす</li>
-                      <li>別の医療職に進む</li>
-                      <li>まったく新しい道を選ぶ</li>
-                    </ul>
-                    <p>
-                      どの選択肢も、あなたが自分の人生に置いていいものです。迷ったときに、ここに戻ってきて「大丈夫、選んでいいんだ」と思える場所にしていきます。
-                    </p>
-                  </div>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
-                    お届けしていく主なコンテンツ
-                  </h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div className="border border-gray-200 rounded-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">基礎知識・スキル</h3>
-                      <p className="text-sm text-gray-600">
-                        初めての方にも分かりやすく、現場で使える知識や工夫を丁寧にまとめます。手順だけでなく、声かけや気持ちの整え方も大切に。
+                  <div className="grid gap-6 md:grid-cols-3">
+                    <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
+                      <div className="text-3xl mb-3">⚖️</div>
+                      <h3 className="font-bold text-lg mb-3">嘘のない客観性</h3>
+                      <p className="text-gray-600 text-sm">
+                        個人の主観や感情だけでなく、法令・厚労省データ・複数の市場調査に基づいた客観的な情報発信を徹底します。
                       </p>
                     </div>
-                    <div className="border border-gray-200 rounded-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">キャリア支援</h3>
-                      <p className="text-sm text-gray-600">
-                        転職・資格・学び直しなどの選択肢を、費用やスケジュールも含めて現実的に整理します。無理のない計画を一緒に考えます。
+                    <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
+                      <div className="text-3xl mb-3">🛡️</div>
+                      <h3 className="font-bold text-lg mb-3">運営の透明性</h3>
+                      <p className="text-gray-600 text-sm">
+                        運営主体は「ProReNata編集部」です。特定の個人名ではなく、組織として責任を持って情報を精査・更新します。
                       </p>
                     </div>
-                    <div className="border border-gray-200 rounded-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">現場ノウハウ</h3>
-                      <p className="text-sm text-gray-600">
-                        患者さんとの関わり、チーム連携、夜勤の乗り越え方など、現場でラクになるヒントを共有します。小さなごほうびの見つけ方も少しずつ。
-                      </p>
-                    </div>
-                    <div className="border border-gray-200 rounded-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">業界情報</h3>
-                      <p className="text-sm text-gray-600">
-                        制度や動向など、知っておきたいトピックを噛み砕いて解説し、必要なタイミングで更新します。出典と一次情報をセットで提示します。
+                    <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
+                      <div className="text-3xl mb-3">🤝</div>
+                      <h3 className="font-bold text-lg mb-3">意思決定の尊重</h3>
+                      <p className="text-gray-600 text-sm">
+                        「絶対にこうすべき」という押し付けはしません。あなたが自分の意志で最適な選択ができるよう、判断材料を提示します。
                       </p>
                     </div>
                   </div>
                 </section>
 
-                <section>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 mb-4">
-                    読者さんへの約束
+                {/* 運営体制と収益構造 */}
+                <section className="border-t border-gray-200 pt-10">
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">
+                    運営体制と広告について
                   </h2>
-                  <div className="bg-cyan-50 rounded-lg p-6">
-                    <ul className="space-y-3 text-gray-700">
-                      <li className="flex items-start">
-                        <span className="text-cyan-600 mr-2">✓</span>
-                        <span>現場経験と客観的な情報を両立した、誠実な記事をお届けします。</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-cyan-600 mr-2">✓</span>
-                        <span>看護助手としての視点を忘れず、一人ひとりの不安に寄り添います。</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-cyan-600 mr-2">✓</span>
-                        <span>現場で使える資料やチェックリストを少しずつ増やしていきます。</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-cyan-600 mr-2">✓</span>
-                        <span>制度やトレンドは、必要なタイミングで更新します。一次情報と出典を必ず確認します。</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-cyan-600 mr-2">✓</span>
-                        <span>無理をしすぎず、それぞれのペースで前に進める方法を一緒に考えていきます。</span>
-                      </li>
-                    </ul>
+                  <div className="text-gray-700 text-sm space-y-4 leading-relaxed">
+                    <p>
+                      <strong>【運営主体】</strong><br />
+                      ProReNata編集部（ProReNata Editorial Department）<br />
+                      お問い合わせ：<a href="/contact" className="text-cyan-600 hover:underline">お問い合わせフォーム</a>よりお願いいたします。
+                    </p>
+                    <p>
+                      <strong>【広告配信について】</strong><br />
+                      当サイトは、読者の皆様への情報提供を継続するため、アフィリエイトプログラムや広告配信（Google AdSense 等）を利用しています。<br />
+                      紹介するサービスや商品は、編集部が一定の基準（求人数、サポート体制、利用者の評価など）に基づいて選定しており、広告主の意向だけで掲載内容を決定することはありません。
+                      不当な不安を煽って申し込みを強制するような表現は、編集方針として固く禁止しています。
+                    </p>
+                    <p>
+                      <strong>【免責事項】</strong><br />
+                      医療行為に関する判断、法的な労使トラブルの解決、税務申告等の専門的な判断については、必ず医師・弁護士・税理士等の専門家にご相談ください。
+                      当サイトの情報は、一般的な傾向や制度の解説にとどまるものです。
+                    </p>
                   </div>
                 </section>
 
-                <section className="border-t border-gray-200 pt-8">
-                  <div className="text-center">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                      今日の業務、お疲れさまでした
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      ご質問や記事へのリクエストがあれば、いつでもお寄せくださいね。小さなごほうびも忘れずに……どうか無理をせず、あなたのペースで進んでください。わたしはここで待っています。
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                      <Link
-                        href="/blog"
-                        className="rounded-md bg-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500"
-                      >
-                        最新記事を読む
-                      </Link>
-                      <Link
-                        href="/"
-                        className="text-cyan-600 hover:text-cyan-700 font-medium"
-                      >
-                        ← ホームに戻る
-                      </Link>
-                    </div>
-                  </div>
+                <section className="text-center pt-8">
+                  <Link
+                    href="/"
+                    className="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-colors"
+                  >
+                    ProReNata トップへ戻る
+                  </Link>
                 </section>
+
               </div>
             </div>
           </div>
