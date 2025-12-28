@@ -11,6 +11,10 @@ on:
         required: false
         default: 'false'
 
+concurrency:
+  group: repo-write-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   generate_draft:
     runs-on: ubuntu-latest

@@ -6,6 +6,10 @@ on:
     # Daily 03:10 JST = 18:10 UTC
     - cron: "10 18 * * *"
 
+concurrency:
+  group: repo-write-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -30,4 +34,3 @@ jobs:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           SANITY_POST_TYPE: post
         run: node .github/scripts/sanity-auth-check.mjs
-

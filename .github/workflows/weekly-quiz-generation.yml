@@ -2,8 +2,8 @@ name: メディカルクイズ自動生成
 
 on:
   schedule:
-    # 毎日 深夜2:00 JST (17:00 UTC前日) に実行
-    - cron: '0 17 * * *'
+    # 毎日 深夜2:15 JST (17:15 UTC前日) に実行（記事生成と同時刻を避ける）
+    - cron: '15 17 * * *'
   workflow_dispatch: # 手動実行も可能
 
 concurrency:
