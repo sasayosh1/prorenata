@@ -107,6 +107,7 @@ function ensureTitleEndsCleanly(title, maxLen) {
   };
 
   // If truncation created a partial common word (e.g. ポイン -> ポイント), repair it.
+  // NOTE: Do NOT trim earlier parts to make room. Only adjust the tail, and if it doesn't fit, drop the partial tail.
   const repairPartialSuffix = (value) => {
     let v = String(value || '').trim();
     const fullWords = [
@@ -125,30 +126,43 @@ function ensureTitleEndsCleanly(title, maxLen) {
     ];
 
     for (const word of fullWords) {
-      // Find the longest prefix of `word` that matches the end of `v`.
       for (let i = word.length - 1; i >= 2; i--) {
         const prefix = word.slice(0, i);
         if (!v.endsWith(prefix)) continue;
         if (v.endsWith(word)) break;
 
         const base = v.slice(0, v.length - prefix.length).trim();
-        let candidate = `${base}${word}`.trim();
-
-        if (maxLen && codeLen(candidate) > maxLen) {
-          const overflow = codeLen(candidate) - maxLen;
-          const trimmedBase = sliceCodePoints(base, Math.max(0, codeLen(base) - overflow)).trim();
-          candidate = `${trimmedBase}${word}`.trim();
-        }
-
-        // Final guard
+        const candidate = `${base}${word}`.trim();
         if (!maxLen || codeLen(candidate) <= maxLen) return candidate;
+
+        // If it doesn't fit, drop the partial tail instead of trimming earlier text.
+        return base;
       }
     }
 
     // Remove a very short katakana tail that likely got cut (e.g. "ポイン", "メリッ")
-    // Keep it conservative: only 1-3 chars.
-    v = v.replace(/[ァ-ヶー]{1,3}$/u, '').trim();
+    v = v.replace(/[ァ-ヶー]{1,4}$/u, '').trim();
     return v;
+  };
+
+  const trimToBoundary = (value, limit) => {
+    const v = String(value || '').trim();
+    if (!limit || codeLen(v) <= limit) return v;
+
+    const arr = Array.from(v);
+    const within = arr.slice(0, limit).join('');
+    const boundaries = ['。', '、', '・', '：', ':', '｜', '|', ' ', '　', '）', ')', '】', '」', '』', '／', '/', '—', '–', '-', '\n'];
+    let best = within;
+    for (let i = within.length - 1; i >= 0; i--) {
+      const ch = within[i];
+      if (!boundaries.includes(ch)) continue;
+      const cand = within.slice(0, i).trim();
+      if (cand && codeLen(cand) >= Math.min(12, Math.floor(limit * 0.5))) {
+        best = cand;
+        break;
+      }
+    }
+    return best.trim();
   };
 
   // Titles should not end with ellipsis or dangling punctuation.
@@ -158,7 +172,7 @@ function ensureTitleEndsCleanly(title, maxLen) {
   t = t.replace(/(?:…|\.{3,})+$/g, '').trim();
 
   // If we trimmed too hard, keep within limit without adding ellipsis.
-  if (maxLen && codePointLength(t) > maxLen) t = sliceCodePoints(t, maxLen).trim();
+  if (maxLen && codePointLength(t) > maxLen) t = trimToBoundary(t, maxLen);
 
   t = stripTrailingParticles(t);
   t = repairPartialSuffix(t);
@@ -811,10 +825,11 @@ async function generateAndSaveArticle() {
     titleMinLength = 31;
     titleMaxLength = 45;
   } else { // long
-    titleLengthGuide = '46〜65文字（超具体的でロングテール）';
+    // Sanity Studio の一覧/プレビューで読める長さに収める（長すぎると可読性も落ちる）
+    titleLengthGuide = '46〜55文字（超具体的でロングテール）';
     titleExample = '例: 「【2025年最新】看護助手の給料が低い理由とは？夜勤・資格・転職で年収アップする完全ガイド」（50文字）';
     titleMinLength = 46;
-    titleMaxLength = 65;
+    titleMaxLength = 55;
   }
 
   const prompt = `
