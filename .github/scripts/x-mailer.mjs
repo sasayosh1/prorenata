@@ -411,15 +411,11 @@ async function main() {
   lastDiagnostics = { X_MAX: xMax, urlLen, impressionLen, bodyLen, weightedLength }
 
   // Create a preview for the subject line (first 50 chars of impression)
-  const preview = clampCodepoints(impression, 50).replace(/\n/g, ' ').trim()
-  const subject = `【X投稿用｜${deriveProjectName()}】${preview}...`
+  const slugPreview = String(post.slug || '').trim() || clampCodepoints(impression, 50).replace(/\n/g, ' ').trim()
+  const subject = `【X投稿用｜${deriveProjectName()}】${slugPreview}`
 
-  // Simple email body with just the post text
-  const emailBody = `=== X投稿用テキスト（${weightedLength}/${xMax}文字） ===
-
-${body}
-
-=== コピー用（上記のテキストをそのままコピーしてください） ===`
+  // Email body must be exactly: text + newline + URL
+  const emailBody = body
 
   if (dryRun) {
     console.log(emailBody)

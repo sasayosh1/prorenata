@@ -2,6 +2,11 @@ name: X Mailer (semi-auto)
 
 on:
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Force send even if already sent today (JST)"
+        required: false
+        default: "false"
   schedule:
     # 20:50 (JST) = 11:50 (UTC)
     - cron: "50 11 * * *"
@@ -12,12 +17,48 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Determine run date (JST)
+        id: run_date
+        run: echo "date=$(TZ=Asia/Tokyo date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Daily send guard (cache)
+        id: daily_guard
+        uses: actions/cache@v4
+        with:
+          path: .x-mailer-marker
+          key: x-mailer-${{ github.repository }}-${{ steps.run_date.outputs.date }}
+
+      - name: Decide whether to skip today
+        id: daily_decision
+        shell: bash
+        run: |
+          set -euo pipefail
+          FORCE="${{ github.event.inputs.force }}"
+          CACHE_HIT="${{ steps.daily_guard.outputs.cache-hit }}"
+
+          if [ "$FORCE" = "true" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "skip_reason=forced" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "$CACHE_HIT" = "true" ] && [ -f .x-mailer-marker ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "skip_reason=already_sent_today" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "skip_reason=not_sent_yet" >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-node@v4
+        if: steps.daily_decision.outputs.skip != 'true'
         with:
           node-version: "20"
           cache: "npm"
 
       - name: Debug script version
+        if: steps.daily_decision.outputs.skip != 'true'
         run: |
           echo "HEAD: $(git rev-parse HEAD)"
           node -v
@@ -25,9 +66,11 @@ jobs:
           sed -n '1,60p' .github/scripts/x-mailer.mjs
 
       - name: Install mailer dependency (minimal)
+        if: steps.daily_decision.outputs.skip != 'true'
         run: npm install --no-save nodemailer@^6.10.1 twitter-text@^3.1.0
 
       - name: Send mail
+        if: steps.daily_decision.outputs.skip != 'true'
         env:
           # Optional
           SITE_BASE_URL: https://prorenata.jp
@@ -44,3 +87,9 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
         run: node .github/scripts/x-mailer.mjs
+
+      - name: Create daily marker (after send)
+        if: steps.daily_decision.outputs.skip != 'true'
+        run: |
+          echo "date=${{ steps.run_date.outputs.date }}" > .x-mailer-marker
+          echo "run_id=${{ github.run_id }}" >> .x-mailer-marker

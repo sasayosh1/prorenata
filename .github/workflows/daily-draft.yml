@@ -157,6 +157,9 @@ jobs:
         if: steps.daily_decision.outputs.skip != 'true' && steps.budget.outputs.allowed == 'true'
         run: node scripts/run-daily-generation.cjs
         env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANALYTICS_MODE: ${{ (steps.analytics.outputs.healthy == 'true' || steps.analytics_recheck.outputs.healthy == 'true') && 'enabled' || 'disabled' }}

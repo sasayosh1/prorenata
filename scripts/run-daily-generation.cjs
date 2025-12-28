@@ -310,12 +310,21 @@ function buildPostSlug(input) {
 }
 
 // --- Configuration ---
+const SANITY_PROJECT_ID =
+  process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const SANITY_DATASET =
+  process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET;
+const SANITY_API_VERSION =
+  process.env.SANITY_API_VERSION ||
+  process.env.NEXT_PUBLIC_SANITY_API_VERSION ||
+  '2024-01-01';
+
 const SANITY_CONFIG = {
-  projectId: '72m8vhy2',
-  dataset: 'production',
+  projectId: SANITY_PROJECT_ID,
+  dataset: SANITY_DATASET,
   useCdn: false,
-  apiVersion: '2024-01-01',
-  token: process.env.SANITY_WRITE_TOKEN
+  apiVersion: SANITY_API_VERSION,
+  token: process.env.SANITY_WRITE_TOKEN,
 };
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Reverted to process.env.GEMINI_API_KEY
@@ -482,6 +491,10 @@ async function generateAndSaveArticle() {
   // 1. Initialize clients
   if (!SANITY_CONFIG.token || !GEMINI_API_KEY) {
     console.error("FATAL: SANITY_WRITE_TOKEN or GEMINI_API_KEY environment variables are not set.");
+    process.exit(1);
+  }
+  if (!SANITY_CONFIG.projectId || !SANITY_CONFIG.dataset) {
+    console.error("FATAL: SANITY_PROJECT_ID / SANITY_DATASET environment variables are not set.");
     process.exit(1);
   }
   const sanityClient = createClient(SANITY_CONFIG);

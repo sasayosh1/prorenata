@@ -103,7 +103,14 @@ function sendChatEvent(eventName: string, params: Record<string, unknown>) {
 function sanitizeModelReplyText(input: string) {
     const text = String(input ?? "");
     return text
-        .replace(/URLが必要なときは「URLを教えて」と聞いてください。?/g, "")
+        // 「URLを教えて」誘導は不要（リンク化もされやすいので強制除去）
+        // - 生文: URLが必要なときは「URLを教えて」と聞いてください。
+        // - 句点/全角句点/省略/スペース違いを吸収
+        .replace(/URLが必要なときは[^\n]*?聞いてください[。．.]?/g, "")
+        // Markdownリンクになっていても除去
+        .replace(/URLが必要なときは[^\n]*?\[URLを教えて\]\([^)]+\)[^\n]*?聞いてください[。．.]?/g, "")
+        // 単独で出た「URLを教えて」行も除去
+        .replace(/^[「『]?URLを教えて[」』]?(?:[。．.]|$)/gm, "")
         .replace(/\n{3,}/g, "\n\n")
         .trim();
 }
@@ -469,8 +476,8 @@ export default function AItuberWidget() {
 
                 // 括弧付きタイトル（「タイトル」）はサイト内検索にリンク
                 if (isBracketTitle) {
-                    const titleText = raw.slice(1, -1);
-                    if (titleText === "URLを教えて") {
+                    const titleText = raw.slice(1, -1).trim();
+                    if (titleText.includes("URLを教えて")) {
                         elements.push(<span key={`title-text-${lineIndex}-${start}`}>{raw}</span>);
                         lastIndex = start + raw.length;
                         continue;
