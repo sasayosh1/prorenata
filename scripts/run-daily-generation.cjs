@@ -85,12 +85,71 @@ function sanitizeGeneratedTitle(input) {
 }
 
 function endsWithBadPunctuation(title) {
-  return /[、,・…\.]$/.test(String(title || '').trim());
+  return /[、,・…\.\:：｜\-\–—]$/.test(String(title || '').trim());
 }
 
 function ensureTitleEndsCleanly(title, maxLen) {
   let t = String(title || '').trim();
   if (!t) return t;
+
+  const codeLen = (v) => codePointLength(String(v || ''));
+
+  // Avoid dangling particles at the end (e.g. "...を", "...の")
+  const stripTrailingParticles = (value) => {
+    let v = String(value || '').trim();
+    const particles = ['を', 'に', 'へ', 'で', 'と', 'が', 'の', 'や', 'も'];
+    while (v) {
+      const last = v.slice(-1);
+      if (!particles.includes(last)) break;
+      v = v.slice(0, -1).trim();
+    }
+    return v;
+  };
+
+  // If truncation created a partial common word (e.g. ポイン -> ポイント), repair it.
+  const repairPartialSuffix = (value) => {
+    let v = String(value || '').trim();
+    const fullWords = [
+      'ポイント',
+      'メリット',
+      'デメリット',
+      'チェックリスト',
+      'ステップ',
+      '方法',
+      '対策',
+      '手順',
+      'コツ',
+      '注意点',
+      'まとめ',
+      '例文',
+    ];
+
+    for (const word of fullWords) {
+      // Find the longest prefix of `word` that matches the end of `v`.
+      for (let i = word.length - 1; i >= 2; i--) {
+        const prefix = word.slice(0, i);
+        if (!v.endsWith(prefix)) continue;
+        if (v.endsWith(word)) break;
+
+        const base = v.slice(0, v.length - prefix.length).trim();
+        let candidate = `${base}${word}`.trim();
+
+        if (maxLen && codeLen(candidate) > maxLen) {
+          const overflow = codeLen(candidate) - maxLen;
+          const trimmedBase = sliceCodePoints(base, Math.max(0, codeLen(base) - overflow)).trim();
+          candidate = `${trimmedBase}${word}`.trim();
+        }
+
+        // Final guard
+        if (!maxLen || codeLen(candidate) <= maxLen) return candidate;
+      }
+    }
+
+    // Remove a very short katakana tail that likely got cut (e.g. "ポイン", "メリッ")
+    // Keep it conservative: only 1-3 chars.
+    v = v.replace(/[ァ-ヶー]{1,3}$/u, '').trim();
+    return v;
+  };
 
   // Titles should not end with ellipsis or dangling punctuation.
   while (t && endsWithBadPunctuation(t)) t = t.slice(0, -1).trim();
@@ -100,7 +159,12 @@ function ensureTitleEndsCleanly(title, maxLen) {
 
   // If we trimmed too hard, keep within limit without adding ellipsis.
   if (maxLen && codePointLength(t) > maxLen) t = sliceCodePoints(t, maxLen).trim();
+
+  t = stripTrailingParticles(t);
+  t = repairPartialSuffix(t);
+
   while (t && endsWithBadPunctuation(t)) t = t.slice(0, -1).trim();
+  t = stripTrailingParticles(t);
   return t;
 }
 
