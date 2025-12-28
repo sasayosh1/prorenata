@@ -578,6 +578,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'vital-signs',
     difficulty: 1
   },
+  {
+    id: 'med-injection-6',
+    term: '与薬',
+    reading: 'よやく',
+    meaning: '薬剤を患者に投与すること。',
+    distractors: ['バイタル測定', '体位変換', '創処置'],
+    category: 'medication',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
