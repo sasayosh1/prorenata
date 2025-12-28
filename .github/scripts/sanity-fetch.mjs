@@ -100,12 +100,33 @@ export async function fetchOnePost() {
     since
   )}`
 
-  const res = await fetch(url, {
-    headers: SANITY_TOKEN ? { Authorization: `Bearer ${SANITY_TOKEN}` } : {},
-  })
+  const fetchOnce = async ({ token }) => {
+    const res = await fetch(url, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
+    const text = res.ok ? '' : await res.text().catch(() => '')
+    return { res, text }
+  }
+
+  let { res, text } = await fetchOnce({ token: SANITY_TOKEN })
+
+  // If token is set but rejected (revoked/expired), retry once without auth so public datasets still work.
+  // Sanity commonly returns `401 Unauthorized` with `"message":"Session not found"` for invalid tokens.
+  if (!res.ok && SANITY_TOKEN && (res.status === 401 || res.status === 403)) {
+    const retry = await fetchOnce({ token: '' })
+    if (retry.res.ok) {
+      res = retry.res
+      text = retry.text
+    } else {
+      const hint =
+        ' (SANITY_TOKEN was rejected; ensure secrets are correct, or remove SANITY_TOKEN if the dataset is public)'
+      throw new Error(
+        `Sanity fetch failed: ${res.status} ${res.statusText}${text ? ` - ${text}` : ''}${hint}`
+      )
+    }
+  }
 
   if (!res.ok) {
-    const text = await res.text().catch(() => '')
     throw new Error(
       `Sanity fetch failed: ${res.status} ${res.statusText}${text ? ` - ${text}` : ''}`
     )
@@ -132,4 +153,3 @@ export async function fetchOnePost() {
     },
   }
 }
-
