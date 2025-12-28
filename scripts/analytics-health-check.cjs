@@ -201,6 +201,14 @@ async function ensureIssue({ title, body, labels }) {
 function evaluateSeries({ label, yesterday, dayBefore, recentAvg, dropRatio }) {
   const issues = [];
 
+  // Skip anomaly detection if the metric is too small (normal variance for small sites)
+  // For GSC clicks, if recent average is < 1.0 and yesterday is 0-1, this is normal variance
+  const isGscClicks = label.includes('GSC clicks');
+  if (isGscClicks && recentAvg < 1.0 && yesterday <= 1) {
+    console.log(`ℹ️  Skipping anomaly detection for ${label}: metric too small (recentAvg=${recentAvg.toFixed(2)}, yesterday=${yesterday})`);
+    return issues; // Normal variance for small sites
+  }
+
   if (yesterday === 0 && (dayBefore > 0 || recentAvg > 0)) {
     issues.push(`${label}: yesterday is 0 (dayBefore=${dayBefore}, recentAvg=${recentAvg.toFixed(2)})`);
   }
@@ -509,7 +517,7 @@ main().catch((error) => {
     ].join('\n');
 
     if (shouldCreateIssue()) {
-      ensureIssue({ title, body, labels: ['analytics', 'automated'] }).catch(() => {});
+      ensureIssue({ title, body, labels: ['analytics', 'automated'] }).catch(() => { });
     }
   } catch {
     // ignore
