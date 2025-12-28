@@ -23,9 +23,12 @@ const { createClient } = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
 
-const SANITY_PROJECT_ID = '72m8vhy2';
-const SANITY_DATASET = 'production';
-const SANITY_API_VERSION = '2024-01-01';
+const SANITY_PROJECT_ID =
+  process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2';
+const SANITY_DATASET =
+  process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
+const SANITY_API_VERSION =
+  process.env.SANITY_API_VERSION || process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01';
 
 const EMPATHY_PHRASES = [
   'つらい',
@@ -76,6 +79,34 @@ const REDUNDANT_PHRASES = [
   'するようにする',
   'していく',
   'していきます',
+];
+
+// SERA_POSITION_RULE.md を踏まえた「断定主体/責任主体」っぽい表現を検出して減点する
+// - セラ自身が制度/数字等を断言する
+// - 「セラが教える」などの権威化
+const POSITION_VIOLATION_PHRASES = [
+  '看護助手の私が教える',
+  '看護助手のわたしが教える',
+  '現役看護助手の私が教える',
+  '現役看護助手のわたしが教える',
+  'セラが',
+  'セラの',
+];
+
+const POSITION_AUTHORITY_KEYWORDS = [
+  '平均年収',
+  '給料',
+  '給与',
+  '賃金',
+  '法律',
+  '労働基準法',
+  '制度',
+  '診療報酬',
+  '手当',
+  '違法',
+  '正しい',
+  '必ず',
+  '絶対',
 ];
 
 function parseArgs(argv) {
@@ -206,6 +237,30 @@ function computeSeraToneScore(text) {
   const commandPenalty = clamp(0, commandHits * 4, 28);
   score -= commandPenalty;
   if (commandPenalty > 0) reasons.push(`断定/命令: -${commandPenalty} (hits=${commandHits})`);
+
+  // Position rule penalty: avoid turning Sera into an authority/decision maker.
+  const violationHits = POSITION_VIOLATION_PHRASES.reduce(
+    (sum, p) => sum + countOccurrences(text, p),
+    0
+  );
+  const hasFirstPerson = /(?:^|\s)(?:わたし|私)(?:は|が|の|も)?/u.test(text);
+  const hasNumbers = /\d/u.test(text);
+  const authorityKeywordHits = POSITION_AUTHORITY_KEYWORDS.reduce(
+    (sum, p) => sum + countOccurrences(text, p),
+    0
+  );
+
+  let positionPenalty = 0;
+  if (violationHits > 0) positionPenalty += Math.min(18, violationHits * 6);
+  if (hasFirstPerson && (authorityKeywordHits > 0 || hasNumbers)) positionPenalty += 8;
+  positionPenalty = clamp(0, positionPenalty, 26);
+
+  score -= positionPenalty;
+  if (positionPenalty > 0) {
+    reasons.push(
+      `ポジション逸脱(断定主体/権威化): -${positionPenalty} (violations=${violationHits}, authorityHits=${authorityKeywordHits})`
+    );
+  }
 
   const longPenalty = clamp(0, Math.round(longRatio * 30), 30);
   score -= longPenalty;

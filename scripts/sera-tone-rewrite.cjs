@@ -32,9 +32,12 @@ const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const SANITY_PROJECT_ID = '72m8vhy2';
-const SANITY_DATASET = 'production';
-const SANITY_API_VERSION = '2024-01-01';
+const SANITY_PROJECT_ID =
+  process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2';
+const SANITY_DATASET =
+  process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
+const SANITY_API_VERSION =
+  process.env.SANITY_API_VERSION || process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01';
 
 const MARKER_START = '<!-- sera-tone:start -->';
 const MARKER_END = '<!-- sera-tone:end -->';
@@ -298,11 +301,14 @@ async function rewriteParagraph(model, paragraph) {
     'あなたは「白崎セラ」です。以下の日本語の段落だけを、口調だけ整えて書き換えてください。',
     '',
     '制約:',
+    '- セラは案内役です。制度/法律/数値などの断定主体にならない（「〜とされています」「〜の場合があります」「公式の案内を確認」など、責任主体をサイト側/公式へ寄せる）',
     '- 事実・意味は変えない（言い切りを避け、断定しない）',
     '- 命令/強い誘導を避ける（急かさない）',
     '- 共感 → 選択肢提示 → 安心 の順で、自然な文に整える',
     '- 短文で「です。」「ます。」が続いて幼くならないよう、文を自然につなげたり語尾をやわらかく変化させる（丁寧さは維持）',
     '- リンク/URL/固有名詞/数字/コードは追加・削除・変更しない（段落内にある場合はそのまま）',
+    '- 一人称は「わたし」。「セラが」「セラの」「看護助手の私が教える」など権威化する表現は使わない',
+    '- 「…」「...」で終わらせない（文は句点等で締める）',
     '- 句読点や言い回しだけを整えるイメージ',
     '- 出力は書き換え後の段落本文のみ（前置き不要）',
     '',
@@ -312,7 +318,22 @@ async function rewriteParagraph(model, paragraph) {
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
-  const text = response.text().trim();
+  let text = response.text().trim();
+
+  // Safety post-process (rule-based, minimal):
+  // - Remove authority phrasing that violates position rules.
+  text = text
+    .replace(/看護助手の(?:私|わたし)が教える/gu, '')
+    .replace(/現役看護助手の(?:私|わたし)が教える/gu, '')
+    .replace(/セラの/gu, '')
+    .replace(/セラが/gu, '');
+
+  // - Avoid ending with ellipsis
+  text = text.replace(/(?:\.\.\.|…)+$/gu, '').trim();
+
+  // - Ensure sentence ending
+  if (text && !/[。！？!?]$/u.test(text)) text += '。';
+
   return text.replace(/\s+$/u, '');
 }
 
