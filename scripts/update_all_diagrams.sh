@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# Script to regenerate all SVG diagrams and sync assets
-# This ensures that 'prorenata/画像' remains the source of truth,
-# and 'public/' is updated for the web server.
+# Script to regenerate all SVG diagrams.
+# IMPORTANT:
+# - Generated assets are written to the local inbox: `~/_inbox/antigravity/prorenata/diagrams`
+# - This script does NOT write into `public/` automatically (manual management).
 
-echo "Starting diagram regeneration and asset sync..."
+set -euo pipefail
+
+echo "Starting diagram regeneration..."
 
 # 1. Regenerate Diagrams
-# New unified structure: scripts generate diagrams directly to public/images/chibichara/diagrams
 echo "Running generate-svg-diagrams.py..."
 python3 scripts/generate-svg-diagrams.py
 echo "Running generate-svg-diagrams-batch2.py..."
@@ -23,7 +25,9 @@ python3 scripts/generate-svg-diagrams-second.py
 echo "Running generate-svg-diagrams-second-batch2.py..."
 python3 scripts/generate-svg-diagrams-second-batch2.py
 
-# 2. Assets are now unified in public/images/chibichara/diagrams
-echo "Assets are now unified in public/images/chibichara/"
+echo ""
+echo "✅ Generated diagrams are in: $HOME/_inbox/antigravity/prorenata/diagrams"
+echo "To use them on the site, copy selected files into:"
+echo "  public/images/chibichara/diagrams"
 
-echo "Asset sync complete!"
+echo "Done."

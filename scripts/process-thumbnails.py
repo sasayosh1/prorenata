@@ -1,12 +1,13 @@
 from PIL import Image
 import os
 import glob
+from utils.antigravity_paths import inbox_dir, unique_path
 
 # Configuration
 TARGET_WIDTH = 1200
 TARGET_HEIGHT = 675 # 16:9 aspect ratio
 SOURCE_DIR = '/Users/sasakiyoshimasa/.gemini/antigravity/brain/3188755c-34ca-4ce2-a567-4f288d0d547c'
-OUTPUT_DIR = '/Users/sasakiyoshimasa/prorenata/processed_images'
+OUTPUT_DIR = inbox_dir("prorenata", "thumbnails")
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -95,7 +96,7 @@ def process_image(filename, slug_hint):
             bg_img.paste(fg_img, (paste_x, paste_y))
             
             output_filename = f"{slug_hint}_1200x630.png"
-            output_path = os.path.join(OUTPUT_DIR, output_filename)
+            output_path = unique_path(os.path.join(OUTPUT_DIR, output_filename))
             bg_img.save(output_path)
             print(f"Processed {filename} -> {output_path}")
             return output_path

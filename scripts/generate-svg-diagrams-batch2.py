@@ -1,4 +1,7 @@
 import os
+from utils.antigravity_paths import inbox_dir, unique_path
+
+OUTPUT_DIR = inbox_dir("prorenata", "diagrams")
 
 def create_svg_stress_relationships(filename):
     svg_content = """<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
@@ -184,8 +187,7 @@ def create_svg_nurse_scholarship(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
-    create_svg_stress_relationships("public/images/chibichara/diagrams/stress_relationships.svg")
-    create_svg_nurse_route("public/images/chibichara/diagrams/nurse_route.svg")
-    create_svg_essentials_checklist("public/images/chibichara/diagrams/essentials_checklist.svg")
-    create_svg_nurse_scholarship("public/images/chibichara/diagrams/nurse_scholarship.svg")
+    create_svg_stress_relationships(unique_path(os.path.join(OUTPUT_DIR, "stress_relationships.svg")))
+    create_svg_nurse_route(unique_path(os.path.join(OUTPUT_DIR, "nurse_route.svg")))
+    create_svg_essentials_checklist(unique_path(os.path.join(OUTPUT_DIR, "essentials_checklist.svg")))
+    create_svg_nurse_scholarship(unique_path(os.path.join(OUTPUT_DIR, "nurse_scholarship.svg")))

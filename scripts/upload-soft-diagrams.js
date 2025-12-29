@@ -1,6 +1,7 @@
 const { createClient } = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
+const { inboxDir } = require('./utils/antigravityPaths.cjs');
 
 const token = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN;
 if (!token) {
@@ -15,6 +16,8 @@ const client = createClient({
     token,
     useCdn: false,
 });
+
+const INBOX_DIAGRAMS_DIR = inboxDir('prorenata', 'diagrams');
 
 const DIAGRAMS = [
     {
@@ -62,7 +65,7 @@ async function uploadAndInsertDiagrams() {
             console.log(`\nProcessing: ${item.slug}`);
 
             // 1. Upload Image
-            const filePath = path.join(process.cwd(), item.filePath);
+            const filePath = path.join(INBOX_DIAGRAMS_DIR, path.basename(item.filePath));
             if (!fs.existsSync(filePath)) {
                 console.error(`  ❌ File not found: ${filePath}`);
                 continue;

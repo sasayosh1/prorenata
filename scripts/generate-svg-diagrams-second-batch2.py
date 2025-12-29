@@ -1,4 +1,7 @@
 import os
+from utils.antigravity_paths import inbox_dir, unique_path
+
+OUTPUT_DIR = inbox_dir("prorenata", "diagrams")
 
 def create_svg_stress_relief_ranking(filename):
     svg_content = """<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
@@ -222,9 +225,8 @@ def create_svg_night_shift_schedule(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
-    create_svg_stress_relief_ranking("public/images/chibichara/diagrams/stress_relief_ranking.svg")
-    create_svg_useful_goods("public/images/chibichara/diagrams/useful_goods.svg")
-    create_svg_salary_simulation("public/images/chibichara/diagrams/salary_simulation.svg")
-    create_svg_aptitude_check_reverse("public/images/chibichara/diagrams/aptitude_check_reverse.svg")
-    create_svg_night_shift_schedule("public/images/chibichara/diagrams/night_shift_schedule.svg")
+    create_svg_stress_relief_ranking(unique_path(os.path.join(OUTPUT_DIR, "stress_relief_ranking.svg")))
+    create_svg_useful_goods(unique_path(os.path.join(OUTPUT_DIR, "useful_goods.svg")))
+    create_svg_salary_simulation(unique_path(os.path.join(OUTPUT_DIR, "salary_simulation.svg")))
+    create_svg_aptitude_check_reverse(unique_path(os.path.join(OUTPUT_DIR, "aptitude_check_reverse.svg")))
+    create_svg_night_shift_schedule(unique_path(os.path.join(OUTPUT_DIR, "night_shift_schedule.svg")))

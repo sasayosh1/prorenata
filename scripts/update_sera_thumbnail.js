@@ -1,6 +1,7 @@
 const { createClient } = require('next-sanity');
 const fs = require('fs');
 const path = require('path');
+const { inboxDir } = require('./utils/antigravityPaths.cjs');
 
 const token = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN;
 if (!token) {
@@ -20,7 +21,9 @@ const client = createClient({
 });
 
 const TARGET_SLUG = 'nursing-assistant-resignation-advice-workplace';
-const IMAGE_PATH = '/Users/sasakiyoshimasa/prorenata/processed_images/sera_resignation_fixed_1200x630.jpg';
+const IMAGE_PATH =
+  process.env.IMAGE_PATH ||
+  path.join(inboxDir('prorenata', 'thumbnails'), 'sera_resignation_fixed_1200x630.jpg');
 
 async function main() {
     try {

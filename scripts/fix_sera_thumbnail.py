@@ -4,9 +4,11 @@ Fix the Sera thumbnail image by cropping to 1200x630 (keeping top portion).
 """
 from PIL import Image
 import os
+import sys
+from utils.antigravity_paths import inbox_dir, unique_path
 
-INPUT_PATH = '/Users/sasakiyoshimasa/.gemini/antigravity/brain/35c32c3e-2506-4991-8654-c757ee7a206f/uploaded_image_1_1764552588587.jpg'
-OUTPUT_PATH = '/Users/sasakiyoshimasa/prorenata/processed_images/sera_resignation_fixed_1200x630.jpg'
+INPUT_PATH = os.environ.get('INPUT_PATH') or (sys.argv[1] if len(sys.argv) > 1 else '/Users/sasakiyoshimasa/.gemini/antigravity/brain/35c32c3e-2506-4991-8654-c757ee7a206f/uploaded_image_1_1764552588587.jpg')
+OUTPUT_PATH = os.environ.get('OUTPUT_PATH') or (sys.argv[2] if len(sys.argv) > 2 else unique_path(os.path.join(inbox_dir("prorenata", "thumbnails"), 'sera_resignation_fixed_1200x630.jpg')))
 TARGET_SIZE = (1200, 630)
 
 def crop_and_resize_image():
@@ -58,9 +60,6 @@ def crop_and_resize_image():
             # Step 2: Resize to target size
             final_img = cropped_img.resize(TARGET_SIZE, Image.Resampling.LANCZOS)
             print(f"Resized to: {final_img.size}")
-            
-            # Ensure output directory exists
-            os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
             
             # Save the final image
             final_img.save(OUTPUT_PATH, quality=95)

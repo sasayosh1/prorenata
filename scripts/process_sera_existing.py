@@ -1,8 +1,10 @@
 from PIL import Image, ImageOps
 import os
+import sys
+from utils.antigravity_paths import inbox_dir, unique_path
 
-INPUT_PATH = '/Users/sasakiyoshimasa/prorenata/白崎セラ/uploaded_image_0_1764034807429.png'
-OUTPUT_PATH = '/Users/sasakiyoshimasa/prorenata/processed_images/sera_shoes_existing_1024x576.png'
+INPUT_PATH = os.environ.get('INPUT_PATH') or (sys.argv[1] if len(sys.argv) > 1 else '/Users/sasakiyoshimasa/prorenata/白崎セラ/uploaded_image_0_1764034807429.png')
+OUTPUT_PATH = os.environ.get('OUTPUT_PATH') or (sys.argv[2] if len(sys.argv) > 2 else unique_path(os.path.join(inbox_dir("prorenata", "images"), 'sera_shoes_existing_1024x576.png')))
 TARGET_SIZE = (1024, 576)
 
 def process_image():
@@ -23,9 +25,6 @@ def process_image():
         y_offset = (TARGET_SIZE[1] - img.height) // 2
         
         new_img.paste(img, (x_offset, y_offset))
-        
-        # Ensure output directory exists
-        os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
         
         new_img.save(OUTPUT_PATH)
         print(f"Processed image saved to {OUTPUT_PATH}")

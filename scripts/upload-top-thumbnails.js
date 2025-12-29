@@ -1,6 +1,7 @@
 const { createClient } = require('next-sanity');
 const fs = require('fs');
 const path = require('path');
+const { inboxDir } = require('./utils/antigravityPaths.cjs');
 
 const client = createClient({
     projectId: '72m8vhy2',
@@ -10,26 +11,28 @@ const client = createClient({
     token: process.env.SANITY_API_TOKEN
 });
 
+const INBOX_THUMBNAILS_DIR = inboxDir('prorenata', 'thumbnails');
+
 const UPDATES = [
     {
         slug: 'nursing-assistant-recommended-shoes',
-        imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/nursing-assistant-recommended-shoes_1200x630.png'
+        imagePath: path.join(INBOX_THUMBNAILS_DIR, 'nursing-assistant-recommended-shoes_1200x630.png')
     },
     {
         slug: 'nursing-assistant-terminology-guide',
-        imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/nursing-assistant-types_1200x630.png'
+        imagePath: path.join(INBOX_THUMBNAILS_DIR, 'nursing-assistant-types_1200x630.png')
     },
     {
         slug: 'nursing-assistant-salary-update-career',
-        imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/salary_career_1200x630.png'
+        imagePath: path.join(INBOX_THUMBNAILS_DIR, 'salary_career_1200x630.png')
     },
     {
         slug: 'nursing-scholarship-interest-risk',
-        imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/scholarship_1200x630.png'
+        imagePath: path.join(INBOX_THUMBNAILS_DIR, 'scholarship_1200x630.png')
     },
     {
         slug: 'nursing-assistant-job-role-patient',
-        imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/job_options_1200x630.png'
+        imagePath: path.join(INBOX_THUMBNAILS_DIR, 'job_options_1200x630.png')
     }
 ];
 

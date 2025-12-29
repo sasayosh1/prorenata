@@ -1,4 +1,7 @@
 import os
+from utils.antigravity_paths import inbox_dir, unique_path
+
+OUTPUT_DIR = inbox_dir("prorenata", "diagrams")
 
 def create_svg_aptitude_test(filename):
     svg_content = """<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
@@ -215,9 +218,8 @@ def create_svg_study_schedule(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
-    create_svg_aptitude_test("public/images/chibichara/diagrams/aptitude_test.svg")
-    create_svg_daily_schedule("public/images/chibichara/diagrams/daily_schedule.svg")
-    create_svg_interview_tips("public/images/chibichara/diagrams/interview_tips.svg")
-    create_svg_care_guide("public/images/chibichara/diagrams/care_guide.svg")
-    create_svg_study_schedule("public/images/chibichara/diagrams/study_schedule.svg")
+    create_svg_aptitude_test(unique_path(os.path.join(OUTPUT_DIR, "aptitude_test.svg")))
+    create_svg_daily_schedule(unique_path(os.path.join(OUTPUT_DIR, "daily_schedule.svg")))
+    create_svg_interview_tips(unique_path(os.path.join(OUTPUT_DIR, "interview_tips.svg")))
+    create_svg_care_guide(unique_path(os.path.join(OUTPUT_DIR, "care_guide.svg")))
+    create_svg_study_schedule(unique_path(os.path.join(OUTPUT_DIR, "study_schedule.svg")))

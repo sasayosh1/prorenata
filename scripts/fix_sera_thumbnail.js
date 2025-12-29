@@ -1,6 +1,7 @@
 const { createClient } = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
+const { inboxDir } = require('./utils/antigravityPaths.cjs');
 
 // Initialize Sanity client
 const client = createClient({
@@ -11,7 +12,10 @@ const client = createClient({
     useCdn: false,
 });
 
-const IMAGE_PATH = path.join(process.cwd(), 'public/images/thumbnails/sera_reference_thumbnail.png');
+// Default to local inbox (manual management; do not auto-generate into public/).
+const IMAGE_PATH =
+  process.env.IMAGE_PATH ||
+  path.join(inboxDir('prorenata', 'thumbnails'), 'sera_reference_thumbnail.png');
 const TARGET_SLUG = 'nursing-assistant-resume-writing';
 
 async function main() {

@@ -7,10 +7,11 @@ Keeps the top portion and cuts only from the bottom.
 from PIL import Image
 import os
 import sys
+from utils.antigravity_paths import inbox_dir, unique_path
 
 # Default configuration
 DEFAULT_INPUT_DIR = '/Users/sasakiyoshimasa/.gemini/antigravity/brain'
-DEFAULT_OUTPUT_DIR = '/Users/sasakiyoshimasa/prorenata/processed_images'
+DEFAULT_OUTPUT_DIR = inbox_dir("prorenata", "images")
 TARGET_SIZE = (1024, 576)  # 16:9 aspect ratio
 
 def crop_image(input_path, output_path=None, target_size=TARGET_SIZE):
@@ -58,10 +59,7 @@ def crop_image(input_path, output_path=None, target_size=TARGET_SIZE):
             if output_path is None:
                 basename = os.path.basename(input_path)
                 name, ext = os.path.splitext(basename)
-                output_path = os.path.join(DEFAULT_OUTPUT_DIR, f"{name}_cropped{ext}")
-            
-            # Ensure output directory exists
-            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+                output_path = unique_path(os.path.join(DEFAULT_OUTPUT_DIR, f"{name}_cropped{ext}"))
             
             # Save the cropped image
             cropped_img.save(output_path)

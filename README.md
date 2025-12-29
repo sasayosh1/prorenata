@@ -183,6 +183,28 @@ prorenata/
 └── next.config.js       # Next.js設定
 ```
 
+## 🧰 生成物の保存先（重要）
+
+このリポジトリでは、画像・図解などの「生成物」を `public/**` に直接出力しません。
+（削除したファイルが復活する・上書きされる混乱を避けるため）
+
+- **生成物の保存先（統一）**: `~/_inbox/antigravity/prorenata/`
+  - 例: `~/_inbox/antigravity/prorenata/diagrams/`
+  - 例: `~/_inbox/antigravity/prorenata/thumbnails/`
+- **public/ は手動管理**: サイトで使う場合のみ、必要なファイルを `public/` へ手動でコピーしてください。
+
+### 例: 手動コピー
+
+```bash
+# 図解をサイトに反映したい場合（必要な分だけコピー）
+cp -v "$HOME/_inbox/antigravity/prorenata/diagrams/"*.svg public/images/chibichara/diagrams/
+```
+
+### 安全弁
+
+スクリプトは `public/` への書き込みをデフォルトで拒否します。
+（どうしても必要な場合のみ）`ALLOW_PUBLIC_WRITE=1` を明示して実行してください。
+
 ## 📊 現在の状況
 
 ### 記事データ

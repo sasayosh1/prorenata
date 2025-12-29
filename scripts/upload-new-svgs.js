@@ -3,6 +3,7 @@ const { createClient } = require('@sanity/client')
 const fs = require('fs')
 const path = require('path')
 const { createBackup } = require('./backup-utility')
+const { inboxDir } = require('./utils/antigravityPaths.cjs')
 
 const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -12,7 +13,8 @@ const client = createClient({
     useCdn: false
 })
 
-const DIAGRAM_DIR = path.resolve(__dirname, '../public/images/chibichara/diagrams')
+// Read from the local inbox (generated assets live outside the repo).
+const DIAGRAM_DIR = inboxDir('prorenata', 'diagrams')
 
 const MAPPINGS = [
     {

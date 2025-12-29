@@ -1,6 +1,7 @@
 const { createClient } = require('next-sanity');
 const fs = require('fs');
 const path = require('path');
+const { inboxDir } = require('./utils/antigravityPaths.cjs');
 
 const client = createClient({
     projectId: '72m8vhy2',
@@ -19,10 +20,12 @@ const client = createClient({
 // 5. Roles (xTfm06TmDEW5bLJjXjBzkL) -> mixed_roles_thumbnail_v2
 // 6. Recruitment (fc67aa26...) -> mixed_recruitment_thumbnail_v2
 
+const INBOX_IMAGES_DIR = inboxDir('prorenata', 'images');
+
 const MAPPING = [
     {
         postId: '9f6xTbJiqM1HBxBrXolcZm', // Shoes
-        imagePath: '/Users/sasakiyoshimasa/prorenata/processed_images/sera_shoes_existing_1024x576.png'
+        imagePath: path.join(INBOX_IMAGES_DIR, 'sera_shoes_existing_1024x576.png')
     },
     // {
     //     postId: 'f3bbd9d1-a011-42d8-80b4-42a76196f147', // Guide / Types

@@ -1,4 +1,7 @@
 import os
+from utils.antigravity_paths import inbox_dir, unique_path
+
+OUTPUT_DIR = inbox_dir("prorenata", "diagrams")
 
 def create_svg_career_vision(filename):
     svg_content = """<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
@@ -186,9 +189,8 @@ def create_svg_operating_room(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
-    create_svg_career_vision("public/images/chibichara/diagrams/career_vision.svg")
-    create_svg_characteristics("public/images/chibichara/diagrams/characteristics.svg")
-    create_svg_salary_comparison("public/images/chibichara/diagrams/salary_comparison.svg")
-    create_svg_terminology_guide("public/images/chibichara/diagrams/terminology_guide.svg")
-    create_svg_operating_room("public/images/chibichara/diagrams/operating_room.svg")
+    create_svg_career_vision(unique_path(os.path.join(OUTPUT_DIR, "career_vision.svg")))
+    create_svg_characteristics(unique_path(os.path.join(OUTPUT_DIR, "characteristics.svg")))
+    create_svg_salary_comparison(unique_path(os.path.join(OUTPUT_DIR, "salary_comparison.svg")))
+    create_svg_terminology_guide(unique_path(os.path.join(OUTPUT_DIR, "terminology_guide.svg")))
+    create_svg_operating_room(unique_path(os.path.join(OUTPUT_DIR, "operating_room.svg")))

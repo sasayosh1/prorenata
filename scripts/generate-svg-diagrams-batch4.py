@@ -1,4 +1,7 @@
 import os
+from utils.antigravity_paths import inbox_dir, unique_path
+
+OUTPUT_DIR = inbox_dir("prorenata", "diagrams")
 
 def create_svg_medical_terms(filename):
     svg_content = """<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
@@ -186,9 +189,8 @@ def create_svg_career_change_timing(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
-    create_svg_medical_terms("public/images/chibichara/diagrams/medical_terms.svg")
-    create_svg_communication_tips("public/images/chibichara/diagrams/communication_tips.svg")
-    create_svg_night_shift("public/images/chibichara/diagrams/night_shift.svg")
-    create_svg_certification_merit("public/images/chibichara/diagrams/certification_merit.svg")
-    create_svg_career_change_timing("public/images/chibichara/diagrams/career_change_timing.svg")
+    create_svg_medical_terms(unique_path(os.path.join(OUTPUT_DIR, "medical_terms.svg")))
+    create_svg_communication_tips(unique_path(os.path.join(OUTPUT_DIR, "communication_tips.svg")))
+    create_svg_night_shift(unique_path(os.path.join(OUTPUT_DIR, "night_shift.svg")))
+    create_svg_certification_merit(unique_path(os.path.join(OUTPUT_DIR, "certification_merit.svg")))
+    create_svg_career_change_timing(unique_path(os.path.join(OUTPUT_DIR, "career_change_timing.svg")))

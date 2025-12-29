@@ -2,10 +2,12 @@ const { createClient } = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { inboxDir, uniquePath } = require('./utils/antigravityPaths.cjs');
 
 // Configuration
 const SOURCE_DIR = '/Users/sasakiyoshimasa/prorenata/白崎セラ';
-const OUTPUT_DIR = '/Users/sasakiyoshimasa/prorenata/processed_images';
+// Write generated images into the local inbox (never auto-write into repo/public).
+const OUTPUT_DIR = inboxDir('prorenata', 'thumbnails');
 const PYTHON_SCRIPT = '/Users/sasakiyoshimasa/prorenata/scripts/process-thumbnails.py';
 
 // Sanity Client
@@ -47,18 +49,19 @@ async function getTargetArticles() {
 }
 
 async function processImage(imageName, slug) {
-    const sourcePath = path.join(SOURCE_DIR, imageName);
+  const sourcePath = path.join(SOURCE_DIR, imageName);
 
     // Create a temporary python script to run the processing logic
     // We reuse the logic from process-thumbnails.py but call it for a specific file
     const tempScriptPath = path.join(__dirname, `temp_process_${slug}.py`);
 
+    const outputPath = uniquePath(path.join(OUTPUT_DIR, `${slug}_1200x630.png`));
     const pythonCode = `
 from PIL import Image, ImageFilter
 import os
 
 SOURCE_PATH = "${sourcePath}"
-OUTPUT_PATH = "${path.join(OUTPUT_DIR, `${slug}_1200x630.png`)}"
+OUTPUT_PATH = "${outputPath}"
 TARGET_WIDTH = 1200
 TARGET_HEIGHT = 675
 

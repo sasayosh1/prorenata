@@ -1,11 +1,12 @@
 import os
 import base64
+from utils.antigravity_paths import inbox_dir, unique_path
 
 # Configuration
 # Source for chibi assets
 CHIBI_DIR = "public/images/chibichara"
 # Output for generated diagrams
-OUTPUT_DIR = "public/images/chibichara/diagrams"
+OUTPUT_DIR = inbox_dir("prorenata", "diagrams")
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -49,9 +50,10 @@ def create_svg_resume_checklist(filename, base64_img):
 
   <text x="400" y="430" font-family="sans-serif" font-size="14" fill="#999" text-anchor="middle">© ProReNata</text>
 </svg>"""
-    with open(os.path.join(OUTPUT_DIR, filename), "w") as f:
+    out_path = unique_path(os.path.join(OUTPUT_DIR, filename))
+    with open(out_path, "w") as f:
         f.write(svg_content)
-    print(f"Created {os.path.join(OUTPUT_DIR, filename)}")
+    print(f"Created {out_path}")
 
 def create_svg_interview_flow(filename, base64_img):
     img_tag = f'<image href="data:image/png;base64,{base64_img}" x="650" y="50" height="120" width="120" />' if base64_img else ""
@@ -107,9 +109,10 @@ def create_svg_interview_flow(filename, base64_img):
   
   <text x="400" y="480" font-family="sans-serif" font-size="14" fill="#999" text-anchor="middle">© ProReNata</text>
 </svg>"""
-    with open(os.path.join(OUTPUT_DIR, filename), "w") as f:
+    out_path = unique_path(os.path.join(OUTPUT_DIR, filename))
+    with open(out_path, "w") as f:
         f.write(svg_content)
-    print(f"Created {os.path.join(OUTPUT_DIR, filename)}")
+    print(f"Created {out_path}")
 
 def create_svg_transfer_safety(filename, base64_img):
     img_tag = f'<image href="data:image/png;base64,{base64_img}" x="650" y="250" height="150" width="150" />' if base64_img else ""
@@ -145,9 +148,10 @@ def create_svg_transfer_safety(filename, base64_img):
   
   <text x="400" y="430" font-family="sans-serif" font-size="14" fill="#999" text-anchor="middle">© ProReNata</text>
 </svg>"""
-    with open(os.path.join(OUTPUT_DIR, filename), "w") as f:
+    out_path = unique_path(os.path.join(OUTPUT_DIR, filename))
+    with open(out_path, "w") as f:
         f.write(svg_content)
-    print(f"Created {os.path.join(OUTPUT_DIR, filename)}")
+    print(f"Created {out_path}")
 
 if __name__ == "__main__":
     # Load base64 image

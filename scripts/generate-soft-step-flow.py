@@ -1,4 +1,5 @@
 import os
+from utils.antigravity_paths import inbox_dir, unique_path
 
 # Soft pastel color palette
 COLORS = {
@@ -107,9 +108,8 @@ def create_soft_step_flow(title, subtitle, steps, filename):
   <text x=\"450\" y=\"685\" font-family=\"Hiragino Sans, sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"{COLORS['text_light']}\">© ProReNata</text>
 </svg>'''
     
-    output_dir = "public/images/chibichara/diagrams"
-    os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, filename)
+    output_dir = inbox_dir("prorenata", "diagrams")
+    output_path = unique_path(os.path.join(output_dir, filename))
     
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(svg_content)

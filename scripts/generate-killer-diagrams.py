@@ -1,5 +1,6 @@
 import os
 import sys
+from utils.antigravity_paths import inbox_dir, unique_path
 
 # Soft pastel color palette (Re-defining here as we are in a new script execution context if needed, 
 # but usually we import. For simplicity in a single file runner, I'll include the function logic or import)
@@ -80,9 +81,8 @@ def create_soft_comparison(title, subtitle, cards, filename):
     svg_content += f'''  <text x="512" y="575" font-family="Hiragino Sans, sans-serif" font-size="13" text-anchor="middle" fill="{COLORS['text_light']}">© ProReNata</text>
 </svg>'''
     
-    output_dir = "public/images/chibichara/diagrams"
-    os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, filename)
+    output_dir = inbox_dir("prorenata", "diagrams")
+    output_path = unique_path(os.path.join(output_dir, filename))
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(svg_content)
     print(f"Created: {output_path}")

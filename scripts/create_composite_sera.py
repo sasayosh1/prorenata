@@ -1,9 +1,10 @@
 import os
 import random
 from PIL import Image, ImageOps
+from utils.antigravity_paths import inbox_dir, unique_path
 
 SOURCE_DIR = '/Users/sasakiyoshimasa/prorenata/白崎セラ'
-OUTPUT_PATH = '/Users/sasakiyoshimasa/prorenata/processed_images/sera_composite_1024x576.png'
+OUTPUT_PATH = unique_path(os.path.join(inbox_dir("prorenata", "images"), "sera_composite_1024x576.png"))
 TARGET_SIZE = (1024, 576)
 
 def create_composite():
@@ -39,9 +40,6 @@ def create_composite():
         # Paste side by side
         canvas.paste(img1_fit, (0, 0))
         canvas.paste(img2_fit, (512, 0))
-        
-        # Ensure output directory exists
-        os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
         
         canvas.save(OUTPUT_PATH)
         print(f"Composite image saved to {OUTPUT_PATH}")

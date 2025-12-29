@@ -1,4 +1,7 @@
 import os
+from utils.antigravity_paths import inbox_dir, unique_path
+
+OUTPUT_DIR = inbox_dir("prorenata", "diagrams")
 
 def create_svg_resume_motivation(filename):
     svg_content = """<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
@@ -207,9 +210,8 @@ def create_svg_clean_unclean_area(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    os.makedirs("public/images/chibichara/diagrams", exist_ok=True)
-    create_svg_resume_motivation("public/images/chibichara/diagrams/resume_motivation.svg")
-    create_svg_interview_qa("public/images/chibichara/diagrams/interview_qa.svg")
-    create_svg_wheelchair_transfer("public/images/chibichara/diagrams/wheelchair_transfer.svg")
-    create_svg_nurse_study_schedule_weekly("public/images/chibichara/diagrams/nurse_study_schedule_weekly.svg")
-    create_svg_clean_unclean_area("public/images/chibichara/diagrams/clean_unclean_area.svg")
+    create_svg_resume_motivation(unique_path(os.path.join(OUTPUT_DIR, "resume_motivation.svg")))
+    create_svg_interview_qa(unique_path(os.path.join(OUTPUT_DIR, "interview_qa.svg")))
+    create_svg_wheelchair_transfer(unique_path(os.path.join(OUTPUT_DIR, "wheelchair_transfer.svg")))
+    create_svg_nurse_study_schedule_weekly(unique_path(os.path.join(OUTPUT_DIR, "nurse_study_schedule_weekly.svg")))
+    create_svg_clean_unclean_area(unique_path(os.path.join(OUTPUT_DIR, "clean_unclean_area.svg")))

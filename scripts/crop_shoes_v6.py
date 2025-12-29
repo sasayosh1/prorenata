@@ -1,8 +1,10 @@
 from PIL import Image
 import os
+import sys
+from utils.antigravity_paths import inbox_dir, unique_path
 
-INPUT_PATH = '/Users/sasakiyoshimasa/.gemini/antigravity/brain/59c92d7d-509d-4b3c-8d2e-2ef7d8eef768/sera_shoes_v6_identity_1764370556466.png'
-OUTPUT_PATH = '/Users/sasakiyoshimasa/prorenata/processed_images/sera_shoes_v6_1024x576.png'
+INPUT_PATH = os.environ.get('INPUT_PATH') or (sys.argv[1] if len(sys.argv) > 1 else '/Users/sasakiyoshimasa/.gemini/antigravity/brain/59c92d7d-509d-4b3c-8d2e-2ef7d8eef768/sera_shoes_v6_identity_1764370556466.png')
+OUTPUT_PATH = os.environ.get('OUTPUT_PATH') or (sys.argv[2] if len(sys.argv) > 2 else unique_path(os.path.join(inbox_dir("prorenata", "images"), 'sera_shoes_v6_1024x576.png')))
 TARGET_SIZE = (1024, 576)
 
 def crop_image():
@@ -25,9 +27,6 @@ def crop_image():
         bottom = target_height
         
         cropped_img = img.crop((left, top, right, bottom))
-        
-        # Ensure output directory exists
-        os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
         
         cropped_img.save(OUTPUT_PATH)
         print(f"Cropped image saved to {OUTPUT_PATH}")

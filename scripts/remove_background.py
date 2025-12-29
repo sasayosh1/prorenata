@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw
 import sys
 import os
+from utils.antigravity_paths import inbox_dir, unique_path, assert_not_public_path
 
 def remove_background_floodfill(input_path, output_path, threshold=240):
     try:
@@ -77,11 +78,14 @@ def remove_background_floodfill(input_path, output_path, threshold=240):
 
 if __name__ == "__main__":
     # Use the backup file as source to avoid compounding errors
-    input_file = "public/images/avatars/sera_thinking.png.bak"
-    output_file = "public/images/avatars/sera_thinking.png"
+    input_file = sys.argv[1] if len(sys.argv) > 1 else "public/images/avatars/sera_thinking.png.bak"
+    default_out = unique_path(os.path.join(inbox_dir("prorenata", "avatars"), "sera_thinking.png"))
+    output_file = sys.argv[2] if len(sys.argv) > 2 else default_out
+    assert_not_public_path(output_file)
     
     if not os.path.exists(input_file):
         print(f"Error: Backup file {input_file} not found. Cannot restore original.")
+        print("Usage: python3 scripts/remove_background.py <input_path> [output_path]")
         sys.exit(1)
             
     remove_background_floodfill(input_file, output_file)
