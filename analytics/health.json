@@ -2,7 +2,7 @@
   "ok": false,
   "reason": "anomaly_detected",
   "reason_code": "ANOMALY",
-  "checkedAt": "2025-12-29T03:08:04.250Z",
+  "checkedAt": "2025-12-29T17:32:39.435Z",
   "dateCheckedUtc": "2025-12-28",
   "thresholds": {
     "lookbackDays": 7,
