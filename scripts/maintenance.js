@@ -66,10 +66,10 @@ const {
 const { restoreInlineAffiliateEmbeds } = require('./utils/affiliateEmbedCleanup')
 
 const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  apiVersion: '2024-01-01',
-  token: process.env.SANITY_API_TOKEN || process.env.SANITY_WRITE_TOKEN || process.env.SANITY_TOKEN,
+  projectId: process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
+  dataset: process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  apiVersion: process.env.SANITY_API_VERSION || '2024-01-01',
+  token: process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN || process.env.SANITY_TOKEN,
   useCdn: false
 })
 
@@ -389,8 +389,14 @@ const PROTECTED_REVENUE_SLUGS = [
   'comparison-of-three-resignation-agencies'         // 退職代行３社のメリット・デメリット徹底比較
 ]
 
-const PUBLIC_POST_FILTER =
+// メタデータ（カテゴリ/タグ/抜粋/SEO）は maintenanceLocked でも補完して良い。
+// 本文の自動編集（リライト/リンク再配置/構成修正）は maintenanceLocked の場合は触らない。
+const PUBLIC_POST_FILTER_META =
+  '(!defined(internalOnly) || internalOnly == false) && !(slug.current in ["nursing-assistant-compare-services-perspective", "comparison-of-three-resignation-agencies"])'
+const PUBLIC_POST_FILTER_BODY =
   '(!defined(internalOnly) || internalOnly == false) && (!defined(maintenanceLocked) || maintenanceLocked == false) && !(slug.current in ["nursing-assistant-compare-services-perspective", "comparison-of-three-resignation-agencies"])'
+// 既存コード互換（本文編集系のフィルタとして利用）
+const PUBLIC_POST_FILTER = PUBLIC_POST_FILTER_BODY
 const NEXT_STEPS_PATTERN = /次のステップ/
 const SUMMARY_HEADING_KEYWORDS = ['まとめ', 'さいごに', '最後に', 'おわりに']
 const GENERIC_INTERNAL_LINK_TEXTS = new Set(['こちらの記事', 'この記事', 'こちら', 'この記事'])
@@ -4212,7 +4218,7 @@ async function recategorizeAllPosts() {
   const { categories, fallback } = await getCategoryResources()
 
   const rawPosts = await client.fetch(`
-    *[_type == "post" && (${PUBLIC_POST_FILTER})] {
+    *[_type == "post" && (${PUBLIC_POST_FILTER_META})] {
       _id,
       title,
       body,
@@ -4294,11 +4300,17 @@ async function recategorizeAllPosts() {
 async function autoFixMetadata() {
   console.log('\n🛠️ メタデータ自動修復を開始します\n')
 
+  const metadataOnly =
+    process.env.MAINTENANCE_METADATA_ONLY === '1' ||
+    process.env.MAINTENANCE_METADATA_ONLY?.toLowerCase() === 'true'
+
   // Gemini APIモデルのインスタンス化（H3セクション・まとめ最適化用）
   let geminiModel = null
   const enableGemini =
-    process.env.MAINTENANCE_ENABLE_GEMINI === '1' ||
-    process.env.MAINTENANCE_ENABLE_GEMINI?.toLowerCase() === 'true'
+    !metadataOnly && (
+      process.env.MAINTENANCE_ENABLE_GEMINI === '1' ||
+      process.env.MAINTENANCE_ENABLE_GEMINI?.toLowerCase() === 'true'
+    )
 
   const geminiApiKey = enableGemini ? process.env.GEMINI_API_KEY : null
   if (geminiApiKey) {
@@ -4316,15 +4328,16 @@ async function autoFixMetadata() {
     process.env.MAINTENANCE_FORCE_LINKS === '1' ||
     process.env.MAINTENANCE_FORCE_LINKS?.toLowerCase() === 'true'
 
-  if (forceLinkMaintenance) {
+  if (!metadataOnly && forceLinkMaintenance) {
     console.log('🔁 アフィリエイト・出典リンクの再配置を強制モードで実行します')
   }
 
   const { categories, fallback } = await getCategoryResources()
 
   const rawPosts = await client.fetch(`
-    *[_type == "post" && (${PUBLIC_POST_FILTER}) && (
+    *[_type == "post" && (${PUBLIC_POST_FILTER_META}) && (
       !defined(slug.current) ||
+      !defined(categories) ||
       count(categories) == 0 ||
       !defined(excerpt) ||
       length(excerpt) < 50 ||
@@ -4339,7 +4352,8 @@ async function autoFixMetadata() {
       metaDescription,
       body,
       "categories": categories[]->{ _id, title },
-      internalOnly
+      internalOnly,
+      maintenanceLocked
     }
   `)
 
@@ -4352,13 +4366,13 @@ async function autoFixMetadata() {
 
   console.log(`対象記事: ${posts.length}件\n`)
 
-  const internalLinkCatalog = await fetchInternalLinkCatalog()
+  const internalLinkCatalog = metadataOnly ? [] : await fetchInternalLinkCatalog()
   const internalLinkHrefSet = new Set(
     internalLinkCatalog.map(item =>
       item.slug.startsWith('/posts/') ? item.slug : `/posts/${item.slug}`
     )
   )
-  const internalLinkTitleMap = buildInternalLinkTitleMap(internalLinkCatalog)
+  const internalLinkTitleMap = metadataOnly ? new Map() : buildInternalLinkTitleMap(internalLinkCatalog)
 
   let updated = 0
   let sourceLinkDetails = null
@@ -4370,6 +4384,7 @@ async function autoFixMetadata() {
     const updates = {}
     const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
     const currentCategories = Array.isArray(post.categories) ? post.categories.filter(Boolean) : []
+    const allowBodyEdits = !metadataOnly && !post.maintenanceLocked
   let categoryRefs = ensureReferenceKeys(
     currentCategories
       .filter(category => category?._id)
@@ -4395,7 +4410,7 @@ async function autoFixMetadata() {
 
     // 記事冒頭の不要な挨拶文を削除
     let greetingsRemoved = false
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const cleanedBody = removeGreetings(post.body)
       if (JSON.stringify(cleanedBody) !== JSON.stringify(post.body)) {
         updates.body = cleanedBody
@@ -4405,7 +4420,7 @@ async function autoFixMetadata() {
 
     // 記事末尾の締めくくり文を削除
     let closingRemarksRemoved = false
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const bodyWithoutClosing = removeClosingRemarks(updates.body || post.body)
       if (JSON.stringify(bodyWithoutClosing) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithoutClosing
@@ -4415,7 +4430,7 @@ async function autoFixMetadata() {
 
     // プレースホルダーリンクを削除
     let placeholdersRemoved = false
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const bodyWithoutPlaceholders = removePlaceholderLinks(updates.body || post.body)
       if (JSON.stringify(bodyWithoutPlaceholders) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithoutPlaceholders
@@ -4425,7 +4440,7 @@ async function autoFixMetadata() {
 
     // アフィリエイトリンクを独立した段落として分離
     let affiliateLinksSeparated = false
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const bodyWithSeparatedLinks = separateAffiliateLinks(updates.body || post.body)
       if (JSON.stringify(bodyWithSeparatedLinks) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithSeparatedLinks
@@ -4435,7 +4450,7 @@ async function autoFixMetadata() {
 
     // 記事冒頭の #〇〇 で始まる一行を削除
     let hashtagLinesRemoved = false
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const bodyWithoutHashtags = removeHashtagLines(updates.body || post.body)
       if (JSON.stringify(bodyWithoutHashtags) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithoutHashtags
@@ -4445,7 +4460,7 @@ async function autoFixMetadata() {
 
     // H3タイトルのみで本文がないセクションに本文を追加（Gemini API使用）
     let emptyH3SectionsFixed = false
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const bodyWithH3Bodies = await addBodyToEmptyH3Sections(updates.body || post.body, post.title, geminiModel)
       if (JSON.stringify(bodyWithH3Bodies) !== JSON.stringify(updates.body || post.body)) {
         updates.body = bodyWithH3Bodies
@@ -4456,7 +4471,7 @@ async function autoFixMetadata() {
     // まとめセクションの最適化（Gemini API使用）
     let summaryOptimized = false
     let affiliateLinksNormalized = 0
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const optimizedBody = await optimizeSummarySection(updates.body || post.body, post.title, geminiModel)
       if (JSON.stringify(optimizedBody) !== JSON.stringify(updates.body || post.body)) {
         updates.body = optimizedBody
@@ -4464,7 +4479,7 @@ async function autoFixMetadata() {
       }
     }
 
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const summaryEnsureResult = ensureSummarySection(updates.body || post.body, post.title)
       if (summaryEnsureResult.added) {
         updates.body = summaryEnsureResult.body
@@ -4472,14 +4487,14 @@ async function autoFixMetadata() {
       }
     }
 
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const referenceCleanup = removeReferencesAfterSummary(updates.body || post.body)
       if (referenceCleanup.removed > 0) {
         updates.body = referenceCleanup.body
       }
     }
 
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const summaryListResult = removeSummaryListItems(updates.body || post.body)
       if (summaryListResult.converted > 0) {
         updates.body = summaryListResult.body
@@ -4490,14 +4505,14 @@ async function autoFixMetadata() {
     shouldInsertComparisonLink = comparisonLinkType === 'resignation'
     const needsCareerLink = comparisonLinkType === 'career'
 
-    if (post.body && Array.isArray(updates.body || post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(updates.body || post.body)) {
       const prunedComparison = pruneComparisonLinkBlocks(updates.body || post.body, comparisonLinkType)
       if (prunedComparison.removed > 0) {
         updates.body = prunedComparison.body
       }
     }
 
-    if (needsCareerLink) {
+    if (allowBodyEdits && needsCareerLink) {
       const careerLinkInsert = ensureCareerComparisonLink(updates.body || post.body, post, { force: true })
       if (careerLinkInsert.inserted) {
         updates.body = careerLinkInsert.body
@@ -4507,7 +4522,7 @@ async function autoFixMetadata() {
     const hasAffiliateEmbed = Array.isArray(updates.body || post.body)
       ? (updates.body || post.body).some(block => block?._type === 'affiliateEmbed')
       : false
-    if (forceLinkMaintenance || !hasAffiliateEmbed) {
+    if (allowBodyEdits && (forceLinkMaintenance || !hasAffiliateEmbed)) {
       const affiliateResult = addAffiliateLinksToArticle(updates.body || post.body, post.title, post, {
         disableRetirementAffiliates: shouldInsertComparisonLink,
         disableCareerAffiliates: needsCareerLink
@@ -4520,7 +4535,7 @@ async function autoFixMetadata() {
       }
     }
 
-    if (post.body && Array.isArray(updates.body || post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(updates.body || post.body)) {
       const servicePlacementResult = repositionServiceAffiliates(updates.body || post.body)
       if (servicePlacementResult.moved > 0) {
         updates.body = servicePlacementResult.body
@@ -4530,7 +4545,7 @@ async function autoFixMetadata() {
     const hasReferenceBlock = Array.isArray(updates.body || post.body)
       ? (updates.body || post.body).some(block => isReferenceBlock(block))
       : false
-    if (forceLinkMaintenance || !hasReferenceBlock) {
+    if (allowBodyEdits && (forceLinkMaintenance || !hasReferenceBlock)) {
       const sourceLinkResult = await addSourceLinksToArticle(updates.body || post.body, post.title, post)
       if (sourceLinkResult && sourceLinkResult.addedSource) {
         updates.body = sourceLinkResult.body
@@ -4539,14 +4554,14 @@ async function autoFixMetadata() {
       }
     }
     // 出典は「まとめ」内に置かない（後段で追加されても安全側で除去）
-    if (post.body && Array.isArray(updates.body || post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(updates.body || post.body)) {
       const finalReferenceCleanup = removeReferencesAfterSummary(updates.body || post.body)
       if (finalReferenceCleanup.removed > 0) {
         updates.body = finalReferenceCleanup.body
       }
     }
 
-      if (shouldInsertComparisonLink) {
+      if (allowBodyEdits && shouldInsertComparisonLink) {
         const comparisonLinkResult = ensureResignationComparisonLink(updates.body || post.body, post, { force: true })
         if (comparisonLinkResult.inserted) {
           updates.body = comparisonLinkResult.body
@@ -4558,7 +4573,7 @@ async function autoFixMetadata() {
 
     // 出典リンクの自動追加（YMYL対策）は上部で既に実行済み
 
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const normalized = normalizeAffiliateLinkMarks(updates.body || post.body)
       if (normalized.normalized > 0) {
         updates.body = normalized.body
@@ -4593,7 +4608,7 @@ async function autoFixMetadata() {
     let summaryMoved = false
     let h3BodiesAdded = false
     let summaryAdjusted = false
-    if (post.body && Array.isArray(post.body)) {
+    if (allowBodyEdits && post.body && Array.isArray(post.body)) {
       const sanitised = sanitizeBodyBlocks(updates.body || post.body)
       if (JSON.stringify(sanitised.body) !== JSON.stringify(updates.body || post.body)) {
         updates.body = sanitised.body
@@ -4903,6 +4918,35 @@ async function autoFixMetadata() {
   }
 
   console.log(`🛠️ 自動修復完了: ${updated}/${posts.length}件を更新`)
+
+  if (metadataOnly) {
+    console.log('ℹ️  MAINTENANCE_METADATA_ONLY=1 のため、本文修正用の追加スクリプトはスキップします')
+
+    const remaining = await client.fetch(`
+      *[_type == "post" && (${PUBLIC_POST_FILTER_META}) && (
+        !defined(slug.current) ||
+        !defined(categories) ||
+        count(categories) == 0 ||
+        !defined(excerpt) ||
+        length(excerpt) < 50 ||
+        !defined(metaDescription) ||
+        length(metaDescription) < 100 ||
+        length(metaDescription) > 180
+      )] { _id }[0...6]
+    `)
+    const remainingCount = Array.isArray(remaining) ? remaining.length : 0
+    if (remainingCount > 0) {
+      console.log(`⚠️  まだ不足がある記事が残っています（先頭${remainingCount}件分だけ確認用に取得）`)
+    } else {
+      console.log('✅ メタデータ不足の再検出: 0件')
+    }
+
+    if (process.env.MAINTENANCE_ASSERT_METADATA === '1' && remainingCount > 0) {
+      throw new Error('Metadata autofix incomplete (missing categories/excerpt/metaDescription/slug)')
+    }
+
+    return { total: posts.length, updated }
+  }
 
   const repairTasks = [
     { script: 'convert-placeholder-links.js', args: [], label: 'プレースホルダーリンク変換' },
@@ -7339,7 +7383,7 @@ if (require.main === module) {
 📝 ProReNata 記事メンテナンスツール
 
 使い方:
-  SANITY_API_TOKEN=<token> node scripts/maintenance.js <コマンド> [オプション]
+  SANITY_WRITE_TOKEN=<token> node scripts/maintenance.js <コマンド> [オプション]
 
 コマンド:
   old [月数]          古い記事を検出（デフォルト: 6ヶ月）
@@ -7406,7 +7450,7 @@ if (require.main === module) {
   SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js all
 
   # 総合レポート（検出のみ）
-  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js report
+  SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js report
 
   # 自動修正のみ
   SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js autofix
@@ -7415,16 +7459,16 @@ if (require.main === module) {
   SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js recategorize
 
   # 個別チェック
-  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js old 3
-  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js metadata
-  SANITY_API_TOKEN=$SANITY_API_TOKEN node scripts/maintenance.js short 2500
+  SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js old 3
+  SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js metadata
+  SANITY_WRITE_TOKEN=$SANITY_WRITE_TOKEN node scripts/maintenance.js short 2500
 
 チェック項目:
   🔴 重大: Slug、Categories、Meta Description欠損
   ⚠️  推奨: Tags、Excerpt、文字数、画像
 
 環境変数:
-  SANITY_API_TOKEN が必要です（書き込み権限不要）
+  SANITY_WRITE_TOKEN が必要です（書き込み権限不要）
       `)
   }
 }
