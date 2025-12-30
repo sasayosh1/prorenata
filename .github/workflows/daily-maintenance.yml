@@ -5,6 +5,12 @@ on:
     # 毎日 AM3:00 (JST) = 毎日 PM6:00 (UTC) に実行（月曜は記事生成の1時間後）
     - cron: '0 18 * * *'
   workflow_dispatch: # 手動実行も可能にする
+    inputs:
+      force_run:
+        description: "Force run even if it ran within 24h"
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: repo-write-${{ github.repository }}-${{ github.ref }}
@@ -26,10 +32,19 @@ jobs:
 
       - name: Check last run timestamp (24h safety)
         id: safety
+        env:
+          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_run || 'false' }}
         run: |
           LAST_RUN_FILE=".github/last_run_timestamp"
           NOW_TS=$(date +%s)
           SHOULD_RUN=true
+
+          if [ "$FORCE_RUN" = "true" ]; then
+            echo "Force run requested (workflow_dispatch). Skipping 24h safety guard."
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            echo "$NOW_TS" > "$LAST_RUN_FILE"
+            exit 0
+          fi
 
           if [ -f "$LAST_RUN_FILE" ]; then
             LAST_RUN_TS="$(cat "$LAST_RUN_FILE" | tr -d '\n\r' || true)"
