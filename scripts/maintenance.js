@@ -4120,14 +4120,14 @@ async function findPostsMissingMetadata() {
       }
 
       // Meta Description チェック（SEO）
-      // 100-180文字を目安（ユーザビリティやSEO優先）
+      // 120-160文字（Sanity推奨レンジ）
       if (!post.metaDescription) {
         issues.noMetaDescription.push(post)
       } else {
         const length = post.metaDescription.length
-        if (length < 100) {
+        if (length < 120) {
           issues.metaDescriptionTooShort.push({ ...post, metaLength: length })
-        } else if (length > 180) {
+        } else if (length > 160) {
           issues.metaDescriptionTooLong.push({ ...post, metaLength: length })
         }
       }
@@ -4143,8 +4143,8 @@ async function findPostsMissingMetadata() {
 
     console.log('\n【SEO（Meta Description）】')
     console.log(`  🔴 Meta Description なし: ${issues.noMetaDescription.length}件`)
-    console.log(`  ⚠️  Meta Description 短すぎ (<100文字): ${issues.metaDescriptionTooShort.length}件`)
-    console.log(`  ⚠️  Meta Description 長すぎ (>180文字): ${issues.metaDescriptionTooLong.length}件`)
+    console.log(`  ⚠️  Meta Description 短すぎ (<120文字): ${issues.metaDescriptionTooShort.length}件`)
+    console.log(`  ⚠️  Meta Description 長すぎ (>160文字): ${issues.metaDescriptionTooLong.length}件`)
 
     const criticalIssues = new Set([
       ...issues.noSlug.map(p => p._id),
@@ -4180,8 +4180,8 @@ async function findPostsMissingMetadata() {
       if (!post.metaDescription) { count++; problems.push('MetaDesc') }
       else {
         const length = post.metaDescription.length
-        if (length < 100) { count++; problems.push('MetaDesc短') }
-        else if (length > 180) { count++; problems.push('MetaDesc長') }
+        if (length < 120) { count++; problems.push('MetaDesc短') }
+        else if (length > 160) { count++; problems.push('MetaDesc長') }
       }
 
       if (count > 0) {
@@ -4342,8 +4342,8 @@ async function autoFixMetadata() {
       !defined(excerpt) ||
       length(excerpt) < 50 ||
       !defined(metaDescription) ||
-      length(metaDescription) < 100 ||
-      length(metaDescription) > 180
+      length(metaDescription) < 120 ||
+      length(metaDescription) > 160
     )] {
       _id,
       title,
@@ -4760,16 +4760,10 @@ async function autoFixMetadata() {
     }
 
     // Meta Description は plainText から直接生成（excerpt とは別）
-    // 100-180文字を目安（ユーザビリティやSEO優先）
-    if (!post.metaDescription || post.metaDescription.length < 100 || post.metaDescription.length > 180) {
+    // 120-160文字（Sanity推奨レンジ）を目安に、できるだけ160文字付近へ寄せる
+    if (!post.metaDescription || post.metaDescription.length < 120 || post.metaDescription.length > 160) {
       const metaDescription = generateMetaDescription(post.title, plainText, categoriesForMeta)
-      if (metaDescription.length < 100) {
-        updates.metaDescription = `${post.title}について、看護助手として現場で積み重ねた経験をもとに課題の背景と対処法をやさしく解説します。落ち着いて取り組めるポイントやフォローの仕方も紹介し、安心して次の一歩を踏み出せるよう支援します。`
-      } else if (metaDescription.length > 200) {
-        updates.metaDescription = `${metaDescription.slice(0, 180)}`
-      } else {
-        updates.metaDescription = metaDescription
-      }
+      updates.metaDescription = metaDescription
     }
 
     if (Object.keys(updates).length === 0) {
@@ -4930,8 +4924,8 @@ async function autoFixMetadata() {
         !defined(excerpt) ||
         length(excerpt) < 50 ||
         !defined(metaDescription) ||
-        length(metaDescription) < 100 ||
-        length(metaDescription) > 180
+        length(metaDescription) < 120 ||
+        length(metaDescription) > 160
       )] { _id }[0...6]
     `)
     const remainingCount = Array.isArray(remaining) ? remaining.length : 0

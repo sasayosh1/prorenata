@@ -71,20 +71,82 @@ function generateExcerpt(text, title) {
  * SEO用メタディスクリプションを生成（120-160文字）
  */
 function generateMetaDescription(title, excerpt, categories) {
-  const categoryText = categories && categories.length > 0
-    ? categories[0] + 'の'
-    : ''
+  const MIN_LEN = 120
+  const MAX_LEN = 160
+  const TARGET_LEN = 158
 
-  let description = excerpt
+  const normalizeText = (value) =>
+    String(value ?? '')
+      .replace(/\s+/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .trim()
 
-  // 文字数が短すぎる場合は補足
-  if (description.length < 120) {
-    description = `${categoryText}${title}について解説。` + excerpt
+  const ensureSentenceEnd = (value) => {
+    let text = normalizeText(value)
+    text = text.replace(/(\.{3,}|…)+$/g, '').trim()
+    text = text.replace(/[、,・]+$/g, '').trim()
+    if (!text) return ''
+    if (!/[。！？!?]$/.test(text) && text.length < MAX_LEN) {
+      text += '。'
+    }
+    return text
   }
 
-  // 160文字以内に収める
-  if (description.length > 160) {
-    description = description.substring(0, 157) + '...'
+  const clampToMax = (value) => {
+    let text = normalizeText(value)
+    if (text.length <= MAX_LEN) return ensureSentenceEnd(text)
+    text = text.slice(0, MAX_LEN)
+    const lastPeriod = text.lastIndexOf('。')
+    if (lastPeriod >= MIN_LEN - 10) {
+      text = text.slice(0, lastPeriod + 1)
+    }
+    return ensureSentenceEnd(text)
+  }
+
+  const categoryText = Array.isArray(categories) && categories.length > 0
+    ? String(categories[0])
+    : ''
+
+  // excerpt をベースに、短い場合は補完して 160 付近へ寄せる
+  let description = normalizeText(excerpt)
+  if (!description) {
+    description = `${title}のポイントを整理しました。`
+  }
+
+  const lead = categoryText ? `${categoryText}の視点で、` : ''
+  description = ensureSentenceEnd(`${lead}${description}`)
+
+  const fillers = [
+    '要点と注意点を短くまとめました。',
+    '迷ったときの考え方も整理しています。',
+    '状況に合わせた判断の軸も紹介します。',
+    '無理なく進めるための工夫も入れています。',
+    '手順もまとめました。',
+    '注意点も書いています。',
+    '要点を整理します。'
+  ]
+    .map(ensureSentenceEnd)
+    .filter(Boolean)
+
+  const fillersByLengthDesc = [...new Set(fillers)].sort((a, b) => b.length - a.length)
+  const used = new Set()
+
+  let safety = 0
+  while (description.length < TARGET_LEN && safety < 40) {
+    const remaining = MAX_LEN - description.length
+    const pick = fillersByLengthDesc.find(f => f.length <= remaining && !used.has(f))
+    if (!pick) break
+    used.add(pick)
+    description = normalizeText(description + pick)
+    safety += 1
+  }
+
+  description = clampToMax(description)
+
+  if (description.length < MIN_LEN) {
+    const pad = ensureSentenceEnd(`${title}を読む前に押さえたい点もまとめました。`)
+    const candidate = clampToMax(description + pad)
+    if (candidate.length <= MAX_LEN) description = candidate
   }
 
   return description

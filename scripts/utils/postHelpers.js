@@ -584,18 +584,51 @@ function generateExcerpt(plainText, title) {
  * SEO最適化された Meta Description を生成（白崎セラ口調）
  *
  * 要件:
- * - 100-180文字を目安（ユーザビリティやSEO優先）
+ * - 120-160文字（Sanity推奨レンジに合わせる）
  * - キーワードを含む
  * - 白崎セラ口調を維持
  * - 読者に寄り添う表現
  * - excerpt とは別のテキストを生成（excerpt の要約版ではない）
+ * - 「…」「...」など省略で終えない（文として完結させる）
  *
  * @param {string} title - 記事タイトル
  * @param {string} plainText - 記事本文のプレーンテキスト
  * @param {Array<string>} categories - カテゴリ配列
- * @returns {string} metaDescription（100-180文字程度）
+ * @returns {string} metaDescription（120-160文字）
  */
 function generateMetaDescription(title, plainText, categories = []) {
+  const MIN_LEN = 120
+  const MAX_LEN = 160
+  const TARGET_LEN = 158
+
+  const normalizeText = (value) =>
+    String(value ?? '')
+      .replace(/\s+/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .trim()
+
+  const ensureSentenceEnd = (value) => {
+    let text = normalizeText(value)
+    text = text.replace(/(\.{3,}|…)+$/g, '').trim()
+    text = text.replace(/[、,・]+$/g, '').trim()
+    if (!text) return ''
+    if (!/[。！？!?]$/.test(text)) {
+      if (text.length < MAX_LEN) text += '。'
+    }
+    return text
+  }
+
+  const clampToMax = (value) => {
+    let text = normalizeText(value)
+    if (text.length <= MAX_LEN) return ensureSentenceEnd(text)
+    text = text.slice(0, MAX_LEN)
+    const lastPeriod = text.lastIndexOf('。')
+    if (lastPeriod >= MIN_LEN - 10) {
+      text = text.slice(0, lastPeriod + 1)
+    }
+    return ensureSentenceEnd(text)
+  }
+
   // カテゴリ文字列を生成
   const categoryText = categories.length > 0 ? categories[0] : '看護助手'
 
@@ -634,44 +667,79 @@ function generateMetaDescription(title, plainText, categories = []) {
     '日々の業務で'
   ]
 
-  // SEO最適化された締めくくりフレーズ
+  // SEO最適化された締めくくりフレーズ（長さ調整用。省略で終わらない）
   const seoClosingPhrases = [
-    '。現場目線で詳しくお伝えします。',
-    '。実体験をもとに解説します。',
-    '。わたしの経験も交えてお話しします。',
-    '。具体的な方法をご紹介します。',
-    '。無理なく続けるヒントをお届けします。'
+    '迷いやすいポイントも整理してお伝えします。',
+    '現場で役立つ工夫を具体的にまとめました。',
+    '無理なく続けるための考え方も含めて解説します。',
+    '状況に合わせた選び方の軸も一緒に整理します。',
+    '焦らず準備できるよう、手順と注意点もまとめました。'
   ]
 
   const intro = introPhases[Math.floor(Math.random() * introPhases.length)]
   const closing = seoClosingPhrases[Math.floor(Math.random() * seoClosingPhrases.length)]
 
   // Meta Description を組み立て
-  let metaDescription = `${intro}、${baseText.trim()}`
+  const categoryLead = categoryText ? `${categoryText}の視点で、` : ''
+  let metaDescription = `${intro}、${categoryLead}${baseText.trim()}`
+  metaDescription = normalizeText(metaDescription)
 
-  // 180文字以内に調整（ユーザビリティやSEO優先）
-  const maxLength = 180 - closing.length
-  if (metaDescription.length > maxLength) {
-    metaDescription = metaDescription.substring(0, maxLength)
-    // 文の途中で切れないように調整
-    const lastComma = metaDescription.lastIndexOf('、')
-    const lastPeriod = metaDescription.lastIndexOf('。')
-    const cutPoint = Math.max(lastComma, lastPeriod)
-    if (cutPoint > 60) {
-      metaDescription = metaDescription.substring(0, cutPoint)
-    }
+  // 一旦 closing を付けて、足りなければ補完して 160 付近へ寄せる
+  metaDescription = normalizeText(ensureSentenceEnd(metaDescription) + normalizeText(closing))
+
+  const fillersCommon = [
+    '大事な点を短く整理しました。',
+    '判断に迷うところは公式情報も確認しながら進めましょう。',
+    '自分を責めずに、できる範囲から整えるのが大切です。',
+    '今日から試せる小さな工夫も入れています。',
+    '手順もまとめました。',
+    '注意点も書いています。',
+    '要点を整理します。'
+  ]
+  const fillersByCategory = {
+    転職: ['応募前に確認したいポイントもまとめました。', '面接で聞かれやすい点も整理しています。'],
+    退職: ['手続きの流れと負担を減らす工夫も書いています。', '迷ったときの考え方も整理しています。'],
+    給与: ['数字は公的情報を基準に、最新の内容で確認しましょう。', '手当や条件の見落としを防ぐ観点も入れています。'],
+    仕事: ['現場でのコツを、再現しやすい形でまとめました。', 'チームで共有しやすいポイントも整理しています。'],
+    メンタル: ['気持ちがしんどいときの見立て方も整理しました。', '一人で抱えないための工夫も入れています。']
   }
 
-  metaDescription += closing
+  const pickFillers = () => {
+    const key = String(categoryText || '')
+    const byCat = fillersByCategory[key]
+    if (Array.isArray(byCat) && byCat.length > 0) return byCat.concat(fillersCommon)
+    return fillersCommon
+  }
 
-  // 100文字未満の場合は補足情報を追加
-  if (metaDescription.length < 100 && sentences.length > 1) {
-    const secondSentence = sentences[1].substring(0, 50)
-    const additionalText = `${secondSentence}など、`
-    const newLength = metaDescription.length - closing.length + additionalText.length + closing.length
+  const fillers = pickFillers().map(ensureSentenceEnd).filter(Boolean)
+  const fillersByLengthDesc = [...new Set(fillers)].sort((a, b) => b.length - a.length)
 
-    if (newLength <= 180) {
-      metaDescription = metaDescription.replace(closing, additionalText + closing)
+  const padNearTarget = (text) => {
+    let current = normalizeText(text)
+    const used = new Set()
+    const available = fillersByLengthDesc.filter(Boolean)
+    let safety = 0
+    while (current.length < TARGET_LEN && safety < 40) {
+      const remaining = MAX_LEN - current.length
+      const pick = available.find(f => f.length <= remaining && !used.has(f))
+      if (!pick) break
+      used.add(pick)
+      current = normalizeText(current + pick)
+      safety += 1
+    }
+    return current
+  }
+
+  metaDescription = padNearTarget(metaDescription)
+
+  metaDescription = clampToMax(metaDescription)
+
+  // それでも短すぎる場合は、最後の手段としてタイトル要約を追加（それでも省略で終えない）
+  if (metaDescription.length < MIN_LEN) {
+    const pad = ensureSentenceEnd(`${title}の要点をまとめました。`)
+    const candidate = clampToMax(metaDescription + pad)
+    if (candidate.length <= MAX_LEN) {
+      metaDescription = candidate
     }
   }
 
