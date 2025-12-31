@@ -122,6 +122,17 @@ jobs:
           echo "=== メタデータ補完（カテゴリ/タグ/抜粋/SEO）開始 ==="
           node scripts/maintenance.js autofix
 
+      - name: Revenue optimize - Ensure comparison links for 退職/転職 categories
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
+          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+        run: |
+          echo "=== 収益最適化リンク補完（退職/転職カテゴリ）開始 ==="
+          node scripts/maintenance.js revenue-links
+
       - name: Create issue if problems found
         if: failure()
         uses: actions/github-script@v6

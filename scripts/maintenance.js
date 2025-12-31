@@ -1749,6 +1749,117 @@ function decideComparisonLinkType(post = {}, blocks = []) {
   return null
 }
 
+async function ensureRevenueComparisonLinks(options = {}) {
+  const dryRun =
+    options.dryRun ||
+    process.env.MAINTENANCE_DRY_RUN === '1' ||
+    process.env.MAINTENANCE_DRY_RUN?.toLowerCase() === 'true'
+
+  console.log('\n💰 収益最適化: 退職/転職カテゴリの比較記事リンクを補完します\n')
+  if (dryRun) {
+    console.log('⚠️  DRY_RUN: Sanityへの書き込みは行いません\n')
+  }
+
+  const rawPosts = await client.fetch(`
+    *[_type == "post" && defined(slug.current) && (${PUBLIC_POST_FILTER_BODY})] {
+      _id,
+      title,
+      slug,
+      body,
+      "categories": categories[]->{ title },
+      internalOnly,
+      maintenanceLocked
+    }
+  `)
+
+  const posts = filterOutInternalPosts(rawPosts)
+  if (!posts || posts.length === 0) {
+    console.log('✅ 対象記事はありません')
+    return { total: 0, updated: 0, skipped: 0 }
+  }
+
+  let updated = 0
+  let skipped = 0
+
+  for (const post of posts) {
+    if (!post || isProtectedRevenueArticle(post)) {
+      skipped += 1
+      continue
+    }
+
+    const categories = Array.isArray(post.categories) ? post.categories : []
+    const normalizedCategories = getNormalizedCategoryTitles(
+      categories.map(category => (typeof category === 'string' ? category : category?.title || ''))
+    )
+
+    // ルール: 退職カテゴリ => 退職代行比較 / 転職カテゴリ => 転職サービス比較
+    const wantsResignation = normalizedCategories.includes('退職')
+    const wantsCareer =
+      normalizedCategories.includes('転職') || normalizedCategories.includes('キャリア形成')
+
+    if (!wantsResignation && !wantsCareer) {
+      continue
+    }
+
+    if (!Array.isArray(post.body) || post.body.length === 0) {
+      skipped += 1
+      continue
+    }
+
+    const desiredType = wantsResignation ? 'resignation' : 'career'
+    const keepHrefs = new Set([
+      desiredType === 'resignation' ? RESIGNATION_COMPARISON_SLUG : CAREER_COMPARISON_SLUG
+    ])
+
+    // 比較リンクは同一記事に2本入れない（必要な方だけ残す）
+    const pruned = pruneComparisonLinkBlocks(post.body, desiredType)
+    let body = pruned.body
+    let changed = pruned.removed > 0
+
+    const genericBefore = removeGenericInternalLinkBlocks(body, keepHrefs)
+    if (genericBefore.removed > 0) {
+      body = genericBefore.body
+      changed = true
+    }
+
+    if (desiredType === 'resignation') {
+      const inserted = ensureResignationComparisonLink(body, post, { force: true })
+      body = inserted.body
+      changed = changed || inserted.inserted
+    } else {
+      const inserted = ensureCareerComparisonLink(body, post, { force: true })
+      body = inserted.body
+      changed = changed || inserted.inserted
+    }
+
+    const genericAfter = removeGenericInternalLinkBlocks(body, keepHrefs)
+    if (genericAfter.removed > 0) {
+      body = genericAfter.body
+      changed = true
+    }
+
+    if (!changed) {
+      continue
+    }
+
+    const updates = { body }
+    const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
+
+    if (!dryRun) {
+      await client.patch(post._id).set(updates).commit()
+      if (post._id !== publishedId) {
+        await client.patch(publishedId).set(updates).commit().catch(() => null)
+      }
+    }
+
+    updated += 1
+    console.log(`✅ ${post.title}`)
+  }
+
+  console.log(`\n💰 比較リンク補完: ${updated}/${posts.length}件を更新（スキップ: ${skipped}件）\n`)
+  return { total: posts.length, updated, skipped }
+}
+
 function createCareerComparisonBlock() {
   const linkKey = `link-${randomUUID()}`
   return {
@@ -1809,6 +1920,60 @@ function blockContainsLink(block, targetHref) {
   return block.markDefs.some(
     def => def && def._type === 'link' && typeof def.href === 'string' && def.href.toLowerCase() === normalizedTarget
   )
+}
+
+function getInternalPostHrefsFromBlock(block) {
+  if (!block || block._type !== 'block' || !Array.isArray(block.markDefs) || block.markDefs.length === 0) {
+    return []
+  }
+  return block.markDefs
+    .map(def => (def && def._type === 'link' && typeof def.href === 'string' ? def.href : null))
+    .filter(Boolean)
+    .filter(href => href.startsWith('/posts/'))
+}
+
+function blockToPlainText(block) {
+  if (!block || block._type !== 'block' || !Array.isArray(block.children)) return ''
+  return block.children.map(child => (child && typeof child.text === 'string' ? child.text : '')).join('').trim()
+}
+
+function removeGenericInternalLinkBlocks(blocks, keepHrefs = new Set()) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { body: blocks, removed: 0 }
+  }
+
+  const keep = new Set(Array.from(keepHrefs).map(href => String(href).toLowerCase()))
+  let removed = 0
+  const result = []
+
+  for (const block of blocks) {
+    const hrefs = getInternalPostHrefsFromBlock(block)
+    if (hrefs.length === 0) {
+      result.push(block)
+      continue
+    }
+
+    const normalizedHrefs = hrefs.map(h => h.toLowerCase())
+    const shouldKeep = normalizedHrefs.some(h => keep.has(h))
+    if (shouldKeep) {
+      result.push(block)
+      continue
+    }
+
+    const text = blockToPlainText(block)
+    const isGeneric =
+      text.length <= 60 ||
+      GENERIC_INTERNAL_LINK_TEXTS.has(text)
+
+    if (isGeneric) {
+      removed += 1
+      continue
+    }
+
+    result.push(block)
+  }
+
+  return { body: result, removed }
 }
 
 function pruneComparisonLinkBlocks(blocks, keepType) {
@@ -7253,11 +7418,14 @@ if (require.main === module) {
           console.log('\nステップ2: カテゴリ再評価\n')
       await recategorizeAllPosts()
       console.log('\n' + '='.repeat(60))
-      console.log('\nステップ3: 自動修復実行\n')
+          console.log('\nステップ3: 自動修復実行\n')
       await autoFixMetadata()
       console.log('\n' + '='.repeat(60))
-      console.log('\nステップ4: 本文内関連記事・重複段落の整理\n')
+          console.log('\nステップ4: 本文内関連記事・重複段落の整理\n')
       await sanitizeAllBodies()
+      console.log('\n' + '='.repeat(60))
+      console.log('\nステップ5: 収益最適化リンクの補完（退職/転職カテゴリ）\n')
+      await ensureRevenueComparisonLinks()
       console.log('\n' + '='.repeat(60))
       console.log('\n✅ === 総合メンテナンス完了 ===\n')
     } catch (error) {
@@ -7271,6 +7439,10 @@ if (require.main === module) {
 
     case 'autofix':
       autoFixMetadata().catch(console.error)
+      break
+
+    case 'revenue-links':
+      ensureRevenueComparisonLinks().catch(console.error)
       break
 
     case 'sanitize': {
