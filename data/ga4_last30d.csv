@@ -1,5 +1,4 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
-20251201,/,desktop,Japan,19,3,165,0.8421052631578947,429.8574879473684
 20251202,/,desktop,Japan,14,4,124,0.7857142857142857,624.7182336428572
 20251219,/,desktop,Japan,13,3,192,0.8461538461538461,439.1643661538462
 20251204,/,desktop,Japan,11,3,122,0.8181818181818182,325.9860666363636
@@ -7,7 +6,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251207,/,desktop,Japan,11,3,80,0.7272727272727273,31.86080281818182
 20251203,/,desktop,Japan,10,3,115,0.8,111.14184429999997
 20251220,/,desktop,Japan,9,6,132,0.8888888888888888,626.1200517777778
-20251201,/posts/nursing-assistant-night-shift-journey,desktop,Japan,8,2,55,1.0,247.44553
 20251202,/about,desktop,Japan,8,4,103,0.875,737.20032
 20251204,/posts,desktop,Japan,8,4,84,0.875,278.32468850000004
 20251214,/posts/comparison-of-three-resignation-agencies,desktop,Japan,8,2,79,0.875,407.6988875
@@ -42,7 +40,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251218,/posts/nursing-assistant-infection-control-manual,mobile,Japan,4,1,39,1.0,206.7696305
 20251219,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,4,2,30,0.75,109.12171
 20251220,/medical-quiz,desktop,Japan,4,3,31,0.5,331.46891750000003
-20251201,/posts/nursing-assistant-resignation-advice-workplace,desktop,Japan,3,2,31,0.6666666666666666,984.485385
 20251203,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,3,2,20,1.0,590.9390293333333
 20251203,/quiz,desktop,Japan,3,1,11,1.0,20.186263999999998
 20251204,/posts/nursing-assistant-night-shift-journey,desktop,Japan,3,1,7,1.0,29.063109666666666
@@ -61,11 +58,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251216,/tags,desktop,Japan,3,1,31,0.6666666666666666,573.7582103333333
 20251220,/posts,mobile,Japan,3,1,6,1.0,20.461478666666668
 20251220,/quiz,mobile,Japan,3,2,41,1.0,250.24645066666668
-20251201,/,mobile,Japan,2,1,21,1.0,55.150571
-20251201,/about,desktop,Japan,2,2,35,1.0,503.6095975
-20251201,/guide/)ですね。ぜひ見てみてください！きっと役に立つと思います！,desktop,Japan,2,1,23,1.0,334.6224145
-20251201,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,2,1,5,1.0,7.553784
-20251201,/search,desktop,Japan,2,2,36,1.0,18.3866035
 20251202,/posts/comparison-of-three-resignation-agencies,desktop,Japan,2,1,10,1.0,109.509792
 20251202,/posts/nursing-assistant-recommended-shoes,desktop,Japan,2,2,2,1.0,162.024726
 20251202,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,2,1,6,1.0,10.299915
@@ -126,17 +118,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251227,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,2,2,8,1.0,8.2695395
 20251227,/quiz,desktop,Japan,2,1,11,1.0,457.873255
 20251228,/,mobile,Japan,2,1,14,0.5,519.1370965
-20251201,/about,mobile,Japan,1,1,1,1.0,5.11387
-20251201,/posts/nursing-assistant-care-guide-toolbox,desktop,Japan,1,1,1,1.0,6.796264
-20251201,/posts/nursing-assistant-career-change-insights,desktop,Japan,1,1,6,1.0,20.035854
-20251201,/posts/nursing-assistant-career-vision,mobile,Japan,1,1,5,0.0,5.890022
-20251201,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,7,1.0,34.006907
-20251201,/posts/nursing-assistant-job-role-patient,desktop,Japan,1,1,10,1.0,3252.971449
-20251201,/posts/nursing-assistant-market-info,mobile,Japan,1,1,6,1.0,27.431891
-20251201,/posts/nursing-assistant-recommended-shoes,desktop,Japan,1,1,1,1.0,0.0
-20251201,/quiz,desktop,Japan,1,1,1,1.0,5.000541
-20251201,/quiz/rankings,desktop,Japan,1,1,1,1.0,52.580613
-20251201,/search,mobile,Japan,1,1,12,1.0,13.123504
 20251202,/posts,desktop,Japan,1,1,1,1.0,12.312878
 20251202,/posts/nursing-assistant-bottom-myth,mobile,Japan,1,1,6,1.0,150.791689
 20251202,/posts/nursing-assistant-care-guide-toolbox,desktop,Japan,1,1,1,1.0,0.0
@@ -440,4 +421,12 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251230,/,mobile,Japan,1,1,1,1.0,5.012266
 20251230,/medical-quiz,mobile,Japan,1,1,7,1.0,1.918105
 20251230,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,1,1,2,0.0,0.0
+20251231,/,mobile,Japan,1,1,26,1.0,99.184118
+20251231,/posts/nursing-assistant-compare-services-perspective,mobile,Japan,1,1,5,1.0,969.958083
+20251231,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.826579
+20251231,/posts/nursing-assistant-patient-safety-key,desktop,Japan,1,1,6,1.0,684.713723
+20251231,/posts/nursing-assistant-resignation-advice-key,mobile,Japan,1,1,2,1.0,6.23447
 20251231,/posts/nursing-assistant-retirement-uqjiz-2111,desktop,Japan,1,1,6,0.0,4.647134
+20251231,/posts/nursing-assistant-salary-differences,mobile,Japan,1,1,5,0.0,5.951239
+20251231,/posts/nursing-assistant-salary-update-journey,mobile,Japan,1,1,2,1.0,6.245459
+20251231,/quiz,mobile,Japan,1,1,2,1.0,0.664138
