@@ -596,6 +596,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 'syringe-use',
+    term: 'シリンジ',
+    reading: 'しりんじ',
+    meaning: '注射器のこと。薬液を注入するために使用する。',
+    distractors: ['メス', 'ピンセット'],
+    category: 'equipment',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
