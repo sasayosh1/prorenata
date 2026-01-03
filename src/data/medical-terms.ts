@@ -605,6 +605,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'equipment',
     difficulty: 1
   },
+  {
+    id: 'body-temperature-check-6',
+    term: '体温測定',
+    reading: 'たいおんそくてい',
+    meaning: '体温を測ること。',
+    distractors: ['血圧測定', '呼吸回数の確認'],
+    category: 'vital-signs',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
