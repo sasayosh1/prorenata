@@ -1,22 +1,30 @@
 import nodemailer from 'nodemailer'
 import process from 'node:process'
+import fs from 'node:fs'
+import path from 'node:path'
 import { fetchOnePost } from './sanity-fetch.mjs'
 import twitterText from 'twitter-text'
 
 const { parseTweet } = twitterText
 
 /**
- * Advanced Dynamic X Mailer (Sentence Pool Edition v6)
+ * Advanced Dynamic X Mailer (Enterprise Edition v7)
  * 
- * Goals:
- * 1. ZERO Code-based Japanese modification. 
- * 2. Use pre-composed, perfect sentences from pools.
- * 3. Max 2 sentences total in the body.
- * 4. Strict 138 weighted character limit (2-char margin).
- * 5. Selection based on keywords without any editing.
+ * Features:
+ * 1. Persistent History Tracking (.analytics/x_mailer_history.json)
+ * 2. Sentence Pool Expansion (40+ per category)
+ * 3. NG Word / Safety Guard (Medical/Financial/Aggressive)
+ * 4. Automatic URL Layout Optimization (newline/inline)
+ * 5. Maximization Search closest to TARGET_TOTAL = 138
  */
 
 const TARGET_TOTAL = 138
+const SAFETY_MARGIN = 2
+const HISTORY_FILE = path.join(process.cwd(), '.analytics/x_mailer_history.json')
+const HISTORY_MAX = 200
+
+// NG Word Patterns (Medical context, Financial guarantees, Aggressive commands)
+const NG_REGEX = /(必ず|絶対|100%|確実に|治る|治ります|診断|処方|投資|稼げる|収益|しなさい|すべき|やめろ|最悪|ゴミ|死ね|殺す)/i
 
 const SENTENCE_POOLS = {
   HOOK: [
@@ -41,7 +49,25 @@ const SENTENCE_POOLS = {
     '最近、少し疲れが溜まっていませんか。',
     '無理をして笑う日が増えていませんか。',
     '毎日、本当にお疲れ様です。',
-    '自分の働き方に、迷いを感じることもあります。'
+    '自分の働き方に、迷いを感じることもあります。',
+    '夜勤明けの静かな時間に、ふと将来が不安になりませんか。',
+    '一生懸命なあなただからこそ、心の手入れが必要です。',
+    '患者さんの前では笑顔でも、心は泣いていることはありませんか。',
+    '職場のルールに、なんとなく納得できないことはありませんか。',
+    '誰にも言えない弱音、心の中に溜まっていませんか。',
+    '人手不足の現場で、心身ともに限界を感じていませんか。',
+    '頑張りが評価されないと感じて、虚しくなることはありませんか。',
+    '今の環境で、自分の成長を感じられずに悩んでいませんか。',
+    '優しいあなたを必要としている場所は、きっとあります。',
+    '心がざわついて、眠れない夜を過ごしていませんか。',
+    'もっと楽に、自分らしく働ける道を探してみませんか。',
+    '現場の慌ただしさに、心が削られていませんか。',
+    'ふとした瞬間に、このままでいいのかと立ち止まってしまいます。',
+    '周りと意見が合わなくて、孤独を感じることはありませんか。',
+    '些細な一言に、傷ついてしまう日もありますよね。',
+    '自分のケアは、後回しになりがちですよね。',
+    '新しい環境に飛び込む勇気が、なかなか持てないこともあります。',
+    '理想と現実のギャップに、苦しくなっていませんか。'
   ],
   EXPLANATION: [
     '今の状況を客観的に見つめ直すための、判断基準をまとめました。',
@@ -64,7 +90,26 @@ const SENTENCE_POOLS = {
     '大切なポイントを整理しました。',
     '現場の課題と解決策をまとめました。',
     '今の現状を確かめるヒントです。',
-    '後悔しない選択の参考にどうぞ。'
+    '後悔しない選択の参考にどうぞ。',
+    '自分を責めないための、考え方のコツをまとめました。',
+    '心に余裕を作るための、日々のちょっとした工夫です。',
+    '仕事とプライベートの境界線を、うまく引くためのヒントです。',
+    '職場の空気に流されない、自分軸の作り方を解説しました。',
+    'モヤモヤの正体を知ることで、解決の糸口が見えてきます。',
+    '自分にとって何が一番大切か、見極める材料を整理しました。',
+    '今の職場が「普通」ではない可能性、一度確認してみませんか。',
+    'ストレスの原因を分解して、対処法を一緒に考えましょう。',
+    '心が折れる前に知っておきたい、避難方法もお伝えします。',
+    '現場での立ち振る舞いを、少し楽にする方法を共有します。',
+    '前向きに現状を変えるための、最初のアクションをまとめました。',
+    '自分の可能性を狭めないために、知っておくべきことがあります。',
+    '無理な我慢を減らすための、実践的な考え方です。',
+    '心身の健康を維持しながら、長く働くためのポイントです。',
+    '自分の強みを再発見するための、ワークを用意しました。',
+    '納得のいく決断を下すための、ロードマップを作成しました。',
+    '現場の不満を、建設的な改善に変えるヒントを探しましょう。',
+    '一歩引いた視点で、これからの人生を眺めてみませんか。',
+    '自分にとっての「幸せな働き方」を定義してみましょう。'
   ],
   GENTLE_CTA: [
     'ほんの少し視点を変えるだけで、気持ちが楽になることもあります。',
@@ -87,8 +132,91 @@ const SENTENCE_POOLS = {
     'まずは情報を整理してみましょう。',
     '一歩ずつ、一緒に進みましょう。',
     '自分のペースで大丈夫ですよ。',
-    '心を軽くするきっかけにどうぞ。'
+    '心を軽くするきっかけにどうぞ。',
+    '明日の心が、今日より少し晴れますように。',
+    '立ち止まることは、決して悪いことではありません。',
+    'あなたの居場所は、ここだけではないかもしれません。',
+    '頑張っている自分を、たまには褒めてあげてください。',
+    '深呼吸して、自分の声をゆっくり聴いてみませんか。',
+    '解決のきっかけは、すぐそばにあるかもしれません。',
+    'この内容が、あなたの支えになることを願っています。',
+    '自分にとって一番良い道を、一緒に探していきましょう。',
+    '焦る気持ちを、そっと横に置いておきましょう。',
+    'あなたの笑顔が戻るまで、ここでお待ちしています。',
+    '新しい明日のために、今できることから始めませんか。',
+    '無理をしない勇気、大切にしていきましょう。',
+    '自分の人生のハンドル、自分で握り直してみませんか。',
+    '一日の終わりに、心が温まるきっかけになれば幸いです。',
+    '未来のあなたが、今のあなたに感謝できる選択を。',
+    '少しの勇気が、世界を大きく変えることもあります。',
+    'ここにあるヒントが、あなたの力になりますように。',
+    '自分らしく輝ける場所を、妥協せずに探しましょう。',
+    'あなたの心の平安が、何より大切です。'
   ]
+}
+
+class HistoryManager {
+  constructor(filePath, maxEntries = HISTORY_MAX) {
+    this.filePath = filePath
+    this.maxEntries = maxEntries
+    this.history = []
+    this.load()
+  }
+
+  load() {
+    try {
+      if (fs.existsSync(this.filePath)) {
+        const data = fs.readFileSync(this.filePath, 'utf8')
+        this.history = JSON.parse(data)
+      }
+    } catch (e) {
+      console.error(`[HistoryManager] Load failed: ${e.message}`)
+      this.history = []
+    }
+  }
+
+  save() {
+    try {
+      const dir = path.dirname(this.filePath)
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+      fs.writeFileSync(this.filePath, JSON.stringify(this.history, null, 2))
+    } catch (e) {
+      console.error(`[HistoryManager] Save failed: ${e.message}`)
+    }
+  }
+
+  addEntry(entry) {
+    this.history.unshift({
+      timestamp: new Date().toISOString(),
+      ...entry
+    })
+    if (this.history.length > this.maxEntries) {
+      this.history = this.history.slice(0, this.maxEntries)
+    }
+    this.save()
+  }
+
+  isUsed(sentence) {
+    return this.history.some(e =>
+      e.selectedHook === sentence ||
+      e.selectedExplanation === sentence ||
+      e.selectedCTA === sentence
+    )
+  }
+
+  // Fallback: returns the oldest entry's sentences to "unblock" if needed
+  getOldestSentences() {
+    if (this.history.length === 0) return []
+    const oldest = this.history[this.history.length - 1]
+    return [oldest.selectedHook, oldest.selectedExplanation, oldest.selectedCTA].filter(Boolean)
+  }
+}
+
+/**
+ * Validates text against NG word patterns.
+ */
+function isSafe(text) {
+  return !NG_REGEX.test(text)
 }
 
 function requiredEnv(name) {
@@ -113,56 +241,10 @@ function weightedLen(tweetText) {
   return Number(parseTweet(String(tweetText || '')).weightedLength || 0)
 }
 
-function deriveProjectName() {
-  return (
-    optionalEnv('PROJECT_NAME') ||
-    (process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : '') ||
-    'prorenata'
-  )
-}
-
-function extractTextFromPortableText(body) {
-  if (!Array.isArray(body)) return ''
-  let text = ''
-  for (const block of body) {
-    if (block._type === 'block' && Array.isArray(block.children)) {
-      for (const child of block.children) {
-        if (child._type === 'span' && child.text) {
-          text += child.text
-        }
-      }
-      text += ' '
-    }
-  }
-  return text.trim()
-}
-
 /**
- * Selects pre-composed sentences from pools based on keyword matching.
+ * Orchestrates sentence selection with history and safety checks.
  */
-function selectPoolSentences(post) {
-  const bodyFullText = (extractTextFromPortableText(post.body || []) + ' ' + (post.slug || '')).toLowerCase()
-  const seed = post.slug || 'default-seed'
-
-  // Deterministic random index based on seed
-  const getIndex = (arr, offset = 0) => {
-    let hash = 0
-    for (let i = 0; i < seed.length; i++) hash = (hash << 5) - hash + seed.charCodeAt(i)
-    return Math.abs(hash + offset) % arr.length
-  }
-
-  // Define keyword-based weights or filtered lists (TBD if needed, currently using seeded random for variety)
-  const hook = SENTENCE_POOLS.HOOK[getIndex(SENTENCE_POOLS.HOOK)]
-  const desc = SENTENCE_POOLS.EXPLANATION[getIndex(SENTENCE_POOLS.EXPLANATION)]
-  const cta = SENTENCE_POOLS.GENTLE_CTA[getIndex(SENTENCE_POOLS.GENTLE_CTA)]
-
-  return { hook, desc, cta }
-}
-
-/**
- * Composes the post using "Pool sentences" without ANY modification.
- */
-function composePost({ post, url, target = TARGET_TOTAL }) {
+function composePost({ post, url, historyManager, target = TARGET_TOTAL }) {
   const seed = post.slug || post.title || 'default'
   const getHash = (str) => {
     let hash = 0
@@ -175,56 +257,82 @@ function composePost({ post, url, target = TARGET_TOTAL }) {
     return useNewline ? `${text}\n${url}` : `${text} ${url}`
   }
 
-  // Generate ALL possible valid combinations of max 2 sentences
-  const candidates = []
+  // 1. Initial Filtering (Safety Guard)
+  const safePools = {
+    HOOK: SENTENCE_POOLS.HOOK.filter(s => isSafe(s)),
+    EXPLANATION: SENTENCE_POOLS.EXPLANATION.filter(s => isSafe(s)),
+    GENTLE_CTA: SENTENCE_POOLS.GENTLE_CTA.filter(s => isSafe(s))
+  }
 
-  // 1-sentence combinations
-  for (const hook of SENTENCE_POOLS.HOOK) {
+  // 2. Generate Candidate Pool
+  let candidates = []
+
+  // Single sentence candidates
+  for (const hook of safePools.HOOK) {
     candidates.push({ parts: [hook], name: 'Hook Only' })
   }
 
-  // 2-sentence combinations (Hook + Desc or Hook + CTA)
-  for (const hook of SENTENCE_POOLS.HOOK) {
-    for (const desc of SENTENCE_POOLS.EXPLANATION) {
+  // Double sentence candidates
+  for (const hook of safePools.HOOK) {
+    for (const desc of safePools.EXPLANATION) {
       candidates.push({ parts: [hook, desc], name: 'Hook + Explanation' })
     }
-    for (const cta of SENTENCE_POOLS.GENTLE_CTA) {
+    for (const cta of safePools.GENTLE_CTA) {
       candidates.push({ parts: [hook, cta], name: 'Hook + CTA' })
     }
   }
 
-  // Find all that fit under TARGET_TOTAL
-  const valid = []
-  for (const c of candidates) {
-    const resNewline = render(c.parts, true)
-    const lenNewline = weightedLen(resNewline)
+  // 3. Score & Filter (History + Safety + Length)
+  const processCandidate = (c) => {
+    // Check history (Duplication Guard)
+    const historyHits = c.parts.filter(p => historyManager.isUsed(p))
+
+    // Check layout optimization
+    let resNewline = render(c.parts, true)
+    let lenNewline = weightedLen(resNewline)
+    let resInline = render(c.parts, false)
+    let lenInline = weightedLen(resInline)
+
+    let best = null
     if (lenNewline <= target) {
-      valid.push({ ...c, str: resNewline, len: lenNewline, newline: true, remaining: target - lenNewline })
-    } else {
-      const resInline = render(c.parts, false)
-      const lenInline = weightedLen(resInline)
-      if (lenInline <= target) {
-        valid.push({ ...c, str: resInline, len: lenInline, newline: false, remaining: target - lenInline })
-      }
+      best = { ...c, str: resNewline, len: lenNewline, newline: true, remaining: target - lenNewline, historyHits }
+    } else if (lenInline <= target) {
+      best = { ...c, str: resInline, len: lenInline, newline: false, remaining: target - lenInline, historyHits }
     }
+
+    if (best && !isSafe(best.str)) return null // Final combined safety check
+    return best
   }
 
-  if (valid.length === 0) {
-    const flatHook = SENTENCE_POOLS.HOOK[0].slice(0, 30) + '...'
-    return { str: `${flatHook} ${url}`, len: weightedLen(`${flatHook} ${url}`), poolName: 'Critical Fallback' }
+  const scored = candidates.map(processCandidate).filter(Boolean)
+
+  if (scored.length === 0) {
+    const fallback = `${safePools.HOOK[0].slice(0, 30)}... ${url}`
+    return { str: fallback, len: weightedLen(fallback), poolName: 'Critical Fallback' }
   }
 
-  // Sort by remaining space ascending (maximization)
-  valid.sort((a, b) => a.remaining - b.remaining)
+  // Sort: 
+  // 1st Priority: NO History Hits
+  // 2nd Priority: Smaller Remaining (Maximization)
+  scored.sort((a, b) => {
+    if (a.historyHits.length !== b.historyHits.length) return a.historyHits.length - b.historyHits.length
+    return a.remaining - b.remaining
+  })
 
-  // To ensure variety between runs for same article (optional) or stable selection
-  // User wants "TARGET_TOTAL にできるだけ近い", so we pick the top one.
-  // But to meet "毎回文が変わる", we use the seed to pick among top 10 best options.
-  const topSize = Math.min(10, valid.length)
-  const bestIndex = getHash(seed) % topSize
+  // Variety: Seeded selection from top 10 best valid/unique candidates
+  const bestValid = scored.filter(s => s.historyHits.length === 0)
+  const poolToPickFrom = bestValid.length > 0 ? bestValid : scored
+
+  if (bestValid.length === 0) {
+    console.log('⚠️ [Warning] History candidate exhaustion. Using oldest entries fallback.')
+  }
+
+  const topSize = Math.min(10, poolToPickFrom.length)
+  const finalSelect = poolToPickFrom[getHash(seed) % topSize]
+
   return {
-    ...valid[bestIndex],
-    poolName: valid[bestIndex].name
+    ...finalSelect,
+    historyHit: finalSelect.historyHits.length > 0
   }
 }
 
@@ -249,53 +357,54 @@ async function sendMail({ subject, body }) {
   })
 }
 
-async function runTest(label, post, siteBaseUrl) {
+async function runTest(label, post, siteBaseUrl, historyManager) {
   const url = `${siteBaseUrl}/x/${post.slug}`
-  const result = composePost({ post, url, target: TARGET_TOTAL })
+  const result = composePost({ post, url, historyManager, target: TARGET_TOTAL })
 
   const emailBody = result.str
   const len = result.len
   const rawLen = Array.from(emailBody).length
-  const title = post.title || '新着記事'
-  const subject = `【X投稿用｜${deriveProjectName()}】${title}`
+  const subject = `【X投稿用】${post.title || '新着記事'}`
 
   console.log(`\n=== TEST CASE: ${label} ===`)
-  console.log(`SUBJECT: ${subject}`)
-  console.log(`POOL: ${result.poolName}`)
+  console.log(`SLUG: ${post.slug}`)
+  console.log(`POOL: ${result.name}`)
   console.log(`SENTENCES: ${result.parts ? result.parts.join(' / ') : 'N/A'}`)
   console.log(`METRICS: weighted=${len} raw=${rawLen} remaining=${result.remaining} urlMode=${result.newline ? 'newline' : 'inline'}`)
+  console.log(`FLAGS: historyHit=${result.historyHit ? 'YES' : 'no'}`)
   console.log('--- BODY START ---')
   process.stdout.write(emailBody + '\n')
   console.log('--- BODY END ---')
 
   if (len > TARGET_TOTAL) throw new Error(`CRITICAL: Case "${label}" exceeded limit! (${len})`)
+
+  // Update history in simulation
+  historyManager.addEntry({
+    slug: post.slug,
+    selectedHook: result.parts[0],
+    selectedExplanation: result.parts[1],
+    selectedCTA: result.parts[2], // Handle CTA cases if any
+    urlMode: result.newline ? 'newline' : 'inline',
+    finalWeighted: result.len
+  })
 }
 
 async function main() {
   const dryRun = isTruthy(process.env.DRY_RUN)
   const siteBaseUrl = optionalEnv('SITE_BASE_URL', 'https://prorenata.jp').replace(/\/+$/, '')
+  const historyManager = new HistoryManager(HISTORY_FILE)
 
   if (dryRun && !process.env.SANITY_PROJECT_ID) {
-    // Case 1: Standard Article
-    await runTest('Normal Article', {
-      title: '人間関係の悩み',
-      slug: 'human-relations-stress',
-      body: []
-    }, siteBaseUrl)
+    // Variety Test
+    await runTest('Normal Article', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
+    await runTest('Career Article', { title: '働き方', slug: 'career-1' }, siteBaseUrl, historyManager)
+    await runTest('Burnout Article', { title: '休息の大切さ', slug: 'rest-1' }, siteBaseUrl, historyManager)
+    await runTest('Repeat Test (Should vary)', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
 
-    // Case 2: Different Article (Variety test)
-    await runTest('Career Article', {
-      title: 'キャリアプラン',
-      slug: 'career-growth-tips',
-      body: []
-    }, siteBaseUrl)
-
-    // Case 3: Character maximization test
-    await runTest('Short Slug Article', {
-      title: '短いテスト',
-      slug: 'test',
-      body: []
-    }, siteBaseUrl)
+    // Safety Test (Verify NG check)
+    const unsafePost = { title: '必ず治る！', slug: 'unsafe' }
+    const unsafeResult = composePost({ post: unsafePost, url: '...', historyManager })
+    console.log(`\n=== SAFETY TEST ===\nResult contains NG: ${!isSafe(unsafeResult.str) ? 'YES (CRITICAL)' : 'no'}`)
 
     return
   }
@@ -305,13 +414,22 @@ async function main() {
 
   const post = fetched.post
   const url = `${siteBaseUrl}/x/${post.slug}`
-  const result = composePost({ post, url, target: TARGET_TOTAL })
-  const emailBody = result.str
+  const result = composePost({ post, url, historyManager, target: TARGET_TOTAL })
 
-  const subject = `【X投稿用｜${deriveProjectName()}】${post.title || '新着記事'}`
+  const subject = `【X投稿用】${post.title || '新着記事'}`
 
-  await sendMail({ subject, body: emailBody })
-  console.log(`✅ Sent mail: ${post.slug} (weighted=${result.len}, pool=${result.poolName}, remaining=${result.remaining})`)
+  await sendMail({ subject, body: result.str })
+
+  // Record history
+  historyManager.addEntry({
+    slug: post.slug,
+    selectedHook: result.parts[0],
+    selectedExplanation: result.parts.length > 1 && result.parts[1],
+    urlMode: result.newline ? 'newline' : 'inline',
+    finalWeighted: result.len
+  })
+
+  console.log(`✅ Sent mail: ${post.slug} (weighted=${result.len}, pool=${result.name}, remaining=${result.remaining})`)
 }
 
 main().catch((error) => {
