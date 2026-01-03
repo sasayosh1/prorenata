@@ -20,6 +20,17 @@ const nextConfig = {
     ]
   },
 
+  // Custom short URLs for X
+  async redirects() {
+    return [
+      {
+        source: '/x/:slug',
+        destination: '/posts/:slug',
+        permanent: true,
+      },
+    ]
+  },
+
   // 外部画像ホストの許可（next/image のエラー対策）
   images: {
     remotePatterns: [
