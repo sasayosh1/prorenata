@@ -6,17 +6,72 @@ import twitterText from 'twitter-text'
 const { parseTweet } = twitterText
 
 /**
- * Advanced Dynamic X Mailer (Fundamental Reform v3)
+ * Advanced Dynamic X Mailer (Fundamental Reform v4)
  * 
  * Goals:
- * 1. Eliminate fixed templates. Generate based on article content.
+ * 1. Maximize content density using context-aware "add-on phrases".
  * 2. Strict 138 weighted character limit (2-char margin).
- * 3. URL is /x/<slug>.
- * 4. URL placement: newline if possible, same-line if tight.
- * 5. No "..." allowed. Complete sentences only.
+ * 3. Dynamic multi-category phrase pool (25+ unique entries).
+ * 4. Content-based selection and redundancy checking.
+ * 5. Flexible URL placement for space optimization.
+ * 6. Detailed logging of metrics and optimization steps.
  */
 
 const TARGET_TOTAL = 138
+
+const ADDON_POOL = {
+  OBJECTIVE: [
+    '背景の考え方を整理しました。',
+    '判断基準をまとめています。',
+    '自分に合う選び方の参考に。',
+    '役立つ視点を整理しました。',
+    'ポイントを詳しく解説。',
+    '客観的に見るヒントです。',
+    '解決への道筋を整理。',
+    '新しい視点のきっかけに。',
+    '現場の声、まとめました。',
+    '視点を変えてみませんか。',
+    '判断の軸を知る。',
+    '考えを深める材料に。',
+    '視点を整理。',
+    '大切な視点。',
+    '内容を整理。'
+  ],
+  RELIEF: [
+    'まずは知ることから。',
+    '毎日お疲れ様です。',
+    '自分を後回しにしないで。',
+    '自分のペースで大丈夫。',
+    '心の荷物を少しずつ。',
+    'あなただけではありません。',
+    '自分を労わる時間を。',
+    '無理せず一歩ずつ。',
+    '心を守るお守りに。',
+    '深呼吸を大切に。',
+    '自分を大切に。',
+    'ホッと一息。',
+    '自分のために。',
+    '心を守る。',
+    '一歩ずつ。'
+  ],
+  ACTION: [
+    '環境を見直すヒントに。',
+    '行動を少し変える。',
+    '現状を確かめることから。',
+    '働き方を考える材料に。',
+    '選択肢を広げましょう。',
+    '一歩踏み出すサポートに。',
+    '今の働き方に違和感。',
+    '小さなきっかけに。',
+    '納得できる選択を。',
+    'まずはチェックを。',
+    '未来のために。',
+    '選び方を知る。',
+    'きっかけ作り。',
+    '改善の第一歩。',
+    '自分らしく.'
+  ]
+}
 
 function requiredEnv(name) {
   const value = process.env[name]
@@ -88,58 +143,100 @@ function extractDynamicComponents(post) {
     .map(s => s.trim())
     .filter(s => s.length > 10 && s.length < 60)
 
-  // 1. Hook (Empathetic observation based on a full sentence)
+  // Hook (Empathetic observation based on a full sentence)
   let hookSentence = sentences.find(s => s.length > 15 && s.length < 40) || post.title || '看護助手の現場'
   const hookSuffixes = ['…って思うこと、ありますよね。', '、ひとりで抱えていませんか？', 'に、寄り添いたいと思っています。', 'のこと、大切に考えてみませんか。']
   const hookIndex = Math.abs(hookSentence.length) % hookSuffixes.length
   const hookSubject = hookSentence.replace(/[、。！？]$/, '')
   const hook = `${hookSubject}${hookSuffixes[hookIndex]}`
 
-  // 2. Points (Next 1-2 interesting points)
-  let points = sentences.slice(1, 4)
+  // Points (Important logical point)
+  let points = sentences.slice(1, 6)
     .find(s => s.length > 15 && s.length < 50) || '大切にしたいポイントを、丁寧に整理しました。'
   points = toSeraVoice(points)
 
-  // 3. CTA (Dynamic Role-based)
-  const roleVerbs = ['整理する', '見直す', '知る', '確かめる', '選ぶ', '向き合う', '整える']
-  const verbSeed = (hook + points).length
-  const verb = roleVerbs[verbSeed % roleVerbs.length]
-  const cta = `今の状態を${verb}きっかけになれば、嬉しいです。`
-
-  return { hook, points, cta }
+  return { hook, points }
 }
 
 /**
- * Composes the post with flexible URL placement and strict length control.
- * Priority: Hook > Points > CTA
+ * Selects the best padding phrases based on content and avoids repetition.
  */
-function composePost({ hook, points, cta, url, target = TARGET_TOTAL }) {
+function getPotentialAddons(baseText, post) {
+  const bodyText = (extractTextFromPortableText(post.body || []) + ' ' + (post.slug || '')).toLowerCase()
+
+  // Categorize content
+  let category = 'OBJECTIVE'
+  if (bodyText.match(/つらい|悩み|孤独|不安|疲|しんどい|精神|気持ち|重い|苦しい/)) category = 'RELIEF'
+  if (bodyText.match(/転職|検討|選ぶ|将来|行動|退職|キャリア|現場|働き方/)) category = 'ACTION'
+
+  const candidates = ADDON_POOL[category]
+
+  // Scramble and filter out redundant phrases
+  return candidates
+    .sort(() => Math.random() - 0.5)
+    .filter(phrase => {
+      // Very simple redundancy check: if a key shared noun/verb exists in baseText, skip
+      const keywords = ['ひとり', '整理', 'きっかけ', '見直す', '知る', '選択']
+      for (const kw of keywords) {
+        if (phrase.includes(kw) && baseText.includes(kw)) return false
+      }
+      return true
+    })
+}
+
+/**
+ * Composes the post with flexible URL placement and dynamic padding.
+ */
+function composePost({ hook, points, url, post, target = TARGET_TOTAL }) {
   const render = (parts, useNewline) => {
     const text = parts.filter(Boolean).join('\n')
     return useNewline ? `${text}\n${url}` : `${text} ${url}`
   }
 
-  const combinations = [
-    { parts: [hook, points, cta], newline: true },
-    { parts: [hook, points, cta], newline: false },
-    { parts: [hook, points], newline: true },
-    { parts: [hook, points], newline: false },
-    { parts: [hook, cta], newline: true },
-    { parts: [hook, cta], newline: false },
-    { parts: [hook], newline: true },
-    { parts: [hook], newline: false },
-    { parts: ['「自分らしく」いられるヒント、まとめました。'], newline: true }
-  ]
+  // Base components
+  let currentParts = [hook, points]
+  let useNewline = true
+  let addons = []
 
-  for (const combo of combinations) {
-    const result = render(combo.parts, combo.newline)
-    if (weightedLen(result) <= target) {
-      return result
+  // Padding optimization
+  const potentialAddons = getPotentialAddons(currentParts.join(''), post)
+
+  const attempt = (parts, newline) => {
+    const str = render(parts, newline)
+    const len = weightedLen(str)
+    return { str, len, newline, parts }
+  }
+
+  let best = attempt(currentParts, true)
+  if (best.len > target) best = attempt(currentParts, false)
+  if (best.len > target) best = attempt([hook], true)
+  if (best.len > target) best = attempt([hook], false)
+
+  // Try adding phrases
+  for (let i = 0; i < 2; i++) {
+    for (const addon of potentialAddons) {
+      if (addons.includes(addon)) continue
+
+      const testParts = [...best.parts, addon]
+      const testNewline = attempt(testParts, true)
+      const testInline = attempt(testParts, false)
+
+      let candidate = null
+      if (testNewline.len <= target) candidate = testNewline
+      else if (testInline.len <= target) candidate = testInline
+
+      if (candidate && candidate.len > best.len) {
+        best = candidate
+        addons.push(addon)
+        break // Moved to next addon count
+      }
     }
   }
 
-  // Final fallback
-  return `${hook.slice(0, 30)} ${url}`
+  // Final metadata for logging
+  best.remaining = target - best.len
+  best.addonCount = addons.length
+  return best
 }
 
 async function sendMail({ subject, body }) {
@@ -165,16 +262,18 @@ async function sendMail({ subject, body }) {
 
 async function runTest(label, post, siteBaseUrl) {
   const url = `${siteBaseUrl}/x/${post.slug}`
-  const { hook, points, cta } = extractDynamicComponents(post)
-  const emailBody = composePost({ hook, points, cta, url, target: TARGET_TOTAL })
-  const len = weightedLen(emailBody)
+  const { hook, points } = extractDynamicComponents(post)
+  const result = composePost({ hook, points, url, post, target: TARGET_TOTAL })
+
+  const emailBody = result.str
+  const len = result.len
+  const rawLen = Array.from(emailBody).length
   const title = post.title || '新着記事'
   const subject = `【X投稿用｜${deriveProjectName()}】${title}`
 
-  const rawLen = Array.from(emailBody).length
   console.log(`\n=== TEST CASE: ${label} ===`)
   console.log(`SUBJECT: ${subject}`)
-  console.log(`METRICS: weighted=${len} raw=${rawLen} / 138`)
+  console.log(`METRICS: weighted=${len} raw=${rawLen} remaining=${result.remaining} urlMode=${result.newline ? 'newline' : 'inline'} addons=${result.addonCount}`)
   console.log('--- BODY START ---')
   process.stdout.write(emailBody + '\n')
   console.log('--- BODY END ---')
@@ -187,25 +286,25 @@ async function main() {
   const siteBaseUrl = optionalEnv('SITE_BASE_URL', 'https://prorenata.jp').replace(/\/+$/, '')
 
   if (dryRun && !process.env.SANITY_PROJECT_ID) {
-    // Case 1: Standard
-    await runTest('Dynamic Content (Standard)', {
-      title: '職場での適切な距離感',
-      slug: 'workplace-boundary',
-      body: [{ _type: 'block', children: [{ _type: 'span', text: '同僚との距離感に悩むことは多いです。無理に合わせすぎず、自分のペースを大切にすることが長続きのコツです。' }] }]
+    // Case 1: Standard (Should get 1-2 addons)
+    await runTest('Normal Space', {
+      title: '職場での向き合い方',
+      slug: 'workplace-attitude',
+      body: [{ _type: 'block', children: [{ _type: 'span', text: '毎日の業務に追われていると、どうしても自分の気持ちに蓋をしてしまいがちです。' }] }]
     }, siteBaseUrl)
 
-    // Case 2: Very tight (URL on same line)
-    await runTest('Dynamic Content (Tight)', {
-      title: '非常に長い内容を持つ記事がどのように調整されるかのテスト',
-      slug: 'extremely-long-slug-for-testing-flexible-url-placement-and-dynamic-sentence-shortening-mechanics',
-      body: [{ _type: 'block', children: [{ _type: 'span', text: 'この記事の内容は非常に詳細にわたっており、多くの教訓を含んでいますが、Xの140文字制限に合わせて最小限のメッセージに凝縮される必要があります。' }] }]
+    // Case 2: Tight Space (Long slug)
+    await runTest('Tight Space', {
+      title: '非常に詳細な解説記事：人間関係を劇的に改善するためのアクションプラン',
+      slug: 'very-long-detailed-slug-that-exhausts-available-character-count-quickly-and-forces-inline-url-logic',
+      body: [{ _type: 'block', children: [{ _type: 'span', text: 'この記事では具体的な人間関係の改善策について詳しく説明しています。' }] }]
     }, siteBaseUrl)
 
-    // Case 3: Title fallback
-    await runTest('Dynamic Content (No Title)', {
-      title: '',
-      slug: 'no-title-post',
-      body: [{ _type: 'block', children: [{ _type: 'span', text: 'タイトルがない場合でも、本文から内容を抽出して意味のある投稿を生成します。' }] }]
+    // Case 3: High Space (Shortest possible)
+    await runTest('High Space', {
+      title: '短文記事',
+      slug: 'short',
+      body: [{ _type: 'block', children: [{ _type: 'span', text: '短い文章のテストです。' }] }]
     }, siteBaseUrl)
 
     return
@@ -216,13 +315,14 @@ async function main() {
 
   const post = fetched.post
   const url = `${siteBaseUrl}/x/${post.slug}`
-  const { hook, points, cta } = extractDynamicComponents(post)
-  const emailBody = composePost({ hook, points, cta, url, target: TARGET_TOTAL })
-  const len = weightedLen(emailBody)
+  const { hook, points } = extractDynamicComponents(post)
+  const result = composePost({ hook, points, url, post, target: TARGET_TOTAL })
+  const emailBody = result.str
+
   const subject = `【X投稿用｜${deriveProjectName()}】${post.title || '新着記事'}`
 
   await sendMail({ subject, body: emailBody })
-  console.log(`✅ Sent mail: ${post.slug} (${len} chars)`)
+  console.log(`✅ Sent mail: ${post.slug} (weighted=${result.len}, raw=${Array.from(emailBody).length}, remaining=${result.remaining}, addons=${result.addonCount})`)
 }
 
 main().catch((error) => {
