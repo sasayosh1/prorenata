@@ -6,15 +6,15 @@ import twitterText from 'twitter-text'
 const { parseTweet } = twitterText
 
 /**
- * Advanced Dynamic X Mailer (Fundamental Reform v4)
+ * Advanced Dynamic X Mailer (Fundamental Reform v5)
  * 
  * Goals:
- * 1. Maximize content density using context-aware "add-on phrases".
- * 2. Strict 138 weighted character limit (2-char margin).
- * 3. Dynamic multi-category phrase pool (25+ unique entries).
- * 4. Content-based selection and redundancy checking.
- * 5. Flexible URL placement for space optimization.
- * 6. Detailed logging of metrics and optimization steps.
+ * 1. Japanese Quality Guard: Strict "Desu/Masu" enforcement.
+ * 2. Fix broken particles and conjunctions (e.g., "ですに").
+ * 3. Maximize content density using context-aware "add-on phrases".
+ * 4. Strict 138 weighted character limit (2-char margin).
+ * 5. Dynamic multi-category phrase pool (25+ unique entries).
+ * 6. Flexible URL placement for space optimization.
  */
 
 const TARGET_TOTAL = 138
@@ -30,7 +30,6 @@ const ADDON_POOL = {
     '解決への道筋を整理。',
     '新しい視点のきっかけに。',
     '現場の声、まとめました。',
-    '視点を変えてみませんか。',
     '判断の軸を知る。',
     '考えを深める材料に。',
     '視点を整理。',
@@ -48,11 +47,11 @@ const ADDON_POOL = {
     '無理せず一歩ずつ。',
     '心を守るお守りに。',
     '深呼吸を大切に。',
-    '自分を大切に。',
-    'ホッと一息。',
     '自分のために。',
+    '自分を大切に。',
     '心を守る。',
-    '一歩ずつ。'
+    '一歩ずつ。',
+    'ホッと一息。'
   ],
   ACTION: [
     '環境を見直すヒントに。',
@@ -64,12 +63,11 @@ const ADDON_POOL = {
     '今の働き方に違和感。',
     '小さなきっかけに。',
     '納得できる選択を。',
-    'まずはチェックを。',
     '未来のために。',
     '選び方を知る。',
     'きっかけ作り。',
     '改善の第一歩。',
-    '自分らしく.'
+    '自分らしく。'
   ]
 }
 
@@ -121,6 +119,7 @@ function extractTextFromPortableText(body) {
 
 /**
  * Normalizes sentences and transforms to Sera's voice.
+ * Focuses on polite forms and basic particle cleanup.
  */
 function toSeraVoice(text) {
   if (!text) return ''
@@ -130,6 +129,71 @@ function toSeraVoice(text) {
     .replace(/だ。/g, 'かもしれません。')
     .replace(/です。/g, 'です。 ')
     .replace(/ます。/g, 'ます。 ')
+    .trim()
+}
+
+/**
+ * Japanese Quality Guard: Enforces Desu/Masu and fixes particle breakages.
+ */
+function polishJapanese(text) {
+  if (!text) return ''
+
+  // 1. Core particle and conjunction cleanup
+  let polished = text
+    .replace(/ですに/g, 'ですが、')
+    .replace(/ますに/g, 'ませんが、')
+    .replace(/です、/g, 'です。')
+    .replace(/ます、/g, 'ます。')
+    .replace(/だ。/g, 'です。')
+    .replace(/である。/g, 'です。')
+
+  // 2. Sentence breakdown preserving punctuation
+  const sentenceParts = polished.split(/([。！？\n])/).filter(Boolean)
+
+  let result = []
+  let currentSentence = ''
+
+  for (let i = 0; i < sentenceParts.length; i++) {
+    const part = sentenceParts[i]
+
+    if (part.match(/^[。！？\n]$/)) {
+      if (currentSentence) {
+        let s = currentSentence.trim()
+
+        // Ensure polite ending. Added 'か' for questions.
+        if (!s.match(/(です|ます|でした|ました|ください|でしょうか|よね|かな|か|う|い|ね)$/)) {
+          if (s.match(/(に|を|が|は|も|で|と)$/)) {
+            s = s.replace(/(に|を|が|は|も|で|と)$/, 'になります')
+          } else {
+            s += 'です'
+          }
+        }
+        result.push(s + (part === '\n' ? '' : part))
+        currentSentence = ''
+      } else {
+        if (part !== '\n') result.push(part)
+      }
+    } else {
+      currentSentence += part
+    }
+  }
+
+  if (currentSentence) {
+    let s = currentSentence.trim()
+    if (!s.match(/(です|ます|でした|ました|ください|でしょうか|よね|かな|か|ね)$/)) {
+      s += 'です。'
+    }
+    result.push(s)
+  }
+
+  // 3. Final cleanup and context fixes
+  return result.join('')
+    .replace(/[。！？\n]{2,}/g, (m) => m[0])
+    .replace(/です。？/g, 'ですか？')
+    .replace(/ます。？/g, 'ますか？')
+    .replace(/です[。！？][。！？]/g, 'です。')
+    .replace(/ます[。！？][。！？]/g, 'ます。')
+    .replace(/([ますで])、/g, '$1。') // Convert "ます、" to "ます。"
     .trim()
 }
 
@@ -162,20 +226,17 @@ function extractDynamicComponents(post) {
  * Selects the best padding phrases based on content and avoids repetition.
  */
 function getPotentialAddons(baseText, post) {
-  const bodyText = (extractTextFromPortableText(post.body || []) + ' ' + (post.slug || '')).toLowerCase()
+  const bodyFullText = (extractTextFromPortableText(post.body || []) + ' ' + (post.slug || '')).toLowerCase()
 
-  // Categorize content
   let category = 'OBJECTIVE'
-  if (bodyText.match(/つらい|悩み|孤独|不安|疲|しんどい|精神|気持ち|重い|苦しい/)) category = 'RELIEF'
-  if (bodyText.match(/転職|検討|選ぶ|将来|行動|退職|キャリア|現場|働き方/)) category = 'ACTION'
+  if (bodyFullText.match(/つらい|悩み|孤独|不安|疲|しんどい|精神|気持ち|重い|苦しい/)) category = 'RELIEF'
+  if (bodyFullText.match(/転職|検討|選ぶ|将来|行動|退職|キャリア|現場|働き方/)) category = 'ACTION'
 
   const candidates = ADDON_POOL[category]
 
-  // Scramble and filter out redundant phrases
   return candidates
     .sort(() => Math.random() - 0.5)
     .filter(phrase => {
-      // Very simple redundancy check: if a key shared noun/verb exists in baseText, skip
       const keywords = ['ひとり', '整理', 'きっかけ', '見直す', '知る', '選択']
       for (const kw of keywords) {
         if (phrase.includes(kw) && baseText.includes(kw)) return false
@@ -189,16 +250,13 @@ function getPotentialAddons(baseText, post) {
  */
 function composePost({ hook, points, url, post, target = TARGET_TOTAL }) {
   const render = (parts, useNewline) => {
-    const text = parts.filter(Boolean).join('\n')
-    return useNewline ? `${text}\n${url}` : `${text} ${url}`
+    // Apply Japanese Quality Guard to each part or the whole text
+    const rawText = parts.filter(Boolean).join('\n')
+    const polishedText = polishJapanese(rawText)
+    return useNewline ? `${polishedText}\n${url}` : `${polishedText} ${url}`
   }
 
-  // Base components
   let currentParts = [hook, points]
-  let useNewline = true
-  let addons = []
-
-  // Padding optimization
   const potentialAddons = getPotentialAddons(currentParts.join(''), post)
 
   const attempt = (parts, newline) => {
@@ -213,6 +271,7 @@ function composePost({ hook, points, url, post, target = TARGET_TOTAL }) {
   if (best.len > target) best = attempt([hook], false)
 
   // Try adding phrases
+  let addons = []
   for (let i = 0; i < 2; i++) {
     for (const addon of potentialAddons) {
       if (addons.includes(addon)) continue
@@ -228,12 +287,11 @@ function composePost({ hook, points, url, post, target = TARGET_TOTAL }) {
       if (candidate && candidate.len > best.len) {
         best = candidate
         addons.push(addon)
-        break // Moved to next addon count
+        break
       }
     }
   }
 
-  // Final metadata for logging
   best.remaining = target - best.len
   best.addonCount = addons.length
   return best
@@ -271,14 +329,31 @@ async function runTest(label, post, siteBaseUrl) {
   const title = post.title || '新着記事'
   const subject = `【X投稿用｜${deriveProjectName()}】${title}`
 
+  // Extra validation for Japanese quality
+  const endings = emailBody
+    .split(/[。！？\n]/)
+    .map(s => s.trim())
+    .filter(s => s.length > 2 && !s.includes('https://'))
+    .map(s => s.slice(-3))
+
   console.log(`\n=== TEST CASE: ${label} ===`)
   console.log(`SUBJECT: ${subject}`)
-  console.log(`METRICS: weighted=${len} raw=${rawLen} remaining=${result.remaining} urlMode=${result.newline ? 'newline' : 'inline'} addons=${result.addonCount}`)
+  console.log(`METRICS: weighted=${len} raw=${rawLen} remaining=${result.remaining} addons=${result.addonCount}`)
+  console.log(`URL_MODE: ${result.newline ? 'newline' : 'inline'}`)
+  console.log(`ENDINGS: [${endings.join(', ')}]`)
   console.log('--- BODY START ---')
   process.stdout.write(emailBody + '\n')
   console.log('--- BODY END ---')
 
   if (len > 140) throw new Error(`CRITICAL: Case "${label}" exceeded limit! (${len})`)
+
+  // Strict ending check
+  const forbiddenEndings = ['だ', 'である', 'に', 'を', 'が', 'は', 'も']
+  for (const e of endings) {
+    if (forbiddenEndings.some(f => e.endsWith(f))) {
+      throw new Error(`CRITICAL: Invalid sentence ending found: "${e}"`)
+    }
+  }
 }
 
 async function main() {
@@ -286,25 +361,25 @@ async function main() {
   const siteBaseUrl = optionalEnv('SITE_BASE_URL', 'https://prorenata.jp').replace(/\/+$/, '')
 
   if (dryRun && !process.env.SANITY_PROJECT_ID) {
-    // Case 1: Standard (Should get 1-2 addons)
+    // Case 1: Standard
     await runTest('Normal Space', {
       title: '職場での向き合い方',
       slug: 'workplace-attitude',
       body: [{ _type: 'block', children: [{ _type: 'span', text: '毎日の業務に追われていると、どうしても自分の気持ちに蓋をしてしまいがちです。' }] }]
     }, siteBaseUrl)
 
-    // Case 2: Tight Space (Long slug)
-    await runTest('Tight Space', {
-      title: '非常に詳細な解説記事：人間関係を劇的に改善するためのアクションプラン',
-      slug: 'very-long-detailed-slug-that-exhausts-available-character-count-quickly-and-forces-inline-url-logic',
-      body: [{ _type: 'block', children: [{ _type: 'span', text: 'この記事では具体的な人間関係の改善策について詳しく説明しています。' }] }]
+    // Case 2: Tight Space (Broken particle test)
+    await runTest('Particle Fix Test', {
+      title: '疲労困憊の状態',
+      slug: 'exhausted-slug-for-particle-fix-test',
+      body: [{ _type: 'block', children: [{ _type: 'span', text: '今の状態ですに。非常に疲れています、寄り添いたい。' }] }]
     }, siteBaseUrl)
 
-    // Case 3: High Space (Shortest possible)
-    await runTest('High Space', {
-      title: '短文記事',
-      slug: 'short',
-      body: [{ _type: 'block', children: [{ _type: 'span', text: '短い文章のテストです。' }] }]
+    // Case 3: Noun ending test
+    await runTest('Noun Ending Test', {
+      title: '改善のヒント',
+      slug: 'tips',
+      body: [{ _type: 'block', children: [{ _type: 'span', text: 'これが改善の第一歩。' }] }]
     }, siteBaseUrl)
 
     return
@@ -322,7 +397,7 @@ async function main() {
   const subject = `【X投稿用｜${deriveProjectName()}】${post.title || '新着記事'}`
 
   await sendMail({ subject, body: emailBody })
-  console.log(`✅ Sent mail: ${post.slug} (weighted=${result.len}, raw=${Array.from(emailBody).length}, remaining=${result.remaining}, addons=${result.addonCount})`)
+  console.log(`✅ Sent mail: ${post.slug} (weighted=${result.len}, remaining=${result.remaining}, addons=${result.addonCount})`)
 }
 
 main().catch((error) => {
