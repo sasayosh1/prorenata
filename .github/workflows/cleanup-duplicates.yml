@@ -1,0 +1,25 @@
+name: Cleanup Duplicate Drafts
+
+on:
+  workflow_dispatch:
+    inputs:
+      execute:
+        description: 'Actually delete duplicates'
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm install @sanity/client
+      - name: Run cleanup script
+        env:
+          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          EXECUTE: ${{ github.event.inputs.execute }}
+        run: node scripts/cleanup-duplicate-drafts-standalone.cjs
