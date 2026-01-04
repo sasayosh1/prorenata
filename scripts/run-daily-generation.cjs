@@ -984,13 +984,21 @@ ${SERA_FULL_PERSONA}
 
   // 5. カテゴリとExcerptは空で保存（メンテナンススクリプトで自動生成）
   console.log("Saving generated article as a draft to Sanity...");
+  const recentTitlesSnapshot = Array.isArray(titleList) ? titleList.slice(0, 100) : [];
+  const title = chooseDistinctTitle({
+    generatedTitle: generatedArticle.title,
+    selectedKeyword,
+    tail: targetTail,
+    minLen: titleMinLength,
+    maxLen: titleMaxLength,
+    recentTitles: recentTitlesSnapshot,
+  });
+
   // Final Variety Check before saving
-  const finalMaxSim = recentTitles.reduce((m, t) => Math.max(m, diceSimilarity(title, t)), 0);
+  const finalMaxSim = recentTitlesSnapshot.reduce((m, t) => Math.max(m, diceSimilarity(title, t)), 0);
   if (finalMaxSim > 0.72) {
     console.warn(`⚠️  Generated title is too similar to existing content (Sim: ${finalMaxSim.toFixed(2)}). Title: "${title}"`);
     console.log("Attempting one-time title rewrite for variety...");
-    // Simple variety shift: append a unique qualifier or prefix if it's too similar
-    // to avoid failing the whole run, but log it.
   }
 
   const slugCurrent = buildPostSlug(title);
