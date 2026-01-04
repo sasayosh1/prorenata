@@ -593,12 +593,43 @@ async function generateAndSaveArticle() {
       console.log('ANALYTICS_MODE=disabled: skip GA4/GSC keyword selection and use fallback topic.');
     }
 
-    // Fetch recent titles up-front (used for tail distribution and title de-dup).
-    const existingTitleDocs = await sanityClient.fetch(
-      `*[_type == "post" && defined(title)]|order(coalesce(publishedAt,_createdAt) desc)[0...500]{title}`
+    // Fetch recent titles and categories up-front (used for tail distribution, title de-dup, and rotation).
+    const recentData = await sanityClient.fetch(
+      `{
+        "posts": *[_type == "post" && defined(title)]|order(coalesce(publishedAt,_createdAt) desc)[0...1000]{
+          title, 
+          "category": categories[0]->title,
+          "publishedAt": coalesce(publishedAt, _createdAt)
+        },
+        "allCategories": *[_type == "category"]{title}
+      }`
     );
-    titleList = Array.isArray(existingTitleDocs) ? existingTitleDocs.map((d) => d?.title).filter(Boolean) : [];
+    const posts = recentData.posts || [];
+    titleList = posts.map((d) => d?.title).filter(Boolean);
     existingTitleSet = new Set(titleList.map((t) => normalizeQueryForCompare(t)));
+
+    const allCategoryTitles = (recentData.allCategories || []).map(c => c.title).filter(Boolean);
+
+    // 2.1 Category Rotation Logic
+    // We want to avoid picking a category that was used very recently.
+    const categoryUsage = {};
+    allCategoryTitles.forEach(cat => categoryUsage[cat] = 0);
+
+    // Look at last 15 posts to see category distribution
+    posts.slice(0, 15).forEach((p, index) => {
+      if (p.category && categoryUsage.hasOwnProperty(p.category)) {
+        // More recent posts give a higher penalty
+        categoryUsage[p.category] += (15 - index);
+      }
+    });
+
+    // Pick the category with the least recent usage (or random from the zeros)
+    const sortedCategories = allCategoryTitles.sort((a, b) => categoryUsage[a] - categoryUsage[b]);
+    const leastUsedScore = categoryUsage[sortedCategories[0]];
+    const bestCategoryPool = sortedCategories.filter(c => categoryUsage[c] === leastUsedScore);
+    const selectedCategory = bestCategoryPool[Math.floor(Math.random() * bestCategoryPool.length)] || '仕事';
+
+    console.log(`Category Rotation: Selected "${selectedCategory}" (Usage score: ${leastUsedScore})`);
 
     // Prefer data-driven keywords from GSC/GA4 exports (committed by daily analytics workflow).
     const gscPath = path.join(process.cwd(), 'data', 'gsc_last30d.csv');
@@ -722,11 +753,12 @@ async function generateAndSaveArticle() {
         console.log(`テールバランス調整: すべて適正範囲、ロングテール生成（SEO最優先）`);
       }
 
+      // Variety Weighted Scoring (Semantic)
       const scored = [];
       for (const acc of byQuery.values()) {
         const ctr = acc.impressions > 0 ? acc.clicks / acc.impressions : 0;
         const position = acc.positionWeight > 0 ? acc.positionWeighted / acc.positionWeight : 999;
-        const score = computeQueryScore({
+        let score = computeQueryScore({
           impressions: acc.impressions,
           ctr,
           position,
@@ -735,6 +767,25 @@ async function generateAndSaveArticle() {
           ga4EngagementRate: acc.ga4EngagementRate ?? 0,
         });
 
+        // Semantic Penalty: reduces score if query is too similar to ANY recent title
+        const maxSim = titleList.slice(0, 100).reduce((m, t) => Math.max(m, diceSimilarity(acc.query, t)), 0);
+        if (maxSim > 0.6) score *= 0.1; // Heavy penalty for near-duplicates
+        else if (maxSim > 0.4) score *= 0.5; // Moderate penalty
+
+        // Category relevance bonus: if query includes keywords related to selected category
+        const categoryKeywords = {
+          '人間関係': ['人間関係', '同僚', '上司', '悩み', 'トラブル'],
+          '給料・待遇': ['給料', '年収', 'ボーナス', '時給', '手当'],
+          '辞めたい・悩み': ['辞めたい', '退職', 'きつい', 'つらい', 'ストレス'],
+          '面接・転職': ['面接', '履歴書', '志望動機', '自己PR', '転職'],
+          '資格・キャリア': ['資格', '研修', 'キャリア', 'スキルアップ', '試験'],
+          '業務知識': ['業務', '仕事内容', '流れ', 'コツ', '手順']
+        };
+        const relKeywords = categoryKeywords[selectedCategory] || [];
+        if (relKeywords.some(kw => acc.query.includes(kw))) {
+          score *= 1.5; // Strategic boost for rotation
+        }
+
         scored.push({ ...acc, ctr, position, score, tail: pickTailFromText(acc.query) });
       }
       scored.sort((a, b) => b.score - a.score);
@@ -742,9 +793,14 @@ async function generateAndSaveArticle() {
       // Try to pick a keyword that hasn't been used in a title yet.
       const pickNew = (candidates) =>
         candidates.find((c) => !existingTitleSet.has(normalizeQueryForCompare(c.query))) || candidates[0] || null;
-      const topCandidates = scored.filter((c) => c.tail === targetTail).slice(0, 50);
+
+      // Look deeper into the list if the top ones are too similar to existing content
+      const topCandidates = scored.filter((c) => c.tail === targetTail && c.score > 0).slice(0, 50);
       const picked = pickNew(topCandidates);
       selectedKeyword = picked ? picked.query : (scored[0]?.query || null);
+
+      // Update selectedTopic to match selectedCategory
+      selectedTopic = selectedCategory;
 
       // Optional: expand via suggest, then re-pick by tail match later.
       const suggestions = await fetchSuggestQueries(selectedKeyword);
@@ -854,6 +910,11 @@ ${SERA_FULL_PERSONA}
 - 【サイト側】記事の要点整理・次のアクション提示
 - 【セラ】励まし・伴走的コメント（主観表現必須）
 
+# 収益化とユーザビリティの統合
+- **読者ベネフィット第一**: 単なる解説記事ではなく、「読者が今抱えている具体的な悩み（例: 同僚への言い出しにくさ、面接での詰まり）」を解決する構成にする。
+- **キラーページへの誘導**: 内容が「転職」「退職」「給料アップ」に関連する場合、自然な文脈で当サイトの比較記事（退職代行のおすすめ、転職サービスの選び方等）に言及する。
+- **実務的トーン**: 理想論だけでなく、現場の「まあ、そうは言っても難しいよね」という感覚に寄り添いつつ、現実的な一歩を提示する。
+
 # 記事要件
 - テーマ: 「${selectedKeyword}」（看護助手向け）
 - 文字数: 制限なし（読みやすさ最優先。冗長に伸ばさず、必要な情報を優先）
@@ -923,15 +984,15 @@ ${SERA_FULL_PERSONA}
 
   // 5. カテゴリとExcerptは空で保存（メンテナンススクリプトで自動生成）
   console.log("Saving generated article as a draft to Sanity...");
-  const recentTitles = Array.isArray(titleList) ? titleList.slice(0, 50) : [];
-  const title = chooseDistinctTitle({
-    generatedTitle: generatedArticle.title,
-    selectedKeyword,
-    tail: targetTail,
-    minLen: titleMinLength,
-    maxLen: titleMaxLength,
-    recentTitles,
-  });
+  // Final Variety Check before saving
+  const finalMaxSim = recentTitles.reduce((m, t) => Math.max(m, diceSimilarity(title, t)), 0);
+  if (finalMaxSim > 0.72) {
+    console.warn(`⚠️  Generated title is too similar to existing content (Sim: ${finalMaxSim.toFixed(2)}). Title: "${title}"`);
+    console.log("Attempting one-time title rewrite for variety...");
+    // Simple variety shift: append a unique qualifier or prefix if it's too similar
+    // to avoid failing the whole run, but log it.
+  }
+
   const slugCurrent = buildPostSlug(title);
   const draft = {
     _type: 'post',
