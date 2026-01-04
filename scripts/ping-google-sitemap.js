@@ -1,6 +1,6 @@
 const https = require('https');
 
-const SITEMAP_URL = 'https://prorenata.jp/sitemap.xml';
+const SITEMAP_URL = 'https://sasakiyoshimasa.com/sitemap.xml';
 const PING_URL = `https://www.google.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}`;
 
 function pingGoogle() {
