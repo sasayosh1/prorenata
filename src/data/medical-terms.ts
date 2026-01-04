@@ -614,6 +614,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'vital-signs',
     difficulty: 1
   },
+  {
+    id: 'medication-order-2',
+    term: '処方箋（しょほうせん）',
+    reading: 'しょほうせん',
+    meaning: '医師が患者に投与する薬の種類、量、用法などを指示する文書。',
+    distractors: ['点滴指示書', '検査依頼書', 'バイタルサイン記録表'],
+    category: 'medication',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
