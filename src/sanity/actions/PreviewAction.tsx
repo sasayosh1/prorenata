@@ -2,7 +2,7 @@ import { EyeOpenIcon } from '@sanity/icons'
 import { DocumentActionComponent } from 'sanity'
 
 const devUrl = 'http://localhost:3000'
-const prodUrl = 'https://prorenata.jp'
+const prodUrl = 'https://sasakiyoshimasa.com'
 
 export const PreviewAction: DocumentActionComponent = (props) => {
   const { draft, published } = props
