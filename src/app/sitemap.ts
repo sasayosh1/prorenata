@@ -48,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
 
   // 3. 静的ページ
-  const staticPages = ['', '/about', '/blog', '/privacy-policy'].map((route) => ({
+  const staticPages = ['', '/about', '/posts', '/privacy'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'monthly' as const,

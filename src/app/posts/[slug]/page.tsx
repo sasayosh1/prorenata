@@ -1,5 +1,6 @@
 import { createClient } from 'next-sanity'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import ArticleWithTOC from '@/components/ArticleWithTOC'
@@ -392,6 +393,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       return {
         title: '記事が見つかりません | ProReNata',
         description: 'お探しの記事は存在しないか、削除された可能性があります。',
+        robots: {
+          index: false,
+          follow: false,
+        }
       }
     }
 
@@ -508,29 +513,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   const post = await client.fetch(query, { slug: resolvedParams.slug })
 
   if (!post) {
-    return (
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-        <div className="flex h-screen flex-col justify-center">
-          <div className="text-center">
-            <h1 className="text-6xl font-bold leading-9 tracking-tight text-gray-900 md:text-8xl md:leading-14">
-              404
-            </h1>
-            <p className="text-xl leading-normal text-gray-600 md:text-2xl">
-              記事が見つかりません
-            </p>
-            <p className="mb-4 text-xl leading-normal text-gray-600 md:text-2xl">
-              お探しの記事は存在しないか、削除された可能性があります。
-            </p>
-            <Link
-              href="/"
-              className="inline rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
-            >
-              ホームに戻る
-            </Link>
-          </div>
-        </div>
-      </div>
-    )
+    notFound()
   }
 
   const normalizedCategories = normalizeCategories(post.categories)

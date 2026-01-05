@@ -1,1 +1,1 @@
-export const SITE_URL = 'https://sasakiyoshimasa.com' as const
+export const SITE_URL = 'https://prorenata.jp' as const
