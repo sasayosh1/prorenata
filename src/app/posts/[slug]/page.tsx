@@ -507,27 +507,51 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   }`
   const post = await client.fetch(query, { slug: resolvedParams.slug })
 
-  const normalizedCategories = normalizeCategories(post?.categories)
+  if (!post) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+        <div className="flex h-screen flex-col justify-center">
+          <div className="text-center">
+            <h1 className="text-6xl font-bold leading-9 tracking-tight text-gray-900 md:text-8xl md:leading-14">
+              404
+            </h1>
+            <p className="text-xl leading-normal text-gray-600 md:text-2xl">
+              記事が見つかりません
+            </p>
+            <p className="mb-4 text-xl leading-normal text-gray-600 md:text-2xl">
+              お探しの記事は存在しないか、削除された可能性があります。
+            </p>
+            <Link
+              href="/"
+              className="inline rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
+            >
+              ホームに戻る
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const normalizedCategories = normalizeCategories(post.categories)
   const categoryTitles = normalizedCategories.map(category => category.title)
   const categorySlugs = normalizedCategories
     .map(category => category.slug)
     .filter((slug): slug is string => Boolean(slug))
-  const normalizedTags = normalizeTags(post?.tags)
+  const normalizedTags = normalizeTags(post.tags)
 
   const hasTopicMeta = normalizedCategories.length > 0 || normalizedTags.length > 0
 
   let primaryRelatedPosts: Array<{ title: string; slug: string; categories?: Array<{ title: string; slug?: string | null }> | null }> = []
-  if (post) {
-    try {
-      primaryRelatedPosts = await getRelatedPosts(post._id, categorySlugs, 6)
-    } catch (error) {
-      console.error('Failed to load related posts:', error)
-      primaryRelatedPosts = []
-    }
+  try {
+    primaryRelatedPosts = await getRelatedPosts(post._id, categorySlugs, 6)
+  } catch (error) {
+    console.error('Failed to load related posts:', error)
+    primaryRelatedPosts = []
   }
 
   let relatedPosts = primaryRelatedPosts
-  if (post && relatedPosts.length < 4) {
+  if (relatedPosts.length < 4) {
     const fallbackQuery = `*[_type == "post" && defined(slug.current) && _id != $id && !internalOnly] | order(coalesce(publishedAt, _createdAt) desc)[0...8]{
       title,
       "slug": slug.current,
@@ -555,32 +579,6 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   const cleanedBody = hasBody ? pruneOffTopicSummary(post.body, post.title) : post.body
   const abTestedBody = hasBody ? reorderBlocksForABTesting(cleanedBody, post._id) : cleanedBody
   const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(abTestedBody, relatedPosts) : abTestedBody
-
-  if (!post) {
-    return (
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-        <div className="flex h-screen flex-col justify-center">
-          <div className="text-center">
-            <h1 className="text-6xl font-bold leading-9 tracking-tight text-gray-900 md:text-8xl md:leading-14">
-              404
-            </h1>
-            <p className="text-xl leading-normal text-gray-600 md:text-2xl">
-              記事が見つかりません
-            </p>
-            <p className="mb-4 text-xl leading-normal text-gray-600 md:text-2xl">
-              お探しの記事は存在しないか、削除された可能性があります。
-            </p>
-            <Link
-              href="/"
-              className="inline rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
-            >
-              ホームに戻る
-            </Link>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   const displayTitle = sanitizeTitle(post.title)
   const sanitizedExcerpt = post?.excerpt ? sanitizePersonaText(post.excerpt) : undefined
