@@ -623,6 +623,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'kyokan-kekkaku',
+    term: '胸郭',
+    reading: 'きょうかく',
+    meaning: '胸部の骨格を構成する部分。肋骨、胸骨、胸椎などからなる。',
+    distractors: ['腹腔', '骨盤'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
