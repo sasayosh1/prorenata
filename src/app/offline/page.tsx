@@ -1,10 +1,6 @@
-import Link from 'next/link'
+'use client'
 
-export const metadata = {
-  title: 'オフライン | ProReNata',
-  description: 'インターネット接続がありません。オフラインでも利用できる機能をご確認ください。',
-  robots: 'noindex, nofollow'
-}
+import Link from 'next/link'
 
 export default function OfflinePage() {
   return (
@@ -42,7 +38,7 @@ export default function OfflinePage() {
                   お気に入りに追加した記事はオフラインでも閲覧できる場合があります。
                 </p>
               </div>
-              
+
               <div className="bg-white/10 rounded-lg p-4">
                 <h3 className="font-semibold mb-2 flex items-center gap-2">
                   <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +50,7 @@ export default function OfflinePage() {
                   過去に読んだ記事の履歴を確認できます。
                 </p>
               </div>
-              
+
               <div className="bg-white/10 rounded-lg p-4">
                 <h3 className="font-semibold mb-2 flex items-center gap-2">
                   <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +62,7 @@ export default function OfflinePage() {
                   以前に閲覧した記事の一部はオフラインでも表示されます。
                 </p>
               </div>
-              
+
               <div className="bg-white/10 rounded-lg p-4">
                 <h3 className="font-semibold mb-2 flex items-center gap-2">
                   <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,8 +89,8 @@ export default function OfflinePage() {
                 </svg>
                 再試行
               </button>
-              
-              <Link 
+
+              <Link
                 href="/favorites"
                 className="bg-red-500/80 hover:bg-red-500 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2"
               >
@@ -104,7 +100,7 @@ export default function OfflinePage() {
                 お気に入りを見る
               </Link>
             </div>
-            
+
             <p className="text-sm text-blue-200">
               インターネット接続が復旧すると、自動的に最新の内容が表示されます
             </p>

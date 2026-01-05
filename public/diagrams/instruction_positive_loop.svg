@@ -1,0 +1,50 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="60" font-family="sans-serif" font-size="24" font-weight="600" fill="#BE185D" text-anchor="middle">安心をつくる！指示受けポジティブ・ループ</text>
+
+  <!-- Central Circle (Soft background) -->
+  <circle cx="400" cy="330" r="180" fill="#FDF2F8" fill-opacity="0.5" stroke="#FCE7F3" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <!-- Step 1: Receiving -->
+  <g transform="translate(315, 110)">
+    <rect width="170" height="100" rx="20" fill="#E0F2FE" stroke="#BAE6FD" stroke-width="2"/>
+    <text x="85" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#0369A1" text-anchor="middle">1. 受ける</text>
+    <text x="85" y="75" font-family="sans-serif" font-size="14" fill="#0C4A6E" text-anchor="middle">メモを取りながら聞く</text>
+  </g>
+
+  <!-- Step 2: Confirming -->
+  <g transform="translate(540, 280)">
+    <rect width="170" height="100" rx="20" fill="#FCE7F3" stroke="#FBCFE8" stroke-width="2"/>
+    <text x="85" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#BE185D" text-anchor="middle">2. 確かめる</text>
+    <text x="85" y="75" font-family="sans-serif" font-size="14" fill="#9D174D" text-anchor="middle">「復唱」で思い込みを防ぐ</text>
+  </g>
+
+  <!-- Step 3: Executing -->
+  <g transform="translate(315, 450)">
+    <rect width="170" height="100" rx="20" fill="#DCFCE7" stroke="#BBF7D0" stroke-width="2"/>
+    <text x="85" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#15803D" text-anchor="middle">3. 動く</text>
+    <text x="85" y="75" font-family="sans-serif" font-size="14" fill="#14532D" text-anchor="middle">安全第一で丁寧に行う</text>
+  </g>
+
+  <!-- Step 4: Reporting -->
+  <g transform="translate(90, 280)">
+    <rect width="170" height="100" rx="20" fill="#FEF3C7" stroke="#FDE68A" stroke-width="2"/>
+    <text x="85" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#B45309" text-anchor="middle">4. 伝える</text>
+    <text x="85" y="75" font-family="sans-serif" font-size="14" fill="#78350F" text-anchor="middle">完了報告で信頼を築く</text>
+  </g>
+
+  <!-- Arrows -->
+  <path d="M490 160 Q600 160 625 270" stroke="#FBCFE8" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
+  <path d="M625 390 Q600 500 495 500" stroke="#FBCFE8" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
+  <path d="M305 500 Q200 500 175 390" stroke="#FBCFE8" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
+  <path d="M175 270 Q200 160 305 160" stroke="#FBCFE8" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
+
+  <!-- Sera's Gentle Advice -->
+  <text x="400" y="340" font-family="sans-serif" font-size="16" font-style="italic" fill="#BE185D" text-anchor="middle">
+    <tspan x="400" dy="0">「わからない」ときも、</tspan>
+    <tspan x="400" dy="25">そのまま伝えるのが優しさです</tspan>
+  </text>
+</svg>

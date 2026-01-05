@@ -7,9 +7,9 @@ import HomeSearch from '@/components/HomeSearch'
 import HomePopularGrid from '@/components/HomePopularGrid'
 import { sanitizeTitle } from '@/lib/title'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-export const fetchCache = 'force-no-store'
+export const dynamic = 'auto'
+export const revalidate = 3600
+export const fetchCache = 'default-cache'
 export const runtime = 'nodejs'
 
 export default async function Home() {
@@ -74,7 +74,7 @@ export default async function Home() {
                   width={1200}
                   height={900}
                   priority
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 />
               </div>
             </div>

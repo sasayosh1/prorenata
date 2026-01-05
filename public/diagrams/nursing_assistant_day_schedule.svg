@@ -1,0 +1,47 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">看護助手の 1日のスケジュール（日勤の例）</text>
+
+  <!-- Timeline Line -->
+  <path d="M100 150 L100 450" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Schedule Items -->
+  <g transform="translate(130, 110)">
+    <!-- 08:30 Start -->
+    <circle cx="-30" cy="15" r="8" fill="#F472B6"/>
+    <rect width="550" height="50" rx="15" fill="#FDF2F8"/>
+    <text x="20" y="30" font-family="sans-serif" font-size="16" font-weight="700" fill="#BE185D">08:30　始業・夜勤からの申し送り</text>
+
+    <!-- 09:30 Care Duty -->
+    <circle cx="-30" cy="85" r="8" fill="#F472B6"/>
+    <rect y="70" width="550" height="50" rx="15" fill="#FDF2F8"/>
+    <text x="20" y="100" font-family="sans-serif" font-size="16" font-weight="700" fill="#BE185D">09:30　環境整備・清拭・リネン交換</text>
+
+    <!-- 11:30 Lunch Support -->
+    <circle cx="-30" cy="155" r="8" fill="#F59E0B"/>
+    <rect y="140" width="550" height="50" rx="15" fill="#FFFBEB"/>
+    <text x="20" y="170" font-family="sans-serif" font-size="16" font-weight="700" fill="#B45309">11:30　昼食の配膳・下膳・食事介助</text>
+
+    <!-- 13:00 Break -->
+    <circle cx="-30" cy="225" r="8" fill="#10B981"/>
+    <rect y="210" width="550" height="50" rx="15" fill="#ECFDF5"/>
+    <text x="20" y="240" font-family="sans-serif" font-size="16" font-weight="700" fill="#047857">13:00　休憩（交代で1時間）</text>
+
+    <!-- 14:00 Rounds & Transfer -->
+    <circle cx="-30" cy="295" r="8" fill="#3B82F6"/>
+    <rect y="280" width="550" height="50" rx="15" fill="#F0F9FF"/>
+    <text x="20" y="310" font-family="sans-serif" font-size="16" font-weight="700" fill="#0369A1">14:00　オムツ交換・移送・器材片付け</text>
+
+    <!-- 17:00 Handover & Finish -->
+    <circle cx="-30" cy="365" r="8" fill="#F472B6"/>
+    <rect y="350" width="550" height="50" rx="15" fill="#FDF2F8"/>
+    <text x="20" y="380" font-family="sans-serif" font-size="16" font-weight="700" fill="#BE185D">17:00　夜勤への申し送り・退勤</text>
+  </g>
+
+  <!-- Sera's Supportive Tip -->
+  <rect x="250" y="460" width="300" height="25" rx="12" fill="#FDF2F8"/>
+  <text x="400" y="477" font-family="sans-serif" font-size="13" font-weight="500" fill="#BE185D" text-anchor="middle">今日も一日、お疲れ様でした。ゆっくり休みましょう✨</text>
+</svg>

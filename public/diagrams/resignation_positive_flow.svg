@@ -1,0 +1,57 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">円満退職のための 4つのステップ</text>
+
+  <!-- Step Boxes -->
+  <g transform="translate(40, 100)">
+    <!-- Step 1 -->
+    <rect width="170" height="180" rx="20" fill="#FDF2F8" stroke="#FCE7F3" stroke-width="2"/>
+    <circle cx="85" cy="40" r="25" fill="#F472B6"/>
+    <text x="85" y="47" font-family="sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="85" y="90" font-family="sans-serif" font-size="16" font-weight="700" fill="#9D174D" text-anchor="middle">意思決定</text>
+    <text x="85" y="120" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">迷いをなくし</text>
+    <text x="85" y="140" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">理由を明確に</text>
+  </g>
+
+  <g transform="translate(230, 100)">
+    <!-- Step 2 -->
+    <rect width="170" height="180" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+    <circle cx="85" cy="40" r="25" fill="#38BDF8"/>
+    <text x="85" y="47" font-family="sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="85" y="90" font-family="sans-serif" font-size="16" font-weight="700" fill="#0369A1" text-anchor="middle">直属上司へ相談</text>
+    <text x="85" y="120" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">まずは口頭で</text>
+    <text x="85" y="140" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">時間を取ってもらう</text>
+  </g>
+
+  <g transform="translate(420, 100)">
+    <!-- Step 3 -->
+    <rect width="170" height="180" rx="20" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="2"/>
+    <circle cx="85" cy="40" r="25" fill="#34D399"/>
+    <text x="85" y="47" font-family="sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="85" y="90" font-family="sans-serif" font-size="16" font-weight="700" fill="#15803D" text-anchor="middle">引継ぎの準備</text>
+    <text x="85" y="120" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">後任が困らないよう</text>
+    <text x="85" y="140" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">マニュアル等整理</text>
+  </g>
+
+  <g transform="translate(610, 100)">
+    <!-- Step 4 -->
+    <rect width="170" height="180" rx="20" fill="#FFFBEB" stroke="#FDE68A" stroke-width="2"/>
+    <circle cx="85" cy="40" r="25" fill="#FBBF24"/>
+    <text x="85" y="47" font-family="sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">4</text>
+    <text x="85" y="90" font-family="sans-serif" font-size="16" font-weight="700" fill="#B45309" text-anchor="middle">感謝を伝える</text>
+    <text x="85" y="120" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">最終日まで</text>
+    <text x="85" y="140" font-family="sans-serif" font-size="13" fill="#4B5563" text-anchor="middle">誠実に業務を全う</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M210 190 L230 190" stroke="#E5E7EB" stroke-width="2"/>
+  <path d="M400 190 L420 190" stroke="#E5E7EB" stroke-width="2"/>
+  <path d="M590 190 L610 190" stroke="#E5E7EB" stroke-width="2"/>
+
+  <!-- Sera's Encouragement -->
+  <rect x="150" y="330" width="500" height="30" rx="15" fill="#FDF2F8"/>
+  <text x="400" y="350" font-family="sans-serif" font-size="14" font-weight="500" fill="#BE185D" text-anchor="middle">「次の一歩」への大事な節目。わたしも応援していますね✨</text>
+</svg>

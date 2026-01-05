@@ -20,7 +20,7 @@ const dataset = 'production'
 const apiVersion = '2024-01-01'
 const token = process.env.SANITY_API_TOKEN
 
-export const revalidate = 0
+export const revalidate = 3600
 
 type RawCategory = string | { title?: string | null; slug?: string | null }
 type PortableTextSpan = { _type?: string; text?: string }
@@ -672,7 +672,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   fill
                   className="object-cover"
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 1024px, 1024px"
                 />
               </div>
             )}

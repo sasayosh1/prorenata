@@ -1,0 +1,36 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">すべてのケアが、患者さんの「安心」に繋がっている</text>
+
+  <!-- Misconception vs Reality -->
+  <g transform="translate(60, 100)">
+    <rect width="330" height="230" rx="20" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <text x="165" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#6B7280" text-anchor="middle">❌ 世間の誤解</text>
+    <text x="50" y="100" font-family="sans-serif" font-size="14" fill="#9CA3AF">● 誰にでもできる仕事？</text>
+    <text x="50" y="140" font-family="sans-serif" font-size="14" fill="#9CA3AF">● 単純作業の繰り返し？</text>
+    <text x="50" y="180" font-family="sans-serif" font-size="14" fill="#9CA3AF">● キャリアがない？</text>
+  </g>
+
+  <!-- Central Arrow -->
+  <path d="M400 215 L430 215" stroke="#E5E7EB" stroke-width="2" marker-end="url(#arrow_gray)"/>
+
+  <g transform="translate(410, 100)">
+    <rect width="330" height="230" rx="20" fill="#FDF2F8" stroke="#FCE7F3" stroke-width="2"/>
+    <text x="165" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#BE185D" text-anchor="middle">✨ 看護助手のプライド</text>
+    <text x="50" y="100" font-family="sans-serif" font-size="14" fill="#BE185D">● 医療チームの一員として専門性を発揮</text>
+    <text x="50" y="140" font-family="sans-serif" font-size="14" fill="#BE185D">● 患者さんを最も近くで見守る「鋭い観察」</text>
+    <text x="50" y="180" font-family="sans-serif" font-size="14" fill="#BE185D">● 笑顔を引き出す、心のケアのスペシャリスト</text>
+  </g>
+
+  <!-- Sera's Message -->
+  <text x="400" y="370" font-family="sans-serif" font-size="15" font-weight="500" fill="#BE185D" text-anchor="middle">わたしたちの仕事は、病院という社会を支える「心臓」の一部です✨</text>
+
+  <defs>
+    <marker id="arrow_gray" markerWidth="6" markerHeight="6" refX="5" refY="3" orientation="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#E5E7EB" />
+    </marker>
+  </defs>
+</svg>

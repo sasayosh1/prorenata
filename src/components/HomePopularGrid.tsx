@@ -274,6 +274,15 @@ function renderPopularSection(picked: Post[]) {
           )
         })}
       </div>
+
+      <div className="mt-12 flex justify-center">
+        <Link
+          href="/posts"
+          className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-base font-bold text-cyan-700 ring-1 ring-cyan-100 shadow-sm hover:bg-cyan-50 hover:ring-cyan-200 transition-all duration-200"
+        >
+          記事一覧を見る →
+        </Link>
+      </div>
     </section>
   )
 }
@@ -440,6 +449,15 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
               </Link>
             )
           })}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/posts"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-base font-bold text-cyan-700 ring-1 ring-cyan-100 shadow-sm hover:bg-cyan-50 hover:ring-cyan-200 transition-all duration-200"
+          >
+            記事一覧を見る →
+          </Link>
         </div>
       </section>
     )

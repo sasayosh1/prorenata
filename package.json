@@ -29,7 +29,6 @@
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
     "build:analyze": "ANALYZE=true npm run build",
-    "test": "echo \"No tests yet\" && exit 0",
     "clean": "rm -rf .next",
     "postbuild": "echo \"Build completed successfully\"",
     "deploy": "vercel --prod",
@@ -37,7 +36,12 @@
     "bridge:baseline": "python3 tools/bridge/init_baseline.py",
     "bridge:export": "python3 tools/bridge/export_changeset.py",
     "all-save": "node scripts/all-save.cjs",
-    "chatlog:save": "bash scripts/save-chatlog.sh"
+    "chatlog:save": "bash scripts/save-chatlog.sh",
+    "maintenance": "node tools/cli.js",
+    "maintenance:report": "node tools/cli.js report",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=18.17.0",
@@ -70,11 +74,17 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@swc/helpers": "^0.5.17",
+    "@types/jest": "^30.0.0",
     "@types/node": "20.19.11",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "eslint": "^9.39.1",
     "eslint-config-next": "^15.5.7",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "lint-staged": "^16.2.7",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
     "typescript": "5.9.2"
   }
 }

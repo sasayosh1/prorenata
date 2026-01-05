@@ -1,0 +1,39 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#e3f2fd" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1565c0">奨学金活用の3つのポイント</text>
+  
+  <!-- Point 1 -->
+  <rect x="50" y="100" width="220" height="280" rx="10" fill="white" stroke="#42a5f5" stroke-width="2" />
+  <circle cx="160" cy="140" r="25" fill="#42a5f5" />
+  <text x="160" y="150" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">1</text>
+  <text x="160" y="190" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1565c0">病院奨学金</text>
+  <text x="160" y="225" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">卒業後、その病院で</text>
+  <text x="160" y="250" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">一定期間働けば</text>
+  <text x="160" y="275" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">返済免除</text>
+  <text x="160" y="310" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1565c0">月5-10万円</text>
+  <text x="160" y="335" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666">（3年勤務で免除が多い）</text>
+
+  <!-- Point 2 -->
+  <rect x="290" y="100" width="220" height="280" rx="10" fill="white" stroke="#42a5f5" stroke-width="2" />
+  <circle cx="400" cy="140" r="25" fill="#42a5f5" />
+  <text x="400" y="150" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">2</text>
+  <text x="400" y="190" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1565c0">自治体奨学金</text>
+  <text x="400" y="225" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">都道府県・市町村が</text>
+  <text x="400" y="250" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">看護師確保のため</text>
+  <text x="400" y="275" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">支給</text>
+  <text x="400" y="310" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1565c0">月3-5万円</text>
+  <text x="400" y="335" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666">（地域により異なる）</text>
+
+  <!-- Point 3 -->
+  <rect x="530" y="100" width="220" height="280" rx="10" fill="white" stroke="#42a5f5" stroke-width="2" />
+  <circle cx="640" cy="140" r="25" fill="#42a5f5" />
+  <text x="640" y="150" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">3</text>
+  <text x="640" y="190" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1565c0">併用可能</text>
+  <text x="640" y="225" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">病院奨学金と</text>
+  <text x="640" y="250" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">自治体奨学金は</text>
+  <text x="640" y="275" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">併用できる場合も</text>
+  <text x="640" y="310" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1565c0">最大月15万円</text>
+  <text x="640" y="335" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666">（要確認）</text>
+
+  <text x="400" y="420" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">© ProReNata</text>
+</svg>

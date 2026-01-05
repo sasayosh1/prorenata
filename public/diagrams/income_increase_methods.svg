@@ -1,0 +1,38 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">看護助手の年収を上げる 3つの近道</text>
+
+  <!-- Method 1: Night Shifts -->
+  <g transform="translate(100, 100)">
+    <rect width="600" height="80" rx="20" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+    <circle cx="40" cy="40" r="25" fill="#6366F1"/>
+    <text x="40" y="46" font-family="sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="80" y="35" font-family="sans-serif" font-size="18" font-weight="700" fill="#4338CA">夜勤回数を増やす・夜勤ありの職場へ</text>
+    <text x="80" y="60" font-family="sans-serif" font-size="14" fill="#6366F1">夜勤手当（1回3,000円〜8,000円程度）は確実に収入を押し上げます</text>
+  </g>
+
+  <!-- Method 2: Qualifications -->
+  <g transform="translate(100, 200)">
+    <rect width="600" height="80" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <circle cx="40" cy="40" r="25" fill="#10B981"/>
+    <text x="40" y="46" font-family="sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="80" y="35" font-family="sans-serif" font-size="18" font-weight="700" fill="#047857">資格を取得して「資格手当」をもらう</text>
+    <text x="80" y="60" font-family="sans-serif" font-size="14" fill="#059669">介護職員初任者研修や実務者研修など、手当がつく資格を目指しましょう</text>
+  </g>
+
+  <!-- Method 3: Job Change -->
+  <g transform="translate(100, 300)">
+    <rect width="600" height="80" rx="20" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+    <circle cx="40" cy="40" r="25" fill="#F59E0B"/>
+    <text x="40" y="46" font-family="sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="80" y="35" font-family="sans-serif" font-size="18" font-weight="700" fill="#B45309">基本給の高い職場へ「戦略的に転職」する</text>
+    <text x="80" y="60" font-family="sans-serif" font-size="14" fill="#D97706">地域や施設形態によって数万円の差が出ることも。エージェント活用が有効です</text>
+  </g>
+
+  <!-- Sera's Advice -->
+  <rect x="150" y="400" width="500" height="30" rx="15" fill="#FDF2F8"/>
+  <text x="400" y="420" font-family="sans-serif" font-size="14" font-weight="500" fill="#BE185D" text-anchor="middle">無理なく続けられる範囲で、理想の収入を目指しましょうね✨</text>
+</svg>

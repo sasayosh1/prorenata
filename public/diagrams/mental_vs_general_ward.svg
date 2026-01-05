@@ -1,0 +1,55 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" rx="24" fill="#FFFFFF"/>
+  
+  <!-- Content Background Patterns (Subtle) -->
+  <circle cx="750" cy="50" r="100" fill="#FDF2F8" fill-opacity="0.5"/>
+  <circle cx="50" cy="450" r="120" fill="#EFF6FF" fill-opacity="0.5"/>
+
+  <!-- Title Section -->
+  <rect x="200" y="30" width="400" height="50" rx="25" fill="#FCE7F3"/>
+  <text x="400" y="63" font-family="sans-serif" font-size="20" font-weight="600" fill="#BE185D" text-anchor="middle">一般病棟と精神科病棟のちがい</text>
+
+  <!-- Left Side: General Ward (Soft Pink/Rose) -->
+  <rect x="50" y="110" width="330" height="340" rx="20" fill="#FFF1F2" stroke="#FECDD3" stroke-width="2"/>
+  <rect x="115" y="95" width="200" height="40" rx="20" fill="#FB7185"/>
+  <text x="215" y="122" font-family="sans-serif" font-size="18" font-weight="600" fill="#FFFFFF" text-anchor="middle">一般病棟（身体介助）</text>
+  
+  <g transform="translate(70, 160)">
+    <circle cx="15" cy="15" r="5" fill="#FB7185"/>
+    <text x="30" y="20" font-family="sans-serif" font-size="16" fill="#4B5563">身体的なお世話がメイン</text>
+    
+    <circle cx="15" cy="55" r="5" fill="#FB7185"/>
+    <text x="30" y="60" font-family="sans-serif" font-size="16" fill="#4B5563">検査や処置の準備で忙しい</text>
+    
+    <circle cx="15" cy="95" r="5" fill="#FB7185"/>
+    <text x="30" y="100" font-family="sans-serif" font-size="16" fill="#4B5563">テキパキしたスピード感</text>
+    
+    <circle cx="15" cy="135" r="5" fill="#FB7185"/>
+    <text x="30" y="140" font-family="sans-serif" font-size="16" fill="#4B5563">バタバタと動き回ることが多い</text>
+  </g>
+
+  <!-- Right Side: Mental Health (Soft Cyan/Blue) -->
+  <rect x="420" y="110" width="330" height="340" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+  <rect x="485" y="95" width="200" height="40" rx="20" fill="#0EA5E9"/>
+  <text x="585" y="122" font-family="sans-serif" font-size="18" font-weight="600" fill="#FFFFFF" text-anchor="middle">精神科病棟（見守り）</text>
+
+  <g transform="translate(440, 160)">
+    <circle cx="15" cy="15" r="5" fill="#0EA5E9"/>
+    <text x="30" y="20" font-family="sans-serif" font-size="16" fill="#4B5563">心のケアと安全管理がメイン</text>
+    
+    <circle cx="15" cy="55" r="5" fill="#0EA5E9"/>
+    <text x="30" y="60" font-family="sans-serif" font-size="16" fill="#4B5563">「見守り」と「傾聴」が重要</text>
+    
+    <circle cx="15" cy="95" r="5" fill="#0EA5E9"/>
+    <text x="30" y="100" font-family="sans-serif" font-size="16" fill="#4B5563">穏やかで丁寧なコミュニケーション</text>
+    
+    <circle cx="15" cy="135" r="5" fill="#0EA5E9"/>
+    <text x="30" y="140" font-family="sans-serif" font-size="16" fill="#4B5563">患者さんのペースに合わせる</text>
+  </g>
+
+  <!-- Bottom Message from Sera -->
+  <path d="M400 460 L380 480 L420 480 Z" fill="#FCE7F3"/>
+  <rect x="150" y="475" width="500" height="30" rx="15" fill="#FCE7F3"/>
+  <text x="400" y="495" font-family="sans-serif" font-size="14" font-weight="500" fill="#BE185D" text-anchor="middle">どちらも「誰かを支える」という誇り高い仕事ですよ</text>
+</svg>

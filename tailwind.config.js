@@ -16,6 +16,10 @@ module.exports = {
           '50%': { transform: 'translateY(0)' },
         }
       },
+      colors: {
+        'brand-pink': '#fff4f4',
+        'brand-cyan': '#f4ffff',
+      },
       animation: {
         'fade-in-up': 'fade-in-up 0.3s ease-out',
         'bounce-gentle': 'bounce-gentle 2s infinite',

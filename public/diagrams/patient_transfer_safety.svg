@@ -1,0 +1,55 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#BE185D" text-anchor="middle">安全な移送のためのチェックポイント</text>
+
+  <!-- Left Side: Wheelchair (Blue) -->
+  <g transform="translate(50, 100)">
+    <rect width="340" height="320" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+    <text x="170" y="40" font-family="sans-serif" font-size="18" font-weight="700" fill="#0369A1" text-anchor="middle">🦽 車椅子のチェック</text>
+    
+    <g transform="translate(30, 80)">
+      <circle cx="10" cy="10" r="4" fill="#0EA5E9"/>
+      <text x="25" y="15" font-family="sans-serif" font-size="15" fill="#334155">ブレーキがしっかり掛かるか</text>
+      
+      <circle cx="10" cy="50" r="4" fill="#0EA5E9"/>
+      <text x="25" y="55" font-family="sans-serif" font-size="15" fill="#334155">フットレストは上げているか</text>
+      
+      <circle cx="10" cy="90" r="4" fill="#0EA5E9"/>
+      <text x="25" y="95" font-family="sans-serif" font-size="15" fill="#334155">タイヤの空気圧は適正か</text>
+      
+      <circle cx="10" cy="130" r="4" fill="#0EA5E9"/>
+      <text x="25" y="135" font-family="sans-serif" font-size="15" fill="#334155">段差や傾斜では声掛けを行う</text>
+    </g>
+    <rect x="30" y="240" width="280" height="50" rx="10" fill="#E0F2FE"/>
+    <text x="170" y="270" font-family="sans-serif" font-size="14" font-weight="600" fill="#0369A1" text-anchor="middle">急な動きは患者さんの不安に繋がります</text>
+  </g>
+
+  <!-- Right Side: Stretcher (Mint) -->
+  <g transform="translate(410, 100)">
+    <rect width="340" height="320" rx="20" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="2"/>
+    <text x="170" y="40" font-family="sans-serif" font-size="18" font-weight="700" fill="#15803D" text-anchor="middle">🚑 ストレッチャーのチェック</text>
+    
+    <g transform="translate(30, 80)">
+      <circle cx="10" cy="10" r="4" fill="#10B981"/>
+      <text x="25" y="15" font-family="sans-serif" font-size="15" fill="#334155">サイドレールが固定されているか</text>
+      
+      <circle cx="10" cy="50" r="4" fill="#10B981"/>
+      <text x="25" y="55" font-family="sans-serif" font-size="15" fill="#334155">ベルトで安全が確保されているか</text>
+      
+      <circle cx="10" cy="90" r="4" fill="#10B981"/>
+      <text x="25" y="95" font-family="sans-serif" font-size="15" fill="#334155">進行方向（足から先行）の確認</text>
+      
+      <circle cx="10" cy="130" r="4" fill="#10B981"/>
+      <text x="25" y="135" font-family="sans-serif" font-size="15" fill="#334155">曲がり角での徐行と声掛け</text>
+    </g>
+    <rect x="30" y="240" width="280" height="50" rx="10" fill="#DCFCE7"/>
+    <text x="170" y="270" font-family="sans-serif" font-size="14" font-weight="600" fill="#15803D" text-anchor="middle">常に患者さんの視界を意識しましょう</text>
+  </g>
+
+  <!-- Sera's Safety Tip -->
+  <rect x="150" y="440" width="500" height="30" rx="15" fill="#FDF2F8"/>
+  <text x="400" y="460" font-family="sans-serif" font-size="14" font-weight="500" fill="#BE185D" text-anchor="middle">「止まります」「曲がります」の一言が、一番の安心材料です✨</text>
+</svg>

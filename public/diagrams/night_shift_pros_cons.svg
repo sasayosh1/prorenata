@@ -1,0 +1,32 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#4338CA" text-anchor="middle">夜勤専任で働く｜メリットとデメリット</text>
+
+  <!-- Pros (Left) -->
+  <g transform="translate(60, 100)">
+    <rect width="330" height="240" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="2"/>
+    <text x="165" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#047857" text-anchor="middle">✨ メリット (Pros)</text>
+    
+    <text x="30" y="100" font-family="sans-serif" font-size="14" fill="#065F46">● 高い手当により収入が増える</text>
+    <text x="30" y="135" font-family="sans-serif" font-size="14" fill="#065F46">● 日中の時間を自由に使える</text>
+    <text x="30" y="170" font-family="sans-serif" font-size="14" fill="#065F46">● 昼間の混雑を避けて買い物や家事ができる</text>
+    <text x="30" y="205" font-family="sans-serif" font-size="14" fill="#065F46">● 出勤日数が少なく済む場合がある</text>
+  </g>
+
+  <!-- Cons (Right) -->
+  <g transform="translate(410, 100)">
+    <rect width="330" height="240" rx="20" fill="#FFF1F2" stroke="#FECDD3" stroke-width="2"/>
+    <text x="165" y="45" font-family="sans-serif" font-size="20" font-weight="700" fill="#BE185D" text-anchor="middle">☁️ デメリット (Cons)</text>
+    
+    <text x="30" y="100" font-family="sans-serif" font-size="14" fill="#9D174D">● 体調管理や睡眠リズムの維持が難しい</text>
+    <text x="30" y="135" font-family="sans-serif" font-size="14" fill="#9D174D">● 家族や友人と予定が合いにくい</text>
+    <text x="30" y="170" font-family="sans-serif" font-size="14" fill="#9D174D">● 食生活が不規則になりやすい</text>
+    <text x="30" y="205" font-family="sans-serif" font-size="14" fill="#9D174D">● 長期的な健康への影響が心配</text>
+  </g>
+
+  <!-- Sera's Advice -->
+  <text x="400" y="375" font-family="sans-serif" font-size="15" font-weight="500" fill="#4338CA" text-anchor="middle">自分のライフスタイルに一番合う働き方、じっくり考えてみましょうね✨</text>
+</svg>

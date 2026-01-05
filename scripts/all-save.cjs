@@ -54,6 +54,7 @@ function main() {
   const touchesMaintenance =
     changedFiles.has('scripts/maintenance.js') ||
     changedFiles.has('scripts/utils/postHelpers.js') ||
+    changedFiles.has('tools/lib/maintenance/postHelpers.js') ||
     changedFiles.has('scripts/run-daily-generation.cjs');
 
   const touchesArticleRules = changedFiles.has('ARTICLE_GUIDE.md') || changedFiles.has('RULES.md');

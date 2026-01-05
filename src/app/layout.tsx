@@ -28,9 +28,9 @@ const notoSansJP = Noto_Sans_JP({
   display: 'swap',
 });
 
-// キャッシュを強制的に無効化
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// キャッシュを有効化 (1時間ごとに再生成)
+export const dynamic = 'auto'
+export const revalidate = 3600
 
 // SEO最適化されたメタデータ
 export const metadata: Metadata = {

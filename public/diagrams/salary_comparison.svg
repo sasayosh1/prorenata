@@ -1,0 +1,32 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f3e5f5" />
+  <text x="400" y="50" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#7b1fa2">看護助手の平均給与比較（月収）</text>
+  
+  <!-- Bar 1 -->
+  <rect x="100" y="250" width="100" height="100" fill="#ce93d8" />
+  <text x="150" y="240" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#4a148c">約20万円</text>
+  <text x="150" y="370" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">常勤</text>
+  <text x="150" y="390" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">（無資格）</text>
+
+  <!-- Bar 2 -->
+  <rect x="250" y="220" width="100" height="130" fill="#ba68c8" />
+  <text x="300" y="210" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#4a148c">約22万円</text>
+  <text x="300" y="370" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">常勤</text>
+  <text x="300" y="390" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">（有資格）</text>
+
+  <!-- Bar 3 -->
+  <rect x="400" y="180" width="100" height="170" fill="#9c27b0" />
+  <text x="450" y="170" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#4a148c">約25万円</text>
+  <text x="450" y="370" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">夜勤あり</text>
+  <text x="450" y="390" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">（月4回）</text>
+
+  <!-- Bar 4 -->
+  <rect x="550" y="300" width="100" height="50" fill="#e1bee7" />
+  <text x="600" y="290" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#4a148c">時給1100円~</text>
+  <text x="600" y="370" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">パート</text>
+  <text x="600" y="390" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">（地域による）</text>
+
+  <line x1="50" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
+
+  <text x="400" y="430" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#888">※地域や病院規模により異なります © ProReNata</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg width="1024" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="softBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#E8DEF8;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.15"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#softBg)" rx="20"/>
+  <rect x="40" y="40" width="944" height="120" rx="20" fill="#FFE5EC" opacity="0.7" filter="url(#soft Shadow)"/>
+  <text x="512" y="90" font-family="Hiragino Sans, sans-serif" font-size="32" font-weight="600" text-anchor="middle" fill="#4A5568">看護助手の職場別給与比較</text>
+  <text x="512" y="125" font-family="Hiragino Sans, sans-serif" font-size="16" text-anchor="middle" fill="#718096">自分に合った働き方を見つけましょう</text>
+
+  <g transform="translate(52, 200)">
+    <rect x="0" y="0" width="280" height="330" rx="20" fill="white" filter="url(#softShadow)"/>
+    <rect x="0" y="0" width="280" height="60" rx="20" fill="#90CAF9" opacity="0.7"/>
+    <text x="140" y="40" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">病院</text>
+    <rect x="20" y="75" width="auto" height="28" rx="14" fill="#E3F2FD"/>
+    <text x="30" y="93" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#90CAF9">安定重視</text>
+    <circle cx="25" cy="120" r="4" fill="#90CAF9"/>
+    <text x="40" y="125" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">月給 18-22万円</text>
+    <circle cx="25" cy="150" r="4" fill="#90CAF9"/>
+    <text x="40" y="155" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">夜勤手当あり</text>
+    <circle cx="25" cy="180" r="4" fill="#90CAF9"/>
+    <text x="40" y="185" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">福利厚生が充実</text>
+    <rect x="20" y="250" width="240" height="60" rx="10" fill="#E3F2FD" opacity="0.5"/>
+    <text x="30" y="270" font-family="Hiragino Sans, sans-serif" font-size="12" font-weight="600" fill="#718096">おすすめの方</text>
+    <text x="30" y="295" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#4A5568">安定した環境で働きたい方</text>
+  </g>
+
+  <g transform="translate(372, 200)">
+    <rect x="0" y="0" width="280" height="330" rx="20" fill="white" filter="url(#softShadow)"/>
+    <rect x="0" y="0" width="280" height="60" rx="20" fill="#90E0EF" opacity="0.7"/>
+    <text x="140" y="40" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">介護施設</text>
+    <rect x="20" y="75" width="auto" height="28" rx="14" fill="#D4F1F4"/>
+    <text x="30" y="93" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#90E0EF">ワークバランス</text>
+    <circle cx="25" cy="120" r="4" fill="#90E0EF"/>
+    <text x="40" y="125" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">月給 17-20万円</text>
+    <circle cx="25" cy="150" r="4" fill="#90E0EF"/>
+    <text x="40" y="155" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">日勤中心</text>
+    <circle cx="25" cy="180" r="4" fill="#90E0EF"/>
+    <text x="40" y="185" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">比較的ゆったり</text>
+    <rect x="20" y="250" width="240" height="60" rx="10" fill="#D4F1F4" opacity="0.5"/>
+    <text x="30" y="270" font-family="Hiragino Sans, sans-serif" font-size="12" font-weight="600" fill="#718096">おすすめの方</text>
+    <text x="30" y="295" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#4A5568">プライベート重視の方</text>
+  </g>
+
+  <g transform="translate(692, 200)">
+    <rect x="0" y="0" width="280" height="330" rx="20" fill="white" filter="url(#softShadow)"/>
+    <rect x="0" y="0" width="280" height="60" rx="20" fill="#FFCBA4" opacity="0.7"/>
+    <text x="140" y="40" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">クリニック</text>
+    <rect x="20" y="75" width="auto" height="28" rx="14" fill="#FFE8D6"/>
+    <text x="30" y="93" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#FFCBA4">働きやすさ</text>
+    <circle cx="25" cy="120" r="4" fill="#FFCBA4"/>
+    <text x="40" y="125" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">時給 1,100-1,400円</text>
+    <circle cx="25" cy="150" r="4" fill="#FFCBA4"/>
+    <text x="40" y="155" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">日曜休み</text>
+    <circle cx="25" cy="180" r="4" fill="#FFCBA4"/>
+    <text x="40" y="185" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">予定が立てやすい</text>
+    <rect x="20" y="250" width="240" height="60" rx="10" fill="#FFE8D6" opacity="0.5"/>
+    <text x="30" y="270" font-family="Hiragino Sans, sans-serif" font-size="12" font-weight="600" fill="#718096">おすすめの方</text>
+    <text x="30" y="295" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#4A5568">規則正しく働きたい方</text>
+  </g>
+  <text x="512" y="575" font-family="Hiragino Sans, sans-serif" font-size="13" text-anchor="middle" fill="#A0AEC0">© ProReNata</text>
+</svg>

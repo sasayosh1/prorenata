@@ -1,0 +1,44 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#4338CA" text-anchor="middle">夜勤パターンのための「質の高い睡眠」3つのコツ</text>
+
+  <!-- Tip 1: Pre-shift -->
+  <g transform="translate(60, 100)">
+    <rect width="210" height="250" rx="20" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="2"/>
+    <text x="105" y="45" font-family="sans-serif" font-size="16" font-weight="700" fill="#4338CA" text-anchor="middle">1. 入りの前</text>
+    <text x="105" y="80" font-family="sans-serif" font-size="40" text-anchor="middle">🛌</text>
+    <text x="105" y="130" font-family="sans-serif" font-size="14" fill="#1E1B4B" text-anchor="middle">1〜2時間の</text>
+    <text x="105" y="150" font-family="sans-serif" font-size="14" fill="#1E1B4B" text-anchor="middle">「仮眠」をとる</text>
+    <text x="105" y="190" font-family="sans-serif" font-size="12" fill="#4B5563" text-anchor="middle">完全に寝込まないのが</text>
+    <text x="105" y="210" font-family="sans-serif" font-size="12" fill="#4B5563" text-anchor="middle">体への負担を減らす鍵</text>
+  </g>
+
+  <!-- Tip 2: During break -->
+  <g transform="translate(295, 100)">
+    <rect width="210" height="250" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+    <text x="105" y="45" font-family="sans-serif" font-size="16" font-weight="700" fill="#0369A1" text-anchor="middle">2. 休憩中の仮眠</text>
+    <text x="105" y="80" font-family="sans-serif" font-size="40" text-anchor="middle">⏰</text>
+    <text x="105" y="130" font-family="sans-serif" font-size="14" fill="#0C4A6E" text-anchor="middle">15分〜30分の</text>
+    <text x="105" y="150" font-family="sans-serif" font-size="14" fill="#0C4A6E" text-anchor="middle">「パワーナップ」</text>
+    <text x="105" y="190" font-family="sans-serif" font-size="12" fill="#4B5563" text-anchor="middle">脳をリフレッシュさせて</text>
+    <text x="105" y="210" font-family="sans-serif" font-size="12" fill="#4B5563" text-anchor="middle">後半のミスを防ぎます</text>
+  </g>
+
+  <!-- Tip 3: Post-shift -->
+  <g transform="translate(530, 100)">
+    <rect width="210" height="250" rx="20" fill="#FDF2F8" stroke="#FCE7F3" stroke-width="2"/>
+    <text x="105" y="45" font-family="sans-serif" font-size="16" font-weight="700" fill="#BE185D" text-anchor="middle">3. 明けの過ごし方</text>
+    <text x="105" y="80" font-family="sans-serif" font-size="40" text-anchor="middle">🕶</text>
+    <text x="105" y="130" font-family="sans-serif" font-size="14" fill="#9D174D" text-anchor="middle">強い光を避ける</text>
+    <text x="105" y="150" font-family="sans-serif" font-size="14" fill="#9D174D" text-anchor="middle">（サングラス等）</text>
+    <text x="105" y="190" font-family="sans-serif" font-size="12" fill="#4B5563" text-anchor="middle">帰宅時の日光を遮り</text>
+    <text x="105" y="210" font-family="sans-serif" font-size="12" fill="#4B5563" text-anchor="middle">スムーズな眠りへ誘う</text>
+  </g>
+
+  <!-- Sera's Support -->
+  <rect x="150" y="380" width="500" height="30" rx="15" fill="#EEF2FF"/>
+  <text x="400" y="400" font-family="sans-serif" font-size="14" font-weight="500" fill="#4338CA" text-anchor="middle">体は宝物。しっかり休むことも、立派な「仕事」ですよ✨</text>
+</svg>

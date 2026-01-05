@@ -16,7 +16,7 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false,
+  useCdn: true,
 })
 
 // Write client for API routes (requires auth token)
@@ -246,7 +246,7 @@ export async function getAllCategories(): Promise<Category[]> {
       sortOrder,
       active
     }`
-    
+
     const result = await client.fetch(query)
     return result
   } catch (error) {
@@ -269,7 +269,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     body,
     internalOnly
   }`
-  
+
   return client.fetch(query, { slug })
 }
 
@@ -319,7 +319,7 @@ export async function getRelatedPosts(
     // 1) 同カテゴリ候補（なければ空）
     const categoryCandidates = hasCategories
       ? await client.fetch(
-          `*[_type == "post"
+        `*[_type == "post"
             && _id != $currentPostId
             && count((categories[]->slug.current)[@ in $categorySlugs]) > 0
             && ${PUBLIC_POST_FILTER}
@@ -328,8 +328,8 @@ export async function getRelatedPosts(
             "slug": slug.current,
             "categories": categories[]->{title,"slug":slug.current}
           }`,
-          { currentPostId, categorySlugs, candidateLimit }
-        )
+        { currentPostId, categorySlugs, candidateLimit }
+      )
       : []
 
     // 2) ベース選定: freshに寄せつつシャッフル

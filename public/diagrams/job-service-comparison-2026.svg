@@ -1,0 +1,70 @@
+<svg width="1024" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="softBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#E8DEF8;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.15"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#softBg)" rx="20"/>
+  <rect x="40" y="40" width="944" height="120" rx="20" fill="#FFE5EC" opacity="0.7" filter="url(#softShadow)"/>
+  <text x="512" y="90" font-family="Hiragino Sans, sans-serif" font-size="32" font-weight="600" text-anchor="middle" fill="#4A5568">看護助手 転職サービス比較</text>
+  <text x="512" y="125" font-family="Hiragino Sans, sans-serif" font-size="16" text-anchor="middle" fill="#718096">働き方や目的に合わせて選ぼう</text>
+
+  <g transform="translate(52, 200)">
+    <rect x="0" y="0" width="280" height="330" rx="20" fill="white" filter="url(#softShadow)"/>
+    <rect x="0" y="0" width="280" height="60" rx="20" fill="#90CAF9" opacity="0.7"/>
+    <text x="140" y="40" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">ヒューマンライフケア</text>
+    <rect x="20" y="75" width="auto" height="28" rx="14" fill="#E3F2FD"/>
+    <text x="30" y="93" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#90CAF9">大手グループ</text>
+    <circle cx="25" cy="120" r="4" fill="#90CAF9"/>
+    <text x="40" y="125" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">全国の求人に強い</text>
+    <circle cx="25" cy="150" r="4" fill="#90CAF9"/>
+    <text x="40" y="155" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">資格取得支援制度あり</text>
+    <circle cx="25" cy="180" r="4" fill="#90CAF9"/>
+    <text x="40" y="185" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">教育体制が充実</text>
+    <rect x="20" y="250" width="240" height="60" rx="10" fill="#E3F2FD" opacity="0.5"/>
+    <text x="30" y="270" font-family="Hiragino Sans, sans-serif" font-size="12" font-weight="600" fill="#718096">おすすめポイント</text>
+    <text x="30" y="295" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#4A5568">安定した大手で働きたい方</text>
+  </g>
+
+  <g transform="translate(372, 200)">
+    <rect x="0" y="0" width="280" height="330" rx="20" fill="white" filter="url(#softShadow)"/>
+    <rect x="0" y="0" width="280" height="60" rx="20" fill="#FFB3C6" opacity="0.7"/>
+    <text x="140" y="40" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">リニューケア</text>
+    <rect x="20" y="75" width="auto" height="28" rx="14" fill="#FFE5EC"/>
+    <text x="30" y="93" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#FFB3C6">関西・都市部特化</text>
+    <circle cx="25" cy="120" r="4" fill="#FFB3C6"/>
+    <text x="40" y="125" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">地域密着の濃い情報</text>
+    <circle cx="25" cy="150" r="4" fill="#FFB3C6"/>
+    <text x="40" y="155" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">好条件・高給与求人</text>
+    <circle cx="25" cy="180" r="4" fill="#FFB3C6"/>
+    <text x="40" y="185" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">手厚いサポート</text>
+    <rect x="20" y="250" width="240" height="60" rx="10" fill="#FFE5EC" opacity="0.5"/>
+    <text x="30" y="270" font-family="Hiragino Sans, sans-serif" font-size="12" font-weight="600" fill="#718096">おすすめポイント</text>
+    <text x="30" y="295" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#4A5568">関西圏で給与UPしたい方</text>
+  </g>
+
+  <g transform="translate(692, 200)">
+    <rect x="0" y="0" width="280" height="330" rx="20" fill="white" filter="url(#softShadow)"/>
+    <rect x="0" y="0" width="280" height="60" rx="20" fill="#4FD1C5" opacity="0.7"/>
+    <text x="140" y="40" font-family="Hiragino Sans, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">かいご畑</text>
+    <rect x="20" y="75" width="auto" height="28" rx="14" fill="#D4F1F4"/>
+    <text x="30" y="93" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#4FD1C5">無資格・未経験</text>
+    <circle cx="25" cy="120" r="4" fill="#4FD1C5"/>
+    <text x="40" y="125" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">0円で資格が取れる</text>
+    <circle cx="25" cy="150" r="4" fill="#4FD1C5"/>
+    <text x="40" y="155" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">未経験OK求人多数</text>
+    <circle cx="25" cy="180" r="4" fill="#4FD1C5"/>
+    <text x="40" y="185" font-family="Hiragino Sans, sans-serif" font-size="14" fill="#4A5568">働きながらステップUP</text>
+    <rect x="20" y="250" width="240" height="60" rx="10" fill="#D4F1F4" opacity="0.5"/>
+    <text x="30" y="270" font-family="Hiragino Sans, sans-serif" font-size="12" font-weight="600" fill="#718096">おすすめポイント</text>
+    <text x="30" y="295" font-family="Hiragino Sans, sans-serif" font-size="13" fill="#4A5568">これから資格を取りたい方</text>
+  </g>
+  <text x="512" y="575" font-family="Hiragino Sans, sans-serif" font-size="13" text-anchor="middle" fill="#A0AEC0">© ProReNata</text>
+</svg>

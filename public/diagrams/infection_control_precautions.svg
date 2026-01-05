@@ -1,0 +1,42 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" rx="32" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="sans-serif" font-size="22" font-weight="600" fill="#065F46" text-anchor="middle">看護助手が実践する「標準予防策」の基本</text>
+
+  <!-- Items Grid -->
+  <g transform="translate(60, 90)">
+    <!-- Hand Hygiene -->
+    <rect width="320" height="130" rx="20" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="2"/>
+    <text x="50" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">🧼</text>
+    <text x="85" y="40" font-family="sans-serif" font-size="18" font-weight="700" fill="#047857">1. 手指衛生</text>
+    <text x="85" y="75" font-family="sans-serif" font-size="14" fill="#065F46">ケアの「前後」に必ず実施。</text>
+    <text x="85" y="95" font-family="sans-serif" font-size="14" fill="#065F46">石けんと流水、または速乾性擦式消毒。</text>
+
+    <!-- PPE -->
+    <rect x="360" width="320" height="130" rx="20" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2"/>
+    <text x="410" y="45" font-family="sans-serif" font-size="20" text-anchor="middle">😷</text>
+    <text x="445" y="40" font-family="sans-serif" font-size="18" font-weight="700" fill="#0284C7">2. 個人防護具 (PPE)</text>
+    <text x="445" y="75" font-family="sans-serif" font-size="14" fill="#0C4A6E">状況に応じてマスク、手袋、</text>
+    <text x="445" y="95" font-family="sans-serif" font-size="14" fill="#0C4A6E">ガウンを適切に着脱します。</text>
+
+    <!-- Environment -->
+    <rect y="160" width="320" height="130" rx="20" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <text x="50" y="205" font-family="sans-serif" font-size="20" text-anchor="middle">✨</text>
+    <text x="85" y="200" font-family="sans-serif" font-size="18" font-weight="700" fill="#374151">3. 環境整備</text>
+    <text x="85" y="235" font-family="sans-serif" font-size="14" fill="#4B5563">よく触れる場所（手すり等）の</text>
+    <text x="85" y="255" font-family="sans-serif" font-size="14" fill="#4B5563">清掃・除菌を徹底します。</text>
+
+    <!-- Disposal -->
+    <rect x="360" y="160" width="320" height="130" rx="20" fill="#FFF1F2" stroke="#FECDD3" stroke-width="2"/>
+    <text x="410" y="205" font-family="sans-serif" font-size="20" text-anchor="middle">🗑</text>
+    <text x="445" y="200" font-family="sans-serif" font-size="18" font-weight="700" fill="#E11D48">4. 廃棄物処理</text>
+    <text x="445" y="235" font-family="sans-serif" font-size="14" fill="#9D174D">医療廃棄物と一般廃棄物を</text>
+    <text x="445" y="255" font-family="sans-serif" font-size="14" fill="#9D174D">正しく分別して処理します。</text>
+  </g>
+
+  <!-- Sera's Safety Motto -->
+  <rect x="150" y="380" width="500" height="40" rx="20" fill="#ECFDF5"/>
+  <text x="400" y="405" font-family="sans-serif" font-size="14" font-weight="600" fill="#065F46" text-anchor="middle">🛡 自分を守ることは、患者さんを守ることにも繋がります 🛡</text>
+</svg>
