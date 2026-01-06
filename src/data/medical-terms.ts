@@ -632,6 +632,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 'infusion-pump-3',
+    term: '輸液ポンプ',
+    reading: 'ゆえきぽんぷ',
+    meaning: '点滴の速度を一定に保つ医療機器',
+    distractors: ['吸引器', 'パルスオキシメーター', 'カテーテル'],
+    category: 'equipment',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
