@@ -292,8 +292,16 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     const gsc = loadCsv<GscRow>('data/gsc_last30d.csv')
     const ga4 = loadCsv<Ga4Row>('data/ga4_last30d.csv')
 
-    if (!gsc || !ga4) {
-      const picked = await fetchFallbackPosts(limit)
+    // If both are missing OR empty, use fallback.
+    const hasGsc = gsc && gsc.length > 0
+    const hasGa4 = ga4 && ga4.length > 0
+
+    if (!hasGsc && !hasGa4) {
+      // Fallback: Skip the first 3 (which are in the "Latest" section)
+      const fallbackLimit = limit + 3
+      const allFallback = await fetchFallbackPosts(fallbackLimit)
+      const picked = allFallback.slice(3, fallbackLimit)
+
       if (picked.length === 0) return null
       return renderPopularSection(picked)
     }
@@ -302,42 +310,46 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
       string,
       { impressions: number; clicks: number; positionWeighted: number; positionWeight: number }
     >()
-    for (const row of gsc) {
-      const pagePath = toPathFromUrl(row.page)
-      if (!pagePath) continue
-      const slug = slugFromPostPath(pagePath)
-      if (!slug) continue
+    if (hasGsc) {
+      for (const row of gsc!) {
+        const pagePath = toPathFromUrl(row.page)
+        if (!pagePath) continue
+        const slug = slugFromPostPath(pagePath)
+        if (!slug) continue
 
-      const impressions = safeNumber(row.impressions)
-      const clicks = safeNumber(row.clicks)
-      const position = safeNumber(row.position)
+        const impressions = safeNumber(row.impressions)
+        const clicks = safeNumber(row.clicks)
+        const position = safeNumber(row.position)
 
-      if (!gscAgg.has(slug))
-        gscAgg.set(slug, { impressions: 0, clicks: 0, positionWeighted: 0, positionWeight: 0 })
-      const acc = gscAgg.get(slug)!
-      acc.impressions += impressions
-      acc.clicks += clicks
-      if (impressions > 0 && position > 0) {
-        acc.positionWeighted += impressions * position
-        acc.positionWeight += impressions
+        if (!gscAgg.has(slug))
+          gscAgg.set(slug, { impressions: 0, clicks: 0, positionWeighted: 0, positionWeight: 0 })
+        const acc = gscAgg.get(slug)!
+        acc.impressions += impressions
+        acc.clicks += clicks
+        if (impressions > 0 && position > 0) {
+          acc.positionWeighted += impressions * position
+          acc.positionWeight += impressions
+        }
       }
     }
 
     const gaAgg = new Map<string, { sessions: number; durationWeighted: number; engagementWeighted: number }>()
-    for (const row of ga4) {
-      const pagePath = String(row.pagePath || '')
-      const slug = slugFromPostPath(pagePath)
-      if (!slug) continue
+    if (hasGa4) {
+      for (const row of ga4!) {
+        const pagePath = String(row.pagePath || '')
+        const slug = slugFromPostPath(pagePath)
+        if (!slug) continue
 
-      const sessions = safeNumber(row.sessions)
-      const duration = safeNumber(row.averageSessionDuration)
-      const engagement = safeNumber(row.engagementRate)
+        const sessions = safeNumber(row.sessions)
+        const duration = safeNumber(row.averageSessionDuration)
+        const engagement = safeNumber(row.engagementRate)
 
-      if (!gaAgg.has(slug)) gaAgg.set(slug, { sessions: 0, durationWeighted: 0, engagementWeighted: 0 })
-      const acc = gaAgg.get(slug)!
-      acc.sessions += sessions
-      acc.durationWeighted += sessions * duration
-      acc.engagementWeighted += sessions * engagement
+        if (!gaAgg.has(slug)) gaAgg.set(slug, { sessions: 0, durationWeighted: 0, engagementWeighted: 0 })
+        const acc = gaAgg.get(slug)!
+        acc.sessions += sessions
+        acc.durationWeighted += sessions * duration
+        acc.engagementWeighted += sessions * engagement
+      }
     }
 
     const candidates = new Set<string>()
@@ -363,8 +375,9 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     })
     scored.sort((a, b) => b.base - a.base)
 
-    const topSlugs = scored.slice(0, 120).map((s) => s.slug)
-    const posts = await fetchPostsBySlugs(topSlugs, 120)
+    // Fetch more than limit to account for potential filtering and ensuring variety
+    const topSlugs = scored.slice(0, 100).map((s) => s.slug)
+    const posts = await fetchPostsBySlugs(topSlugs, 100)
 
     const finalScored = posts.map((post) => {
       const slug = post.slug.current
@@ -385,11 +398,27 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     })
     finalScored.sort((a, b) => b.score - a.score)
 
-    const picked = finalScored.slice(0, limit).map((x) => x.post)
+    // Robust deduplication by Title and ID
+    const seenTitles = new Set<string>()
+    const seenIds = new Set<string>()
+    const picked: Post[] = []
+
+    for (const item of finalScored) {
+      if (picked.length >= limit) break
+      const normalizedTitle = item.post.title.trim().toLowerCase()
+      if (seenTitles.has(normalizedTitle) || seenIds.has(item.post._id)) continue
+
+      seenTitles.add(normalizedTitle)
+      seenIds.add(item.post._id)
+      picked.push(item.post)
+    }
+
     if (picked.length === 0) {
-      const fallback = await fetchFallbackPosts(limit)
-      if (fallback.length === 0) return null
-      return renderPopularSection(fallback)
+      const fallbackLimit = limit + 3
+      const allFallback = await fetchFallbackPosts(fallbackLimit)
+      const fallbackPicked = allFallback.slice(3, fallbackLimit)
+      if (fallbackPicked.length === 0) return null
+      return renderPopularSection(fallbackPicked)
     }
 
     return (
@@ -463,9 +492,11 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     )
   } catch (error) {
     console.error('HomePopularGrid failed; using fallback popular section:', error)
-    const fallback = await fetchFallbackPosts(limit)
-    if (fallback.length === 0) return null
+    const fallbackLimit = limit + 3
+    const allFallback = await fetchFallbackPosts(fallbackLimit)
+    const fallbackPicked = allFallback.slice(3, fallbackLimit)
+    if (fallbackPicked.length === 0) return null
 
-    return renderPopularSection(fallback)
+    return renderPopularSection(fallbackPicked)
   }
 }
