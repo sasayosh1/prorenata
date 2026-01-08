@@ -1,4 +1,3 @@
-import { createClient } from 'next-sanity'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -8,7 +7,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ViewCounter from '@/components/ViewCounter'
 import { ArticleStructuredData, BreadcrumbStructuredData, OrganizationStructuredData, FAQStructuredData } from '@/components/StructuredData'
-import { formatPostDate, getRelatedPosts, urlFor } from '@/lib/sanity'
+import { formatPostDate, getRelatedPosts, safeSanityFetch, urlFor, type SanityImage } from '@/lib/sanity'
 import { SITE_URL } from '@/lib/constants'
 import { CATEGORY_SUMMARY, resolveTagDefinition, type CategorySlug } from '@/data/tagCatalog'
 import Image from 'next/image'
@@ -16,16 +15,60 @@ import { sanitizeTitle, sanitizePersonaText } from '@/lib/title'
 import PRDisclosure from '@/components/Article/PRDisclosure'
 import StandardDisclaimer from '@/components/Article/StandardDisclaimer'
 
-const projectId = '72m8vhy2'
-const dataset = 'production'
-const apiVersion = '2024-01-01'
-const token = process.env.SANITY_API_TOKEN
-
+export const dynamic = 'force-dynamic'
 export const revalidate = 3600
 
 type RawCategory = string | { title?: string | null; slug?: string | null }
 type PortableTextSpan = { _type?: string; text?: string }
 type PortableTextBlock = { _type?: string; style?: string; children?: PortableTextSpan[]; _key?: string }
+
+interface PostMeta {
+  _id: string
+  title: string
+  excerpt?: string
+  _createdAt?: string
+  publishedAt?: string
+  _updatedAt?: string
+  slug?: { current?: string }
+  mainImage?: SanityImage | null
+  metaDescription?: string
+  featured?: boolean
+  readingTime?: number
+  categories?: Array<{ title?: string | null; slug?: string | null }> | null
+  author?: { name?: string | null } | null
+  hasBody?: boolean
+  firstBodyImage?: SanityImage | null
+  internalOnly?: boolean
+}
+
+interface PostDetail {
+  _id: string
+  title: string
+  slug?: { current?: string }
+  _createdAt?: string
+  publishedAt?: string
+  _updatedAt?: string
+  excerpt?: string
+  mainImage?: SanityImage | null
+  body?: Array<Record<string, unknown>>
+  focusKeyword?: string
+  relatedKeywords?: string[]
+  readingTime?: number
+  contentType?: string
+  tags?: string[]
+  categories?: Array<{ title?: string | null; slug?: string | null }> | null
+  author?: { name?: string; slug?: { current?: string } } | null
+  faq?: Array<Record<string, unknown>> | null
+  stickyCTA?: unknown
+  isSeraPick?: boolean
+  internalOnly?: boolean
+}
+
+interface RelatedFallbackItem {
+  title?: string
+  slug?: string
+  categories?: Array<{ title?: string; slug?: string | null }>
+}
 
 interface NormalizedCategory {
   title: string
@@ -349,24 +392,12 @@ function injectRelatedPostsBeforeDisclaimer(
   return [...blocks.slice(0, insertAt), relatedBlock, ...blocks.slice(insertAt)]
 }
 
-function createSanityClient(isDraftMode = false) {
-  return createClient({
-    projectId,
-    dataset,
-    apiVersion,
-    useCdn: !isDraftMode,
-    token: isDraftMode ? token : undefined,
-    perspective: isDraftMode ? 'previewDrafts' : 'published',
-  })
-}
-
 export async function generateStaticParams() {
   return []
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params
-  const client = createSanityClient()
   const query = `*[_type == "post" && slug.current == $slug][0] {
 	    _id,
 	    title,
@@ -387,7 +418,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	  }`
 
   try {
-    const post = await client.fetch(query, { slug: resolvedParams.slug })
+    const { data: post, error } = await safeSanityFetch<PostMeta | null>(
+      query,
+      { slug: resolvedParams.slug },
+      { tag: 'post-metadata' }
+    )
+
+    if (error) {
+      return {
+        title: 'エラー | ProReNata',
+        description: '記事の読み込み中にエラーが発生しました。',
+        robots: {
+          index: false,
+          follow: false,
+        },
+      }
+    }
 
     if (!post) {
       return {
@@ -486,7 +532,6 @@ interface PostPageProps {
 export default async function PostDetailPage({ params }: PostPageProps) {
   const resolvedParams = await params
   const isDraftMode = (await draftMode()).isEnabled
-  const client = createSanityClient(isDraftMode)
 
   const query = `*[_type == "post" && slug.current == $slug][0] {
     _id,
@@ -510,9 +555,42 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     isSeraPick,
     internalOnly
   }`
-  const post = await client.fetch(query, { slug: resolvedParams.slug })
+  const { data: post, error } = await safeSanityFetch<PostDetail | null>(
+    query,
+    { slug: resolvedParams.slug },
+    { preview: isDraftMode, tag: 'post-detail' }
+  )
 
-  if (!post) {
+  if (error) {
+    return (
+      <>
+        <Header />
+        <main className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+          <div className="py-16 text-center">
+            <h1 className="text-2xl font-bold text-gray-900">読み込み中にエラーが発生しました</h1>
+            <p className="mt-4 text-gray-600">時間をおいて再度アクセスしてください。</p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Link
+                href="/blog"
+                className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+              >
+                記事一覧に戻る
+              </Link>
+              <Link
+                href="/"
+                className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+              >
+                ホームに戻る
+              </Link>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    )
+  }
+
+  if (!post || !post.slug?.current) {
     notFound()
   }
 
@@ -540,7 +618,11 @@ export default async function PostDetailPage({ params }: PostPageProps) {
       "slug": slug.current,
       "categories": categories[]->{title,"slug":slug.current}
     }`
-    const fallback = await client.fetch(fallbackQuery, { id: post._id })
+    const { data: fallback } = await safeSanityFetch<RelatedFallbackItem[] | null>(
+      fallbackQuery,
+      { id: post._id },
+      { preview: isDraftMode, tag: 'related-fallback' }
+    )
 
     const seen = new Set<string>(relatedPosts.map((p) => p.slug))
     const merged = [...relatedPosts]

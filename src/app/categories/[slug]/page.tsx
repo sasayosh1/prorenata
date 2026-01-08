@@ -5,6 +5,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { client, formatPostDate } from '@/lib/sanity'
 
+export const dynamic = 'force-dynamic'
+
 interface CategoryDocument {
   _id: string
   title: string
