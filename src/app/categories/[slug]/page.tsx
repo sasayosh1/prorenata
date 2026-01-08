@@ -6,6 +6,10 @@ import Footer from '@/components/Footer'
 import { client, formatPostDate } from '@/lib/sanity'
 
 export const dynamic = 'force-dynamic'
+// Guard: this route is intentionally dynamic to avoid static->dynamic flips at runtime.
+// Avoid adding headers/cookies/draftMode/searchParams if you ever revert this.
+const __STATIC_TO_DYNAMIC_GUARD__: 'force-dynamic' = dynamic
+void __STATIC_TO_DYNAMIC_GUARD__
 
 interface CategoryDocument {
   _id: string

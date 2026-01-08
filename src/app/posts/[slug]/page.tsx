@@ -17,6 +17,10 @@ import StandardDisclaimer from '@/components/Article/StandardDisclaimer'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 3600
+// Guard: draftMode() uses headers => this route must remain dynamic.
+// If you remove force-dynamic, also remove draftMode()/headers/cookies usage.
+const __STATIC_TO_DYNAMIC_GUARD__: 'force-dynamic' = dynamic
+void __STATIC_TO_DYNAMIC_GUARD__
 
 type RawCategory = string | { title?: string | null; slug?: string | null }
 type PortableTextSpan = { _type?: string; text?: string }
