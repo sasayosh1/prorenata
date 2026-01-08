@@ -12,12 +12,49 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01'
 
+type SanityClientOptions = {
+  preview?: boolean
+}
+
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
   useCdn: true,
 })
+
+export const createSanityClient = (options: SanityClientOptions = {}) => {
+  const preview = Boolean(options.preview)
+  return createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn: !preview,
+    token: preview ? process.env.SANITY_API_TOKEN : undefined,
+    perspective: preview ? 'previewDrafts' : 'published',
+  })
+}
+
+export type SafeSanityResult<T> = {
+  data: T | null
+  error: Error | null
+}
+
+export async function safeSanityFetch<T>(
+  query: string,
+  params: Record<string, unknown> = {},
+  options: SanityClientOptions & { tag?: string } = {}
+): Promise<SafeSanityResult<T>> {
+  try {
+    const result = await createSanityClient(options).fetch<T>(query, params)
+    return { data: result ?? null, error: null }
+  } catch (error) {
+    const safeError = error instanceof Error ? error : new Error(String(error))
+    const tag = options.tag ? ` (${options.tag})` : ''
+    console.error(`Sanity fetch failed${tag}: ${safeError.message}`)
+    return { data: null, error: safeError }
+  }
+}
 
 // Write client for API routes (requires auth token)
 export const sanityWriteClient = createClient({

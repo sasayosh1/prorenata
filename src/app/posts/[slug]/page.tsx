@@ -435,7 +435,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       }
     }
 
-    if (!post) {
+    if (!post || !post.slug?.current) {
       return {
         title: '記事が見つかりません | ProReNata',
         description: 'お探しの記事は存在しないか、削除された可能性があります。',
@@ -446,11 +446,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       }
     }
 
+    const slugCurrent = post.slug.current
     const normalizedCategories = normalizeCategories(post.categories)
     const categoryTitles = normalizedCategories.map(category => category.title)
 
     const baseUrl = SITE_URL
-    const canonicalUrl = `${baseUrl}/posts/${post.slug.current}`
+    const canonicalUrl = `${baseUrl}/posts/${slugCurrent}`
     const publishedTime = post.publishedAt ?? post._createdAt
     const modifiedTime = post._updatedAt || post.publishedAt || post._createdAt
 
@@ -594,6 +595,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     notFound()
   }
 
+  const slugCurrent = post.slug.current
   const normalizedCategories = normalizeCategories(post.categories)
   const categoryTitles = normalizedCategories.map(category => category.title)
   const categorySlugs = normalizedCategories
@@ -628,12 +630,20 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     const merged = [...relatedPosts]
     for (const item of Array.isArray(fallback) ? fallback : []) {
       const slug = typeof item?.slug === 'string' ? item.slug : ''
-      if (!slug || seen.has(slug)) continue
+      const title = typeof item?.title === 'string' ? item.title : ''
+      if (!slug || !title || seen.has(slug)) continue
       seen.add(slug)
       merged.push({
-        title: item.title,
+        title,
         slug,
-        categories: item.categories || [],
+        categories: Array.isArray(item.categories)
+          ? item.categories
+            .filter(
+              (category): category is { title: string; slug?: string | null } =>
+                typeof category?.title === 'string'
+            )
+            .map((category) => ({ title: category.title, slug: category.slug ?? null }))
+          : [],
       })
       if (merged.length >= 6) break
     }
@@ -644,10 +654,34 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   const cleanedBody = hasBody ? pruneOffTopicSummary(post.body, post.title) : post.body
   const abTestedBody = hasBody ? reorderBlocksForABTesting(cleanedBody, post._id) : cleanedBody
   const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(abTestedBody, relatedPosts) : abTestedBody
+  const tocContent = (Array.isArray(bodyWithRelated) ? bodyWithRelated : []) as Array<{
+    _type: string
+    style?: string
+    [key: string]: unknown
+  }>
 
   const displayTitle = sanitizeTitle(post.title)
   const sanitizedExcerpt = post?.excerpt ? sanitizePersonaText(post.excerpt) : undefined
-  const structuredPost = { ...post, title: displayTitle, categories: categoryTitles, excerpt: sanitizedExcerpt }
+  const faqItems = Array.isArray(post.faq)
+    ? post.faq.filter(
+      (item): item is { question: string; answer: string } =>
+        typeof item?.question === 'string' && typeof item?.answer === 'string'
+    )
+    : []
+  const structuredPost = {
+    ...post,
+    _createdAt: post._createdAt!,
+    slug: { current: slugCurrent },
+    title: displayTitle,
+    categories: categoryTitles,
+    excerpt: sanitizedExcerpt,
+    author: post.author?.name
+      ? {
+        name: post.author.name,
+        ...(post.author.slug?.current ? { slug: { current: post.author.slug.current } } : {}),
+      }
+      : undefined,
+  }
   const categoryChipClass =
     "inline-flex items-center rounded-full border border-cyan-200 px-3 py-1 text-sm font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors duration-200"
   const tagChipClass =
@@ -657,9 +691,9 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     <>
       {/* 構造化データ（JSON-LD） */}
       <ArticleStructuredData post={structuredPost} />
-      <BreadcrumbStructuredData title={post.title} slug={post.slug.current} />
+      <BreadcrumbStructuredData title={post.title} slug={slugCurrent} />
       <OrganizationStructuredData />
-      <FAQStructuredData faqItems={post.faq} />
+      <FAQStructuredData faqItems={faqItems} />
 
       {/* Preview Mode Banner */}
       {isDraftMode && (
@@ -721,7 +755,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </div>
                 {/* 閲覧数カウンター */}
                 <div className="flex justify-center pt-2">
-                  <ViewCounter slug={post.slug.current} />
+                  <ViewCounter slug={slugCurrent} />
                 </div>
               </div>
             </header>
@@ -746,7 +780,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 {hasBody ? (
                   <>
                     <PRDisclosure />
-                    <ArticleWithTOC content={bodyWithRelated} />
+                    <ArticleWithTOC content={tocContent} />
                     <StandardDisclaimer />
                   </>
                 ) : (

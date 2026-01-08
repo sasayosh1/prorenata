@@ -215,6 +215,34 @@ async function fetchPostsBySlugs(slugs: string[], limit: number): Promise<Post[]
   return slugs.map((s) => bySlug.get(s)).filter(Boolean).slice(0, limit) as Post[]
 }
 
+function getLocalThumbnail(slug: string): string | null {
+  const dir = path.join(process.cwd(), 'public', 'thumbnails')
+  if (!fs.existsSync(dir)) return null
+
+  try {
+    const files = fs.readdirSync(dir)
+    const pattern = new RegExp(`^${slug}(-v\\d+)?\\.png$`)
+    const matches = files.filter((f) => pattern.test(f))
+
+    if (matches.length === 0) return null
+
+    // Sort to get the latest version (e.g., -v22 before -v21 before base)
+    matches.sort((a, b) => {
+      const vA = a.match(/-v(\d+)\.png$/)?.[1]
+      const vB = b.match(/-v(\d+)\.png$/)?.[1]
+      if (vA && vB) return parseInt(vB) - parseInt(vA)
+      if (vA) return -1
+      if (vB) return 1
+      return 0
+    })
+
+    return `/thumbnails/${matches[0]}`
+  } catch (error) {
+    console.error('Local thumbnail check failed:', error)
+    return null
+  }
+}
+
 function renderPopularSection(picked: Post[]) {
   return (
     <section className="mb-20">
@@ -246,6 +274,14 @@ function renderPopularSection(picked: Post[]) {
                   {post.mainImage ? (
                     <Image
                       src={urlFor(post.mainImage).width(900).height(560).url()}
+                      alt={title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : getLocalThumbnail(post.slug.current) ? (
+                    <Image
+                      src={getLocalThumbnail(post.slug.current)!}
                       alt={title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -451,6 +487,14 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
                     {post.mainImage ? (
                       <Image
                         src={urlFor(post.mainImage).width(900).height(560).url()}
+                        alt={title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    ) : getLocalThumbnail(post.slug.current) ? (
+                      <Image
+                        src={getLocalThumbnail(post.slug.current)!}
                         alt={title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
