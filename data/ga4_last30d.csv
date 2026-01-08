@@ -23,6 +23,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251218,/posts/nursing-assistant-infection-control-manual,mobile,Japan,4,1,39,1.0,206.7696305
 20251219,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,4,2,30,0.75,109.12171
 20251220,/medical-quiz,desktop,Japan,4,3,31,0.5,331.46891750000003
+20260107,/,desktop,Japan,4,2,27,0.25,245.87971825
 20251209,/posts/nursing-assistant-resignation-advice-long,mobile,Japan,3,3,16,1.0,61.21223533333333
 20251209,/search,desktop,Japan,3,2,24,1.0,4.860063
 20251210,/posts/nursing-assistant-salary-differences,desktop,Japan,3,1,20,0.6666666666666666,437.91441333333336
@@ -34,7 +35,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251220,/quiz,mobile,Japan,3,2,41,1.0,250.24645066666668
 20260104,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,2,16,0.6666666666666666,14.647845666666669
 20260105,/,mobile,Japan,3,1,40,0.6666666666666666,28.19045833333333
-20251208,/posts/nursing-assistant-detailed-daily-schedule,mobile,Japan,2,2,8,0.5,7.984593
 20251209,/posts/nursing-assistant-night-shift-insights,mobile,Japan,2,2,7,1.0,37.3345005
 20251209,/posts/nursing-assistant-operating-room-duties,desktop,Japan,2,2,14,1.0,833.854267
 20251209,/posts/nursing-assistant-salary-difference-nurses,mobile,Japan,2,2,6,0.0,0.4749715
@@ -75,9 +75,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260105,/blog,desktop,Japan,2,1,7,1.0,5.829799
 20260105,/posts/nursing-assistant-career-change-support,desktop,United States,2,2,7,0.0,0.311793
 20260105,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,2,1,16,1.0,10.9775055
-20251208,/,desktop,Japan,1,1,5,0.0,6.527258
-20251208,/posts,desktop,Japan,1,1,4,0.0,5.499761
-20251208,/posts/nursing-assistant-infection-control-handwashing,mobile,Japan,1,1,6,0.0,9.971724
 20251209,/,mobile,Japan,1,1,9,1.0,44.416264
 20251209,/posts,mobile,Japan,1,1,6,1.0,13.579363
 20251209,/posts/nursing-assistant-care-guide-pathway,desktop,Japan,1,1,6,1.0,51.601705
@@ -326,3 +323,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260106,/quiz,desktop,Iran,1,1,3,0.0,87.466629
 20260106,/sitemap,desktop,Iran,1,1,2,0.0,25.178167
 20260106,/terms,desktop,Iran,1,1,3,0.0,9.374207
+20260108,/categories,desktop,Sweden,1,1,2,1.0,45.01138
+20260108,/contact,desktop,Iran,1,1,5,1.0,4.431978
+20260108,/posts,desktop,United Kingdom,1,1,2,1.0,5.089732
+20260108,/sitemap,desktop,United Kingdom,1,1,4,1.0,32.804819
+20260108,/tags,desktop,Iran,1,1,4,1.0,28.630149
+20260108,/tags/newcomer-notes,desktop,Iran,1,1,4,1.0,6.789542
