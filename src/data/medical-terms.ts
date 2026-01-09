@@ -659,6 +659,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'kyoku-shi',
+    term: '四肢（しし）',
+    reading: 'しし',
+    meaning: '両手と両足のこと。',
+    distractors: ['頭部', '体幹'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
