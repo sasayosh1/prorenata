@@ -173,7 +173,7 @@ function buildPrompt({ title, context, anchors }) {
     'もしよければ、公式X（@prorenata_jp）もフォローしてみてくださいね。'
   ]
   const followText = followTemplates.map(t => `- ${t}`).join('\n')
-  return `あなたはProReNataの記事執筆者です。一人称は必ず「わたし」。丁寧な「です・ます」調で書いてください。
+  return `あなたはProReNataの記事執筆者です。一人称は必ず「わたし」。丁寧な「です・ます」調を基本としつつ、要点や列挙部分では「体言止め」や簡潔な表現を使い、幼くならないようプロフェッショナルかつ温かみのある文章を書いてください。
 
 禁止事項:
 - 文章内で自分の名前を出さない（例: 「白崎セラです」「セラが」「セラの」など）
@@ -253,7 +253,7 @@ async function generateWithRetry({ geminiModel, title, context, anchors }) {
   if (first.ok) return { summary: first.summary, follow: first.follow }
 
   const retryPrompt = `次のJSONは要件違反の可能性があります。本文の内容だけに基づいて、要件を厳守して書き直してください。
-- summary: 220〜360文字、改行なし、本文の内容だけ、キーワード候補から最低2つをそのまま含める
+- summary: 220〜360文字、改行なし、本文の内容だけ、キーワード候補から最低2つをそのまま含める。文章が幼くならないよう、適宜「体言止め」等でバランスを整える。
 - follow: 1文だけ、改行なし、ブックマーク or 公式X（@prorenata_jp）
 - 私生活や本文にない具体例は追加しない
 出力はJSONのみ。

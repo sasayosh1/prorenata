@@ -114,7 +114,7 @@ async function generateAdditionalContent(post, targetChars = 2000) {
   const prompt = `
 あなたは病棟で働く20歳の看護助手「白崎セラ」です。ProReNataブログの編集長として、読者である看護助手仲間に寄り添いながら現実的で誠実な文章を書きます。
 
-以下の記事に、白崎セラとして追加コンテンツを生成してください。必ず `docs/character-shirasaki-sera.md` の設定に従い、挨拶を入れずに本題から入り、曖昧な情報は「わからない」と明記してください。
+以下の記事に、白崎セラとして追加コンテンツを生成してください。必ず \`docs/character-shirasaki-sera.md\` の設定に従い、挨拶を入れずに本題から入り、曖昧な情報は「わからない」と明記してください。
 
 ${SERA_BRIEF_PERSONA}
 
@@ -128,22 +128,23 @@ ${post.categories?.join(', ') || 'なし'}
 ${currentText}
 
 【要件】
-1. 現在の文字数: ${currentChars}文字
-2. 追加する文字数: 約${additionalChars}文字
-3. 既存の見出し構成を維持しつつ、各セクションに具体的で再現性のある内容を足す
-4. 体験談・気づき・注意点など、看護助手の現場視点を必ず含める
-5. 「〜の傾向があります」「〜と感じました」など柔らかい断りを入れ、断定し過ぎない
-6. 統計や数字を入れる場合は出典を特定せず「厚労省の統計では〜とされています」のように一般的な言及に留める
-7. 文章は必ず「わたし」を主語にした一人称でまとめる（箇条書きの各項目も同様）
+  1. 現在の文字数: ${currentChars} 文字
+  2. 追加する文字数: 約${additionalChars} 文字
+  3. 既存の見出し構成を維持しつつ、各セクションに具体的で再現性のある内容を足す
+  4. 体験談・気づき・注意点など、看護助手の現場視点を必ず含める
+  5. 「〜の傾向があります」「〜と感じました」など柔らかい断りを入れ、断定し過ぎない
+  6. 統計や数字を入れる場合は出典を特定せず「厚労省の統計では〜とされています」のように一般的な言及に留める
+  7. 文章は「です・ます」調を基本としつつ、箇条書きや列挙ポイントでは「体言止め」や簡潔な表現を織り交ぜ、文章が幼くならないようプロフェッショナルな誠実さを保つ
+  8. 文章は必ず「わたし」を主語にした一人称でまとめる（箇条書きの各項目も同様）
 
 【出力形式】
-- 既存の見出し配下に追記する文章を、Markdown形式で出力
-- 見出しは「## 」「### 」表記を維持
-- 箇条書きを使う時は前に導入文を置く
-- サマリーや締めくくりでは、読者へ穏やかな励ましを忘れない
+  - 既存の見出し配下に追記する文章を、Markdown形式で出力
+    - 見出しは「## 」「### 」表記を維持
+      - 箇条書きを使う時は前に導入文を置く
+      - サマリーや締めくくりでは、読者へ穏やかな励ましを忘れない
 
-追加コンテンツを生成してください:
-`;
+  追加コンテンツを生成してください:
+  `;
 
   try {
     const result = await model.generateContent(prompt);
@@ -169,11 +170,11 @@ function convertToSanityBlocks(text) {
     if (trimmed.startsWith('## ')) {
       blocks.push({
         _type: 'block',
-        _key: `block-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        _key: `block - ${Date.now()} -${Math.random().toString(36).substr(2, 9)} `,
         style: 'h2',
         children: [{
           _type: 'span',
-          _key: `span-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          _key: `span - ${Date.now()} -${Math.random().toString(36).substr(2, 9)} `,
           text: trimmed.replace('## ', ''),
           marks: []
         }],
@@ -184,11 +185,11 @@ function convertToSanityBlocks(text) {
     else if (trimmed.startsWith('### ')) {
       blocks.push({
         _type: 'block',
-        _key: `block-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        _key: `block - ${Date.now()} -${Math.random().toString(36).substr(2, 9)} `,
         style: 'h3',
         children: [{
           _type: 'span',
-          _key: `span-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          _key: `span - ${Date.now()} -${Math.random().toString(36).substr(2, 9)} `,
           text: trimmed.replace('### ', ''),
           marks: []
         }],
@@ -199,11 +200,11 @@ function convertToSanityBlocks(text) {
     else if (trimmed.length > 0) {
       blocks.push({
         _type: 'block',
-        _key: `block-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        _key: `block - ${Date.now()} -${Math.random().toString(36).substr(2, 9)} `,
         style: 'normal',
         children: [{
           _type: 'span',
-          _key: `span-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          _key: `span - ${Date.now()} -${Math.random().toString(36).substr(2, 9)} `,
           text: trimmed,
           marks: []
         }],
@@ -219,10 +220,10 @@ function convertToSanityBlocks(text) {
  * excerptを生成
  */
 async function generateExcerpt(post) {
-const prompt = `
-あなたは病棟で働く20歳の看護助手「白崎セラ」です。
+  const prompt = `
+  あなたは病棟で働く20歳の看護助手「白崎セラ」です。
 
-以下の記事について、120〜160文字の要約（excerpt）を作成してください。
+  以下の記事について、120〜160文字の要約（excerpt）を作成してください。
 
 # 記事タイトル
 ${post.title}
@@ -234,16 +235,16 @@ ${post.categories?.join(', ') || 'なし'}
 ${extractTextFromBody(post.body).substring(0, 500)}
 
 # 要約のルール
-- 120〜160文字
-- 読者（看護助手）の悩みや関心に触れる
-- 記事の価値・メリットを明確に
-- 「わたし」の視点で、穏やかな「です・ます」調
-- 断定表現を避ける
-- 挨拶を入れずに本題から始め、曖昧な情報は「わからない」と明記する
+    - 120〜160文字
+      - 読者（看護助手）の悩みや関心に触れる
+        - 記事の価値・メリットを明確に
+        - 「わたし」の視点で、穏やかな「です・ます」調を基本とし、ポイント部分は簡潔な表現（体言止め等）で幼さを抑える
+          - 断定表現を避ける
+          - 挨拶を入れずに本題から始め、曖昧な情報は「わからない」と明記する
 
 # 出力
-要約文のみを出力してください。
-`;
+  要約文のみを出力してください。
+  `;
 
   try {
     const result = await model.generateContent(prompt);
@@ -257,7 +258,7 @@ ${extractTextFromBody(post.body).substring(0, 500)}
 
     return excerpt;
   } catch (error) {
-    console.error(`⚠️ excerpt生成エラー: ${error.message}`);
+    console.error(`⚠️ excerpt生成エラー: ${error.message} `);
     return null;
   }
 }
@@ -286,27 +287,27 @@ async function expandPost(postId, apply = false) {
   try {
     // 記事データを取得
     const post = await client.fetch(`
-      *[_id == $id][0] {
-        _id,
-        title,
-        "slug": slug.current,
+    * [_id == $id][0] {
+    _id,
+      title,
+      "slug": slug.current,
         body,
         excerpt,
-        "categories": categories[]->title
-      }
-    `, { id: postId });
+        "categories": categories[] -> title
+  }
+  `, { id: postId });
 
     if (!post) {
-      console.log(`❌ 記事が見つかりません: ${postId}\n`);
+      console.log(`❌ 記事が見つかりません: ${postId} \n`);
       return { expanded: false, error: true };
     }
 
     const currentChars = countCharacters(post.body);
 
     console.log(`\n📝 記事「${post.title}」`);
-    console.log(`   ID: ${post._id}`);
-    console.log(`   現在の文字数: ${currentChars}文字`);
-    console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`);
+    console.log(`   ID: ${post._id} `);
+    console.log(`   現在の文字数: ${currentChars} 文字`);
+    console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'} `);
 
     if (currentChars >= 2000) {
       console.log(`   ✅ 文字数は十分です（2000文字以上）\n`);
@@ -324,11 +325,11 @@ async function expandPost(postId, apply = false) {
     }
 
     console.log(`   ✅ コンテンツ生成完了`);
-    console.log(`   📊 生成されたコンテンツ: ${additionalContent.length}文字\n`);
+    console.log(`   📊 生成されたコンテンツ: ${additionalContent.length} 文字\n`);
 
     if (!apply) {
       console.log(`   ℹ️  DRY RUN モード（実際には追加しません）`);
-      console.log(`   生成されたコンテンツ（先頭500文字）:`);
+      console.log(`   生成されたコンテンツ（先頭500文字）: `);
       console.log(`   ${additionalContent.substring(0, 500)}...\n`);
       return { expanded: false, error: false };
     }
@@ -347,7 +348,7 @@ async function expandPost(postId, apply = false) {
     const updateData = { body: newBody };
     if (newExcerpt) {
       updateData.excerpt = newExcerpt;
-      console.log(`   ✅ excerpt生成完了（${newExcerpt.length}文字）`);
+      console.log(`   ✅ excerpt生成完了（${newExcerpt.length} 文字）`);
     }
 
     // 更新
@@ -357,7 +358,7 @@ async function expandPost(postId, apply = false) {
       .commit();
 
     console.log(`   ✅ 記事を更新しました`);
-    console.log(`   文字数: ${currentChars}文字 → ${newChars}文字（+${newChars - currentChars}文字）`);
+    console.log(`   文字数: ${currentChars} 文字 → ${newChars} 文字（+${newChars - currentChars} 文字）`);
     if (newExcerpt) {
       console.log(`   excerpt: ${newExcerpt.substring(0, 50)}...`);
     }
@@ -366,7 +367,7 @@ async function expandPost(postId, apply = false) {
     return { expanded: true, error: false, before: currentChars, after: newChars };
 
   } catch (error) {
-    console.error(`   ❌ エラー: ${error.message}\n`);
+    console.error(`   ❌ エラー: ${error.message} \n`);
     return { expanded: false, error: true };
   }
 }
@@ -389,7 +390,7 @@ async function main() {
     const publishResult = await publishAllDrafts(true);
 
     if (publishResult.published > 0) {
-      console.log(`✅ ${publishResult.published}件のDraft記事をPublishしました\n`);
+      console.log(`✅ ${publishResult.published} 件のDraft記事をPublishしました\n`);
       console.log('============================================================\n');
     }
   }
@@ -403,18 +404,18 @@ async function main() {
         return;
       }
 
-      console.log(`📊 文字数不足の記事: ${shortPosts.length}件\n`);
+      console.log(`📊 文字数不足の記事: ${shortPosts.length} 件\n`);
 
       shortPosts.slice(0, 20).forEach((post, i) => {
-        console.log(`${i + 1}. ${post.title}`);
-        console.log(`   ID: ${post._id}`);
-        console.log(`   文字数: ${post.charCount}文字`);
-        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'}`);
-        console.log(`   URL: /posts/${post.slug}\n`);
+        console.log(`${i + 1}. ${post.title} `);
+        console.log(`   ID: ${post._id} `);
+        console.log(`   文字数: ${post.charCount} 文字`);
+        console.log(`   カテゴリ: ${post.categories?.join(', ') || 'なし'} `);
+        console.log(`   URL: /posts/${post.slug} \n`);
       });
 
       if (shortPosts.length > 20) {
-        console.log(`   ...他 ${shortPosts.length - 20}件\n`);
+        console.log(`   ...他 ${shortPosts.length - 20} 件\n`);
       }
 
       console.log('\n特定の記事を加筆するには:');
@@ -434,7 +435,7 @@ async function main() {
     } else if (command === 'expand-all') {
       const shortPosts = await findShortPosts(2000);
 
-      console.log(`🚀 ${shortPosts.length}記事を加筆します\n`);
+      console.log(`🚀 ${shortPosts.length} 記事を加筆します\n`);
       console.log('============================================================\n');
 
       let totalExpanded = 0;
@@ -462,13 +463,13 @@ async function main() {
 
       console.log('============================================================');
       console.log('📊 処理結果サマリー\n');
-      console.log(`   対象記事: ${shortPosts.length}件`);
-      console.log(`   加筆完了: ${totalExpanded}件`);
-      console.log(`   エラー: ${totalFailed}件`);
+      console.log(`   対象記事: ${shortPosts.length} 件`);
+      console.log(`   加筆完了: ${totalExpanded} 件`);
+      console.log(`   エラー: ${totalFailed} 件`);
 
       if (totalExpanded > 0) {
         const avgIncrease = Math.round((totalCharsAfter - totalCharsBefore) / totalExpanded);
-        console.log(`   平均文字数増加: ${avgIncrease}文字/記事`);
+        console.log(`   平均文字数増加: ${avgIncrease} 文字 / 記事`);
       }
 
       if (!apply) {
