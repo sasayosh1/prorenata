@@ -70,11 +70,16 @@ function sanitizeGeneratedTitle(input) {
 
   // Remove bracketed prefixes like 【看護助手 面接対策】 to avoid repeated template feel.
   title = title.replace(/^【[^】]{1,40}】\s*/g, '');
+  title = title.replace(/[（(][^）)]{1,32}[）)]/g, '').trim();
 
   // Avoid overused endings and mid-sentence ellipsis.
   title = title.replace(/(?:…|\.{3,})+$/g, '').trim();
   title = title.replace(/徹底解説/g, 'ポイント整理');
   title = title.replace(/完全ガイド/g, '実践ガイド');
+  title = title.replace(/完全版/g, '要点整理');
+  title = title.replace(/保存版/g, '要点整理');
+  title = title.replace(/チェックリスト/g, '整理ポイント');
+  title = title.replace(/まとめ/g, '整理');
 
   // Normalize repeated separators
   title = title.replace(/\s*[:：]\s*/g, '：');
@@ -86,6 +91,100 @@ function sanitizeGeneratedTitle(input) {
 
 function endsWithBadPunctuation(title) {
   return /[、,・…\.\:：｜\-\–—]$/.test(String(title || '').trim());
+}
+
+const TITLE_BANNED_PATTERNS = [
+  /[（(].+[)）]/,
+  /チェックリスト/,
+  /保存版/,
+  /完全版/,
+  /まとめ/,
+  /(?:\d+|[一二三四五六七八九十百千]+)(選|個)/,
+];
+
+function isTitleForbidden(title) {
+  const t = String(title || '');
+  return TITLE_BANNED_PATTERNS.some((re) => re.test(t));
+}
+
+function sanitizeTitleForBlacklist(title) {
+  let t = sanitizeGeneratedTitle(title);
+  t = t.replace(/[（(][^）)]{1,40}[）)]/g, '').trim();
+  t = t.replace(/(?:\d+|[一二三四五六七八九十百千]+)(選|個)/g, '').trim();
+  t = t.replace(/\s{2,}/g, ' ').trim();
+  return t;
+}
+
+const BODY_BANNED_TERMS = [
+  /チェックリスト/i,
+  /\bToDo\b/i,
+  /\bSTEP\b/i,
+  /次にやること/,
+  /最後に確認/,
+];
+
+function normalizeBodyText(text) {
+  let t = String(text || '');
+  t = t.replace(/チェックリスト/gi, '整理ポイント');
+  t = t.replace(/\bToDo\b/gi, '整理事項');
+  t = t.replace(/\bSTEP\b/gi, '流れ');
+  t = t.replace(/次にやること/g, '次の整理');
+  t = t.replace(/最後に確認/g, '最後に整理');
+  return t;
+}
+
+function neutralizeActionEnding(text) {
+  let t = String(text || '');
+  t = t.replace(/しましょう/g, 'と安心です');
+  t = t.replace(/してください/g, 'と安心です');
+  t = t.replace(/すると良いでしょう/g, 'と安心です');
+  t = t.replace(/すると良い/g, 'と安心です');
+  t = t.replace(/するといいでしょう/g, 'と安心です');
+  t = t.replace(/するといい/g, 'と安心です');
+  t = t.replace(/するとよいでしょう/g, 'と安心です');
+  t = t.replace(/するとよい/g, 'と安心です');
+  t = t.replace(/しておくと良い/g, 'としておくと安心です');
+  t = t.replace(/しておくといい/g, 'としておくと安心です');
+  t = t.replace(/しておくとよい/g, 'としておくと安心です');
+  return t;
+}
+
+function blockText(block) {
+  if (!block || block._type !== 'block') return '';
+  return (block.children || [])
+    .map((child) => (typeof child?.text === 'string' ? child.text : ''))
+    .join('')
+    .trim();
+}
+
+function sanitizeBodyBlocks(blocks) {
+  if (!Array.isArray(blocks)) return [];
+  return blocks.map((block) => {
+    if (!block || block._type !== 'block') return block;
+    const isHeading = block.style === 'h2' || block.style === 'h3';
+    const rawText = blockText(block);
+    const hasBanned = BODY_BANNED_TERMS.some((re) => re.test(rawText));
+    const isListItem = Boolean(block.listItem);
+
+    if (isHeading && hasBanned) {
+      const cleanedHeading = normalizeBodyText(rawText) || '要点整理';
+      return {
+        ...block,
+        children: [{ _type: 'span', text: cleanedHeading }],
+      };
+    }
+
+    if (!Array.isArray(block.children)) return block;
+    const children = block.children.map((child) => {
+      if (child?._type !== 'span' || typeof child.text !== 'string') return child;
+      let text = normalizeBodyText(child.text);
+      if (isListItem) {
+        text = neutralizeActionEnding(text);
+      }
+      return { ...child, text };
+    });
+    return { ...block, children };
+  });
 }
 
 function ensureTitleEndsCleanly(title, maxLen) {
@@ -114,14 +213,12 @@ function ensureTitleEndsCleanly(title, maxLen) {
       'ポイント',
       'メリット',
       'デメリット',
-      'チェックリスト',
       'ステップ',
       '方法',
       '対策',
       '手順',
       'コツ',
       '注意点',
-      'まとめ',
       '例文',
     ];
 
@@ -197,7 +294,7 @@ function buildAlternativeTitles({ baseSubject, features, tail }) {
   }
 
   if (tail === 'middle') {
-    variations.push(`${baseSubject}：準備の流れとチェックリスト`);
+    variations.push(`${baseSubject}：準備の流れと要点整理`);
     if (hasSelfPR || hasMotivation) variations.push(`${baseSubject}：自己PR・志望動機の整え方`);
     if (hasQuestions) variations.push(`${baseSubject}：よくある質問と答え方のコツ`);
     variations.push(`${baseSubject}で落ちやすいポイントと対策`);
@@ -205,10 +302,10 @@ function buildAlternativeTitles({ baseSubject, features, tail }) {
   }
 
   // long
-  variations.push(`${baseSubject}：準備の手順・自己PR・志望動機をまとめて整理（チェックリスト付き）`);
-  if (hasQuestions) variations.push(`${baseSubject}：よくある質問の答え方と当日の心構え（例文つき）`);
-  if (hasSelfPR && hasMotivation) variations.push(`${baseSubject}：自己PRと志望動機で差がつく準備法（例文あり）`);
-  variations.push(`${baseSubject}：失敗しやすい落とし穴と対策（当日の流れも解説）`);
+  variations.push(`${baseSubject}：準備の手順・自己PR・志望動機を整理して押さえる`);
+  if (hasQuestions) variations.push(`${baseSubject}：よくある質問の答え方と当日の心構え`);
+  if (hasSelfPR && hasMotivation) variations.push(`${baseSubject}：自己PRと志望動機で差がつく準備法`);
+  variations.push(`${baseSubject}：失敗しやすい落とし穴と対策を整理`);
   return variations;
 }
 
@@ -242,7 +339,7 @@ function clampTitleLength(title, minLen, maxLen) {
 
   // If too short, append a short qualifier (no ellipsis).
   if (minLen && codePointLength(t) < minLen) {
-    const fillers = ['（チェックリスト付き）', '（例文つき）', '（準備の流れ）', '（答え方のコツ）'];
+    const fillers = ['の要点整理', 'の状況整理', 'の考え方'];
     for (const f of fillers) {
       const cand = `${t}${f}`;
       if (codePointLength(cand) >= minLen && (!maxLen || codePointLength(cand) <= maxLen)) {
@@ -256,7 +353,7 @@ function clampTitleLength(title, minLen, maxLen) {
 }
 
 function chooseDistinctTitle({ generatedTitle, selectedKeyword, tail, minLen, maxLen, recentTitles }) {
-  const sanitized = sanitizeGeneratedTitle(generatedTitle);
+  const sanitized = sanitizeTitleForBlacklist(generatedTitle);
   const recent = Array.isArray(recentTitles) ? recentTitles.filter(Boolean) : [];
 
   const maxSim = recent.reduce((m, t) => Math.max(m, diceSimilarity(sanitized, t)), 0);
@@ -281,6 +378,8 @@ function chooseDistinctTitle({ generatedTitle, selectedKeyword, tail, minLen, ma
       : '看護助手の面接対策';
 
   const candidates = [sanitized, ...buildAlternativeTitles({ baseSubject, features, tail })]
+    .map((t) => sanitizeTitleForBlacklist(t))
+    .filter((t) => t && !isTitleForbidden(t))
     .map((t) => clampTitleLength(t, minLen, maxLen))
     .filter((t) => t && codePointLength(t) >= minLen && (!maxLen || codePointLength(t) <= maxLen));
 
@@ -296,7 +395,11 @@ function chooseDistinctTitle({ generatedTitle, selectedKeyword, tail, minLen, ma
   }
 
   // If no rewrite needed, keep sanitized (but length-clamped).
-  if (!shouldRewrite) return clampTitleLength(sanitized, minLen, maxLen);
+  if (!shouldRewrite && !isTitleForbidden(sanitized)) return clampTitleLength(sanitized, minLen, maxLen);
+  if (!best || isTitleForbidden(best)) {
+    const fallback = sanitizeTitleForBlacklist(`${baseSubject}の要点整理`);
+    return clampTitleLength(fallback, minLen, maxLen);
+  }
   return best;
 }
 
@@ -872,18 +975,18 @@ async function generateAndSaveArticle() {
   let titleMaxLength = 0;
   if (targetTail === 'short') {
     titleLengthGuide = '20〜30文字（シンプルで直接的）';
-    titleExample = '例: 「看護助手の給料を徹底解説」（15文字）';
+    titleExample = '例: 「看護助手の給料の基本と見方」（15文字）';
     titleMinLength = 20;
     titleMaxLength = 30;
   } else if (targetTail === 'middle') {
     titleLengthGuide = '31〜45文字（具体的で魅力的）';
-    titleExample = '例: 「看護助手の給料が低い理由と年収アップの3つの方法」（27文字）';
+    titleExample = '例: 「看護助手の給料が低い理由と年収の見方」（27文字）';
     titleMinLength = 31;
     titleMaxLength = 45;
   } else { // long
     // Sanity Studio の一覧/プレビューで読める長さに収める（長すぎると可読性も落ちる）
     titleLengthGuide = '46〜55文字（超具体的でロングテール）';
-    titleExample = '例: 「【2025年最新】看護助手の給料が低い理由とは？夜勤・資格・転職で年収アップする完全ガイド」（50文字）';
+    titleExample = '例: 「看護助手の給料が低い理由とは？夜勤・資格・転職の見方を整理」（50文字）';
     titleMinLength = 46;
     titleMaxLength = 55;
   }
@@ -907,13 +1010,13 @@ ${SERA_FULL_PERSONA}
 - 【セラ】（必要に応じて）補足・現場感覚・注意点（主観表現必須）
 
 ## まとめ
-- 【サイト側】記事の要点整理・次のアクション提示
+- 【サイト側】記事の要点整理・安心して読み終えられる整理
 - 【セラ】励まし・伴走的コメント（主観表現必須）
 
 # 収益化とユーザビリティの統合
 - **読者ベネフィット第一**: 単なる解説記事ではなく、「読者が今抱えている具体的な悩み（例: 同僚への言い出しにくさ、面接での詰まり）」を解決する構成にする。
 - **キラーページへの誘導**: 内容が「転職」「退職」「給料アップ」に関連する場合、自然な文脈で当サイトの比較記事（退職代行のおすすめ、転職サービスの選び方等）に言及する。
-- **実務的トーン**: 理想論だけでなく、現場の「まあ、そうは言っても難しいよね」という感覚に寄り添いつつ、現実的な一歩を提示する。
+- **実務的トーン**: 理想論だけでなく、現場の「まあ、そうは言っても難しいよね」という感覚に寄り添いつつ、現実的な見通しを整理する。
 
 # 記事要件
 - テーマ: 「${selectedKeyword}」（看護助手向け）
@@ -926,7 +1029,7 @@ ${SERA_FULL_PERSONA}
 - 文章内で自分の名前を出さない（例: 「セラが」「セラの」などは禁止）。必要なら「わたし」で表現する。
 - タイトルに「【】」などの括弧装飾は使わない（一覧で同じ見た目になりやすいため）。
 - タイトル末尾を「…」「...」で終えない（途中省略で終わらせない）。
-- タイトルは「徹底解説」「完全ガイド」等のテンプレ語を連発しない。必要なら別表現（ポイント整理/チェックリスト等）にする。
+- タイトルは「徹底解説」「完全ガイド」等のテンプレ語を連発しない。必要なら別表現（要点整理/状況整理等）にする。
 - **タイトル文字数（SEO戦略・絶対厳守）**:
   **${titleLengthGuide}**
   **最低${titleMinLength}文字、最大${titleMaxLength}文字**
@@ -945,7 +1048,7 @@ ${SERA_FULL_PERSONA}
 
 # 出力形式（JSON、コードブロックなし）
 {
-  "title": "（${titleLengthGuide}で読者メリットが伝わるタイトル）",
+  "title": "${titleLengthGuide}で読者メリットが伝わるタイトル",
   "tags": ["${selectedTopic}", "看護助手"],
   "body": [
     {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文)"}]},
@@ -1002,6 +1105,7 @@ ${SERA_FULL_PERSONA}
   }
 
   const slugCurrent = buildPostSlug(title);
+  const cleanedBody = sanitizeBodyBlocks(generatedArticle.body || []);
   const draft = {
     _type: 'post',
     _id: `drafts.${randomUUID()}`,
@@ -1010,7 +1114,7 @@ ${SERA_FULL_PERSONA}
     title,
     slug: { _type: 'slug', current: slugCurrent },
     tags: generatedArticle.tags,
-    body: ensurePortableTextKeys(generatedArticle.body || []),
+    body: ensurePortableTextKeys(cleanedBody),
     categories: [], // メンテナンスで自動選択
     excerpt: '',    // メンテナンスで自動生成
   };

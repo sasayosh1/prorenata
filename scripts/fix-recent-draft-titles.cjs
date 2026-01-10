@@ -72,9 +72,13 @@ function diceSimilarity(a, b) {
 function sanitizeTitle(input) {
   let title = String(input || '').trim();
   title = title.replace(/^【[^】]{1,40}】\s*/g, '');
+  title = title.replace(/[【】\[\]（）()]/g, ' ');
   title = title.replace(/(?:…|\.{3,})+$/g, '').trim();
   title = title.replace(/徹底解説/g, 'ポイント整理');
   title = title.replace(/完全ガイド/g, '実践ガイド');
+  title = title.replace(/チェックリスト/g, '整理ポイント');
+  title = title.replace(/完全版/g, '要点整理');
+  title = title.replace(/保存版/g, '要点整理');
   title = title.replace(/\s*[:：]\s*/g, '：');
   title = title.replace(/\s*・\s*/g, '・');
   title = title.replace(/\s+/g, ' ').trim();
@@ -108,21 +112,21 @@ function buildCandidates(title) {
   out.push(t);
 
   if (isInterview) {
-    out.push(`${base}：当日までの準備チェックリスト`);
-    if (hasSelfPR || hasMotivation) out.push(`${base}：自己PR・志望動機の作り方（例文つき）`);
+    out.push(`${base}：当日までの準備の整理`);
+    if (hasSelfPR || hasMotivation) out.push(`${base}：自己PR・志望動機の作り方 例文つき`);
     if (hasQuestions) out.push(`${base}：よくある質問の答え方とNG例`);
     out.push(`${base}：合否を分けるポイントと対策`);
   } else if (isSalary) {
     out.push(`${base}：平均月収・年収と上げる方法を整理`);
     out.push(`${base}：夜勤・資格・転職で上がる？現実ラインの見方`);
-    out.push(`${base}：手当・働き方別の違い（チェックポイント）`);
+    out.push(`${base}：手当・働き方別の違いの整理`);
   } else if (isComm) {
     out.push(`${base}：信頼を築く声かけと観察のコツ`);
-    out.push(`${base}：困った場面の対応例（現場で使える）`);
+    out.push(`${base}：困った場面の対応例 現場で使える`);
     out.push(`${base}：トラブルを防ぐ情報共有のやり方`);
   } else {
     out.push(`${base}：新人が最初に押さえるコツと注意点`);
-    out.push(`${base}：続けやすくなる業務の回し方（チェック）`);
+    out.push(`${base}：続けやすくなる業務の回し方の整理`);
     out.push(`${base}：ミスを減らす手順と声かけ`);
   }
 

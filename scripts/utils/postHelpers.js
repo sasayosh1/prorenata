@@ -266,17 +266,17 @@ const H3_FALLBACK_PATTERNS = [
   {
     keywords: ['睡眠', '眠', '休息', '仮眠'],
     template: ({ h3Text, bulletSample }) =>
-      `「${h3Text}」では、短時間でも深く休める工夫を取り入れてみましょう。${bulletSample ? `例えば「${bulletSample}」のような習慣をメモしておくと、翌日の体調が安定します。` : '照明や水分補給を見直すだけでも、夜勤明けの疲労感が和らぎます。'}`
+      `「${h3Text}」では、短時間でも深く休める工夫を取り入れると安心です。${bulletSample ? `例えば「${bulletSample}」のような習慣をメモしておくと、翌日の体調が安定します。` : '照明や水分補給を見直すだけでも、夜勤明けの疲労感が和らぎます。'}`
   },
   {
     keywords: ['夜勤', '夜間', '深夜'],
     template: ({ h3Text, sectionTitle, bulletSample }) =>
-      `${sectionTitle ? `${sectionTitle}の場面では` : '夜勤帯のケアでは'}、${h3Text}を意識して情報共有すると安心です。${bulletSample ? `「${bulletSample}」のようなチェックポイントを持っておくと、申し送りがぐっと楽になります。` : '声のトーンや照明の調整など、患者さんが安心できる雰囲気づくりを忘れずに。'}`
+      `${sectionTitle ? `${sectionTitle}の場面では` : '夜勤帯のケアでは'}、${h3Text}を意識して情報共有すると安心です。${bulletSample ? `「${bulletSample}」のような確認ポイントを持っておくと、申し送りがぐっと楽になります。` : '声のトーンや照明の調整など、患者さんが安心できる雰囲気づくりを意識すると安心です。'}`
   },
   {
     keywords: ['声', 'コミュ', '伝え', '会話', '質問'],
     template: ({ h3Text, bulletSample }) =>
-      `「${h3Text}」では、患者さんの表情を見ながら一言添えるだけでも安心感が高まります。${bulletSample ? `「${bulletSample}」のような声掛けを決めておくと、落ち着いて伝えられます。` : '返答まで少し待つ余裕を持ち、理解できたか確認しながら進めましょう。'}`
+      `「${h3Text}」では、患者さんの表情を見ながら一言添えるだけでも安心感が高まります。${bulletSample ? `「${bulletSample}」のような声掛けを決めておくと、落ち着いて伝えられます。` : '返答まで少し待つ余裕を持ち、理解できたか確認しながら進めると安心です。'}`
   },
   {
     keywords: ['ストレス', '不安', 'メンタル', '心', '気持ち'],
@@ -286,17 +286,17 @@ const H3_FALLBACK_PATTERNS = [
   {
     keywords: ['転職', 'キャリア', '進学', '資格', '学校'],
     template: ({ h3Text }) =>
-      `「${h3Text}」を考えるときは、今の業務で得た経験を整理し、次に磨きたい力を言葉にしてみましょう。学習方法やスケジュールを小さく試すことで、無理のないステップを描けます。`
+      `「${h3Text}」を考えるときは、今の業務で得た経験を整理し、次に磨きたい力を言葉にしておくと安心です。学習方法やスケジュールを小さく試すことで、無理のない流れを描けます。`
   },
   {
     keywords: ['患者', '家族', '利用者', '対応', '介助'],
     template: ({ h3Text, bulletSample }) =>
-      `${h3Text}では、患者さんの反応をこまめに観察しながら声掛けをしていくことが大切です。${bulletSample ? `「${bulletSample}」のような支援のコツを共有しておくと、チーム全体で温かな対応ができます。` : '小さな変化も看護師へ伝え、安心感につながるサポートを重ねましょう。'}`
+      `${h3Text}では、患者さんの反応をこまめに観察しながら声掛けをしていくことが大切です。${bulletSample ? `「${bulletSample}」のような支援のコツを共有しておくと、チーム全体で温かな対応ができます。` : '小さな変化も看護師へ伝え、安心感につながるサポートを重ねると安心です。'}`
   },
   {
     keywords: ['安全', '注意', '事故', 'トラブル'],
     template: ({ h3Text, bulletSample }) =>
-      `「${h3Text}」に臨む前に、事前のチェックリストを整えておくと焦らずに対応できます。${bulletSample ? `特に「${bulletSample}」のような確認事項は共有メモにしておくと安心です。` : '声に出して手順をなぞるだけでもヒヤリハットを減らせます。'}`
+      `「${h3Text}」に臨む前に、事前の整理ポイントを整えておくと焦らずに対応できます。${bulletSample ? `特に「${bulletSample}」のような確認事項は共有メモにしておくと安心です。` : '声に出して手順をなぞるだけでもヒヤリハットを減らせます。'}`
   },
   {
     keywords: ['段取り', '準備', '整理', '効率', '工夫'],
@@ -322,7 +322,7 @@ function generateFallbackH3Paragraph({ articleTitle, sectionTitle, h3Text, bulle
   }
 
   const anchor = sectionTitle ? `「${sectionTitle}」の場面で` : '現場のケアで'
-  return `${anchor}「${cleanedHeading}」に向き合うときは、患者さんの様子をこまめにメモしながら看護師へ共有する流れを作っておきましょう。${firstBullet ? `例えば「${firstBullet}」のようなポイントを押さえておくと、安心感につながります。` : '焦らず一つずつ確認し、無理のない範囲で工夫を積み重ねることが大切です。'}`
+  return `${anchor}「${cleanedHeading}」に向き合うときは、患者さんの様子をこまめにメモしながら看護師へ共有する流れを作っておくと安心です。${firstBullet ? `例えば「${firstBullet}」のようなポイントを押さえておくと、安心感につながります。` : '焦らず一つずつ確認し、無理のない範囲で工夫を積み重ねることが大切です。'}`
 }
 
 function buildFallbackSummaryBlocks({ articleTitle, summaryBlocks, leadingBlocks }) {

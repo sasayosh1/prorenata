@@ -186,7 +186,7 @@ function generateExpansionSuggestions(analysis, title, categories, targetChars =
         '具体的な体験談',
         '解決策の手順を詳しく',
         '専門家のアドバイス',
-        'チェックリスト形式の診断'
+        '状況整理の視点'
       ]
     })
   }

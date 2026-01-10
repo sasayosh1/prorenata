@@ -152,7 +152,7 @@ const templates = {
       {
         _type: 'block',
         style: 'normal',
-        children: [{ _type: 'span', text: '要点をまとめ、実践を促します。' }]
+        children: [{ _type: 'span', text: '要点を整理し、安心して読み終えられるように整えます。' }]
       }
     ]
   },
@@ -186,12 +186,12 @@ const templates = {
       {
         _type: 'block',
         style: 'h2',
-        children: [{ _type: 'span', text: '失敗しないためのチェックリスト' }]
+        children: [{ _type: 'span', text: '確認しておきたい整理ポイント' }]
       },
       {
         _type: 'block',
         style: 'normal',
-        children: [{ _type: 'span', text: '確認すべき項目をリスト化します。' }]
+        children: [{ _type: 'span', text: '落ち着いて判断できるように情報を整理します。' }]
       },
       {
         _type: 'block',
@@ -201,7 +201,7 @@ const templates = {
       {
         _type: 'block',
         style: 'normal',
-        children: [{ _type: 'span', text: '次のステップを明確に提示します。' }]
+        children: [{ _type: 'span', text: '要点を整理し、共感と理解を深めます。' }]
       }
     ]
   }
