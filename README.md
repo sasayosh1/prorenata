@@ -183,6 +183,15 @@ prorenata/
 └── next.config.js       # Next.js設定
 ```
 
+## 🧹 メンテナンススクリプト
+
+既存記事のチェックリスト文言を検出・除去（dry-run がデフォルト）:
+
+```bash
+node scripts/maintenance/remove-checklist-phrasing.js --dry-run --limit 20
+SANITY_API_TOKEN=... node scripts/maintenance/remove-checklist-phrasing.js --apply --limit 20
+```
+
 ## 🧰 生成物の保存先（重要）
 
 このリポジトリでは、画像・図解などの「生成物」を `public/**` に直接出力しません。
