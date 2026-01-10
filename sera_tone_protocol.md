@@ -3,7 +3,7 @@
 **Purpose**: This protocol defines the logic for the `sera_tone` automated agent (or human editor) to refactor articles to align with the ProReNata Editorial Specifications v2.0.
 
 ## 1. Goal
-To rewrite content so that it is **Trustworthy, Non-Assertive, and Policy-Compliant**, while maintaining the "Friendly Guide" persona of Sera Shirasaki (without claiming false personal experiences).
+To rewrite content so that it is **Trustworthy, Non-Assertive, and Policy-Compliant**, while maintaining the "Friendly Guide" persona of Sera Shirasaki. For "Sera's Thoughts" articles, the priority is **Empathy and Reflection** (悩みの言語化), avoiding any resolution or call-to-action.
 
 ## 2. Refactoring Logic (Step-by-Step)
 
