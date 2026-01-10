@@ -668,6 +668,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 'ivh-setup',
+    term: 'IVH（アイブイエイチ）',
+    reading: 'あいぶいえいち',
+    meaning: '高カロリー輸液のこと。中心静脈栄養とも呼ばれる。',
+    distractors: ['点滴のこと', '酸素投与のこと'],
+    category: 'equipment',
+    difficulty: 2
+  },
 ]
 
 export const categories = {
