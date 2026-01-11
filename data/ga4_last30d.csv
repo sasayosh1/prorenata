@@ -12,7 +12,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20251220,/,mobile,Japan,5,2,66,1.0,86.92399759999999
 20251223,/,desktop,Japan,5,5,35,0.6,34.5737922
 20260105,/,desktop,Japan,5,2,28,0.6,58.3307272
-20251211,/posts/nursing-assistant-salary-differences,desktop,Japan,4,1,23,0.5,5.87372075
 20251212,/,desktop,Japan,4,2,31,0.75,254.9018625
 20251212,/posts/nursing-assistant-care-guide-toolbox,desktop,Japan,4,2,25,0.5,8.111350999999999
 20251214,/,desktop,Japan,4,2,15,0.75,205.3176215
@@ -67,11 +66,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260109,/,desktop,Japan,2,1,67,1.0,71.4822615
 20260109,/posts/nursing-assistant-infection-control-handwashing,desktop,United States,2,2,7,0.0,0.338531
 20260109,/posts/nursing-assistant-unable-to-verbalize-sera,desktop,Japan,2,1,8,0.5,8.726187
-20251211,/,desktop,Japan,1,1,12,1.0,22.536526
-20251211,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,9,1.0,203.858036
-20251211,/posts/nursing-assistant-qualification-guide,mobile,Japan,1,1,6,1.0,28.008911
-20251211,/quiz,desktop,Japan,1,1,1,1.0,5.000729
-20251211,/quiz/rankings,desktop,Japan,1,1,1,1.0,29.932903
+20260110,/,mobile,Japan,2,1,18,0.5,109.624202
+20260110,/posts/nursing-assistant-unable-to-verbalize-sera,desktop,Japan,2,1,12,0.5,5.5212045
 20251212,/,mobile,Japan,1,1,8,1.0,82.850754
 20251212,/posts/nursing-assistant-duties-scope,desktop,Japan,1,1,7,1.0,84.396314
 20251212,/posts/nursing-assistant-long-term-mindset,mobile,Japan,1,1,2,0.0,0.0
@@ -301,10 +297,14 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260109,/posts/nursing-assistant-skillup-roadmap,mobile,Japan,1,1,1,1.0,3.636112
 20260109,/posts/nursing-assistant-terminology-guide,desktop,Japan,1,1,7,1.0,38.729144
 20260109,/posts/nursing-assistant-what-was-missing-at-limit-sera,desktop,Japan,1,1,1,1.0,5.201544
+20260110,/,desktop,Japan,1,1,9,1.0,20.158151
+20260110,/categories/career-change,mobile,Japan,1,1,2,1.0,13.909978
 20260110,/categories/resignation,desktop,Denmark,1,1,4,1.0,5.184999
 20260110,/categories/salary,desktop,Denmark,1,1,4,1.0,5.098581
 20260110,/posts/nursing-assistant-care-guide-approach,mobile,Japan,1,1,6,1.0,16.252006
+20260110,/posts/nursing-assistant-interview-tips-motivation,mobile,Japan,1,1,6,1.0,22.811133
 20260110,/posts/nursing-assistant-night-shift-recovery,desktop,Denmark,1,1,4,1.0,7.178351
+20260110,/posts/nursing-assistant-terminology-guide,desktop,Japan,1,1,6,1.0,46.970533
 20260110,/sitemap,desktop,Denmark,1,1,4,1.0,4.794828
 20260110,/tags,desktop,Denmark,1,1,6,1.0,0.9837
 20260110,/tags/newcomer-notes,desktop,Denmark,1,1,4,1.0,5.162525
