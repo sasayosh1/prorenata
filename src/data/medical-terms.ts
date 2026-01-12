@@ -686,6 +686,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'procedures',
     difficulty: 1
   },
+  {
+    id: 'body-temp',
+    term: '体温',
+    reading: 'たいおん',
+    meaning: '体の温度。バイタルサインの一つで、発熱や低体温の指標となる。',
+    distractors: ['呼吸数', '血圧'],
+    category: 'vital-signs',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
