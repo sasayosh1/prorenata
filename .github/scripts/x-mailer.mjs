@@ -23,6 +23,7 @@ const TARGET_MAX = 135
 const TARGET_IDEAL = 132
 const HISTORY_FILE = path.join(process.cwd(), '.analytics/x_mailer_history.json')
 const HISTORY_MAX = 200
+const isDryRun = process.env.DRY_RUN === '1'
 
 // NG Word Patterns (Medical context, Financial guarantees, Aggressive commands, and Era/Time Guard)
 const NG_REGEX = /(必ず|絶対|100%|確実に|治る|治ります|診断|処方|投資|稼げる|収益|しなさい|すべき|やめろ|最悪|ゴミ|死ね|殺す|最新|現在|今|今年|20[0-9]{2}年)/i
@@ -144,9 +145,16 @@ function isSafe(text) {
   return !NG_REGEX.test(text)
 }
 
-function requiredEnv(name) {
+function fallbackEnv(name, fallback) {
+  const value = process.env[name]
+  if (value && String(value).trim()) return String(value).trim()
+  return String(fallback || '')
+}
+
+function requiredEnv(name, fallback = '') {
   const value = process.env[name]
   if (!value || !String(value).trim()) {
+    if (isDryRun) return fallbackEnv(name, fallback)
     throw new Error(`Missing required ENV/Secret: ${name}`)
   }
   return String(value).trim()
@@ -264,9 +272,11 @@ function composePost({ post, url, historyManager, includeUrl }) {
 }
 
 async function sendMail({ subject, body }) {
-  const gmailUser = requiredEnv('GMAIL_USER')
-  const gmailAppPassword = requiredEnv('GMAIL_APP_PASSWORD').replace(/\s+/g, '')
-  const mailTo = requiredEnv('MAIL_TO')
+  if (isDryRun) return
+
+  const gmailUser = requiredEnv('GMAIL_USER', 'dryrun@example.com')
+  const gmailAppPassword = requiredEnv('GMAIL_APP_PASSWORD', 'dryrun').replace(/\s+/g, '')
+  const mailTo = requiredEnv('MAIL_TO', 'dryrun@example.com')
 
   const transporter = nodemailer.createTransport({
     host: optionalEnv('SMTP_HOST', 'smtp.gmail.com'),
@@ -303,7 +313,7 @@ async function runTest(label, post, siteBaseUrl, historyManager) {
   process.stdout.write(emailBody + '\n')
   console.log('--- BODY END ---')
 
-  if (len > TARGET_TOTAL) throw new Error(`CRITICAL: Case "${label}" exceeded limit! (${len})`)
+  if (len > TARGET_MAX) throw new Error(`CRITICAL: Case "${label}" exceeded limit! (${len})`)
 
   // Update history in simulation
   historyManager.addEntry({
@@ -331,7 +341,7 @@ async function main() {
   const siteBaseUrl = optionalEnv('SITE_BASE_URL', 'https://prorenata.jp').replace(/\/+$/, '')
   const historyManager = new HistoryManager(HISTORY_FILE)
 
-  if (dryRun && !process.env.SANITY_PROJECT_ID) {
+  if (dryRun) {
     // Variety Test
     await runTest('Normal Article', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
     await runTest('Career Article', { title: '働き方', slug: 'career-1' }, siteBaseUrl, historyManager)
@@ -340,7 +350,7 @@ async function main() {
 
     // Safety Test (Verify NG check)
     const unsafePost = { title: '必ず治る！', slug: 'unsafe' }
-    const unsafeResult = composePost({ post: unsafePost, url: '...', historyManager })
+    const unsafeResult = composePost({ post: unsafePost, url: '...', historyManager, includeUrl: false })
     console.log(`\n=== SAFETY TEST ===\nResult contains NG: ${!isSafe(unsafeResult.str) ? 'YES (CRITICAL)' : 'no'}`)
 
     return
