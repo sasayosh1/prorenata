@@ -14,6 +14,7 @@ import Image from 'next/image'
 import { sanitizeTitle, sanitizePersonaText } from '@/lib/title'
 import PRDisclosure from '@/components/Article/PRDisclosure'
 import StandardDisclaimer from '@/components/Article/StandardDisclaimer'
+import DisclaimerCallout from '@/components/Article/DisclaimerCallout'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 3600
@@ -260,8 +261,10 @@ function pruneOffTopicSummary(body: unknown, title: string) {
   }
 
   const before = blocks.slice(0, summaryIndex + 1)
-  const summaryBlocks = blocks.slice(summaryIndex + 1, endIndex)
-  const after = blocks.slice(endIndex)
+  const disclaimerIndex = blocks.findIndex(isDisclaimerParagraph)
+  const hasDisclaimerInSummary = disclaimerIndex > summaryIndex && disclaimerIndex < endIndex
+  const summaryBlocks = blocks.slice(summaryIndex + 1, hasDisclaimerInSummary ? disclaimerIndex : endIndex)
+  const after = hasDisclaimerInSummary ? blocks.slice(disclaimerIndex) : blocks.slice(endIndex)
 
   const kept: PortableTextBlock[] = []
   for (const block of summaryBlocks) {
@@ -296,7 +299,7 @@ function pruneOffTopicSummary(body: unknown, title: string) {
 }
 
 function isDisclaimerParagraph(block: PortableTextBlock): boolean {
-  if (block?._type !== 'block' || block.style) return false
+  if (block?._type !== 'block') return false
   const text = getPortableTextBlockText(block)
   return text.startsWith('免責事項')
 }
@@ -378,14 +381,7 @@ function injectRelatedPostsBeforeDisclaimer(
   const blocks = cleanedBody as PortableTextBlock[]
   const alreadyInserted = blocks.some((block) => block?._type === 'relatedPosts')
   if (alreadyInserted) return cleanedBody
-
-  const summaryIndex = blocks.findIndex(isSummaryHeading)
-  const disclaimerIndex = blocks.findIndex(isDisclaimerParagraph)
-
-  const insertAt =
-    disclaimerIndex >= 0 && (summaryIndex < 0 || disclaimerIndex > summaryIndex)
-      ? disclaimerIndex
-      : blocks.length
+  const insertAt = blocks.length
 
   const relatedBlock = {
     _type: 'relatedPosts',
@@ -394,6 +390,43 @@ function injectRelatedPostsBeforeDisclaimer(
   }
 
   return [...blocks.slice(0, insertAt), relatedBlock, ...blocks.slice(insertAt)]
+}
+
+function extractDisclaimerBlocks(body: unknown) {
+  if (!Array.isArray(body) || body.length === 0) {
+    return { mainBody: body, disclaimerBlocks: [] as PortableTextBlock[] }
+  }
+
+  const blocks = body as PortableTextBlock[]
+  const disclaimerIndex = blocks.findIndex(isDisclaimerParagraph)
+  if (disclaimerIndex < 0) {
+    return { mainBody: body, disclaimerBlocks: [] as PortableTextBlock[] }
+  }
+
+  const disclaimerBlocks: PortableTextBlock[] = []
+  const mainBody: PortableTextBlock[] = []
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    if (i < disclaimerIndex) {
+      mainBody.push(block)
+      continue
+    }
+
+    const isHeading = block?._type === 'block' && (block.style === 'h2' || block.style === 'h3')
+    const isRelated = block?._type === 'relatedPosts'
+
+    if (i !== disclaimerIndex && (isHeading || isRelated)) {
+      for (let j = i; j < blocks.length; j += 1) {
+        mainBody.push(blocks[j])
+      }
+      break
+    }
+
+    disclaimerBlocks.push(block)
+  }
+
+  return { mainBody, disclaimerBlocks }
 }
 
 export async function generateStaticParams() {
@@ -655,7 +688,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   }
 
   const hasBody = post && Array.isArray(post.body) && post.body.length > 0
-  const cleanedBody = hasBody ? pruneOffTopicSummary(post.body, post.title) : post.body
+  const { mainBody, disclaimerBlocks } = hasBody ? extractDisclaimerBlocks(post.body) : { mainBody: post.body, disclaimerBlocks: [] }
+  const cleanedBody = hasBody ? pruneOffTopicSummary(mainBody, post.title) : mainBody
   const abTestedBody = hasBody ? reorderBlocksForABTesting(cleanedBody, post._id) : cleanedBody
   const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(abTestedBody, relatedPosts) : abTestedBody
   const tocContent = (Array.isArray(bodyWithRelated) ? bodyWithRelated : []) as Array<{
@@ -663,6 +697,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     style?: string
     [key: string]: unknown
   }>
+  const hasInlineDisclaimer = disclaimerBlocks.length > 0
 
   const displayTitle = sanitizeTitle(post.title)
   const sanitizedExcerpt = post?.excerpt ? sanitizePersonaText(post.excerpt) : undefined
@@ -785,7 +820,11 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   <>
                     <PRDisclosure />
                     <ArticleWithTOC content={tocContent} />
-                    <StandardDisclaimer />
+                    {hasInlineDisclaimer ? (
+                      <DisclaimerCallout blocks={disclaimerBlocks} />
+                    ) : (
+                      <StandardDisclaimer />
+                    )}
                   </>
                 ) : (
                   <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">

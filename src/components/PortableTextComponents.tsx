@@ -5,6 +5,7 @@ import { PortableTextBlock } from '@portabletext/types'
 import { sanitizeTitle } from '@/lib/title'
 import type { RelatedPostSummary } from '@/lib/sanity'
 import SpeechBubble from './SpeechBubble'
+import DisclaimerCallout from './Article/DisclaimerCallout'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
@@ -524,6 +525,9 @@ export const portableTextComponents: PortableTextComponents = {
 
   // 将来の拡張用：カスタムタイプ
   types: {
+    disclaimerCallout: ({ value }: { value?: { blocks?: PortableTextBlock[] } }) => (
+      <DisclaimerCallout blocks={value?.blocks} />
+    ),
     relatedPosts: ({ value }: { value?: { posts?: RelatedPostSummary[] } }) => {
       const posts = Array.isArray(value?.posts) ? value.posts : []
 
