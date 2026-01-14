@@ -704,6 +704,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'shinzou-anatomy',
+    term: '心臓（しんぞう）',
+    reading: 'しんぞう',
+    meaning: '血液を全身に送り出すポンプの役割を担う臓器。',
+    distractors: ['肺（はい）', '肝臓（かんぞう）'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
