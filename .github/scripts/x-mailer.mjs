@@ -5,18 +5,21 @@ import path from 'node:path'
 import { fetchOnePost } from './sanity-fetch.mjs'
 import twitterText from 'twitter-text'
 
-const { parseTweet } = twitterText
-
 /**
- * X Mailer (semi-auto) - Focused generation rules
+ * X Mailer (Semi-Auto Workflow)
  *
- * Rules:
- * - 1 post = 1 observation + 1 viewpoint
- * - No preaching/commands or hard assertions
- * - 110-135 chars target
- * - URL only 2-3 times/week (fixed weekdays)
- * - 20-30% posts end with a question
+ * [Design Philosophy]
+ * - Provides a safe, "one-way" path for generating and notifying X posts via Mail.
+ * - Prioritizes stability and character guardrails (Era/YMYL) over variety.
+ * - Strictly separates DRY_RUN (local simulation) from PROD (actions/fetching).
+ *
+ * [DRY_RUN vs PROD]
+ * - DRY_RUN=1: No external calls (Sanity/Gmail). No real URLs. Mock data tests.
+ * - PROD (No DRY_RUN): Fetches real post from Sanity. Requires GMAIL/MAIL secrets.
+ *   Missing required ENV in PROD will intentionally trigger a process exit (Error).
  */
+
+const { parseTweet } = twitterText
 
 const TARGET_MIN = 110
 const TARGET_MAX = 135
@@ -126,13 +129,6 @@ class HistoryManager {
     )
   }
 
-  // Fallback: returns the oldest entry's sentences to "unblock" if needed
-  getOldestSentences() {
-    if (this.history.length === 0) return []
-    const oldest = this.history[this.history.length - 1]
-    return [oldest.selectedObservation, oldest.selectedViewpoint, oldest.selectedQuestion].filter(Boolean)
-  }
-
   recent(limit = 20) {
     return this.history.slice(0, limit)
   }
@@ -145,16 +141,10 @@ function isSafe(text) {
   return !NG_REGEX.test(text)
 }
 
-function fallbackEnv(name, fallback) {
-  const value = process.env[name]
-  if (value && String(value).trim()) return String(value).trim()
-  return String(fallback || '')
-}
-
 function requiredEnv(name, fallback = '') {
   const value = process.env[name]
   if (!value || !String(value).trim()) {
-    if (isDryRun) return fallbackEnv(name, fallback)
+    if (isDryRun) return fallback || `MOCK_${name}`
     throw new Error(`Missing required ENV/Secret: ${name}`)
   }
   return String(value).trim()
@@ -187,7 +177,7 @@ function composePost({ post, url, historyManager, includeUrl }) {
 
   const render = (parts, useNewline) => {
     const text = parts.filter(Boolean).join('')
-    if (!includeUrl || !url) return text
+    if (!includeUrl || !url || isDryRun) return text
     return useNewline ? `${text}\n${url}` : `${text} ${url}`
   }
 
@@ -259,7 +249,7 @@ function composePost({ post, url, historyManager, includeUrl }) {
   const poolToPickFrom = bestValid.length > 0 ? bestValid : scored
 
   if (bestValid.length === 0) {
-    console.log('⚠️ [Warning] History candidate exhaustion. Using oldest entries fallback.')
+    console.log('[Warning] History pool exhausted (expected). Falling back to oldest entries.')
   }
 
   const topSize = Math.min(10, poolToPickFrom.length)
@@ -272,11 +262,14 @@ function composePost({ post, url, historyManager, includeUrl }) {
 }
 
 async function sendMail({ subject, body }) {
-  if (isDryRun) return
+  if (isDryRun) {
+    console.log('[X Mailer] SendMail skipped (DRY_RUN)')
+    return
+  }
 
-  const gmailUser = requiredEnv('GMAIL_USER', 'dryrun@example.com')
-  const gmailAppPassword = requiredEnv('GMAIL_APP_PASSWORD', 'dryrun').replace(/\s+/g, '')
-  const mailTo = requiredEnv('MAIL_TO', 'dryrun@example.com')
+  const gmailUser = requiredEnv('GMAIL_USER')
+  const gmailAppPassword = requiredEnv('GMAIL_APP_PASSWORD').replace(/\s+/g, '')
+  const mailTo = requiredEnv('MAIL_TO')
 
   const transporter = nodemailer.createTransport({
     host: optionalEnv('SMTP_HOST', 'smtp.gmail.com'),
@@ -296,17 +289,15 @@ async function sendMail({ subject, body }) {
 
 async function runTest(label, post, siteBaseUrl, historyManager) {
   const url = `${siteBaseUrl}/x/${post.slug}`
+  // In DRY_RUN, includeUrl is always false to ensure no URLs are generated in tests
   const result = composePost({ post, url, historyManager, includeUrl: false })
 
   const emailBody = result.str
   const len = result.len
   const rawLen = Array.from(emailBody).length
-  const subject = `【X投稿用】${post.title || '新着記事'}`
 
   console.log(`\n=== TEST CASE: ${label} ===`)
   console.log(`SLUG: ${post.slug}`)
-  console.log(`POOL: ${result.name}`)
-  console.log(`SENTENCES: ${result.parts ? result.parts.join(' / ') : 'N/A'}`)
   console.log(`METRICS: weighted=${len} raw=${rawLen} remaining=${result.remaining} urlMode=${result.newline ? 'newline' : 'inline'}`)
   console.log(`FLAGS: historyHit=${result.historyHit ? 'YES' : 'no'}`)
   console.log('--- BODY START ---')
@@ -318,8 +309,8 @@ async function runTest(label, post, siteBaseUrl, historyManager) {
   // Update history in simulation
   historyManager.addEntry({
     slug: post.slug,
-    selectedObservation: result.parts[0],
-    selectedViewpoint: result.parts[1],
+    selectedObservation: result.parts ? result.parts[0] : null,
+    selectedViewpoint: result.parts ? result.parts[1] : null,
     selectedQuestion: result.endsWithQuestion ? result.parts[1] : null,
     urlMode: result.newline ? 'newline' : 'inline',
     finalWeighted: result.len,
@@ -342,11 +333,10 @@ async function main() {
   const historyManager = new HistoryManager(HISTORY_FILE)
 
   if (dryRun) {
-    // Variety Test
     await runTest('Normal Article', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
     await runTest('Career Article', { title: '働き方', slug: 'career-1' }, siteBaseUrl, historyManager)
     await runTest('Burnout Article', { title: '休息の大切さ', slug: 'rest-1' }, siteBaseUrl, historyManager)
-    await runTest('Repeat Test (Should vary)', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
+    await runTest('Repeat Test (Exhaustion Trigger)', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
 
     // Safety Test (Verify NG check)
     const unsafePost = { title: '必ず治る！', slug: 'unsafe' }
@@ -356,6 +346,7 @@ async function main() {
     return
   }
 
+  // PROD MODE (Execution)
   const fetched = await fetchOnePost()
   if (!fetched || !fetched.post) throw new Error('Failed to fetch post from Sanity')
 
@@ -365,7 +356,6 @@ async function main() {
   const result = composePost({ post, url, historyManager, includeUrl })
 
   const subject = `【X投稿用】${post.title || '新着記事'}`
-
   await sendMail({ subject, body: result.str })
 
   // Record history
