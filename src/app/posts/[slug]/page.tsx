@@ -15,6 +15,7 @@ import { sanitizeTitle, sanitizePersonaText } from '@/lib/title'
 import PRDisclosure from '@/components/Article/PRDisclosure'
 import StandardDisclaimer from '@/components/Article/StandardDisclaimer'
 import DisclaimerCallout from '@/components/Article/DisclaimerCallout'
+import type { PortableTextBlock as PortableTextBlockType } from '@portabletext/types'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 3600
@@ -25,7 +26,7 @@ void __STATIC_TO_DYNAMIC_GUARD__
 
 type RawCategory = string | { title?: string | null; slug?: string | null }
 type PortableTextSpan = { _type?: string; text?: string }
-type PortableTextBlock = { _type?: string; style?: string; children?: PortableTextSpan[]; _key?: string }
+type RawPortableTextBlock = { _type?: string; style?: string; children?: PortableTextSpan[]; _key?: string }
 
 interface PostMeta {
   _id: string
@@ -152,7 +153,7 @@ function normalizeTags(tags?: string[] | null): NormalizedTag[] {
   return normalized
 }
 
-function getPortableTextBlockText(block: PortableTextBlock): string {
+function getPortableTextBlockText(block: RawPortableTextBlock): string {
   const children = Array.isArray(block.children) ? block.children : []
   return children
     .map((child) => (typeof child?.text === 'string' ? child.text : ''))
@@ -160,7 +161,7 @@ function getPortableTextBlockText(block: PortableTextBlock): string {
     .trim()
 }
 
-function isSummaryHeading(block: PortableTextBlock): boolean {
+function isSummaryHeading(block: RawPortableTextBlock): boolean {
   if (block?._type !== 'block' || block.style !== 'h2') return false
   const text = getPortableTextBlockText(block)
   return text === 'まとめ' || text.startsWith('まとめ') || text.includes('まとめ')
@@ -244,7 +245,7 @@ function isSupportiveClosing(text: string): boolean {
 
 function pruneOffTopicSummary(body: unknown, title: string) {
   if (!Array.isArray(body) || body.length === 0) return body
-  const blocks = body as PortableTextBlock[]
+  const blocks = body as RawPortableTextBlock[]
   const keywords = extractTitleKeywords(title)
   if (!keywords || keywords.length === 0) return body
 
@@ -266,7 +267,7 @@ function pruneOffTopicSummary(body: unknown, title: string) {
   const summaryBlocks = blocks.slice(summaryIndex + 1, hasDisclaimerInSummary ? disclaimerIndex : endIndex)
   const after = hasDisclaimerInSummary ? blocks.slice(disclaimerIndex) : blocks.slice(endIndex)
 
-  const kept: PortableTextBlock[] = []
+  const kept: RawPortableTextBlock[] = []
   for (const block of summaryBlocks) {
     if (!block || block._type !== 'block') {
       kept.push(block)
@@ -298,17 +299,17 @@ function pruneOffTopicSummary(body: unknown, title: string) {
   return [...before, ...(kept.length > 0 ? kept : summaryBlocks), ...after]
 }
 
-function isDisclaimerParagraph(block: PortableTextBlock): boolean {
+function isDisclaimerParagraph(block: RawPortableTextBlock): boolean {
   if (block?._type !== 'block') return false
   const text = getPortableTextBlockText(block)
   return text.startsWith('免責事項')
 }
 
-function isAffiliateEmbedBlock(block: PortableTextBlock): boolean {
+function isAffiliateEmbedBlock(block: RawPortableTextBlock): boolean {
   return block?._type === 'affiliateEmbed'
 }
 
-function isManualRelatedHeading(block: PortableTextBlock): boolean {
+function isManualRelatedHeading(block: RawPortableTextBlock): boolean {
   if (block?._type !== 'block') return false
   if (block.style !== 'h2' && block.style !== 'h3') return false
   const text = getPortableTextBlockText(block)
@@ -317,9 +318,9 @@ function isManualRelatedHeading(block: PortableTextBlock): boolean {
 
 function stripManualRelatedSection(body: unknown) {
   if (!Array.isArray(body) || body.length === 0) return body
-  const blocks = body as PortableTextBlock[]
+  const blocks = body as RawPortableTextBlock[]
 
-  const stripped: PortableTextBlock[] = []
+  const stripped: RawPortableTextBlock[] = []
   let skippingRelated = false
 
   for (const block of blocks) {
@@ -346,7 +347,7 @@ function stripManualRelatedSection(body: unknown) {
 
 function reorderBlocksForABTesting(body: unknown, postId: string) {
   if (!Array.isArray(body) || body.length < 10) return body
-  const blocks = body as PortableTextBlock[]
+  const blocks = body as RawPortableTextBlock[]
 
   // 簡易ABテストロジック: IDの末尾文字で判定 (A: 偶数/0-7, B: 奇数/8-f)
   // ここでは A: オリジナル配置, B: 終盤へ移動
@@ -378,7 +379,7 @@ function injectRelatedPostsBeforeDisclaimer(
   if (!Array.isArray(cleanedBody) || cleanedBody.length === 0) return cleanedBody
   if (!Array.isArray(posts) || posts.length === 0) return cleanedBody
 
-  const blocks = cleanedBody as PortableTextBlock[]
+  const blocks = cleanedBody as RawPortableTextBlock[]
   const alreadyInserted = blocks.some((block) => block?._type === 'relatedPosts')
   if (alreadyInserted) return cleanedBody
   const insertAt = blocks.length
@@ -392,19 +393,23 @@ function injectRelatedPostsBeforeDisclaimer(
   return [...blocks.slice(0, insertAt), relatedBlock, ...blocks.slice(insertAt)]
 }
 
+function isPortableTextBlock(block: RawPortableTextBlock): block is PortableTextBlockType {
+  return block?._type === 'block' && Array.isArray(block.children)
+}
+
 function extractDisclaimerBlocks(body: unknown) {
   if (!Array.isArray(body) || body.length === 0) {
-    return { mainBody: body, disclaimerBlocks: [] as PortableTextBlock[] }
+    return { mainBody: body, disclaimerBlocks: [] as PortableTextBlockType[] }
   }
 
-  const blocks = body as PortableTextBlock[]
+  const blocks = body as RawPortableTextBlock[]
   const disclaimerIndex = blocks.findIndex(isDisclaimerParagraph)
   if (disclaimerIndex < 0) {
-    return { mainBody: body, disclaimerBlocks: [] as PortableTextBlock[] }
+    return { mainBody: body, disclaimerBlocks: [] as PortableTextBlockType[] }
   }
 
-  const disclaimerBlocks: PortableTextBlock[] = []
-  const mainBody: PortableTextBlock[] = []
+  const disclaimerBlocks: PortableTextBlockType[] = []
+  const mainBody: RawPortableTextBlock[] = []
 
   for (let i = 0; i < blocks.length; i += 1) {
     const block = blocks[i]
@@ -423,7 +428,9 @@ function extractDisclaimerBlocks(body: unknown) {
       break
     }
 
-    disclaimerBlocks.push(block)
+    if (isPortableTextBlock(block)) {
+      disclaimerBlocks.push(block)
+    }
   }
 
   return { mainBody, disclaimerBlocks }
