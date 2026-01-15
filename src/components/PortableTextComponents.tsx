@@ -481,6 +481,11 @@ export const portableTextComponents: PortableTextComponents = {
   // ブロックレベル要素
   block: {
     normal: CustomParagraph,
+    callout: ({ children }) => (
+      <div className="my-6 rounded-lg border border-cyan-100 bg-cyan-50/70 px-5 py-4 text-sm text-slate-700 [&]:!text-slate-700">
+        <p className="m-0 whitespace-pre-line">{children}</p>
+      </div>
+    ),
     h1: ({ children, value }) => <CustomHeading level={1} value={value}>{children}</CustomHeading>,
     h2: ({ children, value }) => <CustomHeading level={2} value={value}>{children}</CustomHeading>,
     h3: ({ children, value }) => <CustomHeading level={3} value={value}>{children}</CustomHeading>,
