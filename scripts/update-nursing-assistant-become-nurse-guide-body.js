@@ -3,11 +3,15 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: '.env.local' });
 
+// Required for revalidate after apply:
+// SITE_URL=https://prorenata.jp
+// REVALIDATE_SECRET=your-secret
+// REVALIDATE_ENDPOINT=/api/revalidate (optional)
 const SLUG = 'nursing-assistant-become-nurse-guide';
 
 const LINK_URLS = {
-  NIGHT: 'https://prorenata.jp/posts/nursing-assistant-night-shift',
-  STRESS: 'https://prorenata.jp/posts/nursing-assistant-stress-ranking',
+  NIGHT: '/posts/nursing-assistant-night-shift',
+  STRESS: '/posts/nursing-assistant-stress-ranking',
 };
 
 function makeSpan(text, marks = []) {
@@ -37,6 +41,35 @@ function makeBlock({ text, style = 'normal', listItem, level, spans, markDefs })
 function blockText(block) {
   if (!block || !Array.isArray(block.children)) return '';
   return block.children.map((child) => child.text || '').join('');
+}
+
+async function triggerRevalidate(paths) {
+  const siteUrl = process.env.SITE_URL;
+  const secret = process.env.REVALIDATE_SECRET;
+  const endpoint = process.env.REVALIDATE_ENDPOINT || '/api/revalidate';
+
+  if (!siteUrl || !secret) {
+    console.warn('[revalidate] skipped: SITE_URL or REVALIDATE_SECRET is missing');
+    return;
+  }
+
+  const url = new URL(endpoint, siteUrl);
+  try {
+    const res = await fetch(url.toString(), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret, paths }),
+    });
+    if (!res.ok) {
+      const text = await res.text().catch(() => '');
+      console.warn(`[revalidate] failed: ${res.status} ${res.statusText} ${text}`);
+      return;
+    }
+    const json = await res.json().catch(() => ({}));
+    console.log(`[revalidate] ok: ${JSON.stringify(json)}`);
+  } catch (error) {
+    console.warn(`[revalidate] error: ${error?.message || error}`);
+  }
 }
 
 function buildCalloutBlock({ titleText, lines, links }) {
@@ -310,6 +343,13 @@ async function run({ dryRun }) {
   console.log(`h3: ${h3List.join(' / ')}`);
   console.log(`faq h3: ${faqH3Order.join(' / ')}`);
   console.log(`faq callout at end: ${faqHasCalloutAtEnd ? 'yes' : 'no'}`);
+
+  if (!dryRun) {
+    await triggerRevalidate([
+      `/posts/${post.slug?.current || SLUG}`,
+      '/posts',
+    ]);
+  }
 
   return result;
 }
