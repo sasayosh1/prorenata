@@ -5,9 +5,8 @@ import { createHash } from 'crypto'
 /**
  * Revalidate API for prorenata.jp
  * 
- * Safe Diagnostic Implementation:
- * This version provides diagnostic info (lengths and safe hashes) on 401 errors
- * to troubleshoot Environment Variable mismatches without leaking the secret.
+ * [Senior Engineer's Diagnostic Implementation]
+ * Focus: Identify 401 Unauthorized causes without leaking secrets.
  */
 
 function getSafeHash(str: string | undefined | null) {
@@ -22,22 +21,28 @@ function normalizePaths(input: unknown): string[] {
   return []
 }
 
+function getDiag(envSecret: string | undefined, secret: string | null, source: string) {
+  return {
+    hasEnv: Boolean(envSecret && envSecret.trim().length > 0),
+    envLen: envSecret?.length || 0,
+    providedLen: secret?.length || 0,
+    envHash8: getSafeHash(envSecret),
+    providedHash8: getSafeHash(secret),
+    source,
+    method: "", // To be filled by handler
+    timestamp: new Date().toISOString()
+  }
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const secret = searchParams.get('secret')
   const path = searchParams.get('path')
   const envSecret = process.env.REVALIDATE_SECRET
 
-  const isAuth = envSecret && secret === envSecret
-
-  const diag = {
-    hasEnv: Boolean(envSecret),
-    envLen: envSecret?.length || 0,
-    providedLen: secret?.length || 0,
-    envHash8: getSafeHash(envSecret),
-    providedHash8: getSafeHash(secret),
-    source: secret ? "query" : "missing"
-  }
+  const isAuth = Boolean(envSecret && secret === envSecret)
+  const diag = getDiag(envSecret, secret, secret ? "query" : "missing")
+  diag.method = "GET"
 
   if (!isAuth) {
     return NextResponse.json({ ok: false, status: 401, ...diag }, { status: 401 })
@@ -57,6 +62,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const url = new URL(request.url)
+  const envSecret = process.env.REVALIDATE_SECRET
 
   // 1. Secret Retrieval (Priority: Query -> JSON -> Form)
   let secret = url.searchParams.get('secret')
@@ -72,7 +78,8 @@ export async function POST(request: NextRequest) {
       source = secret ? "json" : ""
     } else if (contentType.includes('application/x-www-form-urlencoded') || contentType.includes('multipart/form-data')) {
       form = await request.formData().catch(() => null)
-      secret = form?.get('secret') as string
+      const formSecret = form?.get('secret')
+      secret = typeof formSecret === 'string' ? formSecret : null
       source = secret ? "form" : ""
     }
   }
@@ -80,17 +87,9 @@ export async function POST(request: NextRequest) {
   if (!source) source = "missing"
 
   // 2. Auth Check
-  const envSecret = process.env.REVALIDATE_SECRET
-  const isAuth = envSecret && secret === envSecret
-
-  const diag = {
-    hasEnv: Boolean(envSecret),
-    envLen: envSecret?.length || 0,
-    providedLen: secret?.length || 0,
-    envHash8: getSafeHash(envSecret),
-    providedHash8: getSafeHash(secret),
-    source
-  }
+  const isAuth = Boolean(envSecret && secret === envSecret)
+  const diag = getDiag(envSecret, secret, source)
+  diag.method = "POST"
 
   if (!isAuth) {
     return NextResponse.json({ ok: false, status: 401, ...diag }, { status: 401 })
