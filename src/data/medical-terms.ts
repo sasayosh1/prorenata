@@ -740,6 +740,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'vital-signs',
     difficulty: 1
   },
+  {
+    id: 'medication-preparation-2',
+    term: '与薬準備',
+    reading: 'よやくじゅんび',
+    meaning: '患者に薬を投与する前に、薬の種類、量、投与方法などを確認し、準備すること。',
+    distractors: ['バイタルサイン測定', '食事介助', '体位変換'],
+    category: 'medication',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
