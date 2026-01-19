@@ -118,6 +118,52 @@ npm ci
 `sanity.config.ts` で以下を設定:
 - プロジェクトID: `72m8vhy2`
 - データセット: `production`
+
+## 🔁 Revalidate（Sanity Webhook 運用）
+
+Sanity更新後に `/api/revalidate` を叩いて ISR を即時更新します。  
+**Authorization: Bearer** を正とし、query/body は後方互換です。
+
+### 1) Secret の生成（macOS）
+```bash
+openssl rand -hex 32
+```
+- 64文字の16進数が生成されます（長さは固定）
+- 末尾の改行・空白の混入に注意
+- `PR_` などのプレフィックスを付ける場合は、Vercel/ローカルで一致させる
+
+### 2) Vercel への設定（Production / Preview 両方）
+1. Project → Settings → Environment Variables  
+2. `REVALIDATE_SECRET` を **Production / Preview** に同一値で設定  
+3. **必ず Redeploy**（環境変数の反映に必須）
+
+### 3) ローカルの `.env.local`
+```bash
+REVALIDATE_SECRET=PR_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+安全な長さ確認（値は出さない）:
+```bash
+node -e "require('dotenv').config({path:'.env.local'});const s=process.env.REVALIDATE_SECRET||'';console.log('len=',s.length)"
+```
+
+### 4) 検証コマンド（Bearer 推奨）
+```bash
+read -s SECRET; echo
+curl -s -i -H "Authorization: Bearer $SECRET" \
+  "https://prorenata.jp/api/revalidate?path=/posts/nursing-assistant-become-nurse-guide"
+```
+期待結果: `HTTP/2 200` + `{"ok":true,"revalidated":[...]}`  
+401なら、Vercel側の変数一致・再デプロイ有無を確認してください。
+
+### 5) Sanity Webhook 設定
+- URL: `https://prorenata.jp/api/revalidate`
+- Header: `Authorization: Bearer <REVALIDATE_SECRET>`
+- Body: `{"paths":["/posts/<slug>"]}` など
+
+#### 注意（長さ不一致の原因）
+- コピー時の末尾スペース/改行
+- 全角文字混入
+- Vercel側の再デプロイ忘れ
 - APIバージョン: `2024-01-01`
 
 ### 環境変数
