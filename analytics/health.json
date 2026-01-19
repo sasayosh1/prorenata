@@ -2,7 +2,7 @@
   "ok": true,
   "reason": "ok",
   "reason_code": "OK",
-  "checkedAt": "2026-01-19T03:08:26.820Z",
+  "checkedAt": "2026-01-19T17:37:00.440Z",
   "dateCheckedUtc": "2026-01-18",
   "thresholds": {
     "lookbackDays": 7,

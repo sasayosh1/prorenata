@@ -749,6 +749,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'shinzo-2',
+    term: '心臓',
+    reading: 'しんぞう',
+    meaning: '血液を全身に送り出すポンプの役割を果たす臓器。',
+    distractors: ['肺', '肝臓'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
