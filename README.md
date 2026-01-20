@@ -164,6 +164,31 @@ curl -s -i -H "Authorization: Bearer $SECRET" \
 - コピー時の末尾スペース/改行
 - 全角文字混入
 - Vercel側の再デプロイ忘れ
+
+## 🔁 Revalidate Runbook（運用手順）
+
+### 1) VercelでREVALIDATE_SECRETを設定する
+1. Vercel → Project → Settings → Environment Variables  
+2. `REVALIDATE_SECRET` を **Production / Preview 両方** に同一値で設定  
+3. **保存後は必ず Redeploy**
+
+### 2) Redeployが必須な理由
+Vercelは環境変数を「デプロイ時に固定」します。  
+変更しただけでは実行環境に反映されないため、**再デプロイが必須**です。
+
+### 3) Bearerで200確認（secretをURLに出さない）
+```bash
+read -s SECRET; echo
+curl -s -i -H "Authorization: Bearer $SECRET" \
+  "https://prorenata.jp/api/revalidate?path=/posts/nursing-assistant-become-nurse-guide"
+```
+期待: `HTTP/2 200` + `{"ok":true,"revalidated":[...]}`
+
+### 4) 401が出た時の最短チェックリスト
+- Vercelの `REVALIDATE_SECRET` が **Production / Preview 両方** に同一値か
+- 環境変数変更後に **Redeploy** 済みか
+- ローカルの `.env.local` と **完全一致**しているか  
+  （末尾の空白・改行・全角文字の混入に注意）
 - APIバージョン: `2024-01-01`
 
 ### 環境変数
