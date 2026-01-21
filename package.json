@@ -39,6 +39,7 @@
     "chatlog:save": "bash scripts/save-chatlog.sh",
     "maintenance": "node tools/cli.js",
     "maintenance:report": "node tools/cli.js report",
+    "revalidate": "node scripts/revalidate.mjs",
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky"
