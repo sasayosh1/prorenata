@@ -199,10 +199,19 @@ curl -s -i -H "Authorization: Bearer $SECRET" \
 NEXT_PUBLIC_SANITY_PROJECT_ID=72m8vhy2
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_api_token_here
+SANITY_READ_TOKEN=your_read_token_here
+SANITY_WRITE_TOKEN=your_write_token_here
 
 # サイト設定
 NEXT_PUBLIC_GA_ID=G-HV2JLW3DPB
 ```
+
+### Daily Draft Generation のSecrets（GitHub Actions）
+- `SANITY_READ_TOKEN`: 読み取り専用（クエリ用）
+- `SANITY_WRITE_TOKEN`: 書き込み専用（下書き作成用）
+
+注意: SANITY_READ_TOKEN が未設定だと Daily Draft は失敗します。  
+read/write を混ぜず、用途に応じて分離してください。
 
 ### スキーマ設定
 

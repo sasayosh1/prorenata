@@ -500,12 +500,23 @@ const SANITY_API_VERSION =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION ||
   '2024-01-01';
 
-const SANITY_CONFIG = {
+const SANITY_READ_TOKEN = process.env.SANITY_READ_TOKEN;
+const SANITY_WRITE_TOKEN = process.env.SANITY_WRITE_TOKEN;
+
+const SANITY_READ_CONFIG = {
   projectId: SANITY_PROJECT_ID,
   dataset: SANITY_DATASET,
   useCdn: false,
   apiVersion: SANITY_API_VERSION,
-  token: process.env.SANITY_WRITE_TOKEN,
+  token: SANITY_READ_TOKEN,
+};
+
+const SANITY_WRITE_CONFIG = {
+  projectId: SANITY_PROJECT_ID,
+  dataset: SANITY_DATASET,
+  useCdn: false,
+  apiVersion: SANITY_API_VERSION,
+  token: SANITY_WRITE_TOKEN,
 };
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Reverted to process.env.GEMINI_API_KEY
@@ -670,15 +681,20 @@ async function generateAndSaveArticle() {
   console.log("Starting daily article generation process...");
 
   // 1. Initialize clients
-  if (!SANITY_CONFIG.token || !GEMINI_API_KEY) {
+  if (!SANITY_READ_TOKEN) {
+    console.error("FATAL: SANITY_READ_TOKEN environment variable is not set.");
+    process.exit(1);
+  }
+  if (!SANITY_WRITE_TOKEN || !GEMINI_API_KEY) {
     console.error("FATAL: SANITY_WRITE_TOKEN or GEMINI_API_KEY environment variables are not set.");
     process.exit(1);
   }
-  if (!SANITY_CONFIG.projectId || !SANITY_CONFIG.dataset) {
+  if (!SANITY_READ_CONFIG.projectId || !SANITY_READ_CONFIG.dataset) {
     console.error("FATAL: SANITY_PROJECT_ID / SANITY_DATASET environment variables are not set.");
     process.exit(1);
   }
-  const sanityClient = createClient(SANITY_CONFIG);
+  const sanityReadClient = createClient(SANITY_READ_CONFIG);
+  const sanityWriteClient = createClient(SANITY_WRITE_CONFIG);
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" }); // バージョン固定、Proフォールバック防止、Vertex AI禁止
 
@@ -697,7 +713,7 @@ async function generateAndSaveArticle() {
     }
 
     // Fetch recent titles and categories up-front (used for tail distribution, title de-dup, and rotation).
-    const recentData = await sanityClient.fetch(
+    const recentData = await sanityReadClient.fetch(
       `{
         "posts": *[_type == "post" && defined(title)]|order(coalesce(publishedAt,_createdAt) desc)[0...1000]{
           title, 
@@ -741,7 +757,7 @@ async function generateAndSaveArticle() {
     const ga4Records = analyticsEnabled ? loadCsvRecords(ga4Path) : null;
 
     // Fallback tag list (used when analytics files are missing).
-    const tagsArrays = await sanityClient.fetch(`*[_type == "post" && defined(tags)].tags`);
+    const tagsArrays = await sanityReadClient.fetch(`*[_type == "post" && defined(tags)].tags`);
     const allTags = [].concat.apply([], tagsArrays);
     const uniqueTags = [...new Set(allTags)].filter(Boolean);
 
@@ -947,7 +963,7 @@ async function generateAndSaveArticle() {
   console.log("Fetching 白崎セラ author document...");
   let authorReference;
   try {
-    const authorDoc = await sanityClient.fetch(
+    const authorDoc = await sanityReadClient.fetch(
       `*[_type == "author" && (name == $name || slug.current == $slug)][0]`,
       { name: '白崎セラ', slug: 'shirasaki-sera' }
     );
@@ -1120,7 +1136,7 @@ ${SERA_FULL_PERSONA}
   };
 
   try {
-    const createdDraft = await sanityClient.create(draft);
+    const createdDraft = await sanityWriteClient.create(draft);
     console.log("\n--- Process Complete ---");
     console.log(`Successfully created new draft in Sanity with ID: ${createdDraft._id}`);
     appendGithubOutput('draft_id', createdDraft._id);
