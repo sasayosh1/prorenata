@@ -13,7 +13,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260115,/posts/nursing-assistant-become-nurse-guide,desktop,Japan,3,1,30,0.6666666666666666,596.7286536666667
 20260115,/posts/nursing-assistant-night-shift,desktop,Japan,3,1,16,0.6666666666666666,40.45843
 20260118,/posts/nursing-assistant-resume-writing,mobile,Japan,3,2,16,0.3333333333333333,42.213298333333334
-20251222,/,mobile,United States,2,2,12,0.0,7.6117545
 20251224,/,mobile,Japan,2,1,11,0.5,9.3071835
 20251224,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,9,0.5,45.1365425
 20251224,/posts/nursing-assistant-patient-transfer-safety,mobile,Japan,2,2,13,0.5,15.203901
@@ -52,19 +51,10 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260118,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,2,2,13,1.0,171.9187025
 20260119,/posts/nursing-assistant-medical-terms,desktop,Japan,2,1,7,0.0,2.9346785
 20260119,/posts/nursing-assistant-reasons-nursing-school,mobile,Japan,2,1,9,0.0,5.8404145
-20260120,/posts/nursing-assistant-resume-writing,mobile,Japan,2,2,11,0.5,59.062667000000005
+20260120,/posts/nursing-assistant-resume-writing,mobile,Japan,2,2,11,1.0,59.062667
 20260120,/posts/nursing-assistant-workplace-fit-insights,desktop,Japan,2,1,15,1.0,169.6792685
-20251222,/,desktop,Japan,1,1,5,0.0,5.968147
-20251222,/posts,tablet,Japan,1,1,22,1.0,1312.695585
-20251222,/posts/nursing-assistant-career-change-support,mobile,Japan,1,1,5,0.0,5.579457
-20251222,/posts/nursing-assistant-essentials-checklist,tablet,Japan,1,1,1,1.0,9.746085
-20251222,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,7,1.0,428.686151
-20251222,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,7,0.0,8.108691
-20251222,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,0.0,5.906589
-20251222,/posts/nursing-assistant-no-experience,tablet,Japan,1,1,1,1.0,10.295878
-20251222,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,1.0,51.84428
-20251222,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,1.0,236.5368
-20251222,/posts/nursing-assistant-resume-writing,mobile,Japan,1,1,6,0.0,5.982902
+20260121,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,2,12,0.5,27.958522
+20260121,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,16,0.5,322.01317950000004
 20251223,/,mobile,Japan,1,1,4,1.0,19.198967
 20251223,/about,mobile,Japan,1,1,1,1.0,4.991227
 20251223,/medical-quiz,mobile,Japan,1,1,21,1.0,57.229066
@@ -298,4 +288,11 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260120,/quiz,desktop,Iran,1,1,3,1.0,0.03266
 20260120,/tags,desktop,Iran,1,1,4,1.0,4.918736
 20260120,/tags/newcomer-notes,desktop,Iran,1,1,4,1.0,6.04949
+20260121,/posts/comparison-of-three-resignation-agencies,mobile,Japan,1,1,3,1.0,57.64977
+20260121,/posts/nursing-assistant-become-nurse-guide,desktop,Japan,1,1,4,0.0,5.591422
 20260121,/posts/nursing-assistant-medical-terms,desktop,Japan,1,1,7,1.0,207.300486
+20260121,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,1.0,47.382644
+20260121,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,0.0,6.312553
+20260121,/posts/nursing-assistant-qualification-study-support,mobile,Japan,1,1,6,1.0,17.292102
+20260121,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,5,1.0,4.388247
+20260122,/posts/nursing-assistant-psychiatric-ward-duties,mobile,Japan,1,1,7,1.0,80.974267
