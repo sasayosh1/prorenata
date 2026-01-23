@@ -18,24 +18,42 @@ async function main() {
   const projectId = requiredEnv('SANITY_PROJECT_ID')
   const dataset = requiredEnv('SANITY_DATASET')
   const apiVersion = requiredEnv('SANITY_API_VERSION')
-  const token = requiredEnv('SANITY_WRITE_TOKEN')
+  const readToken = requiredEnv('SANITY_READ_TOKEN')
+  const writeToken = requiredEnv('SANITY_WRITE_TOKEN')
 
-  const client = createClient({
+  const readClient = createClient({
     projectId,
     dataset,
     apiVersion,
-    token,
+    token: readToken,
+    useCdn: false,
+  })
+  const writeClient = createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    token: writeToken,
     useCdn: false,
   })
 
   console.log(`[sanity-auth-check] projectId=${projectId} dataset=${dataset} apiVersion=${apiVersion}`)
 
   // 1) Authenticated read (forces token validation even if dataset is public)
-  const ping = await client.fetch(
-    `{"now": now(), "postCount": count(*[_type == $type])}`,
-    { type: optionalEnv('SANITY_POST_TYPE', 'post') }
-  )
-  console.log('[sanity-auth-check] authenticated fetch ok:', ping)
+  let readOk = false
+  let writeOk = false
+  try {
+    const ping = await readClient.fetch(
+      `{"now": now(), "postCount": count(*[_type == $type])}`,
+      { type: optionalEnv('SANITY_POST_TYPE', 'post') }
+    )
+    readOk = true
+    console.log('[sanity-auth-check] READ token OK:', ping)
+  } catch (error) {
+    console.error('[sanity-auth-check] READ token FAILED:', error?.message || error)
+    if (error?.response?.body) {
+      console.error('[sanity-auth-check] READ response:', JSON.stringify(error.response.body, null, 2))
+    }
+  }
 
   // 2) Write permission check (create + delete in one mutate call to avoid lasting data)
   const runId =
@@ -51,8 +69,25 @@ async function main() {
     note: 'temporary doc created by GitHub Actions sanity-auth-check',
   }
 
-  await client.mutate([{ createOrReplace: testDoc }, { delete: { id: docId } }])
-  console.log('[sanity-auth-check] write ok (createOrReplace+delete)')
+  try {
+    await writeClient.mutate([{ createOrReplace: testDoc }, { delete: { id: docId } }])
+    writeOk = true
+    console.log('[sanity-auth-check] WRITE token OK (createOrReplace+delete)')
+  } catch (error) {
+    console.error('[sanity-auth-check] WRITE token FAILED:', error?.message || error)
+    if (error?.response?.body) {
+      console.error('[sanity-auth-check] WRITE response:', JSON.stringify(error.response.body, null, 2))
+    }
+  }
+
+  if (!readOk || !writeOk) {
+    process.exitCode = 1
+    console.error(
+      `[sanity-auth-check] Result: READ=${readOk ? 'OK' : 'FAILED'} / WRITE=${writeOk ? 'OK' : 'FAILED'}`
+    )
+  } else {
+    console.log('[sanity-auth-check] Result: READ=OK / WRITE=OK')
+  }
 }
 
 main().catch((error) => {
@@ -62,4 +97,3 @@ main().catch((error) => {
   }
   process.exitCode = 1
 })
-
