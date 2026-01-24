@@ -3,8 +3,8 @@ name: Sanity Auth Check
 on:
   workflow_dispatch:
   schedule:
-    # Daily 03:10 JST = 18:10 UTC
-    - cron: "10 18 * * *"
+    # Weekly Sat 04:00 JST = Fri 19:00 UTC
+    - cron: "0 19 * * 5"
 
 concurrency:
   group: repo-write-${{ github.repository }}-${{ github.ref }}
@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: write
     steps:
       - uses: actions/checkout@v4
 
@@ -35,3 +36,17 @@ jobs:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           SANITY_POST_TYPE: post
         run: node .github/scripts/sanity-auth-check.mjs
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const date = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[Sanity Auth Check] Failed (${date})`,
+              body: `Sanity Auth Check が失敗しました。\n\n実行ログを確認してください:\n${context.payload.repository.html_url}/actions/runs/${context.runId}\n`,
+              labels: ['sanity', 'auth-check']
+            });
