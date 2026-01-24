@@ -12,9 +12,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260115,/posts/nursing-assistant-become-nurse-guide,desktop,Japan,3,1,30,0.6666666666666666,596.7286536666667
 20260115,/posts/nursing-assistant-night-shift,desktop,Japan,3,1,16,0.6666666666666666,40.45843
 20260118,/posts/nursing-assistant-resume-writing,mobile,Japan,3,2,16,0.3333333333333333,42.213298333333334
-20251224,/,mobile,Japan,2,1,11,0.5,9.3071835
-20251224,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,9,0.5,45.1365425
-20251224,/posts/nursing-assistant-patient-transfer-safety,mobile,Japan,2,2,13,0.5,15.203901
 20251225,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,2,2,12,0.5,9.791516
 20251226,/posts,desktop,Japan,2,2,11,1.0,173.5251045
 20251227,/,mobile,Japan,2,1,20,1.0,515.718362
@@ -55,12 +52,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260121,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,2,12,0.5,27.958522
 20260121,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,16,0.5,322.01317950000004
 20260122,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,11,0.0,5.817655
-20251224,/categories/job-description,desktop,Japan,1,1,7,0.0,2.919917
-20251224,/posts/nursing-assistant-career-path-design,mobile,Japan,1,1,6,0.0,5.867905
-20251224,/posts/nursing-assistant-mental-care-interview,mobile,Japan,1,1,1,1.0,4.904813
-20251224,/posts/nursing-assistant-patient-safety-key,desktop,Japan,1,1,7,1.0,10.179075
-20251224,/posts/nursing-assistant-patient-safety-support,desktop,Japan,1,1,7,1.0,22.806487
-20251224,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,5,0.0,4.779163
+20260123,/,mobile,Japan,2,1,23,1.0,30.830445
+20260123,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,13,0.5,36.575241000000005
 20251225,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.480013
 20251225,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,5,0.0,6.261911
 20251225,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,4,0.0,0.997992
@@ -293,5 +286,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260122,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,10,1.0,312.100083
 20260122,/posts/nursing-assistant-resignation-advice-key,mobile,Japan,1,1,1,1.0,92.534791
 20260122,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,6,1.0,64.48769
+20260123,/about,mobile,Japan,1,1,1,1.0,5.004101
+20260123,/posts,mobile,Japan,1,1,1,1.0,5.019269
+20260123,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,6,0.0,5.14035
 20260123,/posts/nursing-assistant-key-points,tablet,Japan,1,1,7,1.0,343.017794
-20260123,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,7,1.0,67.626929
+20260123,/posts/nursing-assistant-mental-care-focus,mobile,Japan,1,1,1,1.0,5.006804
