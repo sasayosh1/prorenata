@@ -12,7 +12,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260115,/posts/nursing-assistant-become-nurse-guide,desktop,Japan,3,1,30,0.6666666666666666,596.7286536666667
 20260115,/posts/nursing-assistant-night-shift,desktop,Japan,3,1,16,0.6666666666666666,40.45843
 20260118,/posts/nursing-assistant-resume-writing,mobile,Japan,3,2,16,0.3333333333333333,42.213298333333334
-20251225,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,2,2,12,0.5,9.791516
 20251226,/posts,desktop,Japan,2,2,11,1.0,173.5251045
 20251227,/,mobile,Japan,2,1,20,1.0,515.718362
 20251227,/blog,desktop,Japan,2,1,3,1.0,417.8975825
@@ -54,9 +53,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260122,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,11,0.0,5.817655
 20260123,/,mobile,Japan,2,1,23,1.0,30.830445
 20260123,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,13,0.5,36.575241000000005
-20251225,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.480013
-20251225,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,5,0.0,6.261911
-20251225,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,4,0.0,0.997992
+20260124,/posts/nursing-assistant-become-nurse-guide,desktop,Japan,2,1,9,0.0,5.799054
 20251226,/about,mobile,Japan,1,1,1,1.0,5.012276
 20251226,/posts,mobile,Japan,1,1,13,1.0,241.018562
 20251226,/posts/nursing-assistant-mental-care-interview,mobile,Japan,1,1,1,1.0,1.987829
@@ -291,3 +288,10 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260123,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,6,0.0,5.14035
 20260123,/posts/nursing-assistant-key-points,tablet,Japan,1,1,7,1.0,343.017794
 20260123,/posts/nursing-assistant-mental-care-focus,mobile,Japan,1,1,1,1.0,5.006804
+20260124,/posts/nursing-assistant-care-guide-navigator,mobile,Japan,1,1,6,1.0,26.672154
+20260124,/posts/nursing-assistant-day-psychiatric-ward,mobile,Japan,1,1,6,0.0,5.843817
+20260124,/posts/nursing-assistant-icu-emergency-duties,mobile,Japan,1,1,7,1.0,1729.764313
+20260124,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,3,1.0,211.125047
+20260124,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,7,1.0,186.698443
+20260125,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,0.0,5.516878
+20260125,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,5,0.0,5.843891
