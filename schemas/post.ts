@@ -212,6 +212,18 @@ export default defineType({
       description: 'true の場合は検索/一覧/サイトマップから除外し、robots noindex を付与します',
     }),
     defineField({
+      name: 'showDisclaimer',
+      title: '免責事項を表示',
+      type: 'boolean',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'showTrustBlock',
+      title: '信頼性ブロックを表示',
+      type: 'boolean',
+      initialValue: true,
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',

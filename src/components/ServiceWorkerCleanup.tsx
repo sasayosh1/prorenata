@@ -2,46 +2,63 @@
 
 import { useEffect } from "react";
 
+/**
+ * ServiceWorkerCleanup - Zero-Trust Specification
+ * 
+ * すべての Service Worker を強制解除し、関連する全ブラウザキャッシュを削除します。
+ * これにより、古いバージョンのサイト（特にPWA/Workbox関連）が残る問題を根本的に解決します。
+ */
 export default function ServiceWorkerCleanup() {
   useEffect(() => {
     let cancelled = false;
 
-    async function run() {
+    async function clearAllCachesAndSWs() {
       if (typeof window === "undefined") return;
-      if (!("serviceWorker" in navigator)) return;
 
-      try {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        if (cancelled) return;
+      // 1. すべての Service Worker を強制的に解除
+      if ("serviceWorker" in navigator) {
+        try {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          let swCleared = false;
 
-        await Promise.all(
-          registrations.map(async (registration) => {
-            const scriptUrl = registration.active?.scriptURL || registration.installing?.scriptURL || "";
-            // 画像が消える等の「キャッシュ暴走」対策として、sw.js系のみ確実に解除する
-            if (scriptUrl.endsWith("/sw.js") || scriptUrl.includes("workbox")) {
-              await registration.unregister();
-            }
-          })
-        );
+          for (const registration of registrations) {
+            await registration.unregister();
+            swCleared = true;
+          }
 
-        if (!("caches" in window)) return;
-        const keys = await caches.keys();
-        if (cancelled) return;
-
-        await Promise.all(
-          keys.map(async (key) => {
-            // workbox/next系のキャッシュだけを削除（originスコープ内）
-            if (/^workbox-|^next-|next\.cache|_next/i.test(key) || /^prorenata-/i.test(key)) {
-              await caches.delete(key);
-            }
-          })
-        );
-      } catch {
-        // noop
+          if (swCleared && !cancelled) {
+            console.log("Service Worker cleared.");
+          }
+        } catch (error) {
+          console.error("Failed to unregister Service Worker:", error);
+        }
       }
+
+      // 2. すべての Cache Storage を削除
+      if ("caches" in window) {
+        try {
+          const cacheKeys = await caches.keys();
+          let cacheCleared = false;
+
+          for (const key of cacheKeys) {
+            await caches.delete(key);
+            cacheCleared = true;
+          }
+
+          if (cacheCleared && !cancelled) {
+            console.log("Caches cleared.");
+          }
+        } catch (error) {
+          console.error("Failed to clear caches:", error);
+        }
+      }
+
+      // 3. 実行後に一度だけリロードが必要な場合（オプション）
+      // 現在はコンポーネントがマウントされるたびに走るため、無限ループを避けるため自動リロードは保留
     }
 
-    void run();
+    void clearAllCachesAndSWs();
+
     return () => {
       cancelled = true;
     };

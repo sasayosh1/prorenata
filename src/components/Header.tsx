@@ -21,9 +21,6 @@ export default function Header() {
             <Link href="/categories" className="px-3 py-2 rounded-md hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-200">
               カテゴリ
             </Link>
-            <Link href="/quiz" className="px-3 py-2 rounded-md hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-200">
-              クイズ
-            </Link>
             <Link href="/about" className="px-3 py-2 rounded-md hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-200">
               About
             </Link>

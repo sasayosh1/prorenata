@@ -14,7 +14,8 @@ import Image from 'next/image'
 import { sanitizeTitle, sanitizePersonaText } from '@/lib/title'
 import PRDisclosure from '@/components/Article/PRDisclosure'
 import StandardDisclaimer from '@/components/Article/StandardDisclaimer'
-import DisclaimerCallout from '@/components/Article/DisclaimerCallout'
+import DisclaimerBlock from '@/components/Article/DisclaimerBlock'
+import TrustBlock from '@/components/Article/TrustBlock'
 import type { PortableTextBlock as PortableTextBlockType } from '@portabletext/types'
 
 export const dynamic = 'force-dynamic'
@@ -68,12 +69,23 @@ interface PostDetail {
   stickyCTA?: unknown
   isSeraPick?: boolean
   internalOnly?: boolean
+  showDisclaimer?: boolean
+  showTrustBlock?: boolean
 }
 
 interface RelatedFallbackItem {
   title?: string
   slug?: string
   categories?: Array<{ title?: string; slug?: string | null }>
+}
+
+interface SiteSettings {
+  disclaimerEnabled?: boolean
+  disclaimerTitle?: string
+  disclaimerBody?: PortableTextBlockType[]
+  trustEnabled?: boolean
+  trustTitle?: string
+  trustBody?: PortableTextBlockType[]
 }
 
 interface NormalizedCategory {
@@ -598,7 +610,9 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     faq,
     stickyCTA,
     isSeraPick,
-    internalOnly
+    internalOnly,
+    showDisclaimer,
+    showTrustBlock
   }`
   const { data: post, error } = await safeSanityFetch<PostDetail | null>(
     query,
@@ -638,6 +652,20 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   if (!post || !post.slug?.current) {
     notFound()
   }
+
+  const settingsQuery = `*[_type == "siteSettings"][0]{
+    disclaimerEnabled,
+    disclaimerTitle,
+    disclaimerBody,
+    trustEnabled,
+    trustTitle,
+    trustBody
+  }`
+  const { data: siteSettings } = await safeSanityFetch<SiteSettings | null>(
+    settingsQuery,
+    {},
+    { preview: isDraftMode, tag: 'site-settings' }
+  )
 
   const slugCurrent = post.slug.current
   const normalizedCategories = normalizeCategories(post.categories)
@@ -695,7 +723,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   }
 
   const hasBody = post && Array.isArray(post.body) && post.body.length > 0
-  const { mainBody, disclaimerBlocks } = hasBody ? extractDisclaimerBlocks(post.body) : { mainBody: post.body, disclaimerBlocks: [] }
+  const { mainBody } = hasBody ? extractDisclaimerBlocks(post.body) : { mainBody: post.body }
   const cleanedBody = hasBody ? pruneOffTopicSummary(mainBody, post.title) : mainBody
   const abTestedBody = hasBody ? reorderBlocksForABTesting(cleanedBody, post._id) : cleanedBody
   const bodyWithRelated = hasBody ? injectRelatedPostsBeforeDisclaimer(abTestedBody, relatedPosts) : abTestedBody
@@ -704,7 +732,15 @@ export default async function PostDetailPage({ params }: PostPageProps) {
     style?: string
     [key: string]: unknown
   }>
-  const hasInlineDisclaimer = disclaimerBlocks.length > 0
+  const showDisclaimer = post.showDisclaimer !== false
+  const showTrustBlock = post.showTrustBlock !== false
+  const disclaimerBody = Array.isArray(siteSettings?.disclaimerBody) ? siteSettings?.disclaimerBody : undefined
+  const trustBody = Array.isArray(siteSettings?.trustBody) ? siteSettings?.trustBody : undefined
+  const hasDisclaimerBody = Boolean(disclaimerBody?.length)
+  const hasTrustBody = Boolean(trustBody?.length)
+  const canShowDisclaimerFromSettings = Boolean(siteSettings?.disclaimerEnabled && showDisclaimer && hasDisclaimerBody)
+  const canShowTrustFromSettings = Boolean(siteSettings?.trustEnabled && showTrustBlock && hasTrustBody)
+  const shouldShowStandardDisclaimer = showDisclaimer && !canShowDisclaimerFromSettings
 
   const displayTitle = sanitizeTitle(post.title)
   const sanitizedExcerpt = post?.excerpt ? sanitizePersonaText(post.excerpt) : undefined
@@ -820,18 +856,13 @@ export default async function PostDetailPage({ params }: PostPageProps) {
               </div>
             )}
 
-            <div className="pb-8 space-y-12">
+            <div className="pb-8 space-y-16">
               {/* 記事コンテンツ */}
-              <div className="max-w-none pb-8 pt-10 text-gray-900 [&]:!text-gray-900 [&>*]:!text-gray-900" style={{ color: '#111827 !important' }}>
+              <div className="prose-custom pb-8 pt-10">
                 {hasBody ? (
                   <>
                     <PRDisclosure />
                     <ArticleWithTOC content={tocContent} />
-                    {hasInlineDisclaimer ? (
-                      <DisclaimerCallout blocks={disclaimerBlocks} />
-                    ) : (
-                      <StandardDisclaimer />
-                    )}
                   </>
                 ) : (
                   <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">
@@ -902,6 +933,25 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                     )}
                   </div>
                 </div>
+              )}
+
+              {(canShowTrustFromSettings || canShowDisclaimerFromSettings || shouldShowStandardDisclaimer) && (
+                <section aria-label="この記事について" className="mt-8">
+                  {canShowTrustFromSettings && (
+                    <TrustBlock
+                      title={siteSettings?.trustTitle || 'この記事について'}
+                      body={trustBody}
+                    />
+                  )}
+                  {canShowDisclaimerFromSettings ? (
+                    <DisclaimerBlock
+                      title={siteSettings?.disclaimerTitle || '免責事項'}
+                      body={disclaimerBody}
+                    />
+                  ) : shouldShowStandardDisclaimer ? (
+                    <StandardDisclaimer />
+                  ) : null}
+                </section>
               )}
 
               {/* 記事下部のナビゲーション */}

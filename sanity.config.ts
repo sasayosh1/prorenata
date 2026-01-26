@@ -3,6 +3,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { PreviewAction } from './src/sanity/actions/PreviewAction'
+import { deskStructure } from './src/sanity/deskStructure'
 
 const prodUrl = 'https://prorenata.jp'
 const previewSecret = process.env.SANITY_STUDIO_PREVIEW_SECRET
@@ -12,13 +13,13 @@ const previewBaseUrl =
 
 export default defineConfig({
   name: 'default',
-  title: 'ProReNata',
+  title: 'ProReNata CMS',
   projectId: '72m8vhy2',
   dataset: 'production',
   studioHost: 'prorenata',
   apiVersion: '2024-01-01',
   plugins: [
-    structureTool(),
+    structureTool({ structure: deskStructure }),
     visionTool()
   ],
   schema: {
@@ -31,6 +32,7 @@ export default defineConfig({
       }
       return prev
     },
+    newDocumentOptions: (prev) => prev,
     productionUrl: async (prev, { document }) => {
       const baseUrl = previewBaseUrl
       if (

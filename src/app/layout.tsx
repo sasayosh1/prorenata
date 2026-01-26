@@ -6,8 +6,6 @@ import "./globals.css";
 import Analytics from "@/components/Analytics";
 import { SITE_URL } from "@/lib/constants";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
-import AItuberWidget from "@/components/AItuberWidget";
-import { ConvexClientProvider } from "@/components/chatbot/ConvexClientProvider";
 import ServiceWorkerCleanup from "@/components/ServiceWorkerCleanup";
 
 const geistSans = Geist({
@@ -220,59 +218,56 @@ export default async function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased`}>
         <ServiceWorkerCleanup />
-        <ConvexClientProvider>
-          {/* Skip to content リンク (アクセシビリティ) */}
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50"
-          >
-            メインコンテンツにスキップ
-          </a>
+        {/* Skip to content リンク (アクセシビリティ) */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50"
+        >
+          メインコンテンツにスキップ
+        </a>
 
-          <main id="main-content" className="min-h-screen">
-            {children}
-          </main>
+        <main id="main-content" className="min-h-screen">
+          {children}
+        </main>
 
-          {/* Google Analytics (本番環境用) */}
-          {process.env.NEXT_PUBLIC_GA_ID && (
-            <>
-              <Script
-                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-                strategy="afterInteractive"
-              />
-              <Script id="google-analytics" strategy="afterInteractive">
-                {`
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                    page_title: document.title,
-                    page_location: window.location.href,
-                    anonymize_ip: false,
-                    allow_google_signals: true,
-                    allow_ad_personalization_signals: false,
-                    cookie_flags: 'SameSite=None;Secure',
-                    debug_mode: ${process.env.NODE_ENV === 'development'}
-                  });
-                `}
-              </Script>
-              <Suspense fallback={null}>
-                <Analytics />
-              </Suspense>
-            </>
-          )}
-
-          {/* Google AdSense (本番環境用) */}
-          {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
+        {/* Google Analytics (本番環境用) */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
             <Script
-              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
-              crossOrigin="anonymous"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
               strategy="afterInteractive"
             />
-          )}
-          <ScrollToTopButton />
-          <AItuberWidget />
-        </ConvexClientProvider>
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                  page_title: document.title,
+                  page_location: window.location.href,
+                  anonymize_ip: false,
+                  allow_google_signals: true,
+                  allow_ad_personalization_signals: false,
+                  cookie_flags: 'SameSite=None;Secure',
+                  debug_mode: ${process.env.NODE_ENV === 'development'}
+                });
+              `}
+            </Script>
+            <Suspense fallback={null}>
+              <Analytics />
+            </Suspense>
+          </>
+        )}
+
+        {/* Google AdSense (本番環境用) */}
+        {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
+          <Script
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+        <ScrollToTopButton />
       </body>
     </html>
   );

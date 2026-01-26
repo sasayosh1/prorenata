@@ -269,14 +269,14 @@ function renderPopularSection(picked: Post[]) {
               className="group block h-full no-underline"
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
                   {post.mainImage ? (
                     <Image
                       src={urlFor(post.mainImage).width(900).height(560).url()}
                       alt={title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : getLocalThumbnail(post.slug.current) ? (
@@ -284,7 +284,7 @@ function renderPopularSection(picked: Post[]) {
                       src={getLocalThumbnail(post.slug.current)!}
                       alt={title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
@@ -482,14 +482,14 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
                 className="group block h-full no-underline"
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
                     {post.mainImage ? (
                       <Image
                         src={urlFor(post.mainImage).width(900).height(560).url()}
                         alt={title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     ) : getLocalThumbnail(post.slug.current) ? (
@@ -497,7 +497,7 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
                         src={getLocalThumbnail(post.slug.current)!}
                         alt={title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     ) : (
