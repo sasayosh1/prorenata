@@ -821,6 +821,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'procedures',
     difficulty: 1
   },
+  {
+    id: 'body-temperature-2',
+    term: '体温',
+    reading: 'たいおん',
+    meaning: '体の温度。通常は腋窩（わきの下）、口腔内、直腸などで測定します。',
+    distractors: ['呼吸数', '血圧'],
+    category: 'vital-signs',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
