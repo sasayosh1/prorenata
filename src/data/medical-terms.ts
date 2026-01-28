@@ -830,6 +830,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'vital-signs',
     difficulty: 1
   },
+  {
+    id: 'medication-dose',
+    term: '用法・用量',
+    reading: 'ようほう・ようりょう',
+    meaning: '薬の服用量と服用時間のこと',
+    distractors: ['副作用', '禁忌'],
+    category: 'medication',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
