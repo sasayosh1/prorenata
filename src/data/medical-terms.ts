@@ -839,6 +839,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'medication',
     difficulty: 1
   },
+  {
+    id: 'member-of-lower-limb',
+    term: '下肢（かし）',
+    reading: 'かし',
+    meaning: '足全体を指す言葉。具体的には、股関節から足先までの部分を指します。',
+    distractors: ['上肢（じょうし）', '体幹（たいかん）'],
+    category: 'anatomy',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
