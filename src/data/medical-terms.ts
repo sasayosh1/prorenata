@@ -848,6 +848,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'anatomy',
     difficulty: 1
   },
+  {
+    id: 'iv-pump-setting-4',
+    term: '輸液ポンプ',
+    reading: 'ゆえきぽんぷ',
+    meaning: '点滴の滴下速度を一定に保つための医療機器。',
+    distractors: ['吸引器', 'パルスオキシメーター', 'カテーテル'],
+    category: 'equipment',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
