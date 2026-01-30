@@ -54,9 +54,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260127,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,2,1,8,0.0,2.923598
 20260128,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,1,6,0.0,3.0121335
 20260128,/posts/nursing-assistant-medical-terms,desktop,Japan,2,1,10,0.5,5.4450275
-20251230,/,mobile,Japan,1,1,1,1.0,5.012266
-20251230,/medical-quiz,mobile,Japan,1,1,7,1.0,1.918105
-20251230,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,1,1,2,0.0,0.0
+20260129,/,desktop,Japan,2,2,6,0.0,2.923494
+20260129,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,2,2,13,0.0,5.149199
+20260129,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,2,12,1.0,78.0564735
 20251231,/,mobile,Japan,1,1,26,1.0,99.184118
 20251231,/posts/nursing-assistant-compare-services-perspective,mobile,Japan,1,1,5,1.0,969.958083
 20251231,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.826579
@@ -312,3 +312,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260128,/tags,desktop,Norway,1,1,4,1.0,4.797147
 20260128,/tags/newcomer-notes,desktop,Norway,1,1,4,1.0,4.741994
 20260128,/terms,desktop,United States,1,1,3,1.0,7.564876
+20260129,/categories/work,mobile,Japan,1,1,8,1.0,13.458566
+20260129,/posts/nursing-assistant-care-guide-approach,mobile,Japan,1,1,6,1.0,45.507709
+20260129,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.943693
+20260129,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,6,1.0,153.493481
+20260129,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,5,0.0,6.197676
+20260129,/posts/nursing-assistant-recommended-options,mobile,Japan,1,1,4,1.0,6.704798
