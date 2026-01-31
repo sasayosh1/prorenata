@@ -857,6 +857,15 @@ export const medicalTerms: MedicalTerm[] = [
     category: 'equipment',
     difficulty: 1
   },
+  {
+    id: 'dressing-change-5',
+    term: '創処置',
+    reading: 'そうしょち',
+    meaning: '創傷（傷）の処置のこと。ガーゼ交換や消毒などを行う。',
+    distractors: ['点滴交換', '導尿カテーテル挿入'],
+    category: 'procedures',
+    difficulty: 1
+  },
 ]
 
 export const categories = {
