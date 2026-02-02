@@ -14,7 +14,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260127,/posts/nursing-assistant-infection-control-manual,desktop,Japan,3,2,25,0.6666666666666666,146.344503
 20260130,/posts/nursing-assistant-medical-terms,desktop,Japan,3,2,23,1.0,567.2597963333334
 20260131,/posts/nursing-assistant-patient-transfer-safety,mobile,Japan,3,3,18,0.6666666666666666,57.079504333333325
-20260102,/posts/nursing-assistant-medical-terms,desktop,Japan,2,2,14,1.0,207.096826
 20260105,/blog,desktop,Japan,2,1,7,1.0,5.829799
 20260105,/posts/nursing-assistant-career-change-support,desktop,United States,2,2,7,0.0,0.311793
 20260105,/posts/nursing-assistant-compare-services-perspective,desktop,Japan,2,1,16,1.0,10.9775055
@@ -60,12 +59,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260129,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,2,2,13,0.0,5.149199
 20260129,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,2,12,1.0,78.0564735
 20260130,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.0,5.5188265
-20260102,/posts/nursing-assistant-career-vision,mobile,Japan,1,1,6,0.0,5.777392
-20260102,/posts/nursing-assistant-night-shift-duties,desktop,Japan,1,1,6,1.0,11.213955
-20260102,/posts/nursing-assistant-night-shift-duties,mobile,Japan,1,1,6,0.0,5.967528
-20260102,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,0.0,5.962861
-20260102,/posts/nursing-assistant-reasons-nursing-school,mobile,Japan,1,1,5,0.0,5.951616
-20260102,/posts/nursing-assistant-uniform-selection,desktop,Japan,1,1,7,1.0,11.453117
+20260201,/posts/nursing-assistant-medical-terms,mobile,Japan,2,1,16,0.5,704.181871
 20260103,/posts/nursing-assistant-career-vision,desktop,Japan,1,1,7,1.0,409.297107
 20260103,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,0.0,6.340147
 20260103,/posts/nursing-assistant-night-shift-duties,desktop,United States,1,1,4,0.0,0.944905
@@ -328,3 +322,10 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260131,/posts/nursing-assistant-night-shift-daily,mobile,Japan,1,1,6,0.0,6.128059
 20260131,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,1.0,51.748514
 20260131,/posts/nursing-assistant-work-reform-examples,mobile,Japan,1,1,7,1.0,71.390042
+20260201,/categories/salary,mobile,Japan,1,1,8,1.0,66.321893
+20260201,/posts/nursing-assistant-care-guide-practice,desktop,Japan,1,1,6,0.0,3.606998
+20260201,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,7,1.0,53.717446
+20260201,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,6,1.0,77.796903
+20260201,/posts/nursing-assistant-operating-room-duties,desktop,Japan,1,1,7,1.0,11.892618
+20260201,/posts/nursing-assistant-real-salary-example,mobile,Japan,1,1,1,1.0,4.974548
+20260201,/posts/nursing-assistant-resignation-advice-support,mobile,Japan,1,1,6,0.0,5.857691
