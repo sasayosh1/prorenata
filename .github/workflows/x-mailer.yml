@@ -7,9 +7,9 @@ on:
         description: "Force send even if already sent today (JST)"
         required: false
         default: "false"
-  schedule:
-    # 20:50 (JST) = 11:50 (UTC)
-    - cron: "50 11 * * *"
+#   schedule:
+#     # 20:50 (JST) = 11:50 (UTC)
+#     - cron: "50 11 * * *"
 
 jobs:
   send:
