@@ -60,11 +60,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260129,/posts/nursing-assistant-terminology-guide,desktop,Japan,2,2,12,1.0,78.0564735
 20260130,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.0,5.5188265
 20260201,/posts/nursing-assistant-medical-terms,mobile,Japan,2,1,16,0.5,704.181871
-20260103,/posts/nursing-assistant-career-vision,desktop,Japan,1,1,7,1.0,409.297107
-20260103,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,0.0,6.340147
-20260103,/posts/nursing-assistant-night-shift-duties,desktop,United States,1,1,4,0.0,0.944905
-20260103,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,6,1.0,79.968266
-20260103,/posts/nursing-assistant-salary-differences,desktop,United States,1,1,4,0.0,0.70466
 20260104,/categories/resignation,mobile,Japan,1,1,1,1.0,5.006124
 20260104,/posts/nursing-assistant-aptitude-test,mobile,Japan,1,1,4,0.0,4.527354
 20260104,/posts/nursing-assistant-care-guide-pathway,mobile,Japan,1,1,8,1.0,247.983681
@@ -329,3 +324,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260201,/posts/nursing-assistant-operating-room-duties,desktop,Japan,1,1,7,1.0,11.892618
 20260201,/posts/nursing-assistant-real-salary-example,mobile,Japan,1,1,1,1.0,4.974548
 20260201,/posts/nursing-assistant-resignation-advice-support,mobile,Japan,1,1,6,0.0,5.857691
+20260202,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.665828
+20260202,/posts/nursing-assistant-latest-salary-comparison,desktop,Japan,1,1,7,1.0,11.835021
+20260202,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,12,1.0,1624.219735
+20260202,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,1,1,7,1.0,8.139512
+20260202,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,4,1.0,6.229227
+20260202,/posts/nursing-assistant-vital-signs-support,desktop,Japan,1,1,7,1.0,123.07685
