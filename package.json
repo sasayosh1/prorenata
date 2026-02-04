@@ -61,6 +61,7 @@
     "autoprefixer": "^10.4.22",
     "convex": "^1.31.2",
     "dotenv": "^17.2.3",
+    "gray-matter": "^4.0.3",
     "next": "^15.5.7",
     "next-sanity": "^10.0.10",
     "nodemailer": "^6.10.1",
