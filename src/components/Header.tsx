@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import HeaderSearch from './HeaderSearch'
+import MobileMenu from './MobileMenu'
 
 export default function Header() {
   return (
@@ -28,6 +29,7 @@ export default function Header() {
           <div className="pl-2 border-l border-gray-200 ml-2">
             <HeaderSearch />
           </div>
+          <MobileMenu />
         </div>
       </div>
     </header>

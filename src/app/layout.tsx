@@ -160,7 +160,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable}`}>
+    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable}`} suppressHydrationWarning>
       <head>
         {/* 構造化データ - 組織情報 */}
         <script
