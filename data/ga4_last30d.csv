@@ -1,5 +1,4 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
-20260106,/,desktop,Japan,8,2,44,0.25,147.264930875
 20260114,/posts/nursing-assistant-quit-retirement,desktop,Japan,5,1,100,0.6,802.1416454
 20260126,/,desktop,Japan,5,3,69,0.6,164.1167478
 20260107,/,desktop,Japan,4,2,27,0.25,245.87971825
@@ -12,6 +11,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260127,/posts/nursing-assistant-infection-control-manual,desktop,Japan,3,2,25,0.6666666666666666,146.344503
 20260130,/posts/nursing-assistant-medical-terms,desktop,Japan,3,2,23,1.0,567.2597963333334
 20260131,/posts/nursing-assistant-patient-transfer-safety,mobile,Japan,3,3,18,0.6666666666666666,57.079504333333325
+20260205,/posts/nursing-assistant-nightshift-fatigue,desktop,Japan,3,1,34,1.0,548.703066
+20260205,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,3,3,25,1.0,93.22086633333333
 20260109,/,desktop,Japan,2,1,67,1.0,71.4822615
 20260109,/posts/nursing-assistant-infection-control-handwashing,desktop,United States,2,2,7,0.0,0.338531
 20260109,/posts/nursing-assistant-unable-to-verbalize-sera,desktop,Japan,2,1,8,0.5,8.726187
@@ -62,11 +63,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260204,/posts/nursing-assistant-medical-terms,desktop,Japan,2,2,11,0.5,738.229877
 20260204,/posts/nursing-assistant-nightshift-fatigue,desktop,Japan,2,1,25,0.5,703.0298620000001
 20260204,/posts/nursing-assistant-operating-room-duties,desktop,Japan,2,1,8,0.0,3.0278335
-20260106,/categories,desktop,Iran,1,1,4,0.0,6.391422
-20260106,/posts,desktop,Iran,1,1,3,0.0,4.129475
-20260106,/quiz,desktop,Iran,1,1,3,0.0,87.466629
-20260106,/sitemap,desktop,Iran,1,1,2,0.0,25.178167
-20260106,/terms,desktop,Iran,1,1,3,0.0,9.374207
+20260205,/posts/nursing-assistant-emr-system-changes,mobile,Japan,2,1,16,0.5,78.905178
 20260108,/,desktop,Japan,1,1,34,1.0,1713.68835
 20260108,/categories,desktop,Germany,1,1,1,1.0,0.000146
 20260108,/categories,desktop,Russia,1,1,2,1.0,7.612418
@@ -326,6 +323,16 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260204,/posts/nursing-assistant-interview-tips-practice,desktop,Japan,1,1,1,1.0,5.000566
 20260204,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,7,1.0,557.06423
 20260204,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,8,1.0,65.101678
+20260205,/,desktop,Japan,1,1,2,1.0,0.0
 20260205,/,mobile,Japan,1,1,15,1.0,86.919306
 20260205,/categories/wellbeing,mobile,Japan,1,1,1,1.0,5.006893
+20260205,/posts,desktop,Japan,1,1,8,1.0,39.789785
+20260205,/posts/nursing-assistant-bottom-myth,mobile,Japan,1,1,1,1.0,4.968475
+20260205,/posts/nursing-assistant-fee-revision-impact,desktop,Japan,1,1,11,1.0,313.246095
+20260205,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,6,1.0,51.317991
+20260205,/posts/nursing-assistant-job-role-insights,mobile,Japan,1,1,1,1.0,62.297328
+20260205,/posts/nursing-assistant-medical-terms,desktop,Japan,1,1,9,1.0,1090.166486
+20260205,/posts/nursing-assistant-mental-care-patient,mobile,Japan,1,1,1,1.0,137.413356
 20260205,/posts/nursing-assistant-nightshift-fatigue,mobile,Japan,1,1,1,1.0,5.009768
+20260205,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,5,0.0,5.361477
+20260205,/posts/nursing-assistant-terminology-guide,mobile,Japan,1,1,1,1.0,0.0
