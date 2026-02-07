@@ -1,7 +1,6 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
 20260114,/posts/nursing-assistant-quit-retirement,desktop,Japan,5,1,100,0.6,802.1416454
 20260126,/,desktop,Japan,5,3,69,0.6,164.1167478
-20260107,/,desktop,Japan,4,2,27,0.25,245.87971825
 20260118,/posts/nursing-assistant-medical-terms,mobile,Japan,4,3,26,0.25,133.3068925
 20260126,/,mobile,Japan,4,2,24,0.25,6.79057025
 20260204,/,desktop,Japan,4,2,34,0.5,47.27437275
@@ -336,3 +335,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260205,/posts/nursing-assistant-nightshift-fatigue,mobile,Japan,1,1,1,1.0,5.009768
 20260205,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,5,0.0,5.361477
 20260205,/posts/nursing-assistant-terminology-guide,mobile,Japan,1,1,1,1.0,0.0
+20260206,/,desktop,Japan,1,1,7,1.0,713.150707
+20260206,/posts/nursing-assistant-bottom-myth,mobile,Japan,1,1,6,0.0,5.985665
+20260206,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,3,0.0,0.0
+20260206,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,0.0,5.847969
+20260206,/posts/nursing-assistant-night-shift-daily,mobile,Japan,1,1,6,1.0,74.161087
+20260206,/posts/nursing-assistant-resignation-advice-long,mobile,Japan,1,1,5,0.0,5.600739
