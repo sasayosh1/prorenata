@@ -101,18 +101,18 @@ function CustomLink({
   if (isProduct) {
     const platformStyles = {
       amazon: {
-        bg: 'bg-orange-50 hover:bg-orange-100 border border-orange-200',
-        text: 'text-orange-700',
+        bg: '',
+        text: 'text-[#007185] hover:underline', // Amazon Color
         icon: '🛒',
       },
       rakuten: {
-        bg: 'bg-red-50 hover:bg-red-100 border border-red-200',
-        text: 'text-red-700',
+        bg: '',
+        text: 'text-[#bf0000] hover:underline', // Rakuten Color
         icon: '🛍️',
       },
       other: {
-        bg: 'bg-blue-50 hover:bg-blue-100 border border-blue-200',
-        text: 'text-blue-700',
+        bg: '',
+        text: 'text-blue-600 hover:underline',
         icon: '🔗',
       },
     }
@@ -125,14 +125,14 @@ function CustomLink({
         target="_blank"
         rel="noopener noreferrer sponsored"
         className={`
-          inline-flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm
-          ${style.bg} ${style.text}
-          transition-colors duration-200
+          inline-flex items-center gap-1 font-semibold
+          ${style.text}
+          transition-opacity duration-200 hover:opacity-80
           no-underline mx-1
         `}
       >
         <span>{style.icon}</span>
-        <span>{children}</span>
+        <span className="underline decoration-dotted decoration-2 underline-offset-4">{children}</span>
       </a>
     )
   }

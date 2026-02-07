@@ -259,6 +259,34 @@ async function createPost() {
     const authors = await getAuthors()
     const defaultAuthor = authors[0]
 
+    // ペルソナ定義（ARTICLE_GUIDE.md準拠）
+    const personas = [
+      { id: 'A-1', name: '現役・一般（日勤）', desc: '業務の悩み、人間関係', tone: '「現場あるあるですよね」' },
+      { id: 'A-2', name: '現役・夜勤専従', desc: '寝不足、自律神経、孤独', tone: '「泥のような疲れ、わかります」' },
+      { id: 'A-3', name: '現役・リーダー', desc: '指導の悩み、板挟み', tone: '「伝えるのって難しいですよね」' },
+      { id: 'B-1', name: '未経験・無資格', desc: '私にもできる？不安解消', tone: '「最初は誰でも未経験です」' },
+      { id: 'B-2', name: '学生・志望者', desc: '奨学金、実習、両立', tone: '「夢への一歩、応援します」' },
+      { id: 'B-3', name: '異業種転職', desc: '年齢、体力、安定性', tone: '「人生経験が活きる仕事です」' },
+      { id: 'C-1', name: '退職・休職', desc: '辞めたい、限界、逃げたい', tone: '「逃げじゃありません。自分を守る選択です」' },
+      { id: 'C-2', name: 'ステップアップ', desc: '看護師資格、勉強法', tone: '「現場を知るあなたは強い」' },
+    ]
+
+    // ペルソナ選択
+    console.log('\n👤 ターゲットペルソナを選択:')
+    personas.forEach((p, i) => {
+      console.log(`  ${i + 1}. [${p.id}] ${p.name} : ${p.desc}`)
+    })
+    const personaIndex = await question('\nペルソナ番号を選択してください: ')
+    const selectedPersona = personas[parseInt(personaIndex) - 1]
+
+    if (!selectedPersona) {
+      console.log('❌ 有効なペルソナが選択されませんでした。')
+      rl.close()
+      return
+    }
+
+    console.log(`\n👉 選択されたトーン: ${selectedPersona.tone}`)
+
     // 記事作成
     const post = {
       _type: 'post',
@@ -267,7 +295,18 @@ async function createPost() {
         _type: 'slug',
         current: slug
       },
-      body: ensurePortableTextKeys(templates[selectedTemplate].body || []),
+      // 選択したテンプレートにペルソナ情報を注入
+      body: ensurePortableTextKeys([
+        {
+          _type: 'block',
+          style: 'normal',
+          children: [{
+            _type: 'span',
+            text: `【執筆メモ: この記事はペルソナ「${selectedPersona.name} (${selectedPersona.id})」向けです。トーン: ${selectedPersona.tone} を意識して書いてください】`
+          }]
+        },
+        ...(templates[selectedTemplate].body || [])
+      ]),
       categories: ensureReferenceKeys([{
         _type: 'reference',
         _ref: selectedCategory._id

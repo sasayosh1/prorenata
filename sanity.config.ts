@@ -25,6 +25,9 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+  search: {
+    strategy: 'groq2024',
+  },
   document: {
     actions: (prev, context) => {
       if (context.schemaType === 'post') {

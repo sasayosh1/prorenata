@@ -172,9 +172,9 @@ function computeRevenueBoost(post: Pick<Post, 'title' | 'categories' | 'tags' | 
   const strongHit = strong.some((k) => haystack.includes(k.toLowerCase()))
   const mediumHit = medium.some((k) => haystack.includes(k.toLowerCase()))
 
-  if (strongHit) return 0.4
-  if (mediumHit) return 0.15
-  return 0.05
+  if (strongHit) return 0.1
+  if (mediumHit) return 0.05
+  return 0
 }
 
 async function fetchFallbackPosts(limit: number): Promise<Post[]> {
