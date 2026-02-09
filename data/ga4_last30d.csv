@@ -13,9 +13,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260131,/posts/nursing-assistant-patient-transfer-safety,mobile,Japan,3,3,18,0.6666666666666666,57.079504333333325
 20260205,/posts/nursing-assistant-nightshift-fatigue,desktop,Japan,3,1,34,1.0,548.703066
 20260205,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,3,3,25,1.0,93.22086633333333
-20260109,/,desktop,Japan,2,1,67,1.0,71.4822615
-20260109,/posts/nursing-assistant-infection-control-handwashing,desktop,United States,2,2,7,0.0,0.338531
-20260109,/posts/nursing-assistant-unable-to-verbalize-sera,desktop,Japan,2,1,8,0.5,8.726187
 20260110,/,mobile,Japan,2,1,18,0.5,109.624202
 20260110,/posts/nursing-assistant-unable-to-verbalize-sera,desktop,Japan,2,1,12,0.5,5.5212045
 20260112,/posts/nursing-assistant-latest-salary-comparison,desktop,Japan,2,1,8,0.5,16.30001
@@ -65,16 +62,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260204,/posts/nursing-assistant-operating-room-duties,desktop,Japan,2,1,8,0.0,3.0278335
 20260205,/posts/nursing-assistant-emr-system-changes,mobile,Japan,2,1,16,0.5,78.905178
 20260207,/posts/nursing-assistant-infection-control-manual,desktop,Japan,2,2,19,1.0,95.4629305
-20260109,/,mobile,Japan,1,1,1,1.0,5.005393
-20260109,/posts,desktop,Japan,1,1,8,1.0,1145.948199
-20260109,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,1.0,39.539465
-20260109,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,14,1.0,171.204141
-20260109,/posts/nursing-assistant-resignation-advice-top,tablet,Japan,1,1,6,1.0,22.63912
-20260109,/posts/nursing-assistant-salary-update-support,mobile,Japan,1,1,1,1.0,4.996574
-20260109,/posts/nursing-assistant-self-study-qualifications,mobile,Japan,1,1,1,1.0,60.819919
-20260109,/posts/nursing-assistant-skillup-roadmap,mobile,Japan,1,1,1,1.0,3.636112
-20260109,/posts/nursing-assistant-terminology-guide,desktop,Japan,1,1,7,1.0,38.729144
-20260109,/posts/nursing-assistant-what-was-missing-at-limit-sera,desktop,Japan,1,1,1,1.0,5.201544
 20260110,/,desktop,Japan,1,1,9,1.0,20.158151
 20260110,/categories/career-change,mobile,Japan,1,1,2,1.0,13.909978
 20260110,/categories/resignation,desktop,Denmark,1,1,4,1.0,5.184999
@@ -351,5 +338,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260207,/tags,desktop,Iran,1,1,4,1.0,5.548525
 20260207,/tags/newcomer-notes,desktop,Iran,1,1,4,1.0,4.294659
 20260208,/contact,desktop,Iran,1,1,6,1.0,3.566271
+20260208,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,6,1.0,176.821877
+20260208,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,5,0.0,5.169874
 20260208,/posts/nursing-assistant-salary-update-insights,desktop,Germany,1,1,2,1.0,5.794266
 20260208,/posts/nursing-assistant-salary-update-insights,desktop,Iran,1,1,2,1.0,1.352489
