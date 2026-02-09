@@ -1,9 +1,9 @@
 {
-  "ok": true,
-  "reason": "ok",
-  "reason_code": "OK",
-  "checkedAt": "2026-02-02T17:56:10.745Z",
-  "dateCheckedUtc": "2026-02-01",
+  "ok": false,
+  "reason": "anomaly_detected",
+  "reason_code": "ANOMALY",
+  "checkedAt": "2026-02-09T03:45:17.167Z",
+  "dateCheckedUtc": "2026-02-08",
   "thresholds": {
     "lookbackDays": 7,
     "dropRatio": 0.2,
@@ -11,14 +11,17 @@
   },
   "metrics": {
     "ga4": {
-      "yesterdaySessions": 9,
-      "dayBeforeSessions": 8,
-      "recentAvgSessions": 15.714285714285714
+      "yesterdaySessions": 5,
+      "dayBeforeSessions": 27,
+      "recentAvgSessions": 13.857142857142858
     },
     "gsc": {
       "yesterdayClicks": 0,
       "dayBeforeClicks": 0,
       "recentAvgClicks": 0.14285714285714285
     }
-  }
+  },
+  "problems": [
+    "GA4 sessions: sudden drop vs dayBefore (yesterday=5, dayBefore=27, ratio=0.19)"
+  ]
 }
