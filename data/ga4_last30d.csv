@@ -62,11 +62,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260207,/posts/nursing-assistant-infection-control-manual,desktop,Japan,2,2,19,1.0,95.4629305
 20260209,/posts/nursing-assistant-interview-tips-pathway,mobile,Japan,2,1,11,0.0,6.393066
 20260209,/posts/nursing-assistant-workplace-fit-insights,desktop,Japan,2,1,8,0.5,10.9758565
-20260111,/,desktop,United States,1,1,6,0.0,6.996403
-20260111,/posts/nursing-assistant-care-guide-approach,mobile,Japan,1,1,6,1.0,135.883677
-20260111,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,0.0,5.832316
-20260111,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,1.0,49.161225
-20260111,/posts/nursing-assistant-suitable-person-characteristics,mobile,Japan,1,1,6,1.0,48.509443
+20260210,/posts/nursing-assistant-nightshift-fatigue,desktop,Japan,2,1,23,0.5,342.78389
 20260112,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,0.0,5.956542
 20260112,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,10,1.0,139.641502
 20260112,/posts/nursing-assistant-resignation-advice-workplace-fit,mobile,Japan,1,1,4,1.0,17.208647
@@ -337,4 +333,10 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260209,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,0.0,5.962985
 20260209,/posts/nursing-assistant-operating-room-duties,tablet,Japan,1,1,6,0.0,1.852932
 20260209,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,16,1.0,1618.247564
+20260210,/,mobile,Japan,1,1,5,0.0,5.943018
+20260210,/posts/nursing-assistant-colleague-relationships,mobile,Japan,1,1,6,1.0,16.948986
 20260210,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.311265
+20260210,/posts/nursing-assistant-night-shift-duties,mobile,Japan,1,1,3,0.0,0.0
+20260210,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,6,0.0,5.685461
+20260210,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,1.0,39.399199
+20260210,/posts/nursing-assistant-psychiatric-ward-duties,mobile,Japan,1,1,6,1.0,97.384405
