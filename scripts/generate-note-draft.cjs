@@ -47,19 +47,37 @@ async function generateNoteDraft(topic) {
 （具体的なエピソードを1つ混ぜてください。患者さんとのふれあい、夜勤明けの朝日、同僚との愚痴など）
 
 # 出力形式
-タイトルと本文のみを出力してください。Markdown形式で、タイトルは見出し（#）にせず、1行目にそのまま書いてください。
+タイトルと本文、そして最後に「推奨ハッシュタグ」を出力してください。
+Markdown形式で、タイトルは見出し（#）にせず、1行目にそのまま書いてください。
 本文は2行目から始めてください。
+最後に \`---\` で区切って、推奨ハッシュタグ（5〜10個）を列挙してください（例: #看護助手 #エッセイ...）。
 `;
 
     try {
         const result = await model.generateContent(prompt);
         const response = await result.response;
-        const text = response.text().trim();
+        const fullText = response.text().trim();
 
-        // Separate title and body
-        const lines = text.split('\n');
-        let title = lines[0].replace(/^#\s*/, '').trim(); // Remove # if present
-        const body = lines.slice(1).join('\n').trim();
+        let title = '';
+        let body = '';
+        let hashtags = '';
+
+        const parts = fullText.split('\n---\n'); // Split by newline, then ---, then newline
+
+        if (parts.length > 1) {
+            // Hashtags are present
+            const mainContent = parts[0].trim();
+            hashtags = parts[1].trim();
+
+            const mainContentLines = mainContent.split('\n');
+            title = mainContentLines[0].replace(/^#\s*/, '').trim();
+            body = mainContentLines.slice(1).join('\n').trim();
+        } else {
+            // No separator found, assume old format or just title/body
+            const lines = fullText.split('\n');
+            title = lines[0].replace(/^#\s*/, '').trim();
+            body = lines.slice(1).join('\n').trim();
+        }
 
         // Clean filename
         const safeTitle = title.replace(/[\/\\:*?"<>|]/g, '').slice(0, 50);
@@ -67,7 +85,10 @@ async function generateNoteDraft(topic) {
         const filename = `${dateStr}_${safeTitle}.md`;
         const filepath = path.join(NOTE_DRAFTS_DIR, filename);
 
-        const fileContent = `# ${title}\n\n${body}`;
+        let fileContent = `# ${title}\n\n${body}`;
+        if (hashtags) {
+            fileContent += `\n\n---\n**推奨ハッシュタグ:**\n${hashtags}`;
+        }
 
         fs.writeFileSync(filepath, fileContent);
         console.log(`\n✨ Note draft generated successfully!`);
