@@ -1,0 +1,46 @@
+name: Daily Note Draft (Sera Essay)
+
+on:
+  schedule:
+    # 19:00 JST = 10:00 UTC
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate_note:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Draft
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/generate-note-draft-daily.cjs
+
+      - name: Commit and Push Draft
+        run: |
+          git config --global user.name "Sera Shirasaki (Bot)"
+          git config --global user.email "sera-bot@prorenata.jp"
+          
+          git add note_drafts/
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          
+          git commit -m "feat(note): add daily essay draft [skip ci]"
+          git push
