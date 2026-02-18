@@ -210,10 +210,32 @@ async function fetchFallbackPosts(limit: number): Promise<Post[]> {
 }
 
 async function safeFetchFallbackPosts(limit: number): Promise<Post[]> {
+  // Tier 1: Try the score()-based query
   try {
-    return await fetchFallbackPosts(limit)
+    const result = await fetchFallbackPosts(limit)
+    if (result && result.length > 0) return result
   } catch (error) {
-    console.error('safeFetchFallbackPosts failed:', error)
+    console.error('safeFetchFallbackPosts: score query failed, trying simple fallback:', error)
+  }
+
+  // Tier 2: Simple fallback - just fetch by publishedAt (universally reliable)
+  try {
+    const simpleQuery = `*[_type == "post" && (!defined(internalOnly) || internalOnly == false) && defined(slug.current)] 
+      | order(publishedAt desc)[0...$limit]{
+        _id,
+        title,
+        slug,
+        _createdAt,
+        publishedAt,
+        excerpt,
+        mainImage,
+        "categories": categories[]->{title,"slug":slug.current},
+        tags,
+        internalOnly
+      }`
+    return await client.fetch(simpleQuery, { limit })
+  } catch (error) {
+    console.error('safeFetchFallbackPosts: simple fallback also failed:', error)
     return []
   }
 }
