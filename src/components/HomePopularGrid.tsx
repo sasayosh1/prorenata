@@ -178,8 +178,22 @@ function computeRevenueBoost(post: Pick<Post, 'title' | 'categories' | 'tags' | 
 }
 
 async function fetchFallbackPosts(limit: number): Promise<Post[]> {
+  // 閲覧数が多い順、または「悩み」の深い特定カテゴリを優先して表示
+  // 1. views (閲覧数) の降順
+  // 2. 特定カテゴリ（退職、転職、給料、人間関係）が含まれるか（ブースト）
+  // 3. 最新順
   const query = `*[_type == "post" && (!defined(internalOnly) || internalOnly == false) && defined(slug.current)] 
-    | order(coalesce(publishedAt, _createdAt) desc)[0...$limit]{
+    | score(
+      views > 0,
+      categories[]->title match "退職" || categories[]->title match "辞めたい" || categories[]->title match "退職代行" || categories[]->title match "転職",
+      categories[]->title match "給料" || categories[]->title match "年収" || categories[]->title match "手当",
+      categories[]->title match "人間関係" || categories[]->title match "悩み"
+    )
+    | order(
+      views desc,
+      _score desc,
+      publishedAt desc
+    )[0...$limit]{
       _id,
       title,
       slug,
@@ -189,7 +203,8 @@ async function fetchFallbackPosts(limit: number): Promise<Post[]> {
       mainImage,
       "categories": categories[]->{title,"slug":slug.current},
       tags,
-      internalOnly
+      internalOnly,
+      views
     }`
   return await client.fetch(query, { limit })
 }
