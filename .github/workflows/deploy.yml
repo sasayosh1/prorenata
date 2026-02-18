@@ -31,3 +31,53 @@ jobs:
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Post-deploy health check
+        if: success()
+        run: |
+          echo "⏳ Waiting 60s for Vercel edge propagation..."
+          sleep 60
+
+          SITE_URL="https://prorenata.jp"
+          echo "🔍 Checking $SITE_URL ..."
+
+          # 1. HTTP status check
+          HTTP_STATUS=$(curl -s -o /tmp/health_body.html -w '%{http_code}' "$SITE_URL")
+          echo "HTTP Status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "❌ FAIL: Expected HTTP 200, got $HTTP_STATUS"
+            exit 1
+          fi
+
+          # 2. Content check — page must contain key markers
+          BODY=$(cat /tmp/health_body.html)
+          for MARKER in "ProReNata" "最新の記事"; do
+            if echo "$BODY" | grep -q "$MARKER"; then
+              echo "✅ Found: $MARKER"
+            else
+              echo "❌ FAIL: Missing content marker: $MARKER"
+              exit 1
+            fi
+          done
+
+          # 3. Error check — no Server Component crash
+          if echo "$BODY" | grep -q '\$RX('; then
+            echo "⚠️  WARNING: Server Component streaming error detected (\$RX found in HTML)"
+            exit 1
+          fi
+
+          echo "✅ All health checks passed!"
+
+      - name: Create issue on health check failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const date = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 [Deploy Health Check] サイトダウン検出 (${date})`,
+              body: `## デプロイ後ヘルスチェック失敗\n\nデプロイ後のヘルスチェックで問題が検出されました。\n**サイトがダウンしている可能性があります。**\n\n### 確認事項\n- https://prorenata.jp にアクセスできるか\n- エラーページが表示されていないか\n- Server Component のストリーミングエラーがないか\n\n### ワークフローログ\n${context.payload.repository.html_url}/actions/runs/${context.runId}\n\n---\n**実行時刻**: ${date}`,
+              labels: ['critical', 'deploy-health']
+            });

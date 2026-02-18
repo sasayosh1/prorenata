@@ -1,0 +1,103 @@
+name: Site Health Check (Uptime Monitor)
+
+on:
+  schedule:
+    # 30分間隔で実行 (JST 0:00-23:30)
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Check site availability
+        id: check
+        run: |
+          SITE_URL="https://prorenata.jp"
+          MAX_RETRIES=2
+          RETRY_DELAY=10
+          SUCCESS=false
+
+          for i in $(seq 1 $MAX_RETRIES); do
+            echo "Attempt $i of $MAX_RETRIES..."
+            HTTP_STATUS=$(curl -s -o /tmp/health_body.html -w '%{http_code}' --max-time 30 "$SITE_URL" || echo "000")
+
+            if [ "$HTTP_STATUS" = "200" ]; then
+              BODY=$(cat /tmp/health_body.html)
+              # Check for key content markers
+              if echo "$BODY" | grep -q "ProReNata"; then
+                # Check for Server Component crash
+                if echo "$BODY" | grep -q '\$RX('; then
+                  echo "⚠️  Server Component error detected"
+                  echo "status=error" >> "$GITHUB_OUTPUT"
+                  echo "detail=Server Component streaming error (\$RX) detected in HTML" >> "$GITHUB_OUTPUT"
+                else
+                  echo "✅ Site is healthy (attempt $i)"
+                  SUCCESS=true
+                  break
+                fi
+              else
+                echo "⚠️  Content marker 'ProReNata' not found (may be error page)"
+                echo "status=content_error" >> "$GITHUB_OUTPUT"
+                echo "detail=Expected content not found — possible error page" >> "$GITHUB_OUTPUT"
+              fi
+            else
+              echo "⚠️  HTTP $HTTP_STATUS (attempt $i)"
+            fi
+
+            if [ $i -lt $MAX_RETRIES ]; then
+              echo "Retrying in ${RETRY_DELAY}s..."
+              sleep $RETRY_DELAY
+            fi
+          done
+
+          if [ "$SUCCESS" = true ]; then
+            echo "status=ok" >> "$GITHUB_OUTPUT"
+          else
+            if [ -z "$(grep 'status=' "$GITHUB_OUTPUT" 2>/dev/null)" ]; then
+              echo "status=down" >> "$GITHUB_OUTPUT"
+              echo "detail=HTTP status $HTTP_STATUS after $MAX_RETRIES attempts" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - name: Create issue on failure
+        if: steps.check.outputs.status != 'ok'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const status = '${{ steps.check.outputs.status }}';
+            const detail = '${{ steps.check.outputs.detail }}';
+            const date = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
+            const time = new Date().toLocaleTimeString('ja-JP', { timeZone: 'Asia/Tokyo', hour: '2-digit', minute: '2-digit' });
+
+            // Check if there's already an open issue for this
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'uptime-alert',
+              per_page: 1,
+            });
+
+            if (issues.length > 0) {
+              // Add a comment to existing issue instead of creating new one
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues[0].number,
+                body: `⏰ **${date} ${time}** — まだダウンしています\nStatus: \`${status}\`\nDetail: ${detail}`,
+              });
+              console.log(`Added comment to existing issue #${issues[0].number}`);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🚨 [Uptime Alert] サイトダウン検出 (${date} ${time})`,
+                body: `## サイトダウン検出\n\n定期ヘルスチェックで問題が検出されました。\n\n- **Status**: \`${status}\`\n- **Detail**: ${detail}\n- **Time**: ${date} ${time}\n\n### 確認事項\n1. https://prorenata.jp にアクセスできるか確認\n2. Vercel Dashboard でデプロイ状況を確認\n3. 問題が解決したらこの Issue を Close してください\n\n### ワークフローログ\n${context.payload.repository.html_url}/actions/runs/${context.runId}`,
+                labels: ['critical', 'uptime-alert'],
+              });
+              console.log('Created new uptime alert issue');
+            }
