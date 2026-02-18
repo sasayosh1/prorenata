@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -150,7 +151,9 @@ export default async function Home() {
           </div>
 
           {/* Popular posts (GSC/GA4 + revenue-aware) */}
-          <HomePopularGrid limit={9} />
+          <Suspense fallback={null}>
+            <HomePopularGrid limit={9} />
+          </Suspense>
         </main>
       </div>
 

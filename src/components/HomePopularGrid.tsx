@@ -550,12 +550,9 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
       </section>
     )
   } catch (error) {
-    console.error('HomePopularGrid failed; using fallback popular section:', error)
-    const fallbackLimit = limit + 3
-    const allFallback = await fetchFallbackPosts(fallbackLimit)
-    const fallbackPicked = allFallback.slice(3, fallbackLimit)
-    if (fallbackPicked.length === 0) return null
-
-    return renderPopularSection(fallbackPicked)
+    console.error('HomePopularGrid failed:', error)
+    // Return null instead of attempting another fetch that may also fail
+    // and cause an unrecoverable streaming error
+    return null
   }
 }
