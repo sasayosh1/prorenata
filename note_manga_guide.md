@@ -13,7 +13,9 @@
     *   **重要**: 毛先は**「あごのライン」**にあること。**肩にかかってはいけない（Shoulder length is NG）**。
     *   質感は少し内巻きで、ゆふわ（Airy）。
 *   **服装**:
-    *   基本: ネイビーのハイネック、白いチュニック（仕事）。
+    *   基本: **医療用チュニック（Medical Tunic）**。
+    *   **詳細**: ベースは白。襟（ハイネックスタンドカラー）、両肩のパッチ、袖のライン、ポケットの縁取りが**「ネイビーブルー（紺色）」**の配色。
+    *   **注意**: ドクターコート（白衣）ではない。全体が紺色のスクラブでもない。
     *   冬: ネイビーのダッフルコート、マフラー。
     *   夏: Tシャツ、パーカー等（ラフな格好）。
 
@@ -75,6 +77,13 @@
 ## 7. 参照ソース (Reference Assets)
 *   **概念・設定の正本**: `00_システム/00_UserProfile/00_Master_Context.md`
 *   **視覚的リファレンス (Visual Truth)**: `public/sera/`
+    *   `sera_benchmark_manga_style_v1.png` (**漫画スタイルの正解ベンチマーク**)
     *   `sera_reference_thumbnail.png` (正解の顔立ち)
     *   `白崎セラ三面図.png` (コスチューム詳細)
 *   **判断基準**: 生成結果がこれらのリファレンスと乖離した場合（例：大人びている、暗い）、即座に破棄して再生成すること。
+
+## 8. 成功プロンプト構成要素 (Proven Prompt Elements)
+*   **Clothing**: `White medical tunic with Navy Blue high-neck stand collar, Navy shoulder accents, Navy lines on sleeves.` (Not "Navy tunic", Not "Lab coat")
+*   **Setting**: `Hospital staff cafeteria (clean, modern, white tables), sunset light.` (Avoid generic "room" to prevent school classroom look)
+*   **Face**: `Young, cute, round baby face (age 20 but looks 16), silver-white CHIN-LENGTH bob hair.`
+
