@@ -63,7 +63,7 @@
     "dotenv": "^17.2.3",
     "gray-matter": "^4.0.3",
     "next": "^15.5.7",
-    "next-sanity": "^12.1.0",
+    "next-sanity": "^9.0.0",
     "nodemailer": "^6.10.1",
     "openai": "^6.9.1",
     "postcss": "^8.5.6",
