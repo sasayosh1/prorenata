@@ -209,6 +209,15 @@ async function fetchFallbackPosts(limit: number): Promise<Post[]> {
   return await client.fetch(query, { limit })
 }
 
+async function safeFetchFallbackPosts(limit: number): Promise<Post[]> {
+  try {
+    return await fetchFallbackPosts(limit)
+  } catch (error) {
+    console.error('safeFetchFallbackPosts failed:', error)
+    return []
+  }
+}
+
 async function fetchPostsBySlugs(slugs: string[], limit: number): Promise<Post[]> {
   if (slugs.length === 0) return []
 
@@ -350,7 +359,7 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     if (!hasGsc && !hasGa4) {
       // Fallback: Skip the first 3 (which are in the "Latest" section)
       const fallbackLimit = limit + 3
-      const allFallback = await fetchFallbackPosts(fallbackLimit)
+      const allFallback = await safeFetchFallbackPosts(fallbackLimit)
       const picked = allFallback.slice(3, fallbackLimit)
 
       if (picked.length === 0) return null
@@ -466,7 +475,7 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
 
     if (picked.length === 0) {
       const fallbackLimit = limit + 3
-      const allFallback = await fetchFallbackPosts(fallbackLimit)
+      const allFallback = await safeFetchFallbackPosts(fallbackLimit)
       const fallbackPicked = allFallback.slice(3, fallbackLimit)
       if (fallbackPicked.length === 0) return null
       return renderPopularSection(fallbackPicked)
@@ -551,8 +560,14 @@ export default async function HomePopularGrid({ limit = 9 }: { limit?: number })
     )
   } catch (error) {
     console.error('HomePopularGrid failed:', error)
-    // Return null instead of attempting another fetch that may also fail
-    // and cause an unrecoverable streaming error
+    try {
+      const fallbackLimit = limit + 3
+      const allFallback = await safeFetchFallbackPosts(fallbackLimit)
+      const fallbackPicked = allFallback.slice(3, fallbackLimit)
+      if (fallbackPicked.length > 0) return renderPopularSection(fallbackPicked)
+    } catch (fallbackError) {
+      console.error('HomePopularGrid fallback also failed:', fallbackError)
+    }
     return null
   }
 }
