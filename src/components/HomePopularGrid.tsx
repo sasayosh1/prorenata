@@ -369,227 +369,29 @@ function renderPopularSection(picked: Post[]) {
   )
 }
 
+// 3-3-3 Strategy: Trust(3), Revenue(3), Traffic(3)
+const PINNED_SLUGS = [
+  // 💰 Revenue
+  'nursing-assistant-resignation-advice-insights',
+  'nursing-assistant-market-info',
+  'nursing-assistant-latest-salary-comparison',
+  // ❤️ Trust
+  'nursing-assistant-nightshift-fatigue',
+  'nursing-assistant-care-guide-compassa',
+  'nursing-assistant-job-role-compass',
+  // 🧲 Traffic (Magnets)
+  'nursing-assistant-medical-terms',
+  'nursing-assistant-infection-control-manual',
+  'nursing-assistant-patient-transfer-safety',
+]
+
 export default async function HomePopularGrid({ limit = 9 }: { limit?: number }) {
   try {
-    const gsc = loadCsv<GscRow>('data/gsc_last30d.csv')
-    const ga4 = loadCsv<Ga4Row>('data/ga4_last30d.csv')
+    // Strategy: Use Pinned List 100%
+    const pinnedPosts = await fetchPostsBySlugs(PINNED_SLUGS, limit)
+    return renderPopularSection(pinnedPosts)
 
-    // If both are missing OR empty, use fallback.
-    const hasGsc = gsc && gsc.length > 0
-    const hasGa4 = ga4 && ga4.length > 0
-
-    if (!hasGsc && !hasGa4) {
-      // Fallback: Skip the first 3 (which are in the "Latest" section)
-      const fallbackLimit = limit + 3
-      const allFallback = await safeFetchFallbackPosts(fallbackLimit)
-      const picked = allFallback.slice(3, fallbackLimit)
-
-      if (picked.length === 0) return null
-      return renderPopularSection(picked)
-    }
-
-    const gscAgg = new Map<
-      string,
-      { impressions: number; clicks: number; positionWeighted: number; positionWeight: number }
-    >()
-    if (hasGsc) {
-      for (const row of gsc!) {
-        const pagePath = toPathFromUrl(row.page)
-        if (!pagePath) continue
-        const slug = slugFromPostPath(pagePath)
-        if (!slug) continue
-
-        const impressions = safeNumber(row.impressions)
-        const clicks = safeNumber(row.clicks)
-        const position = safeNumber(row.position)
-
-        if (!gscAgg.has(slug))
-          gscAgg.set(slug, { impressions: 0, clicks: 0, positionWeighted: 0, positionWeight: 0 })
-        const acc = gscAgg.get(slug)!
-        acc.impressions += impressions
-        acc.clicks += clicks
-        if (impressions > 0 && position > 0) {
-          acc.positionWeighted += impressions * position
-          acc.positionWeight += impressions
-        }
-      }
-    }
-
-    const gaAgg = new Map<string, { sessions: number; durationWeighted: number; engagementWeighted: number }>()
-    if (hasGa4) {
-      for (const row of ga4!) {
-        const pagePath = String(row.pagePath || '')
-        const slug = slugFromPostPath(pagePath)
-        if (!slug) continue
-
-        const sessions = safeNumber(row.sessions)
-        const duration = safeNumber(row.averageSessionDuration)
-        const engagement = safeNumber(row.engagementRate)
-
-        if (!gaAgg.has(slug)) gaAgg.set(slug, { sessions: 0, durationWeighted: 0, engagementWeighted: 0 })
-        const acc = gaAgg.get(slug)!
-        acc.sessions += sessions
-        acc.durationWeighted += sessions * duration
-        acc.engagementWeighted += sessions * engagement
-      }
-    }
-
-    const candidates = new Set<string>()
-    const gscTop = [...gscAgg.entries()]
-      .sort((a, b) => b[1].impressions - a[1].impressions)
-      .slice(0, 250)
-      .map(([slug]) => slug)
-    const gaTop = [...gaAgg.entries()]
-      .sort((a, b) => b[1].sessions - a[1].sessions)
-      .slice(0, 250)
-      .map(([slug]) => slug)
-
-    for (const s of [...gscTop, ...gaTop]) candidates.add(s)
-
-    const scored = [...candidates].map((slug) => {
-      const g = gscAgg.get(slug)
-      const ga = gaAgg.get(slug)
-      const impressions = g?.impressions || 0
-      const clicks = g?.clicks || 0
-      const sessions = ga?.sessions || 0
-      const base = log1p(impressions) * 120 + clicks * 8 + log1p(sessions) * 90
-      return { slug, base }
-    })
-    scored.sort((a, b) => b.base - a.base)
-
-    // Fetch more than limit to account for potential filtering and ensuring variety
-    const topSlugs = scored.slice(0, 100).map((s) => s.slug)
-    const posts = await fetchPostsBySlugs(topSlugs, 100)
-
-    const finalScored = posts.map((post) => {
-      const slug = post.slug.current
-      const g = gscAgg.get(slug)
-      const ga = gaAgg.get(slug)
-      const impressions = g?.impressions || 0
-      const clicks = g?.clicks || 0
-      const sessions = ga?.sessions || 0
-      const avgDuration = ga && ga.sessions > 0 ? ga.durationWeighted / ga.sessions : 0
-      const engagementRate = ga && ga.sessions > 0 ? ga.engagementWeighted / ga.sessions : 0
-
-      const revenueBoost = computeRevenueBoost(post)
-      const engagementPenalty = sessions >= 20 && avgDuration > 0 && avgDuration < 45 ? 0.9 : 1
-      const base = log1p(impressions) * 120 + clicks * 8 + log1p(sessions) * 90
-      const score = base * (1 + revenueBoost) * engagementPenalty + engagementRate * 10
-
-      return { post, score }
-    })
-    finalScored.sort((a, b) => b.score - a.score)
-
-    // Robust deduplication by Title and ID
-    const seenTitles = new Set<string>()
-    const seenIds = new Set<string>()
-    const picked: Post[] = []
-
-    for (const item of finalScored) {
-      if (picked.length >= limit) break
-      const normalizedTitle = item.post.title.trim().toLowerCase()
-      if (seenTitles.has(normalizedTitle) || seenIds.has(item.post._id)) continue
-
-      seenTitles.add(normalizedTitle)
-      seenIds.add(item.post._id)
-      picked.push(item.post)
-    }
-
-    if (picked.length === 0) {
-      const fallbackLimit = limit + 3
-      const allFallback = await safeFetchFallbackPosts(fallbackLimit)
-      const fallbackPicked = allFallback.slice(3, fallbackLimit)
-      if (fallbackPicked.length === 0) return null
-      return renderPopularSection(fallbackPicked)
-    }
-
-    return (
-      <section className="mb-20">
-        <div className="flex items-end justify-between gap-3 mb-6">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900">人気記事</h2>
-            <p className="mt-1 text-sm text-gray-600">いま注目されている記事をまとめました。</p>
-          </div>
-          <Link href="/posts" className="text-cyan-700 hover:text-cyan-800 text-sm font-semibold">
-            記事一覧 →
-          </Link>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {picked.map((post) => {
-            const title = sanitizeTitle(post.title)
-            const href = `/posts/${post.slug.current}`
-            const category = post.categories && post.categories.length > 0 ? post.categories[0]?.title : null
-
-            return (
-              <Link
-                key={post._id}
-                href={href}
-                className="group block h-full no-underline"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
-                    {post.mainImage ? (
-                      <Image
-                        src={urlFor(post.mainImage).width(900).height(560).url()}
-                        alt={title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    ) : getLocalThumbnail(post.slug.current) ? (
-                      <Image
-                        src={getLocalThumbnail(post.slug.current)!}
-                        alt={title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-tr from-cyan-100 to-blue-50 opacity-60"></div>
-                    )}
-                    {category ? (
-                      <div className="absolute bottom-3 left-3">
-                        <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-cyan-700 text-xs font-bold rounded-full shadow-sm">
-                          {category}
-                        </span>
-                      </div>
-                    ) : null}
-                  </div>
-
-                  <div className="p-5">
-                    <h3 className="text-base font-bold text-gray-900 line-clamp-2 group-hover:text-cyan-700 transition-colors">
-                      {title}
-                    </h3>
-                    {post.excerpt ? <p className="mt-2 text-sm text-gray-600 line-clamp-2">{post.excerpt}</p> : null}
-                  </div>
-                </article>
-              </Link>
-            )
-          })}
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <Link
-            href="/posts"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-base font-bold text-cyan-700 ring-1 ring-cyan-100 shadow-sm hover:bg-cyan-50 hover:ring-cyan-200 transition-all duration-200"
-          >
-            記事一覧を見る →
-          </Link>
-        </div>
-      </section>
-    )
   } catch (error) {
     console.error('HomePopularGrid failed:', error)
-    try {
-      const fallbackLimit = limit + 3
-      const allFallback = await safeFetchFallbackPosts(fallbackLimit)
-      const fallbackPicked = allFallback.slice(3, fallbackLimit)
-      if (fallbackPicked.length > 0) return renderPopularSection(fallbackPicked)
-    } catch (fallbackError) {
-      console.error('HomePopularGrid fallback also failed:', fallbackError)
-    }
-    return null
   }
 }
