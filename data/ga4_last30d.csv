@@ -17,7 +17,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260217,/,mobile,Japan,3,2,14,0.0,5.547215333333334
 20260218,/posts/nursing-assistant-medical-terms,mobile,Japan,3,3,19,0.3333333333333333,6.193451333333333
 20260220,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,3,3,20,0.6666666666666666,437.1819033333333
-20260124,/posts/nursing-assistant-become-nurse-guide,desktop,Japan,2,1,9,0.0,5.799054
+20260223,/posts/nursing-assistant-medical-terms,mobile,Japan,3,2,16,0.3333333333333333,173.75316566666666
+20260223,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,1,9,0.0,2.001278
 20260125,/posts/nursing-assistant-operating-room-duties,desktop,Japan,2,2,14,0.5,49.5110935
 20260125,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,2,1,10,0.5,34.189948
 20260126,/posts,desktop,Japan,2,2,14,0.5,8.849523
@@ -61,11 +62,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260220,/,desktop,United States,2,2,10,0.0,1.3515455
 20260220,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.5,113.591762
 20260221,/posts/nursing-assistant-career-change-journey,mobile,Japan,2,1,10,0.5,56.795307
-20260124,/posts/nursing-assistant-care-guide-navigator,mobile,Japan,1,1,6,1.0,26.672154
-20260124,/posts/nursing-assistant-day-psychiatric-ward,mobile,Japan,1,1,6,0.0,5.843817
-20260124,/posts/nursing-assistant-icu-emergency-duties,mobile,Japan,1,1,7,1.0,1729.764313
-20260124,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,3,1.0,211.125047
-20260124,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,7,1.0,186.698443
+20260223,/,desktop,United States,2,2,6,0.0,0.0
+20260223,/posts/nursing-assistant-latest-salary-comparison,mobile,Japan,2,2,13,1.0,37.5212505
 20260125,/,desktop,Germany,1,1,7,0.0,7.091033
 20260125,/posts/nursing-assistant-bottom-myth,mobile,Japan,1,1,1,1.0,190.974389
 20260125,/posts/nursing-assistant-care-guide-focusa,mobile,Japan,1,1,7,1.0,68.283817
@@ -373,3 +371,12 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260222,/sitemap,desktop,Iran,1,1,4,1.0,5.686176
 20260222,/tags,desktop,Iran,1,1,4,1.0,5.265515
 20260222,/tags/newcomer-notes,desktop,Iran,1,1,4,1.0,7.402169
+20260223,/categories/salary,mobile,Japan,1,1,2,1.0,10.054805
+20260223,/posts/nursing-assistant-deal-with-nurses,mobile,Japan,1,1,1,1.0,0.0
+20260223,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,6,1.0,104.235604
+20260223,/posts/nursing-assistant-night-shift-allowance,mobile,Japan,1,1,1,1.0,58.036066
+20260223,/posts/nursing-assistant-night-shift-recovery,mobile,Japan,1,1,1,1.0,37.01412
+20260223,/posts/nursing-assistant-salary-differences,desktop,United States,1,1,3,0.0,0.0
+20260223,/posts/nursing-scholarship-interest-risk,mobile,Japan,1,1,12,1.0,134.722149
+20260224,/posts/nursing-assistant-infection-control-handwashing,desktop,United States,1,1,3,0.0,0.0
+20260224,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.929548
