@@ -77,11 +77,11 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     images: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/sera/sera_icon.jpg',
+        width: 2026,
+        height: 1134,
         alt: 'ProReNata - 看護助手向け情報サイト',
-        type: 'image/png'
+        type: 'image/jpeg'
       }
     ]
   },
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     creator: '@prorenata',
     title: 'ProReNata | 看護助手向け情報サイト',
     description: '看護助手として働く方、目指す方のための専門情報サイト',
-    images: ['/twitter-image.png']
+    images: ['/sera/sera_icon.jpg']
   },
 
   // 検索エンジン最適化
