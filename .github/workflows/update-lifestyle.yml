@@ -1,0 +1,59 @@
+name: 🌻 Update Sera Lifestyle
+
+on:
+  schedule:
+    # 3月, 6月, 9月, 12月の1日 朝6:00 (JST) に実行 -> UTCで前日の21:00
+    - cron: '0 21 28,31 2,5,8,11 *'
+  
+  workflow_dispatch:
+
+jobs:
+  update-lifestyle:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          npm ci || npm install
+          npm install @google/generative-ai
+
+      - name: Generate New Lifestyle Data
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          HOME: ${{ github.workspace }}
+        run: |
+          # Create proxy directory to match script expectations
+          mkdir -p "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile"
+          touch "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile/08_セラの季節感(Sera_Lifestyle).md"
+          
+          node scripts/update-sera-lifestyle.cjs
+          
+          # Copy to a tracked location in this repo for visibility
+          cp "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile/08_セラの季節感(Sera_Lifestyle).md" "./08_セラの季節感(Sera_Lifestyle)_mirror.md"
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add "08_セラの季節感(Sera_Lifestyle)_mirror.md"
+          # Optional: Remove the old mirror if it existed
+          git rm "08_セラのクローゼット(Sera_Wardrobe)_mirror.md" || true
+          
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "chore(sera): Auto-update seasonal lifestyle (clothes, food, living) 🌻"
+            git push
+          else
+            echo "No changes to commit."
+          fi
