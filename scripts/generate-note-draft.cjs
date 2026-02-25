@@ -25,10 +25,23 @@ async function generate(model, prompt, inputInfo = "") {
     return response.text().trim();
 }
 
+// --- Helper: Get Wardrobe Context ---
+function getWardrobeContext() {
+    const wardrobePath = '/Users/sasakiyoshimasa/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile/08_セラのクローゼット(Sera_Wardrobe).md';
+    if (fs.existsSync(wardrobePath)) {
+        return fs.readFileSync(wardrobePath, 'utf-8');
+    }
+    return "";
+}
+
 // --- Helper: Specific Generation Functions ---
 async function createStructure(topic, pastMemory, model) {
     let prompt = readPrompt('1_Note構成案作成プロンプト.md');
     prompt += `\n\n## 入力トピック\n${topic}`;
+    const wardrobeCtx = getWardrobeContext();
+    if (wardrobeCtx) {
+        prompt += `\n\n## 【セラのクローゼット（服装データ）】\n以下の辞書から、今回の記事の場面（TPO）に最もふさわしいコーディネートを1つ選び、構成案の「場面設定 (Scene)」の中に具体的な服装として必ず組み込んでください。\n\n${wardrobeCtx}`;
+    }
     if (pastMemory) {
         prompt += `\n\n## 【過去の記憶（ランダム）】\nこの記憶が現在のトピックと少しでも関連する場合のみ、\n「ふと思い出した」ようなニュアンスで構成に取り入れてください。\n（無理に関連付ける必要はありません。自然な場合のみ使用してください）\n\n${pastMemory}`;
     }

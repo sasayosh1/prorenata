@@ -8,7 +8,7 @@ const {
   ensurePortableTextKeys,
   ensureReferenceKeys
 } = require('./utils/keyHelpers');
-require('dotenv').config({ path: path.join(process.cwd(), '.env.local') }); // For local testing
+require('dotenv').config({ path: path.join(__dirname, '../.env.local') }); // For local testing
 
 function appendGithubOutput(key, value) {
   const outputPath = process.env.GITHUB_OUTPUT;
@@ -500,8 +500,9 @@ const SANITY_API_VERSION =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION ||
   '2024-01-01';
 
-const SANITY_READ_TOKEN = process.env.SANITY_READ_TOKEN;
-const SANITY_WRITE_TOKEN = process.env.SANITY_WRITE_TOKEN;
+// Token priority: Use SANITY_API_TOKEN if available, otherwise SANITY_WRITE_TOKEN
+const SANITY_READ_TOKEN = process.env.SANITY_API_TOKEN || process.env.SANITY_WRITE_TOKEN || process.env.SANITY_READ_TOKEN;
+const SANITY_WRITE_TOKEN = process.env.SANITY_API_TOKEN || process.env.SANITY_WRITE_TOKEN;
 
 const SANITY_READ_CONFIG = {
   projectId: SANITY_PROJECT_ID,
@@ -734,7 +735,7 @@ async function generateAndSaveArticle() {
             "category": categories[0]->title,
             "publishedAt": coalesce(publishedAt, _createdAt)
           },
-          "allCategories": *[_type == "category"]{title}
+          "allCategories": *[_type == "category"]{_id, title}
         }`
     );
     const posts = recentData.posts || [];
@@ -780,9 +781,11 @@ async function generateAndSaveArticle() {
     const sortedCategories = allCategoryTitles.sort((a, b) => categoryUsage[a] - categoryUsage[b]);
     // Pick randomly from the top 3 least used to avoid strict pattern prediction
     const candidateCategories = sortedCategories.slice(0, 3);
-    const selectedCategory = candidateCategories[Math.floor(Math.random() * candidateCategories.length)] || '仕事';
+    const selectedCategoryTitle = candidateCategories[Math.floor(Math.random() * candidateCategories.length)] || '仕事';
+    const selectedCategoryDoc = (recentData.allCategories || []).find(c => c.title === selectedCategoryTitle);
+    const selectedCategoryId = selectedCategoryDoc ? selectedCategoryDoc._id : null;
 
-    console.log(`Category Rotation: Selected "${selectedCategory}" (Candidates: ${candidateCategories.join(', ')})`);
+    console.log(`Category Rotation: Selected "${selectedCategoryTitle}" (ID: ${selectedCategoryId})`);
 
     // Prefer data-driven keywords from GSC/GA4
     const gscPath = path.join(process.cwd(), 'data', 'gsc_last30d.csv');
@@ -863,16 +866,17 @@ async function generateAndSaveArticle() {
       // --- Scoring ---
       const scored = [];
       const categoryKeywords = {
-        '人間関係': ['人間関係', '同僚', '上司', '悩み', 'トラブル', 'いじめ', '無視'],
-        '給与': ['給料', '年収', 'ボーナス', '時給', '手当', '賃金'],
-        '退職': ['辞めたい', '退職', 'きつい', 'つらい', 'ストレス', 'しんどい'],
-        '悩み': ['辞めたい', '退職', 'きつい', 'つらい', 'ストレス', 'しんどい', '不安'],
-        '転職': ['面接', '履歴書', '志望動機', '自己PR', '転職', '採用'],
-        '資格': ['資格', '研修', 'キャリア', 'スキルアップ', '試験', '勉強'],
-        '実務': ['業務', '仕事内容', '流れ', 'コツ', '手順', 'リネン', '排泄'],
-        '仕事内容': ['仕事', '業務', '役割', '内容'],
-        '感染対策': ['感染', '衛生', '消毒', 'マスク'],
-        '患者対応': ['患者', '接遇', '対応']
+        '人間関係': ['人間関係', '同僚', '上司', '悩み', 'トラブル', 'いじめ', '無視', '相談', '距離感'],
+        '給与': ['給料', '年収', 'ボーナス', '時給', '手当', '賃金', '昇給', '明細'],
+        '退職': ['辞めたい', '退職', 'きつい', 'つらい', 'ストレス', 'しんどい', '限界', 'うつ', '引き止め', '代行'],
+        '悩み': ['辞めたい', '退職', 'きつい', 'つらい', 'ストレス', 'しんどい', '不安', '腰痛', '体力', '眠れない', 'ミス'],
+        '転職': ['転職', '採用', '内定', '入職', '準備', 'エージェント', '求人票', '見学', '退職理由', '円満退職'],
+        '面接対策': ['面接', '履歴書', '志望動機', '自己PR', '逆質問', '職務経歴書'], // 独立させて管理しやすく
+        '資格': ['資格', '研修', 'キャリア', 'スキルアップ', '試験', '勉強', '実務者研修', '初任者研修'],
+        '実務': ['業務', '仕事内容', '流れ', 'コツ', '手順', 'リネン', '排泄', '食事介助', '清掃', '接遇'],
+        '仕事内容': ['仕事', '業務', '役割', '内容', 'やりがい', '向いている人'],
+        '感染対策': ['感染', '衛生', '消毒', 'マスク', 'ノロ', 'インフル'],
+        '患者対応': ['患者', '接遇', '対応', 'コミュニケーション', 'クレーム', '家族対応']
       };
       const relKeywords = categoryKeywords[selectedCategory] || [];
 
@@ -883,17 +887,25 @@ async function generateAndSaveArticle() {
         if (avgPos < 10) score *= 2.0;
         else if (avgPos < 20) score *= 1.5;
 
-        // 1. Semantic Cooldown Penalty
+        // 1. Semantic Cooldown Penalty (Strengthened)
         let usagePenalty = 1.0;
         trackedKeywords.forEach(kw => {
           if (acc.query.includes(kw)) {
             const usage = keywordUsageArgs[kw] || 0;
             if (usage > 0) {
-              // e.g. usage 3.0 => multiplier 0.25
-              usagePenalty *= (1.0 / (usage + 1.0));
+              // usage 1.0 => multiplier 0.25 (was 0.5)
+              // usage 2.0 => multiplier 0.11 (was 0.33)
+              usagePenalty *= (1.0 / Math.pow(usage + 1.0, 2));
             }
           }
         });
+
+        // 2. Bias Penalty (Specific suppression for overused topics requested by user)
+        const biasKeywords = ['面接', '履歴書', '自己PR', '職務経歴書', '志望動機'];
+        if (biasKeywords.some(kw => acc.query.includes(kw))) {
+          usagePenalty *= 0.1; // Additional 90% reduction for these specific topics
+        }
+
         score *= usagePenalty;
 
         // 2. Category Relevance Enforcement
@@ -938,7 +950,7 @@ async function generateAndSaveArticle() {
         if (!selectedKeyword) selectedKeyword = candidates[0].query; // Fallback
 
         console.log(`Keyword selected (Weighted): "${selectedKeyword}"`);
-        selectedTopic = selectedCategory;
+        selectedTopic = selectedCategoryTitle;
       } else {
         console.log("No valid candidates found after filtering. Falling back.");
       }
@@ -1064,6 +1076,9 @@ ${SERA_FULL_PERSONA}
 # 出力形式（JSON、コードブロックなし）
 {
   "title": "${titleLengthGuide}で読者メリットが伝わるタイトル",
+  "slug_keywords": "英語の重要キーワード3-4個（例: nursing-assistant-salary-tips）",
+  "excerpt": "記事の要約（100〜150文字）。読者の悩みに寄り添い、解決策を提示する文章。",
+  "metaDescription": "SEO用説明文（120〜160文字）。検索結果でクリックしたくなる魅力的な紹介文。",
   "tags": ["${selectedTopic}", "看護助手"],
   "body": [
     {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文)"}]},
@@ -1119,7 +1134,39 @@ ${SERA_FULL_PERSONA}
     console.log("Attempting one-time title rewrite for variety...");
   }
 
-  const slugCurrent = buildPostSlug(title);
+  let slugCurrentRaw = (generatedArticle.slug_keywords || "")
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .trim();
+
+  if (!slugCurrentRaw) {
+    slugCurrentRaw = buildPostSlug(title);
+  }
+
+  // Remove redundant prefix if Gemini or buildPostSlug included it
+  slugCurrentRaw = slugCurrentRaw.replace(/^nursing-assistant-/, '');
+
+  // Base slug
+  let slugCurrent = `nursing-assistant-${slugCurrentRaw}`.replace(/-+/g, '-').slice(0, 96);
+
+  // Uniqueness check against recent titles/slugs (approximate check using titles in snapshot)
+  const existingSlugs = recentData.posts ? recentData.posts.map(p => {
+    // We don't have slug in recentData.posts from the query above, 
+    // but we can infer if the title-based slug would collide.
+    // To be safer, let's just check if ANY existing slug matches our target.
+    // However, the query only returned titles. Let's assume most slugs follow title.
+    return buildPostSlug(p.title);
+  }) : [];
+
+  if (existingSlugs.includes(slugCurrent)) {
+    const slugUniqueSuffix = Date.now().toString(36).slice(-4);
+    slugCurrent = `${slugCurrent}-${slugUniqueSuffix}`.replace(/-+/g, '-').slice(0, 96);
+    console.log(`⚠️ Slug collision detected. Appending suffix: ${slugCurrent}`);
+  } else {
+    console.log(`✅ Using clean slug: ${slugCurrent}`);
+  }
+
   const cleanedBody = sanitizeBodyBlocks(generatedArticle.body || []);
   const draft = {
     _type: 'post',
@@ -1130,8 +1177,9 @@ ${SERA_FULL_PERSONA}
     slug: { _type: 'slug', current: slugCurrent },
     tags: generatedArticle.tags,
     body: ensurePortableTextKeys(cleanedBody),
-    categories: [], // メンテナンスで自動選択
-    excerpt: '',    // メンテナンスで自動生成
+    categories: selectedCategoryId ? ensureReferenceKeys([{ _type: 'reference', _ref: selectedCategoryId }]) : [],
+    excerpt: generatedArticle.excerpt || '',
+    metaDescription: generatedArticle.metaDescription || '',
   };
 
   try {

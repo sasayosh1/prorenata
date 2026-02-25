@@ -1,9 +1,9 @@
 name: Daily Article Draft Generation
 
 on:
-  schedule:
-    # 毎日 AM2:00 (JST) = 前日 PM5:00 (UTC) に実行
-    - cron: '0 17 * * *'
+#  schedule:
+#    # 毎日 AM2:00 (JST) = 前日 PM5:00 (UTC) に実行
+#    - cron: '0 17 * * *'
   workflow_dispatch:
     inputs:
       force:
