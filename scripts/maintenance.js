@@ -875,7 +875,7 @@ function mergeReferenceBlocks(blocks) {
   const result = []
   let merged = 0
 
-  for (let i = 0; i < blocks.length; ) {
+  for (let i = 0; i < blocks.length;) {
     const block = blocks[i]
     if (!isReferenceBlock(block)) {
       result.push(block)
@@ -1355,19 +1355,9 @@ function hasAffiliateLink(block) {
 const INVALID_SLUG_SEGMENTS = new Set(['article', 'articles', 'blog', 'post'])
 
 function needsSlugRegeneration(slug) {
-  if (!slug || typeof slug !== 'string') return true
-  const normalized = slug.trim().toLowerCase()
-  if (!normalized.startsWith('nursing-assistant-')) return true
-  if (/[^a-z-]/.test(normalized)) return true
-
-  const remainder = normalized.replace(/^nursing-assistant-/, '')
-  const segments = remainder.split('-').filter(Boolean)
-
-  if (segments.length < 2 || segments.length > 3) {
-    return true
-  }
-
-  return segments.some(segment => segment.length < 3 || INVALID_SLUG_SEGMENTS.has(segment))
+  // 記事生成ロジック(run-daily-generation.cjs)の「最短スラッグの原則」を優先するため、
+  // メンテナンススクリプトによる自動的なスラッグ再生成（上書き）を完全に無効化します。
+  return false
 }
 
 function ensureHttpsUrl(url) {
@@ -1639,7 +1629,7 @@ function isAffiliateRelevant(meta, combinedText, currentPost) {
   if (meta.category === '就職・転職') {
     // ネガティブキーワード: 用語解説系は転職リンク不要
     const isGlossary = /用語.*ガイド|用語.*解説|.*とは|.*の違い|定義|基礎知識|名称.*違い/.test(text) ||
-                       /terminology|glossary|definition/.test(slug)
+      /terminology|glossary|definition/.test(slug)
 
     if (isGlossary) {
       return false
@@ -2444,14 +2434,14 @@ function normalizePersonaInHeading(block) {
 
   const newChildren = Array.isArray(block.children)
     ? block.children.map(child => {
-        if (!child || typeof child.text !== 'string') {
-          return child
-        }
-        return {
-          ...child,
-          text: replaceSeraWithWatashi(child.text)
-        }
-      })
+      if (!child || typeof child.text !== 'string') {
+        return child
+      }
+      return {
+        ...child,
+        text: replaceSeraWithWatashi(child.text)
+      }
+    })
     : block.children
 
   return {
@@ -3187,12 +3177,12 @@ function sanitizeBodyBlocks(blocks, currentPost = null) {
 
     const affiliateMarkDefs = Array.isArray(block.markDefs)
       ? block.markDefs.filter(
-          def =>
-            def &&
-            def._type === 'link' &&
-            typeof def.href === 'string' &&
-            AFFILIATE_HOST_KEYWORDS.some(keyword => def.href.includes(keyword))
-        )
+        def =>
+          def &&
+          def._type === 'link' &&
+          typeof def.href === 'string' &&
+          AFFILIATE_HOST_KEYWORDS.some(keyword => def.href.includes(keyword))
+      )
       : []
 
     if (
@@ -4053,7 +4043,7 @@ async function ensureUniqueSlug(candidate, excludeId) {
 
   let attempt = 0
 
-  for (;;) {
+  for (; ;) {
     let segments = [...baseSegments]
 
     if (attempt > 0) {
@@ -4119,23 +4109,23 @@ async function removeDuplicatePosts(apply = false) {
       })
 
       map.forEach((group, key) => {
-          if (!group || group.length < 2) return
-          const sorted = group.sort((a, b) => getRecencyScore(b) - getRecencyScore(a))
-          const keeper = sorted[0]
-          const removed = sorted.slice(1)
+        if (!group || group.length < 2) return
+        const sorted = group.sort((a, b) => getRecencyScore(b) - getRecencyScore(a))
+        const keeper = sorted[0]
+        const removed = sorted.slice(1)
 
-          removed.forEach(post => {
-            if (!deletions.has(post._id)) {
-              deletions.set(post._id, { post, reason: `${type}:${key}`, keep: keeper })
-            }
-          })
+        removed.forEach(post => {
+          if (!deletions.has(post._id)) {
+            deletions.set(post._id, { post, reason: `${type}:${key}`, keep: keeper })
+          }
+        })
 
-          duplicateGroups.push({
-            type,
-            key,
-            keep: keeper,
-            remove: removed,
-          })
+        duplicateGroups.push({
+          type,
+          key,
+          keep: keeper,
+          remove: removed,
+        })
       })
     }
 
@@ -4505,10 +4495,7 @@ async function autoFixMetadata() {
       !defined(categories) ||
       count(categories) == 0 ||
       !defined(excerpt) ||
-      length(excerpt) < 50 ||
-      !defined(metaDescription) ||
-      length(metaDescription) < 120 ||
-      length(metaDescription) > 160
+      !defined(metaDescription)
     )] {
       _id,
       title,
@@ -4550,11 +4537,11 @@ async function autoFixMetadata() {
     const publishedId = post._id.startsWith('drafts.') ? post._id.replace(/^drafts\./, '') : post._id
     const currentCategories = Array.isArray(post.categories) ? post.categories.filter(Boolean) : []
     const allowBodyEdits = !metadataOnly && !post.maintenanceLocked
-  let categoryRefs = ensureReferenceKeys(
-    currentCategories
-      .filter(category => category?._id)
-      .map(category => ({ _type: 'reference', _ref: category._id }))
-  )
+    let categoryRefs = ensureReferenceKeys(
+      currentCategories
+        .filter(category => category?._id)
+        .map(category => ({ _type: 'reference', _ref: category._id }))
+    )
 
     // 各記事の処理ごとに変数をリセット
     sourceLinkDetails = null
@@ -4726,13 +4713,13 @@ async function autoFixMetadata() {
       }
     }
 
-      if (allowBodyEdits && shouldInsertComparisonLink) {
-        const comparisonLinkResult = ensureResignationComparisonLink(updates.body || post.body, post, { force: true })
-        if (comparisonLinkResult.inserted) {
-          updates.body = comparisonLinkResult.body
-        }
+    if (allowBodyEdits && shouldInsertComparisonLink) {
+      const comparisonLinkResult = ensureResignationComparisonLink(updates.body || post.body, post, { force: true })
+      if (comparisonLinkResult.inserted) {
+        updates.body = comparisonLinkResult.body
       }
-      // career comparison link is ensured above, and never coexists with resignation comparison
+    }
+    // career comparison link is ensured above, and never coexists with resignation comparison
 
     // アフィリエイトリンクの自動追加（収益最適化）は上部で既に実行済み
 
@@ -4890,7 +4877,7 @@ async function autoFixMetadata() {
 
     const plainText = blocksToPlainText(updates.body || post.body)
 
-    if (!post.excerpt || post.excerpt.length < 50) {
+    if (!post.excerpt) {
       const excerpt = generateExcerpt(plainText, post.title)
       updates.excerpt = excerpt
     }
@@ -4925,8 +4912,7 @@ async function autoFixMetadata() {
     }
 
     // Meta Description は plainText から直接生成（excerpt とは別）
-    // 120-160文字（Sanity推奨レンジ）を目安に、できるだけ160文字付近へ寄せる
-    if (!post.metaDescription || post.metaDescription.length < 120 || post.metaDescription.length > 160) {
+    if (!post.metaDescription) {
       const metaDescription = generateMetaDescription(post.title, plainText, categoriesForMeta)
       updates.metaDescription = metaDescription
     }
@@ -5372,10 +5358,10 @@ async function sanitizeAllBodies(options = {}) {
     let removedSummaryHeadings = 0
     let personaHeadingsFixed = 0
     let personaBodyMentionsRemoved = 0
-	    let affiliateLabelsRemoved = 0
-	    let disclaimerAdded = 0
-	    let disclaimerRepositioned = false
-	    let bodyChanged = false
+    let affiliateLabelsRemoved = 0
+    let disclaimerAdded = 0
+    let disclaimerRepositioned = false
+    let bodyChanged = false
     let referencesFixedForPost = 0
     let expansionResult = { expanded: false }
     let referenceBlocksAdded = 0
@@ -5587,12 +5573,12 @@ async function sanitizeAllBodies(options = {}) {
       const irrelevantAffiliateResult = removeIrrelevantAffiliateBlocks(body, post, {
         removeRetirementAffiliates:
           slug === 'nursing-assistant-compare-services-perspective' ||
-          slug === 'comparison-of-three-resignation-agencies'
+            slug === 'comparison-of-three-resignation-agencies'
             ? false
             : true,
         removeCareerAffiliates:
           slug === 'nursing-assistant-compare-services-perspective' ||
-          slug === 'comparison-of-three-resignation-agencies'
+            slug === 'comparison-of-three-resignation-agencies'
             ? false
             : true
       })
@@ -5671,12 +5657,12 @@ async function sanitizeAllBodies(options = {}) {
         const affiliateResult = addAffiliateLinksToArticle(body, post.title, post, {
           disableRetirementAffiliates:
             slug === 'nursing-assistant-compare-services-perspective' ||
-            slug === 'comparison-of-three-resignation-agencies'
+              slug === 'comparison-of-three-resignation-agencies'
               ? false
               : true,
           disableCareerAffiliates:
             slug === 'nursing-assistant-compare-services-perspective' ||
-            slug === 'comparison-of-three-resignation-agencies'
+              slug === 'comparison-of-three-resignation-agencies'
               ? false
               : true
         })
@@ -5992,7 +5978,7 @@ async function sanitizeAllBodies(options = {}) {
     }
   }
 
-    console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 本文から名前削除:${totalPersonaBodyMentionsRemoved} / 「もしも表記」削除:${totalAffiliateLabelsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / 公式コード復元:${totalAffiliateEmbedsRestored} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments} / リンクhref修復:${totalLinkHrefRepairs}）\n`)
+  console.log(`\n🧹 本文整理完了: ${updated}/${posts.length}件を更新（関連記事:${totalRelatedRemoved} / 重複段落:${totalDuplicatesRemoved} / 余分な内部リンク:${totalInternalLinksRemoved} / 禁止セクション:${totalForbiddenSectionsRemoved} / まとめ補助:${totalSummaryHelpersRemoved} / 訴求ブロック:${totalAffiliateCtasRemoved} / 重複まとめ:${totalSummaryHeadingsRemoved} / H2調整:${totalPersonaHeadingFixes} / 本文から名前削除:${totalPersonaBodyMentionsRemoved} / 「もしも表記」削除:${totalAffiliateLabelsRemoved} / 出典更新:${totalReferencesFixed} / 出典追加:${totalReferenceInsertions} / 出典削除:${totalReferenceRemovals} / 断定表現調整:${totalYMYLReplacements} / 不適切訴求削除:${totalAffiliateBlocksRemoved} / 訴求文補強:${totalAffiliateContextAdded} / リンク正規化:${totalAffiliateLinksNormalized} / アフィリエイト再配置:${totalAffiliateLinksInserted} / 公式コード復元:${totalAffiliateEmbedsRestored} / H3補強:${totalH3BodiesAdded} / まとめ補強:${totalSummariesOptimized} / 医療注意追記:${totalMedicalNoticesAdded} / セクション補強:${totalSectionClosingsAdded} / まとめ移動:${totalSummaryMoved} / 内部リンク追加:${totalInternalLinksAdded} / 自動追記:${totalShortExpansions} / スラッグ再生成:${totalSlugRegenerated} / 免責事項追記:${totalDisclaimersAdded} / 免責事項配置:${totalDisclaimersMoved} / 長文段落分割:${totalDenseParagraphsSplit} / 内部リンク表示調整:${totalGenericLinkTextReplaced} / [PR]表記追加:${totalAffiliatePrLabelsAdded + totalAffiliateEmbedLabelsAdded} / リンク配置調整:${totalLinkSpacingAdjustments} / 参考リンク統合:${totalReferenceMerges} / キャラクター名修正:${totalPersonaTitleFixes + totalPersonaExcerptFixes + totalPersonaMetaFixes} / 一人称調整:${totalPronounAdjustments} / リンクhref修復:${totalLinkHrefRepairs}）\n`)
 
   if (shortLengthIssues.length > 0) {
     console.log(`⚠️ 2000文字未満の記事が ${shortLengthIssues.length}件残っています。上位10件:`)
@@ -6416,8 +6402,8 @@ async function checkAffiliateLinks() {
         const isAffiliate = block.markDefs?.some(def =>
           def._type === 'link' &&
           (def.href?.includes('af.moshimo.com') ||
-           def.href?.includes('amazon.co.jp') ||
-           def.href?.includes('tcs-asp.net'))
+            def.href?.includes('amazon.co.jp') ||
+            def.href?.includes('tcs-asp.net'))
         )
 
         if (isAffiliate) {
@@ -6591,8 +6577,8 @@ async function checkInternalLinks() {
 
             // アフィリエイトリンクの検出
             if (def.href.includes('af.moshimo.com') ||
-                def.href.includes('amazon.co.jp') ||
-                def.href.includes('tcs-asp.net')) {
+              def.href.includes('amazon.co.jp') ||
+              def.href.includes('tcs-asp.net')) {
               hasAffiliateLink = true
             }
           }
@@ -6782,9 +6768,9 @@ async function checkYMYL() {
             def._type === 'link' &&
             def.href &&
             (def.href.includes('mhlw.go.jp') ||      // 厚生労働省
-             def.href.includes('meti.go.jp') ||      // 経済産業省
-             def.href.includes('go.jp') ||           // その他官公庁
-             def.href.includes('jil.go.jp'))         // 労働政策研究
+              def.href.includes('meti.go.jp') ||      // 経済産業省
+              def.href.includes('go.jp') ||           // その他官公庁
+              def.href.includes('jil.go.jp'))         // 労働政策研究
           )
         )
 
@@ -6799,10 +6785,10 @@ async function checkYMYL() {
       // 3. 古い記事の検出（給与・法律情報を含む記事）
       const lastUpdate = new Date(post._updatedAt)
       const isSalaryRelated = post.title.includes('給料') ||
-                             post.title.includes('年収') ||
-                             post.title.includes('月給') ||
-                             bodyText.includes('平均年収') ||
-                             bodyText.includes('平均月給')
+        post.title.includes('年収') ||
+        post.title.includes('月給') ||
+        bodyText.includes('平均年収') ||
+        bodyText.includes('平均月給')
 
       if (isSalaryRelated && lastUpdate < sixMonthsAgo) {
         const daysSince = Math.floor((Date.now() - lastUpdate.getTime()) / (1000 * 60 * 60 * 24))
@@ -6819,9 +6805,9 @@ async function checkYMYL() {
       if (hasMedicalKeywords) {
         // 「できない」「禁止」などの否定表現があるかチェック
         const hasNegation = bodyText.includes('できません') ||
-                           bodyText.includes('できない') ||
-                           bodyText.includes('禁止') ||
-                           bodyText.includes('行えません')
+          bodyText.includes('できない') ||
+          bodyText.includes('禁止') ||
+          bodyText.includes('行えません')
 
         if (!hasNegation) {
           issues.medicalProcedures.push({
@@ -7416,22 +7402,22 @@ if (require.main === module) {
           await generateReport()
           console.log('\n' + '='.repeat(60))
           console.log('\nステップ2: カテゴリ再評価\n')
-      await recategorizeAllPosts()
-      console.log('\n' + '='.repeat(60))
+          await recategorizeAllPosts()
+          console.log('\n' + '='.repeat(60))
           console.log('\nステップ3: 自動修復実行\n')
-      await autoFixMetadata()
-      console.log('\n' + '='.repeat(60))
+          await autoFixMetadata()
+          console.log('\n' + '='.repeat(60))
           console.log('\nステップ4: 本文内関連記事・重複段落の整理\n')
-      await sanitizeAllBodies()
-      console.log('\n' + '='.repeat(60))
-      console.log('\nステップ5: 収益最適化リンクの補完（退職/転職カテゴリ）\n')
-      await ensureRevenueComparisonLinks()
-      console.log('\n' + '='.repeat(60))
-      console.log('\n✅ === 総合メンテナンス完了 ===\n')
-    } catch (error) {
-      console.error('❌ 総合メンテナンス中にエラーが発生:', error.message)
-      console.error('スタックトレース:')
-      console.error(error.stack)
+          await sanitizeAllBodies()
+          console.log('\n' + '='.repeat(60))
+          console.log('\nステップ5: 収益最適化リンクの補完（退職/転職カテゴリ）\n')
+          await ensureRevenueComparisonLinks()
+          console.log('\n' + '='.repeat(60))
+          console.log('\n✅ === 総合メンテナンス完了 ===\n')
+        } catch (error) {
+          console.error('❌ 総合メンテナンス中にエラーが発生:', error.message)
+          console.error('スタックトレース:')
+          console.error(error.stack)
           process.exit(1)
         }
       })()
