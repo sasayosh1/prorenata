@@ -452,8 +452,11 @@ export async function generateStaticParams() {
   return []
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata(
+  { params, searchParams }: { params: Promise<{ slug: string }>, searchParams: Promise<{ [key: string]: string | string[] | undefined }> }
+): Promise<Metadata> {
   const resolvedParams = await params
+  const resolvedSearchParams = await searchParams
   const query = `*[_type == "post" && slug.current == $slug][0] {
 	    _id,
 	    title,
@@ -507,7 +510,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const categoryTitles = normalizedCategories.map(category => category.title)
 
     const baseUrl = SITE_URL
-    const canonicalUrl = `${baseUrl}/posts/${slugCurrent}`
+    let canonicalUrl = `${baseUrl}/posts/${slugCurrent}`
+
+    // Add query parameters for cache-busting (e.g. ?t=1)
+    if (resolvedSearchParams && Object.keys(resolvedSearchParams).length > 0) {
+      const queryString = new URLSearchParams(resolvedSearchParams as Record<string, string>).toString()
+      canonicalUrl = `${canonicalUrl}?${queryString}`
+    }
     const publishedTime = post.publishedAt ?? post._createdAt
     const modifiedTime = post._updatedAt || post.publishedAt || post._createdAt
 
