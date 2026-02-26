@@ -69,25 +69,42 @@ async function getRandomBlogPosts(count = 4) {
 }
 
 /**
- * ローカルからランダムに1件のNote下書きを取得
+ * RSSからランダムに1件の公開済みNote記事を取得
  */
-function getRandomNoteDraft() {
-    if (!fs.existsSync(NOTE_DRAFTS_DIR)) return null;
-    const files = fs.readdirSync(NOTE_DRAFTS_DIR).filter(file => file.endsWith('.md'));
-    if (files.length === 0) return null;
+async function getRandomPublishedNote() {
+    try {
+        const response = await fetch('https://note.com/prorenata/rss');
+        if (!response.ok) return null;
+        const xml = await response.text();
 
-    const randomFile = files[Math.floor(Math.random() * files.length)];
-    const content = fs.readFileSync(path.join(NOTE_DRAFTS_DIR, randomFile), 'utf-8');
+        const itemRegex = /<item>[\s\S]*?<\/item>/g;
+        const items = [...xml.matchAll(itemRegex)].map(m => m[0]);
+        if (items.length === 0) return null;
 
-    const titleMatch = content.match(/^#\s+(.+)$/m);
-    const title = titleMatch ? titleMatch[1] : path.parse(randomFile).name;
+        const randomItem = items[Math.floor(Math.random() * items.length)];
+        const titleMatch = randomItem.match(/<title>(.*?)<\/title>/);
+        const linkMatch = randomItem.match(/<link>(.*?)<\/link>/);
+        const descMatch = randomItem.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/);
 
-    return {
-        type: 'note',
-        title: title,
-        url: `URL未定（Note公開後に差し替えてください） - ${randomFile}`,
-        excerpt: content.substring(0, 500) + '...'
-    };
+        const title = titleMatch ? titleMatch[1] : '無題';
+        const url = linkMatch ? linkMatch[1] : 'URL不明';
+
+        let excerpt = '';
+        if (descMatch) {
+            excerpt = descMatch[1].replace(/<[^>]+>/g, '').trim();
+            excerpt = excerpt.substring(0, 500) + '...';
+        }
+
+        return {
+            type: 'note',
+            title: title,
+            url: url,
+            excerpt: excerpt
+        };
+    } catch (e) {
+        console.error("Failed to fetch Note RSS:", e);
+        return null;
+    }
 }
 
 /**
@@ -101,10 +118,10 @@ async function generateXPosts() {
 
     console.log("🔍 Fetching articles...");
     const blogPosts = await getRandomBlogPosts(4);
-    const noteDraft = getRandomNoteDraft();
+    const notePublished = await getRandomPublishedNote();
 
     const sources = [...blogPosts];
-    if (noteDraft) sources.push(noteDraft);
+    if (notePublished) sources.push(notePublished);
 
     if (sources.length === 0) {
         console.error("❌ No articles found to process.");
