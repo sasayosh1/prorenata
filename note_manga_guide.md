@@ -30,7 +30,14 @@
         *   **必須**: 大小・斜め・変形ゴマを組み合わせる。
         *   **NG**: **単調な田の字（Grid）や、等間隔の4コマ配置は禁止**。
 
-## 3. 読み順とコマ割り (Reading Order & Layout Rules)
+## 3. ストーリー構成の鉄則 (Storytelling & Thematic Focus)
+*   **【超重要】ワンテーマ至上主義 (Single Core Theme)**:
+    *   記事全体から「最も核となる感情やシーン（ワンテーマ）」を **1つだけ** 抽出すること。
+    *   **NG**: 記事に出てきた要素（例：本、コーヒー、カレー、回想など）を、1コマずつ別々に詰め込むこと（要素の羅列・スライドショー化は読みにくいため禁止）。
+    *   **⭕ 正解**: 「ぬるくなったカフェオレを飲みながら、先輩の言葉を思い出してホッとする時間」という1つのテーマに絞り、4コマかけてその**「感情の変化」や「時間の流れ（タメ）」**を描く。
+*   **コマ間の繋がり (Flow)**: 4つのコマが独立したイラストではなく、連続した1つのシーン・時間軸として繋がっていること。
+
+## 4. 読み順とコマ割り (Reading Order & Layout Rules)
 日本の漫画として自然な「右→左」「上→下」の読み順を厳守する。欧米式のZ字（左→右）は禁止。
 
 ### 【基本原則】
@@ -53,10 +60,10 @@
 *   **1コマ内**: 右上 → 左下。
 *   **吹き出し**: 重ならないように配置。高い位置にあるものを先に読ませる。
 
-## 4. Nano Banana適用範囲
+## 5. Nano Banana適用範囲
     *   「文字の正確さ」と「軽量な動作」においてNano Banana構成を適用するが、**ビジュアルは「17〜18歳の美少女（Late Teen）」の美しさと「リッチなカラーイラスト」**を維持すること。
 
-## 5. 生成プロンプトのコツ (Nano Banana Benchmark Config)
+## 6. 生成プロンプトのコツ (Nano Banana Benchmark Config)
 *   **必須キーワード**: `Nano Banana Benchmark`, `Silver-white Short Bob`, `Chin-length`, `Late Teen (17-18)`, `Baby face (Cute 6: Beautiful 4)`, `Japanese Text`, `Soft Rounded Gothic`.
 *   **文字生成ルール (Typography - Nano Banana v2)**:
     *   **方向**: **「縦書き（Vertical Japanese）」**必須。横書きは禁止。
@@ -69,12 +76,12 @@
     *   **品質**: 誤字脱字・文字化け・潰れは即NG（再生成）。
 *   **除外キーワード**: `Horizontal text`, `English text`, `Punctuation`, `SFX`, `Onomatopoeia`, `Background text`, `Signboard text`.
 
-## 6. 運用フロー
+## 7. 運用フロー
 1.  記事から「シーン」を選定。
 2.  上記設定に基づき、ダイナミックコマ割りで画像を生成。
 3.  必要に応じてCanva等でセリフ（日本語）を入れる。
 
-## 7. 参照ソース (Reference Assets)
+## 8. 参照ソース (Reference Assets)
 *   **概念・設定の正本**: `00_システム/00_UserProfile/00_Master_Context.md`
 *   **視覚的リファレンス (Visual Truth)**: `public/sera/`
     *   `sera_benchmark_manga_style_v1.png` (**漫画スタイルの正解ベンチマーク**)
@@ -82,7 +89,7 @@
     *   `白崎セラ三面図.png` (コスチューム詳細)
 *   **判断基準**: 生成結果がこれらのリファレンスと乖離した場合（例：大人びている、暗い）、即座に破棄して再生成すること。
 
-## 8. 成功プロンプト構成要素 (Proven Prompt Elements)
+## 9. 成功プロンプト構成要素 (Proven Prompt Elements)
 *   **Clothing**: `White medical tunic with Navy Blue high-neck stand collar, Navy shoulder accents, Navy lines on sleeves.` (Not "Navy tunic", Not "Lab coat")
 *   **Setting**: `Hospital staff cafeteria (clean, modern, white tables), sunset light.` (Avoid generic "room" to prevent school classroom look)
 *   **Face**: `Young, cute, round baby face (age 20 but looks 16), silver-white CHIN-LENGTH bob hair.`
