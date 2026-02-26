@@ -1,9 +1,7 @@
 date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRate,averageSessionDuration
-20260126,/,desktop,Japan,5,3,69,0.6,164.1167478
 20260218,/,desktop,Japan,5,3,66,0.6,679.0796358
 20260218,/,mobile,Japan,5,2,75,0.6,610.1038274
 20260222,/posts/nursing-assistant-medical-terms,mobile,Japan,5,2,52,0.4,397.1078156
-20260126,/,mobile,Japan,4,2,24,0.25,6.79057025
 20260204,/,desktop,Japan,4,2,34,0.5,47.27437275
 20260207,/posts/nursing-assistant-medical-terms,mobile,Japan,4,4,24,0.5,122.85141675
 20260212,/,desktop,Japan,4,1,23,0.75,21.610253500000002
@@ -19,7 +17,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260220,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,3,3,20,0.6666666666666666,437.1819033333333
 20260223,/posts/nursing-assistant-medical-terms,mobile,Japan,3,2,16,0.3333333333333333,173.75316566666666
 20260223,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,1,9,0.0,2.001278
-20260126,/posts,desktop,Japan,2,2,14,0.5,8.849523
 20260127,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,2,12,0.5,166.371577
 20260127,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,2,1,8,0.0,2.923598
 20260128,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,1,6,0.0,3.0121335
@@ -62,15 +59,12 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260221,/posts/nursing-assistant-career-change-journey,mobile,Japan,2,1,10,0.5,56.795307
 20260223,/,desktop,United States,2,2,6,0.0,0.0
 20260223,/posts/nursing-assistant-latest-salary-comparison,mobile,Japan,2,2,13,1.0,37.5212505
+20260224,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,2,12,0.0,5.9923475
 20260224,/posts/nursing-assistant-job-market-analysis,desktop,Japan,2,1,8,0.0,3.1283625
 20260224,/posts/nursing-assistant-medical-terms,desktop,Japan,2,1,11,0.0,4.1156555
 20260224,/posts/nursing-assistant-operating-room-duties,desktop,Japan,2,2,13,1.0,36.331419
-20260126,/posts/nursing-assistant-become-nurse-guide,desktop,Japan,1,1,15,1.0,316.610463
-20260126,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,7,1.0,98.174994
-20260126,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,10,1.0,555.502903
-20260126,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,5,1.0,98.40094
-20260126,/posts/nursing-assistant-resignation-advice-support,mobile,Japan,1,1,6,1.0,1270.924502
-20260126,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,6,1.0,54.480743
+20260225,/posts/nursing-assistant-medical-terms,desktop,Japan,2,2,13,0.5,8.621247
+20260225,/posts/nursing-assistant-mental-care-support,desktop,Japan,2,1,7,0.0,3.0684565
 20260127,/,mobile,Ireland,1,1,6,0.0,7.543882
 20260127,/,mobile,United States,1,1,6,0.0,8.043351
 20260127,/categories/work,desktop,Japan,1,1,5,1.0,47.55249
@@ -377,8 +371,23 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260224,/posts,desktop,Japan,1,1,6,1.0,6.526305
 20260224,/posts/nursing-assistant-emr-system-changes,desktop,Japan,1,1,7,1.0,37.457437
 20260224,/posts/nursing-assistant-infection-control-handwashing,desktop,United States,1,1,3,0.0,0.0
-20260224,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.929548
 20260224,/posts/nursing-assistant-latest-salary-comparison,desktop,Japan,1,1,7,1.0,15.184248
 20260224,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,0.0,6.03108
 20260224,/posts/nursing-assistant-operating-room-duties,mobile,Japan,1,1,4,0.0,0.56011
 20260224,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,0.0,5.615853
+20260224,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,2,0.0,0.0
+20260224,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,5,0.0,5.251245
+20260225,/,desktop,Japan,1,1,6,1.0,10.104862
+20260225,/,mobile,Japan,1,1,7,1.0,8.221172
+20260225,/1720,desktop,Japan,1,1,4,1.0,7.237242
+20260225,/posts/nursing-assistant-career-change-school,desktop,Japan,1,1,5,0.0,4.947285
+20260225,/posts/nursing-assistant-icu-emergency-duties,desktop,Japan,1,1,6,1.0,1.722929
+20260225,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,11,1.0,457.172555
+20260225,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,7,1.0,75.646011
+20260225,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,6,1.0,125.256708
+20260225,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,1,1,7,1.0,55.618652
+20260225,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,1,1,10,1.0,145.575673
+20260225,/posts/nursing-assistant-resignation-advice-support,mobile,Japan,1,1,1,1.0,110.5783
+20260225,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,4,0.0,5.125483
+20260225,/posts/nursing-assistant-terminology-guide,desktop,Japan,1,1,7,1.0,44.6992
+20260225,/posts/nursing-assistant-uniform-selection,desktop,Japan,1,1,7,1.0,58.627692
