@@ -40,6 +40,7 @@
     "maintenance": "node tools/cli.js",
     "maintenance:report": "node tools/cli.js report",
     "revalidate": "node scripts/revalidate.mjs",
+    "generate:x-posts": "node scripts/generate-x-posts-daily.cjs",
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky"
