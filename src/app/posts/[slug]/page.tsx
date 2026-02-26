@@ -530,7 +530,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const ogImageSource = post.mainImage?.asset ? post.mainImage : post.firstBodyImage
     const ogImageUrl = ogImageSource?.asset
       ? urlFor(ogImageSource).width(1200).height(630).fit('crop').url()
-      : `${baseUrl}/og-image.png`
+      : `${baseUrl}/sera/sera_icon.jpg`
 
     return {
       title,
