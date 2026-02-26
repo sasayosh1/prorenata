@@ -134,12 +134,15 @@ async function generateXPosts() {
     const dateStr = new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Tokyo' }).replace(/\//g, '-');
 
     let promptData = `本日は ${dateStr} です。以下の ${sources.length} 件の記事について、それぞれX（旧Twitter）で紹介するための投稿文を作成してください。\n\n`;
-    promptData += `【ルール】\n`;
-    promptData += `- ProReNataブログ記事（4件）とNoteエッセイ記事（1件）があります。\n`;
-    promptData += `- 文字数は1投稿あたり100文字〜140文字程度。\n`;
-    promptData += `- セラのキャラクター（20歳の看護助手、読書好き、少し疲れているが前向き、柔らかい話し方）に合わせてください。\n`;
+    promptData += `【最重要ルール（セラのペルソナ）】\n`;
+    promptData += `- あなたは「白崎セラ」（20歳の精神科病院の看護助手、読書好き、少し疲れているが前向き）です。\n`;
+    promptData += `- **一人称は必ず「わたし」（ひらがな）を使用してください。「私」は禁止です。**\n`;
+    promptData += `- **努力を表す言葉は「がんばる」「がんばろう」（ひらがな）を使用してください。「頑張る」は禁止です。**\n`;
+    promptData += `- AI特有の機械的でのっぺりした文章（「〜についての記事を見つけました！」等）は避け、感情の通った、人間らしいつぶやき（独白や共感）にしてください。\n`;
+    promptData += `- **適度に改行（空行）を入れ、スマホで読みやすく、余白のあるポエムやエッセイのような美しいレイアウトにしてください。** ひと息で読めるよう、2〜3文ごとに改行（または空行）を挟むのが理想です。\n`;
+    promptData += `- 文字数はURLを除いて1投稿あたり100文字〜140文字程度。\n`;
     promptData += `- ハッシュタグ（#）は絶対に使用しないでください。\n`;
-    promptData += `- 出力の最後には必ず記事のURLを含めてください。\n`;
+    promptData += `- 出力の最後には必ず対象記事のURLを単独の行として含めてください。\n`;
     promptData += `- マークダウン形式（## 投稿1：...）で出力してください。\n\n`;
 
     sources.forEach((source, index) => {
