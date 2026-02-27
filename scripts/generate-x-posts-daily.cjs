@@ -47,7 +47,7 @@ function extractTextExcerpt(body, maxLength = 500) {
 async function getRandomBlogPosts(count = 4) {
     // 最新50件からランダムに選出
     const posts = await sanityClient.fetch(
-        `*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc)[0...50] {
+        `*[_type == "post" && !(_id in path("drafts.**")) && !(slug.current match "*test*") && !(title match "*テスト*")] | order(publishedAt desc)[0...50] {
       title,
       "slug": slug.current,
       body
@@ -116,28 +116,42 @@ async function generateXPosts() {
         process.exit(1);
     }
 
-    console.log("🔍 Fetching articles...");
+    console.log("🔍 Fetching blog posts from Sanity...");
     const blogPosts = await getRandomBlogPosts(4);
+    console.log(`✅ Fetched ${blogPosts.length} blog posts.`);
+
+    console.log("🔍 Fetching latest Note post from RSS...");
     const notePublished = await getRandomPublishedNote();
+    if (notePublished) {
+        console.log(`✅ Fetched Note post: "${notePublished.title}"`);
+    } else {
+        console.warn("⚠️ No Note post found via RSS.");
+    }
 
     const sources = [...blogPosts];
     if (notePublished) sources.push(notePublished);
 
     if (sources.length === 0) {
-        console.error("❌ No articles found to process.");
+        console.error("❌ No articles found to process. Sanity or Note might be down.");
         process.exit(1);
     }
 
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" });
 
-    const dateStr = new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Tokyo' }).replace(/\//g, '-');
+    const date = new Date();
+    const dateStr = date.toISOString().split('T')[0];
+    const displayDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Tokyo' }).replace(/\//g, '-');
 
-    let promptData = `本日は ${dateStr} です。以下の ${sources.length} 件の記事について、それぞれX（旧Twitter）で紹介するための投稿文を作成してください。\n\n`;
+    let promptData = `本日は ${displayDate} です。以下の ${sources.length} 件の記事について、それぞれX（旧Twitter）で紹介するための投稿文を作成してください。\n\n`;
     promptData += `【最重要ルール（セラのペルソナとテキストアート）】\n`;
     promptData += `- あなたは「白崎セラ」（20歳の精神科病院の看護助手、読書好き、少し疲れているが前向き）です。\n`;
     promptData += `- **一人称は必ず「わたし」（ひらがな）を使用してください。「私」は禁止です。**\n`;
     promptData += `- **努力を表す言葉は「がんばる」「がんばろう」（ひらがな）を使用してください。「頑張る」は禁止です。**\n`;
+    promptData += `- **漢字の開き（ひらがな化）ルール：**\n`;
+    promptData += `  - 「後」→「**あと**」を使用してください（例：夜勤のあと、〇〇したあと）。\n`;
+    promptData += `  - 「一つ一つ」→「**ひとつひとつ**」を使用してください。\n`;
+    promptData += `  - 「朝一番」→「**朝イチ**」を使用してください。\n`;
     promptData += `- 濁点（が、ざ、だ、ば等）が連続しないよう、柔らかいひらがな表現に言い換え、視覚的な美しさを保ってください。\n`;
     promptData += `- **【X向けのフック（興味付け）】**「みんなでがんばろう」「笑顔のために」といった、ありきたりで綺麗事すぎる着地（Cliché）はXではスルーされます。記事の核心（読者が「えっ？」と驚く部分、深く頷く痛み）を抽出し、あえて少しビターな「独白」としてつぶやいてください。決して「〜という記事です」とは言わないこと。\n`;
     promptData += `- **【レイアウトの美学（超重要）】**\n`;
@@ -186,16 +200,18 @@ async function generateXPosts() {
 
 `;
 
-    const finalStr = `# ProReNata X投稿アイデア (${dateStr})\n\n` + costDisclaimer + outputText;
+    const finalStr = `# ProReNata X投稿アイデア (${displayDate})\n\n` + costDisclaimer + outputText;
 
     if (!fs.existsSync(X_POSTS_DIR)) {
+        console.log(`📁 Creating directory: ${X_POSTS_DIR}`);
         fs.mkdirSync(X_POSTS_DIR, { recursive: true });
     }
 
-    const filepath = path.join(X_POSTS_DIR, `${dateStr}_ProReNata_X_Posts.md`);
+    const filepath = path.join(X_POSTS_DIR, `${displayDate}_ProReNata_X_Posts.md`);
+    console.log(`📝 Writing X posts to: ${filepath}`);
     fs.writeFileSync(filepath, finalStr);
 
-    console.log(`\n✨ X Post generated: ${filepath}`);
+    console.log(`\n✨ X Post generated successfuly: ${filepath}`);
     console.log(`💰 Cost: ~${totalCostJPY.toFixed(3)} JPY`);
 }
 
