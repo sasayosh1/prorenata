@@ -7,6 +7,8 @@ require('dotenv').config({ path: '.env.local' });
 // --- Configuration ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const SANITY_API_TOKEN = process.env.SANITY_API_TOKEN;
+const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID || '72m8vhy2';
+const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET || 'production';
 const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note_drafts');
 const X_POSTS_DIR = path.join(process.cwd(), 'X投稿');
 
@@ -16,13 +18,15 @@ const INPUT_COST_PER_1M = 0.075 * USD_TO_JPY;
 const OUTPUT_COST_PER_1M = 0.30 * USD_TO_JPY;
 
 // --- Sanity Client ---
-const sanityClient = createClient({
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+const createSanityClient = (token = SANITY_API_TOKEN) => createClient({
+    projectId: SANITY_PROJECT_ID,
+    dataset: SANITY_DATASET,
     apiVersion: '2024-01-01',
-    token: SANITY_API_TOKEN,
-    useCdn: false
+    token: token,
+    useCdn: true // 読み取り専用なのでキャッシュを有効化
 });
+
+let sanityClient = createSanityClient();
 
 /**
  * 記事本文からテキストを抽出（最初の数ブロックのみ）
@@ -45,16 +49,28 @@ function extractTextExcerpt(body, maxLength = 500) {
  * Sanityからランダムに4件の公開済み記事を取得
  */
 async function getRandomBlogPosts(count = 4) {
-    // 最新50件からランダムに選出
-    const posts = await sanityClient.fetch(
-        `*[_type == "post" && !(_id in path("drafts.**")) && !(slug.current match "*test*") && !(title match "*テスト*")] | order(publishedAt desc)[0...50] {
+    const query = `*[_type == "post" && !(_id in path("drafts.**")) && !(slug.current match "*test*") && !(title match "*テスト*")] | order(publishedAt desc)[0...50] {
       title,
       "slug": slug.current,
       body
-    }`
-    );
+    }`;
 
-    if (posts.length === 0) return [];
+    let posts;
+    try {
+        // 1回目：設定されたトークンで試行
+        posts = await sanityClient.fetch(query);
+    } catch (error) {
+        // 401エラー（Unauthorized）の場合、トークンなしで再試行
+        if (error.statusCode === 401 && SANITY_API_TOKEN) {
+            console.warn("⚠️ Sanity token is invalid or session expired. Retrying without token...");
+            sanityClient = createSanityClient(null);
+            posts = await sanityClient.fetch(query);
+        } else {
+            throw error;
+        }
+    }
+
+    if (!posts || posts.length === 0) return [];
 
     // Shuffle and pick 4
     const shuffled = posts.sort(() => 0.5 - Math.random());
