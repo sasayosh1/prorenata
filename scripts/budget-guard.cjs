@@ -106,15 +106,19 @@ async function ensureIssue({ title, body, labels }) {
   await githubRequest('POST', createUrl, { title, body, labels });
 }
 
+function getCurrentDateUtc() {
+  const now = new Date();
+  return now.toISOString().split('T')[0]; // YYYY-MM-DD
+}
+
 async function main() {
   const args = parseArgs(process.argv);
 
-  const budgetJpy = Number(process.env.GEMINI_BUDGET_JPY || '100');
-  if (!Number.isFinite(budgetJpy) || budgetJpy <= 0) {
-    throw new Error(`Invalid GEMINI_BUDGET_JPY: ${process.env.GEMINI_BUDGET_JPY}`);
-  }
+  const budgetMonthJpy = Number(process.env.GEMINI_BUDGET_JPY || '100');
+  const budgetDailyJpy = Number(process.env.GEMINI_DAILY_BUDGET_JPY || '20');
 
   const month = getCurrentMonthUtc();
+  const date = getCurrentDateUtc();
   const stateDir = path.join(process.cwd(), '.budget');
   const statePath = path.join(stateDir, 'gemini-usage.json');
 
@@ -123,6 +127,7 @@ async function main() {
   let state = {
     month,
     spentJpy: 0,
+    daily: {}, // { "YYYY-MM-DD": spent }
     updatedAt: new Date().toISOString(),
     history: [],
   };
@@ -130,92 +135,97 @@ async function main() {
   if (fs.existsSync(statePath)) {
     try {
       const loaded = JSON.parse(fs.readFileSync(statePath, 'utf8'));
-      if (loaded && typeof loaded === 'object') state = { ...state, ...loaded };
+      if (loaded && typeof loaded === 'object') {
+        state = { ...state, ...loaded };
+      }
     } catch {
-      // ignore; start fresh
+      // ignore
     }
   }
 
+  // Reset monthly if needed
   if (state.month !== month) {
-    state = {
-      month,
-      spentJpy: 0,
-      updatedAt: new Date().toISOString(),
-      history: [],
-    };
+    state.month = month;
+    state.spentJpy = 0;
+    state.daily = {};
   }
+
+  // Ensure daily structure exists
+  state.daily = state.daily || {};
+  const spentToday = state.daily[date] || 0;
 
   const estimatedPerArticleJpy = Number(process.env.GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE || '0.2');
-  if (!Number.isFinite(estimatedPerArticleJpy) || estimatedPerArticleJpy < 0) {
-    throw new Error(
-      `Invalid GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE: ${process.env.GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE}`
-    );
-  }
-
   let reserveJpy = 0;
   if (args.reserveJpy != null) {
     reserveJpy = Number(args.reserveJpy);
   } else if (args.reserveArticles != null) {
     reserveJpy = Number(args.reserveArticles) * estimatedPerArticleJpy;
   }
-
-  if (!Number.isFinite(reserveJpy) || reserveJpy < 0) {
-    throw new Error(`Invalid reserve amount: ${reserveJpy}`);
-  }
   reserveJpy = roundJpy(reserveJpy);
 
-  const projected = roundJpy(Number(state.spentJpy || 0) + reserveJpy);
+  const projectedMonth = roundJpy(Number(state.spentJpy || 0) + reserveJpy);
+  const projectedDaily = roundJpy(spentToday + reserveJpy);
 
   const context = {
     month,
-    budgetJpy: roundJpy(budgetJpy),
-    spentJpy: roundJpy(Number(state.spentJpy || 0)),
+    date,
+    budgetMonthJpy: roundJpy(budgetMonthJpy),
+    spentMonthJpy: roundJpy(Number(state.spentJpy || 0)),
+    budgetDailyJpy: roundJpy(budgetDailyJpy),
+    spentDailyJpy: roundJpy(spentToday),
     reserveJpy,
-    projectedJpy: projected,
+    projectedMonthJpy: projectedMonth,
+    projectedDailyJpy: projectedDaily,
   };
 
-  if (projected > budgetJpy) {
-    const title = `💸 Gemini budget exceeded (${month})`;
+  // Block if EITHER limit is hit
+  let blockReason = null;
+  if (projectedMonth > budgetMonthJpy) blockReason = 'MONTHLY_LIMIT';
+  if (projectedDaily > budgetDailyJpy) blockReason = 'DAILY_LIMIT';
+
+  if (blockReason) {
+    const title = `💸 Gemini budget exceeded (${blockReason === 'DAILY_LIMIT' ? date : month})`;
     const body = [
       '## Gemini Budget Guard',
       '',
+      `- Type: \`${blockReason}\``,
       `- Month (UTC): \`${context.month}\``,
-      `- Budget: \`${context.budgetJpy} JPY\``,
-      `- Current spent (estimated): \`${context.spentJpy} JPY\``,
-      `- This run reserve (estimated): \`${context.reserveJpy} JPY\``,
-      `- Projected: \`${context.projectedJpy} JPY\``,
+      `- Date (UTC): \`${context.date}\``,
+      `- Monthly Budget: \`${context.budgetMonthJpy} JPY\``,
+      `- Monthly Spent: \`${context.spentMonthJpy} JPY\``,
+      `- Daily Budget: \`${context.budgetDailyJpy} JPY\``,
+      `- Daily Spent: \`${context.spentDailyJpy} JPY\``,
+      `- This run reserve: \`${context.reserveJpy} JPY\``,
       '',
       '### Action',
       '- This run will skip Gemini execution to keep costs under the target.',
-      '- If you want to continue, increase `GEMINI_BUDGET_JPY` or reduce scheduled Gemini runs.',
+      `- Reason: ${blockReason}`,
       '',
       `Timestamp: ${new Date().toISOString()}`,
     ].join('\n');
 
     try {
       await ensureIssue({ title, body, labels: ['automated', 'budget'] });
-      console.log('📝 Issue created (or already exists):', title);
     } catch (error) {
       console.warn('⚠️ Failed to create issue:', error?.message || error);
     }
 
     appendGithubOutput('allowed', 'false');
-    appendGithubOutput('month', context.month);
-    appendGithubOutput('budget_jpy', context.budgetJpy);
-    appendGithubOutput('spent_jpy', context.spentJpy);
-    appendGithubOutput('projected_jpy', context.projectedJpy);
-    console.log('allowed=false');
+    appendGithubOutput('reason', blockReason);
+    console.log(`allowed=false reason=${blockReason}`);
     process.exit(0);
   }
 
   if (reserveJpy > 0) {
-    state.spentJpy = projected;
+    state.spentJpy = projectedMonth;
+    state.daily[date] = projectedDaily;
     state.updatedAt = new Date().toISOString();
     state.history = Array.isArray(state.history) ? state.history : [];
     state.history.push({
       at: state.updatedAt,
       addJpy: reserveJpy,
-      spentJpy: state.spentJpy,
+      spentMonthJpy: state.spentJpy,
+      spentDailyJpy: state.daily[date],
       note: args.reserveArticles != null ? `reserve-articles:${args.reserveArticles}` : 'reserve-jpy',
     });
   }
@@ -223,17 +233,13 @@ async function main() {
   fs.writeFileSync(statePath, JSON.stringify(state, null, 2) + '\n', 'utf8');
 
   console.log('✅ Budget guard OK');
-  console.log(`- Month (UTC): ${context.month}`);
-  console.log(`- Budget: ${context.budgetJpy} JPY`);
-  console.log(`- Spent (estimated): ${roundJpy(state.spentJpy)} JPY`);
-  console.log(`- Reserve (this run): ${context.reserveJpy} JPY`);
-  console.log(`- Projected: ${context.projectedJpy} JPY`);
+  console.log(`- Monthly: ${context.spentMonthJpy} / ${context.budgetMonthJpy} JPY`);
+  console.log(`- Daily: ${context.spentDailyJpy} / ${context.budgetDailyJpy} JPY`);
+  console.log(`- Reserve: ${context.reserveJpy} JPY`);
 
   appendGithubOutput('allowed', 'true');
-  appendGithubOutput('month', context.month);
-  appendGithubOutput('budget_jpy', context.budgetJpy);
-  appendGithubOutput('spent_jpy', roundJpy(state.spentJpy));
-  appendGithubOutput('projected_jpy', context.projectedJpy);
+  appendGithubOutput('spent_month_jpy', roundJpy(state.spentJpy));
+  appendGithubOutput('spent_daily_jpy', roundJpy(state.daily[date]));
   console.log('allowed=true');
 }
 
@@ -261,7 +267,7 @@ main().catch((error) => {
       `Timestamp: ${new Date().toISOString()}`,
     ].join('\n');
 
-    ensureIssue({ title, body, labels: ['automated', 'budget'] }).catch(() => {});
+    ensureIssue({ title, body, labels: ['automated', 'budget'] }).catch(() => { });
   } catch {
     // ignore
   }

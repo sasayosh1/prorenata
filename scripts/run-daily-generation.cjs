@@ -8,7 +8,18 @@ const {
   ensurePortableTextKeys,
   ensureReferenceKeys
 } = require('./utils/keyHelpers');
+const { spawnSync } = require('child_process');
 require('dotenv').config({ path: path.join(__dirname, '../.env.local') }); // For local testing
+
+// Budget Guard
+const budget = spawnSync(process.execPath, [path.resolve(__dirname, 'budget-guard.cjs'), '--reserve-articles', '1'], {
+  stdio: 'inherit',
+  env: process.env
+});
+if (budget.status !== 0) {
+  console.warn('⚠️ Budget guard error. Skipping generation.');
+  process.exit(0);
+}
 
 function appendGithubOutput(key, value) {
   const outputPath = process.env.GITHUB_OUTPUT;

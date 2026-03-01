@@ -2,8 +2,8 @@ name: Daily Analytics & SEO Report
 
 on:
   schedule:
-    # 毎朝 09:00 JST = 00:00 UTC
-    - cron: '0 0 * * *'
+    # 毎週月曜 09:00 JST = 00:00 UTC
+    - cron: '0 0 * * 1'
   workflow_dispatch:
     # 手動実行可能
 

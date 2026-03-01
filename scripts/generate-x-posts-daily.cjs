@@ -9,8 +9,19 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const SANITY_API_TOKEN = process.env.SANITY_API_TOKEN;
 const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID || '72m8vhy2';
 const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET || 'production';
+const { spawnSync } = require('child_process');
 const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note_drafts');
 const X_POSTS_DIR = path.join(process.cwd(), 'X投稿');
+
+// Budget Guard
+const budget = spawnSync(process.execPath, [path.resolve(__dirname, 'budget-guard.cjs'), '--reserve-jpy', '2'], {
+    stdio: 'inherit',
+    env: process.env
+});
+if (budget.status !== 0) {
+    console.warn('⚠️ Budget guard error. Skipping generation.');
+    process.exit(0);
+}
 
 // Cost rates for Gemini 1.5 Flash (approx per 1M tokens in USD)
 const USD_TO_JPY = 150; // Approximated exchange rate
