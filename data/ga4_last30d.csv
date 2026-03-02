@@ -6,7 +6,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260207,/posts/nursing-assistant-medical-terms,mobile,Japan,4,4,24,0.5,122.85141675
 20260212,/,desktop,Japan,4,1,23,0.75,21.610253500000002
 20260219,/,desktop,Japan,4,2,32,0.5,8.3016835
-20260130,/posts/nursing-assistant-medical-terms,desktop,Japan,3,2,23,1.0,567.2597963333334
 20260131,/posts/nursing-assistant-patient-transfer-safety,mobile,Japan,3,3,18,0.6666666666666666,57.079504333333325
 20260205,/posts/nursing-assistant-nightshift-fatigue,desktop,Japan,3,1,34,1.0,548.703066
 20260205,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,3,3,25,1.0,93.22086633333333
@@ -16,7 +15,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260220,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,3,3,20,0.6666666666666666,437.1819033333333
 20260223,/posts/nursing-assistant-medical-terms,mobile,Japan,3,2,16,0.3333333333333333,173.75316566666666
 20260223,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,1,9,0.0,2.001278
-20260130,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.0,5.5188265
 20260201,/posts/nursing-assistant-medical-terms,mobile,Japan,2,1,16,0.5,704.181871
 20260203,/,desktop,Japan,2,2,24,0.5,299.985245
 20260203,/,mobile,Japan,2,2,9,0.5,11.0644105
@@ -60,21 +58,9 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260227,/,desktop,Japan,2,1,19,0.5,2.5892295
 20260227,/posts/nursing-assistant-operating-room-duties,mobile,Japan,2,2,14,1.0,38.4254075
 20260227,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,2,1,4,0.0,0.0
-20260228,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.0,40.7864475
+20260228,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.5,40.7864475
 20260228,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,2,2,9,0.0,5.925896
-20260130,/categories/resignation,desktop,Iran,1,1,4,1.0,7.470472
-20260130,/categories/work,desktop,Iran,1,1,4,1.0,6.566131
-20260130,/contact,desktop,Iran,1,1,5,1.0,3.466965
-20260130,/posts,desktop,Iran,1,1,4,1.0,5.12693
-20260130,/posts/nursing-assistant-career-plan-method,desktop,Japan,1,1,6,1.0,1134.517325
-20260130,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,5,0.0,6.898751
-20260130,/posts/nursing-assistant-mental-care-focus,desktop,Iran,1,1,4,1.0,4.650019
-20260130,/posts/nursing-assistant-resignation-advice-key,desktop,Iran,1,1,4,1.0,5.196973
-20260130,/posts/nursing-assistant-salary-update-insights,desktop,Luxembourg,1,1,4,1.0,5.691842
-20260130,/posts/nursing-assistant-salary-update-support,desktop,Iran,1,1,4,1.0,1.967001
-20260130,/tags,desktop,Iran,1,1,4,1.0,4.21958
-20260130,/tags/newcomer-notes,desktop,Iran,1,1,2,1.0,1.557622
-20260130,/tags/newcomer-notes,desktop,Luxembourg,1,1,2,1.0,4.168107
+20260301,/posts/nursing-assistant-duties-scope,desktop,Japan,2,1,13,1.0,36.436635
 20260131,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,5.496303
 20260131,/posts/nursing-assistant-interview-prep,mobile,Japan,1,1,7,1.0,75.071766
 20260131,/posts/nursing-assistant-night-shift-daily,mobile,Japan,1,1,6,0.0,6.128059
@@ -392,4 +378,11 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260228,/tags,desktop,Iran,1,1,4,1.0,7.478233
 20260228,/tags/newcomer-notes,desktop,Iran,1,1,2,1.0,3.700502
 20260228,/terms,desktop,Iran,1,1,3,1.0,3.08577
+20260301,/,mobile,United States,1,1,6,0.0,7.11948
+20260301,/posts/nursing-assistant-bottom-myth,mobile,Japan,1,1,6,0.0,5.926014
+20260301,/posts/nursing-assistant-career-change-experience,mobile,Japan,1,1,1,1.0,0.0
+20260301,/posts/nursing-assistant-career-change-medical,desktop,Japan,1,1,6,1.0,31.145577
+20260301,/posts/nursing-assistant-icu-emergency-duties,mobile,Japan,1,1,9,1.0,293.075311
 20260301,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,5,1.0,66.668167
+20260301,/posts/nursing-assistant-recommended-shoes,desktop,Japan,1,1,9,1.0,55.795512
+20260302,/posts/nursing-assistant-infection-control-manual,mobile,Japan,1,1,6,0.0,6.023835
