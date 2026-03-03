@@ -1,0 +1,522 @@
+[
+  {
+    "_key": "1nvedph02",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "hsztw01bp",
+        "_type": "span",
+        "text": "職場の人間関係。特に看護助手という、看護師さんや患者さん、ご家族など多くの人と関わるお仕事をしていると、その「距離感」に迷うことはありませんか。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "fgao68xvf",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "qrlc1nlnz",
+        "_type": "span",
+        "text": "わたしも、今の職場で働きはじめてからずっと、このテーマに向き合い続けています。誰とでも仲良く、明るく振る舞えるのが理想だと思っていた時期もありましたが、現実はそう単純なものではありませんでした。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "j8ap7zoph",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "bkkbds0ee",
+        "_type": "span",
+        "text": "今回は、わたしが現場で感じている「近すぎず、遠すぎず」という距離感の難しさについて、いま感じていることをそのままお話ししてみたいと思います。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "05otvzcut",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "j0l9g95w6",
+        "_type": "span",
+        "text": "目次"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "inv939l1p",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "8l2f0ra7q",
+        "_type": "span",
+        "text": "打ち解けたい、でも踏み込みすぎてはいけないもどかしさ"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "68qntrjsz",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "m1hfkhqlt",
+        "_type": "span",
+        "text": "「仕事の話」以外の境界線をどこに引くか"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "00omjdgwj",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "oh5yv4gyf",
+        "_type": "span",
+        "text": "患者さんとの距離、自分自身の心を守るために"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "hgm98e8nf",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "qxn0fnlgg",
+        "_type": "span",
+        "text": "答えはなくても、今の歩幅を大切にしたい"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "jrhogvani",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "wvr1oz8ay",
+        "_type": "span",
+        "text": "まとめ"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "4no2c7hiq",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "wdsxq3f5q",
+        "_type": "span",
+        "text": "あわせて読みたい"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "l3teb4fg7",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "l5rw35j8l",
+        "_type": "span",
+        "text": "免責事項"
+      }
+    ],
+    "level": 1,
+    "listItem": "bullet",
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "u5ovr3q4a",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "44xxl478c",
+        "_type": "span",
+        "text": "打ち解けたい、でも踏み込みすぎてはいけないもどかしさ"
+      }
+    ],
+    "markDefs": [],
+    "style": "h2"
+  },
+  {
+    "_key": "65nxl7v2u",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "3gb5xz314",
+        "_type": "span",
+        "text": "新人の頃、わたしは「早くチームの一員として認められたい」という焦りがありました。休憩時間や、ちょっとした移動の合間など、一生懸命に周りのスタッフの方々に話しかけていたことを覚えています。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "2a9i2pjc0",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "9ql6q50ki",
+        "_type": "span",
+        "text": "でも、ある日、ふと気づいたのです。忙しく立ち回る看護師さんや、集中して作業をしている先輩たちにとって、わたしの「仲良くなりたい」という気持ちが、少しだけ重荷になってしまっているのではないか、と。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "5q6a2hssa",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "8g119rvdu",
+        "_type": "span",
+        "text": "「コミュニケーションは密なほうがいい」という理想と、現場の「あうんの呼吸」を邪魔してはいけないという現実。そのグラデーションの中で、どこまで踏み込んでいいのか分からず、急に何も話せなくなってしまった日もありました。打ち解けたいという善意が、時として空回りしてしまう。そんなもどかしさは、今でも完全には消えていません。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "cc50nvywq",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "qdpvsksz1",
+        "_type": "span",
+        "text": "「仕事の話」以外の境界線をどこに引くか"
+      }
+    ],
+    "markDefs": [],
+    "style": "h2"
+  },
+  {
+    "_key": "k2y88gjuw",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "34ql0qf3i",
+        "_type": "span",
+        "text": "看護助手のお仕事はチームプレイです。だからこそ、お互いの性格や考え方を知っておくことは大切だと言われます。でも、プライベートなことをどこまで共有すべきか、という問題にはいつも頭を悩ませます。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "i5fpd6q5s",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "ery5k9xsk",
+        "_type": "span",
+        "text": "職場の休憩室で、家族のことや休日の過ごし方について盛り上がっている輪。そこに参加して楽しくお話しするのも一つの形ですが、どこかで「知られすぎてしまうこと」への不安を感じている自分もいました。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "nzyuc6lb9",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "9rm4gxijj",
+        "_type": "span",
+        "text": "深く知り合うことが信頼に繋がる一方で、ほどよい距離があるからこそ守られる「自分自身の聖域」のようなものもある。最近のわたしは、無理にすべてを開示しなくても、仕事を通じた信頼関係があれば、それでいいのかもしれない、と考えるようになっています。でも、ふとした瞬間に「もっと親密になるべきなのかな」と揺れ動くことも、まだあります。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "sza6f7f3t",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "eorlhnq0n",
+        "_type": "span",
+        "text": "患者さんとの距離、自分自身の心を守るために"
+      }
+    ],
+    "markDefs": [],
+    "style": "h2"
+  },
+  {
+    "_key": "4zz5zciji",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "19wtk9agk",
+        "_type": "span",
+        "text": "距離感に悩むのは、スタッフ間だけではありません。患者さんとの関わりも、非常に繊細なものです。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "juyv7y503",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "pkyvn86rb",
+        "_type": "span",
+        "text": "看護助手は、患者さんの身の回りのお世話を通じて、一番身近な存在になることがあります。「セラさん、いつもありがとう」と言っていただけるのは、本当にうれしいことですし、大きなやりがいになります。でも、その方の辛い状況や寂しさに感情移入しすぎて、仕事が終わって家に帰ってからも頭から離れなくなってしまう。そんな時期がありました。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "rlbtknqm9",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "mhbf6rmf8",
+        "_type": "span",
+        "text": "寄り添いたいという思いが、いつの間にか、自分と相手の境界線を曖昧にしてしまう。それでは、長くこのお仕事を続けていくことは難しいのだと、先輩から教わりました。冷たくするのではなく、かといって近寄りすぎもしない。「透明な距離」を保つことの大切さ。これは、医療現場で働くわたしたちが、自分自身の心を守り続けるために必要な、とても難しい技術なのだと感じています。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "rhic42mtj",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "ltbp35jhd",
+        "_type": "span",
+        "text": "答えはなくても、今の歩幅を大切にしたい"
+      }
+    ],
+    "markDefs": [],
+    "style": "h2"
+  },
+  {
+    "_key": "2n6x04ayu",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "al3ombr4j",
+        "_type": "span",
+        "text": "こうして考えてみると、職場の距離感に「たった一つの正解」なんてないのかもしれません。相手によって、場所によって、そしてその時の自分自身のコンディションによって、最適な距離は刻々と変わっていくものだからです。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "tg3rw4h55",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "hgpks7o9s",
+        "_type": "span",
+        "text": "今日は一歩引いて静かに見守ろう、明日はもう少しだけ勇気を出して声をかけてみよう。そんなふうに、毎日少しずつ調整しながら歩んでいく。それでいいのかもしれない、と今は思っています。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "yoyriqex7",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "fqf5j6hsp",
+        "_type": "span",
+        "text": "完璧な距離感をつかめなくて、一人で反省してしまう夜があるのは、あなたが相手のことを真剣に考えようとしている証拠です。その誠実さがあれば、不器用な距離感であっても、伝わるものはきっとあるはず。少なくとも、わたしはそう信じてみたいと思っています。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "51165zclg",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "qt6vfpn82",
+        "_type": "span",
+        "text": "まとめ"
+      }
+    ],
+    "markDefs": [],
+    "style": "h2"
+  },
+  {
+    "_key": "2j250i4ng",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "dspymqtc8",
+        "_type": "span",
+        "text": "職場の人間関係、そして患者さんとの距離感。迷いながら、正解を探し続ける毎日は少し疲れてしまうこともあります。でも、その「迷い」こそが、人を大切に思おうとする心の表れなのかもしれません。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "8qnm7ab5j",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "waczef65x",
+        "_type": "span",
+        "text": "わたしも、今日という日を終えて、また明日、新しい距離感を探しに行きます。すぐに答えを出して、すべてをスッキリさせる必要はありません。ただ、「今日の自分は、あの距離で精一杯だったんだな」と、今の自分を認めてあげてくださいね。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "rq65vnaog",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "nrgajnd8x",
+        "_type": "span",
+        "text": "わたし自身、いまの場所でどう振る舞うべきか、まだ試行錯誤の真っ最中です。でも、世の中にはどのような道があるのか、その選択肢を知っておくことで、少しだけ「いまの場所」での気持ちが楽になったことがありました。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "f65xy70in",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "wxnbq6qlt",
+        "_type": "span",
+        "text": "### あわせて読みたい"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "34533blgj",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "ni1ru8m9o",
+        "_type": "span",
+        "text": "### 免責事項"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "lj1o4zqg6",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "0nhcdb8n8",
+        "_type": "span",
+        "text": "本記事は、筆者個人の体験と主観に基づくものです。特定の情報の正確性や、すべての方への適合性を保証するものではありません。お悩みがある場合は、必要に応じてお勤め先の相談窓口や専門家への相談をご検討ください。"
+      }
+    ],
+    "markDefs": [],
+    "style": "normal"
+  },
+  {
+    "_key": "resignation-comparison-533b2400-d471-4aaa-9248-f1e727228d20",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "resignation-comparison-lead-d9fa1dce-8a95-4264-a79a-e16e6371dfe6",
+        "_type": "span",
+        "marks": [],
+        "text": "退職の段取りを進める前に、看護助手の視点で３社を比較した記事でチェックポイントを整理しておきましょう。 "
+      },
+      {
+        "_key": "resignation-comparison-link-2b8b067b-6939-4645-95cb-7396ec74cb58",
+        "_type": "span",
+        "marks": [
+          "link-1e1a7e58-8c2e-46a5-b3f5-232bd3a466fd"
+        ],
+        "text": "退職代行３社のメリット・デメリット徹底比較を読む"
+      }
+    ],
+    "markDefs": [
+      {
+        "_key": "link-1e1a7e58-8c2e-46a5-b3f5-232bd3a466fd",
+        "_type": "link",
+        "href": "/posts/comparison-of-three-resignation-agencies"
+      }
+    ],
+    "style": "normal"
+  },
+  {
+    "_key": "26e115bd004b",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "97dbae2e76af",
+        "_type": "span",
+        "text": "いまの気持ちをそのままにしておくのも、一つの選択だ。"
+      }
+    ],
+    "style": "normal"
+  },
+  {
+    "_key": "81a2257071b9",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "1a05ba025040",
+        "_type": "span",
+        "text": "同時に、環境を変えるという考え方があるのも事実です。"
+      }
+    ],
+    "style": "normal"
+  },
+  {
+    "_key": "a16eb22126be",
+    "_type": "block",
+    "children": [
+      {
+        "_key": "bf2b28011d5f",
+        "_type": "span",
+        "text": "判断を急がなくていいので、選び方や考え方だけ整理してもいいかもしれません。"
+      }
+    ],
+    "style": "normal"
+  }
+]
