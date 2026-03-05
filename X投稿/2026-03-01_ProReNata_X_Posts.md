@@ -5,25 +5,8 @@
 > - 出力トークン: 378 (0.017円)
 > - **合計コスト: 約 0.043円**
 
-## 投稿1：朝の空気（起床・準備）
 
-眠い目を擦って、カーテンを開ける。外はまだ薄暗い。
 
-今日も、わたしは病院へ。
-新しい一日がはじまる。
-
-でも、なんだろう、この重たさは。
-
-## 投稿2：通勤・通学の窓から
-
-バスの窓から見える景色は、いつもと変わらないはずなのに。
-
-今日はなんだか、心に引っかかるものがある。
-「辞めたい」気持ちに、名前をつけられなかったあの頃。
-
-きっと、みんなも抱えている、ささやかな心の揺れ。
-
-https://prorenata.jp/posts/nursing-assistant-resignation-advice-journey?t=1
 
 ## 投稿3：昼休みの休息
 
@@ -43,13 +26,3 @@ https://prorenata.jp/posts/nursing-assistant-resignation-advice-journey?t=1
 人間関係に疲れた夜のこと、思い出す。
 
 https://prorenata.jp/posts/nursing-assistant-relationship-struggle-sera?t=1
-
-## 投稿5：夜の静寂（寝る前）
-
-暗い部屋で、天井を見つめる。
-今日も、たくさんのことがあったな。
-
-うまく言葉にできなかった、あの日のこと。
-あの時のわたしに、寄り添いたい。
-
-https://note.com/prorenata/n/n6e0c719abc6f?t=1

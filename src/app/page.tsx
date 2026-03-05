@@ -65,13 +65,12 @@ export default async function Home() {
             </div>
             <div className="relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center">
               <div
-                className="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden bg-cover bg-center"
-                style={{ backgroundImage: "url('/hero-banner.png')" }}
+                className="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden bg-white"
               >
                 <Image
                   className="w-full h-auto object-cover"
-                  src="/hero-image.png"
-                  alt="看護助手サポート"
+                  src="/sera/sera_profile.png"
+                  alt="白崎セラ プロフィール画像"
                   width={1200}
                   height={900}
                   priority
