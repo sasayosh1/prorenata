@@ -57,21 +57,21 @@ function extractTextExcerpt(body, maxLength = 500) {
 }
 
 /**
- * Sanityからランダムに4件の公開済み記事を取得
+ * Sanityから閲覧数上位30件を取得し、そこからランダムに指定件数ピックアップ
  */
 async function getRandomBlogPosts(count = 4) {
-    const query = `*[_type == "post" && !(_id in path("drafts.**")) && !(slug.current match "*test*") && !(title match "*テスト*")] | order(publishedAt desc)[0...50] {
+    // 閲覧数（views）が多い順に30件取得。viewsがnullの場合は0として扱う。
+    const query = `*[_type == "post" && !(_id in path("drafts.**")) && !(slug.current match "*test*") && !(title match "*テスト*")] | order(coalesce(views, 0) desc)[0...30] {
       title,
       "slug": slug.current,
-      body
+      body,
+      views
     }`;
 
     let posts;
     try {
-        // 1回目：設定されたトークンで試行
         posts = await sanityClient.fetch(query);
     } catch (error) {
-        // 401エラー（Unauthorized）の場合、トークンなしで再試行
         if (error.statusCode === 401 && SANITY_API_TOKEN) {
             console.warn("⚠️ Sanity token is invalid or session expired. Retrying without token...");
             sanityClient = createSanityClient(null);
@@ -83,7 +83,9 @@ async function getRandomBlogPosts(count = 4) {
 
     if (!posts || posts.length === 0) return [];
 
-    // Shuffle and pick 4
+    console.log(`📊 Found ${posts.length} top-viewed articles in Sanity.`);
+
+    // Shuffle top 30 and pick requested count
     const shuffled = posts.sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, count);
 
