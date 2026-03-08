@@ -10,7 +10,7 @@ const SANITY_API_TOKEN = process.env.SANITY_API_TOKEN;
 const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID || '72m8vhy2';
 const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET || 'production';
 const { spawnSync } = require('child_process');
-const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note_drafts');
+const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note生成記事');
 const X_POSTS_DIR = path.join(process.cwd(), 'X投稿');
 
 // Budget Guard
@@ -190,10 +190,10 @@ async function generateXPosts() {
     promptData += `  4. **帰路・夕暮れ**: 疲れと安堵、コンビニの灯り。記事 ${sources[1] ? '「' + sources[1].title + '」' : '紹介'} へ繋げる。\n`;
     promptData += `  5. **夜の静寂（寝る前）**: 暗い部屋、自分との対話。深い共感。リンクなし、または note記事（あれば）へ繋げる。\n`;
     promptData += `- **【リンク頻度】** 全 ${sources.length} 件のうち、**2〜3件はURLを含めない「純粋な独白」**にしてください。\n`;
-    promptData += `- **【レイアウトの美学（超重要）】**\n`;
-    promptData += `⭕️ 良い例（2〜3文をまとめ、投稿内に必ず1つ適度な空行を挟んで美しいアート性を持たせる）:\n`;
+    promptData += `- **【レイアウトの美学（超重要：テキストもアートです）】**\n`;
+    promptData += `⭕️ 良い例（2〜3文をひとつのブロックとしてまとめ、投稿内に**空行は最大でも1つか2つ**。一文ごとに空行を入れるのは禁止です。）：\n`;
     promptData += `夜勤明けの朝、外の空気はこんなに爽やかなのに、自分の心だけが重く沈んでいる。どれだけ休んでも取れない「心の疲れ」。\n\n夜勤のしんどさって、一体何なんだろう。わたしが夜勤で一番感じる「孤独感」のお話。\n\n`;
-    promptData += `- 文字数はURLを含めず、1投稿あたり100文字〜140文字程度で、上記「⭕️ 良い例」のように**投稿の中で必ず1回は空行（段落分け）**を入れてください。\n`;
+    promptData += `- 文字数はURLを含めず、1投稿あたり100文字〜140文字程度で、上記「⭕️ 良い例」のように、内容の変わり目で**一度だけ空行（段落分け）**を入れてください。一文ごとに改行・空行を入れる「一行飛ばし」は、美しくないので厳禁です。\n`;
     promptData += `- URLを含める投稿の場合、出力の最後には、**必ず1行の空行を空けてから**URLを単独の行として含めてください。その際、必ずURLの末尾に \`?t=1\` をそのまま付け足してください。\n`;
     promptData += `- URLを含めない「独白」投稿の場合は、URL行を一切含めず、文章のみで完結させてください。\n`;
     promptData += `- マークダウン形式（## 投稿1：...）で出力してください。\n\n`;

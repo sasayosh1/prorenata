@@ -30,6 +30,11 @@ description: Transforms generic text into White Saki Sera's unique persona-drive
 - **変換例**: 
     - 「うまかった」 → 「おいしかった」
     - 「そういや」 → 「そういえば」
+    - 「面白い」 → 「おもしろい」
+
+### 5. 感嘆詞の抑制 (Suppression of Interjections)
+- **ルール**: 「あー」「ああ」を多用しない。特に文頭での使用を控える。
+- **効果**: 感情の安売りを防ぎ、言葉の一つひとつに重みを持たせる。
 
 ## 使用方法 (How to Use)
 

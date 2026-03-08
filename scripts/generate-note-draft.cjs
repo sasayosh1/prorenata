@@ -5,7 +5,7 @@ require('dotenv').config({ path: '.env.local' });
 
 // --- Configuration ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note_drafts');
+const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note生成記事');
 const PROMPTS_DIR = path.join(process.cwd(), '00_システム/01_Prompts/Note記事作成ワークフロー');
 
 // --- Helper: Read Prompt File ---
@@ -73,14 +73,30 @@ async function selectProduct(content, model) {
     return keyword === 'None' ? null : keyword;
 }
 
+// --- Helper: Get All Markdown Files Recursively ---
+function getAllFiles(dirPath, arrayOfFiles) {
+    const files = fs.readdirSync(dirPath);
+    arrayOfFiles = arrayOfFiles || [];
+
+    files.forEach(function (file) {
+        if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+            arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+        } else {
+            if (file.endsWith('.md')) {
+                arrayOfFiles.push(path.join(dirPath, "/", file));
+            }
+        }
+    });
+
+    return arrayOfFiles;
+}
+
 // --- Helper: Get Random Past Memory ---
 function getRandomPastMemory() {
-    const memoryFilesDir = NOTE_DRAFTS_DIR;
-    // ... (rest of function remains unchanged, implied context)
-    if (!fs.existsSync(memoryFilesDir)) {
-        return null; // Should not happen given main check
+    if (!fs.existsSync(NOTE_DRAFTS_DIR)) {
+        return null;
     }
-    const files = fs.readdirSync(memoryFilesDir).filter(file => file.endsWith('.md'));
+    const files = getAllFiles(NOTE_DRAFTS_DIR);
     // Constraint: Only start recalling when we have enough history (e.g., 10+ articles)
     if (files.length < 10) {
         return null;
@@ -90,7 +106,7 @@ function getRandomPastMemory() {
     if (Math.random() > 0.2) return null;
 
     const randomFile = files[Math.floor(Math.random() * files.length)];
-    return fs.readFileSync(path.join(memoryFilesDir, randomFile), 'utf-8');
+    return fs.readFileSync(randomFile, 'utf-8');
 }
 
 // --- Main Logic ---
@@ -98,11 +114,6 @@ async function generateNoteDraft(topic) {
     if (!GEMINI_API_KEY) {
         console.error("FATAL: GEMINI_API_KEY is not set.");
         process.exit(1);
-    }
-
-    // Ensure output directory exists
-    if (!fs.existsSync(NOTE_DRAFTS_DIR)) {
-        fs.mkdirSync(NOTE_DRAFTS_DIR, { recursive: true });
     }
 
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
@@ -113,7 +124,7 @@ async function generateNoteDraft(topic) {
     // 0. Get Past Memory (Context)
     const pastMemory = getRandomPastMemory();
     if (pastMemory) {
-        console.log(`🧠 Recalling past memory: ${pastMemory.split('\n')[1]}`);
+        console.log(`🧠 Recalling past memory: ${pastMemory.split('\n')[1] || "..."}`);
     } else {
         console.log(`🧠 No specific past memory recall this time.`);
     }
@@ -177,14 +188,20 @@ async function generateNoteDraft(topic) {
 
         // Clean filename
         const safeTitle = title.replace(/[\/\\:*?"<>|]/g, '').slice(0, 30);
-        const dateStr = new Date().toLocaleDateString('ja-JP', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            timeZone: 'Asia/Tokyo'
-        }).replace(/\//g, '-');
-        const filename = `${dateStr}_${safeTitle}.md`;
-        const filepath = path.join(NOTE_DRAFTS_DIR, filename);
+        const now = new Date();
+        const yyyy = now.getFullYear();
+        const mm = String(now.getMonth() + 1).padStart(2, '0');
+        const dd = String(now.getDate()).padStart(2, '0');
+        const folderName = `${yyyy}-${mm}`;
+        const outputDir = path.join(NOTE_DRAFTS_DIR, folderName);
+
+        if (!fs.existsSync(outputDir)) {
+            console.log(`📁 Creating directory: ${outputDir}`);
+            fs.mkdirSync(outputDir, { recursive: true });
+        }
+
+        const filename = `${yyyy}-${mm}-${dd}_${safeTitle}.md`;
+        const filepath = path.join(outputDir, filename);
 
         fs.writeFileSync(filepath, finalContent);
         console.log(`\n✨ Successfully generated new article: ${filepath}`);

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SOURCE_FILE = path.join(process.cwd(), 'note_draft.md');
-const TARGET_DIR = path.join(process.cwd(), 'note_drafts');
+const TARGET_DIR = path.join(process.cwd(), 'note生成記事');
 
 function migrate() {
     if (!fs.existsSync(SOURCE_FILE)) {
@@ -43,24 +43,25 @@ function migrate() {
 
         // Format Date for filename: YYYY/M/D -> YYYY-MM-DD
         const dateObj = new Date(dateTimeStr);
-        // Note: parsing "2026/2/16" might depend on locale, but standard JS Date parses 'YYYY/MM/DD' fine.
-        // However, let's manually parse to be safe against locale issues if possible, 
-        // strictly speaking "2026/2/16" is identifiable.
 
-        // Just use ISO date part
         const yyyy = dateObj.getFullYear();
         const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
         const dd = String(dateObj.getDate()).padStart(2, '0');
+
+        const folderName = `${yyyy}-${mm}`;
+        const outputDir = path.join(TARGET_DIR, folderName);
+
+        if (!fs.existsSync(outputDir)) {
+            console.log(`Creating directory: ${outputDir}`);
+            fs.mkdirSync(outputDir, { recursive: true });
+        }
+
         const filenameDate = `${yyyy}-${mm}-${dd}`;
-
         const filename = `${filenameDate}_${safeTitle}.md`;
-        const filepath = path.join(TARGET_DIR, filename);
-
-        // Check if file exists to avoid overwrite (maybe append time if needed, but likelihood is low)
-        // If exists, skip or overwrite? Let's overwrite as it's migration.
+        const filepath = path.join(outputDir, filename);
 
         fs.writeFileSync(filepath, body);
-        console.log(`Migrated: ${filename} (Topic: ${topic})`);
+        console.log(`Migrated: ${filepath} (Topic: ${topic})`);
         count++;
     }
 
