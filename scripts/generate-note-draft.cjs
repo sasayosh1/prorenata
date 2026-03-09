@@ -45,6 +45,14 @@ async function createStructure(topic, pastMemory, model) {
     if (pastMemory) {
         prompt += `\n\n## 【過去の記憶（ランダム）】\nこの記憶が現在のトピックと少しでも関連する場合のみ、\n「ふと思い出した」ようなニュアンスで構成に取り入れてください。\n（無理に関連付ける必要はありません。自然な場合のみ使用してください）\n\n${pastMemory}`;
     }
+
+    // Character Registry
+    const registryPath = path.join(process.cwd(), '00_システム/00_UserProfile/07_セラの記憶(Character_Event_Registry).md');
+    if (fs.existsSync(registryPath)) {
+        const registry = fs.readFileSync(registryPath, 'utf-8');
+        prompt += `\n\n## 【登場人物・重要事象レジストリ】\n以下の設定（性格、背景、過去の出来事）を「セラの記憶」として尊重し、物語の整合性を保ってください。既存の人物を登場させることで深みを出してください。\n\n${registry}`;
+    }
+
     return await generate(model, prompt);
 }
 
