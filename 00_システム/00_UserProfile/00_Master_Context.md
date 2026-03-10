@@ -85,10 +85,13 @@
 ## 8. Operational Facts (運用ルール)
     *   `UI-DESIGN-LOCK.md` / `SEO-FIELDS-LOCK.md`
     *   `00_システム/00_UserProfile/*`
-*   **Nano Banana (Project Terminology)**:
-    *   **定義**: Gemini 3 Pro Imageをベースにした、本プロジェクト専用の軽量・高速画像生成構成の呼称。
-    *   **特徴**: 日本語SNS/Web漫画向けに最適化（余白意識、太字ゴシック、歪みなし）。
-    *   **運用**: 今後「画像生成」の文脈ではこのNano Banana構成（およびそのプロンプトエンジニアリング）を標準とする。
+*   **NanoBanana2 (Project Terminology)**:
+    *   **定義**: **Gemini 3.1 Flash/Pro Image**をベースにした、本プロジェクト専用の次世代画像生成構成の呼称。
+    *   **特徴**: 
+        *   **高速・高精度**: 従来のNano Bananaを凌駕する生成速度と、指先や文字の歪みを抑えた高精細な描写。
+        *   **サーチグラウンディング**: Web検索結果を反映した、より正確な情景（ランドマークや特定の商品など）の描写が可能。
+        *   **キャラクター・一貫性**: 特定のキャラクター（セラなど）のアイデンティティを複数の画像間で維持しやすくなった。
+    *   **運用**: 今後、画像生成の標準プロトコルとしてこの「NanoBanana2」を採用し、プロンプトエンジニアリングを最適化する。
 *   **収益保護（最重要記事）**:
     *   `nursing-assistant-compare-services-perspective` (転職サービス比較)
     *   `comparison-of-three-resignation-agencies` (退職代行比較)

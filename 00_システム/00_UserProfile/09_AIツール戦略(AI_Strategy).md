@@ -15,7 +15,7 @@
 | :--- | :--- | :--- | :--- |
 | Gemini (Antigravity) | 導入済 | メイン思考・開発・自動化エンジン | [00_Master_Context.md](file:///Users/sasakiyoshimasa/prorenata/00_システム/00_UserProfile/00_Master_Context.md) |
 | NotebookLM | 導入検討中 | リサーチ・構造解析・学習の自動化 | [NotebookLM活用戦略.md](file:///Users/sasakiyoshimasa/prorenata/03_知識ベース/AIツール活用戦略/NotebookLM/NotebookLM活用戦略.md) |
-| Nano Banana (Gemini Image) | 導入済 | SNS・漫画向け画像生成 | [00_Master_Context.md](file:///Users/sasakiyoshimasa/prorenata/00_システム/00_UserProfile/00_Master_Context.md) |
+| NanoBanana2 (Gemini Image) | 導入済 | 次世代SNS・漫画向け画像生成（高速・高精細） | [00_Master_Context.md](file:///Users/sasakiyoshimasa/prorenata/00_システム/00_UserProfile/00_Master_Context.md) |
 
 ## 4. 学習サイクル (AI Watch Protocol)
 1. **月次リサーチ**: 新しいツールのトレンドをキャッチアップし、このファイルを更新する。
