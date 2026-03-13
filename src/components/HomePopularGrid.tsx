@@ -380,29 +380,71 @@ function renderPopularSection(picked: Post[]) {
   )
 }
 
-// 3-3-3 Strategy: Trust(3), Revenue(3), Traffic(3)
-const PINNED_SLUGS = [
-  // 💰 Revenue
-  'nursing-assistant-resignation-advice-insights',
-  'nursing-assistant-market-info',
-  'nursing-assistant-latest-salary-comparison',
-  // ❤️ Trust
-  'nursing-assistant-nightshift-fatigue',
-  'nursing-assistant-care-guide-compassa',
-  'nursing-assistant-job-role-compass',
-  // 🧲 Traffic (Magnets)
-  'nursing-assistant-medical-terms',
-  'nursing-assistant-infection-control-manual',
-  'nursing-assistant-patient-transfer-safety',
+// --- Strategic Pins (3-slot reserved) ---
+const STRATEGIC_PINS = [
+  'nursing-assistant-latest-salary-comparison', // 💰 Revenue
+  'nursing-assistant-resignation-advice-insights', // 💰 Revenue
+  'nursing-assistant-care-guide-compassa', // ❤️ Trust
 ]
 
+// Priority order for analytic signals: Sessions(GA4) > Impressions(GSC) > CTR(GSC)
 export default async function HomePopularGrid({ limit = 9 }: { limit?: number }) {
   try {
-    // Strategy: Use Pinned List 100%
-    const pinnedPosts = await fetchPostsBySlugs(PINNED_SLUGS, limit)
-    return renderPopularSection(pinnedPosts)
+    // 1. Load Data
+    const ga4Data = loadCsv<Ga4Row>('data/ga4_last30d.csv') || []
+    const gscData = loadCsv<GscRow>('data/gsc_last30d.csv') || []
 
+    // 2. Score and Rank
+    const scoreMap = new Map<string, number>()
+
+    // GA4 Scoring (Sessions = Heavy weight)
+    for (const row of ga4Data) {
+      const slug = slugFromPostPath(row.pagePath || '')
+      if (!slug) continue
+      const sessions = safeNumber(row.sessions)
+      scoreMap.set(slug, (scoreMap.get(slug) || 0) + log1p(sessions) * 1.5)
+    }
+
+    // GSC Scoring (Impressions = Discovery weight)
+    for (const row of gscData) {
+      const slug = slugFromPostPath(toPathFromUrl(row.page) || '')
+      if (!slug) continue
+      const impressions = safeNumber(row.impressions)
+      scoreMap.set(slug, (scoreMap.get(slug) || 0) + log1p(impressions) * 0.5)
+    }
+
+    // 3. Select Hybrid Articles
+    // Top 6 from Data (excluding strategic pins)
+    const sortedSlugs = Array.from(scoreMap.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([slug]) => slug)
+      .filter((s) => !STRATEGIC_PINS.includes(s))
+
+    const topDataSlugs = sortedSlugs.slice(0, 6)
+
+    // Combine: Strategic(3) + Data(6) = 9
+    const finalSlugs = [...STRATEGIC_PINS, ...topDataSlugs].slice(0, limit)
+
+    // 4. Fetch Meta
+    const picked = await fetchPostsBySlugs(finalSlugs, limit)
+
+    // Fallback if results are too low
+    if (picked.length < limit) {
+      const fallback = await safeFetchFallbackPosts(limit)
+      const existingIds = new Set(picked.map((p) => p._id))
+      for (const f of fallback) {
+        if (!existingIds.has(f._id)) {
+          picked.push(f)
+          if (picked.length >= limit) break
+        }
+      }
+    }
+
+    return renderPopularSection(picked)
   } catch (error) {
     console.error('HomePopularGrid failed:', error)
+    // Absolute safety: Fetch anything if pipeline crashes
+    const emergencyFallback = await safeFetchFallbackPosts(limit)
+    return renderPopularSection(emergencyFallback)
   }
 }
