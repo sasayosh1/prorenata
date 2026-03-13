@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { client, urlFor, type Post } from '@/lib/sanity'
 import { sanitizeTitle } from '@/lib/title'
+import { THUMBNAIL_MAPPINGS } from '@/data/thumbnail_mappings'
 
 type GscRow = {
   page?: string
@@ -262,9 +263,19 @@ async function fetchPostsBySlugs(slugs: string[], limit: number): Promise<Post[]
 }
 
 function getLocalThumbnail(slug: string): string | null {
-  const dir = path.join(process.cwd(), 'public', 'thumbnails')
+  const dir = path.join(process.cwd(), 'public', 'blog_thumbnails')
   if (!fs.existsSync(dir)) return null
 
+  // 1. Check for manual mapping first
+  const mappedFilename = THUMBNAIL_MAPPINGS[slug]
+  if (mappedFilename) {
+    const filePath = path.join(dir, mappedFilename)
+    if (fs.existsSync(filePath)) {
+      return `/blog_thumbnails/${mappedFilename}`
+    }
+  }
+
+  // 2. Fallback to slug-based auto-discovery
   try {
     const files = fs.readdirSync(dir)
     const pattern = new RegExp(`^${slug}(-v\\d+)?\\.png$`)
@@ -282,7 +293,7 @@ function getLocalThumbnail(slug: string): string | null {
       return 0
     })
 
-    return `/thumbnails/${matches[0]}`
+    return `/blog_thumbnails/${matches[0]}`
   } catch (error) {
     console.error('Local thumbnail check failed:', error)
     return null
