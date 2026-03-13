@@ -76,7 +76,7 @@
 
 ## 8. Operational Facts (運用ルール)
     *   `UI-DESIGN-LOCK.md` / `SEO-FIELDS-LOCK.md`
-    *   `00_システム/00_UserProfile/*`
+    *   `00_システム/UserProfile/*`
 *   **Nano Banana (Project Terminology)**:
     *   **定義**: Gemini 3 Pro Imageをベースにした、本プロジェクト専用の軽量・高速画像生成構成の呼称。
     *   **特徴**: 日本語SNS/Web漫画向けに最適化（余白意識、太字ゴシック、歪みなし）。

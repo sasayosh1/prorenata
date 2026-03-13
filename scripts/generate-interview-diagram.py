@@ -2,8 +2,8 @@ import os
 import base64
 
 # Configuration
-CHIBI_DIR = "public/挿絵"
-OUTPUT_DIR = "generated_diagrams"
+CHIBI_DIR = "画像/挿絵"
+OUTPUT_DIR = "画像/ProReNata/図解"
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -51,7 +51,7 @@ def create_svg_interview_mindset(filename, base64_img):
 
 if __name__ == "__main__":
     # Try multiple possible filenames for the chibi image
-    possible_images = ["sera_chibi_thinking.png", "sera_chibi.png", "chibi_sera.png"]
+    possible_images = ["sera_chibi_thinking.png", "sera_chibi_explaining.png", "sera_chibi_bowing.png", "sera_chibi.png"]
     sera_img = ""
     for img_name in possible_images:
         sera_img = get_base64_image(img_name)

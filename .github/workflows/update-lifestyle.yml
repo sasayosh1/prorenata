@@ -35,13 +35,13 @@ jobs:
           HOME: ${{ github.workspace }}
         run: |
           # Create proxy directory to match script expectations
-          mkdir -p "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile"
-          touch "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile/08_セラの季節感(Sera_Lifestyle).md"
+          mkdir -p "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/UserProfile"
+          touch "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/UserProfile/08_セラの季節感(Sera_Lifestyle).md"
           
           node scripts/update-sera-lifestyle.cjs
           
           # Copy to a tracked location in this repo for visibility
-          cp "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile/08_セラの季節感(Sera_Lifestyle).md" "./08_セラの季節感(Sera_Lifestyle)_mirror.md"
+          cp "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/UserProfile/08_セラの季節感(Sera_Lifestyle).md" "./08_セラの季節感(Sera_Lifestyle)_mirror.md"
 
       - name: Commit and Push Changes
         run: |

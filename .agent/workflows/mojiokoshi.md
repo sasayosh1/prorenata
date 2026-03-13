@@ -9,5 +9,5 @@ description: Transcribe an audio file using 00_システム\devtools\start_ears.
    - Run `.\00_システム\devtools\start_ears.bat`.
    - Set `WaitMsBeforeAsync` to 5000 (5 seconds) to allow it to initialize or check for an existing instance.
    - Note: If `start_ears.bat` is already running, this new instance will exit safely, but the existing instance will pick up the new file.
-4. Notify the user that the transcription has started and the result will appear in `.\03_知識ベース\00_文字起こしログ` shortly.
+4. Notify the user that the transcription has started and the result will appear in `.\知識ベース\00_文字起こしログ` shortly.
 

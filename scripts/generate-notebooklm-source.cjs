@@ -15,8 +15,8 @@ async function generateSource() {
     console.log("📦 Preparing NotebookLM Source File...");
 
     // 1. Gather Context Files
-    const masterContext = fs.readFileSync('00_システム/00_UserProfile/00_Master_Context.md', 'utf8');
-    const values = fs.readFileSync('00_システム/00_UserProfile/01_Values.md', 'utf8');
+    const masterContext = fs.readFileSync('00_システム/UserProfile/00_Master_Context.md', 'utf8');
+    const values = fs.readFileSync('00_システム/UserProfile/01_Values.md', 'utf8');
 
     let combined = `# PRORENATA MASTER KNOWLEDGE SOURCE\n\n`;
     combined += `## CORE CONTEXT & PERSONA\n\n${masterContext}\n\n${values}\n\n`;

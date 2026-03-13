@@ -12,11 +12,11 @@ if (!GEMINI_API_KEY) {
 const LIFESTYLE_FILE_PATH = path.join(
     process.cwd(),
     'Library', 'Mobile Documents', 'iCloud~md~obsidian', 'Documents', 'sasayoshi',
-    '00_System', '00_UserProfile', '08_セラの季節感(Sera_Lifestyle).md'
+    '00_System', 'UserProfile', '08_セラの季節感(Sera_Lifestyle).md'
 );
 
 // Fallback path if run from inside the prorenata project dir directly vs home dir
-const ALT_LIFESTYLE_PATH = path.join(process.env.HOME || '/Users/sasakiyoshimasa', 'Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile/08_セラの季節感(Sera_Lifestyle).md');
+const ALT_LIFESTYLE_PATH = path.join(process.env.HOME || '/Users/sasakiyoshimasa', 'Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/UserProfile/08_セラの季節感(Sera_Lifestyle).md');
 const finalPath = fs.existsSync(ALT_LIFESTYLE_PATH) ? ALT_LIFESTYLE_PATH : LIFESTYLE_FILE_PATH;
 
 

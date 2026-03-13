@@ -25,7 +25,7 @@
 2.  **Compare**: Current Active Contextと比較し、情報の鮮度を確認してください。
     - 既に記載されている内容は無視してください。
     - 古くなった情報（完了したプロジェクトが「進行中」になっている等）を見つけてください。
-3.  **Propose**: Active Context (`00_UserProfile/02_最新コンテキスト.md`) をどのように更新すべきか、具体的な差分を提案してください。
+3.  **Propose**: Active Context (`UserProfile/02_最新コンテキスト.md`) をどのように更新すべきか、具体的な差分を提案してください。
 
 ## Output Format
 

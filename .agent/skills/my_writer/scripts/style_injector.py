@@ -18,8 +18,8 @@ RESOURCES_DIR = os.path.join(BASE_DIR, "resources")
 STYLE_EXAMPLES_DIR = os.path.join(RESOURCES_DIR, "style_examples")
 
 # User Profile Path (Relative path to maintain portability)
-# 2nd-Brain/.agent/skills/my_writer/scripts/ -> 2nd-Brain/00_システム/00_UserProfile
-USER_PROFILE_DIR = os.path.abspath(os.path.join(BASE_DIR, "../../../00_システム/00_UserProfile"))
+# 2nd-Brain/.agent/skills/my_writer/scripts/ -> 2nd-Brain/00_システム/UserProfile
+USER_PROFILE_DIR = os.path.abspath(os.path.join(BASE_DIR, "../../../00_システム/UserProfile"))
 
 
 def read_file(path):

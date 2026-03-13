@@ -21,7 +21,7 @@ Follow these steps sequentially. You must **READ the specified system prompt fil
 ### Step 1: The Interview (Phase 1)
 
 **Action**:
-1.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\01_Prompts\プロンプト生成\01_interviewer.md`
+1.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\Prompts\プロンプト生成\01_interviewer.md`
 2.  **Act**: Adopt the **Interviewer** persona.
 3.  **Goal**: Define the "6 Core Variables". Confirm with the user when complete.
 
@@ -30,9 +30,9 @@ Follow these steps sequentially. You must **READ the specified system prompt fil
 **Action**:
 1.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\.agent\skills\prompt_engineer\resources\examples.md`
     - **Goal**: Understand the "Gold Standard" quality and structure (Few-Shot Learning).
-2.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\01_Prompts\プロンプト生成\02_architect.md`
+2.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\Prompts\プロンプト生成\02_architect.md`
     - Create **Draft Prompt**.
-3.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\01_Prompts\プロンプト生成\03_auditor.md`
+3.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\Prompts\プロンプト生成\03_auditor.md`
     - Create **Audit Report**.
 
 ### Step 3: Self-Correction Loop (The "Master" Logic)
@@ -40,11 +40,11 @@ Follow these steps sequentially. You must **READ the specified system prompt fil
 **Action**:
 If the Audit Rank is NOT "S", enter the loop (Max 3 iterations for interactive speed).
 
-1.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\01_Prompts\プロンプト生成\04_Prompt Refiner.md`
+1.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\Prompts\プロンプト生成\04_Prompt Refiner.md`
     - **Act**: Refine the prompt based on the previous audit/feedback.
-2.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\01_Prompts\プロンプト生成\05_Simulation Runner.md`
+2.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\Prompts\プロンプト生成\05_Simulation Runner.md`
     - **Act**: Simulate 3 test cases (Standard, Missing Info, Stress).
-3.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\01_Prompts\プロンプト生成\06_Quality Gatekeeper.md`
+3.  **Read File**: `c:\Users\PC_User\product\Ritsuto_Brain\00_システム\Prompts\プロンプト生成\06_Quality Gatekeeper.md`
     - **Act**: Decide GO / NO-GO based on simulation logs.
     - If **NO-GO**: Repeat Step 3.1 with new feedback.
     - If **GO**: Proceed to Step 4.

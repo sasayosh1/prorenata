@@ -7,7 +7,7 @@ description: Automated Prompt Generation Pipeline (Interviewer -> Architect -> A
 Run this workflow to generate high-quality prompts using the "6-Agent System". This workflow uses a Human-in-the-Loop approach: interactive at the start, autonomous in the middle (with a refinement loop), and human confirmation at the end.
 
 ## Phase 1: Interview & Requirements (Interactive)
-1. **Read Prompt**: Read `.\00_システム\01_Prompts\プロンプト生成\01_interviewer.md`.
+1. **Read Prompt**: Read `.\00_システム\Prompts\プロンプト生成\01_interviewer.md`.
 2. **Conduct Interview**: Act as the "Requirements Specialist" defined in the prompt.
    - Ask the user what they want to build.
    - deeply explore the requirements (Goal, Persona, Input, Constraints, Scenario).
@@ -16,12 +16,12 @@ Run this workflow to generate high-quality prompts using the "6-Agent System". T
 
 ## Phase 2: Design & Initial Audit (Auto-Pilot)
 4. **Drafting**:
-   - Read `.\00_システム\01_Prompts\プロンプト生成\02_architect.md`.
+   - Read `.\00_システム\Prompts\プロンプト生成\02_architect.md`.
    - Read the created `01_requirements.md`.
    - Act as the "Master Prompt Architect" to generate the initial structured prompt.
    - Save the result as `02_draft_prompt.md`.
 5. **Auditing**:
-   - Read `.\00_システム\01_Prompts\プロンプト生成\03_auditor.md`.
+   - Read `.\00_システム\Prompts\プロンプト生成\03_auditor.md`.
    - Read `02_draft_prompt.md`.
    - Act as the "Lead Prompt Auditor" to grade the prompt (Rank S/A/B/C) and list issues.
    - Save the report as `03_audit_report.md`.
@@ -31,10 +31,10 @@ Run this workflow to generate high-quality prompts using the "6-Agent System". T
    - Check `03_audit_report.md`. If Rank is "S" and perfect, skip to Phase 4.
    - If not perfect, enter a **Refinement Loop** (maximum 5 iterations).
    - **For each iteration (N=1 to 5):**
-     1. **Refine**: Run `.\00_システム\01_Prompts\プロンプト生成\04_Prompt Refiner.md`. Input the latest prompt and the latest audit/gatekeeper report. Save output as `04_refined_prompt_v{N}.md`.
-     2. **Simulate**: Run `.\00_システム\01_Prompts\プロンプト生成\05_Simulation Runner.md`. Load `04_refined_prompt_v{N}.md` and generating 3 test cases (Golden Path, Ambiguity Trap, Stress Test). Record the INPUTS and OUTPUS. Save as `05_simulation_log_v{N}.md`.
+     1. **Refine**: Run `.\00_システム\Prompts\プロンプト生成\04_Prompt Refiner.md`. Input the latest prompt and the latest audit/gatekeeper report. Save output as `04_refined_prompt_v{N}.md`.
+     2. **Simulate**: Run `.\00_システム\Prompts\プロンプト生成\05_Simulation Runner.md`. Load `04_refined_prompt_v{N}.md` and generating 3 test cases (Golden Path, Ambiguity Trap, Stress Test). Record the INPUTS and OUTPUS. Save as `05_simulation_log_v{N}.md`.
      3. **Gatekeep (Zero Tolerance Assessment)**: 
-        - Run `.\00_システム\01_Prompts\プロンプト生成\06_Quality Gatekeeper.md`.
+        - Run `.\00_システム\Prompts\プロンプト生成\06_Quality Gatekeeper.md`.
         - **Input 1**: `04_refined_prompt_v{N}.md` (Target Prompt).
         - **Input 2**: `05_simulation_log_v{N}.md` (Simulation Log).
         - **Action**: Act as the "Lead Quality Assurance Director". Strictly audit the results against the 4 criteria. **Do not approve unless 100% perfect.**

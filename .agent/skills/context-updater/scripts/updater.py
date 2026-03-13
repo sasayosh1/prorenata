@@ -62,10 +62,10 @@ def main():
     project_root = os.path.abspath(os.path.join(base_dir, "..", "..", ".."))
 
     if args.mode == "style":
-        target_file = os.path.join(project_root, "00_システム", "00_UserProfile", "03_執筆スタイル(Style_Guidelines).md")
+        target_file = os.path.join(project_root, "00_システム", "UserProfile", "03_執筆スタイル(Style_Guidelines).md")
         prompt_file = os.path.join(resource_dir, "prompt_style.md")
     else:
-        target_file = os.path.join(project_root, "00_システム", "00_UserProfile", "02_最新コンテキスト(Active_Context).md")
+        target_file = os.path.join(project_root, "00_システム", "UserProfile", "02_最新コンテキスト(Active_Context).md")
         prompt_file = os.path.join(resource_dir, "prompt_context.md")
 
     if not os.path.exists(prompt_file):

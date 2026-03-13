@@ -22,7 +22,7 @@ input:
 ## When to Use (使いどころ)
 
 - **Situation**: ワークフロー内で「自分の文体で書く」必要がある時
-- **Benefit**: `00_UserProfile` の最新値を常に参照し、スタイルの一貫性を保証
+- **Benefit**: `UserProfile` の最新値を常に参照し、スタイルの一貫性を保証
 
 ## Workflow
 
@@ -47,7 +47,7 @@ input:
    - 出力された文体ルールを理解する
 
 2. **型フューショット参照**:
-   - `00_システム/01_Prompts/Note記事作成ワークフロー/few_shots/` 内の記事を参照
+   - `00_システム/Prompts/Note記事作成ワークフロー/few_shots/` 内の記事を参照
    - 構造とフォーマットを学習する
 
 3. **執筆**:
@@ -57,11 +57,11 @@ input:
 ## Files Loaded
 
 The script automatically loads:
-- `00_UserProfile/00_マスター(Master_Context).md` (if exists)
-- `00_UserProfile/01_価値観(Core_Values).md`
-- `00_UserProfile/03_執筆スタイル(Style_Guidelines).md`
+- `UserProfile/00_マスター(Master_Context).md` (if exists)
+- `UserProfile/01_価値観(Core_Values).md`
+- `UserProfile/03_執筆スタイル(Style_Guidelines).md`
 - `resources/style_examples/*.md` (Specific style examples provided by user)
 
 ## Tips
 
-- **Single Source of Truth**: This skill pulls directly from `00_UserProfile`, so you always use the latest persona.
+- **Single Source of Truth**: This skill pulls directly from `UserProfile`, so you always use the latest persona.

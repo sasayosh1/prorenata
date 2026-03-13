@@ -6,7 +6,7 @@ require('dotenv').config({ path: '.env.local' });
 // --- Configuration ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note生成記事');
-const PROMPTS_DIR = path.join(process.cwd(), '00_システム/01_Prompts/Note記事作成ワークフロー');
+const PROMPTS_DIR = path.join(process.cwd(), '00_システム/Prompts/Note記事作成ワークフロー');
 
 // --- Helper: Read Prompt File ---
 function readPrompt(filename) {
@@ -27,7 +27,7 @@ async function generate(model, prompt, inputInfo = "") {
 
 // --- Helper: Get Lifestyle Context ---
 function getLifestyleContext() {
-    const lifestylePath = '/Users/sasakiyoshimasa/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/00_UserProfile/08_セラの季節感(Sera_Lifestyle).md';
+    const lifestylePath = '/Users/sasakiyoshimasa/Library/Mobile Documents/iCloud~md~obsidian/Documents/sasayoshi/00_System/UserProfile/08_セラの季節感(Sera_Lifestyle).md';
     if (fs.existsSync(lifestylePath)) {
         return fs.readFileSync(lifestylePath, 'utf-8');
     }
@@ -47,7 +47,7 @@ async function createStructure(topic, pastMemory, model) {
     }
 
     // Character Registry
-    const registryPath = path.join(process.cwd(), '00_システム/00_UserProfile/07_セラの記憶(Character_Event_Registry).md');
+    const registryPath = path.join(process.cwd(), '00_システム/UserProfile/07_セラの記憶(Character_Event_Registry).md');
     if (fs.existsSync(registryPath)) {
         const registry = fs.readFileSync(registryPath, 'utf-8');
         prompt += `\n\n## 【登場人物・重要事象レジストリ】\n以下の設定（性格、背景、過去の出来事）を「セラの記憶」として尊重し、物語の整合性を保ってください。既存の人物を登場させることで深みを出してください。\n\n${registry}`;

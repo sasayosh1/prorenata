@@ -9,15 +9,15 @@ description: 1日の終わりにログを処理し、資産を抽出し、コン
             2.  または、「カレンダー上の今日」の日誌ファイルが **未作成**、もしくは **テンプレートのまま（実質的に未着手）** である場合。
     *   `.\05_日誌` から上記ルールに基づき、適切な日付のファイルを特定して読み込む。
 2.  **フェーズ1: ログ分析 (Log Analyst)**:
-    *   `.\00_システム\01_Prompts\Workflow_Prompts\Today_Finish\01_Log_Analyst.md` を読み込む。
+    *   `.\00_システム\Prompts\Workflow_Prompts\Today_Finish\01_Log_Analyst.md` を読み込む。
     *   「🧠 思考と感情のログ」セクションを読み込み、誤字修正と構造化（事実と感情の分離）を行い、同セクションを更新する。
 
 3.  **フェーズ2: 資産抽出 (Asset Extractor)**:
-    *   `.\00_システム\01_Prompts\Workflow_Prompts\Today_Finish\02_Asset_Extractor.md` を読み込む。
+    *   `.\00_システム\Prompts\Workflow_Prompts\Today_Finish\02_Asset_Extractor.md` を読み込む。
     *   整形されたログから「アイデア」「価値観」「スキル」「人脈」を抽出し、「💎 抽出された情報」セクションに追記する。
 
 4.  **フェーズ3: 戦略的更新 (Context Updater)**:
-    *   `.\00_システム\01_Prompts\Workflow_Prompts\Today_Finish\03_Context_Updater.md` を読み込む。
+    *   `.\00_システム\Prompts\Workflow_Prompts\Today_Finish\03_Context_Updater.md` を読み込む。
     *   今日の実績と `Active_Context.md` を比較し、コンテキストの更新案を作成する。
     *   **重要**: ここでファイル（Active_Contextなど）を直接書き換えてはいけません。あくまで「提案」です。また、日誌ファイルへの追記も行わず、次のステップでユーザーに通知します。
 6.  **ユーザーへの通知**:

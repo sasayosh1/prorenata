@@ -82,8 +82,8 @@
 3.  必要に応じてCanva等でセリフ（日本語）を入れる。
 
 ## 8. 参照ソース (Reference Assets)
-*   **概念・設定の正本**: `00_システム/00_UserProfile/00_Master_Context.md`
-*   **視覚的リファレンス (Visual Truth)**: `public/sera/`
+*   **概念・設定の正本**: `00_システム/UserProfile/00_Master_Context.md`
+*   **視覚的リファレンス (Visual Truth)**: `画像/白崎セラ/`
     *   `sera_benchmark_manga_style_v1.png` (**漫画スタイルの正解ベンチマーク**)
     *   `sera_reference_thumbnail.png` (正解の顔立ち)
     *   `白崎セラ三面図.png` (コスチューム詳細)
