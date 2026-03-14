@@ -1908,74 +1908,79 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
 
   const resultBlocks = [...blocks]
   let addedLinks = 0
-  const insertionIndex = findSummaryInsertIndex(resultBlocks)
-
   // Amazon/Rakutenを分離
   const amazonLink = selectedLinks.find(({ link }) => link.key === 'amazon')
   const rakutenLink = selectedLinks.find(({ link }) => link.key === 'rakuten')
   const otherLinks = selectedLinks.filter(({ link }) => link.key !== 'amazon' && link.key !== 'rakuten')
 
-  // Amazon/Rakutenを一つのカードにまとめる
+  // 挿入ポイントを決定
+  const summaryIndex = findSummaryInsertIndex(resultBlocks)
+  const contextualIndex = findContextualInsertIndex(resultBlocks, suggestions.map(s => s.key))
+
+  // リンクを振り分け（1つ目はコンテキストに、残りはまとめ前に）
+  const linksToInsert = []
   if (amazonLink && rakutenLink) {
-    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
-    const { extractMainItemFromArticle } = require('../moshimo-affiliate-links')
-    const mainItem = extractMainItemFromArticle(title, bodyText)
-    const itemText = mainItem?.variants?.[1] || mainItem?.item || '小物や替えのグローブなど、毎日使うアイテム'
-
-    const combinedCta = `${itemText}を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。`
-
-    const linkBlocks = createMoshimoLinkBlocks('amazon', contextHeading, {
-      articleTitle: title,
-      articleBody: bodyText,
-      ctaText: combinedCta,
-      additionalLinks: [rakutenLink.link]
-    })
-
-    if (linkBlocks && linkBlocks.length > 0) {
-      resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
-      addedLinks += 2
-    }
+    linksToInsert.push({ key: 'amazon', data: amazonLink.link, additional: [rakutenLink.link] })
   } else if (amazonLink) {
-    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
-    const linkBlocks = createMoshimoLinkBlocks(amazonLink.link.key, contextHeading, {
-      articleTitle: title,
-      articleBody: bodyText
-    })
-    if (linkBlocks && linkBlocks.length > 0) {
-      resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
-      addedLinks += 1
-    }
+    linksToInsert.push({ key: 'amazon', data: amazonLink.link })
   } else if (rakutenLink) {
-    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
-    const linkBlocks = createMoshimoLinkBlocks(rakutenLink.link.key, contextHeading, {
-      articleTitle: title,
-      articleBody: bodyText
-    })
-    if (linkBlocks && linkBlocks.length > 0) {
-      resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
-      addedLinks += 1
-    }
+    linksToInsert.push({ key: 'rakuten', data: rakutenLink.link })
   }
+  otherLinks.forEach(({ link }) => linksToInsert.push({ key: link.key, data: link }))
 
-  // 他のリンクを追加
-  otherLinks.forEach(({ link }) => {
-    const contextHeading = findAffiliateContextHeading(resultBlocks, insertionIndex)
-    const linkBlocks = createMoshimoLinkBlocks(link.key, contextHeading, {
+  linksToInsert.forEach((item, index) => {
+    // 最初のリンクかつコンテキストが見つかれば、中間に挿入
+    const isFirst = index === 0
+    const targetIndex = (isFirst && contextualIndex !== -1) ? contextualIndex : summaryIndex + addedLinks
+    
+    const contextHeading = findAffiliateContextHeading(resultBlocks, targetIndex)
+    const options = {
       articleTitle: title,
       articleBody: bodyText
-    })
-    if (!linkBlocks || linkBlocks.length === 0) {
-      return
+    }
+    if (item.additional) {
+      options.additionalLinks = item.additional
+      const mainItem = extractMainItemFromArticle(title, bodyText)
+      const itemText = mainItem?.variants?.[1] || mainItem?.item || '小物や替えのグローブなど、毎日使うアイテム'
+      options.ctaText = `${itemText}を買い足すときは、Amazon・楽天で常備しておくと安心です。ポイント活用でコストも抑えられます。`
     }
 
-    resultBlocks.splice(insertionIndex, 0, ...linkBlocks)
-    addedLinks += 1
+    const linkBlocks = createMoshimoLinkBlocks(item.key, contextHeading, options)
+
+    if (linkBlocks && linkBlocks.length > 0) {
+      resultBlocks.splice(targetIndex, 0, ...linkBlocks)
+      addedLinks += linkBlocks.length
+    }
   })
 
   return {
     body: resultBlocks,
     addedLinks
   }
+}
+
+function findContextualInsertIndex(blocks, suggestedKeys = []) {
+  if (blocks.length < 10) return -1 // 短すぎる記事は中間挿入しない
+
+  // 記事の中間地点（50%〜70%付近）のH2/H3を探す
+  const midPoint = Math.floor(blocks.length * 0.4)
+  const summaryH2Index = blocks.findIndex(b => b.style === 'h2' && blockPlainText(b) === 'まとめ')
+  const maxSearchIndex = summaryH2Index !== -1 ? summaryH2Index : blocks.length
+
+  for (let i = midPoint; i < maxSearchIndex; i++) {
+    const block = blocks[i]
+    if (block._type === 'block' && (block.style === 'h2' || block.style === 'h3')) {
+      // 見出しの直後に挿入すると不自然な場合があるので、その見出しの次の段落の後を探す
+      for (let j = i + 1; j < maxSearchIndex; j++) {
+        if (blocks[j].style === 'normal') {
+          return j + 1
+        }
+        if (blocks[j].style === 'h2' || blocks[j].style === 'h3') break
+      }
+    }
+  }
+
+  return -1
 }
 
 function findSummaryInsertIndex(blocks) {

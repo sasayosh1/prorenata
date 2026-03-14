@@ -33,6 +33,7 @@ async function listUniqueAffiliateLinks() {
               /a8\.net/i.test(href) ||
               /moshimo\.com/i.test(href) ||
               /valuecommerce\.ne\.jp/i.test(href) ||
+              /rentracks\.jp/i.test(href) ||
               /linksynergy\.com/i.test(href) ||
               /[?&]aff(iliate)?(_|=)/i.test(href) ||
               /[?&](ref|utm_|tracking|partner)=/i.test(href)

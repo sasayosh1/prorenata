@@ -17,14 +17,14 @@ const MOSHIMO_LINKS = {
     description: '介護・介護職・介護士・ケアマネージャーの求人',
     category: '就職・転職',
     targetArticles: ['転職', '求人', '介護', 'ケアマネ', '辞めたい', 'キャリア'],
-    html: '<a href="//af.moshimo.com/af/c/click?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>介護・看護助手の求人をお探しの方はこちら</a><img src="//i.moshimo.com/af/i/impression?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717" width="1" height="1" style="border:none;" loading="lazy">',
+    html: '<img src="https://www.rentracks.jp/adx/p.gifx?idx=0.71551.371865.8943.12704&dna=148900" border="0" height="1" width="1"><a href="https://www.rentracks.jp/adx/r.html?idx=0.71551.371865.8943.12704&dna=148900" rel="nofollow noopener" target="_blank">ヒューマンライフケア</a>',
     appealText: '💼 転職・求人をお探しの方へ',
     linkText: '介護職・看護助手の求人なら「ヒューマンライフケア」',
-    url: '//af.moshimo.com/af/c/click?a_id=5207863&p_id=6140&pc_id=17239&pl_id=78717',
+    url: 'https://www.rentracks.jp/adx/r.html?idx=0.71551.371865.8943.12704&dna=148900',
     active: true,
     addedDate: '2025-10-10',
-    reward: '15,385円',
-    condition: 'WEB応募完了'
+    reward: '17,600円',
+    condition: '申込定額'
   },
 
   kaigobatake: {
@@ -216,21 +216,21 @@ function escapeHtml(text = '') {
 const AFFILIATE_CATEGORY_CTA = {
   '就職・転職': (link, contextHeading) => {
     const intro = contextHeading
-      ? `「${contextHeading}」で感じた課題を整理するときは`
-      : '働き方を見直すときは'
-    return `${intro}${link.name}に相談して条件やサポート体制を具体化してみてください。`
+      ? `「${contextHeading}」の場面で、もし「今の環境だと難しいな」と感じるなら、`
+      : '働き方や将来のことが少し気になるときは、'
+    return `${intro}${link.name}で今の条件を確認してみると、心がふっと軽くなるかもしれません。`
   },
   'アイテム': (link, contextHeading) => {
     const intro = contextHeading
-      ? `「${contextHeading}」で使う備品は`
-      : '現場で使う備品は'
-    return `${intro}${link.name}でまとめて揃えておくと準備がスムーズです。`
+      ? `「${contextHeading}」で使う備品などは、`
+      : '現場で毎日使うアイテムは、'
+    return `${intro}${link.name}でまとめて揃えておくと、準備に追われずゆとりを持って動けますよ。`
   },
   '退職代行': (link, contextHeading) => {
     const intro = contextHeading
-      ? `「${contextHeading}」で退職を考えたときは`
-      : '退職の段取りに迷うときは'
-    return `${intro}${link.name}の窓口で手順を確認しながら進めると安心です。`
+      ? `「${contextHeading}」で退職を考えていて、もし一人で抱えきれないときは、`
+      : '退職の段取りが不安で、心身がしんどいときは、'
+    return `${intro}${link.name}のような専門の窓口に手順をお任せするのも、自分を守る一歩になります。`
   }
 }
 
@@ -305,21 +305,21 @@ function generateContextualCta(linkKey, link, articleTitle = '', articleBody = '
 const AFFILIATE_KEY_CTA = {
   nursery: (link, contextHeading) => {
     const prefix = contextHeading
-      ? `「${contextHeading}」で着るユニフォームやポケットオーガナイザーは`
-      : 'ユニフォームやポケットオーガナイザーをまとめて揃えるなら'
-    return `${prefix}${link.name}が便利です。現場で必要なサイズやカラーも細かく選べます。`
+      ? `「${contextHeading}」で着るユニフォームや、あると便利な小物類は、`
+      : 'ユニフォームやオーガナイザーなどの備品を新しく揃えるなら、'
+    return `${prefix}${link.name}が見ていて楽しいですし、サイズも細かく選べて安心ですよ。`
   },
   amazon: (link, contextHeading) => {
     const prefix = contextHeading
-      ? `「${contextHeading}」で使う小物や替えのグローブは`
-      : '小物や替えのグローブなど、毎日使うアイテムは'
-    return `${prefix}${link.name}で常備しておくと安心です。`
+      ? `「${contextHeading}」で使うちょっとした小物や替えのグローブは、`
+      : '毎日使う消耗品や、ちょっとした便利グッズは、'
+    return `${prefix}${link.name}で用意しておくと、忙しいときでもサッと届いて助かります。`
   },
   rakuten: (link, contextHeading) => {
     const prefix = contextHeading
-      ? `「${contextHeading}」の備品を買い足すときは`
-      : '価格や配送スピードを比較しながら買い足したいときは'
-    return `${prefix}${link.name}が頼りになります。ポイント活用でコストも抑えられます。`
+      ? `「${contextHeading}」の備品などを新しく買い足すときは、`
+      : '価格を比較したり、ポイントを貯めながら買い足したいときは、'
+    return `${prefix}${link.name}も頼りになります。使い慣れたサイトなら、お買い物も気楽にできますね。`
   }
 }
 

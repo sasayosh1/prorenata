@@ -13,7 +13,11 @@ Outfit: Casual and relaxed. [e.g., Fluffy ivory loungewear / An oversized soft k
 Setting: A cozy, private space with soft lighting. [e.g., A dimly lit room at night / A warm cafe session].
 Action/Pose: [e.g., Holding a warm mug of coffee with both hands / Reading a book / Looking out a window].
 - **Gaze**: **Avoid direct eye contact with the camera.** She should be looking slightly away, down, or toward an object (looking thoughtful). Direct eye contact feels "unnatural" for her private moments.
-- **Composition**: Prioritize her face as the center point of the 16:9 crop.
+- **Composition Techniques**:
+  - **Foreground Blur**: Use blurred objects in the foreground (e.g., a mug, a book, a plant) to create depth of field and a sense of being in the room with her.
+  - **Framing / Peeking**: Use window frames, open doors, or furniture to create a "peeking through" (voyeuristic but gentle) perspective.
+  - **Vulnerability Indicators (10% rule)**: Slight blush on cheeks, slightly tousled hair, relaxed pose, looking up with a soft, defenseless expression. NOT explicit.
+- **Keywords**: cinematic lighting, lens flare, soft bokeh, depth of field, high-angle for vulnerability, low-angle for immersion.
 Vibe: Relaxed, intimate, "off-duty", slightly melancholy but hopeful.
 Dimensions: 1280x670 (Standard 16:9)
 ```
