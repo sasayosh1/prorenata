@@ -79,8 +79,8 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
       <div className="w-full max-w-2xl border border-gray-300 rounded-lg p-4 bg-white">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-lg font-semibold text-black flex items-center w-full"
-          style={{color: 'black !important'}}
+          className="text-lg font-semibold text-gray-800 flex items-center w-full"
+          style={{color: 'rgb(31, 41, 55)'}}
         >
           もくじ
           <span className={`ml-auto transition-transform ${isOpen ? 'rotate-90' : ''}`}>
@@ -100,13 +100,13 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                       scrollToHeading(item.id)
                     }}
                     className={`
-                      block px-3 py-2 rounded text-sm transition-colors duration-200 text-black hover:bg-gray-100
+                      block px-3 py-2 rounded text-sm transition-colors duration-200 text-gray-800 hover:bg-gray-100
                       ${item.level === 2 ? 'font-medium' : 'font-normal'}
                     `}
-                    style={{color: 'black !important'}}
+                    style={{color: 'rgb(31, 41, 55)'}}
                   >
                     {item.level === 3 && (
-                      <span className="inline-block w-1.5 h-1.5 bg-black rounded-full mr-2"></span>
+                      <span className="inline-block w-1.5 h-1.5 bg-gray-800 rounded-full mr-2"></span>
                     )}
                     {item.text}
                   </a>

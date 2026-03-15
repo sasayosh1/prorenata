@@ -9,7 +9,7 @@ export default function Footer() {
             {/* サイト情報 */}
             <div className="col-span-1">
               <div className="flex items-center">
-                <div className="text-2xl font-bold text-gray-900 tracking-tight">
+                <div className="text-2xl font-bold text-gray-800 tracking-tight">
                   ProReNata
                 </div>
               </div>
@@ -56,7 +56,7 @@ export default function Footer() {
 
             {/* サイトマップ */}
             <div>
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">
                 サイトマップ
               </h3>
               <ul className="mt-4 space-y-3">
@@ -85,7 +85,7 @@ export default function Footer() {
 
             {/* カテゴリー */}
             <div>
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">
                 カテゴリー
               </h3>
               <ul className="mt-4 space-y-3">
@@ -129,7 +129,7 @@ export default function Footer() {
 
             {/* サポート */}
             <div>
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wider">
                 サポート
               </h3>
               <ul className="mt-4 space-y-3">

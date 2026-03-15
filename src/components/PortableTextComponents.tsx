@@ -208,14 +208,14 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
   const plainText = extractPlainText(value)
   const sanitizedText = sanitizeSummaryText(plainText)
 
-  let paragraphClass = 'leading-relaxed text-gray-900 [&]:!text-gray-900'
+  let paragraphClass = 'leading-relaxed text-gray-800 [&]:!text-gray-800'
   if (inlineAffiliateType || isAffiliatePrBlock) {
     if (inlineAffiliateType === 'cta') {
       // アフィリエイトCTAテキストは通常のスタイルで表示（背景色なし）
-      paragraphClass = `leading-relaxed text-gray-900 [&]:!text-gray-900 mb-2 mt-6`
+      paragraphClass = `leading-relaxed text-gray-800 [&]:!text-gray-800 mb-2 mt-6`
     } else if (inlineAffiliateType === 'link' || isAffiliatePrBlock) {
       // [PR]リンクは薄いブルーの背景色で表示（枠線なし）
-      paragraphClass = `leading-relaxed text-black bg-[#EFF6FF] rounded-lg px-4 py-3 text-sm mb-6`
+      paragraphClass = `leading-relaxed text-gray-800 bg-[#EFF6FF] rounded-lg px-4 py-3 text-sm mb-6`
     }
   } else if (hasInternalLink) {
     // 内部リンク段落は装飾（背景/枠）を付けない（ユーザビリティ優先）
@@ -227,7 +227,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
   if (isReferenceBlock(value)) {
     const reference = extractReferenceInfo(value)
     return (
-      <p className={paragraphClass} style={{ color: '#111827 !important' }}>
+      <p className={paragraphClass} style={{ color: 'rgb(31, 41, 55) !important' }}>
         <span>参考: </span>
         {reference.url ? (
           <a
@@ -254,7 +254,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
   }
 
   return (
-    <p className={paragraphClass} style={{ color: '#111827 !important' }}>
+    <p className={paragraphClass} style={{ color: 'rgb(31, 41, 55) !important' }}>
       {sanitizedText !== plainText ? sanitizedText : children}
     </p>
   )
@@ -387,11 +387,11 @@ function CustomHeading({
     .trim()
 
   const headingStyles = {
-    2: "text-2xl font-bold mb-6 mt-8 text-gray-900 [&]:!text-gray-900 border-2 border-gray-600 px-4 py-3",
-    3: "text-xl font-semibold mb-4 mt-6 text-gray-900 [&]:!text-gray-900",
-    4: "text-lg font-semibold mb-3 mt-5 text-gray-900 [&]:!text-gray-900",
-    5: "text-base font-semibold mb-2 mt-4 text-gray-900 [&]:!text-gray-900",
-    6: "text-sm font-semibold mb-2 mt-3 text-gray-900 [&]:!text-gray-900"
+    2: "text-2xl font-bold mb-6 mt-8 text-gray-800 [&]:!text-gray-800 border-2 border-gray-600 px-4 py-3",
+    3: "text-xl font-semibold mb-4 mt-6 text-gray-800 [&]:!text-gray-800",
+    4: "text-lg font-semibold mb-3 mt-5 text-gray-800 [&]:!text-gray-800",
+    5: "text-base font-semibold mb-2 mt-4 text-gray-800 [&]:!text-gray-800",
+    6: "text-sm font-semibold mb-2 mt-3 text-gray-800 [&]:!text-gray-800"
   }
 
   if (level === 2) {
@@ -399,7 +399,7 @@ function CustomHeading({
       <Tag
         id={headingId}
         className={headingStyles[2]}
-        style={{ color: '#111827 !important' }}
+        style={{ color: 'rgb(31, 41, 55) !important' }}
       >
         {children}
       </Tag>
@@ -411,7 +411,7 @@ function CustomHeading({
       <Tag
         id={headingId}
         className={headingStyles[3]}
-        style={{ color: '#111827 !important' }}
+        style={{ color: 'rgb(31, 41, 55) !important' }}
       >
         {children}
       </Tag>
@@ -422,7 +422,7 @@ function CustomHeading({
     <Tag
       id={headingId}
       className={headingStyles[level as keyof typeof headingStyles] || headingStyles[2]}
-      style={{ color: '#111827 !important' }}
+      style={{ color: 'rgb(31, 41, 55) !important' }}
     >
       {children}
     </Tag>
@@ -435,11 +435,11 @@ function CustomList(props: any) {
   const type = props.value?.listItem || 'bullet'
   const Tag = type === 'number' ? 'ol' : 'ul'
   const listClass = type === 'number'
-    ? "list-decimal list-outside pl-6 mb-6 space-y-2 text-gray-900 [&]:!text-gray-900"
-    : "list-disc list-outside pl-6 mb-6 space-y-2 text-gray-900 [&]:!text-gray-900"
+    ? "list-decimal list-outside pl-6 mb-6 space-y-2 text-gray-800 [&]:!text-gray-800"
+    : "list-disc list-outside pl-6 mb-6 space-y-2 text-gray-800 [&]:!text-gray-800"
 
   return (
-    <Tag className={listClass} style={{ color: '#111827 !important' }}>
+    <Tag className={listClass} style={{ color: 'rgb(31, 41, 55) !important' }}>
       {props.children}
     </Tag>
   )
@@ -450,8 +450,8 @@ function CustomList(props: any) {
 function CustomListItem(props: any) {
   return (
     <li
-      className="text-gray-900 [&]:!text-gray-900 [&>p]:inline [&>p]:m-0"
-      style={{ color: '#111827 !important' }}
+      className="text-gray-800 [&]:!text-gray-800 [&>p]:inline [&>p]:m-0"
+      style={{ color: 'rgb(31, 41, 55) !important' }}
     >
       {props.children}
     </li>
@@ -461,7 +461,7 @@ function CustomListItem(props: any) {
 // カスタム強調コンポーネント
 function CustomStrong({ children }: { children: React.ReactNode }) {
   return (
-    <strong className="font-semibold text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+    <strong className="font-semibold text-gray-800 [&]:!text-gray-800" style={{ color: 'rgb(31, 41, 55) !important' }}>
       {children}
     </strong>
   )
@@ -470,7 +470,7 @@ function CustomStrong({ children }: { children: React.ReactNode }) {
 // カスタム斜体コンポーネント
 function CustomEm({ children }: { children: React.ReactNode }) {
   return (
-    <em className="italic text-gray-900 [&]:!text-gray-900" style={{ color: '#111827 !important' }}>
+    <em className="italic text-gray-800 [&]:!text-gray-800" style={{ color: 'rgb(31, 41, 55) !important' }}>
       {children}
     </em>
   )
@@ -538,7 +538,7 @@ export const portableTextComponents: PortableTextComponents = {
 
       return (
         <section className="mt-12 pt-8 border-t border-gray-200" aria-label="あわせて読みたい">
-          <h3 className="text-2xl font-bold mb-6 text-gray-900">あわせて読みたい</h3>
+          <h3 className="text-2xl font-bold mb-6 text-gray-800">あわせて読みたい</h3>
           {posts.length > 0 ? (
             <ul className="space-y-3">
               {posts.map((post) => (
@@ -616,7 +616,7 @@ export const portableTextComponents: PortableTextComponents = {
 
       return (
         <div
-          className="my-6 text-gray-900"
+          className="my-6 text-gray-800"
           data-provider={value.provider || 'affiliate'}
           dangerouslySetInnerHTML={{ __html: value.html }}
         />

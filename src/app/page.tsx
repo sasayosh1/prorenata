@@ -44,7 +44,7 @@ export default async function Home() {
 
         <div className="relative z-10 w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
-            <h1 className="text-5xl font-extrabold tracking-tight text-gray-900 sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="text-5xl font-extrabold tracking-tight text-gray-800 sm:text-6xl md:text-7xl lg:text-8xl">
               <span className="block drop-shadow-sm opacity-90">ProReNata</span>
               <span className="block text-cyan-600 mt-4 text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
                 看護助手の未来を拓く
@@ -125,7 +125,7 @@ export default async function Home() {
                   className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className={`absolute top-0 right-0 w-24 h-24 ${topic.color} opacity-5 -mr-8 -mt-8 rounded-full group-hover:scale-150 transition-transform duration-500`} />
-                  <h3 className="text-xl font-extrabold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors">{topic.title}</h3>
+                  <h3 className="text-xl font-extrabold text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors">{topic.title}</h3>
                   <p className="text-gray-500 font-medium">{topic.desc}</p>
                 </Link>
               ))}
@@ -138,7 +138,7 @@ export default async function Home() {
               <div className="flex items-center justify-between gap-3 mb-10">
                 <div className="flex items-center gap-3">
                   <div className="w-1.5 h-8 bg-cyan-600 rounded-full" />
-                  <h2 className="text-3xl font-black text-gray-900">最新の記事</h2>
+                  <h2 className="text-3xl font-black text-gray-800">最新の記事</h2>
                 </div>
                 <Link
                   href="/posts"
@@ -169,7 +169,7 @@ export default async function Home() {
                           >
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                               <div className="min-w-0">
-                                <div className="text-xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors line-clamp-1">
+                                <div className="text-xl font-bold text-gray-800 group-hover:text-cyan-600 transition-colors line-clamp-1">
                                   {displayTitle}
                                 </div>
                                 {category && (

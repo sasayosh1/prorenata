@@ -7,7 +7,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
         <Link href="/" aria-label="ProReNata" className="flex items-center group">
-          <div className="text-2xl font-bold text-gray-900 tracking-tight group-hover:text-cyan-600 transition-colors duration-300">
+          <div className="text-2xl font-bold text-gray-800 tracking-tight group-hover:text-cyan-600 transition-colors duration-300">
             ProReNata
           </div>
         </Link>
