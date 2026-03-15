@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import Image from 'next/image'
 import { getAllPosts, type Post } from '@/lib/sanity'
 import Link from 'next/link'
 import Header from '@/components/Header'
@@ -30,10 +31,15 @@ export default async function Home() {
       <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white">
         {/* Background Image/Gradient Layer */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-blue-50 opacity-100" />
-          <div className="absolute inset-0 backdrop-blur-[1px] bg-white/20" />
-          {/* Future near-future background will go here */}
-          {/* <Image src="/hero-bg-near-future.png" alt="" fill className="object-cover opacity-50" priority /> */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-blue-50 opacity-40 mix-blend-multiply transition-opacity duration-1000" />
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30" />
+          <Image 
+            src="/hero-bg-near-future.png" 
+            alt="" 
+            fill 
+            className="object-cover opacity-60 mix-blend-overlay"
+            priority 
+          />
         </div>
 
         <div className="relative z-10 w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
