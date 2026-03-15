@@ -7,6 +7,7 @@ import Analytics from "@/components/Analytics";
 import { SITE_URL } from "@/lib/constants";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ServiceWorkerCleanup from "@/components/ServiceWorkerCleanup";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -227,7 +228,9 @@ export default async function RootLayout({
         </a>
 
         <main id="main-content" className="min-h-screen">
-          {children}
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
         </main>
 
         {/* Google Analytics (本番環境用) */}

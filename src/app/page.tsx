@@ -50,14 +50,14 @@ export default async function Home() {
                 看護助手の未来を拓く
               </span>
             </h1>
-            <p className="mt-8 text-lg text-gray-600 sm:text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-              現場で働くあなたに、確かな情報を。給与、資格、キャリア、メンタルケアまで、編集部による客観的なガイド。
+            <p className="mt-8 text-lg text-gray-600 sm:text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
+              <span className="inline-block">現場で働くあなたへ、</span>
+              <span className="inline-block">給与・資格・キャリアの確かなガイドを。</span>
             </p>
 
             {/* Integrated Search in Hero */}
             <div className="mt-12 max-w-2xl mx-auto">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative">
                   <HomeSearch />
                 </div>
@@ -89,7 +89,7 @@ export default async function Home() {
       {/* Trust Ribbon: Authority Bar */}
       <div className="bg-cyan-700 py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-white text-sm font-bold tracking-widest uppercase">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-white text-sm font-bold tracking-widest">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-cyan-300 animate-pulse" />
               ProReNata編集部 監修

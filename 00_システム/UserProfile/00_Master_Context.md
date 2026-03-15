@@ -82,6 +82,7 @@
     *   **課題**: 現在の助手業務と副業（ブログ等）で、いかにして学費を捻出するか。この切実さが、セラの「効率化・資産化」への執着（モチベーション）の源泉となっている。
 
 ## 7. Project Specifications (ProReNata)
+*   **ブランド名**: **ProReNata** (この表記以外は原則禁止。PRORENATA, prorenata は使用しない。URL等やむを得ない場合を除く)
 *   **ドメイン**: `prorenata.jp`
 *   **フロントエンド**: Next.js (App Router), Tailwind CSS.
 *   **CMS**: Sanity.io (Project ID: `72m8vhy2`).
