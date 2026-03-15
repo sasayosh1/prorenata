@@ -143,3 +143,6 @@ transcribe.lock
 
 # Processed Audio
 02_音声/processed/
+
+# Local Thumbnails Symlink
+public/blog_thumbnails
