@@ -17,7 +17,7 @@
 | NotebookLM | 導入検討中 | リサーチ・構造解析・学習の自動化 | [NotebookLM活用戦略.md](file:///Users/sasakiyoshimasa/prorenata/知識ベース/AIツール活用戦略/NotebookLM/NotebookLM活用戦略.md) |
 | NanoBanana2 (Gemini Image) | 導入済 | 次世代SNS・漫画向け画像生成（高速・高精細） | [00_Master_Context.md](file:///Users/sasakiyoshimasa/prorenata/00_システム/UserProfile/00_Master_Context.md) |
 
-## 4. 学習サイクル (AI Watch Protocol)
-1. **月次リサーチ**: 新しいツールのトレンドをキャッチアップし、このファイルを更新する。
+## 4. 学習サイクル (Daily Intelligence Radar)
+1. **日次リサーチ**: `/daily-intel` ワークフローを実行し、XやWebから最新トレンド（AITuber, 精神科AI等）をキャッチアップする。
 2. **実証実験**: 有用そうなツールは、小さなタスクでテストし、「実用プロトコル」を作成する。
-3. **反映**: 定着したツールは、自動化ワークフローやプロンプトに組み込む。
+3. **反映**: 定着したツールは、自動化ワークフローやプロンプトに組み込み、このファイルを更新する。
