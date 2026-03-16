@@ -6,7 +6,7 @@ require('dotenv').config({ path: '.env.local' });
 // --- Configuration ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note生成記事');
-const PROMPTS_DIR = path.join(process.cwd(), '00_システム/Prompts/Note記事作成ワークフロー');
+const PROMPTS_DIR = path.join(process.cwd(), '00_システム/Prompts/note記事作成ワークフロー');
 
 // --- Helper: Read Prompt File ---
 function readPrompt(filename) {
@@ -36,7 +36,7 @@ function getLifestyleContext() {
 
 // --- Helper: Specific Generation Functions ---
 async function createStructure(topic, pastMemory, model) {
-    let prompt = readPrompt('1_Note構成案作成プロンプト.md');
+    let prompt = readPrompt('1_note構成案作成プロンプト.md');
     prompt += `\n\n## 入力トピック\n${topic}`;
     const lifestyleCtx = getLifestyleContext();
     if (lifestyleCtx) {
@@ -57,7 +57,7 @@ async function createStructure(topic, pastMemory, model) {
 }
 
 async function writeDraft(structure, pastMemory, model) {
-    let prompt = readPrompt('2_Note執筆プロンプト.md');
+    let prompt = readPrompt('2_note執筆プロンプト.md');
     if (pastMemory) {
         prompt += `\n\n## 【過去の記憶（ランダム）】\nこの記憶が現在のトピックと少しでも関連する場合のみ、\n「ふと思い出した」ようなニュアンスで構成に取り入れてください。\n（無理に関連付ける必要はありません。自然な場合のみ使用してください）\n\n${pastMemory}`;
     }
@@ -65,17 +65,17 @@ async function writeDraft(structure, pastMemory, model) {
 }
 
 async function refineDraft(draft, model) {
-    const prompt = readPrompt('3_Note推敲・強化プロンプト.md');
+    const prompt = readPrompt('3_note推敲・強化プロンプト.md');
     return await generate(model, prompt, draft);
 }
 
 async function finalizeContent(refinedContent, model) {
-    const prompt = readPrompt('4_Note最終仕上げプロンプト.md');
+    const prompt = readPrompt('4_note最終仕上げプロンプト.md');
     return await generate(model, prompt, refinedContent);
 }
 
 async function selectProduct(content, model) {
-    const prompt = readPrompt('5_Note商品選定プロンプト.md');
+    const prompt = readPrompt('5_note商品選定プロンプト.md');
     const result = await generate(model, prompt, content);
     const keyword = result.trim();
     return keyword === 'None' ? null : keyword;
@@ -118,7 +118,7 @@ function getRandomPastMemory() {
 }
 
 // --- Main Logic ---
-async function generateNoteDraft(topic) {
+async function generatenoteDraft(topic) {
     if (!GEMINI_API_KEY) {
         console.error("FATAL: GEMINI_API_KEY is not set.");
         process.exit(1);
@@ -127,7 +127,7 @@ async function generateNoteDraft(topic) {
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" });
 
-    console.log(`\n🚀 Starting Note generation for topic: "${topic}"`);
+    console.log(`\n🚀 Starting note generation for topic: "${topic}"`);
 
     // 0. Get Past Memory (Context)
     const pastMemory = getRandomPastMemory();
@@ -154,6 +154,7 @@ async function generateNoteDraft(topic) {
         console.log("4️⃣  Finalizing...");
         let finalContent = await finalizeContent(refined, model);
 
+        /*
         // 5. Select Product & Insert Affiliate Link
         console.log("5️⃣  Selecting product & generating link...");
         const selectionResult = await selectProduct(finalContent, model);
@@ -189,6 +190,7 @@ async function generateNoteDraft(topic) {
         } else {
             console.log(`🛒 No specific product selected.`);
         }
+        */
 
         // Save
         const titleMatch = finalContent.match(/^#\s+(.+)$/m);
@@ -227,4 +229,4 @@ if (!topic) {
     process.exit(1);
 }
 
-generateNoteDraft(topic);
+generatenoteDraft(topic);

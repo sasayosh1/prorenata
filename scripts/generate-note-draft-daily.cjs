@@ -57,13 +57,13 @@ function getDailyTopic() {
 function main() {
     try {
         const topic = getDailyTopic();
-        console.log(`[Daily Note Generator] Selected topic: "${topic}"`);
+        console.log(`[Daily note Generator] Selected topic: "${topic}"`);
 
         // Execute the main generation script
         console.log(`Running generation script...`);
         execSync(`node scripts/generate-note-draft.cjs "${topic}"`, { stdio: 'inherit' });
 
-        console.log(`[Daily Note Generator] Done.`);
+        console.log(`[Daily note Generator] Done.`);
     } catch (error) {
         console.error("Error in daily generation:", error);
         process.exit(1);

@@ -1,4 +1,4 @@
-# Note記事用漫画生成ガイドライン (`note_manga_guide.md`)
+# note記事用漫画生成ガイドライン (`note_manga_guide.md`)
 
 ## 1. キャラクター設定: 白崎セラ (Sera Shirasaki)
 *   **年齢**: 20歳（**見た目は16歳**）

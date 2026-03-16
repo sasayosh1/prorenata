@@ -51,7 +51,7 @@ async function main() {
   console.log(`Missing summary (まとめ) H2: ${missingSummary}`)
   console.log(`Missing disclaimer (免責事項): ${missingDisclaimer}`)
   console.log('')
-  console.log('Note: The site now injects the "あわせて読みたい" block before the first disclaimer when possible.')
+  console.log('note: The site now injects the "あわせて読みたい" block before the first disclaimer when possible.')
 }
 
 main().catch((err) => {

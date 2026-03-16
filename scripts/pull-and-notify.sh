@@ -21,7 +21,7 @@ if [ "$OLD_HEAD" != "$NEW_HEAD" ]; then
     
     # Send macOS notification
     # Note: Requires user to allow Terminal/Cron to send notifications if prompted
-    osascript -e 'display notification "新しいNote下書きが届きました" with title "ProReNata" sound name "default"' >> "$LOG_FILE" 2>&1
+    osascript -e 'display notification "新しいnote下書きが届きました" with title "ProReNata" sound name "default"' >> "$LOG_FILE" 2>&1
 else
     echo "No changes." >> "$LOG_FILE"
 fi

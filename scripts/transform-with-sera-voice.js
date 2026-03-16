@@ -46,7 +46,7 @@ async function transformArticle(slug) {
 
     console.log(`Title: ${article.title}`);
     console.log(`Body blocks: ${article.body.length}`);
-    console.log('\nNote: This is a placeholder for AI transformation.');
+    console.log('\nnote: This is a placeholder for AI transformation.');
     console.log('In production, this would use Gemini API to transform text blocks.');
     console.log('\nFor now, creating a manual transformation plan...\n');
 

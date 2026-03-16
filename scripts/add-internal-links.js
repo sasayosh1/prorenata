@@ -88,7 +88,7 @@ async function addInternalLinks() {
           {
             _type: 'span',
             text: link.title,
-            marks: [`link-${Date.now()}-${Math.random()}`] // Note: In Sanity, marks need to reference _key. This simple script might need adjustment for correct mark referencing.
+            marks: [`link-${Date.now()}-${Math.random()}`] // note: In Sanity, marks need to reference _key. This simple script might need adjustment for correct mark referencing.
           }
         ]
       }));

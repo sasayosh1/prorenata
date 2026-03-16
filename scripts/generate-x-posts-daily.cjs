@@ -98,9 +98,9 @@ async function getRandomBlogPosts(count = 4) {
 }
 
 /**
- * RSSからランダムに1件の公開済みNote記事を取得
+ * RSSからランダムに1件の公開済みnote記事を取得
  */
-async function getRandomPublishedNote() {
+async function getRandomPublishednote() {
     try {
         const response = await fetch('https://note.com/prorenata/rss');
         if (!response.ok) return null;
@@ -131,7 +131,7 @@ async function getRandomPublishedNote() {
             excerpt: excerpt
         };
     } catch (e) {
-        console.error("Failed to fetch Note RSS:", e);
+        console.error("Failed to fetch note RSS:", e);
         return null;
     }
 }
@@ -149,19 +149,19 @@ async function generateXPosts() {
     const blogPosts = await getRandomBlogPosts(4);
     console.log(`✅ Fetched ${blogPosts.length} blog posts.`);
 
-    console.log("🔍 Fetching latest Note post from RSS...");
-    const notePublished = await getRandomPublishedNote();
+    console.log("🔍 Fetching latest note post from RSS...");
+    const notePublished = await getRandomPublishednote();
     if (notePublished) {
-        console.log(`✅ Fetched Note post: "${notePublished.title}"`);
+        console.log(`✅ Fetched note post: "${notePublished.title}"`);
     } else {
-        console.warn("⚠️ No Note post found via RSS.");
+        console.warn("⚠️ No note post found via RSS.");
     }
 
     const sources = [...blogPosts];
     if (notePublished) sources.push(notePublished);
 
     if (sources.length === 0) {
-        console.error("❌ No articles found to process. Sanity or Note might be down.");
+        console.error("❌ No articles found to process. Sanity or note might be down.");
         process.exit(1);
     }
 
@@ -169,45 +169,30 @@ async function generateXPosts() {
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" });
 
     const date = new Date();
-    const dateStr = date.toISOString().split('T')[0];
     const displayDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Tokyo' }).replace(/\//g, '-');
 
-    let promptData = `本日は ${displayDate} です。以下の ${sources.length} 件の記事について、それぞれX（旧Twitter）で紹介するための投稿文を作成してください。\n\n`;
-    promptData += `【最重要ルール（セラのペルソナとテキストアート）】\n`;
-    promptData += `- あなたは「白崎セラ」（20歳の精神科病院の看護助手、読書好き、少し疲れているが前向き）です。\n`;
-    promptData += `- **一人称は必ず「わたし」（ひらがな）を使用してください。「私」は禁止です。**\n`;
-    promptData += `- **「がんばる」からの卒業 (原則使用禁止)**: 自分、読者どちらに対しても「がんばる」「頑張る」は使わず、「歩き続ける」「向き合う」「進める」といった持続的な表現を使ってください。\n`;
-    promptData += `- **漢字の開き（ひらがな化）ルール：**\n`;
-    promptData += `  - 「後」→「**あと**」を使用してください（例：夜勤のあと、〇〇したあと）。\n`;
-    promptData += `  - 「一つ一つ」→「**ひとつひとつ**」を使用してください。\n`;
-    promptData += `  - 「朝一番」→「**朝イチ**」を使用してください。\n`;
-    promptData += `  - 「寂しい」→「**さみしい**」を使用してください。\n`;
-    promptData += `- **【X向けのフック（興味付け）】**「がんばらなくていい」と言いながら自分が「がんばる」と言う矛盾を避け、あえて少しビターな「独白」としてつぶやいてください。決して「〜という記事です」とは言わないこと。\n`;
-    promptData += `- **【時間軸と温かみの同期（重要）】** すべての投稿を同じトーンにせず、読者の生活リズムとセラの日常を同期させてください。以下のシーンを想定して全 ${sources.length} 件を振り分けて作成してください：\n`;
-    promptData += `  1. **朝の空気（起床・準備）**: 静かな決意や、少し重い体。リンクなしの独白推奨。\n`;
-    promptData += `  2. **通勤・通学の窓から**: バスの窓、流れる景色。記事 ${sources[0] ? '「' + sources[0].title + '」' : '紹介'} へ繋げる。\n`;
-    promptData += `  3. **昼休みの休息**: ほっと一息、おにぎりやコーヒー。リンクなしの短い独白。\n`;
-    promptData += `  4. **帰路・夕暮れ**: 疲れと安堵、コンビニの灯り。記事 ${sources[1] ? '「' + sources[1].title + '」' : '紹介'} へ繋げる。\n`;
-    promptData += `  5. **夜の静寂（寝る前）**: 暗い部屋、自分との対話。深い共感。リンクなし、または note記事（あれば）へ繋げる。\n`;
-    promptData += `- **【リンク頻度】** 全 ${sources.length} 件のうち、**2〜3件はURLを含めない「純粋な独白」**にしてください。\n`;
-    promptData += `- **【レイアウトの美学（超重要：テキストもアートです）】**\n`;
-    promptData += `⭕️ 良い例（2〜3文をひとつのブロックとしてまとめ、投稿内に**空行は最大でも1つか2つ**。一文ごとに空行を入れるのは禁止です。）：\n`;
-    promptData += `夜勤明けの朝、外の空気はこんなに爽やかなのに、自分の心だけが重く沈んでいる。どれだけ休んでも取れない「心の疲れ」。\n\n夜勤のしんどさって、一体何なんだろう。わたしが夜勤で一番感じる「孤独感」のお話。\n\n`;
-    promptData += `- 文字数はURLを含めず、1投稿あたり100文字〜140文字程度で、上記「⭕️ 良い例」のように、内容の変わり目で**一度だけ空行（段落分け）**を入れてください。一文ごとに改行・空行を入れる「一行飛ばし」は、美しくないので厳禁です。\n`;
-    promptData += `- URLを含める投稿の場合、出力の最後には、**必ず1行の空行を空けてから**URLを単独の行として含めてください。その際、必ずURLの末尾に \`?t=1\` をそのまま付け足してください。\n`;
-    promptData += `- URLを含めない「独白」投稿の場合は、URL行を一切含めず、文章のみで完結させてください。\n`;
-    promptData += `- マークダウン形式（## 投稿1：...）で出力してください。\n\n`;
+    const promptTemplatePath = path.join(process.cwd(), '00_システム/Prompts/15_X投稿生成プロンプト.md');
+    let promptTemplate = '';
+    try {
+        promptTemplate = fs.readFileSync(promptTemplatePath, 'utf8');
+    } catch (e) {
+        console.error(`❌ Failed to read prompt template: ${promptTemplatePath}`);
+        process.exit(1);
+    }
 
+    let sourcesContext = '';
     sources.forEach((source, index) => {
-        promptData += `--- 記事${index + 1} (${source.type}) ---\n`;
-        promptData += `タイトル: ${source.title}\n`;
-        promptData += `URL: ${source.url}\n`;
-        promptData += `内容抜粋: ${source.excerpt}\n\n`;
+        sourcesContext += `--- 記事${index + 1} (${source.type}) ---\n`;
+        sourcesContext += `タイトル: ${source.title}\n`;
+        sourcesContext += `URL: ${source.url}\n`;
+        sourcesContext += `内容抜粋: ${source.excerpt}\n\n`;
     });
 
-    const prompt = promptData;
+    const prompt = promptTemplate
+        .replace(/\${sourcesCount}/g, sources.length)
+        .replace(/\${sourcesContext}/g, sourcesContext);
 
-    console.log("🧠 Sending to Gemini 1.5 Flash...");
+    console.log("🧠 Sending to Gemini 2.0 Flash Lite...");
 
     // Calculate Input Tokens
     const countResult = await model.countTokens(prompt);
