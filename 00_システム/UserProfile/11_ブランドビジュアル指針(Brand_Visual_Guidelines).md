@@ -28,3 +28,7 @@
 
 ## 4. プロンプト生成の合言葉
 画像生成AIに対し、「既成のフォントにとらわれず、素材の質感そのもので文字を形作れ」と指示することで、独自性を最大化する。
+
+## 5. 関連定義書 (Linked Guidelines)
+- [00_ProReNata図解定義書.md](file:///Users/sasakiyoshimasa/prorenata/画像/ProReNata/図解/00_ProReNata図解定義書.md)
+- [00_ProReNata挿絵定義書.md](file:///Users/sasakiyoshimasa/prorenata/画像/ProReNata/図解/挿絵/00_ProReNata挿絵定義書.md)
