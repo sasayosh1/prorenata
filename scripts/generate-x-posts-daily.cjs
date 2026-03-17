@@ -171,26 +171,40 @@ async function generateXPosts() {
     const date = new Date();
     const displayDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Tokyo' }).replace(/\//g, '-');
 
+    const masterContextPath = path.join(process.cwd(), '00_システム/UserProfile/00_Master_Context.md');
+    const memoriesPath = path.join(process.cwd(), '00_システム/UserProfile/07_セラの記憶(Character_Event_Registry).md');
+    const calendarPath = path.join(process.cwd(), '00_システム/UserProfile/08_Sera_Lifestyle_Calendar.md');
+    const stylePath = path.join(process.cwd(), '00_システム/UserProfile/03_執筆スタイル(Style_Guidelines).md');
+
+    const masterContext = fs.readFileSync(masterContextPath, 'utf8');
+    const memories = fs.readFileSync(memoriesPath, 'utf8');
+    const calendar = fs.readFileSync(calendarPath, 'utf8');
+    const styleGuidelines = fs.readFileSync(stylePath, 'utf8');
+
     const promptTemplatePath = path.join(process.cwd(), '00_システム/Prompts/15_X投稿生成プロンプト.md');
-    let promptTemplate = '';
-    try {
-        promptTemplate = fs.readFileSync(promptTemplatePath, 'utf8');
-    } catch (e) {
-        console.error(`❌ Failed to read prompt template: ${promptTemplatePath}`);
-        process.exit(1);
-    }
+    const promptTemplate = fs.readFileSync(promptTemplatePath, 'utf8');
 
-    let sourcesContext = '';
-    sources.forEach((source, index) => {
-        sourcesContext += `--- 記事${index + 1} (${source.type}) ---\n`;
-        sourcesContext += `タイトル: ${source.title}\n`;
-        sourcesContext += `URL: ${source.url}\n`;
-        sourcesContext += `内容抜粋: ${source.excerpt}\n\n`;
-    });
+    const sourcesContext = sources.map((s, i) => `【記事${i+1}】\nタイトル: ${s.title}\nURL: ${s.url}\n内容要約: ${s.excerpt}`).join('\n\n');
 
-    const prompt = promptTemplate
-        .replace(/\${sourcesCount}/g, sources.length)
-        .replace(/\${sourcesContext}/g, sourcesContext);
+    const prompt = `
+${promptTemplate}
+
+## 今日のコンテキストデータ
+【マスターコンテキスト】
+${masterContext}
+
+【セラの日常・執筆スタイル補足】
+${calendar}
+${styleGuidelines}
+
+【セラの直近の記憶】
+${memories}
+
+【紹介する記事リスト】
+${sourcesContext}
+
+さあ、白崎セラとして、最高に「刺さる」投稿を紡いでください。
+`;
 
     console.log("🧠 Sending to Gemini 2.0 Flash Lite...");
 
@@ -200,7 +214,43 @@ async function generateXPosts() {
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
-    const outputText = response.text().trim();
+    let outputText = response.text().trim();
+
+    // --- Image Generation Logic ---
+    const imageDir = path.join(X_POSTS_DIR, 'images');
+    if (!fs.existsSync(imageDir)) fs.mkdirSync(imageDir, { recursive: true });
+
+    const imageModel = genAI.getGenerativeModel({ model: "gemini-3.1-flash-image-preview" });
+    const imagePromptRegex = /\[Image Prompt:\s*(.*?)\]/g;
+    let match;
+    let imageIndex = 1;
+
+    console.log("🎨 資産（画像）を生成中...");
+    const matches = [...outputText.matchAll(imagePromptRegex)];
+    
+    for (const m of matches) {
+        const fullTag = m[0];
+        const imagePrompt = m[1];
+        const imageFileName = `post_${imageIndex}.png`;
+        const imagePath = path.join(imageDir, imageFileName);
+        const relativeImagePath = `./images/${imageFileName}`;
+
+        try {
+            console.log(`  - 投稿 ${imageIndex} 用の画像を生成しています...`);
+            const imgResult = await imageModel.generateContent(imagePrompt);
+            const imgResp = await imgResult.response;
+            if (imgResp.candidates && imgResp.candidates[0].content.parts[0].inlineData) {
+                const imageData = imgResp.candidates[0].content.parts[0].inlineData.data;
+                fs.writeFileSync(imagePath, Buffer.from(imageData, 'base64'));
+                // Insert image link after the prompt tag in Markdown
+                outputText = outputText.replace(fullTag, `${fullTag}\n![Generated Image](${relativeImagePath})`);
+                console.log(`  ✅ 保存完了: ${imagePath}`);
+            }
+        } catch (e) {
+            console.error(`  ❌ 画像生成失敗 ${imageIndex}:`, e.message);
+        }
+        imageIndex++;
+    }
 
     // Try to estimate output tokens
     const outputTokensCount = await model.countTokens(outputText);

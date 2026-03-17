@@ -50,59 +50,77 @@ async function generateEnhancedXPosts() {
     const masterContext = fs.readFileSync('00_システム/UserProfile/00_Master_Context.md', 'utf8');
     const memories = fs.readFileSync('00_システム/UserProfile/07_セラの記憶(Character_Event_Registry).md', 'utf8');
     const calendar = fs.readFileSync('00_システム/UserProfile/08_Sera_Lifestyle_Calendar.md', 'utf8');
-    const seraBaseImage = fs.readFileSync('00_システム/Image_Prompts/Sera/00_Sera_Base_Prompt.md', 'utf8');
+    const styleGuidelines = fs.readFileSync('00_システム/UserProfile/03_執筆スタイル(Style_Guidelines).md', 'utf8');
+    const promptTemplate = fs.readFileSync('00_システム/Prompts/15_X投稿生成プロンプト.md', 'utf8');
 
-    const prompt = `
-あなたは20歳の看護助手「白崎セラ」です。
-以下の情報を踏まえて、今日のX（旧Twitter）向けの投稿を5件作成してください。
+    const sourcesContext = articles.map((a, i) => `【記事${i+1}】\nタイトル: ${a.title}\nURL: https://prorenata.jp/posts/${a.slug}\n内容要約: ${extractExcerpt(a.body).substring(0, 400)}`).join('\n\n');
 
-【コンテキスト】
-1. セラの基本情報・物語:
+    const finalPrompt = `
+${promptTemplate}
+
+## 今日のコンテキストデータ
+【マスターコンテキスト】
 ${masterContext}
 
-2. セラの記憶（登場人物・出来事）:
+【セラの日常・執筆スタイル補足】
+${calendar}
+${styleGuidelines}
+
+【セラの直近の記憶】
 ${memories}
 
-3. セラの日常リズム:
-${calendar}
+【紹介する記事リスト】
+${sourcesContext}
 
-4. 紹介する記事:
-${articles.map((a, i) => `記事${i+1}: ${a.title} (https://prorenata.jp/posts/${a.slug})\n内容抜粋: ${extractExcerpt(a.body).substring(0, 300)}`).join('\n\n')}
-
-【生成ルール】
-- 投稿1: 朝（日勤前または夜勤明け）。独白のみ。
-- 投稿2: 昼（休憩中）。記事1を紹介。
-- 投稿3: 夕方（帰路）。記事2を紹介。
-- 投稿4: 夜（ひとり時間、猫のリンクと）。独白のみ。
-- 投稿5: 深夜（静寂、自分との対話）。記事3またはnoteの雰囲気で紹介。
-
-【ライティングの掟】
-- 一人称は「わたし」。
-- 「がんばる」「頑張る」は**絶対に使用禁止**です。「歩き続ける」「向き合う」「整える」「進める」などの持続的な表現に言い換えてください。
-- 漢字は適度に開き（ひらがな化）、美しく静かなテキストアートを目指す。
-- 2〜3文を1ブロックとし、空行は1つまで。
-- URLは最後に空行を挟んで配置。URL末尾に \`?t=1\` を付与。
-
-出力形式:
----
-## 投稿[n]: [時間帯]
-[投稿本文]
-
-[URL (あれば)]
----
+さあ、白崎セラとして、最高に「刺さる」投稿を紡いでください。
 `;
 
-    const result = await model.generateContent(prompt);
+    const result = await model.generateContent(finalPrompt);
     const response = await result.response;
-    const output = response.text();
+    let output = response.text();
 
     const dateStr = new Date().toISOString().split('T')[0];
-    const filePath = path.join(X_POSTS_DIR, `${dateStr}_Enhanced_X_Posts.md`);
+    const imageDir = path.join(X_POSTS_DIR, 'images');
+    if (!fs.existsSync(imageDir)) fs.mkdirSync(imageDir, { recursive: true });
+
+    // --- Image Generation Logic ---
+    const imageModel = genAI.getGenerativeModel({ model: "gemini-3.1-flash-image-preview" });
+    const imagePromptRegex = /\[Image Prompt:\s*(.*?)\]/g;
+    let match;
+    let imageIndex = 1;
+
+    console.log("🎨 Generating associated images...");
+    const matches = [...output.matchAll(imagePromptRegex)];
     
+    for (const m of matches) {
+        const fullTag = m[0];
+        const prompt = m[1];
+        const imageFileName = `post_${imageIndex}.png`;
+        const imagePath = path.join(imageDir, imageFileName);
+        const relativeImagePath = `./images/${imageFileName}`;
+
+        try {
+            console.log(`  - Generating image for slot ${imageIndex}...`);
+            const imgResult = await imageModel.generateContent(prompt);
+            const imgResp = await imgResult.response;
+            if (imgResp.candidates && imgResp.candidates[0].content.parts[0].inlineData) {
+                const imageData = imgResp.candidates[0].content.parts[0].inlineData.data;
+                fs.writeFileSync(imagePath, Buffer.from(imageData, 'base64'));
+                // Insert image link after the prompt tag in Markdown
+                output = output.replace(fullTag, `${fullTag}\n![Generated Image](${relativeImagePath})`);
+                console.log(`  ✅ Saved: ${imagePath}`);
+            }
+        } catch (e) {
+            console.error(`  ❌ Failed to generate image ${imageIndex}:`, e.message);
+        }
+        imageIndex++;
+    }
+
+    const filePath = path.join(X_POSTS_DIR, `${dateStr}_Enhanced_X_Posts.md`);
     if (!fs.existsSync(X_POSTS_DIR)) fs.mkdirSync(X_POSTS_DIR);
     fs.writeFileSync(filePath, `# ProReNata Enhanced X Posts (${dateStr})\n\n${output}`);
     
-    console.log(`✅ Enhanced posts generated: ${filePath}`);
+    console.log(`✅ Enhanced posts with images generated: ${filePath}`);
 }
 
 generateEnhancedXPosts().catch(console.error);

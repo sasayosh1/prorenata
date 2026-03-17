@@ -774,9 +774,10 @@ export default async function PostDetailPage({ params }: PostPageProps) {
       : undefined,
   }
   const categoryChipClass =
-    "inline-flex items-center rounded-full border border-cyan-200 px-3 py-1 text-sm font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors duration-200"
+    "inline-flex items-center rounded-full border border-cyan-200 dark:border-cyan-800 px-3 py-1 text-sm font-medium text-cyan-700 dark:text-cyan-300 hover:border-cyan-300 dark:hover:border-cyan-700 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 transition-colors duration-200"
   const tagChipClass =
-    "inline-flex items-center rounded-full border border-rose-200 px-3 py-1 text-sm font-medium text-rose-700 hover:border-rose-300 hover:bg-rose-50 transition-colors duration-200"
+    "inline-flex items-center rounded-full border border-cyan-200 dark:border-cyan-800 px-3 py-1 text-sm font-medium text-cyan-700 dark:text-cyan-300 hover:border-cyan-300 dark:hover:border-cyan-700 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 transition-colors duration-200"
+
 
   return (
     <>
@@ -803,24 +804,26 @@ export default async function PostDetailPage({ params }: PostPageProps) {
         <main>
           <div className="xl:divide-y xl:divide-gray-200">
             {/* パンくずナビゲーション */}
-            <nav className="flex items-center space-x-2 text-sm text-gray-500 pt-6 pb-4">
-              <Link href="/" className="hover:text-cyan-600 transition-colors duration-200">
+            <nav className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 pt-6 pb-4">
+              <Link href="/" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-200">
                 ホーム
               </Link>
-              <span className="text-gray-300">/</span>
-              <Link href="/blog" className="hover:text-cyan-600 transition-colors duration-200">
+              <span className="text-gray-300 dark:text-gray-700">/</span>
+              <Link href="/blog" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-200">
                 記事一覧
               </Link>
-              <span className="text-gray-300">/</span>
-              <span className="text-gray-900 font-medium truncate">{displayTitle}</span>
+              <span className="text-gray-300 dark:text-gray-700">/</span>
+              <span className="text-gray-900 dark:text-gray-100 font-medium truncate">{displayTitle}</span>
             </nav>
+
 
             <header className="pt-6 xl:pb-6">
               <div className="space-y-1 text-center">
                 <dl className="space-y-10">
                   <div>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500">
+                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+
                       {(() => {
                         const { dateTime, label } = formatPostDate(post, {
                           weekday: 'long',
@@ -840,9 +843,10 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   </div>
                 </dl>
                 <div>
-                  <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+                  <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
                     {displayTitle}
                   </h1>
+
                 </div>
                 {/* 閲覧数カウンター */}
                 <div className="flex justify-center pt-2">
@@ -874,21 +878,24 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                     <ArticleWithTOC content={tocContent} />
                   </>
                 ) : (
-                  <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center text-gray-600 bg-gray-50">
+                  <div className="border border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50">
                     <p className="text-lg font-semibold mb-2">この記事は現在準備中です。</p>
                     <p className="text-sm">公開まで今しばらくお待ちください。</p>
                   </div>
+
                 )}
               </div>
 
               {hasTopicMeta && (
-                <div className="my-10 py-8 border-y border-dashed border-gray-200" aria-label="この記事のカテゴリとタグ">
+                <div className="my-10 py-8 border-y border-dashed border-gray-200 dark:border-gray-800" aria-label="この記事のカテゴリとタグ">
+
                   <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
                     {normalizedCategories.length > 0 && (
                       <div className="flex-1 text-center sm:text-left">
-                        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
+                        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400">
                           カテゴリ
                         </p>
+
                         <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
                           {normalizedCategories.map(category => {
                             const key = category.slug || category.title
@@ -914,9 +921,10 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                     )}
                     {normalizedTags.length > 0 && (
                       <div className="flex-1 text-center sm:text-left">
-                        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">
+                        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400">
                           タグ
                         </p>
+
                         <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
                           {normalizedTags.map(tag => {
                             const key = tag.slug || tag.label
@@ -969,18 +977,19 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                     <Link
                       href="/blog"
-                      className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+                      className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-medium px-4 py-2 rounded-md border border-cyan-200 dark:border-cyan-800 hover:border-cyan-300 dark:hover:border-cyan-700 transition-colors duration-200"
                       aria-label="記事一覧に戻る"
                     >
                       記事一覧に戻る
                     </Link>
                     <Link
                       href="/"
-                      className="text-cyan-600 hover:text-cyan-700 font-medium px-4 py-2 rounded-md border border-cyan-200 hover:border-cyan-300 transition-colors duration-200"
+                      className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-medium px-4 py-2 rounded-md border border-cyan-200 dark:border-cyan-800 hover:border-cyan-300 dark:hover:border-cyan-700 transition-colors duration-200"
                       aria-label="ホームに戻る"
                     >
                       ホームに戻る
                     </Link>
+
                   </div>
                 </div>
               </footer>
