@@ -209,7 +209,7 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
   const plainText = extractPlainText(value)
   const sanitizedText = sanitizeSummaryText(plainText)
 
-  let paragraphClass = 'leading-relaxed text-gray-800 dark:text-gray-200'
+  let paragraphClass = 'leading-relaxed text-gray-800 dark:text-gray-50'
   if (inlineAffiliateType || isAffiliatePrBlock) {
     if (inlineAffiliateType === 'cta') {
       // アフィリエイトCTAテキストは通常のスタイルで表示（背景色なし）
@@ -249,14 +249,14 @@ function CustomParagraph({ children, value }: PortableTextComponentProps<Portabl
 
   if (isDisclaimerBlock(value)) {
     return (
-      <p className="mb-6 rounded-md border border-[#F0E6AA] dark:border-yellow-900/50 bg-white dark:bg-gray-950 px-4 py-3 text-[13px] leading-relaxed text-[#555] dark:text-gray-400">
+      <p className="mb-6 rounded-md border border-[#F0E6AA] dark:border-yellow-900/50 bg-white dark:bg-gray-950 px-4 py-3 text-[13px] leading-relaxed text-[#555] dark:text-gray-200">
         {children}
       </p>
     )
   }
 
   return (
-    <p className={paragraphClass} style={{ color: 'rgb(31, 41, 55) !important' }}>
+    <p className={paragraphClass}>
       {sanitizedText !== plainText ? sanitizedText : children}
     </p>
   )
@@ -389,11 +389,11 @@ function CustomHeading({
     .trim()
 
   const headingStyles = {
-    2: "text-2xl font-bold mb-6 mt-8 text-gray-800 dark:text-gray-100 border-2 border-gray-600 dark:border-gray-400 px-4 py-3",
-    3: "text-xl font-semibold mb-4 mt-6 text-gray-800 dark:text-gray-100",
-    4: "text-lg font-semibold mb-3 mt-5 text-gray-800 dark:text-gray-100",
-    5: "text-base font-semibold mb-2 mt-4 text-gray-800 dark:text-gray-100",
-    6: "text-sm font-semibold mb-2 mt-3 text-gray-800 dark:text-gray-100"
+    2: "text-2xl font-bold mb-6 mt-8 text-gray-800 dark:text-white border-2 border-gray-600 dark:border-gray-400 px-4 py-3",
+    3: "text-xl font-semibold mb-4 mt-6 text-gray-800 dark:text-white",
+    4: "text-lg font-semibold mb-3 mt-5 text-gray-800 dark:text-white",
+    5: "text-base font-semibold mb-2 mt-4 text-gray-800 dark:text-white",
+    6: "text-sm font-semibold mb-2 mt-3 text-gray-800 dark:text-white"
   }
 
 
@@ -435,8 +435,8 @@ function CustomList(props: any) {
   const type = props.value?.listItem || 'bullet'
   const Tag = type === 'number' ? 'ol' : 'ul'
   const listClass = type === 'number'
-    ? "list-decimal list-outside pl-6 mb-6 space-y-2 text-gray-800 dark:text-gray-200"
-    : "list-disc list-outside pl-6 mb-6 space-y-2 text-gray-800 dark:text-gray-200"
+    ? "list-decimal list-outside pl-6 mb-6 space-y-2 text-gray-800 dark:text-gray-50"
+    : "list-disc list-outside pl-6 mb-6 space-y-2 text-gray-800 dark:text-gray-50"
 
 
   return (
@@ -451,7 +451,7 @@ function CustomList(props: any) {
 function CustomListItem(props: any) {
   return (
     <li
-      className="text-gray-800 dark:text-gray-200 [&>p]:inline [&>p]:m-0"
+      className="text-gray-800 dark:text-gray-50 [&>p]:inline [&>p]:m-0"
     >
       {props.children}
     </li>
@@ -461,7 +461,7 @@ function CustomListItem(props: any) {
 // カスタム強調コンポーネント
 function CustomStrong({ children }: { children: React.ReactNode }) {
   return (
-    <strong className="font-semibold text-gray-800 dark:text-gray-100">
+    <strong className="font-semibold text-gray-800 dark:text-white">
       {children}
     </strong>
   )
@@ -470,7 +470,7 @@ function CustomStrong({ children }: { children: React.ReactNode }) {
 // カスタム斜体コンポーネント
 function CustomEm({ children }: { children: React.ReactNode }) {
   return (
-    <em className="italic text-gray-800 dark:text-gray-200">
+    <em className="italic text-gray-800 dark:text-gray-50">
       {children}
     </em>
   )

@@ -31,10 +31,10 @@ export default async function TagsPage() {
           <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-3">
             <Link href="/" className="hover:text-cyan-600 transition-colors">ホーム</Link>
             <span className="text-gray-300">/</span>
-            <span className="text-gray-900 font-medium">タグ</span>
+            <span className="text-gray-900 dark:text-white font-medium">タグ</span>
           </nav>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">タグ一覧</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">タグ一覧</h1>
+          <p className="text-gray-600 dark:text-gray-400">
             看護助手としての暮らしを支えるキーワードを集めました。気になるテーマから記事を探してみてください。
           </p>
         </div>
@@ -48,21 +48,21 @@ export default async function TagsPage() {
             return (
               <section key={categorySlug}>
                 <div className="mb-4 flex flex-col gap-1">
-                  <h2 className="text-2xl font-semibold text-gray-900">{categoryInfo.title}</h2>
-                  <p className="text-sm text-gray-600">{categoryInfo.description}</p>
+                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">{categoryInfo.title}</h2>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{categoryInfo.description}</p>
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {tags.map(tag => (
                     <Link
                       key={tag.slug}
                       href={`/tags/${tag.slug}`}
-                      className="block rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-200"
+                      className="block rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-sm hover:shadow-md transition-shadow duration-200"
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900">{tag.title}</h3>
-                        <span className="text-sm text-blue-600 font-medium">{tag.postCount}記事</span>
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{tag.title}</h3>
+                        <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">{tag.postCount}記事</span>
                       </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                         {tag.description}
                       </p>
                     </Link>

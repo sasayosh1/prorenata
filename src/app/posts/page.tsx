@@ -56,8 +56,8 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 py-8">
         {/* ヘッダー */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">記事一覧</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">記事一覧</h1>
+          <p className="text-gray-600 dark:text-gray-400">
             看護助手に関する全ての記事をご覧いただけます
           </p>
         </div>
@@ -70,11 +70,11 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
         {/* 記事数表示 */}
         <div className="mb-6">
           {isSearchMode ? (
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {totalCount}件の記事が見つかりました
             </p>
           ) : (
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               全{totalCount}件中 {Math.min((currentPage - 1) * 15 + 1, totalCount)}-{Math.min(currentPage * 15, totalCount)}件を表示
             </p>
           )}
@@ -88,9 +88,9 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
 
               return (
                 <Link href={`/posts/${post.slug.current}`} key={post._id}>
-                  <article className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer group h-full flex flex-col">
+                  <article className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer group h-full flex flex-col">
                     {/* Image Area */}
-                    <div className="h-48 bg-gray-100 relative overflow-hidden">
+                    <div className="h-48 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
                       {post.mainImage?.asset ? (
                         <Image
                           src={urlFor(post.mainImage).width(800).height(600).url()}
@@ -105,11 +105,11 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                     </div>
 
                     <div className="p-6 flex flex-col flex-grow">
-                      <h2 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2">
                         {sanitizeTitle(post.title)}
                       </h2>
 
-                      <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-3">
+                      <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
                         <time dateTime={post.publishedAt || post._createdAt}>
                           {label}
                         </time>
@@ -127,7 +127,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                               return (
                                 <span
                                   key={`${post._id}-category-${index}`}
-                                  className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
+                                  className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded"
                                 >
                                   {categoryLabel}
                                 </span>
@@ -138,7 +138,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                       </div>
 
                       {post.excerpt && (
-                        <p className="text-sm text-gray-600 leading-relaxed flex-grow line-clamp-3">
+                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-grow line-clamp-3">
                           {post.excerpt}
                         </p>
                       )}

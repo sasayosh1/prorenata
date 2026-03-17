@@ -55,19 +55,19 @@ export default async function TagDetailPage({ params }: Props) {
           <span className="text-gray-300">/</span>
           <Link href="/tags" className="hover:text-cyan-600 transition-colors">タグ</Link>
           <span className="text-gray-300">/</span>
-          <span className="text-gray-900 font-medium">{tag.title}</span>
+          <span className="text-gray-900 dark:text-white font-medium">{tag.title}</span>
         </nav>
 
         <header className="mb-8">
-          <p className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-700 mb-3">
+          <p className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300 mb-3">
             {categoryInfo.title}
           </p>
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">{tag.title}</h1>
-          <p className="text-gray-600 leading-relaxed">{tag.description}</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">{tag.title}</h1>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{tag.description}</p>
         </header>
 
         {posts.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-gray-300 bg-white p-8 text-center text-gray-600">
+          <div className="rounded-lg border border-dashed border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-8 text-center text-gray-600 dark:text-gray-400">
             このタグに該当する記事は現在準備中です。別のタグもご覧ください。
           </div>
         ) : (
@@ -75,15 +75,15 @@ export default async function TagDetailPage({ params }: Props) {
             {posts.map(post => {
               const { label } = formatPostDate(post)
               return (
-                <article key={post._id} className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <article key={post._id} className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-sm hover:shadow-md transition-shadow duration-200">
                   <Link href={`/posts/${post.slug.current}`} className="block">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-2 hover:text-cyan-600 transition-colors">
+                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                       {post.title}
                     </h2>
                     {post.excerpt && (
-                      <p className="text-sm text-gray-600 mb-3 line-clamp-3">{post.excerpt}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">{post.excerpt}</p>
                     )}
-                    <div className="flex items-center justify-between text-xs text-gray-500">
+                    <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                       <span>{label}</span>
                       {post.categories && post.categories.length > 0 && (
                         <span>

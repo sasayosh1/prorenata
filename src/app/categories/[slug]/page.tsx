@@ -117,16 +117,16 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
             <span>/</span>
             <Link href="/categories" className="hover:text-cyan-600">カテゴリー一覧</Link>
             <span>/</span>
-            <span className="text-gray-900 font-medium">{category.title}</span>
+            <span className="text-gray-900 dark:text-white font-medium">{category.title}</span>
           </nav>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{category.title}</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{category.title}</h1>
           {category.description && (
-            <p className="text-gray-600">{category.description}</p>
+            <p className="text-gray-600 dark:text-gray-400">{category.description}</p>
           )}
         </div>
 
         {posts.length === 0 ? (
-          <div className="bg-white border border-gray-200 rounded-lg p-8 text-center text-gray-600">
+          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-8 text-center text-gray-600 dark:text-gray-400">
             このカテゴリーに関連する記事は準備中です。
           </div>
         ) : (
@@ -134,15 +134,15 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
             {posts.map((post) => {
               const { label } = formatPostDate(post)
               return (
-                <article key={post._id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                    <Link href={`/posts/${post.slug.current}`} className="hover:text-cyan-600">
+                <article key={post._id} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <Link href={`/posts/${post.slug.current}`} className="hover:text-cyan-600 dark:hover:text-cyan-400">
                       {post.title}
                     </Link>
                   </h2>
-                  <p className="text-sm text-gray-500 mb-3">{label}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{label}</p>
                   {post.excerpt && (
-                    <p className="text-gray-600 line-clamp-3">{post.excerpt}</p>
+                    <p className="text-gray-600 dark:text-gray-400 line-clamp-3">{post.excerpt}</p>
                   )}
                   <div className="mt-4">
                     <Link href={`/posts/${post.slug.current}`} className="text-blue-600 hover:text-blue-700 text-sm font-medium">

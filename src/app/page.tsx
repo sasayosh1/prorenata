@@ -79,7 +79,7 @@ export default async function Home() {
               </Link>
             </div>
             
-            <p className="mt-10 text-xs text-gray-400 font-medium">
+            <p className="mt-10 text-xs text-gray-400 dark:text-gray-50 font-medium">
               ※当サイトはアフィリエイト広告を利用しています
             </p>
           </div>
