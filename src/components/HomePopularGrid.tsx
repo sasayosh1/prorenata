@@ -305,10 +305,10 @@ function renderPopularSection(picked: Post[]) {
     <section className="mb-20">
       <div className="flex items-end justify-between gap-3 mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">人気記事</h2>
-          <p className="mt-1 text-sm text-gray-600">いま注目されている記事をまとめました。</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">人気記事</h2>
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">いま注目されている記事をまとめました。</p>
         </div>
-        <Link href="/posts" className="text-cyan-700 hover:text-cyan-800 text-sm font-semibold">
+        <Link href="/posts" className="text-cyan-700 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-300 text-sm font-semibold">
           記事一覧 →
         </Link>
       </div>
@@ -326,8 +326,8 @@ function renderPopularSection(picked: Post[]) {
               className="group block h-full no-underline"
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <article className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
+              <article className="h-full overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="relative aspect-[16/10] bg-gray-100 dark:bg-gray-800 overflow-hidden">
                   {post.mainImage ? (
                     <Image
                       src={urlFor(post.mainImage).width(900).height(560).url()}
@@ -349,7 +349,7 @@ function renderPopularSection(picked: Post[]) {
                   )}
                   {category ? (
                     <div className="absolute bottom-3 left-3">
-                      <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-cyan-700 text-xs font-bold rounded-full shadow-sm">
+                      <span className="inline-block px-3 py-1 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-cyan-700 dark:text-cyan-400 text-xs font-bold rounded-full shadow-sm">
                         {category}
                       </span>
                     </div>
@@ -357,10 +357,10 @@ function renderPopularSection(picked: Post[]) {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-base font-bold text-gray-900 line-clamp-2 group-hover:text-cyan-700 transition-colors">
+                  <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors">
                     {title}
                   </h3>
-                  {post.excerpt ? <p className="mt-2 text-sm text-gray-600 line-clamp-2">{post.excerpt}</p> : null}
+                  {post.excerpt ? <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{post.excerpt}</p> : null}
                 </div>
               </article>
             </Link>
@@ -371,7 +371,7 @@ function renderPopularSection(picked: Post[]) {
       <div className="mt-12 flex justify-center">
         <Link
           href="/posts"
-          className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-base font-bold text-cyan-700 ring-1 ring-cyan-100 shadow-sm hover:bg-cyan-50 hover:ring-cyan-200 transition-all duration-200"
+          className="inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-8 py-3 text-base font-bold text-cyan-700 dark:text-cyan-400 ring-1 ring-cyan-100 dark:ring-cyan-900 shadow-sm hover:bg-cyan-50 dark:hover:bg-gray-700 hover:ring-cyan-200 transition-all duration-200"
         >
           記事一覧を見る →
         </Link>

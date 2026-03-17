@@ -13,7 +13,8 @@ Outfit: Official ProReNata medical uniform as shown in the character sheet.
 - IMPORTANT: Plain uniform. **NO name tags, NO patches, NO logos.**
 Setting: Beautiful, clean hospital environment. [e.g., A bright corridor / A quiet breakroom / A neat nurse station]. Soft, cinematic [morning/afternoon/evening] natural sunlight.
 Action/Pose: [Sera-like movement: Graceful, calm, and analytical. Not aggressive.]
-Vibe: Calm, analytical, professional, gentle, "positive resignation".
+Vibe: Calm, analytical, professional, gentle, "positive resignation". Cute 70% : Beauty 30% ratio.
+- **Composition & Framing**: **Varied framing is essential.** Avoid placing Sera in the center in every shot. Use high-angles, low-angles, close-ups, and profile shots. This prevents a "mechanical" appearance and ensures a natural, living feel across the blog content.
 Dimensions: 1200x630
 ```
 
@@ -26,6 +27,8 @@ Dimensions: 1200x630
     - **重要**: **名札、ワッペン、ロゴなどは一切入れないでください。** 無地の清潔な制服です。
     - **ボトムス**: 紺色のスリムなスクラブパンツ。
 *   **場所**: [場所を指定]
+*   **顔立ち・印象**: 「可愛さ7：美しさ3」の比率を維持してください。
+*   **構図**: 常に中央配置にせず、多角的なアングル（俯瞰、煽り、アップ、背面など）を使用して、機械的な印象を避けてください。
 *   **ポーズ・動作**: [セラの性格（冷静・論理的・静か）に合った動き。大きな動作でも「ガサツ」や「攻撃的」にならず、しなやかで上品な動きであること。]
 ```
 ## 3. Composition & Framing (構図とフレーミング)

@@ -2,18 +2,18 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 mt-24">
+    <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* サイト情報 */}
             <div className="col-span-1">
               <div className="flex items-center">
-                <div className="text-2xl font-bold text-gray-800 tracking-tight">
+                <div className="text-2xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
                   ProReNata
                 </div>
               </div>
-              <p className="mt-4 text-sm text-gray-500 leading-relaxed">
+              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                 看護助手として働く方、目指す方のための専門情報サイト。
                 現場経験者による実践的なガイドを提供します。
               </p>
@@ -38,7 +38,7 @@ export default function Footer() {
                   href="https://twitter.com/prorenata_jp"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-cyan-600 transition-all duration-300 transform hover:scale-110"
+                  className="text-gray-400 dark:text-gray-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300 transform hover:scale-110"
                   aria-label="Twitter"
                 >
                   <svg
@@ -61,22 +61,7 @@ export default function Footer() {
               </h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link href="/" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200 block hover:translate-x-1 transform">
-                    ホーム
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/posts" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200 block hover:translate-x-1 transform">
-                    記事一覧
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200 block hover:translate-x-1 transform">
-                    タグ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200 block hover:translate-x-1 transform">
+                  <Link href="/about" className="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-200 block hover:translate-x-1 transform">
                     About
                   </Link>
                 </li>
@@ -158,13 +143,13 @@ export default function Footer() {
           </div>
 
           {/* 下部のコピーライト */}
-          <div className="border-t border-gray-200 pt-8 mt-12">
+          <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-12">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center space-x-2 text-sm text-gray-500">
+              <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
                 <span>© {new Date().getFullYear()} ProReNata.</span>
                 <span>All rights reserved.</span>
               </div>
-              <div className="mt-4 md:mt-0 text-sm text-gray-400">
+              <div className="mt-4 md:mt-0 text-sm text-gray-400 dark:text-gray-500">
                 Designed for Nursing Assistants
               </div>
             </div>

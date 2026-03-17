@@ -28,11 +28,11 @@ export default async function Home() {
       <Header />
 
       {/* Hero Section: Centered & Search Integrated */}
-      <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white">
+      <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950">
         {/* Background Image/Gradient Layer */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-blue-50 opacity-40 mix-blend-multiply transition-opacity duration-1000" />
-          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-blue-50 opacity-40 dark:opacity-20 mix-blend-multiply transition-opacity duration-1000" />
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30 dark:bg-gray-950/40" />
           <Image 
             src="/hero-bg-near-future.png" 
             alt="" 
@@ -44,13 +44,13 @@ export default async function Home() {
 
         <div className="relative z-10 w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
-            <h1 className="text-5xl font-extrabold tracking-tight text-gray-800 sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="text-5xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 sm:text-6xl md:text-7xl lg:text-8xl">
               <span className="block drop-shadow-sm opacity-90">ProReNata</span>
-              <span className="block text-cyan-600 mt-4 text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
+              <span className="block text-cyan-600 dark:text-cyan-500 mt-4 text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
                 看護助手の未来を拓く
               </span>
             </h1>
-            <p className="mt-8 text-lg text-gray-600 sm:text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
+            <p className="mt-8 text-lg text-gray-600 dark:text-gray-300 sm:text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
               <span className="inline-block">現場で働くあなたへ、</span>
               <span className="inline-block">給与・資格・キャリアの確かなガイドを。</span>
             </p>
@@ -73,7 +73,7 @@ export default async function Home() {
               </Link>
               <Link
                 href="/about"
-                className="rounded-full bg-white/70 backdrop-blur-md px-10 py-4 text-lg font-bold text-cyan-700 shadow-lg ring-1 ring-cyan-200 hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200"
+                className="rounded-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-md px-10 py-4 text-lg font-bold text-cyan-700 dark:text-cyan-400 shadow-lg ring-1 ring-cyan-200 dark:ring-cyan-800 hover:bg-white dark:hover:bg-gray-700 hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 ProReNataについて
               </Link>
@@ -106,7 +106,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-gray-50/50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-950/50">
         {/* Main Content */}
         <main className="py-16">
           
@@ -122,11 +122,11 @@ export default async function Home() {
                 <Link 
                   key={topic.title} 
                   href={topic.href}
-                  className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 p-8 shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className={`absolute top-0 right-0 w-24 h-24 ${topic.color} opacity-5 -mr-8 -mt-8 rounded-full group-hover:scale-150 transition-transform duration-500`} />
-                  <h3 className="text-xl font-extrabold text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors">{topic.title}</h3>
-                  <p className="text-gray-500 font-medium">{topic.desc}</p>
+                  <h3 className="text-xl font-extrabold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{topic.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 font-medium">{topic.desc}</p>
                 </Link>
               ))}
             </div>
@@ -134,15 +134,15 @@ export default async function Home() {
 
           {/* Latest Section */}
           <div className="mb-20">
-            <section className="rounded-2xl border border-gray-100 bg-white p-10 shadow-sm max-w-5xl mx-auto">
+            <section className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-10 shadow-sm max-w-5xl mx-auto">
               <div className="flex items-center justify-between gap-3 mb-10">
                 <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-8 bg-cyan-600 rounded-full" />
-                  <h2 className="text-3xl font-black text-gray-800">最新の記事</h2>
+                  <div className="w-1.5 h-8 bg-cyan-600 dark:bg-cyan-500 rounded-full" />
+                  <h2 className="text-3xl font-black text-gray-800 dark:text-gray-100">最新の記事</h2>
                 </div>
                 <Link
                   href="/posts"
-                  className="group flex items-center gap-1 text-cyan-700 hover:text-cyan-800 text-sm font-bold"
+                  className="group flex items-center gap-1 text-cyan-700 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-300 text-sm font-bold"
                 >
                   一覧を見る 
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -150,7 +150,7 @@ export default async function Home() {
               </div>
 
               {recentPosts.length > 0 ? (
-                <ul className="space-y-1 divide-y divide-gray-100">
+                <ul className="space-y-1 divide-y divide-gray-100 dark:divide-gray-800">
                   {recentPosts
                     .filter((post) => post.slug?.current)
                     .slice(0, 5)
@@ -169,17 +169,17 @@ export default async function Home() {
                           >
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                               <div className="min-w-0">
-                                <div className="text-xl font-bold text-gray-800 group-hover:text-cyan-600 transition-colors line-clamp-1">
+                                <div className="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-1">
                                   {displayTitle}
                                 </div>
                                 {category && (
-                                  <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full text-xs font-black bg-cyan-50 text-cyan-700 border border-cyan-100">
+                                  <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full text-xs font-black bg-cyan-50 dark:bg-cyan-900/40 text-cyan-700 dark:text-cyan-400 border border-cyan-100 dark:border-cyan-800">
                                     {category}
                                   </div>
                                 )}
                               </div>
                               {label && (
-                                <time className="text-sm text-gray-400 shrink-0 font-bold" dateTime={publishedDate || undefined}>
+                                <time className="text-sm text-gray-400 dark:text-gray-500 shrink-0 font-bold" dateTime={publishedDate || undefined}>
                                   {label}
                                 </time>
                               )}

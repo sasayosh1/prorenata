@@ -9,7 +9,7 @@
   }
   
   body {
-    @apply text-gray-800 bg-white dark:text-gray-200 dark:bg-gray-950 antialiased;
+    @apply text-gray-800 bg-white dark:text-gray-100 dark:bg-gray-950 antialiased;
     font-family: var(--font-noto-sans-jp), sans-serif;
     line-height: 1.8;
   }
@@ -31,7 +31,7 @@
   }
   
   .prose-custom h2 {
-    @apply text-2xl mt-12 mb-6 pb-2 border-b border-gray-100 dark:border-gray-800;
+    @apply text-2xl mt-12 mb-6 pb-2 border-b border-gray-100 dark:border-gray-700;
   }
   
   .prose-custom h3 {
@@ -56,23 +56,23 @@
 
   /* アフィリエイトカードの刷新（信頼性重視のデザイン） */
   .affiliate-card {
-    @apply my-10 p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm;
+    @apply my-10 p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm dark:bg-gray-900 dark:border-gray-800;
   }
 
   .affiliate-card__lead {
-    @apply font-bold text-gray-800 mb-2 text-lg;
+    @apply font-bold text-gray-800 dark:text-gray-100 mb-2 text-lg;
   }
 
   .affiliate-card__body {
-    @apply text-gray-700 mb-4;
+    @apply text-gray-700 dark:text-gray-300 mb-4;
   }
 
   .affiliate-card__body a {
-    @apply text-cyan-700 underline font-medium hover:text-cyan-800 transition-colors;
+    @apply text-cyan-700 dark:text-cyan-400 underline font-medium hover:text-cyan-800 dark:hover:text-cyan-300 transition-colors;
   }
   
   .affiliate-card__note {
-    @apply text-xs text-gray-500 mt-4 leading-normal;
+    @apply text-xs text-gray-500 dark:text-gray-400 mt-4 leading-normal;
   }
 }
 

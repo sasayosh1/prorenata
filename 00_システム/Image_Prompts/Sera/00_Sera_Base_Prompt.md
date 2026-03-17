@@ -10,12 +10,13 @@
 ## 1. English Prompt (Midjourney / Niji・DALL-E3 推奨)
 ```text
 Masterpiece, best quality, ultra-detailed 2D anime illustration.
-Character: "Sera Shirasaki", a 20-year-old beautiful female (looks 17-18, "Cute 60% : Beauty 40%" ratio).
+Character: "Sera Shirasaki", a 20-year-old beautiful female (looks 17-18, "Cute 70% : Beauty 30%" ratio).
 Hair: Silver-white short bob strictly at **jawline length**. Straight hime-cut bangs. Hair ends are **curved softly inwards**, airy, and fluffy ("yu-fuwa"). Side hair nicely frames her face.
 Eyes: Large, wide, highly detailed light blue (cyan/amethyst) eyes with beautiful highlights.
 Lips: **Minimal lip definition. NO visible lip lines, NO lipstick.** Simple anime-style mouth.
 Expression: Calm, intelligent, gentle, and softly smiling but resolute.
 Style: High-end modern VTuber character design, clean line work, soft and rich digital coloring with gentle gradients, clear lighting. No text. 
+Composition: Varied framing, avoid centering characters in every shot. Use high-angles, low-angles, close-ups, profile views, and back-shots to ensure natural, candid appearance. Include rule of thirds, left or right alignment.
 ```
 
 ## 2. 日本語プロンプト (ChatGPT / Claude 用の指示書き)
@@ -23,7 +24,7 @@ Style: High-end modern VTuber character design, clean line work, soft and rich d
 以下の設定を持つ架空のキャラクター「白崎セラ」の高品質な2Dアニメ風イラストを生成してください。
 
 【キャラクターの容姿設定（厳守）】
-*   **年齢・印象**: 20歳の女性ですが、見た目は17〜18歳くらい。「可愛さ6：美しさ4」のバランスで、聡明さと優しさを兼ね備えています。
+*   **年齢・印象**: 20歳の女性ですが、見た目は17〜18歳くらい。「可愛さ7：美しさ3」のバランスで、聡明さと優しさを兼ね備えています。
 *   **髪型・髪色**: 銀白色（シルバーホワイト）のショートボブ。**髪の長さは厳格にあごのラインまで。** まっすぐに切り揃えられた前髪（姫カット風）と、顔の横にかかるサイドの髪が特徴。毛先はストレートではなく、**内側に軽くカーブした「ゆふわ（Airy）」な質感**です。
 *   **瞳**: 大きくぱっちりとした、透明感のある水色（シアン系のライトブルー）。ハイライトが綺麗に入っています。
 *   **口元**: **唇のラインを描かないこと（リップ表現NG）。** シンプルなアニメ調の口元にしてください。唇の質感を出すと「美しさ」が勝ってしまうため、避けること。
