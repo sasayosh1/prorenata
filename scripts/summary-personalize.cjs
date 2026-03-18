@@ -169,8 +169,7 @@ function extractAnchors(blocks, summaryIndex) {
 function buildPrompt({ title, context, anchors }) {
   const anchorText = anchors.map(a => `- ${a}`).join('\n')
   const followTemplates = [
-    'もしよければ、ブックマークしてまた見返してくださいね。',
-    'もしよければ、公式X（@prorenata_jp）もフォローしてみてくださいね。'
+    'もしよければ、ブックマークしてまた見返してくださいね。'
   ]
   const followText = followTemplates.map(t => `- ${t}`).join('\n')
   return `あなたはProReNataの記事執筆者です。一人称は必ず「わたし」。丁寧な「です・ます」調を基本としつつ、要点や列挙部分では「体言止め」や簡潔な表現を使い、幼くならないようプロフェッショナルかつ温かみのある文章を書いてください。
@@ -192,7 +191,7 @@ ${followText}
 
 要件:
 1) summaryは220〜420文字（改行なし）
-2) followは上の定型文から1つだけ選ぶ（改行なし）
+2) followは上の定型文を「そのまま」使う（改変禁止、改行なし）
 3) 本文に書かれていない具体例・エピソード・私生活は一切追加しない
 4) 「汎用テンプレの言い回し」を避け、本文の内容に寄せる
 
@@ -229,10 +228,7 @@ function validateSummary({ summary, follow, anchors }) {
   const sLen = [...s].length
   if (sLen < 220 || sLen > 520) errors.push('summary_length')
   const followBookmark = 'もしよければ、ブックマークしてまた見返してくださいね。'
-  const followX = 'もしよければ、公式X（@prorenata_jp）もフォローしてみてくださいね。'
-  const hasX = /(@prorenata_jp|公式X)/.test(fRaw)
-  const hasBookmark = /(ブックマーク|お気に入り)/.test(fRaw)
-  const f = hasX ? followX : hasBookmark ? followBookmark : ''
+  const f = hasBookmark ? followBookmark : ''
   if (!f) errors.push('follow_missing_prompt')
   const banned = ['カフェ', '友達', '音楽', '休日', '旅行', 'デート', 'わたしみたいに', 'わたしは']
   if (banned.some(w => s.includes(w) || fRaw.includes(w))) errors.push('banned_words')
@@ -254,7 +250,7 @@ async function generateWithRetry({ geminiModel, title, context, anchors }) {
 
   const retryPrompt = `次のJSONは要件違反の可能性があります。本文の内容だけに基づいて、要件を厳守して書き直してください。
 - summary: 220〜360文字、改行なし、本文の内容だけ、キーワード候補から最低2つをそのまま含める。文章が幼くならないよう、適宜「体言止め」等でバランスを整える。
-- follow: 1文だけ、改行なし、ブックマーク or 公式X（@prorenata_jp）
+- follow: 1文だけ、改行なし、ブックマークしてまた見返してくださいね。
 - 私生活や本文にない具体例は追加しない
 出力はJSONのみ。
 
@@ -282,7 +278,7 @@ ${firstRaw}
 
   const compressPrompt = `本文の内容だけに基づいて、さらに短く整えてください。
 - summary: 200〜280文字、2〜3文、改行なし、キーワード候補から最低2つをそのまま含める
-- follow: 1文だけ（50文字以内、改行なし）、ブックマーク or 公式X（@prorenata_jp）をどちらか1つだけ
+- follow: 1文だけ（50文字以内、改行なし）、ブックマークしてまた見返してくださいね。
 出力はJSONのみ。
 
 記事タイトル: ${title}
