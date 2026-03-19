@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SOURCE_FILE = path.join(process.cwd(), 'note_draft.md');
-const TARGET_DIR = path.join(process.cwd(), 'note生成記事');
+const TARGET_DIR = path.join(process.cwd(), 'note/articles');
 
 function migrate() {
     if (!fs.existsSync(SOURCE_FILE)) {

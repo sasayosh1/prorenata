@@ -10,7 +10,7 @@ const SANITY_API_TOKEN = process.env.SANITY_API_TOKEN;
 const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID || '72m8vhy2';
 const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET || 'production';
 const { spawnSync } = require('child_process');
-const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note生成記事');
+const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note/articles');
 const X_POSTS_DIR = path.join(process.cwd(), 'X投稿');
 
 // Budget Guard
