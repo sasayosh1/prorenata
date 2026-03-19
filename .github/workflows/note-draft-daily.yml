@@ -34,7 +34,7 @@ jobs:
           git config --global user.name "Sera Shirasaki (Bot)"
           git config --global user.email "sera-bot@prorenata.jp"
           
-          git add note生成記事/
+          git add note/articles/
           
           # Check if there are changes to commit
           if git diff --staged --quiet; then
