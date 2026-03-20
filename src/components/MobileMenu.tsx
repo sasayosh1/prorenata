@@ -95,6 +95,13 @@ export default function MobileMenu() {
                                         >
                                             About
                                         </Link>
+                                        <Link
+                                            href="/contact"
+                                            onClick={closeMenu}
+                                            className="text-lg font-medium text-gray-900 hover:text-cyan-600 py-2 border-b border-gray-50"
+                                        >
+                                            お問い合わせ
+                                        </Link>
                                         <a
                                             href="https://note.com/prorenata"
                                             target="_blank"

@@ -31,8 +31,8 @@ export default async function Home() {
       <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950">
         {/* Background Image/Gradient Layer */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-blue-50 opacity-40 dark:opacity-20 mix-blend-multiply transition-opacity duration-1000" />
-          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30 dark:bg-gray-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-blue-50 opacity-20 dark:opacity-20 mix-blend-multiply transition-opacity duration-1000" />
+          <div className="absolute inset-0 backdrop-blur-[1px] bg-white/15 dark:bg-gray-950/40" />
           <Image 
             src="/hero-bg-near-future.png" 
             alt="" 

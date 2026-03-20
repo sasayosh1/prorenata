@@ -26,6 +26,9 @@ export default function Header() {
             <Link href="/about" className="px-3 py-2 rounded-md hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200">
               About
             </Link>
+            <Link href="/contact" className="px-3 py-2 rounded-md hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200">
+              お問い合わせ
+            </Link>
           </nav>
           <div className="flex items-center gap-4 pl-2 border-l border-gray-200 dark:border-gray-700 ml-2">
             <HeaderSearch />
