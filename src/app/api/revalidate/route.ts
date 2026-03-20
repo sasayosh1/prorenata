@@ -52,6 +52,7 @@ async function handleRevalidate(paths: string[]) {
     unique.forEach((path) => revalidatePath(path))
     return NextResponse.json({ ok: true, revalidated: unique })
   } catch (err) {
+    console.error('Revalidation failed:', err)
     return NextResponse.json({ ok: false, error: 'Revalidation failed' }, { status: 500 })
   }
 }

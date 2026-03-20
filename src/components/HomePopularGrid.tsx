@@ -126,57 +126,7 @@ function log1p(value: number): number {
   return Math.log(1 + Math.max(0, value))
 }
 
-function computeRevenueBoost(post: Pick<Post, 'title' | 'categories' | 'tags' | 'slug'>): number {
-  const title = (post.title || '').toLowerCase()
-  const slug = post.slug?.current?.toLowerCase?.() || ''
-  const tags = (post.tags || []).map((t) => String(t).toLowerCase())
-  const categorySlugs = (post.categories || [])
-    .map((c) => (c?.slug ? String(c.slug).toLowerCase() : ''))
-    .filter(Boolean)
 
-  const haystack = [title, slug, ...tags, ...categorySlugs].join(' ')
-
-  // High intent / monetization-adjacent topics (lightweight heuristic).
-  const strong = [
-    '転職',
-    '退職',
-    '退職代行',
-    '志望動機',
-    '面接',
-    '履歴書',
-    '給料',
-    '年収',
-    '手当',
-    '夜勤',
-    'job-hunting',
-    'retirement',
-    'resignation',
-    'agency',
-    'agent',
-    'salary',
-    'pay',
-    'interview',
-  ]
-
-  const medium = [
-    'メンタル',
-    '人間関係',
-    'ストレス',
-    'つらい',
-    '疲れ',
-    '不安',
-    'health',
-    'mental',
-    'stress',
-  ]
-
-  const strongHit = strong.some((k) => haystack.includes(k.toLowerCase()))
-  const mediumHit = medium.some((k) => haystack.includes(k.toLowerCase()))
-
-  if (strongHit) return 0.1
-  if (mediumHit) return 0.05
-  return 0
-}
 
 async function fetchFallbackPosts(limit: number): Promise<Post[]> {
   // 閲覧数が多い順、または「悩み」の深い特定カテゴリを優先して表示

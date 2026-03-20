@@ -5,7 +5,6 @@ import imageUrlBuilder from '@sanity/image-url'
 export type SanityImageSource = any
 import {
   TAG_CATALOG,
-  CATEGORY_SUMMARY,
   type TagDefinition,
   resolveTagDefinition,
 } from '@/data/tagCatalog'

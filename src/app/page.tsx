@@ -221,7 +221,7 @@ export default async function Home() {
                   </div>
                   <div className="w-full lg:w-2/3 text-center lg:text-left">
                     <div className="inline-block px-4 py-1.5 bg-[#2cb696]/10 text-[#2cb696] text-sm font-black rounded-full mb-6">
-                      Sera's Note
+                      Sera&apos;s Note
                     </div>
                     <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
                       教科書には載っていない、<br className="hidden md:block" />

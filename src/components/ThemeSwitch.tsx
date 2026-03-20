@@ -6,7 +6,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   // ハイドレーションのミスマッチを防ぐためにマウントまで待機
   useEffect(() => {
