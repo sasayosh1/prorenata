@@ -26,10 +26,10 @@ export default function ContactPage() {
                 下記のメールアドレス宛にご連絡ください。
               </p>
               <a
-                href="mailto:info@prorenata.jp"
-                className="mt-3 inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+                href="mailto:prorenata.jp@gmail.com"
+                className="mt-3 inline-flex items-center text-cyan-600 hover:text-cyan-700 font-medium transition-colors"
               >
-                info@prorenata.jp
+                prorenata.jp@gmail.com
               </a>
             </section>
 
@@ -42,9 +42,24 @@ export default function ContactPage() {
                 href="https://twitter.com/prorenata_jp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+                className="mt-3 inline-flex items-center text-cyan-600 hover:text-cyan-700 font-medium transition-colors"
               >
                 @prorenata_jp
+              </a>
+            </section>
+            
+            <section>
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">note</h2>
+              <p className="text-gray-600">
+                「セラの日常」を綴るエッセイや、日々の気づきをnoteで発信しています。
+              </p>
+              <a
+                href="https://note.com/prorenata"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center text-[#2cb696] hover:text-[#239178] font-medium transition-colors"
+              >
+                note | 白崎セラ
               </a>
             </section>
 

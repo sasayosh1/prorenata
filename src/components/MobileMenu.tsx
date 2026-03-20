@@ -95,6 +95,18 @@ export default function MobileMenu() {
                                         >
                                             About
                                         </Link>
+                                        <a
+                                            href="https://note.com/prorenata"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={closeMenu}
+                                            className="text-lg font-medium text-[#2cb696] hover:text-[#239178] py-2 flex items-center gap-2"
+                                        >
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M17.8 2H6.2C3.9 2 2 3.9 2 6.2v11.6C2 20.1 3.9 22 6.2 22h11.6c2.3 0 4.2-1.9 4.2-4.2V6.2C22 3.9 20.1 2 17.8 2zM15 17.5h-1.5v-7h-1.5v7H10.5v-7c0-0.8 0.7-1.5 1.5-1.5h1.5c0.8 0 1.5 0.7 1.5 1.5v7z"></path>
+                                            </svg>
+                                            note | 白崎セラ
+                                        </a>
                                     </nav>
                                 </Dialog.Panel>
                             </Transition.Child>

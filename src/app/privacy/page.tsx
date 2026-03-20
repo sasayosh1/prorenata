@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
 
           <h2>6. 個人情報の開示・訂正・削除</h2>
           <p>
-            ご本人からのご要望があった場合、速やかに対応いたします。<a href="mailto:info@prorenata.jp">info@prorenata.jp</a> までご連絡ください。
+            ご本人からのご要望があった場合、速やかに対応いたします。<a href="mailto:prorenata.jp@gmail.com">prorenata.jp@gmail.com</a> までご連絡ください。
           </p>
 
           <h2>7. ポリシーの改定</h2>

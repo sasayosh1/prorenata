@@ -952,52 +952,86 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </div>
               )}
 
-              {(canShowTrustFromSettings || canShowDisclaimerFromSettings || shouldShowStandardDisclaimer) && (
-                <section aria-label="この記事について" className="mt-8">
-                  {canShowTrustFromSettings && (
-                    <TrustBlock
-                      title={siteSettings?.trustTitle || 'この記事について'}
-                      body={trustBody}
-                    />
-                  )}
-                  {canShowDisclaimerFromSettings ? (
-                    <DisclaimerBlock
-                      title={siteSettings?.disclaimerTitle || '免責事項'}
-                      body={disclaimerBody}
-                    />
-                  ) : shouldShowStandardDisclaimer ? (
-                    <StandardDisclaimer />
-                  ) : null}
-                </section>
-              )}
-
-              {/* 記事下部のナビゲーション */}
-              <footer className="pt-8">
-                <div className="pt-6">
-                  <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                    <Link
-                      href="/blog"
-                      className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-medium px-4 py-2 rounded-md border border-cyan-200 dark:border-cyan-800 hover:border-cyan-300 dark:hover:border-cyan-700 transition-colors duration-200"
-                      aria-label="記事一覧に戻る"
-                    >
-                      記事一覧に戻る
-                    </Link>
-                    <Link
-                      href="/"
-                      className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-medium px-4 py-2 rounded-md border border-cyan-200 dark:border-cyan-800 hover:border-cyan-300 dark:hover:border-cyan-700 transition-colors duration-200"
-                      aria-label="ホームに戻る"
-                    >
-                      ホームに戻る
-                    </Link>
-
+                {/* noteへの誘導セクション */}
+                <section className="mt-12 p-8 bg-gradient-to-br from-[#2cb696]/10 to-cyan-50 dark:from-[#2cb696]/20 dark:to-cyan-900/20 rounded-2xl border border-[#2cb696]/20 dark:border-[#2cb696]/30 shadow-sm transition-all hover:shadow-md">
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden ring-4 ring-white dark:ring-gray-800 shadow-md flex-shrink-0">
+                      <Image
+                        src="/sera_icon_new.png"
+                        alt="白崎セラ"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 text-center md:text-left">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                        「セラの日常」を、noteで。
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                        ProReNataの公式ナビゲーター、白崎セラです。
+                        記事では書ききれない現場のリアルな想いや、日々の気づきをnoteで綴っています。
+                        あなたの心に少しでも寄り添えたら嬉しいです。
+                      </p>
+                      <a
+                        href="https://note.com/prorenata"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#2cb696] hover:bg-[#239178] text-white rounded-full text-sm font-bold transition-all shadow-sm hover:translate-y-[-1px] active:translate-y-0"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M17.8 2H6.2C3.9 2 2 3.9 2 6.2v11.6C2 20.1 3.9 22 6.2 22h11.6c2.3 0 4.2-1.9 4.2-4.2V6.2C22 3.9 20.1 2 17.8 2zM15 17.5h-1.5v-7h-1.5v7H10.5v-7c0-0.8 0.7-1.5 1.5-1.5h1.5c0.8 0 1.5 0.7 1.5 1.5v7z"></path>
+                        </svg>
+                        noteで続きを読む
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </footer>
+                </section>
+
+                {(canShowTrustFromSettings || canShowDisclaimerFromSettings || shouldShowStandardDisclaimer) && (
+                  <section aria-label="この記事について" className="mt-8">
+                    {canShowTrustFromSettings && (
+                      <TrustBlock
+                        title={siteSettings?.trustTitle || 'この記事について'}
+                        body={trustBody}
+                      />
+                    )}
+                    {canShowDisclaimerFromSettings ? (
+                      <DisclaimerBlock
+                        title={siteSettings?.disclaimerTitle || '免責事項'}
+                        body={disclaimerBody}
+                      />
+                    ) : shouldShowStandardDisclaimer ? (
+                      <StandardDisclaimer />
+                    ) : null}
+                  </section>
+                )}
+
+                {/* 記事下部のナビゲーション */}
+                <footer className="pt-8">
+                  <div className="pt-6">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                      <Link
+                        href="/blog"
+                        className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-medium px-4 py-2 rounded-md border border-cyan-200 dark:border-cyan-800 hover:border-cyan-300 dark:hover:border-cyan-700 transition-colors duration-200"
+                        aria-label="記事一覧に戻る"
+                      >
+                        記事一覧に戻る
+                      </Link>
+                      <Link
+                        href="/"
+                        className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-medium px-4 py-2 rounded-md border border-cyan-200 dark:border-cyan-800 hover:border-cyan-300 dark:hover:border-cyan-700 transition-colors duration-200"
+                        aria-label="ホームに戻る"
+                      >
+                        ホームに戻る
+                      </Link>
+                    </div>
+                  </div>
+                </footer>
+              </div>
             </div>
-          </div>
-        </main>
-      </div>
-      <Footer />
-    </>
-  )
-}
+          </main>
+        </div>
+        <Footer />
+      </>
+    )
+  }

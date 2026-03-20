@@ -6,11 +6,11 @@
 > - **合計コスト: 約 0.220円**
 
 ---
-「看護助手って、なんでこんなに腰にくるんだろう」
+「看護助手って、なんでこんなに腰にくるのかな」
 
-シーツ交換のたびに、ギシギシと音を立てる自分の体。湿布の匂いが、もう制服の一部みたいになってる。患者さんの笑顔のためって、分かってるんだけど……。「無理しないで」って、誰かに言われたい。
+シーツ交換のたびに、ギシギシと音を立てる自分の体。湿布の匂いが、もう制服の一部みたいになってる。患者さんの笑顔のためって、分かっているけれど……。誰かに「無理しないで」って、言われたい。
 
-でも、わたしもこれで、少し景色が変わったんだ。
+でも、わたしもこれで、少し景色が変わった、かな。
 https://prorenata.jp/posts/nursing-assistant-job-role-patient?t=1
 ---
 [Image Prompt: Masterpiece, best quality, 2D anime illustration, soft digital watercolor coloring, ProReNata style, Clean hospital corridor at night, pale blue moonlight, a single warm lamp at the nurse station, silent and sacred atmosphere, NO people, NO stethoscope.]
@@ -20,14 +20,14 @@ https://prorenata.jp/posts/nursing-assistant-job-role-patient?t=1
 
 ナースステーションの青白い光は、今日もいつも通り。記録をつけながら、ふと手が止まる。また、あの人の名前がカルテに並ぶのか。
 
-わたしもこれで、少し景色が変わったんだ。
+わたしもこれで、少し景色が変わった、かな。
 https://prorenata.jp/posts/nursing-assistant-job-role-patient?t=1
 ---
 夜勤明け。
-疲れた体に鞭打って、朝ごはんを買いにいつものコンビニへ。店員さんが「お疲れ様です」って。
-それだけで、少しだけ、心が軽くなるんだよね。
+なんとか歩いて、朝ごはんを買いにいつものコンビニへ。店員さんが「お疲れ様です」って。
+それだけで、少しだけ、心が軽くなるんですよね。
 
-今日も一日、よく頑張った。
+今日も一日、よくがんばった。
 
 [Image Prompt: Masterpiece, best quality, 2D anime illustration, soft digital watercolor coloring, ProReNata style, A steaming paper cup of coffee on a wooden bus stop bench at night, rainy city lights blurred in the background, intimate and lonely atmosphere, NO people.]
 ![Generated Image](./images/post_2.png)
@@ -45,5 +45,5 @@ https://prorenata.jp/posts/nursing-assistant-night-shift
 深夜3時。
 ナースステーションの隅で、マグカップを両手で包み込む。
 温かいカフェオレが、少しずつ冷めていく。
-「今日も、よく頑張ったね」って、誰かに言われたかった。
+「今日も、よくがんばったね」って、自分に言ってあげたかった。
 ---

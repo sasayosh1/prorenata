@@ -76,8 +76,21 @@ export default function AboutPage() {
                         当サイトの案内役。複雑な医療制度や業界の動向を、分かりやすく噛み砕いてお伝えします。
                         ProReNata編集部が収集した膨大なデータと知見をベースに、あなたのキャリアに伴走する「頼れるガイド」として活動しています。
                       </p>
-                      <div className="p-4 bg-white/80 dark:bg-gray-800/80 rounded-lg text-sm text-gray-600 dark:text-gray-400 italic">
-                        「データや法律は少し難しく感じるかもしれませんが、私が間に入って分かりやすくお繋ぎします。一緒にこれからの道を探していきましょう。」
+                      <div className="flex flex-wrap gap-4 mt-4 justify-center md:justify-start">
+                        <div className="p-4 bg-white/80 dark:bg-gray-800/80 rounded-lg text-sm text-gray-600 dark:text-gray-400 italic flex-1">
+                          「データや法律は少し難しく感じるかもしれませんが、私が間に入って分かりやすくお繋ぎします。一緒にこれからの道を探していきましょう。」
+                        </div>
+                        <a
+                          href="https://note.com/prorenata"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-[#2cb696] hover:bg-[#239178] text-white rounded-full text-sm font-bold transition-colors shadow-sm self-center"
+                        >
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.8 2H6.2C3.9 2 2 3.9 2 6.2v11.6C2 20.1 3.9 22 6.2 22h11.6c2.3 0 4.2-1.9 4.2-4.2V6.2C22 3.9 20.1 2 17.8 2zM15 17.5h-1.5v-7h-1.5v7H10.5v-7c0-0.8 0.7-1.5 1.5-1.5h1.5c0.8 0 1.5 0.7 1.5 1.5v7z"></path>
+                          </svg>
+                          noteでセラの日常に触れる
+                        </a>
                       </div>
                     </div>
                   </div>
