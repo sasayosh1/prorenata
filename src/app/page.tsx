@@ -209,7 +209,7 @@ export default async function Home() {
                           alt="白崎セラ"
                           fill
                           className="object-cover"
-                          style={{ objectPosition: '50% 20%' }}
+                          style={{ objectPosition: '50% 25%' }}
                         />
                       </div>
                       <div className="absolute -bottom-2 -right-2 bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-xl border border-gray-100 dark:border-gray-700">
