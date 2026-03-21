@@ -6,6 +6,7 @@ import speechBubble from './speechBubble'
 import faqItem from './faqItem'
 import siteSettings from './siteSettings'
 import blockContent from './blockContent'
+import seraAdvice from './seraAdvice'
 
 export const schemaTypes = [
     blockContent,
@@ -15,5 +16,6 @@ export const schemaTypes = [
     category,
     affiliateEmbed,
     speechBubble,
-    faqItem
+    faqItem,
+    seraAdvice
 ]

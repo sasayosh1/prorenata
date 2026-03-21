@@ -12,6 +12,16 @@ const {
   normalizeCategoryTitle
 } = require('./categoryMappings')
 const { MOSHIMO_LINKS } = require('../moshimo-affiliate-links')
+const MetadataService = require('./metadataService')
+
+let metadataServiceGlobal = null
+function getMetadataService() {
+  const apiKey = process.env.GEMINI_API_KEY || process.env.SANITY_API_TOKEN
+  if (!metadataServiceGlobal && apiKey) {
+    metadataServiceGlobal = new MetadataService(apiKey)
+  }
+  return metadataServiceGlobal
+}
 
 const INTRO_PARAGRAPH_PATTERNS = [
   /\d{1,2}歳/,

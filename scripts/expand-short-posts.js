@@ -15,6 +15,7 @@
 const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { SERA_BRIEF_PERSONA } = require('./utils/seraPersona');
+const MetadataService = require('./utils/metadataService');
 require('dotenv').config({ path: '.env.local' });
 
 const client = createClient({
@@ -25,9 +26,28 @@ const client = createClient({
   useCdn: false
 });
 
-// Gemini API初期化
+const metadataService = new MetadataService(process.env.GEMINI_API_KEY);
+
+// Gemini API初期化（記事加筆用）
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite-001' }); // バージョン固定、Proフォールバック防止、Vertex AI禁止
+const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite-001' });
+
+/**
+ * excerptを生成
+ */
+async function generateExcerpt(post) {
+  try {
+    const metadata = await metadataService.generateMetadata({
+      title: post.title,
+      body: post.body,
+      category: post.categories?.[0] || '仕事'
+    });
+    return metadata.excerpt;
+  } catch (error) {
+    console.error(`⚠️ excerpt生成エラー: ${error.message} `);
+    return null;
+  }
+}
 
 /**
  * 文字数をカウント

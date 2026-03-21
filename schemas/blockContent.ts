@@ -81,5 +81,8 @@ export default defineType({
         },
       },
     }),
+    defineArrayMember({
+      type: 'seraAdvice',
+    }),
   ],
 })

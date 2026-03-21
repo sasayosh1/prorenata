@@ -1,15 +1,16 @@
 const { createClient } = require('@sanity/client');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { randomUUID } = require('crypto');
 const fs = require('fs');
 const path = require('path');
-const { SERA_FULL_PERSONA } = require('./utils/seraPersona');
 const {
   ensurePortableTextKeys,
   ensureReferenceKeys
 } = require('./utils/keyHelpers');
 const { spawnSync } = require('child_process');
+const MetadataService = require('./utils/metadataService');
 require('dotenv').config({ path: path.join(__dirname, '../.env.local') }); // For local testing
+
+const metadataService = new MetadataService(process.env.GEMINI_API_KEY);
 
 // Budget Guard
 const budget = spawnSync(process.execPath, [path.resolve(__dirname, 'budget-guard.cjs'), '--reserve-articles', '1'], {
@@ -707,8 +708,6 @@ async function generateAndSaveArticle() {
   }
   const sanityReadClient = createClient(SANITY_READ_CONFIG);
   const sanityWriteClient = createClient(SANITY_WRITE_CONFIG);
-  const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" }); // バージョン固定、Proフォールバック防止、Vertex AI禁止
 
   // 2. Select a topic/keyword
   console.log("Selecting a topic/keyword...");
@@ -858,14 +857,10 @@ async function generateAndSaveArticle() {
       }
 
       // --- Seasonal & Trend Brainstorming (Minimal Cost Step) ---
-      console.log("Brainstorming seasonal/trend topics with Gemini...");
+      console.log("Brainstorming seasonal/trend topics with MetadataService...");
       try {
-        const trendPrompt = `看護助手の現場において、現在（2026年3月）の季節感、最近の業界ニュース、実務上の悩み、またはトレンドに関するキーワードやトピックを10個、カンマ区切りで挙げてください。例: 春の入職準備, 花粉症対策, 腰痛予防, 法改正の進捗 など。`;
-        const trendResult = await model.generateContent(trendPrompt);
-        const trendText = trendResult.response.text().trim();
-        const trendKeywords = trendText.split(/[,、|]/).map(k => k.trim()).filter(k => k.length > 1);
-        
-        console.log("Trend Keywords from Gemini:", trendKeywords.join(', '));
+        const trendKeywords = await metadataService.brainstormTrends();
+        console.log("Trend Keywords from MetadataService:", trendKeywords.join(', '));
         
         trendKeywords.forEach(tk => {
           if (!byQuery.has(tk)) {
@@ -1070,101 +1065,19 @@ async function generateAndSaveArticle() {
     titleMaxLength = 55;
   }
 
-  const prompt = `
-${SERA_FULL_PERSONA}
-${toneGuidance}
-
-# 【最重要】セラのポジション定義
-- セラは**案内役（IP）**であり、情報の責任主体ではない
-- **事実・制度・数値の説明はサイト側（中立的地の文）が担う**
-- **セラは共感・所感・補足のみを担当**し、必ず主観表現（「思います」「感じます」等）を使う
-- YMYL 配慮を最優先し、キャラクター性より安全性を優先
-
-# 記事構成の原則
-## 導入部
-- 【サイト側】制度・背景の客観的説明
-- 【セラ】読者への共感・記事の案内（主観表現必須）
-
-## 本文
-- 【サイト側】見出し・事実・データ・制度説明（断定的・客観的）
-- 【セラ】（必要に応じて）補足・現場感覚・注意点（主観表現必須）
-
-## まとめ
-- 【サイト側】記事の要点整理・安心して読み終えられる整理
-- 【セラ】励まし・伴走的コメント（主観表現必須）
-
-# 収益化とユーザビリティの統合
-- **読者ベネフィット第一**: 単なる解説記事ではなく、「読者が今抱えている具体的な悩み（例: 同僚への言い出しにくさ、面接での詰まり）」を解決する構成にする。
-- **キラーページへの誘導**: 内容が「転職」「退職」「給料アップ」に関連する場合、自然な文脈で当サイトの比較記事（退職代行のおすすめ、転職サービスの選び方等）に言及する。
-- **実務的トーン**: 理想論だけでなく、現場の「まあ、そうは言っても難しいよね」という感覚に寄り添いつつ、現実的な見通しを整理する。
-
-# 記事要件
-- テーマ: 「${selectedKeyword}」（看護助手向け）
-- 文字数: 制限なし（読みやすさ最優先。冗長に伸ばさず、必要な情報を優先）
-- 構成: 導入 → H2見出し3〜4個 → まとめ
-- **重要**: まとめでは「次回〜」「お楽しみに」など次回への言及は不要
-- 実務的なアドバイス、断定回避（「〜とされています」等）。曖昧な情報は「わからない」と明記。
-- 挨拶や自己紹介（「白崎セラです」等）は入れず、本題から開始する。
-- タイトル/本文で「看護助手の私が教える、」のような肩書き主張は入れない。
-- 文章内で自分の名前を出さない（例: 「セラが」「セラの」などは禁止）。必要なら「わたし」で表現する。
-- タイトルに「【】」などの括弧装飾は使わない（一覧で同じ見た目になりやすいため）。
-- タイトル末尾を「…」「...」で終えない（途中省略で終わらせない）。
-- タイトルは「徹底解説」「完全ガイド」等のテンプレ語を連発しない。必要なら別表現（要点整理/状況整理等）にする。
-- **タイトル文字数（SEO戦略・絶対厳守）**:
-  **${titleLengthGuide}**
-  **最低${titleMinLength}文字、最大${titleMaxLength}文字**
-  ${titleExample}
-
-# NG 例（セラが断定的説明の主語になる）
-❌ 「看護助手の平均年収は300万円です」（セラが断定）
-❌ 「夜勤手当は必ず支給されます」（セラが断定）
-❌ 「転職エージェントを使うべきです」（セラが指示）
-
-# OK 例（サイト側が提示、セラは所感のみ）
-✅ 「厚生労働省の調査によると、看護助手の平均年収は約300万円とされています」（サイト側）
-✅ 「夜勤手当は労働基準法で定められており、深夜労働には割増賃金が支給されます」（サイト側）
-✅ 「転職エージェントを利用することで、求人の選択肢が広がる可能性があります。ご自身の状況に合わせて検討してみてください」（サイト側）
-✅ 「わたしも転職を考えたとき、同じように悩みました」（セラの所感）
-
-# 出力形式（JSON、コードブロックなし）
-{
-  "title": "${titleLengthGuide}で読者メリットが伝わるタイトル",
-  "slug_keywords": "英語の重要キーワード3-4個（例: nursing-assistant-salary-tips）",
-  "excerpt": "記事の要約（100〜150文字）。読者の悩みに寄り添い、解決策を提示する文章。",
-  "metaDescription": "SEO用説明文（120〜160文字）。検索結果でクリックしたくなる魅力的な紹介文。",
-  "tags": ["${selectedTopic}", "看護助手"],
-  "body": [
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文)"}]},
-    {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "(H2見出し1)"}]},
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(本文)"}]},
-    {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "まとめ"}]},
-    {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(まとめ本文。挨拶不要。励ましと現実的アドバイスを両立)"}]}
-  ]
-}
-  `;
-
   let generatedArticle;
   try {
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    let text = response.text();
-
-    // Extract JSON part using regex
-    const jsonMatch = text.match(/```json\n([\s\S]*?)\n```/);
-    if (jsonMatch && jsonMatch[1]) {
-      text = jsonMatch[1];
-    } else {
-      // Fallback if not wrapped in ```json
-      const genericJsonMatch = text.match(/```\n([\s\S]*?)\n```/);
-      if (genericJsonMatch && genericJsonMatch[1]) {
-        text = genericJsonMatch[1];
-      }
-    }
-
-    generatedArticle = JSON.parse(text);
-    console.log("Successfully generated article content.");
+    generatedArticle = await metadataService.generateFullFromConcept({
+      keyword: selectedKeyword,
+      category: selectedTopic,
+      titleLengthGuide,
+      titleMinLength,
+      titleMaxLength,
+      toneGuidance
+    });
+    console.log("Successfully generated article content using MetadataService.");
   } catch (error) {
-    console.error("Error generating content with Gemini AI:", error);
+    console.error("Error generating content with MetadataService:", error);
     throw error;
   }
 

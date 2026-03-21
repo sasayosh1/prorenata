@@ -181,6 +181,9 @@ export default defineType({
         defineArrayMember({
           type: 'speechBubble',
         }),
+        defineArrayMember({
+          type: 'seraAdvice',
+        }),
       ],
       validation: rule => rule.required(),
     }),

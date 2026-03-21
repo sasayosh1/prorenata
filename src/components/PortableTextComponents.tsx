@@ -6,6 +6,7 @@ import { sanitizeTitle } from '@/lib/title'
 import type { RelatedPostSummary } from '@/lib/sanity'
 import SpeechBubble from './SpeechBubble'
 import DisclaimerCallout from './Article/DisclaimerCallout'
+import SeraAdviceBubble from './SeraAdviceBubble'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
@@ -626,6 +627,9 @@ export const portableTextComponents: PortableTextComponents = {
 
       )
     },
+    seraAdvice: ({ value }: { value?: { content?: string } }) => (
+      <SeraAdviceBubble content={value?.content || ''} />
+    ),
     speechBubble: SpeechBubble,
   },
 }

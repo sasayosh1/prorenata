@@ -26,6 +26,7 @@ const {
   blocksToPlainText,
   generateExcerpt,
   generateMetaDescription,
+  generateMetadataAsync,
   generateSlugFromTitle,
   generateTags,
   selectBestCategory,
@@ -4877,20 +4878,6 @@ async function autoFixMetadata() {
 
     const plainText = blocksToPlainText(updates.body || post.body)
 
-    if (!post.excerpt) {
-      const excerpt = generateExcerpt(plainText, post.title)
-      updates.excerpt = excerpt
-    }
-
-    // Tagsが2つ以下の場合、追加タグを自動生成
-    if (!post.tags || post.tags.length <= 2) {
-      // 既存のタグから selectedTopic を推測（看護助手以外の最初のタグ、空でないもの）
-      const existingTags = (post.tags || []).filter(tag => tag && tag.trim().length > 0)
-      const selectedTopic = existingTags.find(tag => tag !== '看護助手') || '悩み'
-      const generatedTags = generateTags(post.title, plainText, selectedTopic)
-      updates.tags = generatedTags
-    }
-
     let categoriesForMeta = (updates.categories || categoryRefs || [])
       .map(ref => {
         if (ref?._ref) {
@@ -4911,10 +4898,25 @@ async function autoFixMetadata() {
       categoriesForMeta = getNormalizedCategoryTitles(currentCategories)
     }
 
-    // Meta Description は plainText から直接生成（excerpt とは別）
-    if (!post.metaDescription) {
-      const metaDescription = generateMetaDescription(post.title, plainText, categoriesForMeta)
-      updates.metaDescription = metaDescription
+    if (!post.excerpt || !post.metaDescription) {
+      const primaryCategory = categoriesForMeta[0] || '仕事'
+      const aiMeta = await generateMetadataAsync({
+        title: post.title,
+        body: updates.body || post.body,
+        category: primaryCategory
+      })
+      
+      if (!post.excerpt) {
+        updates.excerpt = aiMeta.excerpt
+      }
+      if (!post.metaDescription) {
+        updates.metaDescription = aiMeta.metaDescription
+      }
+      
+      // If tags are also missing/low, we can use the ones from AI too
+      if (!post.tags || post.tags.length <= 2) {
+        updates.tags = aiMeta.tags
+      }
     }
 
     if (Object.keys(updates).length === 0) {

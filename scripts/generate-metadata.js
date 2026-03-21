@@ -152,6 +152,9 @@ function generateMetaDescription(title, excerpt, categories) {
   return description
 }
 
+const MetadataService = require('./utils/metadataService')
+const metadataService = new MetadataService(process.env.GEMINI_API_KEY || process.env.SANITY_API_TOKEN)
+
 /**
  * 1件の記事のメタデータを生成
  */
@@ -178,20 +181,32 @@ async function generatePostMetadata(postId, dryRun = false) {
     const updates = {}
     let hasUpdates = false
 
-    // テキスト抽出
-    const text = extractTextFromBody(post.body)
+    // AIでメタデータを一括生成
+    if (!post.excerpt || !post.metaDescription || !post.tags || post.tags.length === 0) {
+      console.log(`   🔄 AIでメタデータを生成中...`)
+      try {
+        const metadata = await metadataService.generateMetadata({
+          title: post.title,
+          body: post.body,
+          category: post.categories?.[0] || '仕事'
+        })
 
-    // Excerpt生成（既存のものがない場合）
-    if (!post.excerpt) {
-      updates.excerpt = generateExcerpt(text, post.title)
-      hasUpdates = true
-    }
-
-    // Meta Description生成（既存のものがない場合）
-    if (!post.metaDescription) {
-      const excerpt = updates.excerpt || post.excerpt
-      updates.metaDescription = generateMetaDescription(post.title, excerpt, post.categories)
-      hasUpdates = true
+        if (!post.excerpt) {
+          updates.excerpt = metadata.excerpt
+          hasUpdates = true
+        }
+        if (!post.metaDescription) {
+          updates.metaDescription = metadata.metaDescription
+          hasUpdates = true
+        }
+        if (!post.tags || post.tags.length <= 2) {
+          updates.tags = metadata.tags
+          hasUpdates = true
+        }
+      } catch (err) {
+        console.error(`   ❌ AIメタデータ生成失敗:`, err.message)
+        return { success: false, reason: 'ai_error', error: err.message }
+      }
     }
 
     if (!hasUpdates) {
@@ -203,6 +218,7 @@ async function generatePostMetadata(postId, dryRun = false) {
       console.log(`   更新予定:`)
       if (updates.excerpt) console.log(`   - excerpt: ${updates.excerpt}`)
       if (updates.metaDescription) console.log(`   - metaDescription: ${updates.metaDescription}`)
+      if (updates.tags) console.log(`   - tags: ${updates.tags.join(', ')}`)
       return { success: true, reason: 'dry_run' }
     }
 

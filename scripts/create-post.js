@@ -13,6 +13,9 @@ const {
   ensurePortableTextKeys,
   ensureReferenceKeys
 } = require('./utils/keyHelpers')
+const path = require('path')
+require('dotenv').config({ path: path.join(__dirname, '../.env.local') })
+const MetadataService = require('./utils/metadataService')
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2',
@@ -219,6 +222,8 @@ async function createPost() {
       return
     }
 
+    const metadataService = new MetadataService(process.env.GEMINI_API_KEY)
+
     // スラッグ生成（日本語タイトルの場合は手動入力を推奨）
     const autoSlug = generateSlug(title)
     console.log(`\n推奨スラッグ: ${autoSlug}`)
@@ -318,6 +323,28 @@ async function createPost() {
       publishedAt: new Date().toISOString(),
       tags: [],
       views: 0
+    }
+
+    // AIによるメタデータ生成
+    const generateMeta = await question('\nAIでメタデータ（抜粋・SEO説明・タグ）を生成しますか？ (y/n): ')
+    if (generateMeta.toLowerCase() === 'y') {
+      process.stdout.write('⏳ メタデータ生成中...')
+      try {
+        const metadata = await metadataService.generateMetadata({
+          title: post.title,
+          body: post.body,
+          category: selectedCategory.title
+        })
+        post.excerpt = metadata.excerpt
+        post.metaDescription = metadata.metaDescription
+        post.tags = metadata.tags
+        console.log('✅ 完了\n')
+        console.log(`抜粋: ${post.excerpt}`)
+        console.log(`SEO説明: ${post.metaDescription}`)
+        console.log(`タグ: ${post.tags.join(', ')}`)
+      } catch (err) {
+        console.error('\n❌ メタデータ生成に失敗しました:', err.message)
+      }
     }
 
     console.log('\n作成する記事の内容:')
