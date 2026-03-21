@@ -42,7 +42,7 @@ export default async function WorkingPage() {
       <header className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-gray-900">
-            🎉 Pro Re Nata - 動作確認完了！
+            🎉 ProReNata - 動作確認完了！
           </h1>
           <p className="text-gray-600 mt-2">
             必要に応じて、その都度
@@ -144,7 +144,7 @@ export default async function WorkingPage() {
       {/* フッター */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <p>&copy; 2025 Pro Re Nata. All rights reserved.</p>
+          <p>&copy; 2025 ProReNata. All rights reserved.</p>
           <p className="text-sm text-gray-400 mt-2">
             最終更新: {currentTime} | Build: {buildTime}
           </p>

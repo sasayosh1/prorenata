@@ -38,7 +38,7 @@ export default function AboutPage() {
                   <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                     <p>
                       ProReNata（プロレナータ）は、現役の看護助手や、これから看護助手を目指す方のための情報ウェブマガジンです。
-                      サイト名の由来は、ラテン語の医療用語「<span className="font-semibold text-cyan-700 dark:text-cyan-400">必要なときに（Pro Re Nata）</span>」。
+                      サイト名の由来は、ラテン語の医療用語「<span className="font-semibold text-cyan-700 dark:text-cyan-400">必要なときに（ProReNata）</span>」。
                     </p>
                     <p>
                       あなたが仕事やキャリアで迷ったとき、必要な情報をすぐに、そして正確に取り出せる「薬箱」のような存在でありたい──そんな願いを込めました。

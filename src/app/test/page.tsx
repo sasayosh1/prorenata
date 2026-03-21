@@ -11,7 +11,7 @@ export default function TestPage() {
       <header className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-gray-900">
-            Pro Re Nata - Test Page
+            ProReNata - Test Page
           </h1>
           <p className="text-gray-600 mt-2">
             必要に応じて、その都度
@@ -52,11 +52,11 @@ export default function TestPage() {
             <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               <div className="p-6">
                 <h4 className="text-xl font-semibold mb-3 text-gray-800">
-                  🎊 Pro Re Nataへようこそ
+                  🎊 ProReNataへようこそ
                 </h4>
                 
                 <p className="text-gray-600 mb-4">
-                  新しいブログサイトPro Re Nataが正式に開設されました！技術情報、ライフハック、最新トレンドなど様々なトピックを扱っていきます。
+                  新しいブログサイトProReNataが正式に開設されました！技術情報、ライフハック、最新トレンドなど様々なトピックを扱っていきます。
                 </p>
 
                 <p className="text-gray-500 text-sm mb-4">
@@ -107,7 +107,7 @@ export default function TestPage() {
       {/* フッター */}
       <footer className="bg-gray-900 text-white py-8 mt-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <p>&copy; 2025 Pro Re Nata. All rights reserved.</p>
+          <p>&copy; 2025 ProReNata. All rights reserved.</p>
         </div>
       </footer>
     </div>
