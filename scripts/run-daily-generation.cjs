@@ -846,18 +846,37 @@ async function generateAndSaveArticle() {
       // Merge AdWords Data
       if (adsRecords && adsRecords.length > 0) {
         for (const r of adsRecords) {
-          // Assuming standard export columns: "Keyword", "Avg. monthly searches", "Competition"
           const query = String(r['Keyword'] || r['keyword'] || '').trim();
           if (!query) continue;
-
           if (!byQuery.has(query)) {
             byQuery.set(query, { query, impressions: 0, clicks: 0, positionWeighted: 0, positionWeight: 0, source: 'Ads' });
           }
           const acc = byQuery.get(query);
           const vol = Number((r['Avg. monthly searches'] || '0').replace(/,/g, ''));
-          // Treat Ads volume as impressions for scoring (with a multiplier since it's monthly vs GSC dailyish)
           acc.impressions += (vol / 30);
         }
+      }
+
+      // --- Seasonal & Trend Brainstorming (Minimal Cost Step) ---
+      console.log("Brainstorming seasonal/trend topics with Gemini...");
+      try {
+        const trendPrompt = `看護助手の現場において、現在（2026年3月）の季節感、最近の業界ニュース、実務上の悩み、またはトレンドに関するキーワードやトピックを10個、カンマ区切りで挙げてください。例: 春の入職準備, 花粉症対策, 腰痛予防, 法改正の進捗 など。`;
+        const trendResult = await model.generateContent(trendPrompt);
+        const trendText = trendResult.response.text().trim();
+        const trendKeywords = trendText.split(/[,、|]/).map(k => k.trim()).filter(k => k.length > 1);
+        
+        console.log("Trend Keywords from Gemini:", trendKeywords.join(', '));
+        
+        trendKeywords.forEach(tk => {
+          if (!byQuery.has(tk)) {
+            byQuery.set(tk, { query: tk, impressions: 0, clicks: 0, positionWeighted: 0, positionWeight: 0, source: 'Trend' });
+          }
+          const acc = byQuery.get(tk);
+          // Give trends a decent baseline to compete with GSC data
+          acc.impressions += 500; 
+        });
+      } catch (e) {
+        console.warn("Seasonal brainstorming failed, skipping:", e.message);
       }
 
       // --- Determine Target Tail ---
@@ -882,11 +901,15 @@ async function generateAndSaveArticle() {
         '退職': ['辞めたい', '退職', 'きつい', 'つらい', 'ストレス', 'しんどい', '限界', 'うつ', '引き止め', '代行'],
         '悩み': ['辞めたい', '退職', 'きつい', 'つらい', 'ストレス', 'しんどい', '不安', '腰痛', '体力', '眠れない', 'ミス'],
         '転職': ['転職', '採用', '内定', '入職', '準備', 'エージェント', '求人票', '見学', '退職理由', '円満退職'],
-        '面接対策': ['面接', '履歴書', '志望動機', '自己PR', '逆質問', '職務経歴書'], // 独立させて管理しやすく
+        '面接対策': ['面接', '履歴書', '志望動機', '自己PR', '逆質問', '職務経歴書'],
         '資格': ['資格', '研修', 'キャリア', 'スキルアップ', '試験', '勉強', '実務者研修', '初任者研修'],
         '実務': ['業務', '仕事内容', '流れ', 'コツ', '手順', 'リネン', '排泄', '食事介助', '清掃', '接遇'],
         '仕事内容': ['仕事', '業務', '役割', '内容', 'やりがい', '向いている人'],
-        '感染対策': ['感染', '衛生', '消毒', 'マスク', 'ノロ', 'インフル'],
+        '技術・知識': ['ケア', '介助技術', '体位変換', '移乗', '口腔ケア', '食事介助', '排泄介助', 'サクション', 'バイタル'],
+        '医療安全': ['事故防止', 'ヒヤリハット', 'インシデント', '転倒転落', 'リスクマネジメント', '誤薬'],
+        'メンタルヘルス': ['メンタルケア', 'セルフケア', 'ストレス解消', '燃え尽き症候群', 'バーンアウト', '自愛'],
+        'ニュース・トレンド': ['法改正', '処遇改善', '加算', '介護保険', 'DX', 'ICT', '新技術', 'ニュース', '動向'],
+        '感染対策': ['感染', '衛生', '消毒', 'マスク', 'ノロ', 'インフル', 'スタンダードプリコーション'],
         '患者対応': ['患者', '接遇', '対応', 'コミュニケーション', 'クレーム', '家族対応']
       };
       const relKeywords = categoryKeywords[selectedCategory] || [];
@@ -1005,6 +1028,24 @@ async function generateAndSaveArticle() {
     console.error('Error fetching author document:', error);
     throw error;
   }
+  
+  // --- Dynamic Tone Guidance ---
+  const professionalCategories = ['面接対策', '技術・知識', '医療安全', 'ニュース・トレンド', '資格', '実務', '感染対策', '仕事内容'];
+  const isProfessional = professionalCategories.includes(selectedTopic);
+  
+  let toneGuidance = '';
+  if (isProfessional) {
+    toneGuidance = `
+# 【重要】トーン調整：専門・実務モード（セラ色：極微）
+- この記事は実務・専門知識を重視するため、**セラの所感は全内容の5%以下**に抑えてください。
+- 読者への共感は導入とまとめの1行程度に留め、本文はサイト側の客観的な説明を徹底してください。
+- 感情的な語りかけよりも、機能的な情報の明快さを最優先してください。`;
+  } else {
+    toneGuidance = `
+# 【重要】トーン調整：共感・コラムモード（セラ色：標準）
+- 読者の悩みに寄り添うため、**セラの所感は全体の1〜2割程度**のスパイスとして含めてください。
+- 現場のリアルな実感や、読者が「自分のことだ」と思えるような小さな共感を織り交ぜてください。`;
+  }
 
   // Define title length based on tail type
   let titleLengthGuide = '';
@@ -1031,6 +1072,7 @@ async function generateAndSaveArticle() {
 
   const prompt = `
 ${SERA_FULL_PERSONA}
+${toneGuidance}
 
 # 【最重要】セラのポジション定義
 - セラは**案内役（IP）**であり、情報の責任主体ではない
