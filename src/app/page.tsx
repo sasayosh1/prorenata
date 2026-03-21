@@ -205,10 +205,11 @@ export default async function Home() {
                       <div className="absolute inset-0 bg-cyan-100 dark:bg-cyan-900/30 rounded-full animate-pulse" />
                       <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
                         <Image
-                          src="/sera_icon_new.png"
+                          src="/sera-note-convenience.png"
                           alt="白崎セラ"
                           fill
                           className="object-cover"
+                          style={{ objectPosition: '50% 20%' }}
                         />
                       </div>
                       <div className="absolute -bottom-2 -right-2 bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-xl border border-gray-100 dark:border-gray-700">
