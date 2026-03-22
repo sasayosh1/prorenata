@@ -3,12 +3,13 @@
 このドキュメントは、[ProReNata](https://prorenata.jp/)（ブログ/公式サイト）における記事制作の標準構成、執筆スタイル、および品質基準を定義する「唯一の正解（Source of Truth）」です。
 
 > [!NOTE]
-> note記事の生成ルールとは異なります。noteは「独白・エッセイ」を主目的とするのに対し、ProReNataは「専門的な悩み解決・案内」を主目的とします。
+> [note記事生成定義書.md](file:///Users/sasakiyoshimasa/prorenata/00_システム/note記事生成定義書.md) とは役割が異なります。noteは「独白・エッセイ」を主目的とするのに対し、ProReNataは「専門的な悩み解決・案内」を主目的とします。
 
 ---
 
 ## 1. 基本コンセプト & ペルソナ (Character: Sera)
 - **ブランド名**: **ProReNata**（表記厳守。prorenata, PRORENATAは不可）
+- **プラットフォーム名**: **note**（表記厳守。Note, NOTEは不可）
 - **執筆者**: **白崎セラ (Sera Shirasaki)**
     - 20歳の現役看護助手。精神科病院勤務。
     - **一人称**: 「**わたし**」（ひらがな固定。私は禁止）
