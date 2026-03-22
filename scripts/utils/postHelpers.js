@@ -741,15 +741,35 @@ function generateMetaDescription(title, plainText, categories = []) {
   }
 
   metaDescription = padNearTarget(metaDescription)
-
   metaDescription = clampToMax(metaDescription)
 
   // それでも短すぎる場合は、最後の手段としてタイトル要約を追加（それでも省略で終えない）
   if (metaDescription.length < MIN_LEN) {
-    const pad = ensureSentenceEnd(`${title}の要点をまとめました。`)
+    const cleanTitle = title.replace(/[、。]/g, ' ').trim()
+    const pad = ensureSentenceEnd(`${cleanTitle}の要点をまとめました。`)
     const candidate = clampToMax(metaDescription + pad)
     if (candidate.length <= MAX_LEN) {
       metaDescription = candidate
+    }
+  }
+
+  // 最終確認：もし160文字を超えていたら、最後の句点までで切る
+  if (metaDescription.length > MAX_LEN) {
+    metaDescription = metaDescription.slice(0, MAX_LEN)
+    const lastPeriod = metaDescription.lastIndexOf('。')
+    if (lastPeriod >= MIN_LEN) {
+      metaDescription = metaDescription.slice(0, lastPeriod + 1)
+    }
+  }
+
+  // 最終確認：もし120文字未満なら、フィラーを追加してでも伸ばす
+  if (metaDescription.length < MIN_LEN) {
+    const extraFillers = ['看護助手の現場で役立つ情報です。', '日々の業務の参考にしてください。']
+    for (const filler of extraFillers) {
+      if (metaDescription.length + filler.length <= MAX_LEN) {
+        metaDescription += filler
+      }
+      if (metaDescription.length >= MIN_LEN) break
     }
   }
 

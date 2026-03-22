@@ -8,7 +8,7 @@ const {
 } = require('./utils/keyHelpers');
 const { spawnSync } = require('child_process');
 const MetadataService = require('./utils/metadataService');
-require('dotenv').config({ path: path.join(__dirname, '../.env.local') }); // For local testing
+require('dotenv').config({ path: path.join(__dirname, '../.env.local'), override: true }); // For local testing
 
 const metadataService = new MetadataService(process.env.GEMINI_API_KEY);
 
@@ -93,9 +93,8 @@ function sanitizeGeneratedTitle(input) {
   title = title.replace(/チェックリスト/g, '整理ポイント');
   title = title.replace(/まとめ/g, '整理');
 
-  // Normalize repeated separators
-  title = title.replace(/\s*[:：]\s*/g, '：');
-  title = title.replace(/\s*・\s*/g, '・');
+  // Remove punctuation as requested by user
+  title = title.replace(/[、。]/g, ' ');
   title = title.replace(/\s+/g, ' ').trim();
 
   return title;
@@ -288,6 +287,10 @@ function ensureTitleEndsCleanly(title, maxLen) {
 
   while (t && endsWithBadPunctuation(t)) t = t.slice(0, -1).trim();
   t = stripTrailingParticles(t);
+
+  // Final purge of forbidden punctuation
+  t = t.replace(/[、。]/g, ' ').replace(/\s+/g, ' ').trim();
+
   return t;
 }
 

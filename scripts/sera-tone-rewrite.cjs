@@ -25,8 +25,8 @@
 
 const { createClient } = require('@sanity/client');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-require('dotenv').config({ path: '.env.local' });
-require('dotenv').config({ path: '.env.private' });
+require('dotenv').config({ path: '.env.local', override: true });
+require('dotenv').config({ path: '.env.private', override: true });
 const fs = require('fs');
 const os = require('os');
 const path = require('path');

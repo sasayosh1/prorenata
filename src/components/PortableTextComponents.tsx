@@ -7,6 +7,7 @@ import type { RelatedPostSummary } from '@/lib/sanity'
 import SpeechBubble from './SpeechBubble'
 import DisclaimerCallout from './Article/DisclaimerCallout'
 import SeraAdviceBubble from './SeraAdviceBubble'
+import YouTubeEmbed from './YouTubeEmbed'
 
 // 外部リンクかどうかを判定する関数
 function isExternalLink(href: string): boolean {
@@ -630,6 +631,16 @@ export const portableTextComponents: PortableTextComponents = {
     seraAdvice: ({ value }: { value?: { content?: string } }) => (
       <SeraAdviceBubble content={value?.content || ''} />
     ),
+    youtube: ({ value }: { value?: { url: string; title?: string; description?: string } }) => {
+      if (!value?.url) return null
+      return (
+        <YouTubeEmbed
+          url={value.url}
+          title={value.title}
+          description={value.description}
+        />
+      )
+    },
     speechBubble: SpeechBubble,
   },
 }

@@ -84,5 +84,8 @@ export default defineType({
     defineArrayMember({
       type: 'seraAdvice',
     }),
+    defineArrayMember({
+      type: 'youtube',
+    }),
   ],
 })

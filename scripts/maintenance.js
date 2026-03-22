@@ -18,7 +18,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai')
 // Load local environment variables when running from a dev machine.
 // (GitHub Actions will provide secrets via env; locally we rely on .env.local.)
 try {
-  require('dotenv').config({ path: path.resolve(__dirname, '..', '.env.local') })
+  require('dotenv').config({ path: path.resolve(__dirname, '..', '.env.local'), override: true })
 } catch {
   // noop
 }

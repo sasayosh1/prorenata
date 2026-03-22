@@ -28,8 +28,8 @@ const { spawnSync } = require('child_process')
 const { createClient } = require('@sanity/client')
 const { GoogleGenerativeAI } = require('@google/generative-ai')
 
-require('dotenv').config({ path: '.env.local' })
-require('dotenv').config({ path: '.env.private' })
+require('dotenv').config({ path: '.env.local', override: true })
+require('dotenv').config({ path: '.env.private', override: true })
 
 const PROGRESS_PATH = path.join(process.cwd(), '.analytics', 'summary-personalize-last-run.json')
 

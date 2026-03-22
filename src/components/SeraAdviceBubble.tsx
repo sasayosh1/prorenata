@@ -20,10 +20,6 @@ export default function SeraAdviceBubble({ content }: SeraAdviceBubbleProps) {
       
       {/* Speech Bubble */}
       <div className="relative flex-grow bg-white dark:bg-gray-900 border border-cyan-100 dark:border-cyan-800 rounded-3xl rounded-tl-none p-6 md:p-8 shadow-sm">
-        {/* Header/Label */}
-        <div className="text-[10px] font-black tracking-widest text-cyan-600 dark:text-cyan-400 mb-2 uppercase">
-          Sera&apos;s Advice
-        </div>
         
         {/* Content */}
         <div className="text-gray-800 dark:text-gray-100 leading-loose text-base md:text-lg font-medium">
