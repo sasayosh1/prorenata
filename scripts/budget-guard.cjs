@@ -14,7 +14,10 @@
  *
  * Env:
  *   GEMINI_BUDGET_JPY=100
+ *   GEMINI_DAILY_BUDGET_JPY=20
  *   GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE=0.2
+ *   CLAUDE_ESTIMATED_COST_JPY=1.0
+ *   CODEX_ESTIMATED_COST_JPY=0.5
  *   GITHUB_TOKEN=...
  *   GITHUB_REPOSITORY=owner/repo
  */
@@ -26,6 +29,9 @@ function parseArgs(argv) {
   const args = {
     reserveJpy: null,
     reserveArticles: null,
+    audit: false,
+    build: false,
+    cli: false,
   };
 
   for (let i = 2; i < argv.length; i++) {
@@ -42,6 +48,18 @@ function parseArgs(argv) {
       if (!next) throw new Error('--reserve-articles requires a number');
       args.reserveArticles = Number(next);
       i++;
+      continue;
+    }
+    if (value === '--audit') {
+      args.audit = true;
+      continue;
+    }
+    if (value === '--build') {
+      args.build = true;
+      continue;
+    }
+    if (value === '--cli') {
+      args.cli = true;
       continue;
     }
   }
@@ -155,11 +173,23 @@ async function main() {
   const spentToday = state.daily[date] || 0;
 
   const estimatedPerArticleJpy = Number(process.env.GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE || '0.2');
+  const estimatedClaudeJpy = Number(process.env.CLAUDE_ESTIMATED_COST_JPY || '1.0');
+  const estimatedCodexJpy = Number(process.env.CODEX_ESTIMATED_COST_JPY || '0.5');
+
   let reserveJpy = 0;
+  let note = 'reserve-jpy';
+
   if (args.reserveJpy != null) {
     reserveJpy = Number(args.reserveJpy);
   } else if (args.reserveArticles != null) {
     reserveJpy = Number(args.reserveArticles) * estimatedPerArticleJpy;
+    note = `reserve-articles:${args.reserveArticles}`;
+  } else if (args.audit) {
+    reserveJpy = estimatedClaudeJpy;
+    note = 'claude-audit';
+  } else if (args.build) {
+    reserveJpy = estimatedCodexJpy;
+    note = 'codex-build';
   }
   reserveJpy = roundJpy(reserveJpy);
 
@@ -213,7 +243,7 @@ async function main() {
     appendGithubOutput('allowed', 'false');
     appendGithubOutput('reason', blockReason);
     console.log(`allowed=false reason=${blockReason}`);
-    process.exit(0);
+    process.exit(args.cli ? 1 : 0);
   }
 
   if (reserveJpy > 0) {
@@ -226,7 +256,7 @@ async function main() {
       addJpy: reserveJpy,
       spentMonthJpy: state.spentJpy,
       spentDailyJpy: state.daily[date],
-      note: args.reserveArticles != null ? `reserve-articles:${args.reserveArticles}` : 'reserve-jpy',
+      note,
     });
   }
 
@@ -272,7 +302,7 @@ main().catch((error) => {
     // ignore
   }
 
-  // Fail-safe: do not fail the workflow, but block Gemini to prevent unexpected costs.
+  // Fail-safe: block Gemini to prevent unexpected costs.
   appendGithubOutput('allowed', 'false');
-  process.exit(0);
+  process.exit(args.cli ? 1 : 0);
 });

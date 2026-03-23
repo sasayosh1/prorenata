@@ -8,9 +8,35 @@ cd "$PR_ROOT"
 
 COMMAND=$1
 SHIFT_ARGS="${@:2}"
+FORCE=0
+
+# Check for --force or -y in SHIFT_ARGS
+if [[ "$SHIFT_ARGS" == *"--force"* ]] || [[ "$SHIFT_ARGS" == *"-y"* ]]; then
+  FORCE=1
+  # Remove --force/-y from SHIFT_ARGS for cleaner passing to underlying tools
+  SHIFT_ARGS="${SHIFT_ARGS//--force/}"
+  SHIFT_ARGS="${SHIFT_ARGS//-y/}"
+fi
 
 case $COMMAND in
   "audit")
+    echo "💰 Checking budget for Claude audit..."
+    node scripts/budget-guard.cjs --cli --audit
+    if [ $? -ne 0 ]; then
+      echo "❌ ERROR: Budget exceeded or guard failed. Operation aborted."
+      exit 1
+    fi
+
+    if [ $FORCE -eq 0 ]; then
+      echo "⚠️  WARNING: 'audit' uses Claude (Sonnet) which consumes tokens."
+      echo -n "Do you want to proceed? (y/n): "
+      read -r response
+      if [[ ! "$response" =~ ^([yY]|[yY][eE][sS])$ ]]; then
+        echo "Canceled."
+        exit 0
+      fi
+    fi
+
     PROMPT_FILE=".claudecode/custom_prompts/audit_article.md"
     if [ ! -f "$PROMPT_FILE" ]; then
       echo "Error: Prompt file $PROMPT_FILE not found."
@@ -18,10 +44,26 @@ case $COMMAND in
     fi
     PROMPT_CONTENT=$(cat "$PROMPT_FILE")
     echo "🔍 Running Claude Code Audit..."
-    # Claude Code might need quotes or specialized handling depending on how it's called
     claude "$PROMPT_CONTENT. 以下のファイルを監査してください: $SHIFT_ARGS"
     ;;
   "build")
+    echo "💰 Checking budget for Codex build..."
+    node scripts/budget-guard.cjs --cli --build
+    if [ $? -ne 0 ]; then
+      echo "❌ ERROR: Budget exceeded or guard failed. Operation aborted."
+      exit 1
+    fi
+
+    if [ $FORCE -eq 0 ]; then
+      echo "⚠️  WARNING: 'build' uses Codex CLI which may consume credits/tokens."
+      echo -n "Do you want to proceed? (y/n): "
+      read -r response
+      if [[ ! "$response" =~ ^([yY]|[yY][eE][sS])$ ]]; then
+        echo "Canceled."
+        exit 0
+      fi
+    fi
+
     echo "🛠️ Running Codex CLI Build/Fix..."
     codex --full-auto "$SHIFT_ARGS"
     ;;
@@ -34,7 +76,7 @@ case $COMMAND in
     # Placeholder for automatic CLAUDE.md update logic
     ;;
   *)
-    echo "Usage: ai [audit|build|sync] [args]"
+    echo "Usage: ai [audit|build|sync] [--force|-y] [args]"
     exit 1
     ;;
 esac

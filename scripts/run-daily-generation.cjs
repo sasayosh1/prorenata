@@ -910,7 +910,7 @@ async function generateAndSaveArticle() {
         '感染対策': ['感染', '衛生', '消毒', 'マスク', 'ノロ', 'インフル', 'スタンダードプリコーション'],
         '患者対応': ['患者', '接遇', '対応', 'コミュニケーション', 'クレーム', '家族対応']
       };
-      const relKeywords = categoryKeywords[selectedCategory] || [];
+      const relKeywords = categoryKeywords[selectedCategoryTitle] || [];
 
       for (const acc of byQuery.values()) {
         // Base Score
