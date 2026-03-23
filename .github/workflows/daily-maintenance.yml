@@ -109,6 +109,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/analytics-health-check.cjs
 
+      - name: Budget check (Gemini)
+        id: budget
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          echo "=== 予算チェック開始 ==="
+          node scripts/budget-guard.cjs --reserve-jpy 0.5
+
       - name: Run maintenance script - Metadata autofix (always)
         env:
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
@@ -116,6 +126,7 @@ jobs:
           SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
           SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MAINTENANCE_METADATA_ONLY: "1"
           MAINTENANCE_ASSERT_METADATA: "1"
         run: |
@@ -129,6 +140,7 @@ jobs:
           SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
           SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           echo "=== 収益最適化リンク補完（退職/転職カテゴリ）開始 ==="
           node scripts/maintenance.js revenue-links
@@ -177,7 +189,17 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add all-articles.json .budget/gemini-usage.json
+          
+          # all-articles.json が存在すれば追加
+          if [ -f all-articles.json ]; then
+            git add all-articles.json
+          fi
+          
+          # .budget/gemini-usage.json が存在すれば追加
+          if [ -f .budget/gemini-usage.json ]; then
+            git add .budget/gemini-usage.json
+          fi
+
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
