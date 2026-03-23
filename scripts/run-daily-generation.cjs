@@ -719,6 +719,7 @@ async function generateAndSaveArticle() {
   let targetTail = 'long'; // Default to long tail
   let titleList = [];
   let existingTitleSet = new Set();
+  let recentData = { posts: [], allCategories: [] };
 
   try {
     const analyticsModeRaw = String(process.env.ANALYTICS_MODE || 'enabled').trim().toLowerCase();
@@ -741,7 +742,7 @@ async function generateAndSaveArticle() {
     }
 
     // Fetch recent titles and categories up-front
-    const recentData = await sanityReadClient.fetch(
+    recentData = await sanityReadClient.fetch(
       `{
           "posts": *[_type == "post" && defined(title)]|order(coalesce(publishedAt,_createdAt) desc)[0...60]{
             title, 
