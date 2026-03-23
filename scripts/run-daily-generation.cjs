@@ -714,12 +714,15 @@ async function generateAndSaveArticle() {
 
   // 2. Select a topic/keyword
   console.log("Selecting a topic/keyword...");
-  let selectedTopic;
+  let selectedTopic = null;
   let selectedKeyword = null;
-  let targetTail = 'long'; // Default to long tail
+  let targetTail = 'long';
   let titleList = [];
   let existingTitleSet = new Set();
   let recentData = { posts: [], allCategories: [] };
+  let selectedCategoryTitle = '仕事';
+  let selectedCategoryId = null;
+  let authorReference = null;
 
   try {
     const analyticsModeRaw = String(process.env.ANALYTICS_MODE || 'enabled').trim().toLowerCase();
@@ -795,9 +798,9 @@ async function generateAndSaveArticle() {
     const sortedCategories = allCategoryTitles.sort((a, b) => categoryUsage[a] - categoryUsage[b]);
     // Pick randomly from the top 3 least used to avoid strict pattern prediction
     const candidateCategories = sortedCategories.slice(0, 3);
-    const selectedCategoryTitle = candidateCategories[Math.floor(Math.random() * candidateCategories.length)] || '仕事';
+    selectedCategoryTitle = candidateCategories[Math.floor(Math.random() * candidateCategories.length)] || '仕事';
     const selectedCategoryDoc = (recentData.allCategories || []).find(c => c.title === selectedCategoryTitle);
-    const selectedCategoryId = selectedCategoryDoc ? selectedCategoryDoc._id : null;
+    selectedCategoryId = selectedCategoryDoc ? selectedCategoryDoc._id : null;
 
     console.log(`Category Rotation: Selected "${selectedCategoryTitle}" (ID: ${selectedCategoryId})`);
 
@@ -1005,7 +1008,6 @@ async function generateAndSaveArticle() {
   // 3. Generate content with Gemini
   console.log("Generating article content with Gemini AI...");
   console.log("Fetching 白崎セラ author document...");
-  let authorReference;
   try {
     const authorDoc = await sanityReadClient.fetch(
       `*[_type == "author" && (name == $name || slug.current == $slug)][0]`,
