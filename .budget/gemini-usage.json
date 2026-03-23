@@ -1,0 +1,17 @@
+{
+  "month": "2026-03",
+  "spentJpy": 0.2,
+  "daily": {
+    "2026-03-23": 0.2
+  },
+  "updatedAt": "2026-03-23T22:08:49.266Z",
+  "history": [
+    {
+      "at": "2026-03-23T22:08:49.266Z",
+      "addJpy": 0.2,
+      "spentMonthJpy": 0.2,
+      "spentDailyJpy": 0.2,
+      "note": "reserve-articles:1"
+    }
+  ]
+}
