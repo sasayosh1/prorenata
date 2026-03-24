@@ -1,0 +1,56 @@
+{
+  "name": "ProReNata - 看護助手向け情報サイト",
+  "short_name": "ProReNata",
+  "description": "看護助手として働く方、目指す方のための専門情報サイト",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ja",
+  "dir": "ltr",
+  "categories": [
+    "medical",
+    "education",
+    "healthcare"
+  ],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "記事を検索",
+      "short_name": "検索",
+      "description": "看護助手関連の記事を検索します",
+      "url": "/search"
+    },
+    {
+      "name": "お気に入り記事",
+      "short_name": "お気に入り",
+      "description": "お気に入りに追加した記事を確認します",
+      "url": "/favorites"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
