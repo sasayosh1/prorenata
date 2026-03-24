@@ -18,6 +18,7 @@ export const deskStructure = (S: StructureBuilder) =>
       // 記事管理
       S.listItem()
         .title('コンテンツ管理')
+        .id('contentManagement')
         .child(
           S.list()
             .title('コンテンツ')
@@ -30,6 +31,7 @@ export const deskStructure = (S: StructureBuilder) =>
       // マスタ管理
       S.listItem()
         .title('マスタ/共通部品')
+        .id('masterManagement')
         .child(
           S.list()
             .title('共通部品')
