@@ -3,6 +3,7 @@ import type { StructureBuilder } from 'sanity/structure'
 export const deskStructure = (S: StructureBuilder) =>
   S.list()
     .title('ProReNata CMS')
+    .id('root')
     .items([
       // Site Settings (Singleton)
       S.listItem()
@@ -22,6 +23,7 @@ export const deskStructure = (S: StructureBuilder) =>
         .child(
           S.list()
             .title('コンテンツ')
+            .id('contentList')
             .items([
               S.documentTypeListItem('post').title('記事一覧'),
               S.documentTypeListItem('category').title('カテゴリー'),
@@ -35,6 +37,7 @@ export const deskStructure = (S: StructureBuilder) =>
         .child(
           S.list()
             .title('共通部品')
+            .id('masterList')
             .items([
               S.documentTypeListItem('author').title('著者/メンバー'),
               S.documentTypeListItem('affiliateEmbed').title('アフィリエイト'),
