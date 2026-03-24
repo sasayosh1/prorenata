@@ -17,6 +17,7 @@
  *   GEMINI_DAILY_BUDGET_JPY=20
  *   GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE=0.2
  *   CLAUDE_ESTIMATED_COST_JPY=1.0
+ *   OPENAI_ESTIMATED_COST_JPY=0.1
  *   CODEX_ESTIMATED_COST_JPY=0.5
  *   GITHUB_TOKEN=...
  *   GITHUB_REPOSITORY=owner/repo
@@ -29,13 +30,26 @@ function parseArgs(argv) {
   const args = {
     reserveJpy: null,
     reserveArticles: null,
+    model: 'gemini',
     audit: false,
     build: false,
     cli: false,
+    checkOnly: false,
   };
 
   for (let i = 2; i < argv.length; i++) {
     const value = argv[i];
+    if (value === '--check-only') {
+      args.checkOnly = true;
+      continue;
+    }
+    if (value === '--model') {
+      const next = argv[i + 1];
+      if (!next) throw new Error('--model requires a name');
+      args.model = next;
+      i++;
+      continue;
+    }
     if (value === '--reserve-jpy') {
       const next = argv[i + 1];
       if (!next) throw new Error('--reserve-jpy requires a number');
@@ -138,17 +152,39 @@ async function main() {
   const month = getCurrentMonthUtc();
   const date = getCurrentDateUtc();
   const stateDir = path.join(process.cwd(), '.budget');
-  const statePath = path.join(stateDir, 'gemini-usage.json');
+  const oldStatePath = path.join(stateDir, 'gemini-usage.json');
+  const statePath = path.join(stateDir, 'ai-usage.json');
 
   if (!fs.existsSync(stateDir)) fs.mkdirSync(stateDir, { recursive: true });
 
   let state = {
     month,
     spentJpy: 0,
-    daily: {}, // { "YYYY-MM-DD": spent }
+    byModel: {}, // { "gemini": 0.2, "claude": 1.0 }
+    daily: {}, // { "YYYY-MM-DD": { total: 0, gemini: 0 } }
     updatedAt: new Date().toISOString(),
     history: [],
   };
+
+  // Migration from old gemini-usage.json
+  if (!fs.existsSync(statePath) && fs.existsSync(oldStatePath)) {
+    try {
+      const loaded = JSON.parse(fs.readFileSync(oldStatePath, 'utf8'));
+      state.month = loaded.month || month;
+      state.spentJpy = loaded.spentJpy || 0;
+      state.byModel = { gemini: state.spentJpy };
+      // Convert daily structure if needed
+      if (loaded.daily) {
+        for (const [d, v] of Object.entries(loaded.daily)) {
+          state.daily[d] = typeof v === 'number' ? { total: v, gemini: v } : v;
+        }
+      }
+      state.history = loaded.history || [];
+      console.log(`📦 Migrated from ${oldStatePath} to ${statePath}`);
+    } catch (e) {
+      console.warn(`⚠️ Migration failed: ${e.message}`);
+    }
+  }
 
   if (fs.existsSync(statePath)) {
     try {
@@ -165,19 +201,23 @@ async function main() {
   if (state.month !== month) {
     state.month = month;
     state.spentJpy = 0;
+    state.byModel = {};
     state.daily = {};
   }
 
-  // Ensure daily structure exists
+  // Ensure structures exist
+  state.byModel = state.byModel || {};
   state.daily = state.daily || {};
-  const spentToday = state.daily[date] || 0;
+  if (!state.daily[date]) state.daily[date] = { total: 0 };
+  const spentToday = state.daily[date].total || 0;
 
   const estimatedPerArticleJpy = Number(process.env.GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE || '0.2');
   const estimatedClaudeJpy = Number(process.env.CLAUDE_ESTIMATED_COST_JPY || '1.0');
+  const estimatedOpenAIJpy = Number(process.env.OPENAI_ESTIMATED_COST_JPY || '0.1');
   const estimatedCodexJpy = Number(process.env.CODEX_ESTIMATED_COST_JPY || '0.5');
 
   let reserveJpy = 0;
-  let note = 'reserve-jpy';
+  let note = args.model !== 'gemini' ? `${args.model}-reserve` : 'reserve-jpy';
 
   if (args.reserveJpy != null) {
     reserveJpy = Number(args.reserveJpy);
@@ -187,9 +227,11 @@ async function main() {
   } else if (args.audit) {
     reserveJpy = estimatedClaudeJpy;
     note = 'claude-audit';
+    args.model = 'claude';
   } else if (args.build) {
     reserveJpy = estimatedCodexJpy;
     note = 'codex-build';
+    args.model = 'codex';
   }
   reserveJpy = roundJpy(reserveJpy);
 
@@ -208,12 +250,24 @@ async function main() {
     projectedDailyJpy: projectedDaily,
   };
 
+  const SAFETY_THRESHOLD = 0.95; // 95% safety line
+
   // Block if EITHER limit is hit
   let blockReason = null;
   if (projectedMonth > budgetMonthJpy) blockReason = 'MONTHLY_LIMIT';
   if (projectedDaily > budgetDailyJpy) blockReason = 'DAILY_LIMIT';
 
+  // Even if not hit, check if we are dangerously close (for watchdog)
+  if (!blockReason && args.checkOnly) {
+    if (context.spentMonthJpy >= budgetMonthJpy * SAFETY_THRESHOLD) blockReason = 'MONTHLY_NEAR_LIMIT';
+    if (context.spentDailyJpy >= budgetDailyJpy * SAFETY_THRESHOLD) blockReason = 'DAILY_NEAR_LIMIT';
+  }
+
   if (blockReason) {
+    if (args.checkOnly) {
+      console.log(`❌ budget-check failed: ${blockReason}`);
+      process.exit(1);
+    }
     const title = `💸 Gemini budget exceeded (${blockReason === 'DAILY_LIMIT' ? date : month})`;
     const body = [
       '## Gemini Budget Guard',
@@ -246,16 +300,28 @@ async function main() {
     process.exit(args.cli ? 1 : 0);
   }
 
+  if (args.checkOnly) {
+    console.log('✅ Budget check OK (check-only)');
+    process.exit(0);
+  }
+
   if (reserveJpy > 0) {
     state.spentJpy = projectedMonth;
-    state.daily[date] = projectedDaily;
+    state.daily[date].total = projectedDaily;
+    
+    // Model specific tracking
+    const model = args.model || 'gemini';
+    state.byModel[model] = roundJpy((state.byModel[model] || 0) + reserveJpy);
+    state.daily[date][model] = roundJpy((state.daily[date][model] || 0) + reserveJpy);
+
     state.updatedAt = new Date().toISOString();
     state.history = Array.isArray(state.history) ? state.history : [];
     state.history.push({
       at: state.updatedAt,
+      model,
       addJpy: reserveJpy,
       spentMonthJpy: state.spentJpy,
-      spentDailyJpy: state.daily[date],
+      spentDailyJpy: state.daily[date].total,
       note,
     });
   }
@@ -269,7 +335,7 @@ async function main() {
 
   appendGithubOutput('allowed', 'true');
   appendGithubOutput('spent_month_jpy', roundJpy(state.spentJpy));
-  appendGithubOutput('spent_daily_jpy', roundJpy(state.daily[date]));
+  appendGithubOutput('spent_daily_jpy', roundJpy(state.daily[date].total));
   console.log('allowed=true');
 }
 

@@ -10,12 +10,57 @@ COMMAND=$1
 SHIFT_ARGS="${@:2}"
 FORCE=0
 
+TIMEOUT_SEC=900 # 15 minutes (Strict)
+WATCHDOG_INTERVAL=60 # 1 minute
+
+function run_with_timeout() {
+  local CMD_EXEC="$1"
+  local LABEL="$2"
+
+  # Start the AI command in background
+  bash -c -- "$CMD_EXEC" &
+  local CHILD_PID=$!
+  
+  # 1. Timeout & Budget Watchdog
+  (
+    local elapsed=0
+    while [ $elapsed -lt $TIMEOUT_SEC ]; do
+      sleep $WATCHDOG_INTERVAL
+      elapsed=$((elapsed + WATCHDOG_INTERVAL))
+
+      # Check if child process is still running
+      if ! ps -p $CHILD_PID > /dev/null; then
+        exit 0
+      fi
+
+      # Budget Check (Watchdog)
+      node scripts/budget-guard.cjs --cli --check-only > /dev/null 2>&1
+      if [ $? -ne 0 ]; then
+        echo ""
+        echo "🛑  BUDGET WATCHDOG: Budget limit or safety threshold (95%) reached. Killing $LABEL..."
+        kill -9 $CHILD_PID 2>/dev/null
+        pgrep -P $CHILD_PID | xargs kill -9 2>/dev/null
+        exit 1
+      fi
+    done
+
+    # If we reach here, it's a timeout
+    echo ""
+    echo "⚠️  TIMEOUT: $LABEL has been running for more than $((TIMEOUT_SEC/60)) minutes. Terminating..."
+    kill -9 $CHILD_PID 2>/dev/null
+    pgrep -P $CHILD_PID | xargs kill -9 2>/dev/null
+  ) &
+  local MONITOR_PID=$!
+  
+  wait $CHILD_PID
+  local EXIT_CODE=$?
+  kill $MONITOR_PID 2>/dev/null
+  return $EXIT_CODE
+}
+
 # Check for --force or -y in SHIFT_ARGS
 if [[ "$SHIFT_ARGS" == *"--force"* ]] || [[ "$SHIFT_ARGS" == *"-y"* ]]; then
   FORCE=1
-  # Remove --force/-y from SHIFT_ARGS for cleaner passing to underlying tools
-  SHIFT_ARGS="${SHIFT_ARGS//--force/}"
-  SHIFT_ARGS="${SHIFT_ARGS//-y/}"
 fi
 
 case $COMMAND in
@@ -44,7 +89,7 @@ case $COMMAND in
     fi
     PROMPT_CONTENT=$(cat "$PROMPT_FILE")
     echo "🔍 Running Claude Code Audit..."
-    claude "$PROMPT_CONTENT. 以下のファイルを監査してください: $SHIFT_ARGS"
+    run_with_timeout "claude $PROMPT_CONTENT. 以下のファイルを監査してください: $SHIFT_ARGS" "Claude Audit"
     ;;
   "build")
     echo "💰 Checking budget for Codex build..."
@@ -65,15 +110,13 @@ case $COMMAND in
     fi
 
     echo "🛠️ Running Codex CLI Build/Fix..."
-    codex --full-auto "$SHIFT_ARGS"
+    run_with_timeout "codex --full-auto $SHIFT_ARGS" "Codex Build"
     ;;
   "sync")
     echo "✅ Executing 'Safe Save' protocol..."
     git add -A
     git commit -m "AI-assisted update: $SHIFT_ARGS"
     git push
-    echo "Documenting changes in CLAUDE.md..."
-    # Placeholder for automatic CLAUDE.md update logic
     ;;
   *)
     echo "Usage: ai [audit|build|sync] [--force|-y] [args]"
