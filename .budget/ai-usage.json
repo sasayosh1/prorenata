@@ -1,0 +1,42 @@
+{
+  "month": "2026-03",
+  "spentJpy": 1.21,
+  "byModel": {
+    "gemini": 1.21
+  },
+  "daily": {
+    "2026-03-23": {
+      "total": 1.2,
+      "gemini": 1.2
+    },
+    "2026-03-24": {
+      "total": 0.01,
+      "gemini": 0.01
+    }
+  },
+  "updatedAt": "2026-03-24T05:15:42.175Z",
+  "history": [
+    {
+      "at": "2026-03-23T12:46:10.550Z",
+      "addJpy": 1,
+      "spentMonthJpy": 1,
+      "spentDailyJpy": 1,
+      "note": "claude-audit"
+    },
+    {
+      "at": "2026-03-23T21:25:56.922Z",
+      "addJpy": 0.2,
+      "spentMonthJpy": 1.2,
+      "spentDailyJpy": 1.2,
+      "note": "reserve-articles:1"
+    },
+    {
+      "at": "2026-03-24T05:15:42.175Z",
+      "model": "gemini",
+      "addJpy": 0.01,
+      "spentMonthJpy": 1.21,
+      "spentDailyJpy": 0.01,
+      "note": "reserve-jpy"
+    }
+  ]
+}
