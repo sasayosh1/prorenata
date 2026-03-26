@@ -27,7 +27,16 @@ async function syncSubscribers() {
     const subscribers = await client.fetch('*[_type == "subscriber" && !defined(unsubscribedAt)] | order(subscribedAt asc)')
     
     const csvHeader = 'subscribedAt,email\n'
-    const csvLines = subscribers.map(s => `${s.subscribedAt || ''},${s.email || ''}`).join('\n')
+    const csvLines = subscribers.map(s => {
+      let dateStr = s.subscribedAt || ''
+      if (dateStr && dateStr.includes('Z')) {
+        // UTCをJSTに変換 (簡易版)
+        const date = new Date(dateStr)
+        const jstDate = new Date(date.getTime() + 9 * 60 * 60 * 1000)
+        dateStr = jstDate.toISOString().replace('Z', '+09:00')
+      }
+      return `${dateStr},${s.email || ''}`
+    }).join('\n')
     const finalCsv = csvHeader + csvLines + '\n'
 
     const targetPath = path.join(__dirname, '../06_メルマガ/リスト/subscribers.csv')

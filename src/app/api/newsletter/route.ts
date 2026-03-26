@@ -24,37 +24,61 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: '有効なメールアドレスを入力してください' }, { status: 400 })
     }
 
-    // 1. サブスクライバーリストの保存 (CSV: ローカル開発用 / Sanity: 本番用)
-    try {
-      const dataDir = path.join(process.cwd(), '06_メルマガ/リスト')
-      const filePath = path.join(dataDir, 'subscribers.csv')
+    // 日本時間のタイムスタンプ生成
+    const now = new Date();
+    const jstOffset = 9 * 60 * 60 * 1000;
+    const jstDate = new Date(now.getTime() + jstOffset);
+    const timestampJST = jstDate.toISOString().replace('Z', '+09:00');
 
-      // ディレクトリがない場合は作成（ローカル環境のみ成功する）
+    // 既に登録されているか確認
+    const existingSubscriber = await sanityWriteClient.fetch(
+      `*[_type == "subscriber" && email == $email][0]`,
+      { email }
+    )
+
+    if (existingSubscriber) {
+      if (!existingSubscriber.unsubscribedAt) {
+        // 既にアクティブな購読者の場合は、二重登録せずに成功を返す
+        console.log('Subscriber already exists and active:', email)
+        return NextResponse.json({ message: 'Success' }, { status: 200 })
+      } else {
+        // 解約済みの場合は、再登録（解約日をクリア）
+        await sanityWriteClient
+          .patch(existingSubscriber._id)
+          .set({ subscribedAt: timestampJST })
+          .unset(['unsubscribedAt'])
+          .commit()
+      }
+    } else {
+      // 1. サブスクライバーリストの保存 (CSV: ローカル開発用 / Sanity: 本番用)
       try {
-        await fs.access(dataDir)
-      } catch {
-        await fs.mkdir(dataDir, { recursive: true })
+        const dataDir = path.join(process.cwd(), '06_メルマガ/リスト')
+        const filePath = path.join(dataDir, 'subscribers.csv')
+
+        // ディレクトリがない場合は作成（ローカル環境のみ成功する）
+        try {
+          await fs.access(dataDir)
+        } catch {
+          await fs.mkdir(dataDir, { recursive: true })
+        }
+
+        const csvLine = `${timestampJST},${email}\n`
+        await fs.appendFile(filePath, csvLine)
+      } catch (csvError) {
+        console.warn('CSV write skipped (expected in production):', csvError)
       }
 
-      const timestamp = new Date().toISOString()
-      const csvLine = `${timestamp},${email}\n`
-      await fs.appendFile(filePath, csvLine)
-    } catch (csvError) {
-      // Vercel環境など、ファイルシステムが読み取り専用の場合はここに来る
-      console.warn('CSV write skipped (expected in production):', csvError)
-    }
-
-    // Sanityへの保存（本番・ローカル共通の永続ストレージ）
-    try {
-      await sanityWriteClient.create({
-        _type: 'subscriber',
-        email,
-        subscribedAt: new Date().toISOString(),
-      })
-    } catch (sanityError) {
-      console.error('Sanity save error:', sanityError)
-      // Sanityへの保存に失敗した場合は重大なエラーとして扱う
-      throw new Error('データの保存に失敗しました')
+      // Sanityへの新規作成
+      try {
+        await sanityWriteClient.create({
+          _type: 'subscriber',
+          email,
+          subscribedAt: timestampJST,
+        })
+      } catch (sanityError) {
+        console.error('Sanity save error:', sanityError)
+        throw new Error('データの保存に失敗しました')
+      }
     }
 
     // 2. ウェルカムメールの送信
