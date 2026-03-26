@@ -1465,138 +1465,11 @@ H3見出し: ${h3Text}
  * @param {Object} geminiModel - Gemini APIモデル（オプション）
  * @returns {Promise<Array>} 最適化されたブロック配列
  */
-async function optimizeSummarySection(blocks, title, geminiModel = null) {
-  if (!blocks || !Array.isArray(blocks) || blocks.length === 0) {
-    return blocks
-  }
-
-  const { randomUUID } = require('crypto')
-
-  function extractTitleKeywords(rawTitle = '') {
-    const t = String(rawTitle || '')
-      .replace(/^【[^】]+】\s*/u, '')
-      .replace(/\s+/g, ' ')
-      .trim()
-
-    const stop = new Set([
-      '看護助手',
-      '看護補助者',
-      'ProReNata',
-      '徹底解説',
-      '解説',
-      'まとめ',
-      '完全',
-      '完全版',
-      '基本',
-      '方法',
-      'コツ',
-      'ポイント',
-      '心構え',
-      'よくある',
-      '質問',
-      '回答',
-      '対策',
-      '準備',
-      '徹底',
-      '勝ち取る'
-    ])
-
-    // Pull Japanese chunks and ASCII words.
-    const tokens = []
-    const re = /[A-Za-z0-9][A-Za-z0-9_-]{1,30}|[一-龠々〆ヵヶぁ-んァ-ヶー]{2,20}/g
-    for (const match of t.matchAll(re)) {
-      const token = String(match[0] || '').trim()
-      if (!token) continue
-      if (stop.has(token)) continue
-      tokens.push(token)
-    }
-
-    // Keep short list of unique keywords, prioritizing common intent words.
-    const intentPriority = [
-      '面接',
-      '志望動機',
-      '自己PR',
-      '自己ＰＲ',
-      '逆質問',
-      '履歴書',
-      '職務経歴書',
-      '転職',
-      '退職',
-      '夜勤',
-      '給料',
-      '人間関係',
-      'メンタル'
-    ]
-    const unique = []
-    const seen = new Set()
-
-    for (const p of intentPriority) {
-      if (t.includes(p) && !seen.has(p)) {
-        unique.push(p)
-        seen.add(p)
-      }
-    }
-    for (const token of tokens) {
-      if (seen.has(token)) continue
-      seen.add(token)
-      unique.push(token)
-      if (unique.length >= 6) break
-    }
-
-    return unique
-  }
-
-  function isSupportiveClosing(text = '') {
-    const t = String(text || '').trim()
-    if (!t) return false
-    return /(応援|大丈夫|無理しない|焦らない|一歩ずつ|今日から|少しずつ|できます|してみて|試して)/.test(t)
-  }
-
-  function blockToText(block) {
-    if (!block || block._type !== 'block') return ''
-    return (block.children || []).map(c => c.text || '').join('').trim()
-  }
-
-  function pruneSummaryBlocks(summaryBlocks, rawTitle) {
-    const keywords = extractTitleKeywords(rawTitle)
-    if (!keywords || keywords.length === 0) return summaryBlocks
-
-    const kept = []
-    for (const block of summaryBlocks) {
-      if (!block || block._type !== 'block') {
-        kept.push(block)
-        continue
-      }
-      if (block.style === 'h3') continue
-
-      const text = blockToText(block)
-      if (!text) {
-        kept.push(block)
-        continue
-      }
-
-      // Always keep one short closing line even if it doesn't contain keywords.
-      if (text.length <= 40 && isSupportiveClosing(text)) {
-        kept.push(block)
-        continue
-      }
-
-      const matches = keywords.some(k => text.includes(k))
-      if (matches) {
-        kept.push(block)
-        continue
-      }
-
-      // Drop off-topic long paragraphs/bullets in summary.
-      if (text.length >= 30) continue
-
-      // Keep very short connective phrases (rare).
-      kept.push(block)
-    }
-
-    // Safety: never return empty summary content.
-    return kept.length > 0 ? kept : summaryBlocks
-  }
+/**
+ * Gemini APIを使用してまとめセクションを最適化
+ */
+async function optimizeSummarySection(blocks, title, geminiModel, options = {}) {
+  if (!Array.isArray(blocks)) return blocks
 
   // まとめセクションを検出
   let summaryIndex = -1
@@ -1605,7 +1478,7 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i]
     if (block._type === 'block' && block.style === 'h2') {
-      const h2Text = block.children.map(child => child.text || '').join('').trim()
+      const h2Text = (block.children || []).map(child => child.text || '').join('').trim()
 
       if (h2Text === 'まとめ') {
         summaryIndex = i
@@ -1625,6 +1498,22 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
   // まとめセクションの内容を取得
   const endIndex = nextSectionIndex !== -1 ? nextSectionIndex : blocks.length
   const summaryBlocks = blocks.slice(summaryIndex + 1, endIndex)
+
+  // 現在のまとめ内容を評価
+  const currentSummaryText = summaryBlocks
+    .filter(b => b._type === 'block')
+    .map(b => b.children?.map(c => c.text || '').join('').trim())
+    .filter(Boolean)
+    .join('\n')
+
+  const hasBulletPoints = summaryBlocks.some(b => b.listItem === 'bullet')
+  const isLengthOk = currentSummaryText.length > 180 && currentSummaryText.length < 800
+  const isGeneric = isGenericFallbackSummaryText(currentSummaryText)
+
+  // 十分な品質ならスキップ（Deep時は強制追加）
+  if (!options.force && isLengthOk && hasBulletPoints && !isGeneric) {
+    return blocks
+  }
 
   // Gemini APIが利用できない場合は、H3を削除するのみ
   if (!geminiModel) {
@@ -1666,7 +1555,8 @@ async function optimizeSummarySection(blocks, title, geminiModel = null) {
   }
 
   // 記事全体のコンテキストを取得（まとめより前の内容）
-  const articleContext = blocks
+  try {
+    const articleContext = blocks
     .slice(0, summaryIndex)
     .filter(b => b._type === 'block' && (b.style === 'h2' || b.style === 'normal'))
     .map(b => b.children.map(c => c.text || '').join('').trim())
@@ -1700,22 +1590,20 @@ ${currentSummary}
 この記事のまとめセクションを簡潔に書き直してください。
 
 **要件**:
-1. 簡潔でしっかり伝わるまとめ（目安200〜400文字、内容次第で柔軟に調整可）
-2. 形式は以下のいずれか:
-   - 本文のみ（2〜3段落）
-   - 本文（1段落）→ 箇条書き（●で始まる2〜3項目）→ 締めの文（1文）
-3. 長すぎるとユーザビリティに反するので、簡潔さと伝わりやすさのバランスを重視
+1. 簡潔でしっかり伝わるまとめ（200〜400文字程度、内容次第で柔軟に調整可）
+2. 形式は「本文（1段落）→ 箇条書き（●で始まる3項目程度）→ 締めの文（1文）」を基本とする
+3. 短文一つで終わらせず、記事の主要なポイントをしっかりと網羅する
 4. 記事タイトルと本文に無い話題を「まとめ」で新しく追加しない（脱線禁止）
    - 例: 面接記事に「申し送り・観察・休憩ストレッチ」などの現場実務の話を混ぜない
-5. 「汎用テンプレの言い回し」は禁止（本文の具体語を最低2つ入れる）
-6. 締めの文で「次のステップ」や「行動」を促す
-7. 最後に1文だけ、押しつけない形でフォローを入れる（ブックマークしてまた見返してくださいね、など）
+5. 「汎用テンプレの言い回し」は禁止（本文の具体語を最低3つ入れる）
+6. 締めの文で、読者が次に行うべき具体的なアクションや考え方を提示する
+7. 最後に1文だけ、寄り添う形でフォローを入れる（この記事をブックマークして、困った時にまた見返してくださいね、など）
 8. H3見出しは使わない
 
 **出力形式**:
-プレーンテキストで出力してください。箇条書きは ● で始めてください。`
+プレーンテキストで出力してください。箇条書きは ● で始めてください。
+読み手が「この記事を読んでよかった、次はこの一歩を踏み出そう」と思えるような、温かみと実益を兼ね備えたまとめにしてください。`
 
-  try {
     const geminiResult = await geminiModel.generateContent(prompt)
     const response = await geminiResult.response
     const optimizedText = response.text().trim()
@@ -1990,9 +1878,9 @@ function addAffiliateLinksToArticle(blocks, title, currentPost = null, options =
 }
 
 function findContextualInsertIndex(blocks, suggestedKeys = []) {
-  if (blocks.length < 10) return -1 // 短すぎる記事は中間挿入しない
+  if (blocks.length < 8) return -1 // 短すぎる記事は中間挿入しない
 
-  // 記事の中間地点（50%〜70%付近）のH2/H3を探す
+  // 記事の中間地点（40%〜75%付近）のH2/H3を探す
   const midPoint = Math.floor(blocks.length * 0.4)
   const summaryH2Index = blocks.findIndex(b => b.style === 'h2' && blockPlainText(b) === 'まとめ')
   const maxSearchIndex = summaryH2Index !== -1 ? summaryH2Index : blocks.length
@@ -2000,12 +1888,26 @@ function findContextualInsertIndex(blocks, suggestedKeys = []) {
   for (let i = midPoint; i < maxSearchIndex; i++) {
     const block = blocks[i]
     if (block._type === 'block' && (block.style === 'h2' || block.style === 'h3')) {
-      // 見出しの直後に挿入すると不自然な場合があるので、その見出しの次の段落の後を探す
+      // 見出しの直後や、リストの直後は避ける
       for (let j = i + 1; j < maxSearchIndex; j++) {
-        if (blocks[j].style === 'normal') {
-          return j + 1
+        const current = blocks[j]
+        const text = blockPlainText(current)
+        
+        // 通常の段落かつ、ある程度の長さ（50文字以上）がある場所を探す
+        // 短すぎる段落の後は唐突感が出るため避ける
+        if (current.style === 'normal' && !current.listItem && text.length >= 50) {
+          // 次のブロックがリストや見出しでないことを確認
+          const next = blocks[j + 1]
+          if (next && next.style === 'normal' && !next.listItem) {
+            return j + 1
+          }
         }
-        if (blocks[j].style === 'h2' || blocks[j].style === 'h3') break
+        
+        // 他のアフィリエイトブロックが近くにないかチェック
+        if (current._type === 'affiliateEmbed') break
+        
+        // 次の見出しが出てきたらそこまでに挿入できなかったということ
+        if (current.style === 'h2' || current.style === 'h3') break
       }
     }
   }

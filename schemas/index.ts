@@ -8,6 +8,7 @@ import siteSettings from './siteSettings'
 import blockContent from './blockContent'
 import seraAdvice from './seraAdvice'
 import youtube from './youtube'
+import subscriber from './subscriber'
 
 export const schemaTypes = [
     blockContent,
@@ -19,5 +20,6 @@ export const schemaTypes = [
     speechBubble,
     faqItem,
     seraAdvice,
-    youtube
+    youtube,
+    subscriber
 ]

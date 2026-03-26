@@ -120,6 +120,7 @@ jobs:
           node scripts/budget-guard.cjs --reserve-jpy 0.5
 
       - name: Run maintenance script - Metadata autofix (always)
+        if: steps.budget.outputs.allowed == 'true'
         env:
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
@@ -134,6 +135,7 @@ jobs:
           node scripts/maintenance.js autofix
 
       - name: Revenue optimize - Ensure comparison links for 退職/転職 categories
+        if: steps.budget.outputs.allowed == 'true'
         env:
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}

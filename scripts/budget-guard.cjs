@@ -297,7 +297,8 @@ async function main() {
     appendGithubOutput('allowed', 'false');
     appendGithubOutput('reason', blockReason);
     console.log(`allowed=false reason=${blockReason}`);
-    process.exit(args.cli ? 1 : 0);
+    // Always exit 0 in GitHub Actions to avoid "failed" status on budget hit
+    process.exit(0);
   }
 
   if (args.checkOnly) {
@@ -370,5 +371,5 @@ main().catch((error) => {
 
   // Fail-safe: block Gemini to prevent unexpected costs.
   appendGithubOutput('allowed', 'false');
-  process.exit(args.cli ? 1 : 0);
+  process.exit(0);
 });

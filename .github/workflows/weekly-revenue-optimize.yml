@@ -81,8 +81,16 @@ jobs:
               labels: ['automated', 'revenue'],
             });
 
-      - name: Revenue optimize (apply to Sanity)
+      - name: Budget check (Gemini)
         if: steps.health.outputs.ok == 'true'
+        id: budget
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/budget-guard.cjs --reserve-jpy 0.5
+
+      - name: Revenue optimize (apply to Sanity)
+        if: steps.health.outputs.ok == 'true' && steps.budget.outputs.allowed == 'true'
         env:
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
         run: |

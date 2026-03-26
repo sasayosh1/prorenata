@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import HomeSearch from '@/components/HomeSearch'
 import HomePopularGrid from '@/components/HomePopularGrid'
 import { sanitizeTitle } from '@/lib/title'
+import NewsletterForm from '@/components/NewsletterForm'
 
 export const dynamic = 'auto'
 export const revalidate = 3600
@@ -249,6 +250,11 @@ export default async function Home() {
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* メルマガ登録フォーム */}
+          <section className="mb-32">
+            <NewsletterForm />
           </section>
 
           {/* Popular posts */}

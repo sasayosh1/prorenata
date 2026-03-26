@@ -5494,7 +5494,7 @@ async function sanitizeAllBodies(options = {}) {
         bodyChanged = true
       }
 
-      const summaryOptimised = await optimizeSummarySection(body, post.title, enableGemini ? geminiModel : null)
+      const summaryOptimised = await optimizeSummarySection(body, post.title, enableGemini ? geminiModel : null, { force: options.forceSummary })
       if (JSON.stringify(summaryOptimised) !== JSON.stringify(body)) {
         body = summaryOptimised
         summaryAdjusted = true
@@ -7433,6 +7433,40 @@ if (require.main === module) {
       ensureRevenueComparisonLinks().catch(console.error)
       break
 
+    case 'deep-sanitize': {
+      (async () => {
+        const optionArgs = args.slice(1)
+        const options = { forceSummary: true, forceLinks: true }
+        let topViewsLimit = null
+        let cooldownDays = 30 // クールダウンを無視または短く設定
+
+        optionArgs.forEach(arg => {
+          if (!arg) return
+          if (arg.startsWith('--slugs=')) {
+            const value = arg.replace('--slugs=', '')
+            const slugs = value.split(',').map(s => s.trim()).filter(Boolean)
+            if (slugs.length > 0) {
+              options.slugs = slugs
+            }
+          } else if (arg.startsWith('--top-views=')) {
+            const value = parseInt(arg.replace('--top-views=', ''), 10)
+            if (!Number.isNaN(value) && value > 0) {
+              topViewsLimit = value
+            }
+          }
+        })
+
+        if (!options.slugs && topViewsLimit !== null) {
+          const candidates = await getTopViewedCandidates(topViewsLimit, cooldownDays)
+          options.slugs = candidates.map(candidate => candidate.slug)
+          console.log(`🚀 深層メンテナンスを ${options.slugs.length} 件実行します`)
+        }
+
+        await sanitizeAllBodies(options)
+      })().catch(console.error)
+      break
+    }
+
     case 'sanitize': {
       (async () => {
         const optionArgs = args.slice(1)
@@ -7591,6 +7625,10 @@ if (require.main === module) {
                       - --top-views   : 閲覧数上位から指定件数を抽出（クールダウン経過分を優先）
                       - --cooldown    : --top-views指定時のクールダウン日数（デフォルト30日）
                       - --force-links : アフィリエイト/内部/出典リンクを全記事で再配置
+  deep-sanitize [--slugs=slug1,slug2] [--top-views=10]
+                      品質向上のための深層メンテナンス（まとめ・リンクの強制再配置）
+                      - --slugs       : 対象スラッグをカンマ区切りで指定
+                      - --top-views   : 閲覧数上位から指定件数を抽出
   voice [--apply]     話者ルールを強制（全記事/ドラフト対象）
                       - 「看護助手の私が教える」等の肩書き主張を除去
                       - 「セラが/セラの」等の自己名指しを除去

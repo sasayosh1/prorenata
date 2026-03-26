@@ -14,11 +14,12 @@ const metadataService = new MetadataService(process.env.GEMINI_API_KEY);
 
 // Budget Guard
 const budget = spawnSync(process.execPath, [path.resolve(__dirname, 'budget-guard.cjs'), '--reserve-articles', '1'], {
-  stdio: 'inherit',
+  stdio: ['ignore', 'pipe', 'inherit'],
   env: process.env
 });
-if (budget.status !== 0) {
-  console.warn('⚠️ Budget guard error. Skipping generation.');
+const budgetOutput = budget.stdout ? budget.stdout.toString() : '';
+if (budget.status !== 0 || budgetOutput.includes('allowed=false')) {
+  console.warn('⚠️ Budget guard: Not allowed. Skipping generation.');
   process.exit(0);
 }
 

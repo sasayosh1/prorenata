@@ -204,27 +204,27 @@ export default defineType({
       name: 'maintenanceLocked',
       title: '自動編集ロック',
       type: 'boolean',
-      initialValue: false,
+      initialValue: false, // デフォルト: OFF
       description: 'true にするとメンテナンススクリプトや自動処理（バイブコーディング）で本文が変更されなくなります（手動のみ編集可能）',
     }),
     defineField({
       name: 'internalOnly',
       title: '内部限定コンテンツ',
       type: 'boolean',
-      initialValue: false,
+      initialValue: false, // デフォルト: OFF
       description: 'true の場合は検索/一覧/サイトマップから除外し、robots noindex を付与します',
     }),
     defineField({
       name: 'showDisclaimer',
       title: '免責事項を表示',
       type: 'boolean',
-      initialValue: true,
+      initialValue: true, // デフォルト: ON
     }),
     defineField({
       name: 'showTrustBlock',
       title: '信頼性ブロックを表示',
       type: 'boolean',
-      initialValue: true,
+      initialValue: true, // デフォルト: ON
     }),
     defineField({
       name: 'author',

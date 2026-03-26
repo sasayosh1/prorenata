@@ -6,6 +6,13 @@ require('dotenv').config({ path: '.env.local' });
 // --- Configuration ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const NOTE_DRAFTS_DIR = path.join(process.cwd(), 'note/articles');
+const NEWSLETTER_CTA_FOOTER = `
+---
+[白崎セラの公式メルマガ（無料）はこちら]
+https://prorenata.jp
+※登録特典：スタンプイラストのスマホ壁紙プレゼント🌙
+---
+`;
 const PROMPTS_DIR = path.join(process.cwd(), '00_システム/Prompts/Note記事作成ワークフロー');
 
 // --- Helper: Read Prompt File ---
@@ -214,7 +221,10 @@ async function generatenoteDraft(topic) {
         const filename = `${yyyy}-${mm}-${dd}_${safeTitle}.md`;
         const filepath = path.join(outputDir, filename);
 
-        fs.writeFileSync(filepath, finalContent);
+        // Add Common Footer
+        const finalContentWithFooter = finalContent + NEWSLETTER_CTA_FOOTER;
+
+        fs.writeFileSync(filepath, finalContentWithFooter);
         console.log(`\n✨ Successfully generated new article: ${filepath}`);
 
     } catch (error) {
