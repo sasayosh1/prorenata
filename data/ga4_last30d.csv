@@ -16,8 +16,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260313,/,desktop,Japan,4,1,134,0.75,1642.78502525
 20260314,/posts/nursing-assistant-infection-control-manual,desktop,Japan,4,3,16,1.0,150.9224325
 20260323,/,mobile,Japan,4,1,40,0.75,857.0063640000001
-20260223,/posts/nursing-assistant-medical-terms,mobile,Japan,3,2,16,0.3333333333333333,173.75316566666666
-20260223,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,1,9,0.0,2.001278
 20260303,/posts/nursing-assistant-icu-emergency-duties,mobile,Japan,3,1,71,1.0,295.971548
 20260308,/posts/nursing-assistant-medical-terms,mobile,Japan,3,3,22,1.0,99.12487066666667
 20260310,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,3,1,13,0.0,3.8969313333333333
@@ -33,8 +31,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260322,/,mobile,Japan,3,1,14,0.6666666666666666,21.581857666666668
 20260323,/posts/nursing-assistant-interview-resume-roadmap,desktop,Japan,3,3,24,1.0,71.055963
 20260324,/posts/nursing-assistant-career-vision,mobile,Japan,3,2,15,0.3333333333333333,175.95983733333333
-20260223,/,desktop,United States,2,2,6,0.0,0.0
-20260223,/posts/nursing-assistant-latest-salary-comparison,mobile,Japan,2,2,13,1.0,37.5212505
 20260224,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,2,12,0.0,5.9923475
 20260224,/posts/nursing-assistant-job-market-analysis,desktop,Japan,2,1,8,0.0,3.1283625
 20260224,/posts/nursing-assistant-medical-terms,desktop,Japan,2,1,11,0.0,4.1156555
@@ -80,13 +76,8 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260323,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,9,0.0,3.389328
 20260324,/,desktop,Japan,2,2,24,1.0,710.0549295
 20260324,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,22,0.5,110.676717
-20260223,/categories/salary,mobile,Japan,1,1,2,1.0,10.054805
-20260223,/posts/nursing-assistant-deal-with-nurses,mobile,Japan,1,1,1,1.0,0.0
-20260223,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,6,1.0,104.235604
-20260223,/posts/nursing-assistant-night-shift-allowance,mobile,Japan,1,1,1,1.0,58.036066
-20260223,/posts/nursing-assistant-night-shift-recovery,mobile,Japan,1,1,1,1.0,37.01412
-20260223,/posts/nursing-assistant-salary-differences,desktop,United States,1,1,3,0.0,0.0
-20260223,/posts/nursing-scholarship-interest-risk,mobile,Japan,1,1,12,1.0,134.722149
+20260325,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.5,85.416961
+20260325,/posts/nursing-assistant-patient-safety-key,desktop,Japan,2,1,7,0.0,0.11549
 20260224,/,desktop,Japan,1,1,4,1.0,133.418822
 20260224,/posts,desktop,Japan,1,1,6,1.0,6.526305
 20260224,/posts/nursing-assistant-emr-system-changes,desktop,Japan,1,1,7,1.0,37.457437
@@ -444,4 +435,17 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260324,/posts/nursing-assistant-work-tips-easy-beginners,mobile,Japan,1,1,1,1.0,0.0
 20260324,/tags/給料,desktop,Poland,1,1,4,1.0,9.568839
 20260324,/terms,desktop,Japan,1,1,1,1.0,2.315377
-20260325,/posts/nursing-assistant-mental-care-compass,mobile,Japan,1,1,6,0.0,6.039282
+20260325,/,desktop,Japan,1,1,7,1.0,232.221085
+20260325,/,mobile,Japan,1,1,1,1.0,5.019597
+20260325,/gift/wallpaper-sera.png,mobile,Japan,1,1,7,1.0,21.218211
+20260325,/posts/nursing-assistant-aptitude-test,desktop,Japan,1,1,7,1.0,116.91369
+20260325,/posts/nursing-assistant-career-change-experience,desktop,Singapore,1,1,4,0.0,1.248316
+20260325,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,7,1.0,26.081374
+20260325,/posts/nursing-assistant-mental-care-compass,mobile,Japan,1,1,10,1.0,1621.353378
+20260325,/posts/nursing-assistant-motivation-letter-examples,mobile,Japan,1,1,7,1.0,180.36235
+20260325,/posts/nursing-assistant-nightshift-fatigue,mobile,Japan,1,1,6,0.0,6.679078
+20260325,/posts/nursing-assistant-operating-room-duties,desktop,Japan,1,1,7,1.0,35.64627
+20260325,/posts/nursing-assistant-practical-tips-insights,mobile,Japan,1,1,5,0.0,6.190071
+20260325,/posts/nursing-assistant-skillup-roadmap,desktop,China,1,1,3,0.0,0.0
+20260326,/posts,desktop,Singapore,1,1,4,0.0,1.147888
+20260326,/posts/nursing-assistant-role-responsibility-team,mobile,Japan,1,1,5,0.0,5.980227
