@@ -45,4 +45,17 @@ export const deskStructure = (S: StructureBuilder) =>
               S.documentTypeListItem('speechBubble').title('吹き出し定義'),
             ])
         ),
+      S.divider(),
+      // メルマガ管理
+      S.listItem()
+        .title('メルマガ管理')
+        .id('newsletterManagement')
+        .child(
+          S.list()
+            .title('メルマガ')
+            .id('newsletterList')
+            .items([
+              S.documentTypeListItem('subscriber').title('購読者リスト'),
+            ])
+        ),
     ])
