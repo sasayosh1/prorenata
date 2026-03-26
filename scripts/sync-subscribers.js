@@ -22,9 +22,9 @@ async function syncSubscribers() {
     token,
   })
 
-  console.log('Fetching all subscribers from Sanity...')
+  console.log('Fetching active subscribers from Sanity...')
   try {
-    const subscribers = await client.fetch('*[_type == "subscriber"] | order(subscribedAt asc)')
+    const subscribers = await client.fetch('*[_type == "subscriber" && !defined(unsubscribedAt)] | order(subscribedAt asc)')
     
     const csvHeader = 'subscribedAt,email\n'
     const csvLines = subscribers.map(s => `${s.subscribedAt || ''},${s.email || ''}`).join('\n')

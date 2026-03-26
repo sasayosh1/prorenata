@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 import { sanityWriteClient } from '@/lib/sanity'
 
+const GH_TOKEN = process.env.GH_TOKEN
+const GITHUB_REPOSITORY = 'sasayosh1/prorenata'
+
 export async function POST(req: Request) {
   try {
     const { email } = await req.json()
@@ -18,6 +21,25 @@ export async function POST(req: Request) {
         .patch(subscriber._id)
         .set({ unsubscribedAt: new Date().toISOString() })
         .commit()
+
+      // GitHub Actions の自動同期をトリガー
+      if (GH_TOKEN) {
+        try {
+          await fetch(`https://api.github.com/repos/${GITHUB_REPOSITORY}/dispatches`, {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${GH_TOKEN}`,
+              Accept: 'application/vnd.github.v3+json',
+              'User-Agent': 'ProReNata-App',
+            },
+            body: JSON.stringify({
+              event_type: 'sync-subscribers',
+            }),
+          })
+        } catch (ghError) {
+          console.error('GitHub trigger error:', ghError)
+        }
+      }
     }
 
     // すでに解除されている場合や見つからない場合も、セキュリティとユーザー体験のために「解除しました」と返すのが一般的
