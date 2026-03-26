@@ -41,6 +41,7 @@
     "maintenance:report": "node tools/cli.js report",
     "revalidate": "node scripts/revalidate.mjs",
     "generate:x-posts": "node scripts/generate-x-posts-daily.cjs",
+    "sync-subscribers": "node scripts/sync-subscribers.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky"
