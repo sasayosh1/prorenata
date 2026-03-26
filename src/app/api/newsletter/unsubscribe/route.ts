@@ -17,9 +17,14 @@ export async function POST(req: Request) {
     const subscriber = await sanityWriteClient.fetch(query, { email })
 
     if (subscriber) {
+      const now = new Date()
+      const jstOffset = 9 * 60 * 60 * 1000
+      const jstDate = new Date(now.getTime() + jstOffset)
+      const timestampJST = jstDate.toISOString().replace('Z', '+09:00')
+
       await sanityWriteClient
         .patch(subscriber._id)
-        .set({ unsubscribedAt: new Date().toISOString() })
+        .set({ unsubscribedAt: timestampJST })
         .commit()
 
       // GitHub Actions の自動同期をトリガー
