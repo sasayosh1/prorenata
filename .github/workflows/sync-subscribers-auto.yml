@@ -1,0 +1,40 @@
+name: Auto-Sync Newsletter Subscribers
+
+on:
+  repository_dispatch:
+    types: [sync-subscribers]
+  workflow_dispatch: # Manual trigger for testing
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci --include=dev
+
+      - name: Sync subscribers from Sanity
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2' }}
+          NEXT_PUBLIC_SANITY_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_DATASET || 'production' }}
+          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN || secrets.SANITY_API_TOKEN }}
+        run: node scripts/sync-subscribers.js
+
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(newsletter): auto-sync subscribers.csv from Sanity"
+          file_pattern: "06_メルマガ/リスト/subscribers.csv"

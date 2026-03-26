@@ -1,7 +1,8 @@
 const { createClient } = require('@sanity/client')
 const fs = require('fs/promises')
 const path = require('path')
-require('dotenv').config({ path: '.env.local' })
+const envPath = path.join(__dirname, '../.env.local')
+require('dotenv').config({ path: envPath })
 
 async function syncSubscribers() {
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2'

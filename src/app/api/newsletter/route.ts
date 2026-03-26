@@ -7,6 +7,8 @@ import { sanityWriteClient } from '@/lib/sanity'
 // 送信元の設定（環境変数などで管理するのが理想的）
 const MAIL_USER = process.env.MAIL_USER
 const MAIL_PASS = process.env.MAIL_PASS
+const GH_TOKEN = process.env.GH_TOKEN
+const GITHUB_REPOSITORY = 'sasayosh1/prorenata'
 
 export async function POST(req: Request) {
   try {
@@ -127,6 +129,27 @@ ProReNata
       }
 
       await transporter.sendMail(mailOptions)
+    }
+
+    // 3. GitHub Actions の自動同期をトリガー
+    if (GH_TOKEN) {
+      try {
+        await fetch(`https://api.github.com/repos/${GITHUB_REPOSITORY}/dispatches`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${GH_TOKEN}`,
+            Accept: 'application/vnd.github.v3+json',
+            'User-Agent': 'ProReNata-App',
+          },
+          body: JSON.stringify({
+            event_type: 'sync-subscribers',
+          }),
+        })
+        console.log('GitHub Action triggered successfully')
+      } catch (ghError) {
+        console.error('GitHub trigger error:', ghError)
+        // ここでの失敗は本質的な登録処理には影響しないため、エラーは投げない
+      }
     }
 
     return NextResponse.json({ message: 'Success' }, { status: 200 })
