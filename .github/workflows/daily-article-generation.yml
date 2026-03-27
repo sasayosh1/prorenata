@@ -34,6 +34,7 @@ jobs:
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/run-daily-generation.cjs
@@ -42,11 +43,11 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .budget/gemini-usage.json
+          git add .budget/*.json
           if git diff --staged --quiet; then
             echo "No budget changes to commit"
           else
-            git commit -m "chore: update gemini budget usage $(date +'%Y-%m-%d')"
+            git commit -m "chore: update ai budget usage $(date +'%Y-%m-%d')"
             git pull --rebase --autostash origin main
             git push
           fi

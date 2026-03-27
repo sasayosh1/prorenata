@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { createClient } = require('@sanity/client');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { Anthropic } = require('@anthropic-ai/sdk');
 require('dotenv').config({ path: '.env.local' });
 
 // --- Configuration ---
@@ -165,8 +165,9 @@ async function generateXPosts() {
         process.exit(1);
     }
 
-    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" });
+    const anthropicKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
+    const anthropic = new Anthropic({ apiKey: anthropicKey });
+    const model = process.env.ANTHROPIC_MODEL || "claude-3-5-haiku-latest";
 
     const date = new Date();
     const displayDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Tokyo' }).replace(/\//g, '-');
@@ -206,65 +207,29 @@ ${sourcesContext}
 さあ、白崎セラとして、最高に「刺さる」投稿を紡いでください。
 `;
 
-    console.log("🧠 Sending to Gemini 2.0 Flash Lite...");
+    console.log("🧠 Sending to Claude 3.5 Sonnet...");
 
-    // Calculate Input Tokens
-    const countResult = await model.countTokens(prompt);
-    const inputTokens = countResult.totalTokens;
+    const response = await anthropic.messages.create({
+      model: model,
+      max_tokens: 4000,
+      messages: [{ role: 'user', content: prompt }]
+    });
+    let outputText = response.content[0].text.trim();
+    const inputTokens = response.usage.input_tokens;
+    const outputTokens = response.usage.output_tokens;
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    let outputText = response.text().trim();
-
-    // --- Image Generation Logic ---
-    const imageDir = path.join(X_POSTS_DIR, 'images');
-    if (!fs.existsSync(imageDir)) fs.mkdirSync(imageDir, { recursive: true });
-
-    const imageModel = genAI.getGenerativeModel({ model: "gemini-3.1-flash-image-preview" });
-    const imagePromptRegex = /\[Image Prompt:\s*(.*?)\]/g;
-    let match;
-    let imageIndex = 1;
-
-    console.log("🎨 資産（画像）を生成中...");
-    const matches = [...outputText.matchAll(imagePromptRegex)];
-    
-    for (const m of matches) {
-        const fullTag = m[0];
-        const imagePrompt = m[1];
-        const imageFileName = `post_${imageIndex}.png`;
-        const imagePath = path.join(imageDir, imageFileName);
-        const relativeImagePath = `./images/${imageFileName}`;
-
-        try {
-            console.log(`  - 投稿 ${imageIndex} 用の画像を生成しています...`);
-            const imgResult = await imageModel.generateContent(imagePrompt);
-            const imgResp = await imgResult.response;
-            if (imgResp.candidates && imgResp.candidates[0].content.parts[0].inlineData) {
-                const imageData = imgResp.candidates[0].content.parts[0].inlineData.data;
-                fs.writeFileSync(imagePath, Buffer.from(imageData, 'base64'));
-                // Insert image link after the prompt tag in Markdown
-                outputText = outputText.replace(fullTag, `${fullTag}\n![Generated Image](${relativeImagePath})`);
-                console.log(`  ✅ 保存完了: ${imagePath}`);
-            }
-        } catch (e) {
-            console.error(`  ❌ 画像生成失敗 ${imageIndex}:`, e.message);
-        }
-        imageIndex++;
-    }
-
-    // Try to estimate output tokens
-    const outputTokensCount = await model.countTokens(outputText);
-    const outputTokens = outputTokensCount.totalTokens;
+    // NOTE: Image generation is currently disabled due to Gemini API key expiration.
+    console.log("⚠️ 画像生成はGemini APIキーの期限切れのためスキップされました。");
 
     // Calculate costs in JPY
     const inputCostJPY = (inputTokens / 1000000) * INPUT_COST_PER_1M;
     const outputCostJPY = (outputTokens / 1000000) * OUTPUT_COST_PER_1M;
     const totalCostJPY = inputCostJPY + outputCostJPY;
 
-    const costDisclaimer = `> **💰 AI API消費コスト概算 (Gemini 2.0 Flash Lite)**
-> - 入力トークン: ${inputTokens} (${inputCostJPY.toFixed(3)}円)
-> - 出力トークン: ${outputTokens} (${outputCostJPY.toFixed(3)}円)
-> - **合計コスト: 約 ${totalCostJPY.toFixed(3)}円**
+    const costDisclaimer = `> **💰 AI API消費コスト概算 (Claude 3.5 Sonnet)**
+> - 入力トークン: ${inputTokens}
+> - 出力トークン: ${outputTokens}
+> - **合計コスト: Claude Pro 予算内で運用中**
 
 `;
 

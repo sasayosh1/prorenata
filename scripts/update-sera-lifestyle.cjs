@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { Anthropic } = require('@anthropic-ai/sdk');
 
 // --- Configuration ---
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY?.trim();
-if (!GEMINI_API_KEY) {
-    console.error("FATAL: GEMINI_API_KEY is not set.");
+const AUTH_KEY = (process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY)?.trim();
+if (!AUTH_KEY) {
+    console.error("FATAL: ANTHROPIC_API_KEY is not set.");
     process.exit(1);
 }
 
@@ -103,12 +103,16 @@ AIはこのファイルから季節・文脈に合った「服装・飲み物・
 
 async function updateLifestyle() {
     try {
-        const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" });
+        const anthropic = new Anthropic({ apiKey: AUTH_KEY });
+        const modelName = process.env.ANTHROPIC_MODEL || "claude-3-5-haiku-latest";
 
         console.log("🤖 Generating new lifestyle content (clothes, food, drinks, living)...");
-        const result = await model.generateContent(generationPrompt);
-        const responseText = await result.response.text();
+        const response = await anthropic.messages.create({
+            model: modelName,
+            max_tokens: 4000,
+            messages: [{ role: 'user', content: generationPrompt }]
+        });
+        const responseText = response.content[0].text;
         const finalContent = responseText.trim().replace(/^```markdown\n/, '').replace(/```\n?$/, '');
 
         // Make sure directory exists if for some reason it doesn't

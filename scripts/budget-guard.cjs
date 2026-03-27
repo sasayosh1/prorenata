@@ -30,7 +30,7 @@ function parseArgs(argv) {
   const args = {
     reserveJpy: null,
     reserveArticles: null,
-    model: 'gemini',
+    model: 'claude',
     audit: false,
     build: false,
     cli: false,
@@ -212,7 +212,7 @@ async function main() {
   const spentToday = state.daily[date].total || 0;
 
   const estimatedPerArticleJpy = Number(process.env.GEMINI_ESTIMATED_COST_JPY_PER_ARTICLE || '0.2');
-  const estimatedClaudeJpy = Number(process.env.CLAUDE_ESTIMATED_COST_JPY || '1.0');
+  const estimatedClaudeJpy = Number(process.env.CLAUDE_ESTIMATED_COST_JPY || '8.0');
   const estimatedOpenAIJpy = Number(process.env.OPENAI_ESTIMATED_COST_JPY || '0.1');
   const estimatedCodexJpy = Number(process.env.CODEX_ESTIMATED_COST_JPY || '0.5');
 
@@ -268,9 +268,9 @@ async function main() {
       console.log(`❌ budget-check failed: ${blockReason}`);
       process.exit(1);
     }
-    const title = `💸 Gemini budget exceeded (${blockReason === 'DAILY_LIMIT' ? date : month})`;
+    const title = `💸 AI Budget Limit Exceeded (${blockReason === 'DAILY_LIMIT' ? date : month})`;
     const body = [
-      '## Gemini Budget Guard',
+      '## AI Budget Guard',
       '',
       `- Type: \`${blockReason}\``,
       `- Month (UTC): \`${context.month}\``,
@@ -282,7 +282,7 @@ async function main() {
       `- This run reserve: \`${context.reserveJpy} JPY\``,
       '',
       '### Action',
-      '- This run will skip Gemini execution to keep costs under the target.',
+      '- This run will skip AI execution to keep costs under the target.',
       `- Reason: ${blockReason}`,
       '',
       `Timestamp: ${new Date().toISOString()}`,
@@ -344,9 +344,9 @@ main().catch((error) => {
   console.error('❌ budget-guard failed:', error?.message || error);
   try {
     const month = getCurrentMonthUtc();
-    const title = `💸 Gemini budget-guard failed (${month})`;
+    const title = `💸 AI Budget Guard Failed (${month})`;
     const body = [
-      '## Gemini Budget Guard',
+      '## AI Budget Guard',
       '',
       'Budget guard failed before completing checks (configuration or runtime error).',
       '',
@@ -359,7 +359,7 @@ main().catch((error) => {
       '',
       '### Action',
       '- Fix the budget guard script/config.',
-      '- Gemini execution is skipped until this is resolved (to prevent unexpected costs).',
+      '- AI execution is skipped until this is resolved (to prevent unexpected costs).',
       '',
       `Timestamp: ${new Date().toISOString()}`,
     ].join('\n');

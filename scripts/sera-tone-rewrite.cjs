@@ -24,7 +24,7 @@
  */
 
 const { createClient } = require('@sanity/client');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { Anthropic } = require('@anthropic-ai/sdk');
 require('dotenv').config({ path: '.env.local', override: true });
 require('dotenv').config({ path: '.env.private', override: true });
 const fs = require('fs');
@@ -316,9 +316,16 @@ async function rewriteParagraph(model, paragraph) {
     paragraph,
   ].join('\n');
 
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  let text = response.text().trim();
+  const authKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
+  const anthropic = new Anthropic({ apiKey: authKey });
+  const modelName = process.env.ANTHROPIC_MODEL || "claude-3-5-haiku-latest";
+
+  const response = await anthropic.messages.create({
+    model: modelName,
+    max_tokens: 1000,
+    messages: [{ role: 'user', content: prompt }]
+  });
+  let text = response.content[0].text.trim();
 
   // Safety post-process (rule-based, minimal):
   // - Remove authority phrasing that violates position rules.
@@ -385,7 +392,7 @@ async function main() {
     const body = [
       '## Sera Tone Rewrite',
       '',
-      'Gemini 口調補正は予算上限のためスキップしました。',
+      'AI 口調補正は予算上限のためスキップしました。',
       '',
       `- Threshold: <${args.threshold}`,
       `- Candidates: ${candidates.length}`,
@@ -453,9 +460,8 @@ async function main() {
     token: sanityToken || undefined,
   });
 
-  const geminiModelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
-  const genAI = process.env.GEMINI_API_KEY ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY) : null;
-  const model = genAI ? genAI.getGenerativeModel({ model: geminiModelName }) : null;
+  const authKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
+  const model = authKey ? "dummy" : null; // Keep structure but we use local authKey in rewriteParagraph
 
   const results = [];
   const errors = [];

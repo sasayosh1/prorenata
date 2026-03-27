@@ -28,9 +28,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${tag.title} | ${category.title}タグ`
   const description = tag.description
 
+  // 記事が1件もない場合は noindex を付与してソフト 404 を回避
+  const posts = await getPostsByTagSlug(tag.slug, 1)
+  const hasPosts = posts.length > 0
+
   return {
     title,
     description,
+    robots: hasPosts ? undefined : { index: false, follow: true },
   }
 }
 

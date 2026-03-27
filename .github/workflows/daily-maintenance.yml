@@ -113,6 +113,7 @@ jobs:
         id: budget
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
@@ -197,9 +198,9 @@ jobs:
             git add all-articles.json
           fi
           
-          # .budget/gemini-usage.json が存在すれば追加
-          if [ -f .budget/gemini-usage.json ]; then
-            git add .budget/gemini-usage.json
+          # AI usage data (migration from gemini-usage.json)
+          if [ -d .budget ]; then
+            git add .budget/*.json
           fi
 
           if git diff --staged --quiet; then

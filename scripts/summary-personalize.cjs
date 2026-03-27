@@ -27,6 +27,7 @@ const path = require('path')
 const { spawnSync } = require('child_process')
 const { createClient } = require('@sanity/client')
 const { GoogleGenerativeAI } = require('@google/generative-ai')
+const { Anthropic } = require('@anthropic-ai/sdk')
 
 require('dotenv').config({ path: '.env.local', override: true })
 require('dotenv').config({ path: '.env.private', override: true })
@@ -133,12 +134,10 @@ function splitToPortableTextParagraphs({ summary, follow }) {
   return [makeP(summary), makeP(follow)]
 }
 
-function createGeminiModel() {
-  const apiKey = process.env.GEMINI_API_KEY
-  if (!apiKey) throw new Error('GEMINI_API_KEY is required')
-  const modelName = process.env.GEMINI_MODEL || 'gemini-2.0-flash-lite-001'
-  const genAI = new GoogleGenerativeAI(apiKey)
-  return genAI.getGenerativeModel({ model: modelName })
+function createAnthropicModel() {
+  const apiKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY
+  if (!apiKey) throw new Error('ANTHROPIC_API_KEY is required')
+  return { apiKey, model: process.env.ANTHROPIC_MODEL || 'claude-3-5-haiku-latest' }
 }
 
 function extractAnchors(blocks, summaryIndex) {
@@ -200,12 +199,15 @@ ${followText}
 {"summary":"...","follow":"..."}`
 }
 
-async function generateSummaryJson({ geminiModel, title, context, anchors }) {
+async function generateSummaryJson({ anthropic, model, title, context, anchors }) {
   const prompt = buildPrompt({ title, context, anchors })
 
-  const result = await geminiModel.generateContent(prompt)
-  const response = await result.response
-  return String(response.text() || '').trim()
+  const response = await anthropic.messages.create({
+    model: model,
+    max_tokens: 1000,
+    messages: [{ role: 'user', content: prompt }]
+  })
+  return String(response.content[0].text || '').trim()
 }
 
 function safeParseJson(text) {
@@ -238,8 +240,8 @@ function validateSummary({ summary, follow, anchors }) {
   return { ok: errors.length === 0, errors, summary: s, follow: f }
 }
 
-async function generateWithRetry({ geminiModel, title, context, anchors }) {
-  const firstRaw = await generateSummaryJson({ geminiModel, title, context, anchors })
+async function generateWithRetry({ anthropic, model, title, context, anchors }) {
+  const firstRaw = await generateSummaryJson({ anthropic, model, title, context, anchors })
   const firstJson = safeParseJson(firstRaw)
   const first = validateSummary({
     summary: firstJson?.summary,
@@ -265,9 +267,12 @@ ${anchors.map(a => `- ${a}`).join('\n')}
 ${firstRaw}
 
 書き直し結果（JSONのみ）:`
-  const retry = await geminiModel.generateContent(retryPrompt)
-  const retryRes = await retry.response
-  const secondRaw = String(retryRes.text() || '').trim()
+  const retry = await anthropic.messages.create({
+    model: model,
+    max_tokens: 1000,
+    messages: [{ role: 'user', content: retryPrompt }]
+  })
+  const secondRaw = String(retry.content[0].text || '').trim()
   const secondJson = safeParseJson(secondRaw)
   const second = validateSummary({
     summary: secondJson?.summary,
@@ -292,9 +297,12 @@ ${anchors.map(a => `- ${a}`).join('\n')}
 ${secondRaw}
 
 短縮した出力（JSONのみ）:`
-  const thirdReq = await geminiModel.generateContent(compressPrompt)
-  const thirdRes = await thirdReq.response
-  const thirdRaw = String(thirdRes.text() || '').trim()
+  const thirdReq = await anthropic.messages.create({
+    model: model,
+    max_tokens: 1000,
+    messages: [{ role: 'user', content: compressPrompt }]
+  })
+  const thirdRaw = String(thirdReq.content[0].text || '').trim()
   const thirdJson = safeParseJson(thirdRaw)
   const third = validateSummary({
     summary: thirdJson?.summary,
@@ -373,7 +381,9 @@ async function main() {
     return
   }
 
-  const geminiModel = createGeminiModel()
+  const config = createAnthropicModel()
+  const anthropic = new Anthropic({ apiKey: config.apiKey })
+  const model = config.model
 
   let updated = 0
   for (const post of targets) {
@@ -395,7 +405,7 @@ async function main() {
     }
 
     try {
-      const generated = await generateWithRetry({ geminiModel, title: post.title || post.slug, context, anchors })
+      const generated = await generateWithRetry({ anthropic, model, title: post.title || post.slug, context, anchors })
       const newSummaryBlocks = splitToPortableTextParagraphs(generated)
       const nextBody = [
         ...post.body.slice(0, summaryIndex + 1),

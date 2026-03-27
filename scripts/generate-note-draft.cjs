@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { Anthropic } = require('@anthropic-ai/sdk');
 require('dotenv').config({ path: '.env.local' });
 
 // --- Configuration ---
@@ -24,12 +24,15 @@ function readPrompt(filename) {
     return fs.readFileSync(filepath, 'utf-8');
 }
 
-// --- Helper: Generate with Gemini ---
-async function generate(model, prompt, inputInfo = "") {
+// --- Helper: Generate with Claude ---
+async function generate(anthropic, model, prompt, inputInfo = "") {
     const fullPrompt = `${prompt}\n\n---\n\n${inputInfo}`;
-    const result = await model.generateContent(fullPrompt);
-    const response = await result.response;
-    return response.text().trim();
+    const response = await anthropic.messages.create({
+        model: model,
+        max_tokens: 4000,
+        messages: [{ role: 'user', content: fullPrompt }]
+    });
+    return response.content[0].text.trim();
 }
 
 // --- Helper: Get Lifestyle Context ---
@@ -61,7 +64,7 @@ async function createStructure(topic, pastMemory, model) {
         prompt += `\n\n## 【登場人物・重要事象レジストリ】\n以下の設定（性格、背景、過去の出来事）を「セラの記憶」として尊重し、物語の整合性を保ってください。既存の人物を登場させることで深みを出してください。\n\n${registry}`;
     }
 
-    return await generate(model, prompt);
+    return await generate(anthropic, model, prompt);
 }
 
 async function writeDraft(structure, pastMemory, model) {
@@ -69,22 +72,22 @@ async function writeDraft(structure, pastMemory, model) {
     if (pastMemory) {
         prompt += `\n\n## 【過去の記憶（ランダム）】\nこの記憶が現在のトピックと少しでも関連する場合のみ、\n「ふと思い出した」ようなニュアンスで構成に取り入れてください。\n（無理に関連付ける必要はありません。自然な場合のみ使用してください）\n\n${pastMemory}`;
     }
-    return await generate(model, prompt, structure);
+    return await generate(anthropic, model, prompt, structure);
 }
 
 async function refineDraft(draft, model) {
     const prompt = readPrompt('3_Note推敲・強化プロンプト.md');
-    return await generate(model, prompt, draft);
+    return await generate(anthropic, model, prompt, draft);
 }
 
 async function finalizeContent(refinedContent, model) {
     const prompt = readPrompt('4_Note最終仕上げプロンプト.md');
-    return await generate(model, prompt, refinedContent);
+    return await generate(anthropic, model, prompt, refinedContent);
 }
 
 async function selectProduct(content, model) {
     const prompt = readPrompt('5_Note商品選定プロンプト.md');
-    const result = await generate(model, prompt, content);
+    const result = await generate(anthropic, model, prompt, content);
     const keyword = result.trim();
     return keyword === 'None' ? null : keyword;
 }
@@ -132,8 +135,9 @@ async function generatenoteDraft(topic) {
         process.exit(1);
     }
 
-    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" });
+    const authKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
+    const anthropic = new Anthropic({ apiKey: authKey });
+    const model = process.env.ANTHROPIC_MODEL || "claude-3-5-sonnet-latest";
 
     console.log(`\n🚀 Starting note generation for topic: "${topic}"`);
 
@@ -148,19 +152,19 @@ async function generatenoteDraft(topic) {
     try {
         // 1. Structure
         console.log("1️⃣  Creating structure...");
-        const structure = await createStructure(topic, pastMemory, model);
+        const structure = await createStructure(topic, pastMemory, anthropic, model);
 
         // 2. Draft
         console.log("2️⃣  Writing draft...");
-        const draft = await writeDraft(structure, pastMemory, model); // context passed but main input is structure
+        const draft = await writeDraft(structure, pastMemory, anthropic, model); // context passed but main input is structure
 
         // 3. Refine
         console.log("3️⃣  Refining...");
-        const refined = await refineDraft(draft, model);
+        const refined = await refineDraft(draft, anthropic, model);
 
         // 4. Finalize
         console.log("4️⃣  Finalizing...");
-        let finalContent = await finalizeContent(refined, model);
+        let finalContent = await finalizeContent(refined, anthropic, model);
 
         /*
         // 5. Select Product & Insert Affiliate Link

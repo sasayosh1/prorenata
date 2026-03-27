@@ -1,4 +1,4 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { Anthropic } = require('@anthropic-ai/sdk');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -124,8 +124,9 @@ function analyzeCategoryBalance() {
 async function generateNewTerm(targetCategory, existingIds, existingTerms) {
   console.log(`\nカテゴリ「${CATEGORIES[targetCategory]}」の用語を生成中...`);
 
-  const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-001" });
+  const authKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
+  const anthropic = new Anthropic({ apiKey: authKey });
+  const model = process.env.ANTHROPIC_MODEL || "claude-3-5-haiku-latest";
 
   const prompt = `あなたは看護助手向けの医療用語クイズを作成する専門家です。
 
@@ -161,9 +162,12 @@ ${existingIds.slice(0, 20).join(', ')}...など${existingIds.length}件
 必ずJSON形式のみで出力してください。説明文は不要です。`;
 
   try {
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const response = await anthropic.messages.create({
+      model: model,
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    });
+    const text = response.content[0].text;
 
     // JSONを抽出
     const jsonMatch = text.match(/\{[\s\S]*\}/);
@@ -242,8 +246,9 @@ async function main() {
   console.log('=== 医療用語クイズ問題自動生成 ===\n');
 
   // 1. 環境変数チェック
-  if (!GEMINI_API_KEY) {
-    console.error('エラー: GEMINI_API_KEY環境変数が設定されていません');
+  const authKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
+  if (!authKey) {
+    console.error('エラー: ANTHROPIC_API_KEY または GEMINI_API_KEY 環境変数が設定されていません');
     process.exit(1);
   }
 

@@ -13,7 +13,7 @@ const path = require('path')
 const { spawn } = require('child_process')
 const { randomUUID } = require('crypto')
 const { createClient } = require('@sanity/client')
-const { GoogleGenerativeAI } = require('@google/generative-ai')
+const { Anthropic } = require('@anthropic-ai/sdk')
 
 // Load local environment variables when running from a dev machine.
 // (GitHub Actions will provide secrets via env; locally we rely on .env.local.)
@@ -22,6 +22,9 @@ try {
 } catch {
   // noop
 }
+const authKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
+const anthropic = new Anthropic({ apiKey: authKey });
+const modelName = process.env.ANTHROPIC_MODEL || 'claude-3-5-haiku-latest';
 const {
   blocksToPlainText,
   generateExcerpt,
