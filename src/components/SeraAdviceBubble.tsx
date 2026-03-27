@@ -10,7 +10,7 @@ export default function SeraAdviceBubble({ content }: SeraAdviceBubbleProps) {
       {/* Icon */}
       <div className="flex-shrink-0 w-14 h-14 md:w-20 md:h-20 relative rounded-full overflow-hidden border-2 border-cyan-100 dark:border-cyan-900 shadow-md">
         <Image
-          src="/sera-icon.png"
+          src="/images/chibichara/sera_unified.png"
           alt="白崎セラ"
           fill
           className="object-cover"

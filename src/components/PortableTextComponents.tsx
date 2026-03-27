@@ -489,6 +489,12 @@ export const portableTextComponents: PortableTextComponents = {
       </div>
     ),
 
+    blockquote: ({ children }) => (
+      <blockquote className="my-8 border-l-4 border-cyan-200 dark:border-cyan-800 pl-6 py-2 italic text-gray-700 dark:text-gray-300 bg-gray-50/50 dark:bg-gray-950/30 rounded-r-lg">
+        {children}
+      </blockquote>
+    ),
+
     h1: ({ children, value }) => <CustomHeading level={1} value={value}>{children}</CustomHeading>,
     h2: ({ children, value }) => <CustomHeading level={2} value={value}>{children}</CustomHeading>,
     h3: ({ children, value }) => <CustomHeading level={3} value={value}>{children}</CustomHeading>,

@@ -11,11 +11,11 @@ type SpeechBubbleProps = {
 
 const AVATARS = {
     sera: {
-        normal: '/images/chibichara/sera_chibi_explaining.png',
-        happy: '/images/chibichara/sera_chibi_happy.png',
-        sad: '/images/chibichara/sera_chibi_troubled.png',
-        thinking: '/images/etc/sera_chibi_thinking.png',
-        angry: '/images/etc/sera_chibi_panicked.png',
+        normal: '/images/chibichara/sera_unified.png',
+        happy: '/images/chibichara/sera_unified.png',
+        sad: '/images/chibichara/sera_unified.png',
+        thinking: '/images/chibichara/sera_unified.png',
+        angry: '/images/chibichara/sera_unified.png',
     },
     // Placeholders for other speakers
     patient: {

@@ -253,7 +253,7 @@ export default async function Home() {
           </section>
 
           {/* メルマガ登録フォーム */}
-          <section className="mb-32">
+          <section id="newsletter" className="mb-32">
             <NewsletterForm />
           </section>
 

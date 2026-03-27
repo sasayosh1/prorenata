@@ -37,7 +37,9 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
           const text = block.children
             ?.filter((child) => child._type === 'span')
             ?.map((child) => child.text)
-            ?.join(' ') || ''
+            ?.join('') // Join without spaces to avoid extra spacing
+            ?.replace(/\*\*([^*]+)\*\*/g, '$1') // Strip bold markers
+             || ''
 
           if (text) {
             const id = text
@@ -90,9 +92,9 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
 
         {isOpen && (
           <nav className="mt-3">
-            <ul className="space-y-1">
+            <ul className="space-y-1 p-0 m-0" style={{listStyleType: 'none', padding: 0, margin: 0}}>
               {tocItems.map((item, index) => (
-                <li key={index} className={item.level === 3 ? 'ml-4' : ''}>
+                <li key={index} className={`list-none ${item.level === 3 ? 'ml-4' : ''}`}>
                   <a
                     href={`#${item.id}`}
                     onClick={(e) => {
@@ -106,7 +108,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                     style={{color: 'rgb(31, 41, 55)'}}
                   >
                     {item.level === 3 && (
-                      <span className="inline-block w-1.5 h-1.5 bg-gray-800 rounded-full mr-2"></span>
+                      <span className="mr-2">・</span>
                     )}
                     {item.text}
                   </a>
