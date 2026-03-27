@@ -7,10 +7,10 @@ require('dotenv').config({ path: envPath })
 async function syncSubscribers() {
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '72m8vhy2'
   const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
-  const token = process.env.SANITY_API_TOKEN
+  const token = process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN
 
   if (!token) {
-    console.error('Error: SANITY_API_TOKEN is not defined in .env.local')
+    console.error('Error: SANITY_WRITE_TOKEN or SANITY_API_TOKEN is not defined')
     process.exit(1)
   }
 
