@@ -23,7 +23,7 @@ console.log("- Dataset:", client.config().dataset);
 const MAP = {
     'nursing-assistant-resume-writing.md': 'nursing-assistant-resume-writing',
     'nursing-assistant-patient-transfer-safety.md': 'nursing-assistant-patient-transfer-safety',
-    'nursing-assistant-resignation-advice-insights.md': 'nursing-assistant-resignation-advice-top',
+    'nursing-assistant-resignation-advice-insights.md': 'nursing-assistant-resignation-advice-insights',
     'nursing-assistant-part-time-day.md': 'nursing-assistant-part-time-day',
     'nursing-assistant-skillup-roadmap.md': 'nursing-assistant-skillup-roadmap',
     'nursing-assistant-night-shift-guide.md': 'nursing-assistant-night-shift-duties',
