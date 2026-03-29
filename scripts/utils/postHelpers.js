@@ -16,7 +16,7 @@ const MetadataService = require('./metadataService')
 
 let metadataServiceGlobal = null
 function getMetadataService() {
-  const apiKey = process.env.GEMINI_API_KEY || process.env.SANITY_API_TOKEN
+  const apiKey = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY || process.env.SANITY_API_TOKEN
   if (!metadataServiceGlobal && apiKey) {
     metadataServiceGlobal = new MetadataService(apiKey)
   }

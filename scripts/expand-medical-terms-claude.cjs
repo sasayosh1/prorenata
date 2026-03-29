@@ -11,7 +11,7 @@ const SANITY_CONFIG = {
   token: process.env.SANITY_WRITE_TOKEN
 };
 
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY;
 
 async function expandMedicalTermsArticle() {
   console.log('医療用語記事の拡充を開始します（Claude API使用）...\n');

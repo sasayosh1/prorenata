@@ -153,7 +153,7 @@ function generateMetaDescription(title, excerpt, categories) {
 }
 
 const MetadataService = require('./utils/metadataService')
-const metadataService = new MetadataService(process.env.GEMINI_API_KEY || process.env.SANITY_API_TOKEN)
+const metadataService = new MetadataService(process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY || process.env.SANITY_API_TOKEN)
 
 /**
  * 1件の記事のメタデータを生成

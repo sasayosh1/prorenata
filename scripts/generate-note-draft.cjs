@@ -152,19 +152,19 @@ async function generatenoteDraft(topic) {
     try {
         // 1. Structure
         console.log("1️⃣  Creating structure...");
-        const structure = await createStructure(topic, pastMemory, anthropic, model);
+        const structure = await createStructure(topic, pastMemory, model);
 
         // 2. Draft
         console.log("2️⃣  Writing draft...");
-        const draft = await writeDraft(structure, pastMemory, anthropic, model); // context passed but main input is structure
+        const draft = await writeDraft(structure, pastMemory, model); // context passed but main input is structure
 
         // 3. Refine
         console.log("3️⃣  Refining...");
-        const refined = await refineDraft(draft, anthropic, model);
+        const refined = await refineDraft(draft, model);
 
         // 4. Finalize
         console.log("4️⃣  Finalizing...");
-        let finalContent = await finalizeContent(refined, anthropic, model);
+        let finalContent = await finalizeContent(refined, model);
 
         /*
         // 5. Select Product & Insert Affiliate Link

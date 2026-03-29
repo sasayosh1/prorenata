@@ -28,81 +28,52 @@ export default async function Home() {
     <>
       <Header />
 
-      {/* Hero Section: Centered & Search Integrated */}
-      <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950">
-        {/* Background Image/Gradient Layer */}
+      {/* Hero Section: Minimalist & Stylish */}
+      <div className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950">
+        {/* Background Layer: Glassmorphism & Subtle Gradients */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 via-white to-blue-50 opacity-10 dark:opacity-20 transition-opacity duration-1000" />
-          <div className="absolute inset-0 backdrop-blur-[0.5px] bg-white/5 dark:bg-gray-950/40" />
-          <Image 
-            src="/hero-bg-near-future.png" 
-            alt="" 
-            fill 
-            className="object-cover opacity-40 dark:opacity-60 mix-blend-multiply dark:mix-blend-overlay"
-            priority 
-          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-cyan-100/20 via-transparent to-transparent dark:from-cyan-900/10 transition-opacity duration-1000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('/hero-bg-near-future.png')] bg-cover bg-center opacity-30 dark:opacity-50 mix-blend-soft-light" />
+          <div className="absolute inset-0 backdrop-blur-[2px]" />
         </div>
 
-        <div className="relative z-10 w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            <h1 className="text-5xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 sm:text-6xl md:text-7xl lg:text-8xl">
-              <span className="block drop-shadow-sm opacity-90">ProReNata</span>
-              <span className="block text-cyan-600 dark:text-cyan-500 mt-4 text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
-                看護助手の未来を拓く
+        <div className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <h1 className="text-6xl font-black tracking-tighter text-gray-900 dark:text-white sm:text-7xl md:text-8xl lg:text-9xl mb-6">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-cyan-800 to-gray-900 dark:from-white dark:via-cyan-400 dark:to-white">
+                ProReNata
               </span>
             </h1>
-            <p className="mt-8 text-lg text-gray-600 dark:text-gray-300 sm:text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
-              <span className="inline-block">現場で働くあなたへ、</span>
-              <span className="inline-block">給与・資格・キャリアの確かなガイドを。</span>
+            
+            <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 sm:text-2xl md:text-3xl font-medium tracking-tight max-w-3xl mx-auto leading-tight">
+              看護助手の日常に、<br />
+              小さな救済と確かなガイドを。
             </p>
 
-            {/* Integrated Search in Hero */}
-            <div className="mt-12 max-w-2xl mx-auto">
-              <div className="relative group">
-                <div className="relative">
-                  <HomeSearch />
-                </div>
-              </div>
+            {/* Integrated Search with Stylish Frame */}
+            <div className="mt-12 max-w-xl mx-auto backdrop-blur-md bg-white/30 dark:bg-gray-900/30 p-1 rounded-full shadow-2xl ring-1 ring-white/20">
+              <HomeSearch />
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Link
+                href="#newsletter"
+                className="group relative px-10 py-5 bg-gradient-to-r from-cyan-600 to-teal-600 text-white rounded-full font-black text-xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12" />
+                メルマガを購読する
+              </Link>
               <Link
                 href="/posts"
-                className="rounded-full bg-cyan-600 px-10 py-4 text-lg font-bold text-white shadow-xl hover:bg-cyan-700 hover:scale-105 active:scale-95 transition-all duration-200"
+                className="px-10 py-5 bg-white/10 dark:bg-gray-800/20 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 text-gray-700 dark:text-gray-200 rounded-full font-bold text-xl hover:bg-white/40 dark:hover:bg-gray-800/40 transition-all duration-300"
               >
                 記事を読む
               </Link>
-              <Link
-                href="/about"
-                className="rounded-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-md px-10 py-4 text-lg font-bold text-cyan-700 dark:text-cyan-400 shadow-lg ring-1 ring-cyan-200 dark:ring-cyan-800 hover:bg-white dark:hover:bg-gray-700 hover:scale-105 active:scale-95 transition-all duration-200"
-              >
-                ProReNataについて
-              </Link>
             </div>
             
-            <p className="mt-10 text-xs text-gray-400 dark:text-gray-50 font-medium">
-              ※当サイトはアフィリエイト広告を利用しています
+            <p className="mt-12 text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-widest opacity-60">
+              Curated by Sera Shirasaki
             </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Trust Ribbon: Authority Bar */}
-      <div className="bg-cyan-700 py-4">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-white text-sm font-bold tracking-widest">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-cyan-300 animate-pulse" />
-              ProReNata編集部 監修
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-cyan-300 animate-pulse" />
-              最新キャリアデータ
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-cyan-300 animate-pulse" />
-              現場視点のガイド
-            </div>
           </div>
         </div>
       </div>

@@ -222,7 +222,7 @@ async function createPost() {
       return
     }
 
-    const metadataService = new MetadataService(process.env.GEMINI_API_KEY)
+    const metadataService = new MetadataService(process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY)
 
     // スラッグ生成（日本語タイトルの場合は手動入力を推奨）
     const autoSlug = generateSlug(title)
