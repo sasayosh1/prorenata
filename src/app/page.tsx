@@ -39,7 +39,7 @@ export default async function Home() {
 
         <div className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-20 text-center">
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            <h1 className="text-6xl font-black tracking-tighter text-gray-900 dark:text-white sm:text-7xl md:text-8xl lg:text-9xl mb-6">
+            <h1 className="text-6xl font-black tracking-tighter text-gray-900 dark:text-white sm:text-7xl md:text-8xl lg:text-9xl mb-6 font-[family-name:var(--font-open-sans)]">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-cyan-800 to-gray-900 dark:from-white dark:via-cyan-400 dark:to-white">
                 ProReNata
               </span>
