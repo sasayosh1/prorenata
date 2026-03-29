@@ -45,9 +45,8 @@ export default async function Home() {
               </span>
             </h1>
             
-            <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 sm:text-2xl md:text-3xl font-medium tracking-tight max-w-3xl mx-auto leading-tight">
-              看護助手の日常に<br />
-              小さな救済と確かなガイドを
+            <p className="mt-6 text-sm sm:text-base md:text-xl text-gray-600 dark:text-gray-300 font-medium tracking-tight max-w-4xl mx-auto leading-tight whitespace-nowrap">
+              看護助手の日常に小さな救済と確かなガイドを
             </p>
 
 
