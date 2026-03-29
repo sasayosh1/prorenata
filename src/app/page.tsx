@@ -46,14 +46,10 @@ export default async function Home() {
             </h1>
             
             <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 sm:text-2xl md:text-3xl font-medium tracking-tight max-w-3xl mx-auto leading-tight">
-              看護助手の日常に、<br />
-              小さな救済と確かなガイドを。
+              看護助手の日常に<br />
+              小さな救済と確かなガイドを
             </p>
 
-            {/* Integrated Search with Stylish Frame */}
-            <div className="mt-12 max-w-xl mx-auto backdrop-blur-md bg-white/30 dark:bg-gray-900/30 p-1 rounded-full shadow-2xl ring-1 ring-white/20">
-              <HomeSearch />
-            </div>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
@@ -62,12 +58,6 @@ export default async function Home() {
               >
                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12" />
                 メルマガを購読する
-              </Link>
-              <Link
-                href="/posts"
-                className="px-10 py-5 bg-white/10 dark:bg-gray-800/20 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 text-gray-700 dark:text-gray-200 rounded-full font-bold text-xl hover:bg-white/40 dark:hover:bg-gray-800/40 transition-all duration-300"
-              >
-                記事を読む
               </Link>
             </div>
             
