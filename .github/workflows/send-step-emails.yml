@@ -1,25 +1,31 @@
 name: Send Step Emails
 
+
 on:
   schedule:
-    - cron: '0 0 * * *'  # 毎日 09:00 JST (00:00 UTC)
+    - cron: '0 0 * * *'→ Runs at 00:00  # 毎日 09:00 JST (00:00 UTC)
   workflow_dispatch:      # 手動実行も可能
+
 
 jobs:
   send:
     runs-on: ubuntu-latest
 
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+
       - name: Install dependencies
         run: npm ci --include=dev
+
 
       - name: Newsletter health check
         env:
@@ -32,12 +38,6 @@ jobs:
           MAIL_TO: ${{ secrets.MAIL_TO }}
         run: node scripts/newsletter-health-check.cjs
 
+
       - name: Send step emails
         env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: '72m8vhy2'
-          NEXT_PUBLIC_SANITY_DATASET: 'production'
-          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
-          SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}
-          MAIL_USER: ${{ secrets.GMAIL_USER }}
-          MAIL_PASS: ${{ secrets.GMAIL_APP_PASSWORD }}
-        run: node scripts/send-step-emails.js
