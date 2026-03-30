@@ -1,9 +1,12 @@
 name: Daily Article Maintenance Check
 
+
 on:
-  schedule:
-    # 毎日 AM3:00 (JST) = 毎日 PM6:00 (UTC) に実行（月曜は記事生成の1時間後）
-    - cron: '0 18 * * *'
+  # Disabled to avoid API costs and run failed emails. Content to be generated via Antigravity locally.
+  # schedule:
+  #   # 毎日 AM3:00 (JST) = 毎日 PM6:00 (UTC) に実行（月曜は記事生成の1時間後）
+  #   - cron: '0 18 * * *'
+
   workflow_dispatch: # 手動実行も可能にする
     inputs:
       force_run:
@@ -12,9 +15,11 @@ on:
         default: false
         type: boolean
 
+
 concurrency:
   group: repo-write-${{ github.repository }}-${{ github.ref }}
   cancel-in-progress: false
+
 
 jobs:
   safety-check:
@@ -30,183 +35,8 @@ jobs:
           ref: main
           fetch-depth: 0
 
+
       - name: Check last run timestamp (24h safety)
         id: safety
         env:
           FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_run || 'false' }}
-        run: |
-          LAST_RUN_FILE=".github/last_run_timestamp"
-          NOW_TS=$(date +%s)
-          SHOULD_RUN=true
-
-          if [ "$FORCE_RUN" = "true" ]; then
-            echo "Force run requested (workflow_dispatch). Skipping 24h safety guard."
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-            echo "$NOW_TS" > "$LAST_RUN_FILE"
-            exit 0
-          fi
-
-          if [ -f "$LAST_RUN_FILE" ]; then
-            LAST_RUN_TS="$(cat "$LAST_RUN_FILE" | tr -d '\n\r' || true)"
-            if [[ "$LAST_RUN_TS" =~ ^[0-9]+$ ]]; then
-              ELAPSED=$(( NOW_TS - LAST_RUN_TS ))
-              if [ "$ELAPSED" -lt 86400 ]; then
-                echo "This workflow ran less than 24 hours ago (${ELAPSED}s). Skipping to save API cost."
-                SHOULD_RUN=false
-              fi
-            else
-              echo "WARN: last_run_timestamp is missing/invalid; continuing."
-            fi
-          fi
-
-          echo "should_run=$SHOULD_RUN" >> "$GITHUB_OUTPUT"
-          if [ "$SHOULD_RUN" = "false" ]; then
-            exit 0
-          fi
-
-          echo "$NOW_TS" > "$LAST_RUN_FILE"
-
-      - name: Commit timestamp file
-        uses: stefanzweifel/git-auto-commit-action@v5
-        if: steps.safety.outputs.should_run == 'true'
-        with:
-          commit_message: "chore: update last_run_timestamp for safety check"
-          file_pattern: ".github/last_run_timestamp"
-
-  main:
-    runs-on: ubuntu-latest
-    needs: safety-check
-    if: needs.safety-check.outputs.should_run == 'true'
-    permissions:
-      contents: read
-      issues: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: CI -> fail if NPM_CONFIG_PRODUCTION=true
-        run: |
-          if [ "${NPM_CONFIG_PRODUCTION:-false}" = "true" ]; then
-            echo "ERROR: NPM_CONFIG_PRODUCTION=true will skip devDependencies; set NPM_CONFIG_PRODUCTION=false or use npm ci --include=dev.";
-            exit 1;
-          fi
-
-      - name: Install dependencies (include dev)
-        run: npm ci --include=dev
-
-      - name: Analytics health check (GA4/GSC)
-        id: analytics
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/analytics-health-check.cjs
-
-      - name: Budget check (Gemini)
-        id: budget
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: |
-          echo "=== 予算チェック開始 ==="
-          node scripts/budget-guard.cjs --reserve-jpy 0.5
-
-      - name: Run maintenance script - Metadata autofix (always)
-        if: steps.budget.outputs.allowed == 'true'
-        env:
-          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
-          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
-          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
-          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          MAINTENANCE_METADATA_ONLY: "1"
-          MAINTENANCE_ASSERT_METADATA: "1"
-        run: |
-          echo "=== メタデータ補完（カテゴリ/タグ/抜粋/SEO）開始 ==="
-          node scripts/maintenance.js autofix
-
-      - name: Revenue optimize - Ensure comparison links for 退職/転職 categories
-        if: steps.budget.outputs.allowed == 'true'
-        env:
-          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
-          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
-          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
-          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          echo "=== 収益最適化リンク補完（退職/転職カテゴリ）開始 ==="
-          node scripts/maintenance.js revenue-links
-
-      - name: Publish draft articles
-        env:
-          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
-          SANITY_API_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
-        run: |
-          echo "=== Draft記事の公開開始 ==="
-          node scripts/publish-drafts.js publish --apply
-
-      - name: Update Search Index (all-articles.json)
-        env:
-          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
-          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
-        run: |
-          echo "=== 検索インデックスの更新開始 ==="
-          node scripts/update-search-index.js
-
-      - name: Create issue if problems found
-        if: failure()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const date = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
-
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `[メンテナンス] 記事品質チェックで問題を検出 (${date})`,
-              body: `## 記事品質チェック結果\n\n定期メンテナンスチェックで問題が検出されました。\n\n詳細はワークフローログを確認してください:\n${context.payload.repository.html_url}/actions/runs/${context.runId}\n\n---\n**実行時刻**: ${date}\n**チェック項目**:\n- 必須フィールド (Slug, Categories)\n- SEO (Meta Description: 120-160文字)\n- 推奨フィールド (Tags, Excerpt)\n- 文字数 (推奨2000文字以上)\n- 次のステップセクション`,
-              labels: ['maintenance', 'article-quality']
-            });
-
-      - name: Post summary
-        if: always()
-        run: |
-          echo "✅ メンテナンスチェック完了"
-          echo "📊 実行時刻: $(TZ=Asia/Tokyo date '+%Y年%m月%d日 %H:%M')"
-
-      - name: Commit and push changes
-        if: always()
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # all-articles.json が存在すれば追加
-          if [ -f all-articles.json ]; then
-            git add all-articles.json
-          fi
-          
-          # AI usage data (migration from gemini-usage.json)
-          if [ -d .budget ]; then
-            git add .budget/*.json
-          fi
-
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: nightly maintenance update (search index/budget) $(date +'%Y-%m-%d')"
-            git pull --rebase --autostash origin main
-            git push
-          fi
