@@ -2,8 +2,8 @@
   "ok": true,
   "reason": "ok",
   "reason_code": "OK",
-  "checkedAt": "2026-03-16T03:56:15.992Z",
-  "dateCheckedUtc": "2026-03-15",
+  "checkedAt": "2026-03-30T04:10:04.939Z",
+  "dateCheckedUtc": "2026-03-29",
   "thresholds": {
     "lookbackDays": 7,
     "dropRatio": 0.2,
@@ -11,14 +11,14 @@
   },
   "metrics": {
     "ga4": {
-      "yesterdaySessions": 13,
-      "dayBeforeSessions": 24,
-      "recentAvgSessions": 18.285714285714285
+      "yesterdaySessions": 25,
+      "dayBeforeSessions": 61,
+      "recentAvgSessions": 29.142857142857142
     },
     "gsc": {
       "yesterdayClicks": 0,
       "dayBeforeClicks": 0,
-      "recentAvgClicks": 0
+      "recentAvgClicks": 0.42857142857142855
     }
   }
 }
