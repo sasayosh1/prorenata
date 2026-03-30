@@ -1,27 +1,35 @@
 name: Daily Analytics & SEO Report
 
+
 on:
-  schedule:
-    # 毎日 09:00 JST = 00:00 UTC
-    - cron: '0 0 * * *'
+  # Disabled to avoid API costs and run failed emails. Content to be generated via Antigravity locally.
+  # schedule:
+  #   # 毎日 09:00 JST = 00:00 UTC
+  #   - cron: '0 0 * * *'
+
   workflow_dispatch:
     # 手動実行可能
+
 
 concurrency:
   group: repo-write-${{ github.repository }}-${{ github.ref }}
   cancel-in-progress: false
 
+
 permissions:
   contents: write
   issues: write
+
 
 jobs:
   fetch-and-analyze:
     runs-on: ubuntu-latest
 
+
     env:
       GA4_PROPERTY_ID: '504242963'
       GSC_SITE_URL: 'https://prorenata.jp/'
+
 
     steps:
       - name: Checkout repository
@@ -30,73 +38,8 @@ jobs:
           ref: main
           fetch-depth: 0
 
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Install Python dependencies
-        run: |
-          pip install --no-cache-dir -r scripts/analytics/requirements.txt
-
-      - name: Restore service account JSON
-        run: |
-          echo '${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}' > /tmp/sa.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa.json" >> $GITHUB_ENV
-
-      - name: Fetch Search Console data
-        run: |
-          python scripts/analytics/fetch-gsc-data.py
-
-      - name: Fetch GA4 data
-        run: |
-          python scripts/analytics/fetch-ga4-data.py
-
-      - name: Generate SEO analysis report
-        run: |
-          python scripts/analytics/analyze-seo-performance.py
-
-      - name: Commit and push data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add data/*.csv data/*.md
-
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: daily analytics & SEO report $(date +'%Y-%m-%d')"
-            git pull --rebase --autostash origin main
-            git push
-          fi
-
-      - name: Generate SEO daily report
-        run: |
-          python scripts/analytics/analyze-seo-performance.py \
-            --gsc-data data/gsc_last30d.json \
-            --ga4-data data/ga4_last30d.csv \
-            --output reports/daily/seo-summary-$(date +'%Y-%m-%d').md
-
-      - name: Create GitHub Issue on failure
-        if: failure()
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const title = '⚠️ Daily Analytics Failed';
-            const body = `Daily analytics workflow failed on ${new Date().toISOString()}
-
-            Please check the workflow run: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title,
-              body,
-              labels: ['analytics', 'automated'],
-            });
-
-      - name: Clean up credentials
-        if: always()
-        run: rm -f /tmp/sa.json
