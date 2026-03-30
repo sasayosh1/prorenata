@@ -9,6 +9,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260327,/,desktop,Japan,6,4,54,0.8333333333333334,237.09291616666667
 20260328,/posts/nursing-assistant-patient-transfer-safety,desktop,Japan,6,4,42,0.8333333333333334,99.46031866666668
 20260328,/posts/nursing-assistant-resume-writing,desktop,Japan,6,4,77,0.8333333333333334,609.5017483333334
+20260329,/,mobile,Japan,6,2,100,0.8333333333333334,828.5393049999999
 20260303,/,desktop,Japan,5,1,26,0.8,56.3600496
 20260303,/posts/nursing-assistant-patient-transfer-safety,mobile,Japan,5,2,22,0.4,1421.6077498
 20260321,/,desktop,Japan,5,2,96,1.0,622.2619172
@@ -16,6 +17,7 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260321,/posts/nursing-assistant-interview-resume-roadmap,desktop,Japan,5,3,49,0.6,491.7583992
 20260328,/posts/nursing-assistant-care-guide-compassa,desktop,Japan,5,4,14,0.6,155.4294284
 20260328,/posts/nursing-assistant-resignation-advice-top,desktop,Japan,5,2,42,0.8,32.9599156
+20260329,/,desktop,Japan,5,2,86,1.0,1134.1793308000001
 20260304,/,desktop,Japan,4,2,56,1.0,348.9140165
 20260304,/posts/nursing-assistant-job-role-support,desktop,Japan,4,1,31,1.0,40.08765075
 20260306,/,desktop,Japan,4,3,43,0.5,136.681995
@@ -44,9 +46,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260328,/posts,desktop,Japan,3,2,32,1.0,62.60661866666666
 20260328,/posts/nursing-assistant-interview-resume-roadmap,desktop,Japan,3,2,7,1.0,18.557895666666667
 20260328,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,3,2,34,1.0,227.29637333333335
-20260227,/,desktop,Japan,2,1,19,0.5,2.5892295
-20260227,/posts/nursing-assistant-operating-room-duties,mobile,Japan,2,2,14,1.0,38.4254075
-20260227,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,2,1,4,0.0,0.0
 20260228,/posts/nursing-assistant-medical-terms,mobile,Japan,2,2,12,0.5,40.7864475
 20260228,/posts/nursing-assistant-resignation-advice-insights,mobile,Japan,2,2,9,0.0,5.925896
 20260301,/posts/nursing-assistant-duties-scope,desktop,Japan,2,1,13,1.0,36.436635
@@ -87,13 +86,6 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260325,/posts/nursing-assistant-patient-safety-key,desktop,Japan,2,1,7,0.0,0.11549
 20260327,/posts/nursing-assistant-infection-control-manual,mobile,Japan,2,2,13,1.0,21.0660475
 20260327,/tags/介護施設,desktop,Japan,2,1,4,0.5,2.782197
-20260227,/posts/nursing-assistant-icu-emergency-duties,mobile,Japan,1,1,23,1.0,729.430346
-20260227,/posts/nursing-assistant-medical-terms,mobile,Japan,1,1,7,1.0,93.082829
-20260227,/posts/nursing-assistant-mental-care-stress,mobile,Japan,1,1,2,1.0,309.14781
-20260227,/posts/nursing-assistant-night-shift-journey,mobile,Japan,1,1,1,1.0,7.340173
-20260227,/posts/nursing-assistant-outpatient-inpatient-differences,mobile,Japan,1,1,1,1.0,4.918898
-20260227,/posts/nursing-assistant-practical-tips,mobile,Japan,1,1,1,1.0,3.718113
-20260227,/posts/speech-bubble-test-1764822894333,desktop,Japan,1,1,7,0.0,9.657323
 20260228,/categories,desktop,Iran,1,1,4,1.0,6.65566
 20260228,/categories/career-change,desktop,Iran,1,1,4,1.0,4.180308
 20260228,/categories/resignation,desktop,Netherlands,1,1,4,1.0,29.291962
@@ -459,4 +451,18 @@ date,pagePath,deviceCategory,country,sessions,totalUsers,eventCount,engagementRa
 20260328,/privacy,desktop,Singapore,1,1,4,0.0,1.184077
 20260328,/search,desktop,Japan,1,1,1,1.0,23.634375
 20260328,/tags/nursing-assistant,desktop,Singapore,1,1,3,0.0,0.0
+20260329,/,desktop,United States,1,1,5,0.0,6.054409
+20260329,/about,desktop,Japan,1,1,7,1.0,12.956727
+20260329,/posts,desktop,Japan,1,1,2,1.0,6.448798
+20260329,/posts,mobile,Japan,1,1,1,1.0,4.223664
+20260329,/posts/nursing-assistant-bottom-myth,mobile,Japan,1,1,5,0.0,5.996014
 20260329,/posts/nursing-assistant-icu-emergency-duties,mobile,Japan,1,1,4,0.0,5.865692
+20260329,/posts/nursing-assistant-ideal-workplace,desktop,Singapore,1,1,3,0.0,0.0
+20260329,/posts/nursing-assistant-infection-control-manual,desktop,Japan,1,1,11,1.0,9.527714
+20260329,/posts/nursing-assistant-night-shift-practical,mobile,Japan,1,1,6,0.0,5.944809
+20260329,/posts/nursing-assistant-quit-retirement,mobile,Japan,1,1,10,1.0,134.520389
+20260329,/posts/nursing-assistant-resignation-advice-insights,desktop,Japan,1,1,2,1.0,0.0
+20260329,/search,mobile,Japan,1,1,2,1.0,48.735494
+20260329,/tags/メンタルケア,desktop,Japan,1,1,7,1.0,882.147409
+20260329,/unsubscribe,mobile,Japan,1,1,4,0.0,6.043012
+20260330,/posts/nursing-assistant-duties-scope,desktop,Japan,1,1,6,1.0,208.707027
