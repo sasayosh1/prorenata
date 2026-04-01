@@ -41,3 +41,7 @@ jobs:
 
       - name: Send step emails
         env:
+          MAIL_USER: ${{ secrets.GMAIL_USER }}
+          MAIL_PASS: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: node scripts/x-mailer.mjs
