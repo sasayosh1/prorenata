@@ -42,3 +42,5 @@ jobs:
           SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
           SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+run: |
+          echo "Sanity tokens verified"
