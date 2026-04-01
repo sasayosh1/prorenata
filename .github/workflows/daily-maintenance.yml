@@ -40,6 +40,6 @@ jobs:
         id: safety
         env:
           FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_run || 'false' }}
-run: |
+        run: |
           echo "should_run=true" >> $GITHUB_OUTPUT
           
