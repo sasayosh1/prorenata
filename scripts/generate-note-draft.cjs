@@ -46,7 +46,7 @@ function getLifestyleContext() {
 }
 
 // --- Helper: Specific Generation Functions ---
-async function createStructure(topic, pastMemory, model) {
+async function createStructure(anthropic, topic, pastMemory, model) {
     let prompt = readPrompt('1_Note構成案作成プロンプト.md');
     prompt += `\n\n## 入力トピック\n${topic}`;
     const lifestyleCtx = getLifestyleContext();
@@ -67,7 +67,7 @@ async function createStructure(topic, pastMemory, model) {
     return await generate(anthropic, model, prompt);
 }
 
-async function writeDraft(structure, pastMemory, model) {
+async function writeDraft(anthropic, structure, pastMemory, model) {
     let prompt = readPrompt('2_Note執筆プロンプト.md');
     if (pastMemory) {
         prompt += `\n\n## 【過去の記憶（ランダム）】\nこの記憶が現在のトピックと少しでも関連する場合のみ、\n「ふと思い出した」ようなニュアンスで構成に取り入れてください。\n（無理に関連付ける必要はありません。自然な場合のみ使用してください）\n\n${pastMemory}`;
@@ -75,17 +75,17 @@ async function writeDraft(structure, pastMemory, model) {
     return await generate(anthropic, model, prompt, structure);
 }
 
-async function refineDraft(draft, model) {
+async function refineDraft(anthropic, draft, model) {
     const prompt = readPrompt('3_Note推敲・強化プロンプト.md');
     return await generate(anthropic, model, prompt, draft);
 }
 
-async function finalizeContent(refinedContent, model) {
+async function finalizeContent(anthropic, refinedContent, model) {
     const prompt = readPrompt('4_Note最終仕上げプロンプト.md');
     return await generate(anthropic, model, prompt, refinedContent);
 }
 
-async function selectProduct(content, model) {
+async function selectProduct(anthropic, content, model) {
     const prompt = readPrompt('5_Note商品選定プロンプト.md');
     const result = await generate(anthropic, model, prompt, content);
     const keyword = result.trim();
@@ -245,3 +245,6 @@ if (!topic) {
 }
 
 generatenoteDraft(topic);
+
+
+const structure = await createStructure(anthropic, topic, pastMemory, model);
