@@ -9,6 +9,7 @@ import blockContent from './blockContent'
 import seraAdvice from './seraAdvice'
 import youtube from './youtube'
 import subscriber from './subscriber'
+import newsletter from './newsletter'
 
 export const schemaTypes = [
     blockContent,
@@ -21,5 +22,6 @@ export const schemaTypes = [
     faqItem,
     seraAdvice,
     youtube,
-    subscriber
+    subscriber,
+    newsletter
 ]

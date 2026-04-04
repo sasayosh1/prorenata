@@ -11,6 +11,7 @@
  *   3. テンプレートファイルの存在確認
  *   4. Gmail SMTP 接続確認
  *   5. 購読者ごとのステップ進捗レポート
+ *   6. ニュースレター本文完全性チェック（新規 2026-04-04）
  */
 
 'use strict'
@@ -175,8 +176,73 @@ function checkSubscriberProgress(subscribers) {
   return report
 }
 
+// ── 検査 6: ニュースレター本文完全性（新規 2026-04-04） ─────────────────────────
+async function checkNewsletterCompletion(sanityData) {
+  console.log('\n[6/6] ニュースレター本文完全性チェック...')
+
+  if (!sanityData || !sanityData.client) {
+    addError('Sanity接続がないためスキップ')
+    return []
+  }
+
+  try {
+    const newsletters = await sanityData.client.fetch(
+      `*[_type == "newsletter"] | order(emailNumber asc) {
+        _id, subject, emailNumber, body
+      }`
+    )
+
+    if (newsletters.length === 0) {
+      addInfo('ニュースレター文書なし')
+      return []
+    }
+
+    const report = []
+
+    for (const nl of newsletters) {
+      const blockCount = nl.body ? nl.body.length : 0
+      const headingCount = nl.body ? nl.body.filter(b => b.style && b.style.startsWith('h')).length : 0
+
+      const entry = {
+        emailNumber: nl.emailNumber,
+        subject: nl.subject,
+        blockCount,
+        headingCount,
+        status: 'OK',
+      }
+
+      // 本文が空の場合
+      if (!nl.body || blockCount === 0) {
+        entry.status = 'ERROR: 本文が空です'
+        addError(`Newsletter #${nl.emailNumber} "${nl.subject}": 本文が空（ブロック数: 0）`)
+      }
+      // ブロック数が疑わしい場合（< 10）
+      else if (blockCount < 10) {
+        entry.status = `WARNING: ブロック数が少ない（${blockCount}）`
+        addWarning(`Newsletter #${nl.emailNumber} "${nl.subject}": ブロック数 ${blockCount} < 基準10`)
+      }
+      // 見出しが基準以下の場合（< 3）
+      else if (headingCount < 3) {
+        entry.status = `WARNING: 見出しが少ない（${headingCount}）`
+        addWarning(`Newsletter #${nl.emailNumber} "${nl.subject}": H2見出し ${headingCount} < 基準3`)
+      }
+      // 正常
+      else {
+        addInfo(`Newsletter #${nl.emailNumber}: ${blockCount}ブロック / H2見出し${headingCount}個 — OK`)
+      }
+
+      report.push(entry)
+    }
+
+    return report
+  } catch (err) {
+    addError(`ニュースレター取得失敗: ${err.message}`)
+    return []
+  }
+}
+
 // ── アラートメール送信 ──────────────────────────────────────────────────────────
-async function sendAlertEmail(transporter, subscriberReport) {
+async function sendAlertEmail(transporter, subscriberReport, newsletterReport) {
   if (errors.length === 0 && warnings.length === 0) return
 
   const lines = [
@@ -199,6 +265,13 @@ async function sendAlertEmail(transporter, subscriberReport) {
     lines.push('■ 購読者ステータス')
     subscriberReport.forEach(s => {
       lines.push(`  ${s.email} | ${s.daysElapsed}日経過 | Step${s.lastStepSent}送信済 | ${s.status}`)
+    })
+    lines.push('')
+  }
+  if (newsletterReport.length > 0) {
+    lines.push('■ ニュースレター本文チェック')
+    newsletterReport.forEach(nl => {
+      lines.push(`  #${nl.emailNumber} "${nl.subject}" | ブロック${nl.blockCount} / 見出し${nl.headingCount} | ${nl.status}`)
     })
     lines.push('')
   }
@@ -232,14 +305,16 @@ async function main() {
   await checkTemplateFiles()
   const transporter    = await checkSmtp()
   const subscriberReport = checkSubscriberProgress(sanityResult?.subscribers)
+  const newsletterReport = await checkNewsletterCompletion(sanityResult)
 
   console.log('\n=== 結果サマリー ===')
   console.log(`エラー: ${errors.length} 件`)
   console.log(`警告  : ${warnings.length} 件`)
   console.log(`情報  : ${info.length} 件`)
+  console.log(`\nニュースレター: ${newsletterReport.length} 件確認`)
 
   if (errors.length > 0 || warnings.length > 0) {
-    await sendAlertEmail(transporter, subscriberReport)
+    await sendAlertEmail(transporter, subscriberReport, newsletterReport)
   } else {
     console.log('\n✅ すべて正常です')
   }

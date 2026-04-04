@@ -2,11 +2,40 @@
 
 import { useState } from 'react'
 
+const NEWSLETTER_ENABLED = process.env.NEXT_PUBLIC_NEWSLETTER_ENABLED !== 'false'
+
 export default function NewsletterForm() {
   const [email, setEmail] = useState('')
   const [honeypot, setHoneypot] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+
+  // メルマガが無効化されている場合、準備中メッセージを表示
+  if (!NEWSLETTER_ENABLED) {
+    return (
+      <div className="w-full max-w-xl mx-auto">
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-yellow-100 dark:border-yellow-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-yellow-50 dark:bg-yellow-900/40 rounded-full mb-4">
+              <svg className="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-black text-gray-800 dark:text-white mb-4">
+              メルマガ準備中🌙
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 text-base font-medium mb-6">
+              セラからの「本音」と特典を準備しています。<br />
+              もう少しお待ちください✨
+            </p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">
+              近日中のリリース予定です
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

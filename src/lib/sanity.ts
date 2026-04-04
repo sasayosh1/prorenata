@@ -1,8 +1,6 @@
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
-// import type { SanityImageSource } from '@sanity/image-url'
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type SanityImageSource = any
+import type { SanityImageSource } from '@sanity/image-url'
 import {
   TAG_CATALOG,
   type TagDefinition,
@@ -58,13 +56,12 @@ export async function safeSanityFetch<T>(
 }
 
 // Write client for API routes (requires auth token)
-// SANITY_WRITE_TOKEN を優先、なければ SANITY_API_TOKEN にフォールバック
 export const sanityWriteClient = createClient({
   projectId,
   dataset,
   apiVersion,
   useCdn: false,
-  token: process.env.SANITY_WRITE_TOKEN || process.env.SANITY_API_TOKEN,
+  token: process.env.SANITY_API_TOKEN,
 })
 
 const builder = imageUrlBuilder(client)

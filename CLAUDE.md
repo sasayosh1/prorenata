@@ -127,13 +127,20 @@ vercel --previewe
 - **月間コスト**: 約¥6-10（gemini-1.5-flash-001使用時）
 
 **2. メンテナンスチェック**
-- **実行時刻**: 毎日 深夜3:00 (JST) - 月曜は記事生成の1時間後
+- **実行時刻**: 毎日 AM 9:00 JST（00:00 UTC）
 - **実行頻度**: 毎日（月30回）
 - **ワークフロー**: `.github/workflows/daily-maintenance.yml`
 - **内容**: 全記事の品質チェック（必須フィールド、SEO、文字数など）
 - **コスト**: 無料（Sanity API無料枠内、月間約5,000リクエスト/無料枠100,000の5%）
 
-**3. X投稿用メール（semi-auto）**
+**3. ステップメール・ニュースレター健康チェック**
+- **実行時刻**: 毎日 AM 9:00 JST（00:00 UTC）
+- **実行頻度**: 毎日
+- **ワークフロー**: `.github/workflows/send-step-emails.yml`
+- **内容**: 購読者ステップ進捗 + ニュースレター本文完全性チェック（2026-04-04追加）
+- **月間コスト**: 無料（Sanity Query + Gmail送信のみ）
+
+**4. X投稿用メール（semi-auto）**
 - **実行時刻**: 朝/夜（workflowのcronに準拠）
 - **実行頻度**: 1日2回
 - **ワークフロー**: `.github/workflows/x-mailer.yml`
@@ -153,6 +160,76 @@ vercel --previewe
 
 **現在の重点**: ミドルテールを積極的に拡充し、トピッククラスターを形成
 
+---
+
+## ニュースレター管理
+
+> 📋 **詳細ガイド**: `docs/NEWSLETTER_GUIDE.md` を参照
+> ⚠️ **問題の根本原因分析**: 2026-04-04 実施・文書化完了
+
+### 仕様
+
+- **配信対象**: メルマガ登録者（`subscriber` document）
+- **emailNumber**: 1, 2, 3...（複数のemailNumber=1があってもOK、シリーズ分岐可）
+- **形式**: PortableText（記事と同じエディタで編集）
+- **必須フィールド**: `subject`（100字以内）、`emailNumber`（数値）、`body`（PortableText配列）
+- **品質基準**:
+  - ブロック数: **最低15ブロック以上**（500語相当）
+  - 見出し: **H2見出し 3-5個**
+  - 構成: オープニング → 複数セクション（H2+説明） → クロージング
+  - キャラクター性: 白崎セラ（一人称「わたし」）、見出しに「セラ」を含めない
+
+### 生成・編集のフロー
+
+1. **コンテンツ企画**: テーマ・対象読者・emailNumber を決定
+2. **JSON生成**: `scripts/generate-newsletter-bodies.js` で PortableText JSON を生成
+3. **Sanity へのパッチ**: MCP `patch_document_from_json` で Sanity に適用
+4. **品質チェック**: `scripts/newsletter-health-check.cjs` で本文完全性を検査
+5. **配信準備**: `scheduledAt` を設定、プレビューメール送信
+
+### 禁止事項
+
+- **Markdown → PortableText 自動変換の使用禁止**（トークン制限で切り詰められるため）
+- **直接 PortableText JSON を生成すること**（推奨方法）
+- 一度の API 呼び出しで複数メール編集禁止（エラーハンドリング困難）
+- 記事内リンク・アフィリエイトリンク不可（メール体験を損なう）
+- ニュースレターに画像・動画の挿入は基本的に不推奨
+
+### メンテナンスチェック
+
+**週次チェック（毎週月曜 AM 3:00 JST）**:
+- `scripts/newsletter-health-check.cjs` を実行
+- エラー（本文が空）・警告（ブロック < 10）がないか確認
+- すべてのニュースレターが完全な状態か確認
+
+**配信前チェック**:
+- ☑ subject が 30-60 文字か確認
+- ☑ emailNumber が正しく設定されているか確認
+- ☑ body が 15 ブロック以上か確認
+- ☑ 見出しが 3-5 個か確認
+- ☑ プレビューメール送信（テスト配信）
+- ☑ 件名・本文に誤字がないか確認
+
+### 関連スクリプト
+
+| スクリプト | 用途 | 実行 |
+|-----------|------|------|
+| `scripts/generate-newsletter-bodies.js` | PortableText JSON 生成 | 手動 |
+| `scripts/newsletter-health-check.cjs` | 本文完全性チェック | 毎日 3:00 JST |
+| `scripts/fix-newsletter-truncation.js` | トラブル修復（レガシー） | 手動 |
+| MCP `patch_document_from_json` | Sanity へのパッチ適用 | 手動 |
+
+### 根本原因と改善施策
+
+**📋 2026-04-04 根本原因分析結果**:
+- **原因**: ニュースレター生成に関する仕様・フロー・品質基準が CLAUDE.md に未記載、自動化なし、複数のアプローチが混在
+- **結果**: 6つのニュースレットが不完全な状態で存在
+- **改善**: `docs/NEWSLETTER_GUIDE.md` 作成・CLAUDE.md 本セクション追加・`newsletter-health-check.cjs` 強化
+- **再発防止**: 仕様書ドキュメント化 + 自動品質チェック + プロセス統一
+
+詳細は `docs/NEWSLETTER_GUIDE.md` を参照してください。
+
+---
 
 ### [過去の変更履歴は docs/history/CLAUDE_HISTORY.md にアーカイブ済み]
 

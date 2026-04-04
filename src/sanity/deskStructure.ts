@@ -56,6 +56,7 @@ export const deskStructure = (S: StructureBuilder) =>
             .id('newsletterList')
             .items([
               S.documentTypeListItem('subscriber').title('購読者リスト'),
+              S.documentTypeListItem('newsletter').title('Newsletter'),
             ])
         ),
     ])
