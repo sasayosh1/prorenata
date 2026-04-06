@@ -1,24 +1,12 @@
 {
-  "ok": true,
-  "reason": "ok",
-  "reason_code": "OK",
-  "checkedAt": "2026-03-30T04:10:04.939Z",
-  "dateCheckedUtc": "2026-03-29",
-  "thresholds": {
-    "lookbackDays": 7,
-    "dropRatio": 0.2,
-    "staleDays": 4
-  },
-  "metrics": {
-    "ga4": {
-      "yesterdaySessions": 25,
-      "dayBeforeSessions": 61,
-      "recentAvgSessions": 29.142857142857142
-    },
-    "gsc": {
-      "yesterdayClicks": 0,
-      "dayBeforeClicks": 0,
-      "recentAvgClicks": 0.42857142857142855
-    }
+  "ok": false,
+  "reason": "stale_data",
+  "reason_code": "STALE_DATA",
+  "checkedAt": "2026-04-06T04:09:09.265Z",
+  "dateCheckedUtc": "2026-04-05",
+  "staleThresholdUtc": "2026-04-02",
+  "latest": {
+    "gsc": "2026-03-27",
+    "ga4": "2026-03-30"
   }
 }
