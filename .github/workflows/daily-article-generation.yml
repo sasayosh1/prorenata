@@ -2,7 +2,7 @@ name: Daily Article Generation
 
 on:
   schedule:
-    - cron: '0 17 * * *'  # 毎日 AM2:00 (JST) → 毎日 PM5:00 (UTC前日)
+    - cron: '0 17 * * *' # 毎日 AM2:00 (JST) → 毎日 PM5:00 (UTC前日)
   workflow_dispatch: # 手動実行も可能にする
 
 jobs:
@@ -34,3 +34,4 @@ jobs:
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
