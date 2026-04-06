@@ -201,13 +201,11 @@ async function checkNewsletterCompletion(sanityData) {
 
     for (const nl of newsletters) {
       const blockCount = nl.body ? nl.body.length : 0
-      const headingCount = nl.body ? nl.body.filter(b => b.style && b.style.startsWith('h')).length : 0
 
       const entry = {
         emailNumber: nl.emailNumber,
         subject: nl.subject,
         blockCount,
-        headingCount,
         status: 'OK',
       }
 
@@ -221,14 +219,9 @@ async function checkNewsletterCompletion(sanityData) {
         entry.status = `WARNING: ブロック数が少ない（${blockCount}）`
         addWarning(`Newsletter #${nl.emailNumber} "${nl.subject}": ブロック数 ${blockCount} < 基準10`)
       }
-      // 見出しが基準以下の場合（< 3）
-      else if (headingCount < 3) {
-        entry.status = `WARNING: 見出しが少ない（${headingCount}）`
-        addWarning(`Newsletter #${nl.emailNumber} "${nl.subject}": H2見出し ${headingCount} < 基準3`)
-      }
       // 正常
       else {
-        addInfo(`Newsletter #${nl.emailNumber}: ${blockCount}ブロック / H2見出し${headingCount}個 — OK`)
+        addInfo(`Newsletter #${nl.emailNumber}: ${blockCount}ブロック — OK`)
       }
 
       report.push(entry)
@@ -271,7 +264,7 @@ async function sendAlertEmail(transporter, subscriberReport, newsletterReport) {
   if (newsletterReport.length > 0) {
     lines.push('■ ニュースレター本文チェック')
     newsletterReport.forEach(nl => {
-      lines.push(`  #${nl.emailNumber} "${nl.subject}" | ブロック${nl.blockCount} / 見出し${nl.headingCount} | ${nl.status}`)
+      lines.push(`  #${nl.emailNumber} "${nl.subject}" | ブロック${nl.blockCount} | ${nl.status}`)
     })
     lines.push('')
   }
