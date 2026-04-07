@@ -1,379 +1,335 @@
-import nodemailer from 'nodemailer'
-import process from 'node:process'
+/**
+ * x-mailer.mjs
+ * X投稿テキスト生成 & Gmail 送信スクリプト
+ *
+ * ONモード  (月・水・金・日): ProReNata記事 → URL付き投稿
+ * OFFモード (火・木・土)   : note記事     → 独白投稿（URLなし）
+ *
+ * DRY_RUN=1 で外部通信なしのローカルテスト可能
+ */
+
 import fs from 'node:fs'
 import path from 'node:path'
-import { fetchOnePost } from './sanity-fetch.mjs'
+import { fileURLToPath } from 'node:url'
+import process from 'node:process'
+import nodemailer from 'nodemailer'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 import twitterText from 'twitter-text'
 
-/**
- * X Mailer (Semi-Auto Workflow)
- *
- * [Design Philosophy]
- * - Provides a safe, "one-way" path for generating and notifying X posts via Mail.
- * - Prioritizes stability and character guardrails (Era/YMYL) over variety.
- * - Strictly separates DRY_RUN (local simulation) from PROD (actions/fetching).
- *
- * [DRY_RUN vs PROD]
- * - DRY_RUN=1: No external calls (Sanity/Gmail). No real URLs. Mock data tests.
- * - PROD (No DRY_RUN): Fetches real post from Sanity. Requires GMAIL/MAIL secrets.
- *   Missing required ENV in PROD will intentionally trigger a process exit (Error).
- */
-
 const { parseTweet } = twitterText
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const ROOT = path.resolve(__dirname, '../..')
 
-const TARGET_MIN = 110
-const TARGET_MAX = 135
-const TARGET_IDEAL = 132
-const HISTORY_FILE = path.join(process.cwd(), '.analytics/x_mailer_history.json')
-const HISTORY_MAX = 200
+// ─── 設定 ──────────────────────────────────────────────────────────────────
+const GEMINI_MODEL = 'gemini-2.0-flash-lite-001'
+const HISTORY_FILE = path.join(ROOT, '.analytics/x_mailer_history.json')
+const NOTE_DIR = path.join(ROOT, '03_note/記事')
+const HISTORY_DAYS = 14
+const MAX_HISTORY = 200
+const SITE_BASE = 'https://prorenata.jp'
+
+const PROTECTED_SLUGS = [
+  'comparison-of-three-resignation-agencies',
+  'nursing-assistant-compare-services-perspective',
+]
+
+const NG_REGEX =
+  /(必ず|絶対|100%|確実に|治る|治ります|診断|処方|投資|稼げる|しなさい|すべき|最新|現在|今|今年|20[0-9]{2}年)/i
+
+// ON: URL を除いた本文の目標文字数
+const ON_MIN = 100
+const ON_MAX = 135
+// OFF: 本文のみの目標文字数
+const OFF_MIN = 120
+const OFF_MAX = 140
+
 const isDryRun = process.env.DRY_RUN === '1'
 
-// NG Word Patterns (Medical context, Financial guarantees, Aggressive commands, and Era/Time Guard)
-const NG_REGEX = /(必ず|絶対|100%|確実に|治る|治ります|診断|処方|投資|稼げる|収益|しなさい|すべき|やめろ|最悪|ゴミ|死ね|殺す|最新|現在|今|今年|20[0-9]{2}年)/i
-
-const SENTENCE_POOLS = {
-  OBSERVATION: [
-    '観察ですが、夜勤明けに帰宅後の動線を固定している人は疲れが残りにくい印象です。',
-    '夜勤の入り前に水分を少し意識するだけで、体の重さが変わることがあります。',
-    '休憩が削られた日は、些細な音でも疲労を強く感じやすいです。',
-    '人手が薄い日は、引き継ぎメモの書式を固定していると迷いが減ります。',
-    '夜勤明けの電車で、目が開かないまま立っている人をよく見かけます。',
-    '忙しい日は、声をかけるタイミングだけで雰囲気が変わることがあります。',
-    '夜勤の連続が続くと、食欲より睡眠が優先になる日が増えがちです。',
-    '声かけのトーンを少し変えるだけで、反応が柔らかくなることがあります。',
-    '記録を後回しにした日は、終業時刻がずれ込みやすいです。',
-    '勤務交代の直前は、空気が張りやすいので言葉選びに迷います。',
-    '疲れが溜まると、短い返事でもぶっきらぼうに聞こえやすいです。',
-    '夜勤の入りに軽い甘味を入れると、集中が続きやすいことがあります。',
-    '体がだるい日は、ベッドメイクの手順を固定すると負担が減ります。',
-    '忙しい日ほど、手洗いの流れを決めておくと安心です。',
-    '連続勤務が続いた週は、休憩室の空気も重く感じることがあります。',
-    '引き継ぎの最後に一言添えるだけで、相手の表情が変わることがあります。'
-  ],
-  VIEWPOINT: [
-    '小さな流れを決めるだけでも、心の負担は少し軽くなるかもしれません。',
-    '体の反応は正直なので、気合いだけで埋めなくていいと思います。',
-    '疲れやすさは弱さではなく、条件の問題として見てもよさそうです。',
-    '無理に明るくしなくても、落ち着いている方が伝わる場面もあります。',
-    'がんばりの不足より、休めない状況の影響が大きい日もあります。',
-    '誰かに合わせすぎるより、自分のペースを守る方が長く続くこともあります。',
-    '同じ仕事でも、体調の差で感じ方が変わるのは自然なことです。',
-    '自分の限界を早めに知っておく方が、結果的に楽になることもあります。',
-    '疲労が続く時は、判断基準を小さくしても十分だと思います。',
-    '一人で抱え込むより、手順だけでも整理しておくと安心しやすいです。',
-    '小さな工夫は、気持ちの揺れを整える助けになることがあります。',
-    '同じ言葉でも、言う側の余裕で伝わり方が変わることがあります。',
-    '忙しさが続く時期は、完璧より安定を優先してもよさそうです。',
-    '自分の疲れを責めるより、条件を見直す視点が必要かもしれません。',
-    '無理のない範囲で手順を整えるだけでも、落ち着く日が増えます。',
-    '静かに続けられる工夫を増やす方が、結果的に気持ちが守られます。'
-  ],
-  QUESTION_VIEWPOINT: [
-    'この疲れを一番重くしているのは、どの場面だと感じますか。',
-    '気持ちが落ちる瞬間は、どこに集中していますか。',
-    '休むより先に思い浮かぶことは、何が多いでしょうか。',
-    '心の余裕が少し戻るのは、どんな時でしょうか。',
-    '一番負担が大きい作業は、どれに近いですか。',
-    '言葉を飲み込む場面は、どの時間帯に多いですか。',
-    '体が軽いと感じる日は、どんな流れになっていますか。',
-    '無理を減らせそうな手順は、どこにありそうですか。'
-  ]
-}
-
-class HistoryManager {
-  constructor(filePath, maxEntries = HISTORY_MAX) {
-    this.filePath = filePath
-    this.maxEntries = maxEntries
-    this.history = []
-    this.load()
+// ─── ユーティリティ ────────────────────────────────────────────────────────
+function requiredEnv(name) {
+  const v = process.env[name]?.trim()
+  if (!v) {
+    if (isDryRun) return `MOCK_${name}`
+    throw new Error(`Missing required env: ${name}`)
   }
-
-  load() {
-    try {
-      if (fs.existsSync(this.filePath)) {
-        const data = fs.readFileSync(this.filePath, 'utf8')
-        this.history = JSON.parse(data)
-      }
-    } catch (e) {
-      console.error(`[HistoryManager] Load failed: ${e.message}`)
-      this.history = []
-    }
-  }
-
-  save() {
-    try {
-      const dir = path.dirname(this.filePath)
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
-      fs.writeFileSync(this.filePath, JSON.stringify(this.history, null, 2))
-    } catch (e) {
-      console.error(`[HistoryManager] Save failed: ${e.message}`)
-    }
-  }
-
-  addEntry(entry) {
-    this.history.unshift({
-      timestamp: new Date().toISOString(),
-      ...entry
-    })
-    if (this.history.length > this.maxEntries) {
-      this.history = this.history.slice(0, this.maxEntries)
-    }
-    this.save()
-  }
-
-  isUsed(sentence) {
-    return this.history.some(e =>
-      e.selectedObservation === sentence ||
-      e.selectedViewpoint === sentence ||
-      e.selectedQuestion === sentence
-    )
-  }
-
-  recent(limit = 20) {
-    return this.history.slice(0, limit)
-  }
-}
-
-/**
- * Validates text against NG word patterns.
- */
-function isSafe(text) {
-  return !NG_REGEX.test(text)
-}
-
-function requiredEnv(name, fallback = '') {
-  const value = process.env[name]
-  if (!value || !String(value).trim()) {
-    if (isDryRun) return fallback || `MOCK_${name}`
-    throw new Error(`Missing required ENV/Secret: ${name}`)
-  }
-  return String(value).trim()
+  return v
 }
 
 function optionalEnv(name, fallback = '') {
-  const value = process.env[name]
-  return value ? String(value).trim() : fallback
+  return process.env[name]?.trim() || fallback
 }
 
-function isTruthy(value) {
-  const v = String(value || '').trim().toLowerCase()
-  return v === '1' || v === 'true' || v === 'yes' || v === 'on'
+function weightedLen(text) {
+  return Number(parseTweet(String(text || '')).weightedLength || 0)
 }
 
-function weightedLen(tweetText) {
-  return Number(parseTweet(String(tweetText || '')).weightedLength || 0)
+function isNgFree(text) {
+  return !NG_REGEX.test(text)
 }
 
-/**
- * Orchestrates sentence selection with history and safety checks.
- */
-function composePost({ post, url, historyManager, includeUrl }) {
-  const seed = post.slug || post.title || 'default'
-  const getHash = (str) => {
-    let hash = 0
-    for (let i = 0; i < str.length; i++) hash = (hash << 5) - hash + str.charCodeAt(i)
-    return Math.abs(hash)
-  }
+// ─── 曜日 → モード判定 ────────────────────────────────────────────────────
+function getMode(date = new Date()) {
+  const day = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
+    weekday: 'short',
+  }).format(date)
+  return ['月', '水', '金', '日'].includes(day) ? 'on' : 'off'
+}
 
-  const render = (parts, useNewline) => {
-    const text = parts.filter(Boolean).join('')
-    if (!includeUrl || !url || isDryRun) return text
-    return useNewline ? `${text}\n${url}` : `${text} ${url}`
-  }
-
-  // 1. Initial Filtering (Safety Guard)
-  const safePools = {
-    OBSERVATION: SENTENCE_POOLS.OBSERVATION.filter(s => isSafe(s)),
-    VIEWPOINT: SENTENCE_POOLS.VIEWPOINT.filter(s => isSafe(s)),
-    QUESTION_VIEWPOINT: SENTENCE_POOLS.QUESTION_VIEWPOINT.filter(s => isSafe(s))
-  }
-
-  const recent = historyManager.recent(20)
-  const recentQuestionCount = recent.filter(e => e?.endedWithQuestion).length
-  const recentTotal = recent.length || 1
-  const questionRate = recentQuestionCount / recentTotal
-  const shouldAskQuestion = questionRate < 0.2
-
-  // 2. Generate Candidate Pool (Observation + Viewpoint)
-  const candidates = []
-  const viewpointPool = shouldAskQuestion ? safePools.QUESTION_VIEWPOINT : safePools.VIEWPOINT
-
-  for (const obs of safePools.OBSERVATION) {
-    for (const view of viewpointPool) {
-      candidates.push({ parts: [obs, view], name: 'Observation + Viewpoint', endsWithQuestion: view.endsWith('？') })
+// ─── 履歴管理 ──────────────────────────────────────────────────────────────
+function loadHistory() {
+  try {
+    if (fs.existsSync(HISTORY_FILE)) {
+      return JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'))
     }
+  } catch {
+    // 読み取り失敗時は空配列で続行
   }
+  return []
+}
 
-  // 3. Score & Filter (History + Safety + Length)
-  const processCandidate = (c) => {
-    // Check history (Duplication Guard)
-    const historyHits = c.parts.filter(p => historyManager.isUsed(p))
+function saveHistory(history, entry) {
+  const updated = [{ ...entry, timestamp: new Date().toISOString() }, ...history].slice(
+    0,
+    MAX_HISTORY
+  )
+  const dir = path.dirname(HISTORY_FILE)
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+  fs.writeFileSync(HISTORY_FILE, JSON.stringify(updated, null, 2))
+}
 
-    // Check layout optimization
-    let resNewline = render(c.parts, true)
-    let lenNewline = weightedLen(resNewline)
-    let resInline = render(c.parts, false)
-    let lenInline = weightedLen(resInline)
+function usedRecently(history, source) {
+  const cutoff = Date.now() - HISTORY_DAYS * 24 * 60 * 60 * 1000
+  return history.some(
+    (e) => e.source === source && new Date(e.timestamp).getTime() > cutoff
+  )
+}
 
-    let best = null
-    const inRangeNewline = lenNewline >= TARGET_MIN && lenNewline <= TARGET_MAX
-    const inRangeInline = lenInline >= TARGET_MIN && lenInline <= TARGET_MAX
+// ─── ProReNata 記事取得（ONモード） ───────────────────────────────────────
+async function fetchProReNataPost(history) {
+  const projectId =
+    optionalEnv('NEXT_PUBLIC_SANITY_PROJECT_ID') || optionalEnv('SANITY_PROJECT_ID')
+  const dataset =
+    optionalEnv('NEXT_PUBLIC_SANITY_DATASET') ||
+    optionalEnv('SANITY_DATASET', 'production')
+  const apiVersion =
+    optionalEnv('NEXT_PUBLIC_SANITY_API_VERSION') ||
+    optionalEnv('SANITY_API_VERSION', '2024-01-01')
+  const token = optionalEnv('SANITY_READ_TOKEN')
 
-    if (inRangeNewline) {
-      best = { ...c, str: resNewline, len: lenNewline, newline: true, remaining: Math.abs(TARGET_IDEAL - lenNewline), historyHits }
-    } else if (inRangeInline) {
-      best = { ...c, str: resInline, len: lenInline, newline: false, remaining: Math.abs(TARGET_IDEAL - lenInline), historyHits }
+  if (!projectId) throw new Error('SANITY_PROJECT_ID が設定されていません')
+
+  const groq = `
+    *[_type == "post"
+      && defined(slug.current)
+      && (!defined(maintenanceLocked) || maintenanceLocked == false)
+      && (!defined(internalOnly) || internalOnly == false)
+    ] | order(_createdAt desc) [0...200] {
+      title,
+      "slug": slug.current,
+      excerpt
     }
+  `
 
-    if (best && !isSafe(best.str)) return null // Final combined safety check
-    return best
-  }
-
-  const scored = candidates.map(processCandidate).filter(Boolean)
-
-  if (scored.length === 0) {
-    const fallback = `${safePools.OBSERVATION[0]}${safePools.VIEWPOINT[0]}`
-    return { str: fallback, len: weightedLen(fallback), poolName: 'Critical Fallback' }
-  }
-
-  // Sort: 
-  // 1st Priority: NO History Hits
-  // 2nd Priority: Smaller Remaining (Maximization)
-  scored.sort((a, b) => {
-    if (a.historyHits.length !== b.historyHits.length) return a.historyHits.length - b.historyHits.length
-    return a.remaining - b.remaining
+  const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(groq)}`
+  const res = await fetch(url, {
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
   })
+  if (!res.ok) throw new Error(`Sanity fetch 失敗: ${res.status} ${res.statusText}`)
 
-  // Variety: Seeded selection from top 10 best valid/unique candidates
-  const bestValid = scored.filter(s => s.historyHits.length === 0)
-  const poolToPickFrom = bestValid.length > 0 ? bestValid : scored
+  const { result } = await res.json()
+  const candidates = (result || []).filter(
+    (p) => p?.slug && !PROTECTED_SLUGS.includes(p.slug) && !usedRecently(history, p.slug)
+  )
 
-  if (bestValid.length === 0) {
-    console.log('[Warning] History pool exhausted (expected). Falling back to oldest entries.')
+  if (candidates.length === 0) {
+    throw new Error('利用可能な記事がありません（履歴・保護スラッグ除外後）')
   }
 
-  const topSize = Math.min(10, poolToPickFrom.length)
-  const finalSelect = poolToPickFrom[getHash(seed) % topSize]
-
-  return {
-    ...finalSelect,
-    historyHit: finalSelect.historyHits.length > 0
-  }
+  return candidates[Math.floor(Math.random() * candidates.length)]
 }
 
+// ─── note 記事取得（OFFモード） ────────────────────────────────────────────
+function listNoteFiles() {
+  if (!fs.existsSync(NOTE_DIR)) return []
+  const files = []
+  for (const entry of fs.readdirSync(NOTE_DIR)) {
+    // YYYY-MM 形式のフォルダのみ対象（blog_rewrites 等を除外）
+    if (!/^\d{4}-\d{2}$/.test(entry)) continue
+    const monthDir = path.join(NOTE_DIR, entry)
+    if (!fs.statSync(monthDir).isDirectory()) continue
+    for (const file of fs.readdirSync(monthDir)) {
+      if (!file.endsWith('.md') || file.startsWith('00_')) continue
+      files.push(path.join(monthDir, file))
+    }
+  }
+  return files
+}
+
+function parseNoteFile(filePath) {
+  const raw = fs.readFileSync(filePath, 'utf8')
+  const lines = raw.split('\n')
+  const title = (lines.find((l) => l.startsWith('# ')) || '').replace(/^# /, '').trim()
+  const separatorIdx = lines.findIndex((l) => l.trim() === '---')
+  const bodyLines = separatorIdx > 0 ? lines.slice(1, separatorIdx) : lines.slice(1)
+  const body = bodyLines.join('\n').trim().slice(0, 300)
+  return { title: title || path.basename(filePath, '.md'), body, fileName: path.basename(filePath) }
+}
+
+function fetchNoteArticle(history) {
+  const files = listNoteFiles()
+  if (files.length === 0) throw new Error(`note ファイルが見つかりません: ${NOTE_DIR}`)
+
+  const candidates = files.filter((f) => !usedRecently(history, path.basename(f)))
+  const pool = candidates.length > 0 ? candidates : files // 全消化時はリセット扱い
+
+  const filePath = pool[Math.floor(Math.random() * pool.length)]
+  return parseNoteFile(filePath)
+}
+
+// ─── Gemini テキスト生成 ───────────────────────────────────────────────────
+async function generatePost({ mode, content, postUrl }) {
+  if (isDryRun) {
+    return mode === 'on' && postUrl
+      ? `シーツを畳むとき、腕より腰に来ることに最近気づいた。動作を小さく分けると少し楽になる。体の使い方って、積み重ねなんだと思う。\n${postUrl}`
+      : '深夜2時。廊下の蛍光灯だけが白く、静かにそこにある。疲れてるのかな、目が慣れてきただけかな。どっちでもいい日は、わりと調子がいい日だと思う。'
+  }
+
+  const genAI = new GoogleGenerativeAI(requiredEnv('GEMINI_API_KEY'))
+  const model = genAI.getGenerativeModel({ model: GEMINI_MODEL })
+
+  const prompt =
+    mode === 'on' && postUrl
+      ? `あなたは看護助手・白崎セラ（20歳）として、以下の記事をもとにX投稿を1件生成してください。
+
+記事タイトル: ${content.title}
+記事の概要: ${content.excerpt || content.title}
+
+【ルール】
+- 一人称「わたし」、常体（〜だよ / 〜かな / 〜だと思う）
+- URLを除いて100〜135文字
+- 身体感覚や情景を1つ入れる
+- 本文末に改行してURLを添える
+- 禁止語: 必ず / 絶対 / 治る / 最新 / 今年 / がんばれ / 〜すべき
+- 自己紹介・名前は不要
+- この記事固有の言葉を活かし、定型の書き出しを避ける
+
+URL: ${postUrl}
+
+投稿本文のみ出力。説明・引用符は不要。`
+    : mode === 'on'
+      ? `あなたは看護助手・白崎セラ（20歳）として、以下の記事のテーマをもとにX投稿を1件生成してください。
+
+記事タイトル: ${content.title}
+記事の概要: ${content.excerpt || content.title}
+
+【ルール】
+- 一人称「わたし」、常体（〜だよ / 〜かな / 〜だと思う）
+- 120〜140文字
+- URLは含めない
+- 身体感覚や情景を1つ入れる、静かに締める
+- 禁止語: 必ず / 絶対 / 治る / 最新 / 今年 / がんばれ / 〜すべき
+- 自己紹介・名前は不要
+- 定型の書き出しを避ける
+
+投稿本文のみ出力。説明・引用符は不要。`
+      : `あなたは看護助手・白崎セラ（20歳）として、以下のエッセイをヒントにX投稿を1件生成してください。
+
+エッセイタイトル: ${content.title}
+エッセイ冒頭: ${content.body}
+
+【ルール】
+- 一人称「わたし」、常体（〜だよ / 〜かな / 〜だと思う / 〜た）
+- 120〜140文字
+- URLは含めない（禁止）
+- 情景描写か静かな内省で締める
+- 禁止語: 必ず / 絶対 / 治る / 最新 / 今年 / がんばれ
+- 自己紹介・名前は不要
+- 毎回異なる書き出しと構成にする
+
+投稿本文のみ出力。説明・引用符は不要。`
+
+  const result = await model.generateContent(prompt)
+  return result.response.text().trim()
+}
+
+// ─── Gmail 送信 ────────────────────────────────────────────────────────────
 async function sendMail({ subject, body }) {
   if (isDryRun) {
-    console.log('[X Mailer] SendMail skipped (DRY_RUN)')
+    console.log('[DRY_RUN] sendMail skipped')
     return
   }
-
-  const gmailUser = requiredEnv('GMAIL_USER')
-  const gmailAppPassword = requiredEnv('GMAIL_APP_PASSWORD').replace(/\s+/g, '')
-  const mailTo = requiredEnv('MAIL_TO')
-
   const transporter = nodemailer.createTransport({
-    host: optionalEnv('SMTP_HOST', 'smtp.gmail.com'),
-    port: Number(optionalEnv('SMTP_PORT', '465')),
-    secure: isTruthy(optionalEnv('SMTP_SECURE', 'true')),
-    auth: { user: gmailUser, pass: gmailAppPassword },
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: requiredEnv('GMAIL_USER'),
+      pass: requiredEnv('GMAIL_APP_PASSWORD').replace(/\s+/g, ''),
+    },
   })
-
   await transporter.verify()
   await transporter.sendMail({
-    from: `"X Mailer" <${gmailUser}>`,
-    to: mailTo,
+    from: `"X Mailer" <${requiredEnv('GMAIL_USER')}>`,
+    to: requiredEnv('MAIL_TO'),
     subject,
     text: body,
   })
 }
 
-async function runTest(label, post, siteBaseUrl, historyManager) {
-  const url = `${siteBaseUrl}/x/${post.slug}`
-  // In DRY_RUN, includeUrl is always false to ensure no URLs are generated in tests
-  const result = composePost({ post, url, historyManager, includeUrl: false })
-
-  const emailBody = result.str
-  const len = result.len
-  const rawLen = Array.from(emailBody).length
-
-  console.log(`\n=== TEST CASE: ${label} ===`)
-  console.log(`SLUG: ${post.slug}`)
-  console.log(`METRICS: weighted=${len} raw=${rawLen} remaining=${result.remaining} urlMode=${result.newline ? 'newline' : 'inline'}`)
-  console.log(`FLAGS: historyHit=${result.historyHit ? 'YES' : 'no'}`)
-  console.log('--- BODY START ---')
-  process.stdout.write(emailBody + '\n')
-  console.log('--- BODY END ---')
-
-  if (len > TARGET_MAX) throw new Error(`CRITICAL: Case "${label}" exceeded limit! (${len})`)
-
-  // Update history in simulation
-  historyManager.addEntry({
-    slug: post.slug,
-    selectedObservation: result.parts ? result.parts[0] : null,
-    selectedViewpoint: result.parts ? result.parts[1] : null,
-    selectedQuestion: result.endsWithQuestion ? result.parts[1] : null,
-    urlMode: result.newline ? 'newline' : 'inline',
-    finalWeighted: result.len,
-    endedWithQuestion: result.endsWithQuestion
-  })
-}
-
-function shouldIncludeUrl(date = new Date()) {
-  const formatter = new Intl.DateTimeFormat('ja-JP', {
-    timeZone: 'Asia/Tokyo',
-    weekday: 'short',
-  })
-  const day = formatter.format(date)
-  return day === '火' || day === '木' || day === '土'
-}
-
+// ─── メイン ────────────────────────────────────────────────────────────────
 async function main() {
-  const dryRun = isTruthy(process.env.DRY_RUN)
-  const siteBaseUrl = optionalEnv('SITE_BASE_URL', 'https://prorenata.jp').replace(/\/+$/, '')
-  const historyManager = new HistoryManager(HISTORY_FILE)
+  const mode = getMode()
+  console.log(`[x-mailer] mode=${mode} dryRun=${isDryRun}`)
 
-  if (dryRun) {
-    await runTest('Normal Article', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
-    await runTest('Career Article', { title: '働き方', slug: 'career-1' }, siteBaseUrl, historyManager)
-    await runTest('Burnout Article', { title: '休息の大切さ', slug: 'rest-1' }, siteBaseUrl, historyManager)
-    await runTest('Repeat Test (Exhaustion Trigger)', { title: '関係の悩み', slug: 'stress-1' }, siteBaseUrl, historyManager)
+  const history = loadHistory()
+  let content, source, postUrl
 
-    // Safety Test (Verify NG check)
-    const unsafePost = { title: '必ず治る！', slug: 'unsafe' }
-    const unsafeResult = composePost({ post: unsafePost, url: '...', historyManager, includeUrl: false })
-    console.log(`\n=== SAFETY TEST ===\nResult contains NG: ${!isSafe(unsafeResult.str) ? 'YES (CRITICAL)' : 'no'}`)
-
-    return
+  if (mode === 'on') {
+    const post = await fetchProReNataPost(history)
+    content = { title: post.title, excerpt: post.excerpt || post.title }
+    source = post.slug
+    // 約50%の確率でURLを付ける（毎回付けるとBot感が出るため）
+    postUrl = Math.random() < 0.5 ? `${SITE_BASE}/posts/${post.slug}` : null
+  } else {
+    const note = fetchNoteArticle(history)
+    content = { title: note.title, body: note.body }
+    source = note.fileName
+    postUrl = null
   }
 
-  // PROD MODE (Execution)
-  const fetched = await fetchOnePost()
-  if (!fetched || !fetched.post) throw new Error('Failed to fetch post from Sanity')
+  // 生成 → NGチェック → 1回リトライ
+  let postText
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    postText = await generatePost({ mode, content, postUrl })
+    if (isNgFree(postText)) break
+    console.warn(`[x-mailer] NGワード検出 (attempt ${attempt})、リトライします`)
+    if (attempt === 2) throw new Error('NGワードチェック失敗（2回試行後）')
+  }
 
-  const post = fetched.post
-  const url = `${siteBaseUrl}/x/${post.slug}`
-  const includeUrl = shouldIncludeUrl()
-  const result = composePost({ post, url, historyManager, includeUrl })
+  // 文字数チェック（警告のみ・送信は続行）
+  const bodyForLen = mode === 'on' ? postText.replace(/\nhttps?:\/\/\S+$/, '') : postText
+  const len = weightedLen(bodyForLen)
+  const [min, max] = mode === 'on' ? [ON_MIN, ON_MAX] : [OFF_MIN, OFF_MAX]
+  if (len < min || len > max) {
+    console.warn(`[x-mailer] 文字数警告: ${len}文字（目標 ${min}〜${max}）`)
+  }
 
-  const subject = `【X投稿用】${post.title || '新着記事'}`
-  await sendMail({ subject, body: result.str })
+  console.log(`[x-mailer] source=${source} weighted=${len}`)
+  console.log('─── 投稿テキスト ───')
+  console.log(postText)
+  console.log('───────────────────')
 
-  // Record history
-  historyManager.addEntry({
-    slug: post.slug,
-    selectedObservation: result.parts[0],
-    selectedViewpoint: result.parts[1],
-    selectedQuestion: result.endsWithQuestion ? result.parts[1] : null,
-    urlMode: result.newline ? 'newline' : 'inline',
-    finalWeighted: result.len,
-    usedUrl: includeUrl,
-    endedWithQuestion: result.endsWithQuestion
-  })
+  const subject =
+    mode === 'on' ? `【X投稿・ON】${content.title}` : `【X投稿・OFF】${content.title}`
 
-  console.log(`✅ Sent mail: ${post.slug} (weighted=${result.len}, pool=${result.name}, remaining=${result.remaining})`)
+  await sendMail({ subject, body: postText })
+  saveHistory(history, { mode, source, weighted: len })
+
+  console.log('✅ 完了')
 }
 
-main().catch((error) => {
-  console.error('[x-mailer] Failed:', error?.message || error)
+main().catch((err) => {
+  console.error('[x-mailer] Fatal:', err?.message || err)
   process.exitCode = 1
 })

@@ -1,0 +1,44 @@
+name: X Mailer
+
+on:
+  schedule:
+    - cron: '0 22 * * *'  # 毎日 07:00 JST (22:00 UTC)
+  workflow_dispatch:       # 手動実行も可能
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci --include=dev
+
+      - name: Run x-mailer
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: '72m8vhy2'
+          NEXT_PUBLIC_SANITY_DATASET: 'production'
+          NEXT_PUBLIC_SANITY_API_VERSION: '2024-01-01'
+          SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: node .github/scripts/x-mailer.mjs
+
+      - name: Commit history
+        run: |
+          git config user.name "x-mailer[bot]"
+          git config user.email "x-mailer-bot@prorenata.jp"
+          git add .analytics/x_mailer_history.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update x_mailer_history"
+          git push || true
