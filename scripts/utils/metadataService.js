@@ -1,5 +1,7 @@
-const { Anthropic } = require('@anthropic-ai/sdk');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { SERA_FULL_PERSONA } = require('./seraPersona');
+
+const GEMINI_MODEL = 'gemini-2.0-flash-lite-001';
 
 /**
  * 記事メタデータ・コンテンツ生成サービス
@@ -8,10 +10,10 @@ const { SERA_FULL_PERSONA } = require('./seraPersona');
 class MetadataService {
   constructor(apiKey) {
     if (!apiKey) {
-      throw new Error('MetadataService: ANTHROPIC_API_KEY is required');
+      throw new Error('MetadataService: GEMINI_API_KEY is required');
     }
-    this.anthropic = new Anthropic({ apiKey });
-    this.model = process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-latest';
+    const genAI = new GoogleGenerativeAI(apiKey);
+    this.model = genAI.getGenerativeModel({ model: GEMINI_MODEL });
   }
 
   /**
@@ -147,12 +149,8 @@ ${toneGuidance || ''}
     const prompt = `看護助手の現場において、現在（${year}年${month}月）の季節感、最近の業界ニュース、実務上の悩み、またはトレンドに関するキーワードやトピックを10個、カンマ区切りで挙げてください。例: 春の入職準備, 花粉症対策, 腰痛予防, 法改正の進捗 など。余計な説明は省き、キーワードのみを出力してください。`;
     
     try {
-      const response = await this.anthropic.messages.create({
-        model: this.model,
-        max_tokens: 100,
-        messages: [{ role: 'user', content: prompt }]
-      });
-      const text = response.content[0].text.trim();
+      const result = await this.model.generateContent(prompt);
+      const text = result.response.text().trim();
       return text.split(/[,、|]/).map(k => k.trim()).filter(k => k.length > 1);
     } catch (error) {
       console.error('MetadataService Brainstorm Error:', error);
@@ -166,12 +164,11 @@ ${toneGuidance || ''}
    */
   async _generateJson(prompt) {
     try {
-      const response = await this.anthropic.messages.create({
-        model: this.model,
-        max_tokens: 4000,
-        messages: [{ role: 'user', content: prompt }]
-      });
-      let text = response.content[0].text;
+      const result = await this.model.generateContent(prompt);
+      let text = result.response.text();
+
+      // コードブロック除去
+      text = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
 
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       if (jsonMatch) {

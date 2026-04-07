@@ -10,7 +10,7 @@ const { spawnSync } = require('child_process');
 const MetadataService = require('./utils/metadataService');
 require('dotenv').config({ path: path.join(__dirname, '../.env.local'), override: true }); // For local testing
 
-const metadataService = new MetadataService(process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY);
+const metadataService = new MetadataService(process.env.GEMINI_API_KEY);
 
 // Budget Guard
 const budget = spawnSync(process.execPath, [path.resolve(__dirname, 'budget-guard.cjs'), '--reserve-articles', '1'], {
