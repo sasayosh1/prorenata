@@ -305,14 +305,13 @@ async function main() {
     postUrl = null
   }
 
-  // 生成 → NGチェック → 最大3回リトライ
+  // 生成 → NGチェック → 1回リトライ
   let postText
-  const MAX_ATTEMPTS = 4
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+  for (let attempt = 1; attempt <= 2; attempt++) {
     postText = await generatePost({ mode, content, postUrl })
     if (isNgFree(postText)) break
     console.warn(`[x-mailer] NGワード検出 (attempt ${attempt})、リトライします`)
-    if (attempt === MAX_ATTEMPTS) throw new Error(`NGワードチェック失敗（${MAX_ATTEMPTS}回試行後）`)
+    if (attempt === 2) throw new Error('NGワードチェック失敗（2回試行後）')
   }
 
   // 文字数チェック（警告のみ・送信は続行）
