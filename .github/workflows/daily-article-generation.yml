@@ -33,5 +33,7 @@ jobs:
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
