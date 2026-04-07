@@ -1241,6 +1241,16 @@ async function generateAndSaveArticle() {
     metaDescription: generatedArticle.metaDescription || '',
     showDisclaimer: true,
     showTrustBlock: true,
+    faq: Array.isArray(generatedArticle.faq) && generatedArticle.faq.length > 0
+      ? generatedArticle.faq
+          .filter(item => item.question && item.answer)
+          .map(item => ({
+            _type: 'faqItem',
+            _key: randomUUID(),
+            question: item.question,
+            answer: item.answer,
+          }))
+      : [],
   };
 
   try {
