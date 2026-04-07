@@ -1232,11 +1232,15 @@ async function generateAndSaveArticle() {
     publishedAt: new Date().toISOString(),
     title,
     slug: { _type: 'slug', current: slugCurrent },
-    tags: generatedArticle.tags,
+    tags: Array.isArray(generatedArticle.tags) && generatedArticle.tags.length > 0
+      ? generatedArticle.tags
+      : [selectedTopic, '看護助手'],
     body: ensurePortableTextKeys(cleanedBody),
     categories: selectedCategoryId ? ensureReferenceKeys([{ _type: 'reference', _ref: selectedCategoryId }]) : [],
     excerpt: generatedArticle.excerpt || '',
     metaDescription: generatedArticle.metaDescription || '',
+    showDisclaimer: true,
+    showTrustBlock: true,
   };
 
   try {

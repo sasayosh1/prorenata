@@ -129,9 +129,9 @@ ${toneGuidance || ''}
 {
   "title": "${titleLengthGuide}で読者メリットが伝わるタイトル",
   "slug_keywords": "英語の重要キーワード3-4個（例: nursing-assistant-salary-tips）",
-  "excerpt": "記事の要約（100〜150文字）。読者の悩みに寄り添い、解決策を提示する文章（白崎セラ口調）。",
-  "metaDescription": "SEO用説明文（120〜160文字）。検索結果でクリックしたくなる魅力的な紹介文。",
-  "tags": ["${category}", "看護助手"],
+  "excerpt": "記事の要約（100〜150文字・厳守）。読者の悩みに寄り添い、解決策を提示する文章（白崎セラ口調）。",
+  "metaDescription": "SEO用説明文（必ず120文字以上160文字以内・厳守）。検索結果でクリックしたくなる魅力的な紹介文。文字数が足りない場合は具体的な説明を追加して120文字以上にすること。",
+  "tags": ["${category}", "看護助手", "テーマに関連する具体的なタグ", "さらに関連タグ", "もう1つ関連タグ"],
   "body": [
     {"_type": "block", "style": "normal", "children": [{"_type": "span", "text": "(導入文)"}]},
     {"_type": "block", "style": "h2", "children": [{"_type": "span", "text": "(H2見出し1)"}]},
