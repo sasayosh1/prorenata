@@ -118,6 +118,13 @@ ${toneGuidance || ''}
 - **タイトル末尾を「…」「...」で終えない。**
 - 挨拶や自己紹介（「白崎セラです」等）は入れず、本題から開始する。
 
+# 【最重要】Portable Text出力ルール
+- **body内のtextフィールドでMarkdown記法（**bold**、*italic*、# 見出し など）は絶対に使用禁止。**
+- 太字にしたい場合は必ずmarksを使うこと: {"_type": "span", "marks": ["strong"], "text": "太字テキスト"}
+- 番号付きリスト（「1. 〜 2. 〜」）は1ブロックにまとめず、各項目を別々のblockに分けること。
+- 各段落は適切な長さ（3〜5文程度）で区切り、1つのblockに長文を詰め込まないこと。
+- 番号付き項目はlistItem: "number"を使うこと: {"_type": "block", "style": "normal", "listItem": "number", "level": 1, "children": [{"_type": "span", "text": "項目テキスト"}]}
+
 # 出力形式 (JSONのみ、コードブロックなし)
 {
   "title": "${titleLengthGuide}で読者メリットが伝わるタイトル",

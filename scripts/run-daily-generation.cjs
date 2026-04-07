@@ -169,10 +169,74 @@ function blockText(block) {
     .trim();
 }
 
+/**
+ * "**text**" を Portable Text の bold marks に変換する
+ * 1つのspan内の **...** を複数のspanに分割する
+ */
+function parseMarkdownBoldInSpan(span) {
+  if (span?._type !== 'span' || typeof span.text !== 'string') return [span];
+  if (!span.text.includes('**')) return [span];
+
+  const parts = span.text.split(/\*\*([^*]+)\*\*/g);
+  if (parts.length === 1) return [span]; // no match
+
+  const result = [];
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i] === '') continue;
+    if (i % 2 === 0) {
+      // normal text
+      result.push({ _type: 'span', text: parts[i] });
+    } else {
+      // bold text
+      result.push({ _type: 'span', marks: ['strong'], text: parts[i] });
+    }
+  }
+  return result.length > 0 ? result : [span];
+}
+
+/**
+ * 番号付きリスト（"1. テキスト 2. テキスト"）を含む1つのblockを
+ * 複数のblockに分割する
+ */
+function splitNumberedListBlock(block) {
+  if (!block || block._type !== 'block' || block.style !== 'normal') return [block];
+  const text = blockText(block);
+  // "1. " "2. " などのパターンで始まるアイテムが2つ以上含まれるか確認
+  const numberedPattern = /(?:^|\s)(\d+)\.\s+/g;
+  const matches = [...text.matchAll(numberedPattern)];
+  if (matches.length < 2) return [block];
+
+  // 番号付きアイテムで分割
+  const parts = text.split(/(?=(?:^|\s)\d+\.\s)/);
+  const result = [];
+  for (const part of parts) {
+    const trimmed = part.trim();
+    if (!trimmed) continue;
+    const isNumbered = /^\d+\.\s/.test(trimmed);
+    const itemText = isNumbered ? trimmed.replace(/^\d+\.\s*/, '') : trimmed;
+    if (!itemText) continue;
+
+    // bold変換しながらspanを作る
+    const plainSpan = { _type: 'span', text: itemText };
+    const children = parseMarkdownBoldInSpan(plainSpan);
+    result.push({
+      _type: 'block',
+      style: 'normal',
+      ...(isNumbered ? { listItem: 'number', level: 1 } : {}),
+      children,
+    });
+  }
+  return result.length > 0 ? result : [block];
+}
+
 function sanitizeBodyBlocks(blocks) {
   if (!Array.isArray(blocks)) return [];
-  return blocks.map((block) => {
-    if (!block || block._type !== 'block') return block;
+  const processed = [];
+  for (const block of blocks) {
+    if (!block || block._type !== 'block') {
+      processed.push(block);
+      continue;
+    }
     const isHeading = block.style === 'h2' || block.style === 'h3';
     const rawText = blockText(block);
     const hasBanned = BODY_BANNED_TERMS.some((re) => re.test(rawText));
@@ -180,23 +244,43 @@ function sanitizeBodyBlocks(blocks) {
 
     if (isHeading && hasBanned) {
       const cleanedHeading = normalizeBodyText(rawText) || '要点整理';
-      return {
+      processed.push({
         ...block,
         children: [{ _type: 'span', text: cleanedHeading }],
-      };
+      });
+      continue;
     }
 
-    if (!Array.isArray(block.children)) return block;
-    const children = block.children.map((child) => {
-      if (child?._type !== 'span' || typeof child.text !== 'string') return child;
-      let text = normalizeBodyText(child.text);
-      if (isListItem) {
-        text = neutralizeActionEnding(text);
+    if (!Array.isArray(block.children)) {
+      processed.push(block);
+      continue;
+    }
+
+    // まず番号付きリストを分割する（normalブロックのみ）
+    const splitBlocks = splitNumberedListBlock(block);
+    for (const splitBlock of splitBlocks) {
+      if (!Array.isArray(splitBlock.children)) {
+        processed.push(splitBlock);
+        continue;
       }
-      return { ...child, text };
-    });
-    return { ...block, children };
-  });
+      // 各spanのMarkdown bold を変換する
+      const newChildren = [];
+      for (const child of splitBlock.children) {
+        if (child?._type !== 'span' || typeof child.text !== 'string') {
+          newChildren.push(child);
+          continue;
+        }
+        let text = normalizeBodyText(child.text);
+        if (isListItem || splitBlock.listItem) {
+          text = neutralizeActionEnding(text);
+        }
+        const spans = parseMarkdownBoldInSpan({ ...child, text });
+        newChildren.push(...spans);
+      }
+      processed.push({ ...splitBlock, children: newChildren });
+    }
+  }
+  return processed;
 }
 
 function ensureTitleEndsCleanly(title, maxLen) {
