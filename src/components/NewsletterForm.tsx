@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-const NEWSLETTER_ENABLED = process.env.NEXT_PUBLIC_NEWSLETTER_ENABLED !== 'false'
+const NEWSLETTER_ENABLED = process.env.NEXT_PUBLIC_NEWSLETTER_ENABLED?.trim() !== 'false'
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('')
