@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { Geist, Geist_Mono, Noto_Sans_JP, Open_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_JP, Open_Sans, Raleway } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
@@ -30,6 +30,13 @@ const notoSansJP = Noto_Sans_JP({
 const openSans = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin"],
+  display: 'swap',
+});
+
+const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+  weight: ["100", "300"],
   display: 'swap',
 });
 
@@ -167,7 +174,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} ${openSans.variable}`} suppressHydrationWarning>
+    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} ${openSans.variable} ${raleway.variable}`} suppressHydrationWarning>
       <head>
         {/* 構造化データ - 組織情報 */}
         <script
@@ -223,7 +230,7 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} ${openSans.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} ${openSans.variable} ${raleway.variable} antialiased`}>
         <ServiceWorkerCleanup />
         {/* Skip to content リンク (アクセシビリティ) */}
         <a
