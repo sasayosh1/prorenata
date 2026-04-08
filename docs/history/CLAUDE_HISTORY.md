@@ -1032,3 +1032,54 @@
      - 関数スコープごとに必要な変数を適切に定義
      - 内部リンクのタイトル置換機能が正常に動作
 
+42. 🎯 **用語解説記事への転職アフィリエイト誤検出を防止** (2025-11-13)
+   - **問題**: 「看護助手の用語ガイド」のような用語解説記事に転職アフィリエイトリンクが誤って挿入されていた
+   - **原因**: `isAffiliateRelevant()` 関数の転職判定で「キャリア」キーワードが誤検出
+   - **修正内容**: `maintenance.js` にネガティブキーワード判定を追加（用語解説系・スラッグ検出）
+   - **コミット**: 参照 git log
+
+43. 📚 **出典リンク配置ルールと参考リンク統合機能を追加** (2025-11-13)
+   - H2/H3直下に参考リンクを配置しないルールを追加（`ARTICLE_GUIDE.md`）
+   - `combineReferenceGroup()` 関数追加（連続参考リンクをスラッシュ区切りで統合）
+   - `.gitignore`: `maintenance-batch.log`・`scripts/tmp/` を除外
+   - **コミット**: 7da7749
+
+44. 📊 **GA4・Search Console連携によるSEO分析システム構築** (2025-11-13)
+   - `scripts/analytics/` に fetch-gsc-data.py / fetch-ga4-data.py / analyze-seo-performance.py 作成
+   - GitHub Actions `.github/workflows/daily-analytics.yml` 追加（毎朝09:00 JST）
+   - GA4プロパティID: 504242963 / GSC: https://prorenata.jp/
+   - **コミット**: de06550
+
+45. 🔧 **GitHub Actionsワークフロー修正（Analytics自動コミット対応）** (2025-11-14)
+   - `.gitignore` から `data/*.csv` / `data/*.md` の除外設定を削除
+   - `daily-analytics.yml` から `cache: 'pip'` 削除（Pythonキャッシュエラー解消）
+   - **コミット**: 66329f0, ed1f5af
+
+46. 🔁 **重複セクション検出コマンドと全件スキャン** (2025-11-15)
+   - `maintenance.js` に `detectDuplicateSections()` / `findDuplicateContentIssues()` 追加
+   - CLIコマンド `duplicates`（`--slugs` / `--min-length` 対応）実装
+   - 163件スキャン、90件で重複検出
+
+47. 🪢 **CTAブロックと重複リライトの強化** (2025-11-15)
+   - `moshimo-affiliate-links.js` にコンテキスト別CTAテンプレートを追加（[PR]付き自動挿入）
+   - `nursing-assistant-career-change-school` 全面リライト
+   - `nursing-assistant-qualifications-needed` を sanitize --force-links で再整備
+
+48. 🧩 **重複上位記事の再構成（パート勤務・ストレス対策）** (2025-11-15)
+   - `nursing-assistant-part-time-day` / `nursing-assistant-stress-ranking` 完全再執筆
+   - H2/H3重複・冗長箇条書き排除。タイムライン→段取り→まとめ構成に変更
+
+49. 🔒 **メンテナンス・バイブ自動編集ロックを追加** (2025-11-16)
+   - `schemas/post.ts` に `maintenanceLocked` ブール追加
+   - `PUBLIC_POST_FILTER` 更新、ロック済み記事を全処理から排除
+
+50. 🧼 **アフィリエイトhrefの自動修復** (2025-11-16)
+   - `sanitizeLinkMarkDefs()` 追加（href に `<a ...>` が残っている場合に正規URLを抽出して上書き）
+
+51. 🐛 **GitHub Actions maintenanceワークフローのremovePersonaName関数エラー修正** (2025-11-17)
+   - `scripts/utils/postHelpers.js:1788` に `removePersonaName` を `module.exports` に追加
+
+52. 🐛 **MedicalTermQuizのビルドエラー修正** (2025-11-17)
+   - `<a>` タグを `<Link>` コンポーネントに置き換え
+   - `currentTerm` のnullチェック追加
+   - **コミット**: 7e259ba, 13f06a1

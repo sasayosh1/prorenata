@@ -156,59 +156,62 @@ export default async function Home() {
             </section>
           </div>
 
-          {/* note誘導セクション */}
+          {/* LINEスタンプ & note バナー */}
           <section className="mb-20">
-            <div className="rounded-3xl bg-gradient-to-br from-[#2cb696] to-cyan-600 p-[1px] shadow-xl transition-all hover:shadow-2xl">
-              <div className="rounded-[23px] bg-white dark:bg-gray-950 p-8 md:p-12">
-                <div className="flex flex-col lg:flex-row items-center gap-12">
-                  <div className="w-full lg:w-1/3 flex justify-center">
-                    <div className="relative w-48 h-48 md:w-64 md:h-64">
-                      <div className="absolute inset-0 bg-cyan-100 dark:bg-cyan-900/30 rounded-full animate-pulse" />
-                      <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
-                        <Image
-                          src="/sera-note-convenience.png"
-                          alt="白崎セラ"
-                          fill
-                          className="object-cover"
-                          style={{ objectPosition: '50% 25%' }}
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-xl border border-gray-100 dark:border-gray-700">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
-                          <span className="text-xs font-bold text-gray-600 dark:text-gray-400">note 更新中</span>
-                        </div>
-                      </div>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* LINEスタンプバナー */}
+              <a
+                href="https://store.line.me/stickershop/product/33372767/ja"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+                style={{ aspectRatio: '640/280' }}
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/line-stamp-banner.png"
+                    alt="「白崎セラ」LINEスタンプ、できました。LINE STOREで見る"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </a>
+
+              {/* noteバナー */}
+              <a
+                href="https://note.com/prorenata"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98] bg-[#41C9B4]"
+                style={{ aspectRatio: '640/280' }}
+              >
+                <div className="flex items-stretch w-full h-full">
+                  <div className="relative w-2/5 shrink-0 overflow-hidden">
+                    <Image
+                      src="/sera-note-convenience.png"
+                      alt="白崎セラ"
+                      fill
+                      className="object-cover"
+                      style={{ objectPosition: '50% 15%' }}
+                    />
                   </div>
-                  <div className="w-full lg:w-2/3 text-center lg:text-left">
-                    <div className="inline-block px-4 py-1.5 bg-[#2cb696]/10 text-[#2cb696] text-sm font-black rounded-full mb-6">
-                      Sera&apos;s Note
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
-                      教科書には載っていない、<br className="hidden md:block" />
-                      「看護助手のリアル」をnoteで。
-                    </h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-2xl">
-                      公式サイトでは専門的な情報を。noteでは、私「白崎セラ」の日常や、現場で感じた喜び・葛藤を等身大の言葉で綴っています。
-                      あなたの「今日」が少しだけ軽くなるような、そんな場所を目指しています。
+                  <div className="flex-1 flex flex-col justify-center gap-2 px-5 py-5 text-white">
+                    <div className="text-[10px] font-black tracking-widest opacity-80">Sera&apos;s Note</div>
+                    <p className="text-base font-black leading-snug">
+                      看護助手の<br />リアルを、noteで。
                     </p>
-                    <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                      <a
-                        href="https://note.com/prorenata"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center gap-3 px-8 py-4 bg-[#2cb696] hover:bg-[#239178] text-white rounded-2xl font-black shadow-lg shadow-[#2cb696]/20 transition-all hover:scale-105 active:scale-95"
-                      >
-                        <svg className="w-6 h-6 transition-transform group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M17.8 2H6.2C3.9 2 2 3.9 2 6.2v11.6C2 20.1 3.9 22 6.2 22h11.6c2.3 0 4.2-1.9 4.2-4.2V6.2C22 3.9 20.1 2 17.8 2zM15 17.5h-1.5v-7h-1.5v7H10.5v-7c0-0.8 0.7-1.5 1.5-1.5h1.5c0.8 0 1.5 0.7 1.5 1.5v7z"></path>
-                        </svg>
-                        noteでセラの日常を読む
-                      </a>
-                    </div>
+                    <p className="hidden md:block text-[11px] leading-relaxed opacity-90">
+                      日常・葛藤・小さな喜びを<br />等身大の言葉で綴っています。
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 bg-white text-[#41C9B4] text-[11px] font-black px-3 py-1.5 rounded-full self-start">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.8 2H6.2C3.9 2 2 3.9 2 6.2v11.6C2 20.1 3.9 22 6.2 22h11.6c2.3 0 4.2-1.9 4.2-4.2V6.2C22 3.9 20.1 2 17.8 2zM15 17.5h-1.5v-7h-1.5v7H10.5v-7c0-0.8 0.7-1.5 1.5-1.5h1.5c0.8 0 1.5 0.7 1.5 1.5v7z" />
+                      </svg>
+                      noteで読む →
+                    </span>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </section>
 

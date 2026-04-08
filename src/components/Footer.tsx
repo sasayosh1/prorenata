@@ -149,6 +149,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/tokushoho" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200 block hover:translate-x-1 transform">
+                    特定商取引法に基づく表記
+                  </Link>
+                </li>
+                <li>
                   <Link href="/sitemap" className="text-sm text-gray-600 hover:text-cyan-600 transition-colors duration-200 block hover:translate-x-1 transform">
                     サイトマップ
                   </Link>

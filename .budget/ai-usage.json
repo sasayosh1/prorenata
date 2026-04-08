@@ -1,20 +1,16 @@
 {
-  "month": "2026-03",
-  "spentJpy": 1.21,
+  "month": "2026-04",
+  "spentJpy": 1.4,
   "byModel": {
-    "gemini": 1.21
+    "claude": 1.4
   },
   "daily": {
-    "2026-03-23": {
-      "total": 1.2,
-      "gemini": 1.2
-    },
-    "2026-03-24": {
-      "total": 0.01,
-      "gemini": 0.01
+    "2026-04-07": {
+      "total": 1.4,
+      "claude": 1.4
     }
   },
-  "updatedAt": "2026-03-24T05:15:42.175Z",
+  "updatedAt": "2026-04-07T04:56:31.898Z",
   "history": [
     {
       "at": "2026-03-23T12:46:10.550Z",
@@ -37,6 +33,62 @@
       "spentMonthJpy": 1.21,
       "spentDailyJpy": 0.01,
       "note": "reserve-jpy"
+    },
+    {
+      "at": "2026-04-07T01:03:49.546Z",
+      "model": "claude",
+      "addJpy": 0.2,
+      "spentMonthJpy": 0.2,
+      "spentDailyJpy": 0.2,
+      "note": "reserve-articles:1"
+    },
+    {
+      "at": "2026-04-07T01:03:56.263Z",
+      "model": "claude",
+      "addJpy": 0.2,
+      "spentMonthJpy": 0.4,
+      "spentDailyJpy": 0.4,
+      "note": "reserve-articles:1"
+    },
+    {
+      "at": "2026-04-07T01:04:09.421Z",
+      "model": "claude",
+      "addJpy": 0.2,
+      "spentMonthJpy": 0.6,
+      "spentDailyJpy": 0.6,
+      "note": "reserve-articles:1"
+    },
+    {
+      "at": "2026-04-07T01:19:07.281Z",
+      "model": "claude",
+      "addJpy": 0.2,
+      "spentMonthJpy": 0.8,
+      "spentDailyJpy": 0.8,
+      "note": "reserve-articles:1"
+    },
+    {
+      "at": "2026-04-07T01:34:22.961Z",
+      "model": "claude",
+      "addJpy": 0.2,
+      "spentMonthJpy": 1,
+      "spentDailyJpy": 1,
+      "note": "reserve-articles:1"
+    },
+    {
+      "at": "2026-04-07T01:35:06.341Z",
+      "model": "claude",
+      "addJpy": 0.2,
+      "spentMonthJpy": 1.2,
+      "spentDailyJpy": 1.2,
+      "note": "reserve-articles:1"
+    },
+    {
+      "at": "2026-04-07T04:56:31.898Z",
+      "model": "claude",
+      "addJpy": 0.2,
+      "spentMonthJpy": 1.4,
+      "spentDailyJpy": 1.4,
+      "note": "reserve-articles:1"
     }
   ]
 }
